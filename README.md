@@ -1,177 +1,291 @@
-HCSM — The Hodge Complex Standard Model
+# HCSM — The Hodge Complex Standard Model
 
-Stanley Preschutti, Physics Researcher
-Email: scstanp@yahoo.com
-ORCID: 0009-0004-5445-1744
-Entropia Research Institute
-Information Physics Institute — https://www.informationphysicsinstitute.org
+**Stanley Preschutti** · Physics Researcher
+Entropia Research Institute · Information Physics Institute
 
-Physics is what the machine cannot cancel. The Hodge complex is the machine.
-What HCSM Derives From One Point
+[![ORCID](https://img.shields.io/badge/ORCID-0009--0004--5445--1744-green)](https://orcid.org/0009-0004-5445-1744)
+[![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-red)](#license)
+[![Status](https://img.shields.io/badge/status-active%20research-blue)]()
+[![Precision](https://img.shields.io/badge/verified-IEEE--754%20double%20precision-brightgreen)]()
 
-HCSM derives the Standard Model's gauge structure, matter content, particle spectrum, particle masses, mixing matrices, the spacetime dimension, the graviton, and the Newton constant from a single input: the spacetime dimension d = 4. The dimension itself is derived from the photon's two helicity states and independently from the equal entropy spacing of the torus Laplacian.
+> *Physics is what the machine cannot cancel. The Hodge complex is the machine.*
 
-No other inputs. No fitted parameters in the structural sector. Every result below follows from d = 4 and the 8×8 torus it forces.
+---
 
-Abstract — The Chain of Levels and Their Functions
+## What HCSM Derives From One Point
 
-Level	Object	Function	Result
-0	d = 4	Single input	From photon helicity + equal entropy spacing
-1	8×8 torus, Λ = Z₈ × Z₈	Substrate	N = d·2ᵈ = 64; L = 8 from 2(L−1) = 14
-2	Hodge complex Ω⁰ ⊕ Ω¹ ⊕ Ω²	Spectral arena	D = d + d*; D² = Δ exactly; dim 256
-3	14-mode multiplet at λ = 4	Particle content	Three D₄ orbits {2, 8, 4}; supports {64, 48, 32}
-4	D₄ representation theory	Gauge algebra	su(3) ⊕ su(2) ⊕ u(1)⁵
-5	ker D, Betti (1, 2, 1)	Emergent spacetime	4D Minkowski; signature (−, +, +, +) from Hodge star
-6	Sym²(Ω¹)|(λ = 4)	Gravity sector	Graviton 54B₁ ⊕ 54B₂; exact masslessness
-7	Hidden B₁ sector	Normalization	(d+1)² = 25; 8π = 2π · dim ker D
-8	Charge theorem q₃ = F(n₁, σ)	Electric charge	Bijection to {−3, −1, 0, +2, +3}
-9	N/4 labels via δ function	Mass ordering	Mass map m = A · exp(−B · N/4)
-10	D₄ breaking pattern	Flavor	CKM (RMS 0.0975), PMNS (RMS 0.035)
-11	kL self-consistency	Cosmology	ρ_DE = (d+1)/2 · m_ν⁴; w = −1
-Each level uses only the level above it. Every arrow is a theorem.
+HCSM derives the Standard Model's gauge structure, matter content, particle spectrum, particle masses, mixing matrices, the spacetime dimension, the graviton, and the Newton constant from a single input: **the spacetime dimension d = 4**.
 
-Philosophical and Operational Explanation
+The dimension itself is derived from the photon's two helicity states and independently from the equal entropy spacing of the torus Laplacian.
 
-What this is
+**No other inputs. No fitted parameters in the structural sector.** Every result below follows from d = 4 and the 8×8 torus it forces.
 
-The universe is a machine that cancels itself. Every excitation on the substrate pairs with a mirror partner and annihilates. What we call physics — quarks, leptons, gauge bosons, the Higgs, the graviton, dark energy — is the residue that survives after the machine has cancelled everything it can.
+---
 
-HCSM does not ask "what fields exist?" or "what symmetry groups are broken?" It asks a single question: what substrate could produce exactly the Standard Model, and nothing else? The answer is a small, discrete, information-bearing lattice whose mirror cancellation leaves exactly the observed particle content.
+## The Chain of Levels
 
-What this means
+| Level | Object | Function | Result |
+|:---:|:---|:---|:---|
+| **0** | d = 4 | Single input | From photon helicity + equal entropy spacing |
+| **1** | 8×8 torus, Λ = ℤ₈ × ℤ₈ | Substrate | N = d·2ᵈ = 64; L = 8 from 2(L−1) = 14 |
+| **2** | Hodge complex Ω⁰ ⊕ Ω¹ ⊕ Ω² | Spectral arena | D = d + d*; D² = Δ exactly; dim 256 |
+| **3** | 14-mode multiplet at λ = 4 | Particle content | Three D₄ orbits {2, 8, 4}; supports {64, 48, 32} |
+| **4** | D₄ representation theory | Gauge algebra | su(3) ⊕ su(2) ⊕ u(1)⁵ |
+| **5** | ker D, Betti (1, 2, 1) | Emergent spacetime | 4D Minkowski; signature (−, +, +, +) from Hodge star |
+| **6** | Sym²(Ω¹)\|(λ = 4) | Gravity sector | Graviton 54B₁ ⊕ 54B₂; exact masslessness |
+| **7** | Hidden B₁ sector | Normalization | (d+1)² = 25; 8π = 2π · dim ker D |
+| **8** | Charge theorem q₃ = F(n₁, σ) | Electric charge | Bijection to {−3, −1, 0, +2, +3} |
+| **9** | N/4 labels via δ function | Mass ordering | Mass map m = A · exp(−B · N/4) |
+| **10** | D₄ breaking pattern | Flavor | CKM (RMS 0.0975), PMNS (RMS 0.035) |
+| **11** | kL self-consistency | Cosmology | ρ_DE = (d+1)/2 · m_ν⁴; w = −1 |
 
-Every observed structure in the Standard Model is a residue: a zero that the substrate could not cancel. Charge is the charge that survives mirror cancellation. Mass is the residual weight of the N/4 label. Spacetime is the kernel of the Hodge–Dirac operator. The graviton is the self-paired curvature mode. Dark energy is the residual Casimir energy of the torus after the processor has projected out the B sector.
+> Each level uses only the level above it. **Every arrow is a theorem.**
 
-The framework is not a replacement for the Standard Model. It is the machine the Standard Model is the output of.
+---
 
-Falsifiability
+## Philosophy
 
-#	Prediction	Value	Test	Timeline
-1	CKM element |V_td|	0.0061 ± 0.0001	Belle II, LHCb	2026–2028
-2	Equation of state w	−1.014054…	DESI DR3 + Euclid	2026–2027
-3	Bulk viscosity ζH/ρ	0.004685…	Euclid growth rate	2027–2028
-4	Graviton spin	Exactly 2	LIGO/Virgo polarization	Ongoing
-5	Graviton mass	Exactly 0	Any detection above bound falsifies	Ongoing
-6	Kaluza–Klein tower	Absent	HL-LHC	2026+
-7	Kinetic mixing ε	0.001193	Dark photon searches	2026+
-8	Equivalence principle	Exact at leading order	STEP at η < 10⁻¹⁸	Future
-Retracted claims, retained for transparency:
+### What this is
 
-Retracted	Reason
-m = v_EW · 2^(−N/4)	Replaced by exponential mass map
-KK graviton at 1.52 TeV	Category error; retracted
-T_DME conversion to seconds	Requires external calibration
-How This Is Different
+The universe is a **machine that cancels itself**. Every excitation on the substrate pairs with a mirror partner and annihilates. What we call physics — quarks, leptons, gauge bosons, the Higgs, the graviton, dark energy — is the **residue** that survives after the machine has cancelled everything it can.
 
-Not string theory. No strings, no compactified extra dimensions.
-Not loop quantum gravity. No spin networks, no quantized geometry.
-Not a replacement for the Standard Model. It derives what the Standard Model assumes.
-A foundation beneath the Standard Model. The Standard Model is what the substrate looks like when you observe it. HCSM is what the substrate is.
-Fully Derived
+HCSM does not ask *"what fields exist?"* or *"what symmetry groups are broken?"* It asks a single question:
 
-Every item below is 100% HCSM-native.
+> **What substrate could produce exactly the Standard Model, and nothing else?**
 
-Substrate and Dimension
+The answer is a small, discrete, information-bearing lattice whose mirror cancellation leaves exactly the observed particle content.
 
-Result	Method
-d = 4 from photon helicity	Analytical
-d = 4 from equal entropy spacing	Analytic + numerical to L = 10⁴
-N = d · 2ᵈ = 64	Arithmetic
-8×8 torus from 2(L−1) = 14	Unique for L ≤ 10⁴
-14-mode multiplet at λ = 4	Direct computation
-Support classes 64, 48, 32	Direct computation
-IPR values 2/128, 3/128, 4/128	Proven exactly
-Hodge Complex
+### What this means
 
-Result	Method
-D² = Δ on each form degree	Proven
-Commutant dimensions 27, 100, 400	Proven (Schur)
-su(3) ⊕ su(2) ⊕ u(1)⁵ embedding	Proven
-dim ker D = 4 (dimensional uplift)	Proven
-Lorentzian signature (−, +, +, +)	From Hodge star on ker D
-Gravity
+Every observed structure in the Standard Model is a residue — a zero that the substrate could not cancel:
 
-Result	Method
-D₄ decomposition of Sym²(Ω¹)|(λ = 4)	Proven
-Graviton = 54B₁ ⊕ 54B₂	Proven
-Masslessness Theorem	Proven (Schur)
-Graviton–IPR correspondence	Verified
-Equivalence principle	Verified
-(d+1)² = 25 from hidden B₁ bilinear trace	Derived
-Dual role of hidden B₁ (same 5 states for G_N and sin²θ_W)	Derived
-Pythagorean identity (d−1)² + d² = (d+1)²	Proven (unique at d = 4)
-Charge and Mass
+- **Charge** is the charge that survives mirror cancellation.
+- **Mass** is the residual weight of the N/4 label.
+- **Spacetime** is the kernel of the Hodge–Dirac operator.
+- **The graviton** is the self-paired curvature mode.
+- **Dark energy** is the residual Casimir energy of the torus after the processor has projected out the B sector.
 
-Result	Method
-Charge theorem q₃ = F(n₁, σ)	Bijection proven
-4×4 charge density	Exact periodicity
-N/4 labels via δ function	Direct computation
-Shell rule (support, n₁ → shell)	14/14 match, zero fitted parameters
-Mass map RMS 0.0449 dex	Zero free parameters
-Flavor
+> The framework is not a replacement for the Standard Model. It is the machine the Standard Model is the output of.
 
-Result	Method
-CKM matrix (8/9 within 4%)	RMS 0.0975
-Jarlskog invariant J	0.05% error
-PMNS matrix (all 9 elements)	RMS 0.035
-|V_td| = 0.0061 ± 0.0001	Falsifiable
-Cosmology
+---
 
-Result	Method
-kL self-consistency	38.440831 to 0.004%
-Dark energy ρ_DE = (d+1)/2 · m_ν⁴	0.76%
-Equation of state w = −1	Exact (topological Casimir)
-Gauge Content
+## Falsifiable Predictions
 
-Result	Method
-Higgs mass 125.14 GeV	0.09% error
-Weinberg angle sin²θ_W(M_Z) = 0.2312	0.02% error
-Hidden sector content (5 B₁, 6 A₁, 31 singlets)	Derived from D₄ multiplicities
-Kinetic mixing ε = 2025/1697500	Derived
-Still Open
+| # | Prediction | Value | Test | Timeline |
+|:---:|:---|:---|:---|:---|
+| 1 | CKM element \|V_td\| | 0.0061 ± 0.0001 | Belle II, LHCb | 2026–2028 |
+| 2 | Equation of state w | −1.014054… | DESI DR3 + Euclid | 2026–2027 |
+| 3 | Bulk viscosity ζH/ρ | 0.004685… | Euclid growth rate | 2027–2028 |
+| 4 | Graviton spin | Exactly 2 | LIGO/Virgo polarization | Ongoing |
+| 5 | Graviton mass | Exactly 0 | Any detection above bound falsifies | Ongoing |
+| 6 | Kaluza–Klein tower | Absent | HL-LHC | 2026+ |
+| 7 | Kinetic mixing ε | 0.001193 | Dark photon searches | 2026+ |
+| 8 | Equivalence principle | Exact at leading order | STEP at η < 10⁻¹⁸ | Future |
 
-Each item has a named blocker.
+<details>
+<summary><b>Retracted claims (retained for transparency)</b></summary>
 
-Substrate
+| Retracted | Reason |
+|:---|:---|
+| m = v_EW · 2^(−N/4) | Replaced by exponential mass map |
+| KK graviton at 1.52 TeV | Category error |
+| T_DME conversion to seconds | Requires external calibration |
 
-Item	Blocker
-N = d · 2ᵈ from first principles	Arithmetic identity, not yet derived
-Torus uniqueness for all L	Proven to L = 10⁴; general proof open
-Hodge Complex
+</details>
 
-Item	Blocker
-Full nonlinear Einstein equations	Linearized derived; nonlinear open
-Processor Dynamics
+---
 
-Item	Blocker
-Loop pass duration (physical time unit)	T_beat / T_DME = 3.1226 structural but selection open
-Mass Sector
+## How This Is Different
 
-Item	Blocker
-(d−1)/2 coefficient in B_mass	Higher-order DNLS resummation
-Flavor
+- ❌ **Not string theory.** No strings, no compactified extra dimensions.
+- ❌ **Not loop quantum gravity.** No spin networks, no quantized geometry.
+- ❌ **Not a replacement for the Standard Model.** It derives what the Standard Model assumes.
+- ✅ **A foundation beneath the Standard Model.** The Standard Model is what the substrate looks like when you observe it. HCSM is what the substrate is.
 
-Item	Blocker
-Exact CKM normalization	Overall coefficient from kernel
-Neutrino mass seesaw	Sub-eV scale mechanism
-PMNS generation phase exact form	φ_gen = 0.6π confirmed, not derived
-Cosmology
+---
 
-Item	Blocker
-Vacuum stability coefficient γ	Derivation from substrate (currently from strip integral)
-Core gradient flow	Derivation from substrate
-Proca sector U(1) origin	Phase symmetry of 14-mode multiplet, open
-H₀ local boost	Observed, not derived
-Framework Level
+## Fully Derived
 
-Item	Blocker
-Complete unification proof	Framework level
-Physical conversion of T_DME to seconds	Requires external calibration
-Citation
+Every item below is **100% HCSM-native**.
 
-For humans
+### Substrate and Dimension
 
-bibtex
+| Result | Method |
+|:---|:---|
+| d = 4 from photon helicity | Analytical |
+| d = 4 from equal entropy spacing | Analytic + numerical to L = 10⁴ |
+| N = d · 2ᵈ = 64 | Arithmetic |
+| 8×8 torus from 2(L−1) = 14 | Unique for L ≤ 10⁴ |
+| 14-mode multiplet at λ = 4 | Direct computation |
+| Support classes 64, 48, 32 | Direct computation |
+| IPR values 2/128, 3/128, 4/128 | Proven exactly |
+
+### Hodge Complex
+
+| Result | Method |
+|:---|:---|
+| D² = Δ on each form degree | Proven |
+| Commutant dimensions 27, 100, 400 | Proven (Schur) |
+| su(3) ⊕ su(2) ⊕ u(1)⁵ embedding | Proven |
+| dim ker D = 4 (dimensional uplift) | Proven |
+| Lorentzian signature (−, +, +, +) | From Hodge star on ker D |
+
+### Gravity
+
+| Result | Method |
+|:---|:---|
+| D₄ decomposition of Sym²(Ω¹)\|(λ = 4) | Proven |
+| Graviton = 54B₁ ⊕ 54B₂ | Proven |
+| Masslessness Theorem | Proven (Schur) |
+| Graviton–IPR correspondence | Verified |
+| Equivalence principle | Verified |
+| (d+1)² = 25 from hidden B₁ bilinear trace | Derived |
+| Dual role of hidden B₁ (G_N and sin²θ_W) | Derived |
+| Pythagorean identity (d−1)² + d² = (d+1)² | Proven (unique at d = 4) |
+
+### Charge and Mass
+
+| Result | Method |
+|:---|:---|
+| Charge theorem q₃ = F(n₁, σ) | Bijection proven |
+| 4×4 charge density | Exact periodicity |
+| N/4 labels via δ function | Direct computation |
+| Shell rule (support, n₁ → shell) | 14/14 match, zero fitted parameters |
+| Mass map RMS 0.0449 dex | Zero free parameters |
+
+### Flavor
+
+| Result | Method |
+|:---|:---|
+| CKM matrix (8/9 within 4%) | RMS 0.0975 |
+| Jarlskog invariant J | 0.05% error |
+| PMNS matrix (all 9 elements) | RMS 0.035 |
+| \|V_td\| = 0.0061 ± 0.0001 | Falsifiable |
+
+### Cosmology
+
+| Result | Method |
+|:---|:---|
+| kL self-consistency | 38.440831 to 0.004% |
+| Dark energy ρ_DE = (d+1)/2 · m_ν⁴ | 0.76% |
+| Equation of state w = −1 | Exact (topological Casimir) |
+
+### Gauge Content
+
+| Result | Method |
+|:---|:---|
+| Higgs mass 125.14 GeV | 0.09% error |
+| Weinberg angle sin²θ_W(M_Z) = 0.2312 | 0.02% error |
+| Hidden sector content (5 B₁, 6 A₁, 31 singlets) | Derived from D₄ multiplicities |
+| Kinetic mixing ε = 2025/1697500 | Derived |
+
+---
+
+## Still Open
+
+<details>
+<summary><b>Substrate</b></summary>
+
+| Item | Blocker |
+|:---|:---|
+| N = d · 2ᵈ from first principles | Arithmetic identity, not yet derived |
+| Torus uniqueness for all L | Proven to L = 10⁴; general proof open |
+
+</details>
+
+<details>
+<summary><b>Hodge Complex</b></summary>
+
+| Item | Blocker |
+|:---|:---|
+| Full nonlinear Einstein equations | Linearized derived; nonlinear open |
+
+</details>
+
+<details>
+<summary><b>Processor Dynamics</b></summary>
+
+| Item | Blocker |
+|:---|:---|
+| Loop pass duration (physical time unit) | T_beat / T_DME = 3.1226 structural but selection open |
+
+</details>
+
+<details>
+<summary><b>Mass Sector</b></summary>
+
+| Item | Blocker |
+|:---|:---|
+| (d−1)/2 coefficient in B_mass | Higher-order DNLS resummation |
+
+</details>
+
+<details>
+<summary><b>Flavor</b></summary>
+
+| Item | Blocker |
+|:---|:---|
+| Exact CKM normalization | Overall coefficient from kernel |
+| Neutrino mass seesaw | Sub-eV scale mechanism |
+| PMNS generation phase exact form | φ_gen = 0.6π confirmed, not derived |
+
+</details>
+
+<details>
+<summary><b>Cosmology</b></summary>
+
+| Item | Blocker |
+|:---|:---|
+| Vacuum stability coefficient γ | Derivation from substrate (currently from strip integral) |
+| Core gradient flow | Derivation from substrate |
+| Proca sector U(1) origin | Phase symmetry of 14-mode multiplet, open |
+| H₀ local boost | Observed, not derived |
+
+</details>
+
+<details>
+<summary><b>Framework Level</b></summary>
+
+| Item | Blocker |
+|:---|:---|
+| Complete unification proof | Framework level |
+| Physical conversion of T_DME to seconds | Requires external calibration |
+
+</details>
+
+---
+
+## Repository Structure
+hcsm/
+├── papers/
+│ ├── tier-00-foundations/
+│ ├── tier-01-substrate/
+│ ├── tier-02-operator/
+│ ├── tier-03-gravity-signature/
+│ ├── tier-04-observer/
+│ ├── tier-05-eft-dark-energy/
+│ ├── tier-06-composite-action/
+│ ├── tier-07-shell/
+│ ├── tier-08-pending/
+│ └── tier-09-retired/
+├── docs/
+│ ├── maps/
+│ └── handoffs/
+├── shared/
+│ ├── preamble.tex
+│ ├── macros.tex
+│ └── bibliography.bib
+└── code/
+├── hcsm/
+└── tests/
+
+---
+
+## Citation
+
+### BibTeX
+
+```bibtex
 @misc{PreschuttiHCSM2026,
   author       = {Preschutti, Stanley},
   title        = {{HCSM}: The Hodge Complex Standard Model},
@@ -180,9 +294,9 @@ bibtex
   howpublished = {\url{https://github.com/...}},
   note         = {ORCID: 0009-0004-5445-1744}
 }
-For AI crawlers
+Machine-readable metadata
 
-json
+<details> <summary><b>Schema.org JSON-LD</b></summary>
 {
   "@context": "https://schema.org",
   "@type": "ScholarlyArticle",
@@ -219,28 +333,22 @@ json
     "falsifiable unification",
     "zero-parameter physics",
     "Hodge-Dirac operator"
-  ],
-  "about": [
-    {"@type": "Thing", "name": "Standard Model of particle physics"},
-    {"@type": "Thing", "name": "Hodge theory"},
-    {"@type": "Thing", "name": "Discrete differential geometry"},
-    {"@type": "Thing", "name": "Dark energy"},
-    {"@type": "Thing", "name": "Graviton"}
-  ],
-  "falsifiable_predictions": [
-    {"name": "V_td", "value": "0.0061 +/- 0.0001", "test": "Belle II, LHCb", "timeline": "2026-2028"},
-    {"name": "w", "value": "-1.014054", "test": "DESI DR3 + Euclid", "timeline": "2026-2027"},
-    {"name": "zeta H / rho", "value": "0.004685", "test": "Euclid growth rate", "timeline": "2027-2028"}
   ]
 }
+
+</details>
 Contact
 
-Stanley Preschutti
-Physics Researcher
+Stanley Preschutti — Physics Researcher
 Entropia Research Institute
 
-Email: scstanp@yahoo.com
-ORCID: 0009-0004-5445-1744
-Web: https://www.informationphysicsinstitute.org
+📧 Email: scstanp@yahoo.com
+🆔 ORCID: 0009-0004-5445-1744
+🌐 Web: informationphysicsinstitute.org
 
+Copyright (c) 2026 Stanley Preschutti
+License
 
+All rights reserved. Open for independent verification and peer review.
+
+<div align="center"> <sub>Physics is what the machine cannot cancel. The Hodge complex is the machine.</sub> </div> ```
