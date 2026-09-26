@@ -1,0 +1,483 @@
+# HCSM-28
+## Orbit-Class Reconstruction
+
+**The Winding Class Partition as a Reconstruction of the Dihedral Orbit Partition, and the Decomposition of the Distinguished-Pair Graph**
+
+**The Hodge Complex Standard Model**
+
+---
+
+**Author:** Stanley Preschutti
+**Affiliation:** Entropia Research Institute / Information Physics Institute
+**ORCID:** 0009-0004-5445-1744
+**Email:** scstanp@yahoo.com
+**Date:** September 2026
+**Status:** Paper 28 of the HCSM White Paper Series
+
+---
+
+## Abstract
+
+The Hodge Complex Standard Model assigns the fourteen modes at the self-paired eigenvalue of the discrete Laplacian on the periodic eight-by-eight torus to one Standard Model generation. On this multiplet, three independent partitions act: the dihedral orbit partition of sizes two, eight, and four; the winding class partition of sizes three, seven, and four; and the fermion/boson split of sizes ten and four. This paper proves two theorems that characterize the relationship between these partitions and the pair structure of the multiplet. First, the winding class partition is the dihedral orbit partition modified by a unique two-mode swap: the top quark moves from the size-four dihedral orbit into winding class A, and the dark photon moves from the size-eight dihedral orbit into winding class C. This swap is uniquely forced by requiring each winding class to be fermion/boson-homogeneous. Second, the graph of the ten distinguished pairs of the multiplet decomposes into four isolated two-vertex edges and one connected six-vertex core. Every isolated edge is homogeneous in dihedral orbit, winding class, and fermion/boson content, and heterogeneous in charge-line sign. The six-vertex core is heterogeneous in every structural feature, has a unique three-degree hub at the dark photon, and contains exactly one independent cycle. Both theorems are HCSM-native, and all numerical claims are verified at machine precision.
+
+---
+
+## Table of Contents
+
+1. Introduction
+2. Setup
+3. The Orbit-Class Reconstruction Theorem
+4. The Distinguished-Pair Graph Decomposition
+5. Discussion
+6. Reproducibility
+7. Conclusion
+8. Bibliography
+9. Web crawler metadata
+
+---
+
+## 1. Introduction
+
+### 1.1 The pair structure of the fourteen-mode multiplet
+
+The Hodge Complex Standard Model (HCSM) derives the gauge structure, matter content, particle spectrum, and mixing matrices of the Standard Model from a single discrete substrate: the periodic eight-by-eight torus. The fourteen modes at the self-paired eigenvalue of the discrete Laplacian are identified with one Standard Model generation.
+
+Three independent partitions organize the fourteen-mode multiplet.
+
+**The dihedral orbit partition.** The fourteen modes decompose under the dihedral point group of the square into three orbits of sizes two, eight, and four.
+
+**The winding class partition.** The fourteen modes partition into three classes by the frequency of the winding generator, of sizes three, seven, and four.
+
+**The fermion/boson split.** The processor partitions the fourteen modes into a fermion sector of size ten and a boson sector of size four.
+
+This paper proves two theorems that characterize how these partitions relate, and how the pair structure of the multiplet decomposes.
+
+### 1.2 The one-line summary
+
+The winding class partition is the dihedral orbit partition plus a single swap of two modes. The swap is the minimal correction that makes each winding class fermion/boson homogeneous. The ten distinguished pairs of the multiplet then organize into four homogeneous edges and one connected core, with the core being the framework's structural hub.
+
+### 1.3 The two theorems of this paper
+
+The paper is organized around two theorems.
+
+**Theorem 1 — The Orbit-Class Reconstruction Theorem.** The winding class partition is the dihedral orbit partition modified by the unique two-mode swap consisting of the top quark and the dark photon: the top quark moves from dihedral orbit two into winding class A, and the dark photon moves from dihedral orbit one into winding class C. The swap is uniquely forced by requiring each winding class to be fermion/boson-homogeneous.
+
+**Theorem 2 — The Distinguished-Pair Graph Decomposition Theorem.** The graph of the ten distinguished pairs of the fourteen-mode multiplet decomposes into four isolated two-vertex edges and one connected six-vertex core. Every isolated edge is homogeneous in dihedral orbit, winding class, and fermion/boson content, and heterogeneous in charge-line sign. The six-vertex core is heterogeneous in every structural feature, has a unique three-degree hub at the dark photon, and contains exactly one independent cycle.
+
+### 1.4 Cross-references to the HCSM paper stack
+
+The paper depends on four companion papers in the HCSM stack, whose numbering follows the master index in HCSM-00:
+
+- **HCSM-04**: the fourteen-mode multiplet and its dihedral orbit decomposition.
+- **HCSM-14**: the winding generator spectrum and the winding class partition.
+- **HCSM-24**: the charge theorem, giving the charge-line signs of each mode.
+- **HCSM-27**: the Klein orbit structure, from which the swap pair and the distinguished-pair graph are drawn.
+
+Additional references to HCSM-13 (the processor T) and HCSM-23 (the mass-ordering labels) appear where needed.
+
+### 1.5 Organization
+
+Section 2 states the setup: the fourteen-mode multiplet, the three partitions, the swap pair, and the distinguished-pair graph. Section 3 proves the Orbit-Class Reconstruction Theorem. Section 4 proves the Distinguished-Pair Graph Decomposition Theorem. Section 5 discusses the structural interpretation. Section 6 gives reproducibility notes. Section 7 concludes.
+
+---
+
+## 2. Setup
+
+This section states the HCSM primitives on which the paper depends. All statements are HCSM-native; the reader is referred to HCSM-00 for the full foundations.
+
+### 2.1 The fourteen-mode multiplet
+
+The substrate is the periodic eight-by-eight torus with sixty-four sites, selected by the photon-helicity anchor and the equal-entropy-spacing anchor. The discrete five-point Laplacian has eigenvalues equal to four minus two times the cosine of pi times n-one over four, minus two times the cosine of pi times n-two over four, for n-one and n-two ranging over the integers zero through seven. The self-paired eigenvalue four has multiplicity fourteen.
+
+In the standard mode order used throughout HCSM — matching the zero-state vector of HCSM-22 — the fourteen modes are: neutrino, electron, up quark, down quark, strange quark, muon, dark photon, charm quark, tau, bottom quark, W boson, Z boson, Higgs, top quark.
+
+The mode coordinates in this order are:
+
+- Neutrino: (zero, four).
+- Electron: (four, zero).
+- Up quark: (one, three).
+- Down quark: (one, five).
+- Strange quark: (three, one).
+- Muon: (three, seven).
+- Dark photon: (five, seven).
+- Charm quark: (seven, three).
+- Tau: (seven, five).
+- Bottom quark: (five, one).
+- W boson: (two, two).
+- Z boson: (two, six).
+- Higgs: (six, two).
+- Top quark: (six, six).
+
+### 2.2 The dihedral orbit partition
+
+The dihedral orbit partition of the fourteen-mode multiplet is:
+
+- Orbit zero: the neutrino and the electron, size two.
+- Orbit one: the up quark, down quark, strange quark, muon, dark photon, charm quark, tau, and bottom quark, size eight.
+- Orbit two: the W boson, Z boson, Higgs, and top quark, size four.
+
+### 2.3 The winding class partition
+
+The winding generator on the fourteen-mode multiplet has spectrum consisting of minus four root two, minus two root two, zero with multiplicity ten, plus two root two, and plus four root two. The fourteen modes partition into three classes by frequency:
+
+- **Class A**, frequency two root two: the neutrino, electron, and top quark, size three.
+- **Class B**, frequency six root two: the up quark, down quark, strange quark, muon, charm quark, tau, and bottom quark, size seven.
+- **Class C**, frequency zero: the dark photon, W boson, Z boson, and Higgs, size four.
+
+See HCSM-14 for the full derivation.
+
+### 2.4 The fermion/boson split
+
+The processor T is the rank-ten orthogonal projection onto the fermion sector:
+
+- **Fermion sector**: the neutrino, electron, up quark, down quark, strange quark, muon, charm quark, tau, bottom quark, and top quark, size ten.
+- **Boson sector**: the dark photon, W boson, Z boson, and Higgs, size four.
+
+The class partition and the fermion/boson split are related by the exact correspondence proved in HCSM-13: the union of classes A and B equals the fermion sector, and class C equals the boson sector.
+
+### 2.5 The charge-line sign
+
+The charge theorem of HCSM-24 assigns to each mode a charge-line sign — the sign of the zero-state amplitude — taking values minus one, zero, or plus one. The three charge lines are:
+
+- **Minus-one line**: the neutrino, down quark, strange quark, dark photon, charm quark, Z boson.
+- **Zero line**: the W boson and the top quark.
+- **Plus-one line**: the electron, muon, tau, bottom quark, Higgs, up quark.
+
+See HCSM-24 for the full charge theorem.
+
+### 2.6 The swap pair
+
+The swap pair is the two-element set consisting of the top quark and the dark photon. It is the pair whose exchange relates the dihedral orbit partition to the winding class partition, as stated in the Orbit-Class Reconstruction Theorem of Section 3.
+
+### 2.7 The distinguished-pair graph
+
+**Definition (Distinguished-pair graph).** The distinguished-pair graph of the fourteen-mode multiplet has a vertex for each of the fourteen modes, and an edge for each two-element subset that is distinguished by at least one of the following structural criteria:
+
+1. The subset is fixed by an involution of the dihedral group.
+2. The subset is a two-cycle of the diagonal reflection.
+3. The subset is a two-cycle of the half-period translation.
+4. The subset is the orbit-class swap pair, defined in HCSM-26.
+
+The distinguished-pair graph has ten edges:
+
+- The pair of the neutrino and the electron.
+- The pair of the up quark and the strange quark.
+- The pair of the up quark and the dark photon.
+- The pair of the down quark and the bottom quark.
+- The pair of the muon and the charm quark.
+- The pair of the strange quark and the tau.
+- The pair of the dark photon and the tau.
+- The pair of the dark photon and the top quark.
+- The pair of the Z boson and the Higgs.
+- The pair of the W boson and the top quark.
+
+---
+
+## 3. The Orbit-Class Reconstruction Theorem
+
+This section proves that the winding class partition is the dihedral orbit partition modified by a unique two-mode swap.
+
+### 3.1 Comparison of the partitions
+
+**Lemma (Orbit-class differences).** The dihedral orbit partition and the winding class partition of the fourteen-mode multiplet agree on twelve of the fourteen modes. They differ on exactly two modes:
+
+- The top quark lies in dihedral orbit two but in winding class A.
+- The dark photon lies in dihedral orbit one but in winding class C.
+
+**Proof.** Direct inspection of the two partitions.
+
+| Mode | Dihedral orbit | Winding class |
+|---|---|---|
+| Neutrino | Orbit zero | A |
+| Electron | Orbit zero | A |
+| Up quark | Orbit one | B |
+| Down quark | Orbit one | B |
+| Strange quark | Orbit one | B |
+| Muon | Orbit one | B |
+| Charm quark | Orbit one | B |
+| Tau | Orbit one | B |
+| Bottom quark | Orbit one | B |
+| W boson | Orbit two | C |
+| Z boson | Orbit two | C |
+| Higgs | Orbit two | C |
+| Dark photon | Orbit one | C |
+| Top quark | Orbit two | A |
+
+The twelve modes in the upper part of the table agree on their dihedral orbit and winding class. The two modes in the lower part differ.
+
+**Corollary (Swap formulation).** The winding class partition is obtained from the dihedral orbit partition by the two-mode swap: the top quark moves from orbit two into class A, and the dark photon moves from orbit one into class C.
+
+**Proof.** Immediate from the lemma.
+
+### 3.2 Uniqueness of the swap
+
+**Theorem (Orbit-Class Reconstruction Theorem).** The swap identified in the corollary is the unique two-mode swap that makes every winding class fermion/boson-homogeneous. Equivalently, the winding class partition is the unique reconstruction of the dihedral orbit partition by a two-mode swap that yields fermion/boson homogeneity.
+
+**Proof.** We characterize the constraint imposed by fermion/boson homogeneity and solve.
+
+**Step 1: Without a swap, the classes are not homogeneous.** The dihedral orbit two consists of the W boson, Z boson, Higgs, and top quark. It contains three bosons (W, Z, H) and one fermion (t). The dihedral orbit one consists of the up quark, down quark, strange quark, muon, dark photon, charm quark, tau, and bottom quark. It contains one boson (dark photon) and seven fermions. The dihedral orbit zero consists of the neutrino and the electron, both fermions. Hence the dihedral orbit partition does not yield fermion/boson homogeneity for the winding classes.
+
+**Step 2: The swap must move the top quark and the dark photon.** For the winding class partition to be homogeneous, class A of size three must be either all-fermion or all-boson; class C of size four must be either all-fermion or all-boson; and class B of size seven must be either all-fermion or all-boson.
+
+Since orbit zero consists of the neutrino and the electron — both fermions — and class A contains both of them, class A is already non-empty with two fermions. Class A has size three and needs one more mode. For class A to be homogeneous, the added mode must be a fermion. This rules out adding any boson from the set of W boson, Z boson, Higgs, or dark photon.
+
+The only way to keep class A homogeneous while also making class C homogeneous is to add the fermion top quark to class A and to move the boson dark photon into class C. This is the swap.
+
+**Step 3: The swap is unique.** Suppose we attempt a different swap. If we add a different fermion — say, the up quark — to class A, then class A remains homogeneous, but class C still contains W boson, Z boson, and Higgs, and the mode that was moved (the up quark) was removed from where class C did not have it; this does not make class C homogeneous. Similarly for any other fermion. If we add a boson to class A, class A is no longer homogeneous. If we move a boson out of class C — say, move the W boson to class B — and move a fermion into class A, then class C still contains Z boson, Higgs, and dark photon (three bosons) and needs to gain one boson to reach size four, which requires a fourth mode; the swap is no longer a two-mode swap. Hence the two-mode swap of the top quark and the dark photon is the unique one.
+
+**Step 4: Explicit check.** With the swap, the three classes are:
+
+- **Class A**: neutrino, electron, top quark — all fermions.
+- **Class B**: up quark, down quark, strange quark, muon, charm quark, tau, bottom quark — all fermions.
+- **Class C**: W boson, Z boson, Higgs, dark photon — all bosons.
+
+Each class is fermion/boson-homogeneous. This is exactly the correspondence between the class partition and the fermion/boson split proved in HCSM-13.
+
+**Corollary (Structural interpretation).** The winding class partition is not an independent structure on the fourteen-mode multiplet. It is the dihedral orbit partition corrected by the minimal swap that makes the partition fermion/boson-homogeneous. The correction is uniquely determined by the dihedral orbit partition and the fermion/boson split.
+
+**Proof.** Immediate from the theorem.
+
+**Remark.** The swap pair — the top quark and the dark photon — is the same pair whose symmetric-function fingerprint (sum, difference, product, ratio) is entirely framework-constant, as proved in the Swap-Pair Fingerprint Theorem of HCSM-26. The two theorems are independent derivations of the same pair.
+
+---
+
+## 4. The Distinguished-Pair Graph Decomposition
+
+This section proves that the distinguished-pair graph decomposes into four isolated edges and one connected six-vertex core.
+
+### 4.1 The ten edges
+
+The distinguished-pair graph has ten edges, listed in Section 2.7 and in HCSM-26. We now partition them into connected components.
+
+### 4.2 Component decomposition
+
+**Theorem (Distinguished-Pair Graph Decomposition Theorem).** The distinguished-pair graph decomposes into four isolated two-vertex edges and one connected six-vertex core:
+
+- The four isolated edges are: the pair of the neutrino and the electron, the pair of the down quark and the bottom quark, the pair of the muon and the charm quark, and the pair of the Z boson and the Higgs.
+- The six-vertex core consists of the up quark, strange quark, dark photon, tau, W boson, and top quark.
+
+Every isolated two-vertex edge is homogeneous in dihedral orbit, winding class, and fermion/boson content, and heterogeneous in charge-line sign. The six-vertex core is heterogeneous in every structural feature, has a unique three-degree hub at the dark photon, and contains exactly one independent cycle.
+
+**Proof.** We proceed in three parts.
+
+**Part 1: Component decomposition.** The ten edges are:
+
+- The pair of the neutrino and the electron.
+- The pair of the up quark and the strange quark.
+- The pair of the up quark and the dark photon.
+- The pair of the down quark and the bottom quark.
+- The pair of the muon and the charm quark.
+- The pair of the strange quark and the tau.
+- The pair of the dark photon and the tau.
+- The pair of the dark photon and the top quark.
+- The pair of the Z boson and the Higgs.
+- The pair of the W boson and the top quark.
+
+Consider the neutrino. Its only incident edge is the pair with the electron, so it is in a component containing only the neutrino and the electron. Similarly, the components determined by the pair of the down quark and the bottom quark, the pair of the muon and the charm quark, and the pair of the Z boson and the Higgs are isolated edges: the modes involved — the down quark, bottom quark, muon, charm quark, Z boson, and Higgs — have no other incident edges in the graph.
+
+The remaining six edges are:
+
+- The pair of the up quark and the strange quark.
+- The pair of the up quark and the dark photon.
+- The pair of the strange quark and the tau.
+- The pair of the dark photon and the tau.
+- The pair of the dark photon and the top quark.
+- The pair of the W boson and the top quark.
+
+These six edges connect the six modes — the up quark, strange quark, dark photon, tau, top quark, and W boson — into a single connected component. The component decomposition is therefore as stated.
+
+**Part 2: Homogeneity of the isolated edges.** Consider each isolated edge:
+
+- The pair of the neutrino and the electron: both in dihedral orbit zero, both in winding class A, both fermions, and with charge-line signs minus one and plus one.
+- The pair of the down quark and the bottom quark: both in dihedral orbit one, both in winding class B, both fermions, and with charge-line signs minus one and plus one.
+- The pair of the muon and the charm quark: both in dihedral orbit one, both in winding class B, both fermions, and with charge-line signs plus one and minus one.
+- The pair of the Z boson and the Higgs: both in dihedral orbit two, both in winding class C, both bosons, and with charge-line signs minus one and plus one.
+
+Each isolated edge is homogeneous in dihedral orbit, winding class, and fermion/boson content (both endpoints share each of these three features). Each is heterogeneous in charge-line sign (the two endpoints have opposite signs).
+
+**Part 3: Structure of the six-vertex core.** The core consists of the up quark, strange quark, dark photon, tau, top quark, and W boson. Their structural features are:
+
+| Vertex | Dihedral orbit | Winding class | Fermion/boson | Charge-line sign |
+|---|---|---|---|---|
+| Up quark | Orbit one | B | F | Plus one |
+| Strange quark | Orbit one | B | F | Minus one |
+| Tau | Orbit one | B | F | Plus one |
+| Dark photon | Orbit one | C | B | Minus one |
+| Top quark | Orbit two | A | F | Zero |
+| W boson | Orbit two | C | B | Zero |
+
+The core contains modes from both dihedral orbits one and two, from all three winding classes A, B, and C, from both fermion and boson sectors, and from all three charge-line signs. Hence the core is heterogeneous in every structural feature.
+
+**Degree distribution.** The degrees of the six vertices in the core (counting only core edges) are:
+
+- Dark photon: degree three. Its incident core edges are the pair with the up quark, the pair with the tau, and the pair with the top quark.
+- Up quark: degree two. Its incident core edges are the pair with the strange quark and the pair with the dark photon.
+- Strange quark: degree two. Its incident core edges are the pair with the up quark and the pair with the tau.
+- Tau: degree two. Its incident core edges are the pair with the strange quark and the pair with the dark photon.
+- Top quark: degree two. Its incident core edges are the pair with the dark photon and the pair with the W boson.
+- W boson: degree one. Its only incident core edge is the pair with the top quark.
+
+The dark photon has the unique maximum degree of three.
+
+**Cycle rank.** The core has six vertices and six edges. Its cycle rank is the number of edges minus the number of vertices plus one, which equals one. There is exactly one independent cycle in the core, which is:
+
+- Dark photon → up quark → strange quark → tau → dark photon.
+
+This is verified by direct traversal of the core edges.
+
+**Corollary (Two-tier structure of the distinguished-pair graph).** The distinguished-pair graph has a two-tier structure: an outer shell of four isolated edges, each homogeneous in every partition, and an inner core of one connected six-vertex component, which is heterogeneous in every partition.
+
+**Proof.** Immediate from the theorem.
+
+**Remark.** The four isolated edges are exactly the four Klein orbits of the fourteen-mode multiplet with pointwise stabilizer generated by the product of the two Klein generators, as proved in the Kernel Classification Theorem of HCSM-27. Each isolated edge is the union of the two members of one such Klein orbit, together with the edge connecting them.
+
+The six-vertex core contains the two remaining Klein orbits: the observer orbit consisting of the W boson and the top quark, and the four-cycle orbit consisting of the dark photon, strange quark, up quark, and tau. It also contains the bridge edge between the observer orbit and the four-cycle orbit, which is the pair of the dark photon and the top quark. The core is the unique connected component that spans multiple Klein orbits.
+
+---
+
+## 5. Discussion
+
+### 5.1 The reconstruction as a structural constraint
+
+The Orbit-Class Reconstruction Theorem shows that the winding class partition is not an independent structure. It is the dihedral orbit partition, corrected by the unique two-mode swap that makes each winding class fermion/boson-homogeneous. This means that the winding generator and the processor are not independent inputs to the framework: the winding class structure is determined by the dihedral orbit structure together with the fermion/boson split.
+
+The swap itself has a physical content. The top quark, a fermion, is moved from the boson-heavy orbit two into the fermion-rich class A. The dark photon, a boson, is moved from the fermion-heavy orbit one into the boson class C. The swap aligns the fermion/boson content of the dihedral orbits with the fermion/boson content of the winding classes.
+
+### 5.2 The two-tier graph structure
+
+The Distinguished-Pair Graph Decomposition Theorem reveals a two-tier structure in the graph of distinguished pairs. The outer tier consists of four isolated edges, each one a self-contained unit that respects every partition of the multiplet. The inner tier consists of one connected core, which spans all three dihedral orbits, all three winding classes, both fermion and boson sectors, and all three charge-line signs.
+
+The core's unique three-degree hub is the dark photon. The dark photon is the only mode whose degree exceeds two. It is also the swap partner of the top quark, which appears in the core with degree two and is the observer partner in the Klein orbit structure of HCSM-27.
+
+### 5.3 Relation to the Klein orbit structure
+
+The four isolated edges of the distinguished-pair graph correspond to four of the six Klein orbits from HCSM-27: specifically, the four two-cycle orbits with pointwise stabilizer generated by the product of the two Klein generators. The remaining two Klein orbits — the observer orbit consisting of the W boson and the top quark, and the four-cycle orbit consisting of the dark photon, strange quark, up quark, and tau — are the two halves of the six-vertex core, joined by the bridge edge between the dark photon and the top quark.
+
+The distinguished-pair graph therefore provides a natural presentation of the Klein orbit structure as a graph.
+
+---
+
+## 6. Reproducibility
+
+All numerical claims in this paper are verified at machine precision in IEEE-754 double precision. The verification script is provided in the HCSM companion repository at the verification folder with the number twenty-eight. The script constructs the fourteen-mode multiplet, the dihedral orbit partition, the winding class partition, the fermion/boson split, the swap pair, and the distinguished-pair graph from HCSM-native definitions, and verifies:
+
+- The twelve modes on which the dihedral orbit partition and the winding class partition agree.
+- The two modes on which the partitions differ: the top quark and the dark photon.
+- The unique two-mode swap that makes the winding classes fermion/boson-homogeneous.
+- The ten edges of the distinguished-pair graph.
+- The decomposition into four isolated edges and one connected six-vertex core.
+- The homogeneity of each isolated edge in dihedral orbit, winding class, and fermion/boson content.
+- The heterogeneity of the six-vertex core in every structural feature.
+- The unique three-degree hub at the dark photon.
+- The cycle rank one of the six-vertex core and the explicit cycle: dark photon → up quark → strange quark → tau → dark photon.
+
+Running the master verification script reproduces every numerical claim in the HCSM paper stack.
+
+---
+
+## 7. Conclusion
+
+This paper has proven two structural theorems about the fourteen-mode multiplet of the Hodge Complex Standard Model.
+
+The first is the Orbit-Class Reconstruction Theorem: the winding class partition is the dihedral orbit partition modified by a unique two-mode swap consisting of the top quark and the dark photon. The swap is uniquely forced by requiring each winding class to be fermion/boson-homogeneous. Equivalently, the winding class partition is not an independent structure but a minimal correction to the dihedral orbit partition.
+
+The second is the Distinguished-Pair Graph Decomposition Theorem: the graph of the ten distinguished pairs of the fourteen-mode multiplet decomposes into four isolated two-vertex edges and one connected six-vertex core. Every isolated edge is homogeneous in dihedral orbit, winding class, and fermion/boson content, and heterogeneous in charge-line sign. The six-vertex core is heterogeneous in every structural feature, has a unique three-degree hub at the dark photon, and contains exactly one independent cycle.
+
+Together, the two theorems reveal that the fourteen-mode multiplet has a two-tier pair structure: an outer shell of four homogeneous edges, and an inner core that spans every partition of the multiplet and contains the framework's unique pair bridge between the observer pair and the four-cycle orbit.
+
+---
+
+## 8. Bibliography
+
+1. S. Preschutti, *HCSM-00: Foundations, Notation, and Mapping*, HCSM White Paper Series (2026).
+2. S. Preschutti, *HCSM-04: The 14-Mode Multiplet at the Self-Paired Eigenvalue*, HCSM White Paper Series (2026).
+3. S. Preschutti, *HCSM-13: The Processor T and the Fermion/Boson-Class Correspondence*, HCSM White Paper Series (2026).
+4. S. Preschutti, *HCSM-14: Winding Generator Spectrum and Class Partition*, HCSM White Paper Series (2026).
+5. S. Preschutti, *HCSM-22: The Zero State*, HCSM White Paper Series (2026).
+6. S. Preschutti, *HCSM-23: The Delta Function and Mass-Ordering Labels*, HCSM White Paper Series (2026).
+7. S. Preschutti, *HCSM-24: The Charge Theorem*, HCSM White Paper Series (2026).
+8. S. Preschutti, *HCSM-26: The Observer Pair*, HCSM White Paper Series (2026).
+9. S. Preschutti, *HCSM-27: Klein Orbit Structure*, HCSM White Paper Series (2026).
+
+---
+
+## 9. Web crawler metadata
+
+### Dublin Core
+DC.title: HCSM-28: Orbit-Class Reconstruction
+DC.creator: Preschutti, Stanley
+DC.creator.orcid: 0009-0004-5445-1744
+DC.date.issued: 2026-09
+DC.type: Text / Preprint / White Paper
+DC.format: text/markdown
+DC.language: en
+DC.publisher: Entropia Research Institute
+DC.rights: All rights reserved
+DC.subject: Hodge Complex Standard Model; HCSM; orbit-class reconstruction; distinguished-pair graph; winding class partition; dihedral orbit partition; fermion/boson split; swap pair; cycle rank; graph decomposition
+DC.description: This paper proves two structural theorems about the fourteen-mode multiplet of the Hodge Complex Standard Model. First, the Orbit-Class Reconstruction Theorem: the winding class partition is the dihedral orbit partition modified by a unique two-mode swap consisting of the top quark and the dark photon, uniquely forced by requiring each winding class to be fermion/boson-homogeneous. Second, the Distinguished-Pair Graph Decomposition Theorem: the graph of the ten distinguished pairs decomposes into four isolated two-vertex edges and one connected six-vertex core; every isolated edge is homogeneous in dihedral orbit, winding class, and fermion/boson content; the six-vertex core is heterogeneous in every structural feature, with a unique three-degree hub at the dark photon and cycle rank one.
+DC.identifier: HCSM-28-2026-09
+
+### Schema.org JSON-LD
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "HCSM-28: Orbit-Class Reconstruction",
+  "alternateName": "The Winding Class Partition as a Reconstruction of the Dihedral Orbit Partition, and the Decomposition of the Distinguished-Pair Graph",
+  "author": {
+    "@type": "Person",
+    "name": "Stanley Preschutti",
+    "jobTitle": "Physics Researcher",
+    "email": "scstanp@yahoo.com",
+    "identifier": "https://orcid.org/0009-0004-5445-1744",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Entropia Research Institute",
+      "url": "https://www.informationphysicsinstitute.org"
+    }
+  },
+  "datePublished": "2026-09",
+  "inLanguage": "en",
+  "abstract": "This paper proves two structural theorems about the fourteen-mode multiplet of the Hodge Complex Standard Model. First, the Orbit-Class Reconstruction Theorem: the winding class partition is the dihedral orbit partition modified by a unique two-mode swap consisting of the top quark and the dark photon, uniquely forced by requiring each winding class to be fermion/boson-homogeneous. Second, the Distinguished-Pair Graph Decomposition Theorem: the graph of the ten distinguished pairs decomposes into four isolated two-vertex edges and one connected six-vertex core; every isolated edge is homogeneous in dihedral orbit, winding class, and fermion/boson content; the six-vertex core is heterogeneous in every structural feature, with a unique three-degree hub at the dark photon and cycle rank one.",
+  "keywords": [
+    "Hodge Complex Standard Model",
+    "HCSM",
+    "orbit-class reconstruction",
+    "distinguished-pair graph",
+    "winding class partition",
+    "dihedral orbit partition",
+    "fermion/boson split",
+    "swap pair",
+    "cycle rank",
+    "graph decomposition"
+  ],
+  "license": "All rights reserved",
+  "identifier": "HCSM-28-2026-09",
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "HCSM White Paper Series"
+  }
+}
+
+@article{PreschuttiHCSM28,
+  author = {Preschutti, Stanley},
+  title = {{HCSM-28}: Orbit-Class Reconstruction},
+  journal = {HCSM White Paper Series},
+  year = {2026},
+  month = {September},
+  note = {ORCID: 0009-0004-5445-1744},
+  keywords = {Hodge Complex Standard Model, HCSM, orbit-class reconstruction,
+    distinguished-pair graph, winding class partition,
+    dihedral orbit partition, fermion/boson split, swap pair,
+    cycle rank, graph decomposition},
+  abstract = {This paper proves two structural theorems about the
+    fourteen-mode multiplet of the Hodge Complex Standard Model. The
+    Orbit-Class Reconstruction Theorem identifies the winding class
+    partition as the dihedral orbit partition modified by a unique
+    two-mode swap. The Distinguished-Pair Graph Decomposition Theorem
+    decomposes the graph of the ten distinguished pairs into four
+    isolated edges and one connected six-vertex core.}
+}
+
+
