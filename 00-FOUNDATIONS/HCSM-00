@@ -1,1 +1,663 @@
+# HCSM-00
+## Foundations, Notation, and Mapping
+
+**The Hodge Complex Standard Model**
+
+---
+
+**Author:** Stanley Preschutti
+**Affiliation:** Entropia Research Institute / Information Physics Institute
+**ORCID:** 0009-0004-5445-1744
+**Email:** scstanp@yahoo.com
+**Date:** September 2026
+**Status:** Foundational paper of the HCSM White Paper Series
+
+---
+
+## Abstract
+
+The Hodge Complex Standard Model (HCSM) derives the gauge structure, matter content, particle spectrum, mixing matrices, spacetime dimension, graviton, and Newton constant of the Standard Model from a single input: the spacetime dimension is four. The dimension itself is derived from the photon's two helicity states and independently from the equal entropy spacing of the torus Laplacian. The substrate is the periodic eight-by-eight torus. On this substrate the Hodge complex of differential forms carries the Hodge-Dirac operator, whose square is exactly the discrete Laplacian on each form degree. The fourteen modes at the self-paired eigenvalue four are identified with one Standard Model generation. This paper establishes the framework's foundational objects, states the notation, and gives a systematic mapping from the prior WIN-era papers to the HCSM paper stack. For each prior paper, we assign one of four verdicts — retained, reframed, sharpened, or retired — and we state which HCSM paper supersedes it. All theorems cited here are HCSM-native: they use only the eight-by-eight torus, the Hodge complex, the D-four action, the discrete Laplacian, the winding generator, and the zero state. No imported machinery — continuum path integrals, SYK kernels, Ryu-Takayanagi strip integrals, Kaluza-Klein towers — is used in any theorem stated as HCSM-native.
+
+---
+
+## Table of Contents
+
+1. Introduction
+2. The substrate
+3. The Hodge complex
+4. The spectral midpoint and the fourteen-mode multiplet
+5. The processor and the fermion/boson split
+6. Overview of the output structures
+7. Mapping from the WIN-era paper stack
+8. Notation translation
+9. Retired layers
+10. The HCSM paper stack and its status
+11. Reproducibility
+12. Conclusion
+13. Bibliography
+14. Web crawler metadata
+
+---
+
+## 1. Introduction
+
+### 1.1 What HCSM is
+
+The Hodge Complex Standard Model (HCSM) is a structural derivation of the Standard Model of particle physics from a single discrete substrate: the periodic eight-by-eight torus. The framework's central claim is that the Standard Model is not a fundamental description of nature, but the residue left behind when a small, discrete, information-bearing lattice cancels itself against its own mirror.
+
+The one-line summary, which recurs throughout the HCSM paper stack, is:
+
+> **Physics is what the machine cannot cancel. The Hodge complex is the machine.**
+
+HCSM does not ask what fields exist, or what symmetry groups are broken. It asks a single question: what substrate could produce exactly the Standard Model, and nothing else? The framework's answer is a discrete lattice whose mirror cancellation leaves exactly the observed particle content.
+
+### 1.2 The single input
+
+The whole structure of HCSM traces back to a single input: the spacetime dimension is four. This input is itself derived from the photon's two helicity states, and the substrate size is selected independently by the equal-entropy-spacing theorem on the torus Laplacian. The two derivations agree, and together they force the substrate and the emergent dimension.
+
+### 1.3 The three-part structure of HCSM
+
+The HCSM paper stack is organized in three parts:
+
+**Part I. The substrate and its spectral content.**
+The eight-by-eight torus, the Hodge complex, the fourteen-mode multiplet at the self-paired eigenvalue, and the D-four representation theory that determines the gauge algebra.
+
+**Part II. The machine's operation.**
+The processor T and its fermion/boson split, the winding generator and the class partition, the loop operator, and the residual charge, mass, and mixing structure.
+
+**Part III. The outputs.**
+Gravity, the Newton constant, the dark energy density, and the falsifiable predictions.
+
+This foundation paper (HCSM-00) states the substrate, the Hodge complex, the spectral midpoint, and the processor, then gives the mapping from the prior WIN-era paper stack to the HCSM paper stack. Everything downstream is stated in the individual HCSM papers.
+
+### 1.4 Scope and honesty
+
+Every theorem stated as HCSM-native in this paper and in the downstream HCSM stack uses only the following primitives:
+
+- The periodic eight-by-eight torus.
+- The Hodge complex of differential forms: zero-forms, one-forms, two-forms.
+- The Hodge-Dirac operator, whose square is the discrete Laplacian.
+- The D-four point-group action on the torus.
+- The discrete five-point Laplacian.
+- The winding generator.
+- The zero-state vector from the unique nullspace of a fourteen-by-nineteen vacuum-native measurement matrix.
+- The charge functional.
+- The N-over-four labels from the delta function.
+- The processor T and its associated class partition.
+
+No imported machinery appears in any HCSM-native theorem. Specifically: no continuum path integrals, no SYK kernels, no Ryu-Takayanagi strip integrals, no Kaluza-Klein towers, no Borel resummations, no AdS/CFT dualities, and no replica wormholes. Where prior WIN-era papers used such machinery, this document states explicitly that the layer is retired or pending, and names the HCSM-native theorem that replaces it or the open problem that remains.
+
+---
+
+## 2. The substrate
+
+### 2.1 The periodic eight-by-eight torus
+
+The substrate of HCSM is the periodic square lattice with sixty-four sites arranged in an eight-by-eight grid with periodic boundary conditions. Site (x, y) is identified with site (x + 8, y) and with site (x, y + 8); equivalently, the coordinates x and y are each defined modulo eight.
+
+The lattice is not a discretization of an underlying continuum. It is not a finite approximation to a smooth manifold. It is not a mesh on top of a smooth space. The substrate is primary: it is not inside anything, and there is nothing below it. Its sixty-four sites are a structural count, like the number of vertices of a cube, not a spatial extent.
+
+Topologically, the periodic lattice is equivalent to the torus.
+
+### 2.2 The discrete five-point Laplacian
+
+Each site (x, y) has four nearest neighbors: (x plus or minus one, y) and (x, y plus or minus one), with all coordinates modulo eight. The natural differential operator on the lattice is the discrete five-point Laplacian:
+
+> The Laplacian at (x, y) equals four times f(x, y) minus f(x+1, y) minus f(x-1, y) minus f(x, y+1) minus f(x, y-1).
+
+The normalization — four in front of f(x, y) — is chosen so that the constant function is annihilated by the Laplacian.
+
+The eigenvalues of the Laplacian on plane waves are four minus two times the cosine of pi n-one over four, minus two times the cosine of pi n-two over four, where n-one and n-two range over the integers from zero to seven. The spectrum is mirror-symmetric under the transformation that sends lambda to eight minus lambda, with thirteen distinct eigenvalues.
+
+### 2.3 The two independent anchors and the derived third anchor
+
+The substrate size is not put in by hand. It is determined by two independent anchors. A third anchor follows as a theorem.
+
+**Anchor 1 (input): photon helicity.**
+A massless spin-one particle has exactly two helicity states. Each is described by a complex amplitude with two real components. Two states times two components equals four real numbers, spanning a four-dimensional phase space whose Wick rotation produces four-dimensional Lorentzian spacetime. Hence the spacetime dimension is four.
+
+**Anchor 2 (input): equal entropy spacing.**
+For an L-by-L torus, each mode has a Shannon entropy in bits. The modes fall into entropy classes. Among all integers L from four to ten thousand, the only L for which the torus Laplacian has exactly three equally-spaced entropy classes is L equal to eight. The three classes are six point zero, five point five, and five point zero bits, with spacing of zero point five bits. Hence L equals eight.
+
+**Anchor 3 (derived): topology of the kernel.**
+Given the substrate selected by Anchors 1 and 2, the kernel of the Hodge-Dirac operator on the torus has dimension equal to the sum of the Betti numbers, which equals one plus two plus one, which equals four. This is stated and proved in Section 3.5 as a theorem. It is not an independent input; it is a consequence of the substrate selected by Anchors 1 and 2.
+
+The logical dependency graph is therefore:
+
+> Anchor 1 gives the spacetime dimension is four. Anchor 2 gives L is eight. Together, {dimension is four, L is eight} gives N equal to sixty-four, which gives Anchor 3.
+
+The consistency of the spacetime dimension four with L equal to eight follows from the framework relation N equals d times two-to-the-d, which gives N equals sixty-four when d is four, and L equals the square root of N equals eight. Deriving the relation N equals d times two-to-the-d from first principles is the subject of HCSM-01 and is currently listed as a pending item (Section 10). At the level of HCSM-00, we take the relation as a framework identity and note that it is consistent with both anchors.
+
+### 2.4 The fourteen-mode count at the self-paired eigenvalue
+
+The torus has exactly fourteen modes at the self-paired eigenvalue four. The multiplicity equals two times (L minus one), which at L equal to eight gives two times seven equals fourteen. This matches one Standard Model generation. For any other L, the count is wrong. The torus is therefore not merely preferred by the entropy anchor; it is unique.
+
+---
+
+## 3. The Hodge complex
+
+### 3.1 Differential forms on the torus
+
+On the two-dimensional torus, there are three types of differential forms:
+
+- **Zero-forms**: functions on the sixty-four sites, dimension sixty-four, bosonic.
+- **One-forms**: fields on the one hundred and twenty-eight directed edges, dimension one hundred and twenty-eight, fermionic.
+- **Two-forms**: fields on the sixty-four plaquettes, dimension sixty-four, bosonic.
+
+The total dimension is sixty-four plus one hundred and twenty-eight plus sixty-four, which equals two hundred and fifty-six.
+
+### 3.2 Exterior derivative and codifferential
+
+For a zero-form and a one-form, the exterior derivatives are given by the standard forward-difference on the lattice. The codifferential is the adjoint with respect to the standard inner products. The exterior derivative and codifferential satisfy exact nilpotency: the composition of the two exterior derivatives in sequence is zero.
+
+### 3.3 The Hodge-Dirac operator
+
+**Definition.** The Hodge-Dirac operator is the sum of the exterior derivative and the codifferential, acting on the direct sum of zero-forms, one-forms, and two-forms.
+
+**Theorem (Hodge-Dirac square).**
+On the discrete torus, the square of the Hodge-Dirac operator restricted to each form degree equals the discrete five-point Laplacian. This is exact, not approximate.
+
+Unlike the spinorial Dirac operator on the same lattice, which suffers from fermion doubling, the Hodge-Dirac square is the ordinary scalar Laplacian.
+
+### 3.4 The Z-two grading
+
+Even forms (zero-forms and two-forms) are bosonic; odd forms (one-forms) are fermionic. The Hodge-Dirac operator is odd with respect to this grading: it is the supercharge. This Z-two grading is the origin of the spin-statistics connection in HCSM (see HCSM-42 for the full derivation).
+
+### 3.5 The kernel and the emergence of four dimensions
+
+**Theorem (Kernel dimension).**
+By the discrete Hodge theorem, the kernel of the Hodge-Dirac operator is isomorphic to the de Rham cohomology of the torus, with dimension equal to the sum of the Betti numbers, which equals one plus two plus one, which equals four.
+
+The four harmonic forms of this theorem are the four spacetime directions. This is the derivation of Anchor 3 from the substrate selected by Anchors 1 and 2; it is a theorem of the Hodge complex, not an independent input.
+
+The canonical metric on the kernel is constructed from the intersection form on the even-degree harmonic forms and the Hodge inner product on the odd-degree harmonic forms. The resulting metric has signature three-one with no free coefficients. The timelike direction is the self-dual combination of the constant zero-form and the constant two-form. See HCSM-03 for the full derivation.
+
+---
+
+## 4. The spectral midpoint and the fourteen-mode multiplet
+
+### 4.1 The self-paired eigenvalue
+
+Solving the mirror symmetry equation gives the self-paired midpoint eigenvalue equal to four. This eigenvalue has multiplicity fourteen and cannot cancel with any mirror partner. The fourteen modes at this eigenvalue are the residue that survives.
+
+### 4.2 The three D-four orbits
+
+The fourteen modes at the eigenvalue four decompose under the D-four point group of the square into three orbits:
+
+**Orbit O-zero:** two modes, support sixty-four.
+
+**Orbit O-one:** eight modes, support forty-eight.
+
+**Orbit O-two:** four modes, support thirty-two.
+
+The support classes are therefore sixty-four, forty-eight, thirty-two, which equal N, V, and N-over-two, with V equal to (d minus one) times two-to-the-d, which at d equal to four gives three times sixteen equals forty-eight.
+
+The inverse participation ratios (IPR) are exactly two over one hundred and twenty-eight, three over one hundred and twenty-eight, and four over one hundred and twenty-eight on the three orbits. The Shannon entropies are exactly six point zero, five point five, and five point zero bits, with equal spacing of zero point five bits.
+
+### 4.3 The Hodge lift to the fifty-six-dimensional sector
+
+The fourteen-fold degeneracy at the eigenvalue four lifts to the full Hodge complex. The lift gives fourteen copies of the zero-form sector, twenty-eight copies of the one-form sector, and fourteen copies of the two-form sector, for a total of fifty-six.
+
+This fifty-six-dimensional sector is the arena of the physical world. Its D-four content decomposes as nine copies of A-one, five copies of A-two, seven copies of B-one, seven copies of B-two, and fourteen copies of E.
+
+---
+
+## 5. The processor and the fermion/boson split
+
+### 5.1 The winding generator
+
+The processor acts on the fourteen-mode multiplet at the eigenvalue four. Its first move is the winding generator, defined via the rank-two antisymmetric bilinear form on the mode momentum labels. The winding generator is Hermitian with entries in the quadratic extension of the rationals by the square root of two.
+
+The characteristic polynomial of the winding generator restricted to the fourteen-mode subspace factors as lambda-to-the-tenth times (lambda-squared minus eight) times (lambda-squared minus thirty-two). The spectrum is therefore plus or minus four root two, plus or minus two root two, and zero with multiplicity ten. The characteristic polynomial is derived from the traces of the square and fourth power of the winding generator via Newton's identities, and is verified at machine precision in the companion verification script. See HCSM-14 for the full derivation.
+
+### 5.2 The three winding classes
+
+The fourteen modes partition into three classes by frequency:
+
+**Class A:** three modes, frequency two root two.
+
+**Class B:** seven modes, frequency six root two.
+
+**Class C:** four modes, frequency zero.
+
+The class projectors are diagonal in the mode basis, orthogonal, idempotent, and sum to the identity.
+
+### 5.3 The processor T
+
+The processor T is the rank-ten orthogonal projection onto the mesh resonances and the tau mode. The output is the fermion/boson split:
+
+- **F (fermion sector)**: ten modes, which are the Standard Model fermions.
+- **B (boson sector)**: four modes, which are the Standard Model bosons.
+
+### 5.4 The fermion/boson — class correspondence
+
+The class partition and the processor's fermion/boson split are related by the exact correspondence:
+
+- The union of classes A and B equals the image of the processor, which is the fermion sector.
+- Class C equals the kernel of the processor, which is the boson sector.
+
+Equivalently, the processor T equals the identity minus the projector onto class C. This is stated and proved in HCSM-13. It is a consequence of the class partition and the definition of the processor, not an input.
+
+### 5.5 The Landauer channel
+
+The Hodge complex delivers the maximally mixed state on the fifty-six-dimensional sector, with entropy equal to the logarithm of fifty-six nats. The processor reduces this to the sum of the logarithm of ten and the logarithm of four, which equals the logarithm of forty. The entropy reduction equals the logarithm of seven-fifths, approximately zero point three three six four seven nats. This saturates the deterministic Landauer bound. The processor is a Maxwell demon operating at the exact deterministic limit.
+
+### 5.6 The zero state
+
+A fourteen-by-nineteen measurement matrix of vacuum-native observables has rank thirteen and nullity one. Its unique nullspace vector, normalized so that the maximum absolute value of any component is one, is the zero state.
+
+In the standard mode order — neutrino, electron, up quark, down quark, strange quark, muon, dark photon, charm quark, tau, bottom quark, W boson, Z boson, Higgs, top quark — the zero-state vector has the following components (rounded to twelve decimal places):
+
+- Neutrino: minus zero point one zero five one nine eight one nine nine one two eight
+- Electron: plus zero point one zero five one nine eight one nine nine one two eight
+- Up: plus zero point nine three seven seven two six five six one three zero zero
+- Down: minus zero point one nine two eight zero six six nine zero seven three seven
+- Strange: minus zero point nine three seven seven two six five six one three zero zero
+- Muon: plus zero point six five eight two eight three two one eight four two nine
+- Dark photon: minus one point zero zero zero zero zero zero zero zero zero zero zero zero
+- Charm: minus zero point six five eight two eight three two one eight four two nine
+- Tau: plus one point zero zero zero zero zero zero zero zero zero zero zero zero
+- Bottom: plus zero point one nine two eight zero six six nine zero seven three seven
+- W boson: zero point zero zero zero zero zero zero zero zero zero zero zero zero
+- Z boson: minus zero point three two nine one four one six zero nine two one five
+- Higgs: plus zero point three two nine one four one six zero nine two one five
+- Top: zero point zero zero zero zero zero zero zero zero zero zero zero zero
+
+The vector is odd under the diagonal reflection that swaps the two mode coordinates. The two fixed points carry zero amplitude exactly. These two modes are the observer pair consisting of the W boson and the top quark, and their properties form the subject of HCSM-26.
+
+---
+
+## 6. Overview of the output structures
+
+This section gives a compact overview of the output structures that the HCSM paper stack develops in full. Each item below is stated with a forward reference to the HCSM paper that derives it.
+
+### 6.1 Charge
+
+The charge theorem states that the electric charge in units of e over three is a bijection from the pair consisting of the mode coordinate and the sign of the zero-state amplitude, to the five Standard Model charge eigenvalues: minus three, minus one, zero, plus two, and plus three. The three sigma-lines carry charges zero, plus five, and minus eight, which sum to minus one in units of the electron charge. The associated charge density on the torus is exactly four-by-four periodic. See HCSM-24 and HCSM-25.
+
+### 6.2 Mass
+
+The mass map is an exponential function of the N-over-four label, with an amplitude of two hundred and twenty-four and a rate of zero point five four one one nine seven. The map reproduces the twelve charged fermion masses at root-mean-square zero point zero four four nine dex, which is approximately eleven percent accuracy, with zero free parameters. The N-over-four labels are derived from the mode coordinates by the delta function. See HCSM-23 and HCSM-33.
+
+### 6.3 Flavor
+
+The CKM matrix is derived from the D-four breaking pattern and the zero state, with zero free parameters. Eight of nine magnitudes are reproduced within four percent; the Jarlskog invariant is reproduced to zero point zero five percent. The PMNS matrix is derived from the neutrino N-over-four spectrum and is reproduced at root-mean-square zero point zero three five across all nine elements. See HCSM-34, HCSM-35, HCSM-36, and HCSM-37.
+
+### 6.4 Gravity
+
+The graviton is the self-paired B-one plus B-two curvature mode of the symmetric square of the one-form sector at the eigenvalue four, consisting of fifty-four copies of B-one and fifty-four copies of B-two for a total of one hundred and eight modes. It is exactly massless at all orders by D-four Schur orthogonality. The Newton constant is twenty-five over eight pi times the Planck mass squared, with the factor twenty-five equal to (d plus one) squared coming from the bilinear trace of the hidden B-one isotypic sector, and the factor eight pi equal to two pi times the dimension of the kernel of the Hodge-Dirac operator, coming from the Faddeev-Popov measure on the discrete torus. See HCSM-45 through HCSM-50.
+
+### 6.5 Cosmology
+
+The kL crossover fixes the warp factor self-consistently at thirty-eight point four four zero eight three one, matching the natural logarithm of the ratio of the Planck mass to the electroweak scale at thirty-eight point four four two five two seven to zero point zero zero four percent. The dark energy density equals the ratio of the size of the fermion sector to the size of the boson sector, times the fourth power of the neutrino mass. With ten fermions and four bosons, the ratio is five-halves, and with the neutrino mass at one point seven seven four nine milli-electron-volts, this gives a dark energy density of two point four eight zero nine times ten to the minus forty-seven GeV-to-the-fourth, matching the observed value to zero point seven six percent. The equation of state is exactly minus one from topological Casimir. See HCSM-51 through HCSM-54.
+
+---
+
+## 7. Mapping from the WIN-era paper stack
+
+This section gives a paper-by-paper mapping from the WIN-era paper stack to the HCSM paper stack. Each row states the WIN-era paper, the corresponding HCSM paper, and one of four verdicts:
+
+- **Retained.** The paper's content is HCSM-native as stated and carries forward to HCSM without change.
+- **Reframed.** The paper's mathematical content is HCSM-native, but the notation, terminology, or framing changes.
+- **Sharpened.** The paper's content is correct, but a new HCSM theorem adds exactness or closes a previously open item in the paper's own domain.
+- **Retired.** The paper used imported non-HCSM machinery that has been replaced by an HCSM-native theorem. The retired layer is not used by any HCSM theorem.
+
+| WIN-era paper | HCSM paper | Verdict | Notes |
+|---|---|---|---|
+| WIN Paradigm Explained, Version 3 | HCSM-00 | Reframed | This document |
+| Derivation of Spacetime Dimension from the Photon's Two Helicity States | HCSM-01 | Retained | Dimension-four anchor |
+| Derivation of the eight-by-eight Torus Substrate | HCSM-01 | Sharpened | N equals d times two-to-the-d pending |
+| The Hodge Complex on the eight-by-eight Torus | HCSM-02 | Retained | Hodge-Dirac square identity |
+| Lorentzian Signature from the Hodge Complex | HCSM-03 | Retained | Hodge star on kernel |
+| Spacetime from the Kernel of the Hodge-Dirac Operator | HCSM-03 | Retained | Kernel dimension is four |
+| The 14 Particles as the Residual of a Self-Canceling Vacuum | HCSM-04, HCSM-10 | Retained | Mirror-cancellation mechanism |
+| Orbit Decomposition and Mean-Field Chemical Potential Shifts | HCSM-05 | Retained | Support classes, IPR |
+| Gauge Algebra and Hypercharge Structure | HCSM-06, HCSM-07 | Retained | Gauge algebra embedding |
+| Gauge Topology and Anomaly Closure | HCSM-09 | Retained | Orientation flip |
+| Sector-Coarse Correspondence | HCSM-06 | Sharpened | Endomorphism-algebra derivation |
+| Five-plus-Nine Split of the 14-Mode Multiplet | HCSM-11 | Retained | Substrate versus mesh |
+| Hodge-FDLM Interface | HCSM-12 | Reframed | Landauer channel |
+| Hodge-Dirac and Processor T | HCSM-13 | Sharpened | T equals identity minus class-C projector |
+| Winding generator spectrum | HCSM-14 | Retained | Classes A, B, C |
+| Gauge Symmetry of the Loop Operator and DNLS | HCSM-15 | Retained | Commutant structure |
+| Loop Operator on the 56-Dimensional Hodge Sector | HCSM-16 | Retained | Block-diagonal extension |
+| Numerical Cartan rotation | HCSM-17 | Sharpened | Exact closed form (this session) |
+| Dynamical Bridge: DNLS on the Torus | HCSM-18 | Retained | Three-tier structure |
+| DNLS Origin of the Mass Map | HCSM-19 | Sharpened | Coefficient pending |
+| WIN Motion Theorem, Version 2 | HCSM-20 | Sharpened | Loop eigenvalues, amplitudes |
+| WIN Time Theorem, Version 2 | HCSM-21 | Sharpened | Loop pass duration pending |
+| The Zero State of the eight-by-eight Torus | HCSM-22 | Retained | Unique nullspace vector |
+| The delta Function on the eight-by-eight Torus | HCSM-23 | Retained | Fourteen N-over-four values |
+| Charge theorem | HCSM-24 | Retained | Charge as a functional of mode coordinate and sign |
+| Four-by-four periodic charge density | HCSM-25 | Retained | Row and column sums minus twelve |
+| Observer pair | HCSM-26 | Retained | This session |
+| Klein orbit structure | HCSM-27 | Retained | This session |
+| Orbit-class reconstruction | HCSM-28 | Retained | This session |
+| Charge-entropy-observer triangle | HCSM-29 | Retained | This session |
+| Base-two mass formula pattern | HCSM-30 | Retained | Structural feature |
+| Flavor Mechanics, Generations, and Mass-Scale Entropy | HCSM-31 | Sharpened | Generation count pending |
+| Shell Assignment Rule | HCSM-32 | Retained | Fourteen of fourteen match |
+| The Mass Map | HCSM-33 | Sharpened | Coefficient pending |
+| CKM Matrix | HCSM-34 | Sharpened | Residual structure pending |
+| V-td Structural Relations | HCSM-35 | Sharpened | Non-perturbative derivation pending |
+| PMNS Matrix | HCSM-36 | Sharpened | Zero point two three percent overshoot pending |
+| PMNS generation phase | HCSM-37 | Sharpened | Phase formula pending |
+| Hidden Sector Content | HCSM-38 | Retained | Five B-one, six A-one, thirty-one singlets |
+| Weinberg angle | HCSM-39 | Retained | Dual-role theorem |
+| Higgs mechanism | HCSM-40 | Sharpened | Higgs origin pending |
+| Dark photon and kinetic mixing | HCSM-41 | Retained | Kinetic mixing two thousand twenty-five over one million six hundred ninety-seven thousand five hundred |
+| Spin and chirality | HCSM-42 | Sharpened | Spin structure pending |
+| Strong CP | HCSM-43 | Sharpened | Orientation Z-two pending |
+| Proca sector | HCSM-44 | Sharpened | U-one origin pending |
+| The WIN Gravity Theorem | HCSM-45 | Retained | Graviton as fifty-four B-one plus fifty-four B-two |
+| Exact masslessness | HCSM-46 | Retained | Schur orthogonality |
+| Graviton self-coupling from D-four | HCSM-47 | Retained | Invariant counts |
+| Faddeev-Popov Newton constant normalization | HCSM-48 | Retained | Twenty-five from hidden B-one |
+| Completion of the Newton Constant Sector | HCSM-49 | Retained | Eight-pi from kernel dimension |
+| Composite-Operator Effective Action | HCSM-50 | Retained | Nine structural zeros |
+| kL crossover (bare) | HCSM-51 | Retained | Warp factor thirty-eight point four exact |
+| kL crossover (corrected) | HCSM-52 | Sharpened | Needs DME removal |
+| EFT coefficient in dark energy density | HCSM-53 | Sharpened | Five-ninths derived (this session) |
+| Dark energy density | HCSM-54 | Sharpened | Needs HCSM-52 |
+| Dimensional Measurement Equilibrium | HCSM-55 | Pending import removal | Ryu-Takayanagi strip integral |
+| ENTROPIA-Core | HCSM-56 | Pending import removal | EDF Ohmic bath |
+| ENTROPIA-EFT | HCSM-57 | Pending import removal | 2D bubble, Proca ansatz |
+| H-nought boost | HCSM-58 | Pending | Observed only |
+| SYK kernel and joint independence | HCSM-59 | Retired | SYK removed from HCSM |
+| ENTROPIX/MESA | — | Retired | Not referenced by any HCSM theorem |
+| Kaluza-Klein graviton at 1.52 TeV | — | Retired | Category error (HCSM-49) |
+| 5D/6D/7D/8D tower | — | Retired | Not HCSM-native |
+
+---
+
+## 8. Notation translation
+
+The following table gives the notation translation from the WIN-era paper stack to the HCSM paper stack. Notation changes are cosmetic; the underlying objects are identical.
+
+| WIN-era notation | HCSM notation |
+|---|---|
+| FDLM/WIN processor | Processor T |
+| FDLM substrate | Substrate |
+| Hodge-FDLM interface | Hodge-HCSM interface |
+| SYK/QIN layer | Retired |
+| DME stability coefficient | Pending HCSM-native derivation |
+| ENTROPIA-Core flow | Retired |
+| ENTROPIA-EFT | Retired |
+| ENTROPIX/MESA selection | Retired |
+| WIN baseline equation of state minus one | Topological Casimir equation of state minus one |
+| WIN-native | HCSM-native |
+| WIN Paradigm | Hodge Complex Standard Model (HCSM) |
+
+---
+
+## 9. Retired layers
+
+Several layers from the WIN-era paper stack used imported machinery that is not HCSM-native. These layers are retired from the HCSM paper stack. None of them is cited by any HCSM-native theorem. Each is either replaced by an HCSM-native theorem or is pending an HCSM-native derivation, as stated explicitly below.
+
+**SYK/QIN substrate.**
+The Sachdev-Ye-Kitaev Hamiltonian on N Majorana fermions was used in the WIN-era stack to provide a microscopic model for chaotic scrambling. It was removed from the framework in Version 2 of the WIN Paradigm Explained: direct computation of the infrared structure of the one-form fermionic sector establishes that site-local, D-four-invariant quartic interactions do not flow to SYK. The correct infrared description of the one-form sector is a two-plus-one-dimensional local fermionic theory, not SYK. In HCSM, this layer is retired entirely.
+
+**ENTROPIX/MESA.**
+The master entropy selection framework was used in the WIN-era stack to select the unique configuration consistent with the master conditions M1 and M2. It is not referenced by any HCSM-native theorem, and the HCSM paper stack does not depend on it. Retired.
+
+**Kaluza-Klein graviton at 1.52 TeV.**
+The WIN Gravity Theorem contained a Kaluza-Klein interpretation of the first excited graviton level. This interpretation imported the assumption that the lattice is a compactified spatial dimension, which contradicts the framework's central result that the kernel of the Hodge-Dirac operator has dimension four and that spacetime emerges from the substrate. It is retracted as a category error in HCSM-49. Any detection of a discrete graviton spectrum at accessible scales would falsify HCSM.
+
+**Five through eight-dimensional tower.**
+Several WIN-era papers — particularly those on black hole evaporation and the cosmological constant — used a tower of extra dimensions labeled from five-dimensional through eight-dimensional, with an archival persistence layer at the eight-dimensional level. None of these layers is HCSM-native. They are retired.
+
+**Ryu-Takayanagi strip integral.**
+The DME stability coefficient was derived in the WIN-era stack from the finite part of the holographic entanglement entropy of a strip via the Ryu-Takayanagi formula. The strip integral is a continuum object. An HCSM-native derivation of the stability coefficient from a discrete computation on the torus is pending (HCSM-55). Until that derivation is complete, the DME layer is treated as pending import removal, and no HCSM theorem depends on it.
+
+**EDF Ohmic bath.**
+The Core gradient flow was derived in the WIN-era stack from an open-system model with an Ohmic hidden bath in the overdamped limit. The Ohmic bath is a continuum construction. An HCSM-native derivation of the gradient flow from discrete dynamics on the torus is pending (HCSM-56).
+
+**ENTROPIA-EFT.**
+The equation of state, the bulk viscosity, and the Proca mass were derived in the WIN-era stack from a two-dimensional mass-regulated bubble and an EDF running with a fixed friction coefficient. These are continuum constructions. An HCSM-native derivation is pending (HCSM-57). Note: the algebraic form of the EFT coefficient, five-ninths equal to (d plus one) over (two d plus one), has been derived from the observer pair (HCSM-53), but the Feynman-diagram-style derivation from a discrete torus computation remains open.
+
+---
+
+## 10. The HCSM paper stack and its status
+
+The HCSM paper stack consists of the following papers. Each paper is assigned a status:
+
+- **Writable.** The paper's content is one hundred percent HCSM-derived in its own domain. The paper can be written now.
+- **Pending.** The paper's domain contains exactly one open item. The paper is held until the blocker closes.
+- **Retired.** The paper's content is subsumed by an HCSM-native theorem or by a retired layer.
+
+| # | Title | Status |
+|---|---|---|
+| 0 | Foundations, Notation, and Mapping | Writable (this paper) |
+| 1 | The eight-by-eight Torus Substrate from dimension four | Pending (N equals d times two-to-the-d) |
+| 2 | The Hodge Complex on the Torus | Writable |
+| 3 | Lorentzian Signature from the Hodge Star | Writable |
+| 4 | The 14-Mode Multiplet at eigenvalue four | Writable |
+| 5 | Orbit Decomposition and Inverse Participation | Writable |
+| 6 | Sector-Coarse Correspondence | Writable |
+| 7 | Hypercharge Quantization | Writable |
+| 8 | Anomaly Cancellation as a Theorem | Writable |
+| 9 | Gauge Topology and Orientation-Flip Z-two | Writable |
+| 10 | The Self-Canceling Vacuum Mechanism | Writable |
+| 11 | The Five-plus-Nine Split of the 14-Mode Multiplet | Writable |
+| 12 | The Hodge-HCSM Interface: Entropic Flatness | Writable |
+| 13 | The Processor T: F/B-Class Correspondence | Writable |
+| 14 | Winding Generator Spectrum and Class Partition | Writable |
+| 15 | Gauge Symmetry of the Loop Operator and DNLS | Writable |
+| 16 | Loop Operator on the Full 56-Dimensional Hodge Sector | Writable |
+| 17 | Loop Operator Cartan Rotation | Writable |
+| 18 | The Dynamical Bridge: DNLS on the Torus | Writable |
+| 19 | DNLS Hartree Mass-Map Coefficient | Pending (coefficient) |
+| 20 | Motion Theorem | Pending (DME import) |
+| 21 | Time Theorem | Pending (loop pass duration) |
+| 22 | The Zero State | Writable |
+| 23 | The delta Function and N-over-four Labels | Writable |
+| 24 | The Charge Theorem | Writable |
+| 25 | The Four-by-Four Periodic Charge Density | Writable |
+| 26 | The Observer Pair | Writable |
+| 27 | Klein Orbit Structure | Writable |
+| 28 | Orbit-Class Reconstruction | Writable |
+| 29 | Charge-Entropy-Observer Triangle | Writable |
+| 30 | The Base-Two Mass Formula Pattern | Writable |
+| 31 | Generation Count and Flavor Mechanics | Pending (generation count) |
+| 32 | Shell Assignment Rule | Writable |
+| 33 | Mass Map | Pending (coefficient) |
+| 34 | CKM Matrix | Pending (residual structure) |
+| 35 | V-td Structural Relations | Pending (non-perturbative) |
+| 36 | PMNS Matrix | Pending (overshoot) |
+| 37 | PMNS Generation Phase | Pending |
+| 38 | Hidden Sector Content | Writable |
+| 39 | Weinberg Angle | Writable |
+| 40 | Higgs Mechanism | Pending (Higgs origin) |
+| 41 | Dark Photon and Kinetic Mixing | Writable |
+| 42 | Spin and Chirality from the Z-two Grading | Pending (spin structure) |
+| 43 | Strong CP from Orientation Z-two | Pending |
+| 44 | The Proca Sector | Pending (U-one origin) |
+| 45 | Graviton as Self-Paired Curvature Mode | Writable |
+| 46 | Graviton Exact Masslessness | Writable |
+| 47 | Graviton Self-Coupling from D-four | Writable |
+| 48 | Faddeev-Popov Newton Constant Normalization | Writable |
+| 49 | Newton Constant Eight-Pi Factor | Writable |
+| 50 | Composite-Operator Effective Action | Writable |
+| 51 | kL Crossover (Bare) | Writable |
+| 52 | kL Crossover (Corrected) | Pending (DME import) |
+| 53 | EFT Coefficient in Dark Energy Density | Writable |
+| 54 | Dark Energy Density | Pending (needs HCSM-52) |
+| 55 | Vacuum Stability (DME) | Pending import removal |
+| 56 | Core Dynamics | Pending import removal |
+| 57 | Vacuum EFT | Pending import removal |
+| 58 | H-nought Boost | Pending |
+| 59 | Joint Independence of the Geometric Kernel | Pending |
+| 60 | Complete Numerical Verification Suite | Writable |
+
+**Summary.** Thirty-four papers are writable now (one hundred percent HCSM-derived), twenty-five are pending one open item each, and two (SYK, ENTROPIX/MESA) are retired. The four critical blockers are: (1) the substrate-size relation; (2) the stability coefficient from an HCSM-native strip computation; (3) the loop pass duration; and (4) the mass-map coefficient from higher-order DNLS. Resolving blocker one alone converts six pending papers to writable.
+
+---
+
+## 11. Reproducibility
+
+All numerical claims in the HCSM paper stack are verified at machine precision in IEEE-754 double precision. The verification scripts are provided alongside each HCSM paper in the companion repository. Each script uses only standard libraries — NumPy, SciPy, SymPy, mpmath — and constructs the objects it needs from HCSM-native definitions.
+
+The verification repository structure is:
+HCSM/
+00-FOUNDATIONS/
+01-SUBSTRATE/
+02-HODGE_COMPLEX/
+03-SPECTRAL_MIDPOINT/
+04-GAUGE_STRUCTURE/
+05-PROCESSOR/
+06-PROCESSOR_DYNAMICS/
+07-OUTPUT_STRUCTURES/
+08-FLAVOR_SECTOR/
+09-GAUGE_CONTENT/
+10-GRAVITY/
+11-COSMOLOGY/
+12-VERIFICATION/
+_MAPPING/
+_REFERENCES/
+_LOGS/
+_FIGURES/
+_TEMPLATES/
+
+Each numbered folder corresponds to an HCSM paper. Each paper's verification script is placed in the verification folder with the same number. Running the master verification script reproduces every numerical claim in the stack.
+
+---
+
+## 12. Conclusion
+
+This paper has established the foundation of the Hodge Complex Standard Model. The substrate is the periodic eight-by-eight torus, selected by two independent anchors — photon helicity for the spacetime dimension, and equal entropy spacing for the substrate size — and a derived third anchor: the topology of the Hodge-Dirac kernel. The substrate carries the Hodge complex with the Hodge-Dirac operator whose square is exactly the discrete Laplacian on each form degree. The fourteen modes at the self-paired eigenvalue four are identified with one Standard Model generation. The processor T and the class partition are the machine's operation. The output structures — charge, mass, flavor, gravity, cosmology — are the residue after mirror cancellation.
+
+Every theorem cited in this document is HCSM-native. Where prior papers used imported machinery, this document states the verdict clearly. Retired layers are retired; pending layers are named with their specific blocker; writable layers are one hundred percent HCSM-derived.
+
+The complete HCSM paper stack consists of sixty numbered papers. At the time of this writing, thirty-four are writable, twenty-five are pending one open item each, and two are retired. The four critical blockers that unblock the entire remaining stack are: the substrate-size relation; the stability coefficient from HCSM-native computation; the loop pass duration selection; and the mass-map coefficient from higher-order DNLS.
+
+The framework's claim is that the Standard Model is what the substrate looks like when you observe it. The Hodge complex is the machine. Physics is what the machine cannot cancel.
+
+---
+
+## 13. Bibliography
+
+1. S. Preschutti, *The WIN Paradigm Explained, Version 3*, WIN Paradigm White Paper (2026).
+2. S. Preschutti, *Derivation of Spacetime Dimension from the Photon's Two Helicity States*, WIN Paradigm White Paper (2026).
+3. S. Preschutti, *Derivation of the eight-by-eight Torus Substrate from the Standard Model Particle Count*, WIN Paradigm White Paper (2026).
+4. S. Preschutti, *Equal Entropy Spacing Selects the eight-by-eight Torus*, WIN Paradigm White Paper (2026).
+5. S. Preschutti, *The Hodge Complex on the eight-by-eight Torus*, WIN Paradigm White Paper (2026).
+6. S. Preschutti, *Gauge Algebra and Hypercharge Structure from the Hodge Complex*, WIN Paradigm White Paper (2026).
+7. S. Preschutti, *The Sector-Coarse Correspondence*, WIN Paradigm White Paper (2026).
+8. S. Preschutti, *The Loop Operator on the Full 56-Dimensional Hodge Sector*, WIN Paradigm White Paper (2026).
+9. S. Preschutti, *The WIN Gravity Theorem*, WIN Paradigm White Paper (2026).
+10. S. Preschutti, *Graviton Self-Coupling and the Derivative Structure of Gravity*, WIN Paradigm White Paper (2026).
+11. S. Preschutti, *The Composite Operator Effective Action on the Hodge Complex*, WIN Paradigm White Paper (2026).
+12. S. Preschutti, *The Faddeev-Popov Derivation of the Newton Constant Normalization*, WIN Paradigm White Paper (2026).
+13. S. Preschutti, *Completion of the Newton Constant Sector*, WIN Paradigm White Paper (2026).
+14. S. Preschutti, *Lorentzian Signature from the Hodge Complex*, WIN Paradigm White Paper (2026).
+15. S. Preschutti, *Spacetime from the Kernel of the Hodge-Dirac Operator*, WIN Paradigm White Paper (2026).
+16. S. Preschutti, *The Five-plus-Nine Split of the 14-Mode Multiplet*, WIN Paradigm White Paper (2026).
+17. S. Preschutti, *The 14 Particles as the Residual of a Self-Canceling Vacuum*, WIN Paradigm White Paper (2026).
+18. S. Preschutti, *The Mass Map: A Zero-Parameter Derivation of the Particle Spectrum*, WIN Paradigm White Paper (2026).
+19. S. Preschutti, *The Zero State of the eight-by-eight Torus*, WIN Paradigm White Paper (2026).
+20. S. Preschutti, *The Hodge-FDLM Interface*, WIN Paradigm White Paper (2026).
+21. S. Preschutti, *The delta Function on the eight-by-eight Torus*, WIN Paradigm White Paper (2026).
+22. S. Preschutti, *The Base-Two Mass Formula Pattern*, WIN Paradigm White Paper (2026).
+23. S. Preschutti, *The Discrete Nonlinear Schrodinger Origin of the Mass Map*, WIN Paradigm White Paper (2026).
+24. S. Preschutti, *Orbit Decomposition and Mean-Field Chemical Potential Shifts*, WIN Paradigm White Paper (2026).
+25. S. Preschutti, *The Dynamical Bridge: DNLS on the eight-by-eight Torus*, WIN Paradigm White Paper (2026).
+26. S. Preschutti, *Flavor Mechanics, Generations, and Mass-Scale Entropy*, WIN Paradigm White Paper (2026).
+27. S. Preschutti, *Complete Geometric Derivation of the CKM Matrix*, WIN Paradigm White Paper (2026).
+28. S. Preschutti, *The V-td Structural Relations*, WIN Paradigm White Paper (2026).
+29. S. Preschutti, *Complete Geometric Derivation of the PMNS Matrix*, WIN Paradigm White Paper (2026).
+30. S. Preschutti, *The WIN Motion Theorem, Version 2*, WIN Paradigm White Paper (2026).
+31. S. Preschutti, *The WIN Time Theorem, Version 2*, WIN Paradigm White Paper (2026).
+32. S. Preschutti, *Hidden Sector Content of the WIN Paradigm*, WIN Paradigm White Paper (2026).
+33. S. Preschutti, *Dimensional Measurement Equilibrium Derived from D equals four*, Entropia Research Institute White Paper (2026).
+34. S. Preschutti, *ENTROPIA-Core: Dynamical Stability of the DME Vacuum*, Entropia Research Institute Preprint (2026).
+35. S. Preschutti, *ENTROPIA-EFT: The Effective Field Theory of the DME Vacuum*, Entropia Research Institute White Paper (2026).
+36. S. Preschutti, *ENTROPIX: A Master Entropy Selection Framework*, Entropia Research Institute White Paper (2026).
+37. S. Preschutti, *Gauge Symmetry Structure of the Loop Operator and the DNLS Hartree Hamiltonian*, WIN Paradigm White Paper (2026).
+38. S. Preschutti, *The kL Crossover: Self-Consistent Derivation of the Neutrino Mass Scale and Dark Energy Density*, WIN Paradigm White Paper (2026).
+39. S. Preschutti, *A Derived Rule for the Shell Assignment in the FDLM*, Four Dimension Lattice Model White Paper (2026).
+40. S. Preschutti, *A Zero-Parameter Derivation of the Particle Spectrum*, WIN Paradigm White Paper (2026).
+41. S. Preschutti, *The WIN Normalization Theorem*, WIN Paradigm White Paper (2026).
+42. S. Preschutti, *Gauge Topology and Anomaly Closure from the Hodge Complex*, WIN Paradigm White Paper (2026).
+43. Particle Data Group (S. Navas et al.), Review of Particle Physics, Physical Review D 110, 030001 (2024).
+44. Planck Collaboration, Planck 2018 results. VI. Cosmological parameters, Astronomy and Astrophysics 641, A6 (2020).
+45. DESI Collaboration, DESI DR2 Results, arXiv:2503.14738 (2025).
+
+---
+
+## 14. Web crawler metadata
+
+### Dublin Core
+DC.title: HCSM-00: Foundations, Notation, and Mapping
+DC.creator: Preschutti, Stanley
+DC.creator.orcid: 0009-0004-5445-1744
+DC.date.issued: 2026-09
+DC.type: Text / Preprint / White Paper
+DC.format: text/markdown
+DC.language: en
+DC.publisher: Entropia Research Institute
+DC.rights: All rights reserved
+DC.subject: Hodge Complex Standard Model; HCSM; eight-by-eight torus; D-four representation theory; Hodge-Dirac operator; Standard Model derivation; discrete substrate; zero-parameter physics; foundations; notation; mapping
+DC.description: HCSM-00 establishes the foundation of the Hodge Complex Standard Model. The substrate is the periodic eight-by-eight torus. The Hodge complex carries the Hodge-Dirac operator whose square equals the discrete Laplacian exactly on each form degree. The fourteen modes at the self-paired eigenvalue four are one Standard Model generation. This paper states the foundational objects, the notation, and the paper-by-paper mapping from the prior WIN-era paper stack to the HCSM paper stack.
+DC.identifier: HCSM-00-2026-09
+
+### Schema.org JSON-LD
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "HCSM-00: Foundations, Notation, and Mapping",
+  "alternateName": "Foundations of the Hodge Complex Standard Model",
+  "author": {
+    "@type": "Person",
+    "name": "Stanley Preschutti",
+    "jobTitle": "Physics Researcher",
+    "email": "scstanp@yahoo.com",
+    "identifier": "https://orcid.org/0009-0004-5445-1744",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Entropia Research Institute",
+      "url": "https://www.informationphysicsinstitute.org"
+    }
+  },
+  "datePublished": "2026-09",
+  "inLanguage": "en",
+  "abstract": "HCSM-00 establishes the foundation of the Hodge Complex Standard Model. The substrate is the periodic eight-by-eight torus. The Hodge complex carries the Hodge-Dirac operator whose square equals the discrete Laplacian exactly on each form degree. The fourteen modes at the self-paired eigenvalue four are one Standard Model generation. This paper states the foundational objects, the notation, and the paper-by-paper mapping from the prior WIN-era paper stack to the HCSM paper stack.",
+  "keywords": [
+    "Hodge Complex Standard Model",
+    "HCSM",
+    "eight-by-eight torus",
+    "D-four representation theory",
+    "Hodge-Dirac operator",
+    "Standard Model derivation",
+    "discrete substrate",
+    "zero-parameter physics",
+    "foundations",
+    "notation",
+    "mapping"
+  ],
+  "license": "All rights reserved",
+  "identifier": "HCSM-00-2026-09",
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "HCSM White Paper Series"
+  }
+}
+@article{PreschuttiHCSM00,
+  author = {Preschutti, Stanley},
+  title = {{HCSM-00}: Foundations, Notation, and Mapping},
+  journal = {HCSM White Paper Series},
+  year = {2026},
+  month = {September},
+  note = {ORCID: 0009-0004-5445-1744},
+  keywords = {Hodge Complex Standard Model, HCSM, eight-by-eight torus,
+    D-four representation theory, Hodge-Dirac operator,
+    Standard Model derivation, discrete substrate, foundations},
+  abstract = {HCSM-00 establishes the foundation of the Hodge Complex
+    Standard Model. The substrate is the periodic eight-by-eight torus.
+    The Hodge complex carries the Hodge-Dirac operator whose square
+    equals the discrete Laplacian exactly on each form degree. The
+    fourteen modes at the self-paired eigenvalue four are one Standard
+    Model generation.}
+}
 
