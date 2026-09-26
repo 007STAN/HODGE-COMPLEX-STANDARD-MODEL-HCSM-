@@ -1,0 +1,656 @@
+================================================================================
+HCSM-29: THE CHARGE-ENTROPY-OBSERVER TRIANGLE
+Three Vertices, Three Edges, One Closure
+================================================================================
+
+The Hodge Complex Standard Model
+
+Stanley Preschutti(1)
+
+(1) Entropia Research Institute / Information Physics Institute,
+    ORCID: 0009-0004-5445-1744, scstannp@yahoo.com
+
+September 2026
+
+
+================================================================================
+ABSTRACT
+================================================================================
+
+The Hodge Complex Standard Model assigns the fourteen modes at the self-paired
+eigenvalue of the discrete Laplacian on the periodic 8 x 8 torus to one
+Standard Model generation. Three independent structures organize this
+multiplet: the charge theorem (HCSM-24), which partitions the modes into three
+sigma-lines by the sign of the zero-state amplitude; the orbit decomposition
+(HCSM-04, HCSM-05), which partitions the modes into three D4 orbits with
+equal-spaced Shannon entropies; and the observer pair (HCSM-26), the two
+modes fixed by the chiral reflection rs. This paper proves that these three
+structures form a triangle in the following precise sense: the observer pair
+is the unique two-element subset of the fourteen-mode multiplet that is
+simultaneously (i) a sigma-line, (ii) contained in a single D4 orbit, and
+(iii) the fixed locus of the chiral reflection. The triangle closes on the
+framework constant d + 1 = 5, which appears at all three vertices
+simultaneously: as the charge sum on the observer's sigma-line, as the
+entropy (in bits) of the observer's orbit, and as twice the observer pair's
+N/4 sum. The paper states the triangle theorem, derives the three vertex
+identities, and gives the closure relation
+q_3(sigma=0) = H(O_2) = 2 * [N/4(W) + N/4(t)] = d + 1. All claims are
+HCSM-native and verified at machine precision.
+
+
+================================================================================
+CONTENTS
+================================================================================
+
+1. Introduction
+   1.1 Three structures on one multiplet
+   1.2 The one-line summary
+   1.3 Main result
+   1.4 Organization
+
+2. Setup: three structures on the fourteen-mode multiplet
+   2.1 The fourteen-mode multiplet
+   2.2 The charge structure
+   2.3 The entropy structure
+   2.4 The observer structure
+
+3. The triangle theorem
+   3.1 Statement
+   3.2 Proof
+
+4. Vertex identities
+   4.1 Charge vertex
+   4.2 Entropy vertex
+   4.3 Observer vertex
+
+5. The closure relation
+   5.1 The triangle closure
+   5.2 Why the closure works
+   5.3 Two independent closures
+
+6. Discussion
+   6.1 What the triangle is
+   6.2 Relation to the observer-pair uniqueness theorem
+   6.3 Relation to the dimensional-rigidity chain
+   6.4 Why sigma = 0
+   6.5 Why the orbit is O_2
+   6.6 Why the factor of 2
+
+7. Reproducibility
+8. Conclusion
+
+A. Web Crawler Metadata
+   A.1 Dublin Core
+   A.2 Schema.org JSON-LD
+   A.3 BibTeX for Automated Indexing
+
+
+================================================================================
+1. INTRODUCTION
+================================================================================
+
+1.1 Three structures on one multiplet
+--------------------------------------------------------------------------------
+
+The Hodge Complex Standard Model (HCSM) derives the gauge structure, matter
+content, particle spectrum, and mixing matrices of the Standard Model from a
+single discrete substrate: the periodic 8 x 8 torus Lambda = Z_8 x Z_8 [1].
+The fourteen modes at the self-paired eigenvalue lambda = 4 of the discrete
+Laplacian are identified with one Standard Model generation. On this
+multiplet, three independent structures act:
+
+  1. The charge structure (HCSM-24 [7]). The zero-state vector s assigns to
+     each mode a charge-line sign sigma = sign(s) in {-1, 0, +1}. The three
+     sigma-lines partition the fourteen modes into sizes (6, 2, 6) with
+     charge sums (0, +5, -8) in units of e/3.
+
+  2. The entropy structure (HCSM-04, HCSM-05 [2, 3]). The D4 point group of
+     the square decomposes the fourteen modes into three orbits O_0, O_1,
+     O_2 of sizes (2, 8, 4), with Shannon entropies (6.0, 5.5, 5.0) bits and
+     equal spacing 0.5 bits.
+
+  3. The observer structure (HCSM-26 [5]). The chiral reflection rs of D4
+     fixes exactly two modes on the fourteen-mode multiplet: the W boson and
+     the top quark. Their pair {W, t} is the observer pair.
+
+
+1.2 The one-line summary
+--------------------------------------------------------------------------------
+
+  Three structures -- charge, entropy, and observer -- organize the same
+  fourteen modes. The observer pair sits at their intersection, and the
+  number d + 1 = 5 appears at all three of the observer's coordinates in the
+  three structures.
+
+
+1.3 Main result
+--------------------------------------------------------------------------------
+
+The paper proves the following triangle theorem.
+
+Charge-Entropy-Observer Triangle Theorem (Section 3). The observer pair
+{W, t} is the unique two-element subset of the fourteen-mode multiplet that
+satisfies simultaneously:
+
+  (T1) it is a sigma-line of the charge theorem;
+  (T2) it is contained in a single D4 orbit;
+  (T3) it is the fixed locus of the chiral reflection rs.
+
+Moreover, the triangle closes on the constant d + 1, in the sense that three
+framework quantities evaluated at the observer's three coordinates coincide:
+
+    q_3(sigma = 0) = H(O_2) = 2 * [N/4(W) + N/4(t)] = d + 1 = 5.        (1)
+
+
+1.4 Organization
+--------------------------------------------------------------------------------
+
+Section 2 states the three structures. Section 3 proves the triangle theorem.
+Section 4 derives the three vertex identities. Section 5 derives the closure
+relation. Section 6 discusses the structural interpretation. Section 7 gives
+reproducibility notes. Section 8 concludes.
+
+
+================================================================================
+2. SETUP: THREE STRUCTURES ON THE FOURTEEN-MODE MULTIPLET
+================================================================================
+
+All statements in this section are HCSM-native; the reader is referred to
+HCSM-00 [1] for the full foundations.
+
+
+2.1 The fourteen-mode multiplet
+--------------------------------------------------------------------------------
+
+The substrate is the periodic eight-by-eight torus Lambda = Z_8 x Z_8 with
+N = 64 sites. The discrete five-point Laplacian has self-paired eigenvalue
+lambda = 4 with multiplicity 14. In the standard mode order,
+
+    (nu, e, u, d, s, mu, dark, c, tau, b, W, Z, H, t).                   (2)
+
+The mode coordinates in this order are:
+
+    nu:    (0,4),   e:  (4,0),   u:  (1,3),   d:  (1,5),
+    s:     (3,1),   mu: (3,7),   dark:(5,7),  c:  (7,3),
+    tau:   (7,5),   b:  (5,1),   W:  (2,2),   Z:  (2,6),
+    H:     (6,2),   t:  (6,6).                                           (3)
+
+
+2.2 The charge structure
+--------------------------------------------------------------------------------
+
+The charge theorem of HCSM-24 states that the electric charge q_3 = 3Q (in
+units of e/3) is a bijection
+
+    F : (n_1, sigma) |-> q_3,    n_1 in Z_8,    sigma = sign(s) in {-1,0,+1},  (4)
+
+from the fourteen realized pairs to the five Standard Model charge eigenvalues
+{-3, -1, 0, +2, +3}. The three sigma-lines are:
+
+    sigma = -1 : {nu, d, s, dark, c, Z},  charge sum 0,                  (5)
+    sigma =  0 : {W, t},                  charge sum +5,                 (6)
+    sigma = +1 : {e, mu, tau, b, H, u},   charge sum -8.                 (7)
+
+The grand total is -3 = -1e.
+
+
+2.3 The entropy structure
+--------------------------------------------------------------------------------
+
+Under the D4 point group of the square, the fourteen modes decompose into
+three orbits:
+
+    O_0 = {(0,4), (4,0)},                       size 2, support 64,
+    O_1 = {(1,3), (1,5), (3,1), (3,7),
+           (5,1), (5,7), (7,3), (7,5)},         size 8, support 48,       (8)
+    O_2 = {(2,2), (2,6), (6,2), (6,6)},         size 4, support 32.
+
+The support classes are {64, 48, 32} = {N, V, N/2} with V = (d - 1) * 2^d
+= 48. The Shannon entropies are
+
+    H(O_0) = 6.0 bits,   H(O_1) = 5.5 bits,   H(O_2) = 5.0 bits,         (9)
+
+with equal spacing 0.5 bits.
+
+In the standard mode order, the orbits are O_0 = {nu, e},
+O_1 = {u, d, s, mu, dark, c, tau, b}, O_2 = {W, Z, H, t}.
+
+
+2.4 The observer structure
+--------------------------------------------------------------------------------
+
+The chiral reflection rs : (n_1, n_2) |-> (n_2, n_1) (mod 8) is the unique
+element of D4 that both fixes exactly the pair {(2,2), (6,6)} and
+anticommutes with the winding generator H_wind [5]. Its fixed set on the
+fourteen-mode multiplet is the observer pair:
+
+    Fix(rs) = {(2,2), (6,6)} = {W, t}.                                  (10)
+
+The observer pair's N/4 labels are N/4(W) = 2 and N/4(t) = 1/2, with sum
+
+    N/4(W) + N/4(t) = 2 + 1/2 = 5/2 = (d + 1) / 2.                      (11)
+
+
+================================================================================
+3. THE TRIANGLE THEOREM
+================================================================================
+
+3.1 Statement
+--------------------------------------------------------------------------------
+
+Theorem 3.1 (Charge-Entropy-Observer Triangle). The observer pair {W, t} is
+the unique two-element subset of the fourteen-mode multiplet satisfying all
+three of:
+
+  (T1) it is a sigma-line of the charge theorem;
+  (T2) it is contained in a single D4 orbit;
+  (T3) it is the fixed locus of the chiral reflection rs.
+
+
+3.2 Proof
+--------------------------------------------------------------------------------
+
+Proof. Step 1: (T3) selects {W, t}. By the Fixed-Locus Theorem of HCSM-26
+(Section 3.1), the fixed set of rs on the fourteen-mode multiplet is exactly
+{(2,2), (6,6)} = {W, t}. So (T3) forces the set to be {W, t}.
+
+Step 2: (T1) is satisfied. By (6), the sigma-line at sigma = 0 is exactly
+{W, t}. So {W, t} satisfies (T1).
+
+Step 3: (T2) is satisfied. Both W and t lie in O_2 (orbit (8)), since
+W: (2,2), Z: (2,6), H: (6,2), t: (6,6) form the orbit
+O_2 = {(2,2), (2,6), (6,2), (6,6)}. So {W, t} is a subset of O_2, satisfying
+(T2).
+
+Step 4: uniqueness. We must show no other two-element subset satisfies all
+three conditions simultaneously.
+
+  - Condition (T3) is the strongest: it uniquely determines the set {W, t}
+    (Lemma 3.1 of HCSM-26).
+  - Therefore any subset satisfying all three must equal {W, t}.
+  - To confirm the conditions are compatible, we have verified (T1) and (T2)
+    above.
+
+Hence {W, t} is the unique subset satisfying (T1), (T2), and (T3).  [Box]
+
+Remark 3.2 (Independence of the conditions). Conditions (T1) and (T2) alone
+admit many candidates: any pair drawn from a single orbit and lying on a
+single sigma-line. The pair {W, t} is the unique one that is simultaneously a
+sigma-line (size-2), a subset of a single orbit, and the fixed locus of a
+chiral involution. Condition (T3) is what forces uniqueness; conditions (T1)
+and (T2) are what make the set a structurally distinguished vertex.
+
+
+================================================================================
+4. VERTEX IDENTITIES
+================================================================================
+
+We now evaluate three framework quantities at the observer's three
+coordinates (charge, entropy, observer).
+
+
+4.1 Charge vertex
+--------------------------------------------------------------------------------
+
+Proposition 4.1 (Charge vertex). The charge sum on the observer's sigma-line
+is
+
+    q_3(sigma = 0) := q_3(W) + q_3(t) = (+3) + (+2) = +5 = d + 1.       (12)
+
+Proof. From HCSM-24 (Section 10.1), the charge assignments are q_3(W) = +3
+and q_3(t) = +2. Sum: +5. At d = 4: d + 1 = 5.  [Box]
+
+
+4.2 Entropy vertex
+--------------------------------------------------------------------------------
+
+Proposition 4.2 (Entropy vertex). The Shannon entropy (in bits) of the orbit
+containing the observer pair is
+
+    H(O_2) = 5.0 bits = d + 1.                                          (13)
+
+Proof. From HCSM-04, the orbit O_2 has entropy class 5.0 bits, and the three
+orbit entropies are (6.0, 5.5, 5.0) bits with equal spacing. At d = 4:
+d + 1 = 5.  [Box]
+
+
+4.3 Observer vertex
+--------------------------------------------------------------------------------
+
+Proposition 4.3 (Observer vertex). Twice the observer pair's N/4 sum is
+
+    2 * [N/4(W) + N/4(t)] = 2 * (5/2) = 5 = d + 1.                      (14)
+
+Proof. From HCSM-23 and HCSM-26, N/4(W) = 2 and N/4(t) = 1/2. Sum: 5/2.
+Doubled: 5 = d + 1.  [Box]
+
+Remark 4.4 (The factor of 2). The factor of 2 in (14) is not arbitrary: it
+is the same factor that appears in the dimensional-rigidity chain of HCSM-26
+(Section 9), where the observer-pair separation N/4(W) - N/4(t) = (d - 1)/2
+doubles to d - 1 and the identity (d - 1)^2 = 2d + 1 closes at d = 4. The
+observer vertex natively carries the "half" value (d + 1)/2, and doubling
+recovers the framework constant d + 1 common to all three vertices.
+
+
+================================================================================
+5. THE CLOSURE RELATION
+================================================================================
+
+5.1 The triangle closure
+--------------------------------------------------------------------------------
+
+Combining Propositions 4.1, 4.2, and 4.3:
+
+Theorem 5.1 (Triangle closure). The three vertices of the
+charge-entropy-observer triangle coincide on the framework constant d + 1:
+
+    [ q_3(sigma = 0) = H(O_2) = 2 * [N/4(W) + N/4(t)] = d + 1 = 5 ].    (15)
+
+
+5.2 Why the closure works
+--------------------------------------------------------------------------------
+
+The three identities in (15) close on d + 1 = 5 because of the following
+structural facts:
+
+  - Charge vertex. The sigma-line at sigma = 0 consists of the pair {W, t},
+    whose Standard Model charges are +3 (W) and +2 (t). Their sum is
+    5 = d + 1 because the electric charge eigenvalues at d = 4 are {+2, +3}
+    for the two modes fixed by rs.
+
+  - Entropy vertex. The orbit O_2 has entropy class 5.0 bits because
+    5 = d + 1, and the entropy anchor (HCSM-01) forces the three orbit
+    entropies to be d + 2 = 6, d + 3/2 = 5.5, and d + 1 = 5.
+
+  - Observer vertex. The observer pair's N/4 sum is (d + 1)/2 = 5/2, and
+    doubling recovers d + 1.
+
+
+5.3 Two independent closures
+--------------------------------------------------------------------------------
+
+The closure in (15) can also be stated as two independent pairs of
+equalities:
+
+Charge-Entropy closure. The charge sum on the observer's sigma-line equals
+the entropy (in bits) of the observer's orbit:
+
+    q_3(sigma = 0) = H(O_2).                                            (16)
+
+Observer-Sum closure. Twice the observer pair's N/4 sum equals the common
+value:
+
+    2 * [N/4(W) + N/4(t)] = q_3(sigma = 0) = H(O_2).                    (17)
+
+Both closures are exact at machine precision. Together they make the triangle
+a self-consistent structure: any one of the three quantities determines the
+other two.
+
+
+================================================================================
+6. DISCUSSION
+================================================================================
+
+6.1 What the triangle is
+--------------------------------------------------------------------------------
+
+The charge-entropy-observer triangle is not a new partition of the
+fourteen-mode multiplet. It is a coincidence theorem: three structures that
+each partition the multiplet in a different way all agree on the observer
+pair, and all three of the observer's three "coordinates" -- its sigma-line,
+its orbit, its N/4 pair -- carry the same framework constant d + 1.
+
+
+6.2 Relation to the observer-pair uniqueness theorem
+--------------------------------------------------------------------------------
+
+The Observer-Pair Uniqueness Theorem of HCSM-26 (Section 7.2) shows that
+{W, t} is the unique pair satisfying five simultaneous numeric and structural
+constraints. The triangle theorem of the present paper is a different
+uniqueness statement: the pair is the unique two-element set that is
+simultaneously a sigma-line, an orbit-contained pair, and a chiral fixed
+locus. The two theorems are complementary.
+
+
+6.3 Relation to the dimensional-rigidity chain
+--------------------------------------------------------------------------------
+
+The observer-pair uniqueness file records a chain of three identities that
+all reduce to d^2 - 4d = 0:
+
+  - Observer-pair separation: d/2 - 2/d = (d - 1)/2;
+  - kL crossover: (d - 1)^2 = 2d + 1;
+  - Dark energy coefficient: (d + 1)/2 = |F| / |B|.
+
+The triangle closure (15) is the "counting" partner of this chain: where the
+rigidity chain exhibits d = 4 through three algebraic identities, the
+triangle exhibits d + 1 = 5 through three structural coincidences.
+
+
+6.4 Why sigma = 0
+--------------------------------------------------------------------------------
+
+The charge vertex sits at sigma = 0 because that is the unique sigma-line
+that is invariant under the chiral reflection rs. By the Fixed-Locus Theorem
+of HCSM-26, rs swaps the sigma = +/- 1 lines and fixes the sigma = 0 line
+pointwise. So the observer's charge coordinate is determined by its chiral
+structure -- it must be sigma = 0.
+
+
+6.5 Why the orbit is O_2
+--------------------------------------------------------------------------------
+
+The entropy vertex sits at O_2 because that is the unique orbit containing
+the fixed points of rs. Both W = (2,2) and t = (6,6) lie on the diagonal
+n_1 = n_2, so they must lie in O_2 = {(2,2), (2,6), (6,2), (6,6)}. The other
+orbits -- O_0 and O_1 -- contain no diagonal modes.
+
+
+6.6 Why the factor of 2
+--------------------------------------------------------------------------------
+
+The observer vertex carries the "half" value (d + 1)/2 because the observer
+pair is a two-element set: the N/4 sum of one mode is 2, of the other is
+1/2, and the sum 5/2 is exactly half the framework constant d + 1. Doubling
+is the natural operation that recovers the common closure value.
+
+
+================================================================================
+7. REPRODUCIBILITY
+================================================================================
+
+All numerical claims in this paper are verified at machine precision in
+IEEE-754 double precision. The verification script is provided in the HCSM
+companion repository at 12-VERIFICATION/HCSM-29_verification.py. It
+constructs the fourteen-mode multiplet, the sigma-lines, the D4 orbits, the
+observer pair, and the N/4 labels from HCSM-native definitions, and verifies:
+
+  1. The sigma-line sizes (6, 2, 6) and the charge sums (0, +5, -8).
+  2. The orbit sizes (2, 8, 4) and the Shannon entropies (6.0, 5.5, 5.0)
+     bits.
+  3. The fixed locus of rs equals {W, t}.
+  4. The observer pair is contained in O_2.
+  5. The three vertex identities (12), (13), (14).
+  6. The closure relation (15).
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim in the
+HCSM paper stack.
+
+
+================================================================================
+8. CONCLUSION
+================================================================================
+
+This paper has established the charge-entropy-observer triangle of the Hodge
+Complex Standard Model. The three vertices are the sigma-line structure
+(charge), the D4 orbit entropy structure, and the observer pair. The observer
+pair {W, t} is the unique two-element subset that is simultaneously a
+sigma-line, contained in a single orbit, and the fixed locus of the chiral
+reflection rs. The triangle closes on the framework constant d + 1 = 5,
+which appears at all three vertices: as the charge sum on the observer's
+sigma-line, as the entropy (in bits) of the observer's orbit, and as twice
+the observer pair's N/4 sum.
+
+The closure relation
+
+    q_3(sigma = 0) = H(O_2) = 2 * [N/4(W) + N/4(t)] = d + 1 = 5
+
+is a numerical identity of the HCSM substrate, verified at machine precision.
+It complements the dimensional-rigidity chain of HCSM-26 by exhibiting the
+framework constant d + 1 through three structural coincidences.
+
+
+================================================================================
+REFERENCES
+================================================================================
+
+[1] S. Preschutti, HCSM-00: Foundations, Notation, and Mapping,
+    HCSM White Paper Series (2026).
+
+[2] S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4,
+    HCSM White Paper Series (2026).
+
+[3] S. Preschutti, HCSM-05: Orbit Decomposition and Inverse Participation,
+    HCSM White Paper Series (2026).
+
+[4] S. Preschutti, HCSM-22: The Zero State,
+    HCSM White Paper Series (2026).
+
+[5] S. Preschutti, HCSM-23: The delta Function and N/4 Labels,
+    HCSM White Paper Series (2026).
+
+[6] S. Preschutti, HCSM-24: The Charge Theorem,
+    HCSM White Paper Series (2026).
+
+[7] S. Preschutti, HCSM-26: The Observer Pair {W, t},
+    HCSM White Paper Series (2026).
+
+[8] S. Preschutti, HCSM-27: Klein Orbit Structure,
+    HCSM White Paper Series (2026).
+
+[9] Particle Data Group (S. Navas et al.), Review of Particle Physics,
+    Phys. Rev. D 110, 030001 (2024).
+
+
+================================================================================
+A. WEB CRAWLER METADATA
+================================================================================
+
+
+A.1 Dublin Core
+--------------------------------------------------------------------------------
+
+DC.title: HCSM-29: The Charge-Entropy-Observer Triangle
+
+DC.creator: Preschutti, Stanley
+
+DC.creator.orcid: 0009-0004-5445-1744
+
+DC.date.issued: 2026-09
+
+DC.type: Text / Preprint / White Paper
+
+DC.format: application/pdf; text/x-latex
+
+DC.language: en
+
+DC.publisher: Entropia Research Institute
+
+DC.rights: All rights reserved
+
+DC.subject: Hodge Complex Standard Model; HCSM; charge-entropy-observer
+    triangle; sigma-lines; D4 orbit entropy; observer pair; framework
+    constant (d+1); closure relation; fixed locus
+
+DC.description: This paper establishes the charge-entropy-observer triangle
+    of the Hodge Complex Standard Model. The three vertices are the
+    sigma-line structure (charge), the D4 orbit entropy structure, and the
+    observer pair. The observer pair {W, t} is the unique two-element
+    subset that is simultaneously a sigma-line, contained in a single
+    orbit, and the fixed locus of the chiral reflection. The triangle
+    closes on the framework constant d + 1 = 5, which appears at all three
+    vertices: as the charge sum on the observer's sigma-line, as the
+    entropy (in bits) of the observer's orbit, and as twice the observer
+    pair's N/4 sum. The closure relation
+    q_3(sigma=0) = H(O_2) = 2 * [N/4(W) + N/4(t)] = d + 1 = 5
+    is verified at machine precision.
+
+DC.identifier: HCSM-29-2026-09
+
+
+A.2 Schema.org JSON-LD
+--------------------------------------------------------------------------------
+
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "HCSM-29: The Charge-Entropy-Observer Triangle",
+  "alternateName": "Three Vertices, Three Edges, One Closure",
+  "author": {
+    "@type": "Person",
+    "name": "Stanley Preschutti",
+    "identifier": "https://orcid.org/0009-0004-5445-1744",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Entropia Research Institute"
+    }
+  },
+  "datePublished": "2026-09",
+  "inLanguage": "en",
+  "abstract": "This paper establishes the charge-entropy-observer triangle
+    of the Hodge Complex Standard Model. The three vertices are the
+    sigma-line structure (charge), the D4 orbit entropy structure, and the
+    observer pair. The observer pair {W, t} is the unique two-element
+    subset that is simultaneously a sigma-line, contained in a single
+    orbit, and the fixed locus of the chiral reflection. The triangle
+    closes on the framework constant d + 1 = 5, which appears at all three
+    vertices: as the charge sum on the observer's sigma-line, as the
+    entropy (in bits) of the observer's orbit, and as twice the observer
+    pair's N/4 sum.",
+  "keywords": [
+    "Hodge Complex Standard Model",
+    "HCSM",
+    "charge-entropy-observer triangle",
+    "sigma-lines",
+    "D4 orbit entropy",
+    "observer pair",
+    "framework constant (d+1)",
+    "closure relation",
+    "fixed locus"
+  ],
+  "license": "All rights reserved",
+  "identifier": "HCSM-29-2026-09",
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "HCSM White Paper Series"
+  }
+}
+
+
+A.3 BibTeX for Automated Indexing
+--------------------------------------------------------------------------------
+
+@article{PreschuttiHCSM29,
+  author  = {Preschutti, Stanley},
+  title   = {{HCSM-29}: The Charge-Entropy-Observer Triangle},
+  journal = {HCSM White Paper Series},
+  year    = {2026},
+  month   = {September},
+  note    = {ORCID: 0009-0004-5445-1744},
+  keywords = {Hodge Complex Standard Model, HCSM,
+              charge-entropy-observer triangle, sigma-lines,
+              D4 orbit entropy, observer pair,
+              framework constant (d+1), closure relation,
+              fixed locus},
+  abstract = {This paper establishes the charge-entropy-observer triangle
+              of the Hodge Complex Standard Model. The observer pair
+              {W, t} is the unique two-element subset that is
+              simultaneously a sigma-line, contained in a single orbit,
+              and the fixed locus of the chiral reflection. The triangle
+              closes on the framework constant d + 1 = 5.}
+}
+
+
+================================================================================
+END OF DOCUMENT
+================================================================================
