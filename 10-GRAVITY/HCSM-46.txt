@@ -1,0 +1,584 @@
+================================================================================
+HCSM-46
+Graviton Exact Masslessness
+The Hodge Complex Standard Model
+================================================================================
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstannp@yahoo.com
+
+September 2026
+
+
+--------------------------------------------------------------------------------
+ABSTRACT
+--------------------------------------------------------------------------------
+
+The Hodge Complex Standard Model identifies the graviton as the self-paired
+B_1 + B_2 curvature mode of the symmetric tensor square Sym^2(Omega^1|lambda=4)
+on the periodic 8 x 8 torus (HCSM-45). This paper proves that the graviton is
+exactly massless at all orders, with no finite-N, one-loop, or non-perturbative
+correction. The proof is a Schur-orthogonality argument: any mass operator on
+the lambda = 4 sector that couples through the trace epsilon T_mu^mu (with
+epsilon = D - 4 a Lorentz scalar) transforms in the A_1 isotypic
+representation of D_4, while the graviton transforms in B_1 + B_2; the two
+irreps are distinct, so the mass matrix element vanishes identically. This is
+the discrete analogue of the continuum statement that diffeomorphism
+invariance forbids a graviton mass. The paper also retracts two results from
+the earlier WIN Gravity Theorem: the finite-N graviton mass estimate (an
+imported effective-field-theory ansatz, whose own arithmetic also exceeds the
+LIGO bound by 13 orders of magnitude) and the Kaluza-Klein interpretation of
+the first excited graviton level at 1.52 TeV (a category error, since the
+lattice is not a compactified spatial dimension). All numerical claims are
+verified at machine precision.
+
+
+--------------------------------------------------------------------------------
+CONTENTS
+--------------------------------------------------------------------------------
+
+1. Introduction
+2. Setup
+3. Structure of the mass operator
+4. Exact masslessness of the graviton
+5. Retractions from the WIN Gravity Theorem
+6. Consequences for gravitational phenomenology
+7. Inputs and derived
+8. Reproducibility
+9. Conclusion
+Appendix A. Web Crawler Metadata
+
+
+--------------------------------------------------------------------------------
+1. INTRODUCTION
+--------------------------------------------------------------------------------
+
+1.1 The graviton mass question
+
+The Hodge Complex Standard Model (HCSM) identifies the graviton as the
+self-paired B_1 + B_2 curvature mode of the symmetric tensor square
+Sym^2(Omega^1|lambda=4) on the periodic 8 x 8 torus (HCSM-45). The graviton
+sector has dimension 108 and decomposes as 54 B_1 + 54 B_2; its polarization
+space is V = B_1 + B_2, of dimension 2.
+
+The question addressed by this paper is whether the graviton is exactly
+massless, or whether it acquires a mass from the substrate's dynamics. In
+continuum general relativity, the graviton mass is forbidden by
+diffeomorphism invariance. In the HCSM substrate, the analogue of
+diffeomorphism invariance is the D_4 point-group symmetry of the lattice;
+the question is whether this symmetry forbids a graviton mass exactly.
+
+The answer is yes. The proof is a Schur-orthogonality argument on the D_4
+isotypic decomposition: any mass operator on the lambda = 4 sector that
+couples through the trace epsilon T_mu^mu transforms as A_1, while the
+graviton transforms as B_1 + B_2; the mass matrix element vanishes
+identically.
+
+
+1.2 The one-line summary
+
+The graviton is exactly massless at all orders because its D_4 isotypic sector
+B_1 + B_2 is orthogonal to the A_1 sector that hosts any trace-coupled mass
+operator. No perturbative or non-perturbative correction generates a graviton
+mass.
+
+
+1.3 Main results
+
+  - Structure of the mass operator (Section 3). Any mass operator on the
+    lambda = 4 sector that couples through the trace epsilon T_mu^mu
+    transforms in the A_1 isotypic representation of D_4.
+
+  - Exact masslessness (Theorem 4.1). The graviton is exactly massless:
+    m_graviton = 0 at all orders.
+
+  - Absence of finite-N corrections (Section 4.2). No finite-N correction to
+    the graviton mass exists in the current HCSM architecture. The SYK/QIN
+    layer that motivated such a correction was removed in HCSM-00 Section 9.
+
+  - Retraction of the WIN-era estimates (Section 5). The finite-N graviton
+    mass estimate and the Kaluza-Klein resonance interpretation of the WIN
+    Gravity Theorem are retracted as non-HCSM-native.
+
+  - Falsifiable predictions (Section 6). Exact masslessness, no fifth force,
+    no scalar graviton, no Kaluza-Klein tower.
+
+
+1.4 Cross references
+
+The paper depends on the following HCSM companions:
+
+  - HCSM-00: foundations, notation, mapping; Section 9 retired layers.
+  - HCSM-02: the Hodge complex on Lambda; the lambda = 4 isotypic
+    decomposition.
+  - HCSM-05: orbit decomposition; the D_4 character table.
+  - HCSM-06: sector-coarse correspondence; the D_4 tensor-product rules.
+  - HCSM-45: graviton as self-paired curvature mode; the 54 B_1 + 54 B_2
+    sector.
+  - HCSM-47: graviton self-coupling from D_4 (downstream).
+  - HCSM-48: Faddeev-Popov G_N normalization (downstream).
+  - HCSM-49: Newton constant 8 pi factor (downstream).
+  - HCSM-50: composite-operator effective action (downstream).
+
+
+1.5 Organization
+
+Section 2 states the setup: the graviton sector and the D_4 isotypic
+decomposition. Section 3 proves the structure of the mass operator. Section 4
+proves the Graviton Exact Masslessness Theorem and excludes finite-N
+corrections. Section 5 retracts the two WIN-era estimates. Section 6 states
+consequences for gravitational phenomenology. Section 7 catalogs inputs and
+derived. Section 8 gives reproducibility notes. Section 9 concludes.
+
+
+--------------------------------------------------------------------------------
+2. SETUP
+--------------------------------------------------------------------------------
+
+2.1 The graviton sector
+
+By HCSM-45, the graviton is the symmetrized self-paired bilinear
+h = omega tensor omega in the substrate 1-form omega in Omega^1, restricted to
+the lambda = 4 sector and projected onto the B_1 + B_2 isotypic piece of the
+symmetric tensor square Sym^2(Omega^1|lambda=4). The symmetric square
+decomposes as
+
+    Sym^2(Omega^1|lambda=4) = 60 A_1 + 46 A_2 + 54 B_1 + 54 B_2 + 96 E,
+
+of total dimension 406. The graviton sector is
+
+    V_grav = 54 B_1 + 54 B_2,    dim V_grav = 108.
+
+Its polarization space is V = B_1 + B_2, of dimension 2, with D_4 character
+(2, 2, -2, 0, 0) on the five conjugacy classes.
+
+
+2.2 The D_4 character table and irreps
+
+The D_4 point group has five irreps: two 1-dimensional real irreps A_1, A_2;
+two 1-dimensional real irreps B_1, B_2; and one 2-dimensional real irrep E.
+The character table on conjugacy classes {e}, {r^2}, {r,r^3}, {s,r^2 s},
+{rs,r^3 s} with class sizes (1, 1, 2, 2, 2):
+
+    irrep | e   r^2   r    s    rs
+    ------+----------------------
+    A_1   | 1    1    1    1     1
+    A_2   | 1    1    1   -1    -1
+    B_1   | 1    1   -1    1    -1
+    B_2   | 1    1   -1   -1     1
+    E     | 2   -2    0    0     0
+
+The five irreps are pairwise non-isomorphic. In particular, A_1 and
+B_1 + B_2 are distinct.
+
+
+2.3 The isotypic decomposition of the lambda = 4 sector
+
+The full 56-dimensional Hodge sector at lambda = 4 carries the D_4 content
+
+    Omega^0|lambda=4 + Omega^1|lambda=4 + Omega^2|lambda=4
+        = 9 A_1 + 5 A_2 + 7 B_1 + 7 B_2 + 14 E
+
+(HCSM-02, HCSM-05). Any D_4-invariant operator on this space decomposes
+block-diagonally with respect to the isotypic decomposition; by Schur's
+lemma, it cannot mix distinct isotypic sectors.
+
+
+--------------------------------------------------------------------------------
+3. STRUCTURE OF THE MASS OPERATOR
+--------------------------------------------------------------------------------
+
+3.1 The trace coupling
+
+Proposition 3.1 (Mass operator structure). Any mass operator on the
+lambda = 4 sector that couples through the trace epsilon T_mu^mu (with
+epsilon = D - 4 a Lorentz scalar and T_mu^mu the trace of the stress-energy
+tensor) transforms in the A_1 isotypic representation of D_4.
+
+Proof. The Lorentz scalar epsilon = D - 4 is invariant under D_4; it
+transforms in the trivial representation A_1. The trace T_mu^mu of the
+stress-energy tensor is also a Lorentz scalar and therefore also invariant
+under D_4; it transforms in A_1. Their product epsilon T_mu^mu transforms as
+the tensor product A_1 tensor A_1 = A_1.
+
+For a metric perturbation h_mu nu around the flat torus, the trace h_mu^mu
+is the Lorentz-scalar part of h_mu nu; it transforms in A_1 (see, e.g., the
+standard decomposition of a symmetric 2-tensor into trace,
+traceless-symmetric, and antisymmetric parts). Any mass term that couples the
+metric perturbation to the trace epsilon T_mu^mu is therefore of the form
+
+    m^2 (h_mu^mu)^2 + ...,
+
+where all terms in the ellipsis transform in A_1 by the same argument.
+
+Hence the mass operator M lies in the A_1 isotypic sector of
+Sym^2(Omega^1|lambda=4). []
+
+Remark 3.2. The statement is structural: it does not depend on which specific
+microscopic mechanism generates the coupling epsilon T_mu^mu. As long as the
+coupling is a Lorentz scalar times the trace of the stress-energy tensor, the
+mass operator transforms in A_1.
+
+
+3.2 The graviton sector
+
+Proposition 3.3 (Graviton sector). The graviton sector is
+V_grav = 54 B_1 + 54 B_2, which lies entirely in the B_1 + B_2 isotypic
+sector of Sym^2(Omega^1|lambda=4).
+
+Proof. Direct from HCSM-45 Theorem 3.4 and Corollary 4.2: the B_1 and B_2
+multiplicities in Sym^2(Omega^1|lambda=4) are both 54. []
+
+
+--------------------------------------------------------------------------------
+4. EXACT MASSLESSNESS OF THE GRAVITON
+--------------------------------------------------------------------------------
+
+4.1 Schur orthogonality
+
+Theorem 4.1 (Graviton Exact Masslessness). The graviton is exactly massless
+at all orders in perturbation theory and at all orders in 1/N:
+
+    m_graviton = 0.
+
+Proof. By Proposition 3.1, the mass operator M lies in the A_1 isotypic
+sector of D_4. By Proposition 3.3, the graviton lies in the B_1 + B_2
+isotypic sector. The irreps A_1 and B_1, B_2 are distinct irreducible
+representations of D_4 (Section 2.2).
+
+By Schur's lemma, any D_4-invariant operator is block-diagonal with respect to
+the isotypic decomposition. Hence
+
+    <A_1, B_1 + B_2>_{D_4} = 0.
+
+The mass operator therefore annihilates every mode in B_1 + B_2, and the
+graviton mass vanishes.
+
+The argument is exact: it does not rely on smallness of any coupling, on a
+perturbative expansion, or on a finite-N suppression. Since the D_4 symmetry
+is an exact symmetry of the discrete torus, the Schur orthogonality is exact
+at all orders. []
+
+Remark 4.2 (Discrete analogue of diffeomorphism invariance). In continuum
+general relativity, the graviton mass is forbidden by diffeomorphism
+invariance, in the same way the photon mass is forbidden by gauge invariance.
+On the discrete torus, the analogue of diffeomorphism invariance is the D_4
+symmetry, which is an exact symmetry of the lattice. Schur orthogonality of
+the A_1 and B_1 + B_2 sectors is the discrete counterpart of the statement
+that a mass term m^2 h_mu nu h^mu nu is forbidden by diffeomorphism
+invariance.
+
+
+4.2 Absence of finite-N corrections
+
+Proposition 4.3 (No finite-N correction). No finite-N correction to the
+graviton mass exists in the current HCSM architecture.
+
+Proof. The earlier WIN-era Gravity Theorem proposed a finite-N correction
+based on the SYK kernel. The SYK/QIN layer was removed from the HCSM
+architecture in HCSM-00 Section 9: direct computation of the infrared
+structure of the Omega^1 fermionic sector establishes that site-local
+D_4-invariant quartic interactions do not flow to SYK, because momentum
+conservation at each vertex prevents melonic routing. The correct infrared
+description of Omega^1 is a (2+1)-dimensional local fermionic theory, not SYK.
+
+There is no SYK kernel in the HCSM architecture. Any correction based on the
+SYK kernel is therefore not defined within HCSM. The remaining interactions
+(the D_4-invariant quartic phi^4 / omega^4 terms of HCSM-18 and the
+Omega^1 / Omega^0 / Omega^2 interactions) are D_4-invariant; by the same
+Schur orthogonality argument as Theorem 4.1, none of them can generate a mass
+term in A_1 tensor (B_1 + B_2) = (A_1 tensor B_1) + (A_1 tensor B_2)
+= B_1 + B_2, which is not equal to A_1. []
+
+Remark 4.4 (No generic quantum correction). In a generic effective field
+theory, quantum corrections generate masses of order the cutoff, suppressed by
+powers of the cutoff scale. The HCSM framework is not a generic EFT: it is a
+finite theory on a finite lattice with an exact D_4 symmetry. There is no
+continuum limit to take, no UV divergences to cancel, and no anomalous
+dimensions to run. The symmetry is exact, and it protects the graviton mass
+exactly.
+
+
+--------------------------------------------------------------------------------
+5. RETRACTIONS FROM THE WIN GRAVITY THEOREM
+--------------------------------------------------------------------------------
+
+5.1 Retraction of the finite-N graviton mass estimate
+
+The WIN-era Gravity Theorem proposed a finite-N correction of the form
+
+    m_graviton^2 <~ delta_edge^2 M_P^2 exp(-2 kL) ~ 10^{-74} M_P^2.
+
+This estimate is retracted for three independent reasons:
+
+(1) Arithmetic error. With delta_edge = 0.012143 and exp(-2 kL) = 4.067e-34,
+the formula gives
+
+    delta_edge^2 * exp(-2 kL) = 6.0e-38,
+
+not 1e-74. The paper's stated value disagrees with its own formula by a factor
+of 10^36.
+
+(2) Observational exclusion. Even at face value, the claimed 1e-74 M_P^2
+corresponds to m_graviton ~ 1e-9 eV, which exceeds the LIGO/Virgo bound
+m_graviton < 1.2e-22 eV by 13 orders of magnitude.
+
+(3) Structural error. The formula is a scalar ansatz: it would give mass to
+every D_4 irrep equally, including the A_1 trace mode, which is the mass
+sector itself. This contradicts the block-diagonal structure of D_4-invariant
+operators (Schur's lemma).
+
+The estimate is replaced by Theorem 4.1.
+
+
+5.2 Retraction of the Kaluza-Klein resonance interpretation
+
+The WIN-era Gravity Theorem interpreted the first excited graviton level
+E_sum = 1.1716 (in lattice units) as a Kaluza-Klein resonance at 1.52 TeV.
+This interpretation is retracted.
+
+Proposition 5.1 (No Kaluza-Klein interpretation). The Kaluza-Klein
+interpretation of the WIN Gravity Theorem is a category error: it imports the
+assumption that the lattice is a compactified spatial dimension, which
+contradicts the framework's central result dim ker D = 4.
+
+Proof. The Kaluza-Klein interpretation assumes a compactified spatial
+dimension of size R and identifies the excited levels with momenta n/R. In
+HCSM, the lattice Lambda = Z_8 x Z_8 is not a compactified spatial dimension:
+it is the pre-geometric substrate from which spacetime emerges (HCSM-03). The
+four-dimensional structure of spacetime is ker D, of dimension 4 (HCSM-02
+Proposition 2.1). If the lattice were itself a spatial dimension, spacetime
+would be five-dimensional rather than emergent, contradicting HCSM-02. []
+
+Remark 5.2 (The 1.52 TeV number). Independent of the category error, the
+arithmetic of the WIN-era paper does not close. The naive conversion of
+E_sum = 1.1716 from lattice to physical units gives
+
+    E_phys = 1.1716 * (M_P_phys / M_P_lattice) ~ 5.5e13 TeV,
+
+not 1.52 TeV. Reproducing 1.52 TeV requires a warp suppression exp(-alpha kL)
+with alpha = 0.812, which is not a natural exponent. The 1.52 TeV number does
+not emerge from any HCSM-native conversion.
+
+
+--------------------------------------------------------------------------------
+6. CONSEQUENCES FOR GRAVITATIONAL PHENOMENOLOGY
+--------------------------------------------------------------------------------
+
+The HCSM framework's gravitational predictions are now:
+
+  - Exactly massless graviton: m_graviton = 0 (Theorem 4.1).
+  - Standard GR at sub-Planckian scales.
+  - No fifth force, no scalar graviton.
+  - No Kaluza-Klein tower.
+
+The absence of a KK tower is a sharp prediction: any detection of a discrete
+graviton excitation spectrum at accessible energies would falsify the
+framework.
+
+
+--------------------------------------------------------------------------------
+7. INPUTS AND DERIVED
+--------------------------------------------------------------------------------
+
+7.1 Derived
+
+  1. The mass operator structure: any trace-coupled mass operator transforms
+     in A_1 (Proposition 3.1).
+  2. The graviton sector: V_grav = 54 B_1 + 54 B_2 lies in B_1 + B_2
+     (Proposition 3.3).
+  3. Exact masslessness: m_graviton = 0 at all orders (Theorem 4.1).
+  4. Absence of finite-N corrections (Proposition 4.3).
+  5. Retraction of the finite-N estimate and the KK interpretation.
+
+
+7.2 Inputs
+
+  1. The graviton sector V_grav = 54 B_1 + 54 B_2 (HCSM-45).
+  2. The D_4 character table and irreps A_1, A_2, B_1, B_2, E (HCSM-05,
+     HCSM-06).
+  3. The HCSM-00 Section 9 retirement of the SYK/QIN layer.
+  4. Schur's lemma and standard tensor decomposition of a symmetric 2-tensor
+     into trace, traceless-symmetric, and antisymmetric parts (universal
+     mathematics).
+
+
+7.3 What is not claimed
+
+We do not claim to derive the full nonlinear Einstein equations (subject of
+HCSM-50). We do not claim to derive the 8 pi factor in the Newton constant
+(subject of HCSM-49). We do not claim to derive the graviton self-coupling
+structure (subject of HCSM-47) or the Faddeev-Popov normalization (subject
+of HCSM-48). This paper establishes only the exact masslessness of the
+graviton.
+
+
+--------------------------------------------------------------------------------
+8. REPRODUCIBILITY
+--------------------------------------------------------------------------------
+
+All numerical claims are verified at machine precision in IEEE-754 double
+precision. The verification script is provided in the HCSM companion
+repository at 12-VERIFICATION/HCSM-46_verification.py. It verifies:
+
+  1. The D_4 character table.
+  2. The orthogonality <A_1, B_1 + B_2>_{D_4} = 0 by direct character inner
+     product computation.
+  3. The graviton polarization character (2, 2, -2, 0, 0).
+  4. The absence of any D_4-invariant coupling between A_1 and B_1 + B_2
+     isotypic sectors.
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim in the
+HCSM paper stack.
+
+
+--------------------------------------------------------------------------------
+9. CONCLUSION
+--------------------------------------------------------------------------------
+
+This paper has established the exact masslessness of the graviton in the
+Hodge Complex Standard Model.
+
+The graviton is the self-paired B_1 + B_2 curvature mode of the symmetric
+tensor square Sym^2(Omega^1|lambda=4), with 54 B_1 + 54 B_2 = 108 modes. Any
+trace-coupled mass operator on the lambda = 4 sector transforms in the A_1
+isotypic representation of D_4. Since A_1 and B_1 + B_2 are distinct irreps
+of D_4, Schur orthogonality gives m_graviton = 0 at all orders. The
+masslessness is exact, not approximate: it holds at all orders in perturbation
+theory and at all orders in 1/N, with no finite-N, one-loop, or
+non-perturbative correction.
+
+The masslessness is the discrete analogue of the continuum statement that
+diffeomorphism invariance forbids a graviton mass. The exactness of the D_4
+symmetry (unlike the approximate symmetry of an effective field theory) makes
+the masslessness exact.
+
+Two results of the earlier WIN-era Gravity Theorem are retracted. The
+finite-N graviton mass estimate was an imported effective-field-theory
+ansatz, and its own arithmetic also disagrees with the LIGO bound by 13 orders
+of magnitude. The Kaluza-Klein resonance interpretation of the first excited
+graviton level imported the assumption that the lattice is a compactified
+spatial dimension, which contradicts the framework's central result
+dim ker D = 4.
+
+The corrected framework predicts an exactly massless graviton, no fifth force,
+no scalar graviton, and no Kaluza-Klein tower, all consistent with
+observation.
+
+
+--------------------------------------------------------------------------------
+REFERENCES
+--------------------------------------------------------------------------------
+
+[HCSM-00]  S. Preschutti, HCSM-00: Foundations, Notation, and Mapping,
+           HCSM White Paper Series (2026).
+[HCSM-02]  S. Preschutti, HCSM-02: The Hodge Complex on Lambda,
+           HCSM White Paper Series (2026).
+[HCSM-03]  S. Preschutti, HCSM-03: Lorentzian Signature from the Hodge Star,
+           HCSM White Paper Series (2026).
+[HCSM-05]  S. Preschutti, HCSM-05: Orbit Decomposition and Inverse
+           Participation, HCSM White Paper Series (2026).
+[HCSM-06]  S. Preschutti, HCSM-06: Sector-Coarse Correspondence,
+           HCSM White Paper Series (2026).
+[HCSM-18]  S. Preschutti, HCSM-18: The Dynamical Bridge: The Discrete
+           Nonlinear Schrodinger Equation on the 8 x 8 Torus,
+           HCSM White Paper Series (2026).
+[HCSM-45]  S. Preschutti, HCSM-45: Graviton as Self-Paired Curvature Mode,
+           HCSM White Paper Series (2026).
+[HCSM-47]  S. Preschutti, HCSM-47: Graviton Self-Coupling from D_4,
+           HCSM White Paper Series (2026).
+[HCSM-48]  S. Preschutti, HCSM-48: Faddeev-Popov G_N Normalization,
+           HCSM White Paper Series (2026).
+[HCSM-49]  S. Preschutti, HCSM-49: Newton Constant 8 pi Factor,
+           HCSM White Paper Series (2026).
+[HCSM-50]  S. Preschutti, HCSM-50: Composite-Operator Effective Action,
+           HCSM White Paper Series (2026).
+[LIGO]     B. P. Abbott et al. (LIGO Scientific and Virgo Collaborations),
+           Tests of general relativity with GW150914,
+           Phys. Rev. Lett. 116, 221101 (2016).
+[Schur]    I. Schur, Neue Begruendung der Theorie der Gruppencharaktere,
+           Sitzungsberichte der Koeniglich Preussischen Akademie der
+           Wissenschaften (1905), 406-432.
+
+
+--------------------------------------------------------------------------------
+APPENDIX A. WEB CRAWLER METADATA
+--------------------------------------------------------------------------------
+
+A.1 Dublin Core
+
+DC.title: HCSM-46: Graviton Exact Masslessness
+DC.creator: Preschutti, Stanley
+DC.creator.orcid: 0009-0004-5445-1744
+DC.date.issued: 2026-09
+DC.type: Text / Preprint / White Paper
+DC.format: application/pdf; text/x-latex
+DC.language: en
+DC.publisher: Entropia Research Institute
+DC.rights: All rights reserved
+DC.subject: Hodge Complex Standard Model; HCSM; graviton; exact
+            masslessness; Schur orthogonality; D_4 representation theory;
+            A_1 sector; B_1 + B_2 sector; diffeomorphism invariance analogue;
+            8x8 torus
+DC.description: The Hodge Complex Standard Model identifies the graviton as
+                the self-paired B_1 + B_2 curvature mode of
+                Sym^2(Omega^1|lambda=4) (HCSM-45). This paper proves that the
+                graviton is exactly massless at all orders. Any trace-coupled
+                mass operator on the lambda = 4 sector transforms in A_1;
+                the graviton transforms in B_1 + B_2; Schur orthogonality
+                gives m_graviton = 0 at all orders. Two WIN-era estimates are
+                retracted: the finite-N graviton mass estimate and the
+                Kaluza-Klein interpretation of the first excited graviton
+                level.
+DC.identifier: HCSM-46-2026-09
+
+
+A.2 Schema.org JSON-LD
+
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "HCSM-46: Graviton Exact Masslessness",
+  "author": {
+    "@type": "Person",
+    "name": "Stanley Preschutti",
+    "identifier": "https://orcid.org/0009-0004-5445-1744",
+    "affiliation": {"@type": "Organization", "name": "Entropia Research Institute"}
+  },
+  "datePublished": "2026-09",
+  "inLanguage": "en",
+  "abstract": "The Hodge Complex Standard Model identifies the graviton as the self-paired B_1 + B_2 curvature mode of Sym^2(Omega^1|lambda=4). This paper proves that the graviton is exactly massless at all orders. Any trace-coupled mass operator transforms in A_1; the graviton transforms in B_1 + B_2; Schur orthogonality gives m_graviton = 0. Two WIN-era estimates are retracted.",
+  "keywords": ["Hodge Complex Standard Model", "HCSM", "graviton",
+    "exact masslessness", "Schur orthogonality", "D4 representation theory",
+    "8x8 torus"],
+  "license": "All rights reserved",
+  "identifier": "HCSM-46-2026-09",
+  "isPartOf": {"@type": "Periodical", "name": "HCSM White Paper Series"}
+}
+
+
+A.3 BibTeX
+
+@article{PreschuttiHCSM46,
+  author  = {Preschutti, Stanley},
+  title   = {{HCSM-46}: Graviton Exact Masslessness},
+  journal = {HCSM White Paper Series},
+  year    = {2026},
+  month   = {September},
+  note    = {ORCID: 0009-0004-5445-1744},
+  keywords= {Hodge Complex Standard Model, HCSM, graviton, exact masslessness,
+             Schur orthogonality, D4 representation theory, 8x8 torus},
+  abstract= {The Hodge Complex Standard Model identifies the graviton as the
+             self-paired B_1 + B_2 curvature mode of Sym^2(Omega^1|lambda=4).
+             This paper proves that the graviton is exactly massless at all
+             orders. Any trace-coupled mass operator transforms in A_1; the
+             graviton transforms in B_1 + B_2; Schur orthogonality gives
+             m_graviton = 0. Two WIN-era estimates are retracted.}
+}
+
+
+================================================================================
+END OF HCSM-46
+================================================================================
