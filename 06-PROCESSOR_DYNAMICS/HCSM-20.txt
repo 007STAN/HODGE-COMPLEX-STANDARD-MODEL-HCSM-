@@ -1,0 +1,1008 @@
+================================================================================
+HCSM-20
+The Motion Theorem
+The Five-Layer Loop, the Winding Generator, and the
+Exact Loop-Eigenvalue Ratio |M_A|/|M_B| = 3
+The Hodge Complex Standard Model
+================================================================================
+
+Stanley Preschutti(1)
+
+(1) Entropia Research Institute / Information Physics Institute,
+    ORCID: 0009-0004-5445-1744, scstannp@yahoo.com
+
+September 2026
+
+
+================================================================================
+ABSTRACT
+================================================================================
+
+We derive the motion of particles in the Hodge Complex Standard Model (HCSM)
+from the substrate Lambda = Z_8 x Z_8. Motion is the composition of five
+layers of the substrate,
+
+    FDLM/WIN -> DME -> Core -> EFT -> Processor T,
+
+each with a well-defined state space and a unique operator determined by its
+physics. We prove four analytical results. (i) The winding generator
+H_wind = i sin(phi), with phi = (pi/8) M and M = n_1 n_2^T - n_2 n_1^T the
+unique rank-2 antisymmetric bilinear of the mode coordinates, has the
+characteristic polynomial
+
+    p(lambda) = lambda^10 (lambda^2 - 8) (lambda^2 - 32),
+
+with spectrum {+/- 4 sqrt(2), +/- 2 sqrt(2), 0^(10)} derived from Newton's
+identities on tr(H_wind^2) = 80 and tr(H_wind^4) = 2176. (ii) The
+standing-wave amplitudes 28/9, 7/18, 21/16 for the three D4 orbits are
+derived from the exact complex Fourier coefficients
+B_j(omega) in Q(sqrt(2)) over the finite torus. (iii) The five-layer loop
+operator is diagonal in the mode basis with closed-form eigenvalue
+magnitudes
+
+    |M_A| = |w+1| / (2 delta_edge) * exp(-(zeta H / rho) T_beat / 2),
+    |M_B| = |w+1| / (6 delta_edge) * exp(-(zeta H / rho) T_beat / 2),
+
+so that the ratio is exactly |M_A|/|M_B| = 3 = d - 1. (iv) The processor
+T = P_mesh + P_tau is the unique rank-10 orthogonal projection producing
+the Standard Model fermion/boson split, with charge bookkeeping
+sum over image(T) of Q_j = -2, sum over kernel(T) of Q_j = +1, and total
+-1. We state the HCSM Motion Theorem, give the level-by-level derivation,
+and identify what is derived, what is disclosed, and what is open. All
+numerical claims are verified in reproducible Python at machine precision.
+
+Derivation status summary:
+
+  DERIVED (substrate-level, no physical identifications):
+    - The winding generator and its spectrum.
+    - Trace identities tr(H_wind^2) = 80, tr(H_wind^4) = 2176.
+    - Characteristic polynomial lambda^10 (lambda^2 - 8) (lambda^2 - 32).
+    - The three D4 orbits and support classes {64, 48, 32}.
+    - Standing-wave amplitudes 28/9, 7/18, 21/16.
+    - Fourier coefficients B_j(omega) in Q(sqrt(2)).
+    - The processor T = P_mesh + P_tau.
+    - Exact ratio |M_A|/|M_B| = 3.
+    - Charge bookkeeping.
+
+  DISCLOSED INPUTS:
+    - (A) The DME stability coefficient gamma = c_2/I(2) and time
+      quantum T_DME = 1/(2 gamma) from HCSM-54.
+    - (B) The EFT equation of state w, bulk viscosity zeta H / rho, and
+      Proca mass m_s from HCSM-56.
+    - (C) The physical normalization M_P^2 = N k_L^2 lambda_L^2 from
+      HCSM-48.
+
+  OPEN:
+    - The loop pass duration selection (T_DME vs T_beat).
+    - The full nonlinear Einstein equations from the composite-operator
+      effective action (HCSM-50).
+
+
+================================================================================
+CONTENTS
+================================================================================
+
+1. Introduction
+   1.1 The motion problem
+   1.2 Summary of results
+   1.3 Derivation status
+   1.4 Organization
+2. Setup: the substrate and the 14-mode multiplet
+   2.1 The substrate
+   2.2 The two coordinate vectors
+3. The winding generator and its spectrum
+   3.1 Definition and basic properties
+   3.2 Trace identities
+   3.3 Characteristic polynomial
+   3.4 The three frequency classes
+4. Standing-wave amplitudes
+   4.1 The position operator on K_14
+   4.2 Fourier expansion of the trajectory
+   4.3 The amplitudes
+5. Uniqueness of the generator
+6. The five-layer loop
+   6.1 The five layers
+   6.2 The loop operator
+   6.3 The per-layer eigenvalues
+   6.4 Closed-form eigenvalue magnitudes
+7. The exact ratio |M_A|/|M_B| = 3
+8. The processor T and charge bookkeeping
+   8.1 Definition of the processor
+   8.2 Properties
+   8.3 Charge bookkeeping
+9. The HCSM Motion Theorem
+10. Status, disclosed inputs, and open items
+    10.1 Derived
+    10.2 Disclosed inputs
+    10.3 Open
+11. Falsifiable predictions
+12. Conclusion
+A. Reproducible verification
+B. Web Crawler Metadata
+   B.1 Dublin Core
+   B.2 Schema.org JSON-LD
+   B.3 BibTeX for Automated Indexing
+
+
+================================================================================
+1. INTRODUCTION
+================================================================================
+
+1.1 The motion problem
+--------------------------------------------------------------------------------
+
+The Hodge Complex Standard Model (HCSM) derives Standard Model structure
+from the spacetime dimension d = 4 through the discrete substrate
+Lambda = Z_8 x Z_8 (HCSM-00, HCSM-01, HCSM-02). Prior papers in the stack
+established the substrate, the Hodge complex, the 14-mode multiplet at
+lambda = 4 (HCSM-04), the gauge algebra, the mass map, the mixing matrices,
+the gravity sector (HCSM-45, 46, 48, 49), and the vacuum stability sector
+(HCSM-54).
+
+The present paper addresses motion. The substrate's Hodge complex is
+elliptic and no second-order operator whose orbits are particle
+trajectories has been identified in prior work. We show that motion is the
+composition of five layers of the substrate, each with a well-defined
+state space and a unique operator. The resulting loop operator is diagonal
+in the mode basis and produces the fermion/boson split, the amplitude
+hierarchy, and the exact ratio |M_A|/|M_B| = 3.
+
+1.2 Summary of results
+--------------------------------------------------------------------------------
+
+The present paper establishes the following.
+
+1. (Theorem 3.3). The winding generator H_wind = i sin(phi), with
+   phi = (pi/8) M and M = n_1 n_2^T - n_2 n_1^T, is Hermitian with
+   entries in Q(sqrt(2)) and has the characteristic polynomial
+
+       p(lambda) = lambda^10 (lambda^2 - 8) (lambda^2 - 32),
+
+   with spectrum spec(H_wind) = {-4 sqrt(2), -2 sqrt(2), 0^(10),
+   +2 sqrt(2), +4 sqrt(2)}, multiplicities 1, 1, 10, 1, 1.
+
+2. (Theorem 4.3). The standing-wave amplitudes of the three D4 orbits are
+   exactly the rationals
+
+       ptp<x>_nu = 28/9,   ptp<x>_u = 7/18,   ptp<x>_W = 21/16,
+
+   for support classes 64, 48, 32, derived from the exact complex Fourier
+   coefficients B_j(omega) in Q(sqrt(2)).
+
+3. (Theorem 6.4). The loop operator
+   M_loop = T * L_EFT * L_Core * L_DME * L_FDLM is diagonal in the mode
+   basis. For each surviving mode m,
+
+       |M_loop(m)| = |w+1| / (|omega_m T_DME| * delta_edge)
+                     * exp(-(zeta H / rho) T_beat / 2).
+
+   For m in ker T, M_loop(m) = 0.
+
+4. (Theorem 7.1). The exact ratio of the two non-trivial loop-eigenvalue
+   magnitudes is
+
+       |M_A| / |M_B| = 3 = d - 1.
+
+   All framework constants cancel.
+
+5. (Theorem 8.2). The processor T = P_mesh + P_tau is a rank-10
+   orthogonal projection with kernel {dark, W, Z, H}. Its image is exactly
+   the 10 Standard Model fermions; its kernel is exactly the 4 Standard
+   Model bosons. The charge bookkeeping is
+
+       sum_{j in image(T)} Q_j = -2,
+       sum_{j in ker(T)} Q_j = +1,
+       sum_{j=1}^{14} Q_j = -1.
+
+1.3 Derivation status
+--------------------------------------------------------------------------------
+
+DERIVED (substrate-level):
+
+  - The winding generator H_wind and its spectrum.
+  - Trace identities tr(H_wind^2) = 80 and tr(H_wind^4) = 2176.
+  - Characteristic polynomial lambda^10 (lambda^2 - 8) (lambda^2 - 32).
+  - The three D4 orbits and support classes {64, 48, 32}.
+  - Standing-wave amplitudes 28/9, 7/18, 21/16.
+  - Fourier coefficients B_j(omega) in Q(sqrt(2)).
+  - The processor T and its properties.
+  - Exact ratio |M_A|/|M_B| = 3.
+  - Charge bookkeeping.
+
+DISCLOSED INPUTS:
+
+  - (A) The DME stability coefficient gamma = c_2/I(2) and time quantum
+    T_DME = 1/(2 gamma) from HCSM-54.
+  - (B) The EFT equation of state w = -1 - (1-gamma)^2/(2 pi),
+    bulk viscosity zeta H / rho = (1-gamma)^2/(6 pi), and Proca mass m_s
+    from HCSM-56.
+  - (C) The physical normalization M_P^2 = N k_L^2 lambda_L^2 from
+    HCSM-48.
+
+OPEN:
+
+  - The loop pass duration selection (T_DME vs T_beat).
+  - The full nonlinear Einstein equations (HCSM-50).
+
+1.4 Organization
+--------------------------------------------------------------------------------
+
+Section 2 states the substrate and the 14-mode multiplet. Section 3 derives
+the winding generator and its spectrum. Section 4 derives the standing-wave
+amplitudes. Section 5 proves the uniqueness of the generator. Section 6
+establishes the five-layer loop and the closed-form eigenvalues. Section 7
+proves the exact ratio. Section 8 states the processor and the charge
+bookkeeping. Section 9 states the HCSM Motion Theorem. Section 10
+catalogues the derivation status. Section 11 lists falsifiable predictions.
+Appendix A provides reproducible Python verification.
+
+
+================================================================================
+2. SETUP: THE SUBSTRATE AND THE 14-MODE MULTIPLET
+================================================================================
+
+2.1 The substrate
+--------------------------------------------------------------------------------
+
+The substrate is the periodic square lattice Lambda = Z_8 x Z_8 with
+N = 64 sites. The discrete 5-point Laplacian has eigenvalues
+
+    lambda(n_1, n_2) = 4 - 2 cos(pi n_1 / 4) - 2 cos(pi n_2 / 4),
+        n_1, n_2 in {0, 1, ..., 7}.                                   (1)
+
+The self-paired eigenvalue lambda = 4 has multiplicity 14. The mode set is
+
+    K_14 = {(0,4),(4,0),(1,3),(1,5),(2,2),(2,6),(3,1),(3,7),
+            (5,1),(5,7),(6,2),(6,6),(7,3),(7,5)}.                     (2)
+
+The 14 modes are listed in the standard mode order
+(nu, e, u, d, s, mu, dark, c, tau, b, W, Z, H, t) with coordinates
+
+    nu: (0,4),   e: (4,0),   u: (1,3),   d: (1,5),
+    s: (3,1),    mu: (3,7),  dark: (5,7), c: (7,3),
+    tau: (7,5),  b: (5,1),   W: (2,2),   Z: (2,6),
+    H: (6,2),    t: (6,6).                                           (3)
+
+The 14 modes decompose into three D4 orbits of sizes (2, 8, 4) with
+support classes {64, 48, 32} = {N, V, N/2} where V = (d-1) * 2^d = 48
+(HCSM-04, HCSM-05).
+
+2.2 The two coordinate vectors
+--------------------------------------------------------------------------------
+
+Let n_1, n_2 in R^14 be the coordinate vectors of the 14 modes. The rank-2
+antisymmetric bilinear is
+
+    M = n_1 n_2^T - n_2 n_1^T,
+        M_ij = n_1^{(i)} n_2^{(j)} - n_1^{(j)} n_2^{(i)}.             (4)
+
+The entries of M are even integers. The winding phase is
+
+    phi = (pi/8) M,
+        phi_ij = (pi/8)(n_1^{(i)} n_2^{(j)} - n_1^{(j)} n_2^{(i)}).   (5)
+
+The entries of phi are even-integer multiples of pi/8, hence multiples
+of pi/4.
+
+
+================================================================================
+3. THE WINDING GENERATOR AND ITS SPECTRUM
+================================================================================
+
+3.1 Definition and basic properties
+--------------------------------------------------------------------------------
+
+Definition 3.1 (Winding generator). The winding generator on C^14 is
+
+    H_wind = i sin(phi),                                             (6)
+
+where sin is applied elementwise.
+
+Lemma 3.2 (Entry structure). The matrix W = sin(phi) is real antisymmetric
+with entries in {0, +/- 1/sqrt(2), +/- 1}.
+
+Proof. phi_ij = (pi/8) M_ij with M_ij even integers. Thus
+(pi/8) M_ij = (pi/4)(M_ij/2) is an integer multiple of pi/4. The values
+of sin at integer multiples of pi/4 are {0, +/- 1/sqrt(2), +/- 1}. [Box]
+
+Since phi is real antisymmetric, sin(phi) is real antisymmetric, and
+H_wind = i sin(phi) is Hermitian with entries in Q(sqrt(2)).
+
+3.2 Trace identities
+--------------------------------------------------------------------------------
+
+Lemma 3.3 (Trace identities). Let H_wind = i W. Then
+
+    tr(H_wind) = 0,
+    tr(H_wind^2) = 80,
+    tr(H_wind^3) = 0,
+    tr(H_wind^4) = 2176.                                             (7)
+
+Proof. Direct computation on the explicit 14 x 14 matrix. Since H_wind is
+Hermitian with real eigenvalues, the traces equal sum_i lambda_i^k.
+Alternatively, tr(H_wind^2) = ||W||_F^2 = sum_{i,j} W_ij^2. Since
+W_ij in {0, +/- 1/sqrt(2), +/- 1}, we have W_ij^2 in {0, 1/2, 1}. Direct
+evaluation gives sum_{i,j} W_ij^2 = 80. Similarly,
+tr(H_wind^4) = sum_{i,j} (W^2)_ij^2 = 2176. Verified at machine precision
+in Appendix A. [Box]
+
+3.3 Characteristic polynomial
+--------------------------------------------------------------------------------
+
+Theorem 3.4 (Characteristic polynomial). The characteristic polynomial of
+H_wind is
+
+    p(lambda) = det(lambda I - H_wind)
+              = lambda^10 (lambda^2 - 8) (lambda^2 - 32)
+              = lambda^14 - 40 lambda^12 + 256 lambda^10.             (8)
+
+Proof. Write p(lambda) = lambda^14 + a_1 lambda^13 + a_2 lambda^12 + ...
+Newton's identities relate the coefficients to the power sums
+p_k = tr(H_wind^k):
+
+    a_1 = -p_1 = 0.
+    2 a_2 = -(p_2 + a_1 p_1) = -80,   a_2 = -40.
+    3 a_3 = -(p_3 + a_1 p_2 + a_2 p_1) = 0,   a_3 = 0.
+    4 a_4 = -(p_4 + a_1 p_3 + a_2 p_2 + a_3 p_1)
+          = -(2176 - 3200) = 1024,   a_4 = 256.
+
+Direct computation verifies that a_5 = ... = a_14 = 0 (equivalently, that
+the eigenvalues of H_wind are roots of lambda^10 (lambda^4 - 40 lambda^2
++ 256) and no others). The quartic factors as
+(lambda^2 - 8)(lambda^2 - 32), giving the roots. [Box]
+
+Corollary 3.5 (Spectrum). The spectrum of H_wind is
+
+    spec(H_wind) = {-4 sqrt(2), -2 sqrt(2), 0^(10), +2 sqrt(2), +4 sqrt(2)}   (9)
+
+with multiplicities 1, 1, 10, 1, 1.
+
+3.4 The three frequency classes
+--------------------------------------------------------------------------------
+
+The 14 modes partition into three classes by frequency:
+
+    Class A:  omega_A = 2 sqrt(2),  three modes {nu, e, t},
+    Class B:  omega_B = 6 sqrt(2),  seven modes {u, d, s, mu, c, tau, b},
+    Kernel:   omega = 0,            four modes {dark, W, Z, H}.       (10)
+
+The kernel class is exactly the kernel of the processor T defined in
+Section 8. The ratio omega_B / omega_A = 3 is exact.
+
+
+================================================================================
+4. STANDING-WAVE AMPLITUDES
+================================================================================
+
+4.1 The position operator on K_14
+--------------------------------------------------------------------------------
+
+Let v_i(x,y) = cos(2 pi (n_1^{(i)} x + n_2^{(i)} y)/8) / ||.|| be the
+normalized position-space mode vectors on the torus. Define the position
+operator on K_14 by
+
+    (X_1)_ij = <v_i | x_hat | v_j> = sum_{x,y=0}^{7} x v_i(x,y) v_j(x,y).   (11)
+
+Lemma 4.1 (Position matrix entries). Every entry (X_1)_ij is a rational
+number of the form p/4 with p in Z.
+
+Proof. Use cos A cos B = (1/2)[cos(A-B) + cos(A+B)]. The sum over y
+vanishes unless the y-frequency is zero modulo 8. The sum over x of
+x cos(2 pi b x / 8) for integer b is either 28 (when b = 0 mod 8) or a
+finite algebraic sum. Direct evaluation on the 14 modes gives the stated
+rational form. [Box]
+
+4.2 Fourier expansion of the trajectory
+--------------------------------------------------------------------------------
+
+Let psi_j(t) = e^{i H_wind t} e_j and
+<x>_j(t) = <psi_j(t) | X_1 | psi_j(t)>.
+
+Theorem 4.2 (Fourier expansion). The trajectory
+<x>_j(t) - <x>_j(0) has the Fourier expansion
+
+    <x>_j(t) - <x>_j(0)
+        = sum_{omega in Omega_j} 2 Re[B_j(omega) e^{i omega t}],       (12)
+
+where Omega_j is a subset of {2 sqrt(2), 4 sqrt(2), 6 sqrt(2)} and the
+complex coefficients
+
+    B_j(omega) = sum_{lambda_l = lambda_k = omega} p_k^* p_l (X_1)_kl,
+        p_k = <v_k | j>,                                                (13)
+
+satisfy B_j(omega) in Q(sqrt(2)).
+
+Proof. Since H_wind is Hermitian, its eigenvectors form an orthonormal
+basis of C^14. Diagonalizing H_wind = V Lambda V^dagger gives
+e^{i H_wind t} = V e^{i Lambda t} V^dagger, from which
+<x>_j(t) = sum_{k,l} p_k^* p_l (X_1)_kl e^{i (lambda_l - lambda_k) t}.
+All frequencies are integer multiples of 2 sqrt(2), so Omega_j is a
+subset of {2 sqrt(2), 4 sqrt(2), 6 sqrt(2)}. The eigenvectors have
+components in Q(sqrt(2)); (X_1)_kl in Q by Lemma 4.1. Hence
+B_j(omega) in Q(sqrt(2)). [Box]
+
+4.3 The amplitudes
+--------------------------------------------------------------------------------
+
+Theorem 4.3 (Standing-wave amplitudes). The peak-to-peak value of
+<x>_j(t) over the beat period T_beat = 2 pi / (2 sqrt(2)) is
+
+    ptp<x>_j = 28/9   if supp(j) = 64,
+               7/18   if supp(j) = 48,
+               21/16  if supp(j) = 32.                                (14)
+
+Proof (sketch). The three orbits are O_0 = {nu, e} (support 64),
+O_1 = {u, d, s, mu, c, tau, b, dark} (support 48), and
+O_2 = {W, Z, H, t} (support 32).
+
+Support 64 (edge). For nu:
+    B_nu(2 sqrt(2)) = 7/12,  B_nu(4 sqrt(2)) = 7/24,
+    B_nu(6 sqrt(2)) = 7/36.
+Hence <x>_nu - 3.5 = (7/36) h(u) with
+h(u) = 6 cos u + 3 cos 2u + 2 cos 3u. Chebyshev substitution gives
+h(c) = 8 c^3 + 6 c^2 - 3, whose critical points c = 0, -1/2 give
+h(0) = -3, h(-1/2) = -5/2, h(1) = 11, h(-1) = -5. Range [-5, 11], so
+ptp(h) = 16 and ptp<x>_nu = (7/36)(16) = 28/9.
+
+Support 48 (middle). For u: B_u(6 sqrt(2)) = -7/72, all others zero.
+Then <x>_u - 3.5 = -(7/36) cos(6 sqrt(2) t), giving
+ptp<x>_u = 14/36 = 7/18.
+
+Support 32. For W:
+    B_W(2 sqrt(2)) = -7/24, B_W(4 sqrt(2)) = -7/48,
+    B_W(6 sqrt(2)) = +7/72.
+Let u = 2 sqrt(2) t. Then <x>_W - 3.5 = (7/72) g(u) with
+g(c) = 8 c^3 - 6 c^2 - 12 c + 3. Critical points c = -1/2, 1, giving
+g(1) = -7, g(-1/2) = 13/2, so ptp(g) = 27/2 and
+ptp<x>_W = (7/72)(27/2) = 21/16. [Box]
+
+Corollary 4.4 (Framework form). The amplitudes are
+
+    d(2d-1)/(d-1)^2 = 28/9,
+    (2d-1)/(2(d-1)^2) = 7/18,
+    (d-1)(2d-1)/2^d = 21/16,                                        (15)
+
+at d = 4. The ratios are
+
+    amp_64 / amp_48 = 8 = L,
+    amp_32 / amp_48 = 27/8 = (d-1)^3 / L,
+    amp_64 / amp_32 = 64/27 = d^3 / (d-1)^3.                        (16)
+
+Theorem 4.5 (Zero drift). For every j,
+
+    <x>_j(T_beat) - <x>_j(0) = 0,
+    <y>_j(T_beat) - <y>_j(0) = 0.                                   (17)
+
+Proof. At t = T_beat = 2 pi / (2 sqrt(2)), every eigenvalue lambda_k of
+H_wind satisfies lambda_k T_beat in 2 pi Z. Hence e^{i H_wind T_beat} = I.
+[Box]
+
+
+================================================================================
+5. UNIQUENESS OF THE GENERATOR
+================================================================================
+
+Theorem 5.1 (Uniqueness of M). The space of antisymmetric bilinears in
+the coordinate vectors {n_1, n_2} is one-dimensional. The unique element
+up to scalar is M = n_1 n_2^T - n_2 n_1^T.
+
+Proof. The available vectors at Level 1 are n_1, n_2. A general
+antisymmetric bilinear takes the form c (n_1 n_2^T - n_2 n_1^T) for some
+c in R. Natural normalization c = 1 gives M. [Box]
+
+Theorem 5.2 (Uniqueness of sin). Among natural candidate elementwise
+functions (polynomials, trigonometric, hyperbolic, and simple rational
+functions), sin is the unique function such that i sin(phi) is Hermitian
+and has spectrum {+/- 4 sqrt(2), +/- 2 sqrt(2), 0^(10)}.
+
+Proof (sketch). Direct test of 17 candidate functions on the explicit
+matrix phi. The two-parameter family sin(a phi)/a and sin(a phi) over
+a in {0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 2.0} fails to match the target
+spectrum for any a != 1. Verified in Appendix A. [Box]
+
+Corollary 5.3 (Unique generator). H_wind = i sin(phi) is uniquely
+determined by the substrate and the target spectrum.
+
+
+================================================================================
+6. THE FIVE-LAYER LOOP
+================================================================================
+
+6.1 The five layers
+--------------------------------------------------------------------------------
+
+Motion is the composition of five layers of the substrate, each with a
+well-defined state space and a unique operator:
+
+    Layer 1: FDLM/WIN,  C^14 mode vectors, Hermitian (unitary evolution)
+    Layer 2: DME,       eps in R,          scalar constraint
+    Layer 3: Core,      eps(lambda),       gradient flow
+    Layer 4: EFT,       field config,      damped wave equation
+    Layer 5: Processor T, C^14 projected,  orthogonal projection
+
+6.2 The loop operator
+--------------------------------------------------------------------------------
+
+The loop operator is
+
+    M_loop = T * L_EFT * L_Core * L_DME * L_FDLM.                    (18)
+
+On the mode basis, M_loop is diagonal:
+
+    M_loop(m) = r_m e^{i theta_m}.                                   (19)
+
+The five layers are not temporally sequential within a pass. They are
+algebraically composed.
+
+6.3 The per-layer eigenvalues
+--------------------------------------------------------------------------------
+
+Lemma 6.1 (Per-layer eigenvalues). For each surviving mode m,
+
+    |L_FDLM(m)| = 1,
+    |L_DME(m)|  = 1,
+    |L_Core(m)| = e^{-2 gamma lambda_EFT(m)}
+                = |w+1| / eps_0(m)
+                = |w+1| / (|omega_m T_DME| delta_edge),
+    |L_EFT(m)|  = e^{-(zeta H / rho) T_beat / 2}.                    (20)
+
+Proof. The FDLM layer is unitary (|L_FDLM(m)| = 1 at the beat period,
+Theorem 4.5). The DME layer is a scalar constraint and contributes no
+amplitude reduction. The Core layer satisfies eps(lambda) = eps_0
+e^{-2 gamma lambda} with lambda_EFT(m) chosen so that
+eps(lambda_EFT(m)) = |w+1|; hence
+|L_Core(m)| = |w+1| / eps_0(m) with
+eps_0(m) = floor(omega_m T_DME) delta_edge (see WIN-Motion for the
+derivation of the floor rule from the DME-Core winding condition). The
+EFT layer contributes the per-beat decay factor
+e^{-(zeta H / rho) T_beat / 2}. [Box]
+
+6.4 Closed-form eigenvalue magnitudes
+--------------------------------------------------------------------------------
+
+Theorem 6.2 (Loop-eigenvalue magnitudes). For each surviving mode m,
+
+    |M_loop(m)| = |w+1| / (|omega_m T_DME| delta_edge)
+                  * e^{-(zeta H / rho) T_beat / 2}.                  (21)
+
+For m in ker T, M_loop(m) = 0.
+
+Proof. Multiplying the per-layer magnitudes from Lemma 6.1 gives the
+result. For m in ker T, the processor T projects to zero, so
+M_loop(m) = 0. [Box]
+
+Corollary 6.3 (Exact forms). For the two non-trivial classes,
+
+    |M_A| = |w+1| / (2 delta_edge) * e^{-(zeta H / rho) T_beat / 2},
+    |M_B| = |w+1| / (6 delta_edge) * e^{-(zeta H / rho) T_beat / 2}.   (22)
+
+Numerically, |M_A| = 0.575684... and |M_B| = 0.191895...
+
+
+================================================================================
+7. THE EXACT RATIO |M_A| / |M_B| = 3
+================================================================================
+
+Theorem 7.1 (Exact ratio). The ratio of the two non-trivial
+loop-eigenvalue magnitudes is exactly
+
+    |M_A| / |M_B| = 3 = d - 1.                                       (23)
+
+The framework constants |w+1|, delta_edge, and the EFT damping factor do
+not appear in the ratio.
+
+Proof. From the loop-decay decomposition,
+
+    r_m = |w+1| / eps_0(m) * D_factor,
+        eps_0(m) = n_m delta_edge,
+        n_m = floor(omega_m T_DME).                                  (24)
+
+Therefore
+
+    r_A / r_B = n_B / n_A.                                           (25)
+
+Now compute n_A and n_B exactly:
+
+    omega_A T_DME = 2 sqrt(2) / (2 gamma) = sqrt(2) / gamma,
+    omega_B T_DME = 6 sqrt(2) / (2 gamma) = 3 sqrt(2) / gamma.       (26)
+
+With gamma = c_2 / I(2) from HCSM-54:
+
+    sqrt(2) / gamma = 2 + delta_edge,
+    3 sqrt(2) / gamma = 6 + 3 delta_edge,
+    delta_edge = sqrt(2) / gamma - 2 = 0.012143...                   (27)
+
+Since 0 < delta_edge < 1/3,
+
+    n_A = floor(2 + delta_edge) = 2,
+    n_B = floor(6 + 3 delta_edge) = 6.                               (28)
+
+Hence r_A / r_B = n_B / n_A = 6/2 = 3. [Box]
+
+Remark 7.2 (Relation to the exact generation count). The ratio
+|M_A| / |M_B| = 3 has a natural interpretation: the two loop classes A
+and B have amplitudes in the ratio 1:3, matching the ratio of the mode
+frequencies omega_A : omega_B = 1:3 and matching the Standard Model
+generation count d - 1 = 3. The exactness is a consequence of the DME
+time quantum and the DME-Core winding condition, and is not fitted.
+
+
+================================================================================
+8. THE PROCESSOR T AND CHARGE BOOKKEEPING
+================================================================================
+
+8.1 Definition of the processor
+--------------------------------------------------------------------------------
+
+Definition 8.1 (Processor T). Let P_mesh be the orthogonal projection onto
+the 9-dimensional mesh resonance subspace (delta != 0) and let P_tau be
+the rank-1 projection onto the unique mode with zero-state amplitude
+s = +1 (tau). The processor is
+
+    T = P_mesh + P_tau = I - P_sub + P_tau.                          (29)
+
+The F/B split is
+
+    F = {delta != 0} union {s = +1},
+    B = {delta = 0} setminus {s = +1}.                               (30)
+
+8.2 Properties
+--------------------------------------------------------------------------------
+
+Theorem 8.2 (Processor properties). T is a rank-10 orthogonal projection:
+
+    T^2 = T,   T^dagger = T,   rank(T) = 10.
+
+Its image is exactly the 10 Standard Model fermions
+F = {nu, e, u, d, s, mu, c, b, t, tau} and its kernel is exactly the 4
+Standard Model bosons B = {dark, W, Z, H}.
+
+Proof. T^2 = T and T^dagger = T follow from the orthogonality of P_mesh
+and P_tau. The rank-10 property follows from 9 + 1 = 10 for the ranks
+of P_mesh and P_tau. The identification of the image with the fermions
+and the kernel with the bosons is established in HCSM-13 and WIN-Processor.
+[Box]
+
+8.3 Charge bookkeeping
+--------------------------------------------------------------------------------
+
+Theorem 8.3 (Charge bookkeeping). The charges satisfy
+
+    sum_{j in image(T)} Q_j = -2,
+    sum_{j in ker(T)} Q_j = +1,
+    sum_{j=1}^{14} Q_j = -1.                                         (31)
+
+Proof. Direct computation using the charge assignment of HCSM-24. The
+image of T is the 10 fermions; the kernel of T is the 4 bosons. The sum
+over the image is -2 and the sum over the kernel is +1; the total is -1.
+[Box]
+
+Remark 8.4. The framework's decomposition into outer mesh (+2/3, 6 modes)
+and middle mesh (-5/3, 8 modes) uses support classes. The processor
+decomposition uses the projector T. Both sum to -1, matching the vacuum
+charge invariant.
+
+
+================================================================================
+9. THE HCSM MOTION THEOREM
+================================================================================
+
+Theorem 9.1 (HCSM Motion Theorem). Let Lambda = Z_8 x Z_8 be the
+substrate with the 14-mode multiplet K_14 at lambda = 4. Let
+H_wind = i sin((pi/8) M) be the winding generator. Then:
+
+(1) H_wind is the unique Hermitian generator on C^14 determined by the
+    substrate and the spectral constraint
+    spec(H_wind) = {+/- 4 sqrt(2), +/- 2 sqrt(2), 0^(10)}. Its
+    characteristic polynomial is lambda^10 (lambda^2 - 8) (lambda^2 - 32).
+
+(2) The standing-wave amplitudes are exactly the rationals 28/9, 7/18,
+    21/16 for supports 64, 48, 32, derived from the complex Fourier
+    coefficients B_j(omega) in Q(sqrt(2)).
+
+(3) The five layers FDLM/WIN -> DME -> Core -> EFT -> Processor have
+    well-defined state spaces and unique operators.
+
+(4) The loop operator M_loop = T * L_EFT * L_Core * L_DME * L_FDLM is
+    diagonal, with closed-form eigenvalue magnitudes
+
+        |M_A| = |w+1| / (2 delta_edge) * e^{-(zeta H / rho) T_beat / 2},
+        |M_B| = |w+1| / (6 delta_edge) * e^{-(zeta H / rho) T_beat / 2}.
+
+(5) |M_A| / |M_B| = 3 exactly.
+
+(6) The charge bookkeeping is sum Q_image = -2, sum Q_kernel = +1,
+    total -1.
+
+(7) The loop is dissipative: |M_j| < 1 for all j.
+
+Proof. Parts (1)-(7) are established in Theorems 3.4, 4.3, 6.2, 7.1,
+8.2, and 8.3 above. The uniqueness of H_wind is Corollary 5.3. The
+dissipativity follows from |w+1| / delta_edge = 1.1574... and
+e^{-(zeta H / rho) T_beat / 2} < 1, giving |M_A| = 0.5757... and
+|M_B| = 0.1919..., both < 1. [Box]
+
+
+================================================================================
+10. STATUS, DISCLOSED INPUTS, AND OPEN ITEMS
+================================================================================
+
+10.1 Derived
+--------------------------------------------------------------------------------
+
+1. The winding generator H_wind and its spectrum (Theorem 3.4,
+   Corollary 3.5).
+2. Trace identities tr(H_wind^2) = 80 and tr(H_wind^4) = 2176
+   (Lemma 3.3).
+3. Characteristic polynomial lambda^10 (lambda^2 - 8) (lambda^2 - 32)
+   (Theorem 3.4).
+4. The three D4 orbits and the frequency-class partition (Section 3.4).
+5. Standing-wave amplitudes 28/9, 7/18, 21/16 (Theorem 4.3).
+6. Fourier coefficients B_j(omega) in Q(sqrt(2)) (Theorem 4.2).
+7. Uniqueness of the generator (Corollary 5.3).
+8. The processor T and its properties (Theorem 8.2).
+9. Exact ratio |M_A| / |M_B| = 3 (Theorem 7.1).
+10. Charge bookkeeping (Theorem 8.3).
+
+10.2 Disclosed inputs
+--------------------------------------------------------------------------------
+
+1. The DME stability coefficient gamma = c_2 / I(2) and time quantum
+   T_DME = 1/(2 gamma) from HCSM-54. In HCSM-54, gamma is derived from
+   the AGM closed form I(2) = 1 - AGM(1, sqrt(2))/2 and the closed form
+   of c_2 = 2 I''(2).
+2. The EFT equation of state w = -1 - (1-gamma)^2/(2 pi), bulk viscosity
+   zeta H / rho = (1-gamma)^2/(6 pi), and Proca mass m_s from HCSM-56.
+3. The physical normalization M_P^2 = N k_L^2 lambda_L^2 from HCSM-48.
+
+10.3 Open
+--------------------------------------------------------------------------------
+
+1. The loop pass duration selection. Both T_DME (DME relaxation time) and
+   T_beat (Level-1 internal period) are dimensionless time-like
+   quantities. The transition rule uses T_DME; Level 1 uses T_beat
+   internally. The framework identifies the loop pass duration with
+   T_DME by the transition rule, but does not derive from a deeper
+   principle that T_DME and not T_beat is the physical pass duration.
+   The ratio T_beat / T_DME = 3.1226... is a structural constant. This
+   is the subject of HCSM-21.
+2. The full nonlinear Einstein equations. The composite-operator
+   effective action with nine structural zeros is the subject of
+   HCSM-50.
+3. The physical conversion. The framework measures time in units of
+   T_DME; conversion to seconds requires a calibration choice external
+   to the framework.
+
+
+================================================================================
+11. FALSIFIABLE PREDICTIONS
+================================================================================
+
+1. Loop eigenvalue ratio. |M_A| / |M_B| = 3 exactly. If a future
+   measurement or computation of the framework's two-tier amplitude
+   hierarchy yields a ratio other than 3, the Motion Theorem is
+   falsified.
+
+2. Standing-wave amplitudes. ptp<x>_64 = 28/9, ptp<x>_48 = 7/18,
+   ptp<x>_32 = 21/16, exactly. These are rationals; any deviation
+   would falsify the substrate algebra.
+
+3. Zero drift at the beat period. <x>_j(T_beat) = <x>_j(0) exactly
+   for all j.
+
+4. Dissipativity. |M_j| < 1 for all j; under iteration, M_loop^k -> 0.
+
+
+================================================================================
+12. CONCLUSION
+================================================================================
+
+We have derived the motion of particles in the Hodge Complex Standard
+Model from the substrate Lambda = Z_8 x Z_8. Motion is the composition
+of five layers of the substrate, each with a well-defined state space and
+a unique operator. Every quantity in the loop is derived analytically:
+the characteristic polynomial of H_wind, the standing-wave amplitudes
+28/9, 7/18, 21/16, the closed-form loop eigenvalue magnitudes, and the
+exact ratio |M_A| / |M_B| = 3.
+
+The winding generator H_wind = i sin((pi/8) M) is the unique Hermitian
+generator on C^14 determined by the substrate and the spectral constraint
+{+/- 4 sqrt(2), +/- 2 sqrt(2), 0^(10)}. Its characteristic polynomial is
+lambda^10 (lambda^2 - 8) (lambda^2 - 32).
+
+The exact ratio |M_A| / |M_B| = 3 = d - 1 is a consequence of the DME
+time quantum and the DME-Core winding condition, and matches the Standard
+Model generation count. All framework constants cancel.
+
+The processor T = P_mesh + P_tau is the unique rank-10 orthogonal
+projection producing the Standard Model fermion/boson split. Its image is
+exactly the 10 fermions; its kernel is exactly the 4 bosons. The charge
+bookkeeping sums to -2, +1, and -1 respectively.
+
+The present paper follows the HCSM-06/07 pattern: it derives everything
+in its own domain that can be derived, discloses the three physical
+inputs (gamma, EFT parameters, M_P^2) explicitly, and names the specific
+open items (loop pass duration, nonlinear Einstein equations) that future
+papers must close. The framework's strength is that it has fewer
+empirical anchors than the Standard Model, not that it has none.
+
+
+================================================================================
+REFERENCES
+================================================================================
+
+[HCSM-00] S. Preschutti, HCSM-00: Foundations, Notation, and Mapping,
+          HCSM White Paper Series (2026).
+
+[HCSM-01] S. Preschutti, HCSM-01: The 8 x 8 Torus Substrate from d = 4,
+          HCSM White Paper Series (2026).
+
+[HCSM-02] S. Preschutti, HCSM-02: The Hodge Complex on Lambda,
+          HCSM White Paper Series (2026).
+
+[HCSM-04] S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4,
+          HCSM White Paper Series (2026).
+
+[HCSM-05] S. Preschutti, HCSM-05: Orbit Decomposition and Inverse
+          Participation, HCSM White Paper Series (2026).
+
+[HCSM-13] S. Preschutti, HCSM-13: The Processor T and the F/B-Class
+          Correspondence, HCSM White Paper Series (2026).
+
+[HCSM-24] S. Preschutti, HCSM-24: The Charge Theorem, HCSM White Paper
+          Series (2026).
+
+[HCSM-45] S. Preschutti, HCSM-45: Graviton as Self-Paired Curvature Mode,
+          HCSM White Paper Series (2026).
+
+[HCSM-46] S. Preschutti, HCSM-46: Graviton Exact Masslessness,
+          HCSM White Paper Series (2026).
+
+[HCSM-48] S. Preschutti, HCSM-48: Faddeev-Popov G_N Normalization,
+          HCSM White Paper Series (2026).
+
+[HCSM-49] S. Preschutti, HCSM-49: Completion of the Newton Constant
+          Sector, HCSM White Paper Series (2026).
+
+[HCSM-50] S. Preschutti, HCSM-50: Composite-Operator Effective Action,
+          HCSM White Paper Series (2026).
+
+[HCSM-54] S. Preschutti, HCSM-54: Vacuum Stability and the DME Stability
+          Coefficient, HCSM White Paper Series (2026).
+
+[HCSM-56] S. Preschutti, HCSM-56: Vacuum EFT, HCSM White Paper Series
+          (2026).
+
+[WIN-Motion] S. Preschutti, The WIN Motion Theorem, Version 2,
+          WIN Paradigm White Paper (2026).
+
+[WIN-Time] S. Preschutti, The WIN Time Theorem, Version 2,
+          WIN Paradigm White Paper (2026).
+
+[WIN-Processor] S. Preschutti, The WIN Vacuum as a Calibration-Based
+          Processor, WIN Paradigm White Paper (2026).
+
+[AGM] J. M. Borwein and P. B. Borwein, Pi and the AGM, Wiley (1987).
+
+
+================================================================================
+A. REPRODUCIBLE VERIFICATION
+================================================================================
+
+All numerical claims in this paper are verified at machine precision in
+IEEE-754 double precision. The verification script is provided in the
+HCSM companion repository at 12-VERIFICATION/HCSM-20_verification.py. It
+constructs the substrate Laplacian on Lambda = Z_8 x Z_8, the 14-mode
+multiplet, the winding generator, and the loop operator, and verifies:
+
+1. The 14-fold degeneracy at lambda = 4.
+2. Trace identities tr(H_wind^2) = 80 and tr(H_wind^4) = 2176
+   (Lemma 3.3).
+3. Characteristic polynomial lambda^10 (lambda^2 - 8) (lambda^2 - 32)
+   and spectrum {+/- 4 sqrt(2), +/- 2 sqrt(2), 0^(10)} (Theorem 3.4).
+4. The three frequency classes and their multiplicities 3, 7, 4.
+5. Standing-wave amplitudes 28/9, 7/18, 21/16 (Theorem 4.3).
+6. Fourier coefficients B_j(omega) in Q(sqrt(2)) (Theorem 4.2).
+7. Uniqueness of the generator (Corollary 5.3).
+8. The processor T and its image/kernel (Theorem 8.2).
+9. Exact ratio |M_A| / |M_B| = 3 (Theorem 7.1).
+10. Charge bookkeeping (Theorem 8.3).
+11. Dissipativity |M_j| < 1 for all j.
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim in
+the HCSM paper stack.
+
+
+================================================================================
+B. WEB CRAWLER METADATA
+================================================================================
+
+B.1 Dublin Core
+--------------------------------------------------------------------------------
+
+DC.title: HCSM-20: The Motion Theorem
+DC.creator: Preschutti, Stanley
+DC.creator.orcid: 0009-0004-5445-1744
+DC.date.issued: 2026-09
+DC.type: Text / Preprint / White Paper
+DC.format: application/pdf; text/x-latex
+DC.language: en
+DC.publisher: Entropia Research Institute
+DC.rights: All rights reserved
+DC.subject: Hodge Complex Standard Model; HCSM; Motion Theorem;
+  winding generator; five-layer loop; loop operator; standing-wave
+  amplitudes; processor T; charge bookkeeping; exact ratio 3;
+  D4 symmetry; 8x8 torus
+DC.description: We derive the motion of particles in the Hodge Complex
+  Standard Model from the substrate Z_8 x Z_8. Motion is the
+  composition of five layers. The winding generator
+  H_wind = i sin((pi/8) M) has the characteristic polynomial
+  lambda^10 (lambda^2 - 8) (lambda^2 - 32). The standing-wave
+  amplitudes are exactly 28/9, 7/18, 21/16 for the three D4 orbits.
+  The loop operator is diagonal with closed-form eigenvalue magnitudes
+  giving |M_A| / |M_B| = 3 exactly.
+DC.identifier: HCSM-20-2026-09
+
+B.2 Schema.org JSON-LD
+--------------------------------------------------------------------------------
+
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "HCSM-20: The Motion Theorem",
+  "alternateName": "The Five-Layer Loop, the Winding Generator, and the Exact Loop-Eigenvalue Ratio |M_A|/|M_B| = 3",
+  "author": {
+    "@type": "Person",
+    "name": "Stanley Preschutti",
+    "identifier": "https://orcid.org/0009-0004-5445-1744",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Entropia Research Institute"
+    }
+  },
+  "datePublished": "2026-09",
+  "inLanguage": "en",
+  "abstract": "We derive the motion of particles in the Hodge Complex Standard Model from the substrate Z_8 x Z_8. Motion is the composition of five layers of the substrate. The winding generator H_wind = i sin((pi/8) M) has the characteristic polynomial lambda^10 (lambda^2 - 8) (lambda^2 - 32). The standing-wave amplitudes are exactly 28/9, 7/18, 21/16. The loop operator is diagonal with closed-form eigenvalue magnitudes giving |M_A| / |M_B| = 3 exactly.",
+  "keywords": [
+    "Hodge Complex Standard Model",
+    "HCSM",
+    "Motion Theorem",
+    "winding generator",
+    "five-layer loop",
+    "loop operator",
+    "standing-wave amplitudes",
+    "processor T",
+    "charge bookkeeping",
+    "exact ratio 3",
+    "D4 symmetry"
+  ],
+  "license": "All rights reserved",
+  "identifier": "HCSM-20-2026-09",
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "HCSM White Paper Series"
+  }
+}
+
+B.3 BibTeX for Automated Indexing
+--------------------------------------------------------------------------------
+
+@article{PreschuttiHCSM20,
+  author = {Preschutti, Stanley},
+  title = {{HCSM-20}: The Motion Theorem},
+  journal = {HCSM White Paper Series},
+  year = {2026},
+  month = {September},
+  note = {ORCID: 0009-0004-5445-1744},
+  keywords = {Hodge Complex Standard Model, HCSM, Motion Theorem,
+    winding generator, five-layer loop, loop operator,
+    standing-wave amplitudes, processor T, exact ratio 3},
+  abstract = {We derive the motion of particles in the Hodge Complex
+    Standard Model from the substrate Z_8 x Z_8. Motion is the
+    composition of five layers. The winding generator
+    H_wind = i sin((pi/8) M) has characteristic polynomial
+    lambda^10 (lambda^2 - 8) (lambda^2 - 32). The standing-wave
+    amplitudes are exactly 28/9, 7/18, 21/16. The loop operator is
+    diagonal with closed-form eigenvalue magnitudes giving
+    |M_A| / |M_B| = 3 exactly.}
+}
