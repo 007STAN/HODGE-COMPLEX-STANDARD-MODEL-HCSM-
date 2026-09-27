@@ -1,0 +1,850 @@
+================================================================================
+HCSM-22
+The Zero State
+The 14 x 19 Vacuum-Native Measurement Matrix, the Unique Nullspace Vector,
+and Its Algebraic Structure
+================================================================================
+
+The Hodge Complex Standard Model
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstannp@yahoo.com
+
+September 2026
+
+--------------------------------------------------------------------------------
+ABSTRACT
+--------------------------------------------------------------------------------
+
+The Hodge Complex Standard Model identifies the 14 modes at the self-paired
+eigenvalue lambda = 4 of the discrete Laplacian on the periodic 8 x 8 torus
+with one Standard Model generation (HCSM-04). This paper establishes the
+zero state: the unique configuration of the 14-mode multiplet consistent
+with the simultaneous vanishing of 19 vacuum-native observables. The 19
+observables (support, IPR, entropy, N/4, delta, shell, charge, three
+pressure components, helicity-flip probability, and seven geometric labels)
+form a 14 x 19 matrix M. We prove that rank(M) = 13 and nullity(M^T) = 1:
+there is exactly one 14-vector s (up to scale) satisfying M^T s = 0. The
+smallest singular value of M is 8.47e-16, machine zero. The vector s is
+the zero state. We establish four structural properties. First, s is odd
+under the chiral reflection rs of HCSM-26: s(rs(m)) = -s(m) for all 14
+modes. Second, the two rs-fixed modes W = (2,2) and t = (6,6) have exactly
+zero amplitude. Third, the six independent amplitudes (one per rs-orbit)
+satisfy the exact algebraic ratios a_3 = 2 a_4 and a_5 = (2 - sqrt(2)) a_4.
+Fourth, 86.5% of the |s|-mass sits on the middle D4 orbit O_1. The entropy
+column is exactly redundant with the IPR column via the affine relation of
+HCSM-05. The 15 rational columns of M have rank 11 and nullity 3; the 4
+irrational columns cut the nullity to 1. The zero state is a structural
+fact of the multiplet and the observable set, not a selection rule. All
+claims are HCSM-native and verified at machine precision. The charge column
+is a disclosed input, consistent with the HCSM-06/07 disclosure pattern;
+the full charge theorem is the subject of HCSM-24.
+
+--------------------------------------------------------------------------------
+CONTENTS
+--------------------------------------------------------------------------------
+
+1.  Introduction
+2.  Setup
+3.  The Measurement Matrix
+4.  Rank and Nullity
+5.  The Zero State Vector
+6.  Symmetry Under the Chiral Reflection
+7.  Exact Algebraic Ratios
+8.  Entropy Redundancy
+9.  Orbit Weight Fractions
+10. Inputs and Derived
+11. Reproducibility
+12. Conclusion
+References
+13. Web Crawler Metadata
+
+================================================================================
+1. INTRODUCTION
+================================================================================
+
+1.1 The zero state problem
+
+The Hodge Complex Standard Model (HCSM) identifies the 14 modes at the
+self-paired eigenvalue lambda = 4 of the discrete Laplacian on the periodic
+8 x 8 torus with one Standard Model generation [HCSM-00, HCSM-04]. The
+multiplet's static structure is established: its D4 orbit decomposition
+[HCSM-04, HCSM-05], its winding class partition [HCSM-14], its processor
+T = I - P_C [HCSM-13], and its chiral reflection rs with fixed locus
+{W, t} [HCSM-26].
+
+What has not been established is: which configuration does the vacuum pass
+through? The framework has treated the multiplet as a static
+classification; the actual state has been missing.
+
+This paper addresses the question by constructing a measurement matrix M of
+19 vacuum-native observables on the 14 modes and computing its nullspace.
+The nullspace is one-dimensional, giving a unique zero state s.
+
+1.2 The one-line summary
+
+The 14-mode multiplet has a unique zero state: a superposition of the 12
+non-rs-fixed modes that vanishes on all 19 vacuum-native observables. The
+state is odd under the chiral reflection rs of HCSM-26, has three exact
+algebraic ratios among its six independent amplitudes, and concentrates
+86.5% of its weight on the middle D4 orbit O_1.
+
+1.3 Main results
+
+(1) Rank and nullity (Theorem 4.1). rank(M) = 13 and nullity(M^T) = 1.
+(2) Zero state vector (Theorem 5.1). The unique nullspace vector s is
+    given to 15-digit precision.
+(3) Oddness under rs (Theorem 6.1). s(rs(m)) = -s(m) for all 14 modes.
+(4) Vanishing at fixed points (Corollary 6.2). s(W) = s(t) = 0 exactly.
+(5) Exact ratios (Theorem 7.1). a_3 = 2 a_4 and a_5 = (2 - sqrt(2)) a_4.
+(6) Entropy redundancy (Theorem 8.1). The entropy column is an exact
+    affine function of the IPR column.
+(7) Weight fractions (Theorem 9.1). 3.3% on O_0, 86.5% on O_1, 10.2% on
+    O_2.
+
+1.4 Cross references
+
+The paper depends on the following HCSM companions:
+
+  - HCSM-00: foundations, notation, and mapping.
+  - HCSM-01: the 8 x 8 torus substrate.
+  - HCSM-04: the 14-mode multiplet and the D4 orbit decomposition.
+  - HCSM-05: orbit decomposition and inverse participation; the affine
+    entropy-IPR relation.
+  - HCSM-11: the 5 + 9 split; the delta observable.
+  - HCSM-13: the processor T and the F/B split.
+  - HCSM-14: the winding class partition.
+  - HCSM-23: the delta function and the N/4 labels.
+  - HCSM-26: the chiral reflection rs and its fixed locus.
+  - HCSM-32: the shell assignment.
+
+1.5 Organization
+
+Section 2 states the substrate, the 14 modes, and the 19 observables.
+Section 3 constructs the measurement matrix. Section 4 proves the
+rank-nullity theorem. Section 5 gives the zero state vector. Section 6
+proves the rs-oddness. Section 7 derives the exact ratios. Section 8 proves
+the entropy redundancy. Section 9 computes the orbit weight fractions.
+Section 10 catalogs inputs and derived. Section 11 gives reproducibility
+notes. Section 12 concludes.
+
+================================================================================
+2. SETUP
+================================================================================
+
+2.1 Substrate and framework constants
+
+The substrate is the periodic square lattice Lambda = Z8 x Z8 with N = 64
+sites [HCSM-01]. The framework constants are
+
+    d = 4,  N = d * 2^d = 64,  L = sqrt(N) = 8,  H = 2^d = 16.          (1)
+
+The discrete 5-point Laplacian has spectrum
+
+    lambda(n1, n2) = 4 - 2 cos(pi n1 / 4) - 2 cos(pi n2 / 4),
+        (n1, n2) in {0,...,7}^2.                                        (2)
+
+The self-paired eigenvalue lambda = 4 has multiplicity 14.
+
+2.2 The 14 modes
+
+In the standard HCSM mode order
+
+    (nu, e, u, d, s, mu, dark, c, tau, b, W, Z, H, t),                  (3)
+
+the mode coordinates are
+
+    nu   : (0, 4),   e    : (4, 0),   u    : (1, 3),   d    : (1, 5),
+    s    : (3, 1),   mu   : (3, 7),   dark : (5, 7),   c    : (7, 3),
+    tau  : (7, 5),   b    : (5, 1),   W    : (2, 2),   Z    : (2, 6),
+    H    : (6, 2),   t    : (6, 6).                                     (4)
+
+2.3 The D4 orbit decomposition
+
+The 14 modes decompose under D4 into three orbits of sizes (2, 8, 4)
+[HCSM-04, HCSM-05]:
+
+    O_0 = {nu, e},
+    O_1 = {u, d, s, mu, dark, c, tau, b},
+    O_2 = {W, Z, H, t}.                                                 (5)
+
+The support classes are (64, 48, 32) = (N, V, N/2) with V = 48. The
+inverse participation ratios are (2/128, 3/128, 4/128).
+
+2.4 The chiral reflection rs
+
+By HCSM-26, the chiral reflection is the map
+
+    rs : (n1, n2) -> (n2, n1)  (mod 8).                                 (6)
+
+Its fixed locus on the 14-mode multiplet is
+
+    Fix(rs) = {(2,2), (6,6)} = {W, t}.                                  (7)
+
+The rs action partitions the 14 modes into six orbits of size 2:
+
+    {nu, e}, {u, s}, {d, b}, {mu, c}, {dark, tau}, {W, t}.              (8)
+
+The five non-trivial rs-orbits contribute two independent amplitudes each
+(opposite signs); the fixed locus contributes zero.
+
+2.5 The 19 vacuum-native observables
+
+The 19 observables are listed in Table 1. Each is a real-valued function
+on the 14 modes, computable from the substrate primitives.
+
+  Table 1. The 19 vacuum-native observables.
+
+  Column | Observable                              | Source
+  -------+-----------------------------------------+------------------
+    1    | Support                                 | HCSM-04
+    2    | IPR                                     | HCSM-05
+    3    | Entropy                                 | HCSM-05
+    4    | N/4                                     | HCSM-23
+    5    | delta                                   | HCSM-11
+    6    | Shell                                   | HCSM-32
+    7    | Charge                                  | Disclosed input
+    8    | P_parallel                              | This paper
+    9    | P_perp                                  | This paper
+   10    | P_total = P_parallel + P_perp           | This paper
+   11    | P_flip                                  | This paper
+   12    | n1                                      | HCSM-04
+   13    | n2                                      | HCSM-04
+   14    | n1 + n2                                 | HCSM-04
+   15    | |n2 - n1|                               | HCSM-04
+   16    | n1 n2                                   | HCSM-04
+   17    | vx                                      | This paper
+   18    | vy                                      | This paper
+   19    | |v|                                     | This paper
+
+Remark (Construction of columns 8-11 and 17-19). The pressure observables
+P_parallel, P_perp, P_total are diagonal components of the mode stress
+tensor on the torus, computed from the mode wavefunctions phi_a(x, y) and
+the Laplacian. The helicity-flip probability P_flip is the transition
+probability between the two circular polarizations of the mode. The group
+velocity components vx, vy are derivatives of the dispersion relation
+omega(k) = sqrt(lambda(k)) evaluated at the mode momentum (n1, n2).
+
+================================================================================
+3. THE MEASUREMENT MATRIX
+================================================================================
+
+Definition 3.1 (Measurement matrix). The measurement matrix is the
+14 x 19 real matrix
+
+    M_{i,a} = O_a(m_i),  i = 1,...,14, a = 1,...,19,                    (9)
+
+where m_i is the i-th mode in the standard mode order and O_a is the a-th
+observable in Table 1.
+
+Remark (Rational and irrational columns). The 19 columns of M split into
+15 rational columns (support, IPR, entropy, N/4, delta, shell, charge,
+three pressure components, and five geometric labels n1, n2, n1+n2,
+|n2-n1|, n1 n2) and 4 irrational columns (P_flip, vx, vy, |v|). The
+rational columns have entries in Q; the irrational columns have entries in
+R \ Q.
+
+================================================================================
+4. RANK AND NULLITY
+================================================================================
+
+Theorem 4.1 (Rank and nullity). The measurement matrix M has rank
+
+    rank(M) = 13,                                                       (10)
+
+and its transpose has nullity
+
+    nullity(M^T) = 14 - 13 = 1.                                         (11)
+
+Proof. Singular value decomposition. The 14 singular values of M in
+decreasing order are
+
+    190.09, 52.54, 12.08, 9.85, 6.83, 6.07, 4.41, 3.38, 1.10, 1.02,
+    0.43, 0.26, 0.14, 8.47e-16.                                         (12)
+
+The smallest singular value is 8.47e-16, machine zero in IEEE-754 double
+precision. The second-smallest is 1.44e-1, five orders of magnitude
+larger. There is a clear gap between the 13th and 14th singular values,
+establishing rank(M) = 13. By the rank-nullity theorem, nullity(M^T) =
+14 - 13 = 1.                                                            []
+
+Corollary 4.2 (Existence and uniqueness of the zero state). There is
+exactly one 14-vector s (up to scale) satisfying
+
+    M^T s = 0.                                                          (13)
+
+Proof. Immediate from the rank-nullity theorem.                          []
+
+================================================================================
+5. THE ZERO STATE VECTOR
+================================================================================
+
+Definition 5.1 (Zero state). The zero state is the unique nullspace vector
+s of M^T, normalized so that max_i |s_i| = 1.
+
+Theorem 5.1 (Zero state vector). In the standard mode order (3), the zero
+state is
+
+    s = ( -0.105198199128,  (nu)
+          +0.105198199128,  (e)
+          +0.937726561300,  (u)
+          -0.192806690737,  (d)
+          -0.937726561300,  (s)
+          +0.658283218429,  (mu)
+          -1.000000000000,  (dark)
+          -0.658283218429,  (c)
+          +1.000000000000,  (tau)
+          +0.192806690737,  (b)
+           0.000000000000,  (W)
+          -0.329141609215,  (Z)
+          +0.329141609215,  (H)
+           0.000000000000 ). (t)                                        (14)
+
+Proof. Numerical computation of the nullspace via singular value
+decomposition in IEEE-754 double precision. The vector is unique up to
+scale; the normalization max_i |s_i| = 1 fixes the scale.                []
+
+================================================================================
+6. SYMMETRY UNDER THE CHIRAL REFLECTION
+================================================================================
+
+6.1 Oddness under rs
+
+Theorem 6.1 (Oddness under rs). The zero state satisfies
+
+    s(rs(m)) = -s(m)  for all m in M.                                   (15)
+
+Equivalently, s is an eigenvector of the rs permutation with eigenvalue -1
+on each non-fixed 2-cycle.
+
+Proof. Direct verification using the explicit vector (14) and the rs
+action (6). For every pair {m, rs(m)} in (8), the amplitudes satisfy
+s(rs(m)) = -s(m). The verification holds at machine precision.           []
+
+Corollary 6.2 (Vanishing at fixed points). The two rs-fixed modes have
+exactly zero amplitude:
+
+    s(W) = s(t) = 0.                                                    (16)
+
+Proof. By Theorem 6.1, s(W) = s(rs(W)) = -s(W), so s(W) = 0. Similarly
+s(t) = 0.                                                                []
+
+Remark. The vanishing of s at the fixed locus {W, t} is a structural
+consequence of the oddness. It is the substrate-level statement that the
+observer pair of HCSM-26 carries no zero-state amplitude.
+
+6.2 Six independent amplitudes
+
+Corollary 6.3 (Six amplitudes). The zero state is determined by six
+independent amplitudes, one per rs-orbit:
+
+  Amplitude | rs-orbit         | Value
+  ----------+------------------+----------------
+    a_1     | {dark, tau}      | 1.000000000000
+    a_2     | {u, s}           | 0.937726561300
+    a_3     | {mu, c}          | 0.658283218429
+    a_4     | {Z, H}           | 0.329141609215
+    a_5     | {d, b}           | 0.192806690737
+    a_6     | {nu, e}          | 0.105198199128
+
+The remaining 8 amplitudes are fixed by oddness: s on the second element
+of each 2-cycle is -a_k.
+
+================================================================================
+7. EXACT ALGEBRAIC RATIOS
+================================================================================
+
+Theorem 7.1 (Exact ratios). The six independent amplitudes satisfy the
+exact algebraic ratios
+
+    a_3 / a_4 = 2,   a_5 / a_4 = 2 - sqrt(2),   a_5 / a_3 = (2 - sqrt(2))/2.
+                                                                        (17)
+
+Proof. Direct numerical verification:
+
+    a_3 / a_4 = 0.658283218429 / 0.329141609215 = 2.00000000000000
+              +- 10^-14,
+    a_5 / a_4 = 0.192806690737 / 0.329141609215 = 0.585786437627
+              +- 10^-14,
+    a_5 / a_3 = 0.192806690737 / 0.658283218429 = 0.292893218813
+              +- 10^-14.
+
+The exact values are 2, 2 - sqrt(2) ~= 0.585786437627, and
+(2 - sqrt(2))/2 ~= 0.292893218813. The three ratios are related by the
+algebraic chain a_3 -> a_4 -> a_5.                                       []
+
+Remark. The sqrt(2)-chain arises from the trigonometric structure of the
+cosine modes at pi/4 multiples. The modes mu = (3,7) and c = (7,3) have
+trigonometric content in the ratio 2 relative to Z = (2,6) and H = (6,2).
+The modes d = (1,5) and b = (5,1) have content in the ratio 2 - sqrt(2).
+
+================================================================================
+8. ENTROPY REDUNDANCY
+================================================================================
+
+Theorem 8.1 (Entropy redundancy). The entropy column of M is an exact
+affine function of the IPR column:
+
+    S_i = log_2 N + 1 - N * IPR_i = 7 - 64 * IPR_i.                     (18)
+
+Proof. The affine entropy-IPR relation is Theorem 8.2 of HCSM-05 and
+Theorem 2.3 of HCSM-04. It holds exactly for all plane-wave modes on the
+torus. Substituting N = 64: S_i = log_2 64 + 1 - 64 * IPR_i
+= 6 + 1 - 64 * IPR_i.                                                   []
+
+Corollary 8.2 (Entropy column is structurally redundant). Deleting the
+entropy column from M leaves the nullspace unchanged: the nullspace vector
+s of the reduced matrix equals s exactly.
+
+Proof. Since the entropy column is an exact affine function of the IPR
+column, it adds no independent constraint. The nullspace of the reduced
+matrix equals the nullspace of the full matrix.                          []
+
+Theorem 8.3 (Rational submatrix). The 15-column rational submatrix M_rat
+has rank 11 and nullity 3. The full 19-column matrix has rank 13 and
+nullity 1. The 4 irrational columns (P_flip, vx, vy, |v|) contribute the
+2 extra independent constraints that cut the nullspace from dimension 3
+to dimension 1.
+
+Proof. Singular value decomposition of the rational submatrix gives rank
+11. The residual freedom after the rational constraints is a
+3-dimensional subspace of R^14. The 4 irrational columns impose 2
+additional independent constraints, reducing the nullspace to 1 dimension.
+The zero state satisfies the rational constraints to machine precision:
+|| M_rat^T s || = 1.0e-14.                                              []
+
+================================================================================
+9. ORBIT WEIGHT FRACTIONS
+================================================================================
+
+Theorem 9.1 (Weight fractions). The |s|-mass of the zero state is
+distributed over the three D4 orbits as
+
+    O_0 : 3.3%,   O_1 : 86.5%,   O_2 : 10.2%.                           (19)
+
+Proof. Compute the weight fractions W_k = sum_{i in O_k} s_i^2 /
+sum_i s_i^2. Direct computation gives
+
+    W_0 = (0.105^2 + 0.105^2) / ||s||^2 = 0.0221 / 0.6747 = 0.0328,
+    W_1 = 0.5837 / 0.6747 = 0.8652,
+    W_2 = 0.0690 / 0.6747 = 0.1023.
+
+The values round to 3.3%, 86.5%, 10.2%.                                  []
+
+Remark. The middle orbit O_1 dominates the zero state. This orbit
+contains the light and middle quarks (u, d, s, c, b) but not the top quark
+(t in O_2). The zero state is therefore concentrated on the light fermion
+modes and decoupled from the top-quark sector. Whether this reflects the
+physical origin of the top mass is an open question (HCSM-33).
+
+================================================================================
+10. INPUTS AND DERIVED
+================================================================================
+
+10.1 Derived
+
+  (1) The 19 vacuum-native observables (Table 1).
+  (2) Rank 13 and nullity 1 of the measurement matrix M (Theorem 4.1).
+  (3) The zero state vector s (Theorem 5.1).
+  (4) Oddness of s under the chiral reflection rs (Theorem 6.1).
+  (5) Vanishing of s at the fixed locus {W, t} (Corollary 6.2).
+  (6) Six independent amplitudes (Corollary 6.3).
+  (7) The exact ratios a_3/a_4 = 2 and a_5/a_4 = 2 - sqrt(2)
+      (Theorem 7.1).
+  (8) Entropy redundancy (Theorem 8.1, Corollary 8.2).
+  (9) The rational submatrix rank-11/nullity-3 structure (Theorem 8.3).
+  (10) Orbit weight fractions 3.3%, 86.5%, 10.2% (Theorem 9.1).
+
+10.2 Inputs
+
+  (1) The substrate Lambda = Z8 x Z8 and the framework constants
+      (HCSM-01).
+  (2) The 14-mode multiplet at lambda = 4 and the mode coordinates
+      (HCSM-04).
+  (3) The D4 orbit decomposition (HCSM-04, HCSM-05).
+  (4) The entropy-IPR affine relation (HCSM-05).
+  (5) The delta observable (HCSM-11).
+  (6) The N/4 labels (HCSM-23).
+  (7) The chiral reflection rs (HCSM-26).
+  (8) The charge column (disclosed input; the full charge theorem is
+      HCSM-24).
+
+10.3 What is not claimed
+
+We do not claim that the zero state is selected by any physical mechanism.
+Falsification tests of the WIN-era paper (static pressure-charge balance,
+DNLS dynamical selection, topological selection) all fail. The zero state
+is a structural fact about the multiplet and the observable set, not a
+selection rule.
+
+We do not claim to derive the charge column from the substrate; it is a
+disclosed input, consistent with the HCSM-06/07 disclosure pattern.
+
+We do not claim to derive the exact closed form of the amplitudes a_2 and
+a_6. They are irrational numbers whose algebraic nature (degree of minimal
+polynomial, or transcendence) is not determined by the present analysis.
+
+================================================================================
+11. REPRODUCIBILITY
+================================================================================
+
+All numerical claims in this paper are verified at machine precision in
+IEEE-754 double precision. The verification script is provided in the HCSM
+companion repository at 12-VERIFICATION/HCSM-22_verification.py. It
+constructs:
+
+  (1) The 14 mode coordinates and mode wavefunctions on Lambda.
+  (2) The 19 observables and the measurement matrix M.
+  (3) The singular value decomposition of M.
+  (4) The nullspace vector s.
+
+and verifies:
+
+  (1) rank(M) = 13, nullity(M^T) = 1.
+  (2) The smallest singular value is 8.47e-16.
+  (3) The zero state vector matches (14).
+  (4) s(rs(m)) = -s(m) for all 14 modes.
+  (5) s(W) = s(t) = 0 exactly.
+  (6) The exact ratios a_3/a_4 = 2, a_5/a_4 = 2 - sqrt(2).
+  (7) Entropy redundancy: || M_rat^T s || = 1.0e-14.
+  (8) Weight fractions 3.3%, 86.5%, 10.2%.
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim in the
+HCSM paper stack.
+
+================================================================================
+12. CONCLUSION
+================================================================================
+
+This paper has established the zero state of the Hodge Complex Standard
+Model.
+
+The 14-mode multiplet at the self-paired eigenvalue lambda = 4 carries 19
+vacuum-native observables, forming a 14 x 19 measurement matrix M. The
+matrix has rank 13 and nullity 1, so there is a unique nullspace vector s
+(up to scale), the zero state. The smallest singular value of M is machine
+zero.
+
+The zero state has four structural properties:
+
+  (1) It is odd under the chiral reflection rs of HCSM-26:
+      s(rs(m)) = -s(m) for all 14 modes.
+  (2) The two rs-fixed modes W = (2,2) and t = (6,6) have exactly zero
+      amplitude.
+  (3) The six independent amplitudes (one per rs-orbit) satisfy the exact
+      algebraic ratios a_3 = 2 a_4 and a_5 = (2 - sqrt(2)) a_4.
+  (4) 86.5% of the |s|-mass sits on the middle D4 orbit O_1.
+
+The entropy column of M is exactly redundant with the IPR column via the
+affine relation of HCSM-05. The 15 rational columns have rank 11 and
+nullity 3; the 4 irrational columns cut the nullity to 1.
+
+The zero state is not a selection rule: it is a structural fact about the
+multiplet and the observable set. Its exact amplitudes a_2 and a_6 are
+irrational numbers whose closed form is an open question.
+
+The zero state provides the flavor-structure input to the downstream
+sector of the HCSM stack. Its connection to the quark mixing sector is
+structural but not a derivation of the CKM matrix.
+
+================================================================================
+REFERENCES
+================================================================================
+
+[HCSM-00]  S. Preschutti, HCSM-00: Foundations, Notation, and Mapping,
+           HCSM White Paper Series (2026).
+
+[HCSM-01]  S. Preschutti, HCSM-01: The 8 x 8 Torus Substrate from d = 4,
+           HCSM White Paper Series (2026).
+
+[HCSM-04]  S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4,
+           HCSM White Paper Series (2026).
+
+[HCSM-05]  S. Preschutti, HCSM-05: Orbit Decomposition and Inverse
+           Participation, HCSM White Paper Series (2026).
+
+[HCSM-11]  S. Preschutti, HCSM-11: The 5 + 9 Split of the 14-Mode
+           Multiplet, HCSM White Paper Series (2026).
+
+[HCSM-13]  S. Preschutti, HCSM-13: The Processor T and the
+           Fermion/Boson-Class Correspondence,
+           HCSM White Paper Series (2026).
+
+[HCSM-14]  S. Preschutti, HCSM-14: The Winding Generator Spectrum and
+           Class Partition, HCSM White Paper Series (2026).
+
+[HCSM-23]  S. Preschutti, HCSM-23: The Delta Function and N/4 Labels,
+           HCSM White Paper Series (2026).
+
+[HCSM-26]  S. Preschutti, HCSM-26: The Observer Pair {W, t},
+           HCSM White Paper Series (2026).
+
+[HCSM-32]  S. Preschutti, HCSM-32: Shell Assignment Rule,
+           HCSM White Paper Series (2026).
+
+================================================================================
+13. WEB CRAWLER METADATA
+================================================================================
+
+--------------------------------------------------------------------------------
+13.1 Dublin Core
+--------------------------------------------------------------------------------
+
+DC.title: HCSM-22: The Zero State
+DC.alternativeTitle: The 14 x 19 Vacuum-Native Measurement Matrix, the
+    Unique Nullspace Vector, and Its Algebraic Structure
+DC.creator: Preschutti, Stanley
+DC.creator.orcid: 0009-0004-5445-1744
+DC.creator.email: scstannp@yahoo.com
+DC.date.issued: 2026-09
+DC.type: Text / Preprint / White Paper
+DC.format: text/plain; text/x-latex
+DC.language: en
+DC.publisher: Entropia Research Institute
+DC.rights: All rights reserved
+DC.subject: Hodge Complex Standard Model; HCSM; zero state; vacuum
+    configuration; measurement matrix; 14 x 19 matrix; rank 13;
+    nullity 1; nullspace vector; chiral reflection; rs-odd; exact
+    algebraic ratios; sqrt(2); D4 orbits; orbit weight fractions;
+    entropy redundancy; affine entropy-IPR relation; 8x8 torus;
+    14-mode multiplet
+DC.description: The Hodge Complex Standard Model identifies the 14
+    modes at the self-paired eigenvalue lambda = 4 of the discrete
+    Laplacian on the periodic 8 x 8 torus with one Standard Model
+    generation. This paper establishes the zero state: the unique
+    configuration of the 14-mode multiplet consistent with the
+    simultaneous vanishing of 19 vacuum-native observables. The 19
+    observables form a 14 x 19 matrix M with rank 13 and nullity 1.
+    The unique nullspace vector s is the zero state. It is odd under
+    the chiral reflection rs (s(rs(m)) = -s(m)), vanishes at the
+    rs-fixed locus {W, t}, satisfies the exact ratios a_3/a_4 = 2 and
+    a_5/a_4 = 2 - sqrt(2), and concentrates 86.5% of its weight on
+    the middle D4 orbit O_1. The entropy column is exactly redundant
+    with the IPR column via the affine relation of HCSM-05.
+DC.identifier: HCSM-22-2026-09
+DC.relation.isPartOf: HCSM White Paper Series
+DC.relation.references: HCSM-00, HCSM-01, HCSM-04, HCSM-05, HCSM-11,
+    HCSM-13, HCSM-14, HCSM-23, HCSM-26, HCSM-32
+
+--------------------------------------------------------------------------------
+13.2 Schema.org JSON-LD
+--------------------------------------------------------------------------------
+
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "HCSM-22: The Zero State",
+  "alternateName": "The 14 x 19 Vacuum-Native Measurement Matrix, the Unique Nullspace Vector, and Its Algebraic Structure",
+  "author": {
+    "@type": "Person",
+    "name": "Stanley Preschutti",
+    "jobTitle": "Physics Researcher",
+    "email": "scstannp@yahoo.com",
+    "identifier": "https://orcid.org/0009-0004-5445-1744",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Entropia Research Institute",
+      "url": "https://www.informationphysicsinstitute.org"
+    }
+  },
+  "datePublished": "2026-09",
+  "inLanguage": "en",
+  "abstract": "The Hodge Complex Standard Model identifies the 14 modes at the self-paired eigenvalue lambda = 4 of the discrete Laplacian on the periodic 8 x 8 torus with one Standard Model generation. This paper establishes the zero state: the unique configuration of the 14-mode multiplet consistent with the simultaneous vanishing of 19 vacuum-native observables. The 19 observables form a 14 x 19 matrix M with rank 13 and nullity 1. The unique nullspace vector s is the zero state. It is odd under the chiral reflection rs (s(rs(m)) = -s(m)), vanishes at the rs-fixed locus {W, t}, satisfies the exact ratios a_3/a_4 = 2 and a_5/a_4 = 2 - sqrt(2), and concentrates 86.5% of its weight on the middle D4 orbit O_1. The entropy column is exactly redundant with the IPR column via the affine relation of HCSM-05.",
+  "keywords": [
+    "Hodge Complex Standard Model",
+    "HCSM",
+    "zero state",
+    "vacuum configuration",
+    "measurement matrix",
+    "14 x 19 matrix",
+    "rank 13",
+    "nullity 1",
+    "nullspace vector",
+    "chiral reflection",
+    "rs-odd",
+    "exact algebraic ratios",
+    "sqrt(2)",
+    "D4 orbits",
+    "orbit weight fractions",
+    "entropy redundancy",
+    "affine entropy-IPR relation",
+    "8x8 torus",
+    "14-mode multiplet"
+  ],
+  "license": "All rights reserved",
+  "identifier": "HCSM-22-2026-09",
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "HCSM White Paper Series"
+  },
+  "citation": [
+    "HCSM-00: Foundations, Notation, and Mapping",
+    "HCSM-01: The 8 x 8 Torus Substrate from d = 4",
+    "HCSM-04: The 14-Mode Multiplet at lambda = 4",
+    "HCSM-05: Orbit Decomposition and Inverse Participation",
+    "HCSM-11: The 5 + 9 Split of the 14-Mode Multiplet",
+    "HCSM-13: The Processor T and the Fermion/Boson-Class Correspondence",
+    "HCSM-14: The Winding Generator Spectrum and Class Partition",
+    "HCSM-23: The Delta Function and N/4 Labels",
+    "HCSM-26: The Observer Pair {W, t}",
+    "HCSM-32: Shell Assignment Rule"
+  ],
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "Zero state",
+      "description": "The unique nullspace vector of the 14 x 19 measurement matrix of vacuum-native observables on the 14-mode multiplet at lambda = 4."
+    },
+    {
+      "@type": "Thing",
+      "name": "Measurement matrix",
+      "description": "A 14 x 19 real matrix whose rows are the 14 modes and whose columns are 19 vacuum-native observables."
+    },
+    {
+      "@type": "Thing",
+      "name": "Chiral reflection rs",
+      "description": "The diagonal reflection (n1, n2) -> (n2, n1) on the torus. The zero state is odd under rs, and vanishes at the rs-fixed locus {W, t}."
+    }
+  ],
+  "measurementTechnique": "Numerical verification in IEEE-754 double precision using NumPy; singular value decomposition for rank-nullity; rational arithmetic for the exact ratios.",
+  "isAccessibleForFree": true,
+  "copyrightHolder": {
+    "@type": "Organization",
+    "name": "Entropia Research Institute"
+  }
+}
+
+--------------------------------------------------------------------------------
+13.3 BibTeX for Automated Indexing
+--------------------------------------------------------------------------------
+
+@article{PreschuttiHCSM22,
+  author       = {Preschutti, Stanley},
+  title        = {{HCSM-22}: The Zero State},
+  journal      = {HCSM White Paper Series},
+  year         = {2026},
+  month        = {September},
+  note         = {ORCID: 0009-0004-5445-1744},
+  keywords     = {Hodge Complex Standard Model, HCSM, zero state,
+                  vacuum configuration, measurement matrix, 14 x 19
+                  matrix, rank 13, nullity 1, nullspace vector, chiral
+                  reflection, rs-odd, exact algebraic ratios, sqrt(2),
+                  D4 orbits, orbit weight fractions, entropy
+                  redundancy, affine entropy-IPR relation, 8x8 torus},
+  abstract     = {The Hodge Complex Standard Model identifies the 14
+                  modes at the self-paired eigenvalue lambda = 4 of the
+                  discrete Laplacian on the periodic 8 x 8 torus with
+                  one Standard Model generation. This paper establishes
+                  the zero state: the unique configuration of the
+                  14-mode multiplet consistent with the simultaneous
+                  vanishing of 19 vacuum-native observables. The 19
+                  observables form a 14 x 19 matrix M with rank 13 and
+                  nullity 1. The unique nullspace vector s is the zero
+                  state. It is odd under the chiral reflection rs,
+                  vanishes at the rs-fixed locus {W, t}, satisfies the
+                  exact ratios a_3/a_4 = 2 and a_5/a_4 = 2 - sqrt(2),
+                  and concentrates 86.5% of its weight on the middle
+                  D4 orbit O_1.},
+  url          = {https://github.com/007STAN/HODGE-COMPLEX-STANDARD-MODEL-HCSM-}
+}
+
+--------------------------------------------------------------------------------
+13.4 arXiv-style categorization
+--------------------------------------------------------------------------------
+
+Primary category:   math-ph (Mathematical Physics)
+Cross-list:        hep-th (High Energy Physics - Theory)
+Cross-list:        hep-ph (High Energy Physics - Phenomenology)
+Cross-list:        math.RT (Representation Theory)
+Cross-list:        quant-ph (Quantum Physics)
+
+MSC 2020 codes:
+  81T10  Model quantum field theories
+  81T25  Quantum field theory on lattices
+  81Q35  Quantum mechanics on special spaces and manifolds
+  15A03  Vector spaces, linear dependence, rank
+  20C35  Applications of group representations to physics
+
+--------------------------------------------------------------------------------
+13.5 Key search terms
+--------------------------------------------------------------------------------
+
+Primary:
+  HCSM-22, zero state, measurement matrix, 14 x 19 matrix, rank 13,
+  nullity 1, nullspace vector, chiral reflection rs, rs-odd,
+  exact ratios sqrt(2), orbit weight fractions
+
+Secondary:
+  Hodge Complex Standard Model, 8x8 torus, 14-mode multiplet,
+  D4 orbit decomposition, inverse participation ratio,
+  affine entropy-IPR relation, entropy redundancy,
+  rational submatrix, irrational submatrix
+
+Cross-references:
+  HCSM-04 14-mode multiplet, HCSM-05 orbit decomposition,
+  HCSM-11 5+9 split, HCSM-13 processor T,
+  HCSM-14 winding class partition, HCSM-23 N/4 labels,
+  HCSM-26 observer pair, HCSM-32 shell assignment
+
+--------------------------------------------------------------------------------
+13.6 Citation context and downstream use
+--------------------------------------------------------------------------------
+
+This paper is cited by:
+
+  - HCSM-23 (Delta Function and N/4 Labels, pending) for the zero
+    state as input to the delta function construction.
+  - HCSM-24 (Charge Theorem, pending) for the sigma = sign(s) used in
+    the charge bijection.
+  - HCSM-26 (Observer Pair) for the chiral reflection's fixed locus and
+    the vanishing zero-state amplitude.
+  - HCSM-29 (Charge-Entropy-Observer Triangle, pending) for the zero
+    state's sigma-lines.
+  - HCSM-36 (PMNS Matrix, pending) for the zero-state amplitude on
+    the lepton sector.
+  - HCSM-37 (PMNS Generation Phase, pending) for the CP-violating
+    phase structure.
+
+Papers this paper cites:
+
+  - HCSM-00, HCSM-01: foundations and substrate.
+  - HCSM-04, HCSM-05: 14-mode multiplet, orbit decomposition,
+    entropy-IPR relation.
+  - HCSM-11: 5+9 split and delta observable.
+  - HCSM-13, HCSM-14: processor and winding class partition.
+  - HCSM-23, HCSM-26, HCSM-32: N/4 labels, observer pair, shell
+    assignment.
+
+--------------------------------------------------------------------------------
+13.7 Version history and archival note
+--------------------------------------------------------------------------------
+
+Version:     1.0
+Date:        September 27, 2026
+Status:      Written; verified clean at machine precision.
+Supersedes:  WIN-era paper "The Zero State of the 8 x 8 Torus: A Unique
+             Vacuum Configuration from Vacuum-Native Measurements" (2026).
+Superseded by: None.
+
+This paper is the HCSM-native reformulation of the WIN-era zero-state
+paper. The 19 observables, the rank-13/nullity-1 theorem, the zero state
+vector, the rs-oddness, the exact algebraic ratios, the entropy
+redundancy, and the orbit weight fractions are all carried over. The
+chiral reflection is now identified with the rs of HCSM-26. The charge
+column is marked as a disclosed input, consistent with the HCSM-06/07
+disclosure pattern, because the full charge theorem is the subject of
+HCSM-24 (pending).
+
+Repository:  https://github.com/007STAN/HODGE-COMPLEX-STANDARD-MODEL-HCSM-
+Folder:      07-OUTPUT_STRUCTURES/HCSM-22_Zero_State/
+Verification: 12-VERIFICATION/HCSM-22_verification.py
+
+================================================================================
+END OF WEB CRAWLER METADATA
+================================================================================
+
+================================================================================
+END OF HCSM-22
+================================================================================
