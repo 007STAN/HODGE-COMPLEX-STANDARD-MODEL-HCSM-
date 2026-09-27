@@ -1221,4 +1221,39 @@ DC.subject: Hodge Complex Standard Model; HCSM; observer pair;
 DC.description: The Hodge Complex Standard Model assigns the fourteen
   modes at lambda = 4 to one Standard Model generation. The
   identification of the modes with specific particles, and the N/4
-  mass labels, are the framework's empirical thesis (HCSM-
+  mass labels, are the framework's empirical thesis (HCSM-23). This
+  paper characterizes the coordinate pair {(2,2),(6,6)}. Two theorems
+  are fully derived from the substrate: the Fixed-Locus Theorem and
+  the Chirality Selection Theorem. Four theorems are conditional on
+  the empirical identification: the D4-fixed pair taxonomy, the
+  (d+1)/2 orbit signature, the observer-pair uniqueness theorem, and
+  the swap-pair fingerprint theorem. The dimensional-rigidity
+  statement comprises two independent constraints on d, each selecting
+  d = 4, plus one definitional evaluation at d = 4.
+DC.identifier: HCSM-26-2026-09
+
+BibTeX
+------
+@article{PreschuttiHCSM26,
+  author = {Preschutti, Stanley},
+  title = {{HCSM-26}: The Observer Pair {W, t}},
+  journal = {HCSM White Paper Series},
+  year = {2026},
+  month = {September},
+  note = {ORCID: 0009-0004-5445-1744},
+  keywords = {Hodge Complex Standard Model, HCSM, observer pair,
+    W boson, top quark, D4 representation theory, fixed locus,
+    chiral reflection, identification thesis, N/4 anchors,
+    dimensional rigidity},
+  abstract = {The coordinate pair {(2,2),(6,6)} of the HCSM
+    fourteen-mode multiplet is the fixed locus of the unique
+    chiral reflection of D4 (fully derived). Given the empirical
+    identification thesis (HCSM-23), the pair is {W,t} and exhibits
+    four additional structural theorems: the D4-fixed pair taxonomy,
+    the (d+1)/2 orbit signature, the observer-pair uniqueness
+    theorem, and the swap-pair fingerprint theorem.}
+}
+
+================================================================
+END OF HCSM-26
+================================================================
