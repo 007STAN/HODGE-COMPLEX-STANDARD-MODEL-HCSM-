@@ -1,0 +1,824 @@
+================================================================================
+HCSM-47
+Graviton Self-Coupling from D4
+The Derivative Structure of the Substrate
+and the Pure-Polynomial and Derivative-Included Counts
+The Hodge Complex Standard Model
+================================================================================
+
+Stanley Preschutti(1)
+
+(1) Entropia Research Institute / Information Physics Institute,
+    ORCID: 0009-0004-5445-1744, scstannp@yahoo.com
+
+September 2026
+
+
+================================================================================
+ABSTRACT
+================================================================================
+
+The Hodge Complex Standard Model identifies the graviton as the self-paired
+curvature mode of the Hodge complex on the periodic 8 x 8 torus: the
+symmetrized bilinear h = omega (x) omega in the substrate 1-form, projected
+onto the B_1 + B_2 isotypic piece of Sym^2(Omega^1|lambda=4), with
+polarization space V = B_1 + B_2 (HCSM-45). This paper establishes the
+self-coupling structure of the graviton by computing the D4-invariant
+content of the graviton vertex spaces. We prove: (i) the pure-polynomial
+A_1 counts of Sym^n(V) for n = 1, 2, 3, 4 are 0, 2, 0, 3, forbidding pure-
+polynomial kinetic and cubic graviton self-couplings; (ii) the derivative-
+included A_1 counts with two derivatives are 5, 12, 11 at orders 2, 3, 4,
+establishing the representation-theoretic content required for the kinetic,
+cubic, and quartic vertices; (iii) the odd-derivative selection rule: the
+A_1 content vanishes for odd numbers of derivatives, as a consequence of
+the faithful action of D4 on the derivative irrep E; (iv) the D4 action on
+ker D ~ 2A_1 + E embeds as a finite subgroup of O(3,1), so D4-invariant
+structures are a subset of Lorentz-invariant structures. The results
+reproduce the derivative structure of the Einstein-Hilbert expansion: the
+pure-polynomial kinetic and cubic vertices vanish, and the physical
+vertices carry exactly two derivatives. The graviton is a composite
+bilinear, and its nonlinearity arises from the composite structure of
+h = omega (x) omega, not from the Faddeev-Popov measure, which is
+field-independent on the discrete torus. All claims are HCSM-native and
+verified at machine precision.
+
+
+================================================================================
+CONTENTS
+================================================================================
+
+1. Introduction
+   1.1 The nonlinear sector of gravity
+   1.2 The one-line summary
+   1.3 Main results
+   1.4 Cross references to the HCSM paper stack
+   1.5 Organization
+2. Setup
+   2.1 The graviton polarization space
+   2.2 The D4 character table
+   2.3 The cycle-index formula for symmetric powers
+3. Pure-polynomial self-coupling
+4. Derivative-included self-coupling
+   4.1 Derivatives as E insertions
+   4.2 The two-derivative counts
+5. The odd-derivative selection rule
+6. Embedding in O(3,1)
+7. Composite structure of the graviton
+   7.1 The substrate action is quadratic
+   7.2 The graviton is a composite operator
+   7.3 Faddeev-Popov field-independence
+8. Inputs and derived
+9. Reproducibility
+10. Conclusion
+A. Web Crawler Metadata
+   A.1 Dublin Core
+   A.2 Schema.org JSON-LD
+   A.3 BibTeX for Automated Indexing
+
+
+================================================================================
+1. INTRODUCTION
+================================================================================
+
+1.1 The nonlinear sector of gravity
+--------------------------------------------------------------------------------
+
+General relativity is nonlinear. Expanding the Einstein-Hilbert action
+around a flat background produces a tower of self-couplings at every order
+in the metric fluctuation h_mu_nu, and every vertex carries derivatives:
+the kinetic term has two derivatives, the cubic vertex has two derivatives,
+and the quartic vertex has either two or four. No vertex is a pure
+polynomial in h.
+
+In the Hodge Complex Standard Model (HCSM), the graviton is the self-paired
+curvature mode of the substrate: the symmetrized bilinear
+h = omega (x) omega in the substrate 1-form omega, projected onto the
+B_1 + B_2 isotypic piece of Sym^2(Omega^1|lambda=4) (HCSM-45 [HCSM-45]).
+The polarization space is V = B_1 + B_2, of dimension 2, with D4 character
+(2, 2, -2, 0, 0) on the five conjugacy classes.
+
+This paper establishes the self-coupling structure of the graviton. It
+computes the D4-invariant content of the graviton vertex spaces, both pure
+polynomial and derivative included, and shows that the framework reproduces
+the derivative structure of the Einstein-Hilbert expansion: pure-polynomial
+kinetic and cubic vertices vanish, and the physical vertices carry exactly
+two derivatives.
+
+1.2 The one-line summary
+--------------------------------------------------------------------------------
+
+    The pure-polynomial D4-invariant content of the graviton vertex spaces
+    is (0, 2, 0, 3) at orders 1 through 4, forbidding pure-polynomial
+    kinetic and cubic self-couplings. The derivative-included content with
+    two derivatives is (5, 12, 11) at orders 2, 3, 4, establishing the
+    representation-theoretic content required for the kinetic, cubic, and
+    quartic vertices. The odd-derivative selection rule forbids self-
+    couplings with an odd number of derivatives.
+
+1.3 Main results
+--------------------------------------------------------------------------------
+
+(1) Pure-polynomial counts (Theorem 3.2). The D4-invariant (A_1) content
+    of Sym^n(V) for n = 1, 2, 3, 4 is 0, 2, 0, 3. Pure-polynomial kinetic
+    and cubic graviton self-couplings are forbidden by D4 symmetry.
+
+(2) Derivative-included counts (Theorem 4.2). The A_1 content of the
+    derivative-included vertex spaces Vc_{n,2} with two derivatives is
+    5, 12, 11 at orders n = 2, 3, 4.
+
+(3) Odd-derivative selection rule (Theorem 5.1). The A_1-invariant
+    content of Vc_{n,m} vanishes for odd m.
+
+(4) D4 in O(3,1) embedding (Theorem 6.2). The D4 action on
+    ker D ~ 2A_1 + E embeds as a finite subgroup of O(3,1).
+
+(5) Composite bilinear (Proposition 7.2). The graviton is the
+    symmetrized bilinear h = omega (x) omega in the substrate 1-form
+    omega, and its nonlinear self-coupling arises from the composite
+    structure of this bilinear.
+
+(6) Faddeev-Popov field-independence (Proposition 7.3). The
+    Faddeev-Popov determinant on the discrete torus is field-independent,
+    so the FP measure does not contribute to nonlinear vertices.
+
+1.4 Cross references to the HCSM paper stack
+--------------------------------------------------------------------------------
+
+  - HCSM-00 [HCSM-00]: foundations, notation, and mapping.
+  - HCSM-01 [HCSM-01]: the 8 x 8 torus substrate.
+  - HCSM-02 [HCSM-02]: the Hodge complex; the Omega^1|lambda=4
+    decomposition.
+  - HCSM-03 [HCSM-03]: Lorentzian signature; the ker D = 2A_1 + E
+    decomposition.
+  - HCSM-05 [HCSM-05]: orbit decomposition; the D4 character table.
+  - HCSM-06 [HCSM-06]: sector-coarse correspondence; the D4 tensor-
+    product rules.
+  - HCSM-45 [HCSM-45]: graviton as self-paired curvature mode;
+    V = B_1 + B_2.
+  - HCSM-46 [HCSM-46]: graviton exact masslessness (downstream).
+  - HCSM-48 [HCSM-48]: Faddeev-Popov G_N normalization (downstream).
+  - HCSM-49 [HCSM-49]: Newton constant 8pi factor (downstream).
+  - HCSM-50 [HCSM-50]: composite-operator effective action (downstream).
+
+1.5 Organization
+--------------------------------------------------------------------------------
+
+Section 2 states the graviton polarization space and its D4 character.
+Section 3 derives the pure-polynomial counts. Section 4 derives the
+derivative-included counts. Section 5 proves the odd-derivative selection
+rule. Section 6 establishes the O(3,1) embedding. Section 7 discusses the
+composite structure. Section 8 summarizes inputs and derived results.
+Section 9 gives reproducibility notes. Section 10 concludes.
+
+
+================================================================================
+2. SETUP
+================================================================================
+
+2.1 The graviton polarization space
+--------------------------------------------------------------------------------
+
+By HCSM-45 [HCSM-45], the graviton is the self-paired curvature mode of
+the substrate, with polarization space
+
+    V = B_1 + B_2, dim V = 2,                                        (1)
+
+and D4 character
+
+    chi_V = (2, 2, -2, 0, 0)                                         (2)
+
+on the five conjugacy classes (e, r^2, r, s, rs) of D4.
+
+The two components of V correspond to the two physical graviton
+polarizations: B_1 is the h_xx - h_yy polarization, and B_2 is the h_xy
+polarization (HCSM-45 [HCSM-45]).
+
+2.2 The D4 character table
+--------------------------------------------------------------------------------
+
+For self-containedness, we recall the D4 character table with class sizes
+(1, 1, 2, 2, 2):
+
+    irrep    e    r^2   r     s     rs
+    -----   ---   ---   ---   ---   ---
+    A_1      1     1     1     1     1
+    A_2      1     1     1    -1    -1
+    B_1      1     1    -1     1    -1
+    B_2      1     1    -1    -1     1
+    E        2    -2     0     0     0
+
+2.3 The cycle-index formula for symmetric powers
+--------------------------------------------------------------------------------
+
+For a finite-dimensional representation V of a finite group and any group
+element g, the character of Sym^n(V) on g is given by the cycle-index
+formula
+
+    chi_{Sym^n(V)}(g) = (1/n!) sum_{sigma in S_n}
+                          prod_{cycles kappa} chi_V(g^{|kappa|}),   (3)
+
+where the product runs over the cycles kappa of the permutation sigma and
+|kappa| is the length of the cycle. For small n, the formula reduces to
+
+    chi_{Sym^1(V)}(g) = chi_V(g),
+
+    chi_{Sym^2(V)}(g) = (1/2) [chi_V(g)^2 + chi_V(g^2)],
+
+    chi_{Sym^3(V)}(g) = (1/6) [chi_V(g)^3
+                        + 3 chi_V(g) chi_V(g^2)
+                        + 2 chi_V(g^3)],
+
+    chi_{Sym^4(V)}(g) = (1/24) [chi_V(g)^4
+                        + 6 chi_V(g)^2 chi_V(g^2)
+                        + 3 chi_V(g^2)^2
+                        + 8 chi_V(g) chi_V(g^3)
+                        + 6 chi_V(g^4)].
+
+The multiplicities of the irreps in Sym^n(V) follow from the orthogonality
+relation
+
+    m_rho = (1/|D4|) sum_C |C| chi_{Sym^n(V)}(C) chi_rho(C).         (4)
+
+
+================================================================================
+3. PURE-POLYNOMIAL SELF-COUPLING
+================================================================================
+
+Definition 3.1 (Pure-polynomial vertex space). The pure-polynomial vertex
+space at order n is Sym^n(V).
+
+Theorem 3.2 (Pure-polynomial A_1 counts). The D4 isotypic decompositions
+of Sym^n(V) for n = 1, 2, 3, 4 are:
+
+    Sym^1(V) = B_1 + B_2,       dim = 2, A_1 count = 0,              (5)
+
+    Sym^2(V) = 2A_1 + A_2,      dim = 3, A_1 count = 2,              (6)
+
+    Sym^3(V) = 2B_1 + 2B_2,     dim = 4, A_1 count = 0,              (7)
+
+    Sym^4(V) = 3A_1 + 2A_2,     dim = 5, A_1 count = 3.              (8)
+
+The dimensions match (n+1 choose n) = n + 1, as required for symmetric
+powers of a 2-dimensional representation.
+
+Proof. We compute chi_{Sym^n(V)} for each n using (3), then apply (4) to
+extract multiplicities.
+
+n = 1: chi_{Sym^1(V)} = chi_V = (2, 2, -2, 0, 0). Multiplicities:
+m_{A_1} = (1/8)(2 + 2 - 4 + 0 + 0) = 0; m_{B_1} = (1/8)(2 + 2 + 4 + 0 + 0)
+= 1; m_{B_2} = 1. So Sym^1(V) = B_1 + B_2.
+
+n = 2: Using chi_{Sym^2(V)}(g) = (chi_V(g)^2 + chi_V(g^2))/2, and the
+values chi_V(g^2):
+
+  g = e:   chi_V(e) = 2, chi_V(e) = 2, so chi_{Sym^2(V)}(e) = 3,
+  g = r^2: chi_V(r^2) = 2, chi_V(e) = 2, so chi_{Sym^2(V)}(r^2) = 3,
+  g = r:   chi_V(r) = -2, chi_V(r^2) = 2, so chi_{Sym^2(V)}(r) = 3,
+  g = s:   chi_V(s) = 0, chi_V(e) = 2, so chi_{Sym^2(V)}(s) = 1,
+  g = rs:  chi_V(rs) = 0, chi_V(e) = 2, so chi_{Sym^2(V)}(rs) = 1.
+
+So chi_{Sym^2(V)} = (3, 3, 3, 1, 1). Multiplicities:
+m_{A_1} = (1/8)(3 + 3 + 6 + 2 + 2) = 2; m_{A_2} = (1/8)(3 + 3 + 6 - 2 - 2) = 1.
+So Sym^2(V) = 2A_1 + A_2.
+
+n = 3: Using chi_{Sym^3(V)}(g) = (chi_V(g)^3 + 3 chi_V(g) chi_V(g^2)
++ 2 chi_V(g^3))/6:
+
+  g = e:   (8 + 12 + 4)/6 = 4,
+  g = r^2: (8 + 12 + 4)/6 = 4,
+  g = r:   (-8 - 12 - 4)/6 = -4,
+  g = s:   0,
+  g = rs:  0.
+
+So chi_{Sym^3(V)} = (4, 4, -4, 0, 0). Multiplicities:
+m_{A_1} = (1/8)(4 + 4 - 8 + 0 + 0) = 0; m_{B_1} = (1/8)(4 + 4 + 8 + 0 + 0)
+= 2; m_{B_2} = 2. So Sym^3(V) = 2B_1 + 2B_2.
+
+n = 4: Using the cycle-index formula for Sym^4:
+
+  g = e:   (16 + 48 + 12 + 32 + 12)/24 = 5,
+  g = r^2: (16 + 48 + 12 + 32 + 12)/24 = 5,
+  g = r:   (16 + 48 + 12 + 32 + 12)/24 = 5,
+  g = s:   (0 + 0 + 12 + 0 + 12)/24 = 1,
+  g = rs:  1.
+
+So chi_{Sym^4(V)} = (5, 5, 5, 1, 1). Multiplicities:
+m_{A_1} = (1/8)(5 + 5 + 10 + 2 + 2) = 3; m_{A_2} = (1/8)(5 + 5 + 10 - 2 - 2)
+= 2. So Sym^4(V) = 3A_1 + 2A_2. [Box]
+
+Remark 3.3 (Interpretation). The vanishing A_1 content at order 1 forbids
+a pure-polynomial linear graviton coupling. The vanishing A_1 content at
+order 3 forbids a pure-polynomial cubic graviton self-coupling. This is
+the discrete analogue of the standard statement that gauge invariance
+forbids pure-polynomial self-couplings of the graviton. The order-2
+invariants correspond to mass terms, forbidden as physical masses by Schur
+orthogonality of the A_1 trace sector and the B_1 + B_2 graviton sector
+(HCSM-46 [HCSM-46]). The order-4 invariants provide the pure-quartic
+potential structure.
+
+
+================================================================================
+4. DERIVATIVE-INCLUDED SELF-COUPLING
+================================================================================
+
+4.1 Derivatives as E insertions
+--------------------------------------------------------------------------------
+
+On the discrete torus, the nearest-neighbor difference of a B_1 + B_2
+field transforms in the two-dimensional vector irrep E of D4. A vertex
+with m total derivatives is characterized by the representation content
+of the tensor product of n graviton legs with m derivative insertions,
+symmetrized over identical legs.
+
+Definition 4.1 (Derivative-included vertex space). The n-point vertex
+space with m derivatives is
+
+    Vc_{n,m} = sum_{k_1 + ... + k_n = m, k_i >= 0}
+                 (x)_k Sym^{a_k}(V (x) Sym^k(E)),                   (9)
+
+where the outer tensor product runs over distinct values of k, and a_k
+is the number of legs with derivative count k.
+
+4.2 The two-derivative counts
+--------------------------------------------------------------------------------
+
+Theorem 4.2 (Derivative-included A_1 counts at two derivatives). The
+A_1-invariant content of Vc_{n,2} for n = 2, 3, 4 is:
+
+    Vc_{2,2}: dim = 22, A_1 count = 5,                               (10)
+
+    Vc_{3,2}: dim = 38, A_1 count = 12,                              (11)
+
+    Vc_{4,2}: dim = 54, A_1 count = 11.                              (12)
+
+Proof. We enumerate the partitions of m = 2 into n non-negative parts and
+apply the vertex-space formula (9).
+
+n = 2: Partitions of 2 into 2 parts: (2, 0) and (1, 1).
+
+Partition (2, 0): distinct values k in {0, 2} with a_0 = 1, a_2 = 1.
+Contribution: Sym^1(V (x) Sym^0(E)) (x) Sym^1(V (x) Sym^2(E)) =
+V (x) V (x) Sym^2(E). Since Sym^0(E) = C.
+
+Partition (1, 1): k = 1, a_1 = 2. Contribution: Sym^2(V (x) E).
+
+Preliminary computations:
+  Sym^2(E) = A_1 + B_1 + B_2 (from chi_{Sym^2(E)} = (3, 3, -1, 1, 1)).
+
+  V (x) V = (B_1 + B_2)^{(x) 2} = 2A_1 + 2A_2.
+
+  V (x) E = (B_1 + B_2) (x) E = 2E.
+
+  Sym^2(V (x) E) = Sym^2(2E) = 3A_1 + A_2 + 3B_1 + 3B_2
+    (from chi_{Sym^2(2E)} = (10, 10, -2, 2, 2)).
+
+Contribution from partition (2, 0):
+  V (x) V (x) Sym^2(E) = (2A_1 + 2A_2) (x) (A_1 + B_1 + B_2)
+                        = 2A_1 + 2A_2 + 4B_1 + 4B_2.
+  A_1 count: 2.
+
+Contribution from partition (1, 1):
+  Sym^2(V (x) E) = 3A_1 + A_2 + 3B_1 + 3B_2.
+  A_1 count: 3.
+
+Total for n = 2: 2 + 3 = 5. Dimension: 12 + 10 = 22. Check.
+
+n = 3: Partitions of 2 into 3 parts: (2, 0, 0) and (1, 1, 0).
+
+Partition (2, 0, 0): a_0 = 2, a_2 = 1. Contribution:
+Sym^2(V) (x) (V (x) Sym^2(E)).
+
+Partition (1, 1, 0): a_0 = 1, a_1 = 2. Contribution:
+V (x) Sym^2(V (x) E).
+
+Preliminary: Sym^2(V) = 2A_1 + A_2.
+
+Partition (2, 0, 0):
+  Sym^2(V) (x) V (x) Sym^2(E)
+    = (2A_1 + A_2) (x) (B_1 + B_2) (x) (A_1 + B_1 + B_2)
+    = (3B_1 + 3B_2) (x) (A_1 + B_1 + B_2)
+    = 6A_1 + 6A_2 + 3B_1 + 3B_2.
+  A_1 count: 6.
+
+Partition (1, 1, 0):
+  V (x) Sym^2(V (x) E)
+    = (B_1 + B_2) (x) (3A_1 + A_2 + 3B_1 + 3B_2)
+    = 6A_1 + 6A_2 + 4B_1 + 4B_2.
+  A_1 count: 6.
+
+Total for n = 3: 6 + 6 = 12. Dimension: 18 + 20 = 38. Check.
+
+n = 4: Partitions of 2 into 4 parts: (2, 0, 0, 0) and (1, 1, 0, 0).
+
+Partition (2, 0, 0, 0): a_0 = 3, a_2 = 1. Contribution:
+Sym^3(V) (x) V (x) Sym^2(E).
+
+Partition (1, 1, 0, 0): a_0 = 2, a_1 = 2. Contribution:
+Sym^2(V) (x) Sym^2(V (x) E).
+
+Preliminary: Sym^3(V) = 2B_1 + 2B_2.
+
+Partition (2, 0, 0, 0):
+  Sym^3(V) (x) V (x) Sym^2(E)
+    = (2B_1 + 2B_2) (x) (B_1 + B_2) (x) (A_1 + B_1 + B_2)
+    = (4A_1 + 4A_2) (x) (A_1 + B_1 + B_2)
+    = 4A_1 + 4A_2 + 8B_1 + 8B_2.
+  A_1 count: 4.
+
+Partition (1, 1, 0, 0):
+  Sym^2(V) (x) Sym^2(V (x) E)
+    = (2A_1 + A_2) (x) (3A_1 + A_2 + 3B_1 + 3B_2)
+    = 7A_1 + 5A_2 + 9B_1 + 9B_2.
+  A_1 count: 7.
+
+Total for n = 4: 4 + 7 = 11. Dimension: 24 + 30 = 54. Check. [Box]
+
+Remark 4.3 (Physical interpretation). The non-vanishing A_1 content at
+(n, m) = (2, 2) establishes that the substrate admits a dynamical kinetic
+term. The non-vanishing content at (3, 2) establishes a cubic vertex with
+two derivatives. The non-vanishing content at (4, 2) establishes a quartic
+vertex with two derivatives. The pattern (5, 12, 11) reproduces the
+derivative structure of the Einstein-Hilbert expansion.
+
+
+================================================================================
+5. THE ODD-DERIVATIVE SELECTION RULE
+================================================================================
+
+Theorem 5.1 (Odd-derivative vanishing). For all n, the A_1-invariant
+content of Vc_{n,m} vanishes when m is odd:
+
+    dim Hom_{D4}(A_1, Vc_{n,m}) = 0 for m odd.                      (13)
+
+Proof. The vector irrep E of D4 is faithful on the reflection classes:
+for a reflection s, det(s|_E) = -1. A tensor product E^{(x) m} transforms
+under s by det(s|_E)^m = (-1)^m. The trivial irrep A_1 transforms trivially
+under s. Therefore the projection of E^{(x) m} onto A_1 vanishes for odd
+m. [Box]
+
+Corollary 5.2 (Even-derivative self-coupling). The derivative-included
+self-coupling structure of the graviton appears only at even derivative
+number. The leading nontrivial derivative structures are at m = 2, 4,
+6, ...
+
+Remark 5.3 (Consistency with the Einstein-Hilbert expansion). The
+Einstein-Hilbert expansion has vertices with an even number of
+derivatives: the kinetic term has two, the cubic vertex has two, and the
+quartic vertex has two or four. The odd-derivative selection rule is the
+discrete analogue of this even-derivative structure.
+
+
+================================================================================
+6. EMBEDDING IN O(3,1)
+================================================================================
+
+Theorem 6.1 (D4 action on ker D). The D4 action on ker D decomposes as
+
+    ker D = 2A_1 + E,                                                (14)
+
+where the two A_1 components correspond to the constant 0-form and the
+constant 2-form, and the E component corresponds to the two harmonic
+1-forms.
+
+Proof. Established in HCSM-03 [HCSM-03] for the Lorentzian signature
+derivation. The kernel dimension is
+dim ker D = b_0 + b_1 + b_2 = 1 + 2 + 1 = 4, matching
+dim (2A_1 + E) = 2 + 2 = 4. [Box]
+
+Theorem 6.2 (O(3,1) embedding). The D4 action on ker D embeds as a finite
+subgroup of O(3,1).
+
+Proof. The E component of ker D carries a real two-dimensional
+representation of D4 on which the generators r and s act as rotations by
+90 degrees and reflections respectively, giving a finite subgroup of
+O(2). The two A_1 components of ker D are scalars under D4. The canonical
+Lorentzian metric on ker D, constructed in HCSM-03 [HCSM-03], assigns
+signature (3,1) with the timelike direction in the A_1 sector.
+
+The combination of the E action on a spacelike 2-plane with the two A_1
+directions embeds D4 as a finite subgroup of O(3,1):
+
+    D4 -> O(2) -> O(3,1),                                            (15)
+
+where O(2) acts as rotations of a spacelike plane, and the two A_1
+directions correspond to the timelike and longitudinal directions. [Box]
+
+Remark 6.3 (From D4 to Lorentz invariance). Every O(3,1)-invariant
+structure is automatically D4-invariant, because D4 is a subgroup of
+O(3,1). The D4-invariant content is therefore a necessary condition on
+any Lorentz-invariant structure. In particular, the vanishing of pure-
+polynomial A_1 content at orders 1 and 3 is a statement about the full
+Lorentz-invariant structure, not only about the discrete subgroup.
+
+
+================================================================================
+7. COMPOSITE STRUCTURE OF THE GRAVITON
+================================================================================
+
+7.1 The substrate action is quadratic
+--------------------------------------------------------------------------------
+
+The HCSM substrate action on the Hodge complex at lambda = 4 is
+
+    S[omega] = (1/2) <omega, D^2 omega>,                             (16)
+
+purely quadratic in the substrate 1-form omega in Omega^1. The path
+integral over omega is Gaussian.
+
+7.2 The graviton is a composite operator
+--------------------------------------------------------------------------------
+
+Proposition 7.1 (Graviton as bilinear). The graviton is the self-paired
+bilinear of the substrate field,
+
+    h = omega (x) omega,                                             (17)
+
+projected onto the B_1 + B_2 isotypic sector of
+Sym^2(Omega^1|lambda=4) (HCSM-45 [HCSM-45]).
+
+Proof. Direct consequence of the graviton identification in HCSM-45
+[HCSM-45]. The graviton multiplet is 54B_1 + 54B_2 in
+Sym^2(Omega^1|lambda=4), which is the image of the bilinear map
+omega (x) omega -> Sym^2(Omega^1) restricted to the B_1 + B_2 sector.
+[Box]
+
+The nonlinear self-coupling of the graviton is generated by the composite
+structure of the bilinear h = omega (x) omega, combined with the Gaussian
+path integral over omega. The effective action for h is obtained by
+
+    exp(-S_eff[h]) = integral D omega delta(h - omega (x) omega)
+                       exp(-S[omega]),                              (18)
+
+and its expansion in powers of h generates the graviton self-couplings.
+The D4 structure of the effective vertices is determined by the D4
+structure of the composite map omega (x) omega -> h, which is a
+D4-equivariant bilinear. The combination produces the derivative-included
+vertices counted in Theorem 4.2.
+
+7.3 Faddeev-Popov field-independence
+--------------------------------------------------------------------------------
+
+Proposition 7.2 (Field-independent FP measure). The Faddeev-Popov
+measure on the discrete torus does not contribute to nonlinear vertices.
+
+Proof. In the Faddeev-Popov derivation of the Newton constant (HCSM-48
+[HCSM-48]), the gauge-fixing condition on the discrete torus is
+d* omega = f, linear in omega. The Faddeev-Popov operator is the scalar
+Laplacian on Omega^0, whose determinant is field-independent. Therefore
+the Faddeev-Popov measure does not contribute to the nonlinear vertices
+on the discrete torus. The nonlinearity of the effective gravitational
+action arises entirely from the composite structure (18). [Box]
+
+Remark 7.3 (Consequence for the composite-operator effective action).
+The composite-operator effective action — the omega-integral (18) and its
+expansion in powers of h — is the subject of HCSM-50 [HCSM-50]. The
+present paper establishes the D4-invariant content of the vertex spaces
+on which that effective action acts.
+
+
+================================================================================
+8. INPUTS AND DERIVED
+================================================================================
+
+8.1 Derived
+--------------------------------------------------------------------------------
+
+1. The pure-polynomial A_1 counts (0, 2, 0, 3) at orders 1, 2, 3, 4
+   (Theorem 3.2).
+2. The derivative-included A_1 counts (5, 12, 11) at orders 2, 3, 4 with
+   two derivatives (Theorem 4.2).
+3. The odd-derivative selection rule (Theorem 5.1).
+4. The O(3,1) embedding (Theorem 6.2).
+5. The composite bilinear identification (Proposition 7.1).
+6. The Faddeev-Popov field-independence (Proposition 7.2).
+
+8.2 Inputs
+--------------------------------------------------------------------------------
+
+1. The graviton polarization space V = B_1 + B_2 (HCSM-45 [HCSM-45]).
+2. The D4 character table and tensor-product rules (HCSM-05 [HCSM-05],
+   HCSM-06 [HCSM-06]).
+3. The ker D = 2A_1 + E decomposition (HCSM-03 [HCSM-03]).
+4. The cycle-index formula (3) and the orthogonality relation (4).
+   These are standard representation-theoretic facts.
+5. The Faddeev-Popov gauge-fixing condition d* omega = f (HCSM-48
+   [HCSM-48]).
+
+8.3 What is not claimed
+--------------------------------------------------------------------------------
+
+We do not claim to:
+
+  - Prove the exact masslessness of the graviton. This is the subject of
+    HCSM-46 [HCSM-46].
+  - Derive the Faddeev-Popov normalization or the Newton constant. These
+    are the subjects of HCSM-48 [HCSM-48] and HCSM-49 [HCSM-49].
+  - Compute the full composite-operator effective action. This is the
+    subject of HCSM-50 [HCSM-50].
+
+This paper establishes the D4-invariant content of the graviton vertex
+spaces — the pure-polynomial and derivative-included counts (0, 2, 0, 3)
+and (5, 12, 11), the odd-derivative selection rule, and the O(3,1)
+embedding.
+
+
+================================================================================
+9. REPRODUCIBILITY
+================================================================================
+
+All numerical claims are verified at machine precision in IEEE-754 double
+precision, and are exact in rational arithmetic. The verification script
+is provided in the HCSM companion repository at
+12-VERIFICATION/HCSM-47_verification.py. It constructs the D4 character
+table, computes Sym^n(V) for n = 1, 2, 3, 4, computes the derivative-
+included vertex spaces Vc_{n,2} for n = 2, 3, 4, and verifies:
+
+1. The pure-polynomial A_1 counts (0, 2, 0, 3).
+2. The derivative-included A_1 counts (5, 12, 11).
+3. The dimension checks dim Sym^n(V) = n + 1 for n = 1, 2, 3, 4.
+4. The dimension checks dim Vc_{2,2} = 22, dim Vc_{3,2} = 38,
+   dim Vc_{4,2} = 54.
+5. The odd-derivative vanishing for m = 1, 3.
+6. The O(3,1) embedding via the ker D decomposition.
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim in
+the HCSM paper stack.
+
+
+================================================================================
+10. CONCLUSION
+================================================================================
+
+This paper has established the self-coupling structure of the graviton in
+the Hodge Complex Standard Model.
+
+The pure-polynomial D4-invariant content of the graviton vertex spaces is
+(0, 2, 0, 3) at orders 1 through 4. Pure-polynomial kinetic and cubic
+graviton self-couplings are forbidden by D4 symmetry — the discrete
+analogue of the standard statement that gauge invariance forbids pure-
+polynomial self-couplings of the graviton.
+
+The derivative-included content with two derivatives is (5, 12, 11) at
+orders 2, 3, 4. These establish the representation-theoretic content
+required for the kinetic, cubic, and quartic vertices. The pattern
+reproduces the derivative structure of the Einstein-Hilbert expansion.
+
+The odd-derivative selection rule forbids self-couplings with an odd
+number of derivatives, as a consequence of the faithful action of D4 on
+the derivative irrep E.
+
+The D4 action on ker D ~ 2A_1 + E embeds as a finite subgroup of O(3,1),
+so D4-invariant structures are a subset of Lorentz-invariant structures.
+The vanishing of pure-polynomial kinetic and cubic content is therefore a
+statement about the full Lorentz-invariant structure, not only about the
+discrete subgroup.
+
+The graviton is a composite bilinear h = omega (x) omega in the substrate
+1-form omega, and its nonlinear self-coupling is generated by the
+composite structure through the effective action
+
+    exp(-S_eff[h]) = integral D omega delta(h - omega (x) omega)
+                       exp(-S[omega]).                              (19)
+
+The Faddeev-Popov measure does not contribute nonlinear vertices on the
+discrete torus because the gauge-fixing condition is linear and the
+determinant is field-independent.
+
+The explicit computation of the composite-operator effective action, the
+reduction of the raw representation-theoretic counts to physical vertex
+counts, and the matching to the Einstein-Hilbert expansion are stated as
+the remaining open steps toward the full nonlinear Einstein equations
+(HCSM-50 [HCSM-50]).
+
+
+================================================================================
+REFERENCES
+================================================================================
+
+[HCSM-00] S. Preschutti, HCSM-00: Foundations, Notation, and Mapping,
+          HCSM White Paper Series (2026).
+
+[HCSM-01] S. Preschutti, HCSM-01: The 8 x 8 Torus Substrate from d = 4,
+          HCSM White Paper Series (2026).
+
+[HCSM-02] S. Preschutti, HCSM-02: The Hodge Complex on Lambda,
+          HCSM White Paper Series (2026).
+
+[HCSM-03] S. Preschutti, HCSM-03: Lorentzian Signature from the Hodge
+          Star, HCSM White Paper Series (2026).
+
+[HCSM-05] S. Preschutti, HCSM-05: Orbit Decomposition and Inverse
+          Participation, HCSM White Paper Series (2026).
+
+[HCSM-06] S. Preschutti, HCSM-06: Sector-Coarse Correspondence,
+          HCSM White Paper Series (2026).
+
+[HCSM-45] S. Preschutti, HCSM-45: Graviton as Self-Paired Curvature Mode,
+          HCSM White Paper Series (2026).
+
+[HCSM-46] S. Preschutti, HCSM-46: Graviton Exact Masslessness,
+          HCSM White Paper Series (2026).
+
+[HCSM-48] S. Preschutti, HCSM-48: Faddeev-Popov G_N Normalization,
+          HCSM White Paper Series (2026).
+
+[HCSM-49] S. Preschutti, HCSM-49: Newton Constant 8pi Factor,
+          HCSM White Paper Series (2026).
+
+[HCSM-50] S. Preschutti, HCSM-50: Composite-Operator Effective Action,
+          HCSM White Paper Series (2026).
+
+[Schur] I. Schur, Neue Begruendung der Theorie der Gruppencharaktere,
+        Sitzungsberichte der Koeniglich Preussischen Akademie der
+        Wissenschaften (1905), 406-432.
+
+
+================================================================================
+A. WEB CRAWLER METADATA
+================================================================================
+
+A.1 Dublin Core
+--------------------------------------------------------------------------------
+
+DC.title: HCSM-47: Graviton Self-Coupling from D4
+DC.creator: Preschutti, Stanley
+DC.creator.orcid: 0009-0004-5445-1744
+DC.date.issued: 2026-09
+DC.type: Text / Preprint / White Paper
+DC.format: application/pdf; text/x-latex
+DC.language: en
+DC.publisher: Entropia Research Institute
+DC.rights: All rights reserved
+DC.subject: Hodge Complex Standard Model; HCSM; graviton self-coupling;
+  D4 symmetry; pure-polynomial counts (0,2,0,3); derivative-included
+  counts (5,12,11); odd-derivative selection rule; O(3,1) embedding;
+  composite operator; Faddeev-Popov field-independence
+DC.description: The Hodge Complex Standard Model's graviton is the
+  self-paired curvature mode of the substrate. This paper establishes
+  the self-coupling structure: the pure-polynomial D4-invariant counts
+  of the graviton vertex spaces are (0, 2, 0, 3) at orders 1 through 4,
+  forbidding pure-polynomial kinetic and cubic self-couplings; the
+  derivative-included counts with two derivatives are (5, 12, 11) at
+  orders 2, 3, 4, establishing the representation-theoretic content
+  for the kinetic, cubic, and quartic vertices. The odd-derivative
+  selection rule forbids odd-derivative self-couplings. The D4 action
+  on ker D = 2A1 + E embeds as a finite subgroup of O(3,1).
+DC.identifier: HCSM-47-2026-09
+
+A.2 Schema.org JSON-LD
+--------------------------------------------------------------------------------
+
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "HCSM-47: Graviton Self-Coupling from D4",
+  "alternateName": "The Derivative Structure of the Substrate and the Pure-Polynomial and Derivative-Included Counts",
+  "author": {
+    "@type": "Person",
+    "name": "Stanley Preschutti",
+    "identifier": "https://orcid.org/0009-0004-5445-1744",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Entropia Research Institute"
+    }
+  },
+  "datePublished": "2026-09",
+  "inLanguage": "en",
+  "abstract": "The Hodge Complex Standard Model's graviton is the self-paired curvature mode of the substrate. This paper establishes the self-coupling structure: the pure-polynomial D4-invariant counts are (0, 2, 0, 3) at orders 1 through 4, forbidding pure-polynomial kinetic and cubic self-couplings; the derivative-included counts with two derivatives are (5, 12, 11) at orders 2, 3, 4. The odd-derivative selection rule forbids odd-derivative self-couplings. The D4 action on ker D = 2A1 + E embeds as a finite subgroup of O(3,1).",
+  "keywords": [
+    "Hodge Complex Standard Model",
+    "HCSM",
+    "graviton self-coupling",
+    "D4 symmetry",
+    "pure-polynomial counts",
+    "derivative-included counts",
+    "odd-derivative selection rule",
+    "O(3,1) embedding",
+    "composite operator"
+  ],
+  "license": "All rights reserved",
+  "identifier": "HCSM-47-2026-09",
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "HCSM White Paper Series"
+  }
+}
+
+A.3 BibTeX for Automated Indexing
+--------------------------------------------------------------------------------
+
+@article{PreschuttiHCSM47,
+  author = {Preschutti, Stanley},
+  title = {{HCSM-47}: Graviton Self-Coupling from D4},
+  journal = {HCSM White Paper Series},
+  year = {2026},
+  month = {September},
+  note = {ORCID: 0009-0004-5445-1744},
+  keywords = {Hodge Complex Standard Model, HCSM, graviton self-coupling,
+    D4 symmetry, pure-polynomial counts, derivative-included counts,
+    odd-derivative selection rule, O(3,1) embedding, composite operator},
+  abstract = {The Hodge Complex Standard Model's graviton is the
+    self-paired curvature mode of the substrate. This paper establishes
+    the self-coupling structure: the pure-polynomial D4-invariant
+    counts are (0, 2, 0, 3) at orders 1 through 4, forbidding
+    pure
