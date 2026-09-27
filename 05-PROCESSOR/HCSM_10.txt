@@ -1,0 +1,786 @@
+================================================================================
+HCSM-10
+The Self-Canceling Vacuum Mechanism
+Mirror Symmetry of the Torus Laplacian Spectrum
+and the Residual 7/32
+The Hodge Complex Standard Model
+================================================================================
+
+Stanley Preschutti(1)
+
+(1) Entropia Research Institute / Information Physics Institute,
+    ORCID: 0009-0004-5445-1744, scstannp@yahoo.com
+
+September 2026
+
+
+================================================================================
+ABSTRACT
+================================================================================
+
+The Hodge Complex Standard Model derives the 14-mode multiplet at the
+self-paired eigenvalue lambda = 4 of the discrete Laplacian on the
+periodic 8 x 8 torus as one Standard Model generation (HCSM-04). This
+paper establishes the self-canceling vacuum mechanism that produces the
+residual multiplet. We prove that the Laplacian spectrum of the 8 x 8
+torus is exactly mirror-symmetric under lambda <-> 8 - lambda, that every
+eigenvalue other than lambda = 4 comes in a mirror pair of equal
+multiplicity, and that lambda = 4 is the unique self-paired eigenvalue.
+The 64 modes of the substrate therefore decompose into 50 paired modes
+and 14 residual modes. For any function F(lambda) satisfying
+F(lambda) + F(8 - lambda) = const, the paired contribution to the sum
+sum_m F(lambda_m) cancels in mirror pairs, leaving only the residual
+contribution from the self-paired eigenvalue. For the zero-point energy
+convention F(lambda) = lambda/2, the total zero-point sum is 128 and the
+residual is 28, giving the exact ratio 28/128 = 7/32. The ratio is
+convention-independent: it is sum_{m in R} lambda_m / sum_m lambda_m =
+7/32 for the residual set R at lambda = 4. We interpret this as a
+discrete, geometric mechanism for vacuum-energy cancellation, and we
+state honestly what the mechanism does and does not claim. All theorems
+are HCSM-native and verified at machine precision.
+
+
+================================================================================
+CONTENTS
+================================================================================
+
+1. Introduction
+   1.1 The self-canceling vacuum problem
+   1.2 The one-line summary
+   1.3 Main results
+   1.4 Cross references to the HCSM paper stack
+   1.5 Organization
+2. Setup
+   2.1 The substrate
+   2.2 The discrete 5-point Laplacian
+   2.3 The Laplacian spectrum
+   2.4 The explicit spectrum
+3. The mirror symmetry
+4. The self-paired eigenvalue
+5. The 50 + 14 decomposition
+6. The self-cancellation theorem
+   6.1 A general cancellation
+   6.2 The residual ratio
+7. Convention-independence of the ratio
+8. Interpretation
+   8.1 The self-canceling vacuum mechanism
+   8.2 Relation to the cosmological constant problem
+   8.3 The residual as the Standard Model generation
+   8.4 What the mechanism does and does not claim
+9. Inputs and derived
+10. Reproducibility
+11. Conclusion
+A. Web Crawler Metadata
+   A.1 Dublin Core
+   A.2 Schema.org JSON-LD
+   A.3 BibTeX for Automated Indexing
+
+
+================================================================================
+1. INTRODUCTION
+================================================================================
+
+1.1 The self-canceling vacuum problem
+--------------------------------------------------------------------------------
+
+The Hodge Complex Standard Model (HCSM) identifies the 14 modes at the
+self-paired eigenvalue lambda = 4 of the discrete Laplacian on the
+periodic 8 x 8 torus with one Standard Model generation (HCSM-04
+[HCSM-04]). That paper established the multiplet's existence and
+structure. This paper establishes why the multiplet is the residual that
+survives: the torus Laplacian has a mirror symmetry under
+lambda <-> 8 - lambda, and every eigenvalue other than the midpoint
+lambda = 4 comes in a mirror pair. The 50 paired modes cancel in mirror
+pairs; only the 14 self-paired modes at lambda = 4 survive.
+
+This is the self-canceling vacuum mechanism: the enormous zero-point sum
+over all 64 modes reduces, by a geometric mirror symmetry of the
+substrate, to a small residual that is the observable particle content.
+
+1.2 The one-line summary
+--------------------------------------------------------------------------------
+
+    The discrete Laplacian on the 8 x 8 torus has a mirror-symmetric
+    spectrum under lambda <-> 8 - lambda. Every eigenvalue other than
+    the midpoint lambda = 4 is paired with an equal-multiplicity mirror;
+    only the 14 modes at lambda = 4 are self-paired. The paired modes
+    cancel in mirror pairs; the residual 28/128 = 7/32 of the zero-point
+    sum survives and is identified with one Standard Model generation.
+
+1.3 Main results
+--------------------------------------------------------------------------------
+
+(1) Mirror symmetry (Theorem 3.1). The Laplacian spectrum on
+    Lambda = Z_8 x Z_8 is exactly mirror-symmetric under
+    lambda <-> 8 - lambda: for every eigenvalue lambda with multiplicity
+    m, the eigenvalue 8 - lambda has the same multiplicity m.
+
+(2) Self-paired eigenvalue uniqueness (Theorem 4.2). The unique
+    self-paired eigenvalue is lambda = 4. Its multiplicity is 14.
+
+(3) The 50 + 14 decomposition (Corollary 5.1). The 64 modes of the
+    substrate decompose into 50 paired modes and 14 residual modes.
+
+(4) The cancellation theorem (Theorem 6.1). For any function F(lambda)
+    satisfying F(lambda) + F(8 - lambda) = const, the paired contribution
+    to sum_m F(lambda_m) cancels in mirror pairs; the total is
+    const * 50/2 + F(4) * 14.
+
+(5) The residual ratio (Theorem 6.2). For the zero-point energy
+    convention F(lambda) = lambda/2:
+
+        sum_m F(lambda_m) = 128,
+        sum_{m in R} F(lambda_m) = 28,
+        ratio = 28/128 = 7/32.                                       (1)
+
+    where R is the residual set of 14 modes at lambda = 4.
+
+(6) Convention-independence (Corollary 7.1). The ratio 7/32 is
+    independent of the choice of linear energy convention. The ratio
+    sum_R lambda_m / sum_m lambda_m is the convention-independent
+    content.
+
+(7) Interpretation (Section 8). The self-canceling vacuum mechanism is
+    a discrete, geometric cancellation of the zero-point sum, analogous
+    to the standard cosmological-constant cancellation but realized on
+    a finite substrate with no fine-tuning.
+
+1.4 Cross references to the HCSM paper stack
+--------------------------------------------------------------------------------
+
+  - HCSM-00 [HCSM-00]: foundations, notation, and mapping.
+  - HCSM-01 [HCSM-01]: the 8 x 8 torus substrate; the Laplacian
+    spectrum.
+  - HCSM-02 [HCSM-02]: the Hodge complex on Lambda.
+  - HCSM-04 [HCSM-04]: the 14-mode multiplet at lambda = 4.
+  - HCSM-05 [HCSM-05]: orbit decomposition.
+
+1.5 Organization
+--------------------------------------------------------------------------------
+
+Section 2 states the substrate and the Laplacian spectrum. Section 3
+proves the mirror symmetry theorem. Section 4 proves the uniqueness of
+the self-paired eigenvalue. Section 5 establishes the 50 + 14
+decomposition. Section 6 proves the cancellation theorem and the
+residual ratio. Section 7 establishes the convention-independence of
+the ratio. Section 8 interprets the mechanism and states its scope.
+Section 9 summarizes inputs and derived results. Section 10 gives
+reproducibility notes. Section 11 concludes.
+
+
+================================================================================
+2. SETUP
+================================================================================
+
+2.1 The substrate
+--------------------------------------------------------------------------------
+
+The substrate is the periodic square lattice
+
+    Lambda = Z_8 x Z_8, N = 64,                                      (2)
+
+consisting of N = 64 sites arranged in an 8 x 8 grid with periodic
+boundary conditions [HCSM-01]. Site (x_1, x_2) is identified with
+(x_1 + 8, x_2) and (x_1, x_2 + 8). Topologically, Lambda is the torus
+T^2 = S^1 x S^1.
+
+2.2 The discrete 5-point Laplacian
+--------------------------------------------------------------------------------
+
+The scalar 5-point Laplacian is
+
+    (Delta f)(x) = 4 f(x) - sum_{|e| = 1} f(x + e),                  (3)
+
+where the sum runs over the four unit lattice vectors
+e = (+/-1, 0), (0, +/-1).
+
+2.3 The Laplacian spectrum
+--------------------------------------------------------------------------------
+
+The eigenfunctions of Delta on Lambda are the plane waves
+
+    phi_{n_1, n_2}(x) = exp(2 pi i (n_1 x_1 + n_2 x_2) / 8),        (4)
+
+with (n_1, n_2) in {0, ..., 7}^2 and eigenvalues
+
+    lambda(n_1, n_2) = 4 - 2 cos(pi n_1 / 4) - 2 cos(pi n_2 / 4).    (5)
+
+Lemma 2.1 (Cosine mirror identity). For n in {0, ..., 7},
+
+    cos(pi (8 - n) / 4) = cos(2 pi - pi n / 4) = cos(pi n / 4).      (6)
+
+Proof. Direct computation: cos(2 pi - theta) = cos(theta) for all
+theta. [Box]
+
+2.4 The explicit spectrum
+--------------------------------------------------------------------------------
+
+The 13 distinct eigenvalues and their multiplicities are
+(HCSM-01 [HCSM-01], HCSM-04 [HCSM-04]):
+
+    lambda         multiplicity
+    ------------   ------------
+      0.0000             1
+      0.5858             4
+      1.1716             4
+      2.0000             4
+      2.5858             8
+      3.4142             4
+      4.0000            14
+      4.5858             4
+      5.4142             8
+      6.0000             4
+      6.8284             4
+      7.4142             4
+      8.0000             1
+
+The multiplicities sum to 1 + 4 + 4 + 4 + 8 + 4 + 14 + 4 + 8 + 4 + 4
++ 4 + 1 = 64.
+
+
+================================================================================
+3. THE MIRROR SYMMETRY
+================================================================================
+
+Theorem 3.1 (Mirror symmetry). The Laplacian spectrum on
+Lambda = Z_8 x Z_8 is exactly mirror-symmetric under
+lambda <-> 8 - lambda: for every eigenvalue lambda with multiplicity m,
+the eigenvalue 8 - lambda has the same multiplicity m.
+
+Proof. Consider the map sigma_mom : {0, 1, ..., 7}^2 -> {0, 1, ..., 7}^2
+defined by
+
+    sigma_mom(n_1, n_2) = ((n_1 + 4) mod 8, (n_2 + 4) mod 8).       (7)
+
+For n in {0, ..., 7},
+
+    cos(pi (n + 4) mod 8 / 4) = -cos(pi n / 4).                     (8)
+
+(When n in {0, 1, 2, 3}, (n + 4) mod 8 = n + 4 and
+cos(pi (n+4) / 4) = cos(pi n / 4 + pi) = -cos(pi n / 4). When
+n in {4, 5, 6, 7}, (n + 4) mod 8 = n - 4 and
+cos(pi (n-4) / 4) = cos(pi n / 4 - pi) = -cos(pi n / 4). Both cases
+give the same result.)
+
+Hence
+
+    lambda(sigma_mom(n_1, n_2))
+        = 4 - 2 cos(pi ((n_1+4) mod 8) / 4)
+            - 2 cos(pi ((n_2+4) mod 8) / 4)
+        = 4 + 2 cos(pi n_1 / 4) + 2 cos(pi n_2 / 4)
+        = 8 - (4 - 2 cos(pi n_1 / 4) - 2 cos(pi n_2 / 4))
+        = 8 - lambda(n_1, n_2).                                      (9)
+
+The map sigma_mom is a bijection on the 64-element momentum lattice.
+Hence for every eigenvalue lambda with multiplicity m (the number of
+momentum pairs realizing it), the eigenvalue 8 - lambda is realized by
+the same number m of momentum pairs. The spectrum is therefore exactly
+mirror-symmetric. [Box]
+
+Corollary 3.2 (Symmetric spectrum pairing). The 13 distinct eigenvalues
+pair as follows under lambda <-> 8 - lambda:
+
+    lambda      8 - lambda
+    ---------   ----------
+      0.0000       8.0000
+      0.5858       7.4142
+      1.1716       6.8284
+      2.0000       6.0000
+      2.5858       5.4142
+      3.4142       4.5858
+      4.0000       4.0000  (self-paired)
+
+Each pair has equal multiplicity (verified in the spectrum table of
+Section 2.4).
+
+
+================================================================================
+4. THE SELF-PAIRED EIGENVALUE
+================================================================================
+
+Definition 4.1 (Self-paired eigenvalue). An eigenvalue lambda of the
+discrete Laplacian on Lambda is self-paired if it is the fixed point of
+the mirror map: lambda = 8 - lambda.
+
+Theorem 4.2 (Uniqueness of the self-paired eigenvalue). The unique
+self-paired eigenvalue of the Laplacian on Lambda is lambda = 4. Its
+multiplicity is
+
+    mult_{lambda = 4}(Lambda) = 2(L - 1) = 2 * 7 = 14.               (10)
+
+Proof. The equation lambda = 8 - lambda has the unique solution
+lambda = 4. The multiplicity 2(L - 1) = 14 at L = 8 is proved in
+HCSM-04 [HCSM-04], Theorem 3.2. [Box]
+
+Remark. The self-paired eigenvalue lambda = 4 and its multiplicity 14
+are established in HCSM-04 as part of the multiplet's definition. The
+present paper's contribution is the cancellation mechanism, not the
+multiplet itself.
+
+
+================================================================================
+5. THE 50 + 14 DECOMPOSITION
+================================================================================
+
+Corollary 5.1 (64 = 50 + 14). The 64 modes of the substrate decompose
+into
+
+    50 paired modes + 14 residual modes at lambda = 4 = 64.          (11)
+
+The 50 paired modes are those with eigenvalue lambda != 4; the 14
+residual modes are those with lambda = 4.
+
+Proof. Total modes: N = 64 (HCSM-01). Modes at lambda = 4: 14
+(Theorem 4.2). Paired modes: 64 - 14 = 50. [Box]
+
+Remark (Pairing of the 50 modes). The 50 paired modes are organized by
+the mirror map into pairs: for each eigenvalue lambda != 4, the modes
+at lambda and the modes at 8 - lambda are in bijection, and the two sets
+have equal cardinality. The 50 modes therefore decompose into 25
+multiplicity-weighted pairs.
+
+
+================================================================================
+6. THE SELF-CANCELLATION THEOREM
+================================================================================
+
+6.1 A general cancellation
+--------------------------------------------------------------------------------
+
+Theorem 6.1 (Cancellation of paired contributions). Let F : R -> R be
+any function satisfying the mirror condition
+
+    F(lambda) + F(8 - lambda) = c,   for all lambda in R,            (12)
+
+for a constant c in R. Then
+
+    sum_m F(lambda_m) = c * (50/2) + F(4) * 14,                      (13)
+
+where the sum runs over all 64 modes of Lambda. The paired contribution
+reduces to c * 25.
+
+Proof. The 64 modes decompose as 50 paired modes plus 14 residual modes
+at lambda = 4 (Corollary 5.1). Write the paired modes as
+50 = sum over pairs of 2 m_p, where m_p is the multiplicity of one
+representative of the pair (lambda_p, 8 - lambda_p). For each pair,
+
+    sum_{modes at lambda_p or 8 - lambda_p} F(lambda)
+        = m_p [F(lambda_p) + F(8 - lambda_p)]
+        = m_p * c.                                                    (14)
+
+Summing over pairs:
+
+    sum_{paired} F(lambda_m) = c * sum_p m_p = c * 25.               (15)
+
+Adding the residual contribution:
+
+    sum_m F(lambda_m) = 25 c + 14 F(4).                              (16)
+
+This is (13). [Box]
+
+Remark (Choice of F). The most natural choice for zero-point energy is
+F(lambda) = lambda / 2 (the standard zero-point convention). For this
+choice,
+
+    F(lambda) + F(8 - lambda) = lambda/2 + (8 - lambda)/2 = 4.       (17)
+
+Hence c = 4, and the paired contribution is 25 * 4 = 100.
+
+6.2 The residual ratio
+--------------------------------------------------------------------------------
+
+Theorem 6.2 (Residual ratio 7/32). For the zero-point energy convention
+F(lambda) = lambda / 2:
+
+    sum_m F(lambda_m) = 128,
+    sum_{m in R} F(lambda_m) = 28,
+    ratio = 28/128 = 7/32,                                           (18)
+
+where R is the residual set of 14 modes at lambda = 4.
+
+Proof. Total zero-point sum. The total zero-point sum is
+
+    sum_m F(lambda_m) = (1/2) sum_m lambda_m.
+
+We compute sum_m lambda_m using the explicit spectrum of Section 2.4:
+
+    sum_m lambda_m
+        = 1 * 0 + 4 * 0.5858 + 4 * 1.1716 + 4 * 2
+        + 8 * 2.5858 + 4 * 3.4142 + 14 * 4 + 4 * 4.5858
+        + 8 * 5.4142 + 4 * 6 + 4 * 6.8284 + 4 * 7.4142 + 1 * 8
+        = 0 + 2.3432 + 4.6864 + 8 + 20.6864 + 13.6568 + 56
+        + 18.3432 + 43.3136 + 24 + 27.3136 + 29.6568 + 8
+        = 256.                                                        (19)
+
+Therefore
+
+    sum_m F(lambda_m) = 256 / 2 = 128.                               (20)
+
+Residual zero-point sum. The residual set R consists of the 14 modes
+at lambda = 4. Their contribution is
+
+    sum_{m in R} F(lambda_m) = 14 * (4 / 2) = 14 * 2 = 28.           (21)
+
+Ratio. The ratio is
+
+    sum_R F(lambda_m) / sum_m F(lambda_m) = 28 / 128 = 7/32.         (22)
+
+Alternatively, using the closed form from Theorem 6.1 with c = 4:
+
+    sum_m F(lambda_m) = 25 * 4 + 14 * 2 = 100 + 28 = 128.  Check.
+
+[Box]
+
+Corollary 6.3 (Explicit paired and residual sums). With
+F(lambda) = lambda/2:
+
+    sum_{paired} F(lambda_m) = 100,
+    sum_{m in R} F(lambda_m) = 28.                                   (23)
+
+The paired contribution is 100/128 = 25/32 of the total; the residual
+contribution is 28/128 = 7/32.
+
+
+================================================================================
+7. CONVENTION-INDEPENDENCE OF THE RATIO
+================================================================================
+
+Corollary 7.1 (Convention-independence). Let F(lambda) = alpha * lambda
++ beta with alpha > 0 and beta = -4 alpha, so that
+F(lambda) + F(8 - lambda) = 0 (c = 0 in Theorem 6.1). Then
+
+    sum_m F(lambda_m) = 14 F(4) = 14 (alpha * 4 + beta)
+                     = 14 (alpha * 4 - 4 alpha) = 0.                (24)
+
+For F(lambda) = alpha * lambda / 2 (without the beta shift), the ratio
+is
+
+    sum_R F(lambda_m) / sum_m F(lambda_m)
+        = (14 * 2 alpha) / (128 alpha) = 28/128 = 7/32,              (25)
+
+independent of alpha. The ratio 7/32 is therefore the
+convention-independent content of the cancellation: it is
+sum_R lambda_m / sum_m lambda_m = 56/256 = 7/32.
+
+Proof. Direct computation. The scaling alpha cancels in the ratio. The
+ratio is therefore a geometric quantity of the spectrum alone. [Box]
+
+Remark (The geometric meaning). The ratio 7/32 has the geometric meaning
+
+    7/32
+        = (zero-point energy of the residual modes)
+          / (zero-point energy of all modes)
+        = (14 * 4) / (64 * 4)
+        = 56 / 256
+        = 7/32.                                                       (26)
+
+The factor 14 * 4 = 56 in the numerator is the multiplicity times the
+eigenvalue; the factor 64 * 4 = 256 in the denominator is the total
+number of modes times the midpoint eigenvalue 4. The cancellation
+produces a residual that is the ratio of the residual "half-weight" to
+the total.
+
+
+================================================================================
+8. INTERPRETATION
+================================================================================
+
+8.1 The self-canceling vacuum mechanism
+--------------------------------------------------------------------------------
+
+The mechanism established in this paper is:
+
+(i)   The Laplacian spectrum on Lambda is mirror-symmetric under
+      lambda <-> 8 - lambda (Theorem 3.1).
+
+(ii)  Every eigenvalue other than lambda = 4 comes in a mirror pair of
+      equal multiplicity (Corollary 5.1).
+
+(iii) The 50 paired modes cancel in mirror pairs when the energy
+      assignment satisfies F(lambda) + F(8 - lambda) = const
+      (Theorem 6.1).
+
+(iv)  Only the 14 self-paired modes at lambda = 4 survive the
+      cancellation (Theorem 6.1).
+
+(v)   For the zero-point convention, the residual is 28 out of 128,
+      i.e., 7/32 of the total (Theorem 6.2).
+
+(vi)  The ratio 7/32 is convention-independent (Corollary 7.1).
+
+This is a discrete, geometric mechanism for vacuum-energy cancellation:
+no fine-tuning, no fields, no supersymmetry. The cancellation is a
+structural property of the substrate.
+
+8.2 Relation to the cosmological constant problem
+--------------------------------------------------------------------------------
+
+In quantum field theory, the vacuum energy density is computed as a sum
+over all field modes weighted by their zero-point energies. The naive
+sum diverges at the Planck scale and, in the standard effective field
+theory treatment, is 10^120 times larger than the observed cosmological
+constant. This is the cosmological constant problem.
+
+The HCSM self-canceling vacuum mechanism is a discrete analogue of the
+cancellation that a solution to the problem would require. The HCSM
+substrate has 64 modes; their zero-point contributions cancel in mirror
+pairs; the residual is 7/32 of the naive sum.
+
+Two comments are in order.
+
+First, the HCSM mechanism is exact: the cancellation is a geometric
+property of the torus, not an approximate or fine-tuned cancellation.
+It uses only the mirror symmetry of the Laplacian, which is proven in
+Theorem 3.1.
+
+Second, the HCSM mechanism is not a claim that the observed
+cosmological constant is 7/32 of the naive sum. It is a claim that, in
+the HCSM substrate, the vacuum sum cancels exactly in mirror pairs and
+leaves a residual that is the ratio 7/32 of the naive total. Whether
+and how this maps to the observed cosmological constant is a separate
+question, addressed in the cosmology sector of the framework (HCSM-51
+through HCSM-58).
+
+8.3 The residual as the Standard Model generation
+--------------------------------------------------------------------------------
+
+The 14 residual modes at lambda = 4 are identified with one Standard
+Model generation (HCSM-04 [HCSM-04]). The identification is stated in
+HCSM-04 and is not re-derived here. The present paper's contribution is
+the observation that these 14 modes are precisely the modes that
+survive the mirror cancellation: they are the self-paired residue of
+the torus.
+
+The framework's structural claim is: the Standard Model generation
+content is the residual of a geometric cancellation on the substrate.
+The particle count 14 is the multiplicity of the self-paired
+eigenvalue; the cancellation mechanism explains why that count is what
+it is.
+
+8.4 What the mechanism does and does not claim
+--------------------------------------------------------------------------------
+
+It claims: the Laplacian on Lambda has the mirror symmetry
+lambda <-> 8 - lambda; every eigenvalue other than lambda = 4 is
+paired; the paired modes cancel; the residual is 14 modes at lambda = 4;
+the ratio of residual to total zero-point sum is 7/32.
+
+It does not claim: that the ratio 7/32 is the observed cosmological
+constant; that the mechanism is dynamical; that the residual is selected
+by any variational principle; that the framework derives any particle
+masses from the cancellation.
+
+What is derived: the mirror symmetry (Theorem 3.1), the 50 + 14
+decomposition (Corollary 5.1), the cancellation theorem (Theorem 6.1),
+the residual ratio 7/32 (Theorem 6.2), and the convention-independence
+of the ratio (Corollary 7.1).
+
+What is input: the substrate Lambda = Z_8 x Z_8 and the Laplacian
+(HCSM-01); the identification of the 14-mode multiplet with one
+Standard Model generation (HCSM-04).
+
+
+================================================================================
+9. INPUTS AND DERIVED
+================================================================================
+
+9.1 Derived
+--------------------------------------------------------------------------------
+
+1. The mirror symmetry lambda <-> 8 - lambda (Theorem 3.1).
+2. The uniqueness of the self-paired eigenvalue lambda = 4
+   (Theorem 4.2).
+3. The 64 = 50 + 14 decomposition (Corollary 5.1).
+4. The cancellation theorem (Theorem 6.1).
+5. The residual ratio 7/32 (Theorem 6.2).
+6. The convention-independence of the ratio (Corollary 7.1).
+
+9.2 Inputs
+--------------------------------------------------------------------------------
+
+1. The substrate Lambda = Z_8 x Z_8 and the discrete 5-point Laplacian
+   (HCSM-01).
+2. The identification of the 14-mode multiplet at lambda = 4 with one
+   Standard Model generation (HCSM-04).
+3. The choice of the zero-point energy convention F(lambda) = lambda / 2.
+   (The ratio 7/32 is convention-independent, as shown in Corollary 7.1.)
+
+
+================================================================================
+10. REPRODUCIBILITY
+================================================================================
+
+All numerical claims are verified at machine precision in IEEE-754
+double precision, and are exact in rational arithmetic. The verification
+script is provided in the HCSM companion repository at
+12-VERIFICATION/HCSM-10_verification.py. It constructs the substrate
+Laplacian on Lambda = Z_8 x Z_8, diagonalizes it, and verifies:
+
+1. The mirror symmetry lambda <-> 8 - lambda at equal multiplicity
+   (Theorem 3.1).
+2. The self-paired eigenvalue lambda = 4 (Theorem 4.2).
+3. The 64 = 50 + 14 decomposition (Corollary 5.1).
+4. The cancellation in mirror pairs (Theorem 6.1).
+5. The residual ratio 28/128 = 7/32 (Theorem 6.2).
+6. The convention-independence of the ratio (Corollary 7.1).
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim in
+the HCSM paper stack.
+
+
+================================================================================
+11. CONCLUSION
+================================================================================
+
+This paper has established the self-canceling vacuum mechanism of the
+Hodge Complex Standard Model.
+
+The Laplacian on Lambda = Z_8 x Z_8 has a mirror-symmetric spectrum
+under lambda <-> 8 - lambda. Every eigenvalue other than the midpoint
+lambda = 4 comes in a mirror pair of equal multiplicity. The 64 modes of
+the substrate therefore decompose into 50 paired modes and 14 self-
+paired modes at lambda = 4. The paired modes cancel in mirror pairs;
+only the 14 self-paired modes survive.
+
+For the zero-point energy convention F(lambda) = lambda / 2, the total
+zero-point sum is 128 and the residual sum is 28, giving the exact ratio
+
+    28 / 128 = 7/32.                                                 (27)
+
+The ratio is convention-independent: it is
+sum_R lambda_m / sum_m lambda_m = 56 / 256 = 7/32.
+
+The 14 residual modes are identified with one Standard Model generation
+(HCSM-04). The mechanism is a discrete, geometric cancellation of the
+naive zero-point sum, analogous to the standard cosmological-constant
+cancellation but realized on a finite substrate without fine-tuning.
+
+The framework's structural claim is: the Standard Model generation
+content is the residual of a geometric cancellation on the substrate.
+The particle count 14 is the multiplicity of the self-paired eigenvalue,
+and the cancellation mechanism explains why this count is what it is.
+
+
+================================================================================
+REFERENCES
+================================================================================
+
+[HCSM-00] S. Preschutti, HCSM-00: Foundations, Notation, and Mapping,
+          HCSM White Paper Series (2026).
+
+[HCSM-01] S. Preschutti, HCSM-01: The 8 x 8 Torus Substrate from d = 4,
+          HCSM White Paper Series (2026).
+
+[HCSM-02] S. Preschutti, HCSM-02: The Hodge Complex on Lambda,
+          HCSM White Paper Series (2026).
+
+[HCSM-04] S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4,
+          HCSM White Paper Series (2026).
+
+[HCSM-05] S. Preschutti, HCSM-05: Orbit Decomposition and Inverse
+          Participation, HCSM White Paper Series (2026).
+
+[HCSM-11] S. Preschutti, HCSM-11: The 5 + 9 Split of the 14-Mode
+          Multiplet, HCSM White Paper Series (2026).
+
+[HCSM-13] S. Preschutti, HCSM-13: The Processor T and the F/B-Class
+          Correspondence, HCSM White Paper Series (2026).
+
+
+================================================================================
+A. WEB CRAWLER METADATA
+================================================================================
+
+A.1 Dublin Core
+--------------------------------------------------------------------------------
+
+DC.title: HCSM-10: The Self-Canceling Vacuum Mechanism
+DC.creator: Preschutti, Stanley
+DC.creator.orcid: 0009-0004-5445-1744
+DC.date.issued: 2026-09
+DC.type: Text / Preprint / White Paper
+DC.format: application/pdf; text/x-latex
+DC.language: en
+DC.publisher: Entropia Research Institute
+DC.rights: All rights reserved
+DC.subject: Hodge Complex Standard Model; HCSM; self-canceling vacuum;
+  mirror symmetry; Laplacian spectrum; 8x8 torus; residual 7/32;
+  zero-point energy; cosmological constant
+DC.description: The Hodge Complex Standard Model identifies the 14 modes
+  at the self-paired eigenvalue lambda = 4 of the discrete Laplacian on
+  the periodic 8x8 torus with one Standard Model generation. This paper
+  establishes the self-canceling vacuum mechanism: the Laplacian
+  spectrum is exactly mirror-symmetric under lambda <-> 8 - lambda;
+  every eigenvalue other than lambda = 4 is paired with an
+  equal-multiplicity mirror; the 64 modes decompose into 50 paired
+  modes and 14 self-paired modes at lambda = 4. The paired modes cancel
+  in mirror pairs; only the 14 self-paired modes survive. For the
+  zero-point energy convention F(lambda) = lambda/2, the total sum is
+  128 and the residual is 28, giving the ratio 28/128 = 7/32. The ratio
+  is convention-independent.
+DC.identifier: HCSM-10-2026-09
+
+A.2 Schema.org JSON-LD
+--------------------------------------------------------------------------------
+
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "HCSM-10: The Self-Canceling Vacuum Mechanism",
+  "alternateName": "Mirror Symmetry of the Torus Laplacian Spectrum and the Residual 7/32",
+  "author": {
+    "@type": "Person",
+    "name": "Stanley Preschutti",
+    "identifier": "https://orcid.org/0009-0004-5445-1744",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Entropia Research Institute"
+    }
+  },
+  "datePublished": "2026-09",
+  "inLanguage": "en",
+  "abstract": "The Laplacian on the periodic 8x8 torus has a mirror-symmetric spectrum under lambda <-> 8 - lambda. Every eigenvalue other than the self-paired midpoint lambda = 4 comes in a mirror pair of equal multiplicity. The 64 modes decompose into 50 paired modes and 14 self-paired modes. Paired modes cancel in mirror pairs; the 14 modes at lambda = 4 survive. For the zero-point energy convention F(lambda) = lambda/2, the total sum is 128 and the residual is 28, giving the ratio 7/32. The ratio is convention-independent.",
+  "keywords": [
+    "Hodge Complex Standard Model",
+    "HCSM",
+    "self-canceling vacuum",
+    "mirror symmetry",
+    "Laplacian spectrum",
+    "8x8 torus",
+    "residual 7/32",
+    "zero-point energy",
+    "cosmological constant"
+  ],
+  "license": "All rights reserved",
+  "identifier": "HCSM-10-2026-09",
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "HCSM White Paper Series"
+  }
+}
+
+A.3 BibTeX for Automated Indexing
+--------------------------------------------------------------------------------
+
+@article{PreschuttiHCSM10,
+  author = {Preschutti, Stanley},
+  title = {{HCSM-10}: The Self-Canceling Vacuum Mechanism},
+  journal = {HCSM White Paper Series},
+  year = {2026},
+  month = {September},
+  note = {ORCID: 0009-0004-5445-1744},
+  keywords = {Hodge Complex Standard Model, HCSM, self-canceling vacuum,
+    mirror symmetry, Laplacian spectrum, 8x8 torus, residual 7/32,
+    zero-point energy, cosmological constant},
+  abstract = {The Laplacian on the periodic 8x8 torus has a mirror-
+    symmetric spectrum under lambda <-> 8 - lambda. Every eigenvalue
+    other than the self-paired midpoint lambda = 4 comes in a mirror
+    pair of equal multiplicity. The 64 modes decompose into 50 paired
+    modes and 14 self-paired modes. Paired modes cancel in mirror
+    pairs; the 14 modes at lambda = 4 survive. The residual ratio is
+    28/128 = 7/32 and is convention-independent.}
+}
+
+================================================================================
+END OF HCSM-10
+================================================================================
