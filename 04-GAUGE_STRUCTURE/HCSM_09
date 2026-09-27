@@ -1,0 +1,939 @@
+================================================================================
+HCSM-09
+Gauge Topology and Orientation-Flip Z2
+The Hodge-Dual Sector Symmetry Omega^0 <-> Omega^2
+and Its Action on the Hypercharge Functional
+The Hodge Complex Standard Model
+================================================================================
+
+Stanley Preschutti(1)
+
+(1) Entropia Research Institute / Information Physics Institute,
+    ORCID: 0009-0004-5445-1744, scstannp@yahoo.com
+
+September 2026
+
+
+================================================================================
+ABSTRACT
+================================================================================
+
+The Hodge Complex Standard Model realizes the gauge algebra
+su(3) + su(2) + u(1)^5 as a Lie subalgebra of the D4 commutant on the
+14-mode multiplet, and identifies the physical hypercharge functional as
+a specific element of the 15-dimensional sector-coarse space (HCSM-06,
+HCSM-07). This paper establishes the orientation-flip Z2 symmetry of this
+structure. We define the sector flip sigma on the 56-dimensional Hodge
+sector V_56 = Omega^0 + Omega^1 + Omega^2 at lambda = 4 by the swap
+(alpha_0, omega_1, alpha_2) -> (alpha_2, omega_1, alpha_0), induced by the
+Hodge star identification Omega^0 = Omega^2. We prove: (i) sigma is an
+involution (sigma^2 = I); (ii) sigma commutes with the D4 action; (iii)
+under sigma, the sector operators transform as I -> I, F -> F, O -> -O;
+(iv) the A_1 hypercharge coefficients transform as
+(0, -1/6, -1/2) -> (0, -1/6, +1/2); (v) the B_1 coefficients transform as
+(0, +1/2, +1/2) -> (0, +1/2, -1/2); (vi) the sector hypercharge values
+transform by swapping Omega^0 and Omega^2; (vii) the multiset of
+hypercharge magnitudes is invariant; (viii) the anomaly cancellation sums
+are invariant; (ix) if the CKM and PMNS matrices depend only on the
+multiset of hypercharge magnitudes, then their element magnitudes are
+invariant under sigma while the Jarlskog invariant flips sign. The flip
+exchanges the labels u_R^c <-> d_R^c on the A_1 block and
+e_R^c <-> nu_R^c on the B_1 block, with no consequence for the magnitudes
+of any framework observable. The framework therefore does not privilege
+Omega^0 over Omega^2: the assignment of one color-triplet multiplet to
+the outer sector and the other to the inner sector is a labeling
+convention. All claims are HCSM-native and verified at machine precision.
+
+
+================================================================================
+CONTENTS
+================================================================================
+
+1. Introduction
+   1.1 The orientation-flip question
+   1.2 The one-line summary
+   1.3 Main results
+   1.4 Cross references to the HCSM paper stack
+   1.5 Organization
+2. Setup
+   2.1 The Hodge complex
+   2.2 The Hodge star
+   2.3 The D4 action
+   2.4 Sector operators
+   2.5 The hypercharge functional
+3. The sector flip sigma
+4. Involution
+5. D4-equivariance
+6. Sector-operator transformation
+7. Hypercharge functional transformation
+   7.1 A_1 coefficient transformation
+   7.2 B_1 coefficient transformation
+   7.3 Sector-value swap
+8. Physical consequences
+   8.1 Magnitude-multiset invariance
+   8.2 Relabeling of color-triplet and lepton multiplets
+   8.3 Invariance of physical-prediction magnitudes
+9. Anomaly preservation
+10. Inputs and derived
+11. Reproducibility
+12. Conclusion
+A. Web Crawler Metadata
+   A.1 Dublin Core
+   A.2 Schema.org JSON-LD
+   A.3 BibTeX for Automated Indexing
+
+
+================================================================================
+1. INTRODUCTION
+================================================================================
+
+1.1 The orientation-flip question
+--------------------------------------------------------------------------------
+
+The Hodge Complex Standard Model (HCSM) derives the gauge algebra
+
+    g_HCSM = su(3) + su(2) + u(1)^5                                   (1)
+
+as a Lie subalgebra of the D4 commutant on the 14-mode multiplet
+(HCSM-06 [HCSM-06]). The physical hypercharge functional is a specific
+element of the 15-dimensional sector-coarse space of the 56-dimensional
+Hodge sector (HCSM-07 [HCSM-07]):
+
+    Y = sum_rho (alpha_rho I + beta_rho F + gamma_rho O) P_rho,      (2)
+
+with A_1 coefficients (0, -1/6, -1/2) and B_1 coefficients
+(0, +1/2, +1/2) uniquely determined by the Standard Model content and
+the sector assignment (Input 3 of HCSM-07).
+
+The present paper asks: does the framework privilege the sector Omega^0
+over the sector Omega^2? These two sectors carry identical D4
+decompositions 3A_1 + A_2 + 2B_1 + 2B_2 + 3E, and they are Hodge-dual to
+each other. The assignment of u_R^c to one and d_R^c to the other was
+fixed only by the ordering convention Y(u_R^c) < Y(d_R^c).
+
+We prove that the framework admits a Z2 symmetry, the orientation flip,
+that swaps Omega^0 <-> Omega^2 and fixes Omega^1, under which every
+physical prediction of the framework is invariant up to a relabeling of
+the color-triplet and lepton multiplets. The flip has no physical
+consequence for the magnitudes of any observable.
+
+1.2 The one-line summary
+--------------------------------------------------------------------------------
+
+    The 56-dimensional Hodge sector admits a Z2 symmetry sigma that
+    swaps Omega^0 <-> Omega^2 and fixes Omega^1, induced by the Hodge
+    star identification of the outer sectors. The sector operators
+    transform as I -> I, F -> F, O -> -O. The hypercharge functional
+    transforms by u_R^c <-> d_R^c on the A_1 block and
+    e_R^c <-> nu_R^c on the B_1 block. All magnitudes of physical
+    predictions are invariant. The framework does not privilege
+    Omega^0 over Omega^2.
+
+1.3 Main results
+--------------------------------------------------------------------------------
+
+(1) The sector flip (Definition 3.1). A Z2 action sigma on the
+    56-dimensional Hodge sector V_56 = Omega^0 + Omega^1 + Omega^2 is
+    defined by the swap (alpha_0, omega_1, alpha_2) ->
+    (alpha_2, omega_1, alpha_0), induced by the Hodge star
+    identification Omega^0 = Omega^2.
+
+(2) Involution (Lemma 4.1). sigma^2 = I_56.
+
+(3) D4-equivariance (Theorem 5.1). sigma commutes with the D4 action:
+    [sigma, R] = [sigma, S] = 0.
+
+(4) Sector-operator transformation (Theorem 6.1). Under sigma, the
+    sector operators transform as
+
+        sigma I sigma^{-1} = I,
+        sigma F sigma^{-1} = F,
+        sigma O sigma^{-1} = -O.                                     (3)
+
+(5) A_1 coefficient transformation (Theorem 7.1). The A_1 hypercharge
+    coefficients transform as
+
+        (0, -1/6, -1/2) -> (0, -1/6, +1/2).                          (4)
+
+(6) B_1 coefficient transformation (Theorem 7.2). The B_1 coefficients
+    transform as
+
+        (0, +1/2, +1/2) -> (0, +1/2, -1/2).                          (5)
+
+(7) Sector-value swap (Theorem 7.3). The sector hypercharge values
+    transform by swapping Omega^0 and Omega^2:
+
+        Y_{A_1}: (-2/3, +1/6, +1/3) -> (+1/3, +1/6, -2/3),           (6)
+
+        Y_{B_1}: (+1, -1/2, 0) -> (0, -1/2, +1).                     (7)
+
+(8) Magnitude-multiset invariance (Corollary 8.1). The multiset of
+    hypercharge magnitudes is invariant.
+
+(9) Anomaly preservation (Corollary 9.1). The four one-loop anomaly
+    conditions and the three cubic gauge anomaly cancellations are
+    invariant under sigma.
+
+(10) Physical-prediction invariance (Corollary 8.3). If a framework
+     prediction depends only on the multiset of hypercharge magnitudes
+     and on the D4 structure of the multiplet, then it is invariant
+     under sigma up to the relabeling u_R^c <-> d_R^c and
+     e_R^c <-> nu_R^c.
+
+(11) Labeling convention (Corollary 8.4). The sign of O is a labeling
+     convention, fixed by the requirement Y(u_R^c) < Y(d_R^c).
+
+1.4 Cross references to the HCSM paper stack
+--------------------------------------------------------------------------------
+
+  - HCSM-00 [HCSM-00]: foundations, notation, and mapping.
+  - HCSM-01 [HCSM-01]: the 8 x 8 torus substrate.
+  - HCSM-02 [HCSM-02]: the Hodge complex; the Hodge star.
+  - HCSM-03 [HCSM-03]: the Hodge star on ker D; Lorentzian signature.
+  - HCSM-04 [HCSM-04]: the 14-mode multiplet.
+  - HCSM-05 [HCSM-05]: orbit decomposition.
+  - HCSM-06 [HCSM-06]: sector-coarse correspondence.
+  - HCSM-07 [HCSM-07]: hypercharge quantization.
+  - HCSM-08 [HCSM-08]: anomaly cancellation.
+
+1.5 Organization
+--------------------------------------------------------------------------------
+
+Section 2 states the substrate, the Hodge complex, the Hodge star, the
+sector operators, and the hypercharge functional. Section 3 defines the
+sector flip sigma. Section 4 proves it is an involution. Section 5
+proves D4-equivariance. Section 6 derives the transformation of the
+sector operators. Section 7 derives the transformation of the
+hypercharge functional. Section 8 establishes the physical consequences.
+Section 9 establishes the anomaly preservation. Section 10 summarizes
+inputs and derived results. Section 11 gives reproducibility notes.
+Section 12 concludes.
+
+
+================================================================================
+2. SETUP
+================================================================================
+
+2.1 The Hodge complex
+--------------------------------------------------------------------------------
+
+The substrate is the periodic square lattice Lambda = Z_8 x Z_8 with
+N = 64 sites (HCSM-01 [HCSM-01]). The Hodge complex of differential
+forms is
+
+    Omega^0 = R^64, Omega^1 = R^128, Omega^2 = R^64,                  (8)
+
+of total dimension 256 (HCSM-02 [HCSM-02]). The Hodge-Dirac operator
+D = d + d* satisfies D^2|_{Omega^k} = Delta exactly on each form degree.
+
+At the self-paired eigenvalue lambda = 4, the Hodge complex decomposes as
+(HCSM-02 [HCSM-02], HCSM-05 [HCSM-05]):
+
+    Omega^0|_{lambda=4} = 3A_1 + A_2 + 2B_1 + 2B_2 + 3E  (14),       (9)
+
+    Omega^1|_{lambda=4} = 3A_1 + 3A_2 + 3B_1 + 3B_2 + 8E  (28),     (10)
+
+    Omega^2|_{lambda=4} = 3A_1 + A_2 + 2B_1 + 2B_2 + 3E  (14).      (11)
+
+The full 56-dimensional sector at lambda = 4 is
+
+    V_56 = Omega^0|_{lambda=4} + Omega^1|_{lambda=4}
+           + Omega^2|_{lambda=4},                                    (12)
+
+with D4 decomposition
+
+    V_56 = 9A_1 + 5A_2 + 7B_1 + 7B_2 + 14E.                          (13)
+
+Note that Omega^0|_{lambda=4} and Omega^2|_{lambda=4} have identical
+D4 decompositions. They are Hodge-dual to each other.
+
+2.2 The Hodge star
+--------------------------------------------------------------------------------
+
+The discrete Hodge star on the 2-torus Lambda acts on form degrees as
+
+    star_0 : Omega^0 -> Omega^2,
+    star_1 : Omega^1 -> Omega^1,
+    star_2 : Omega^2 -> Omega^0.                                     (14)
+
+With the standard convention on Omega^1 (rotating the two vector
+components), the involutions are
+
+    star_0 star_2 = id_{Omega^0},
+    star_2 star_0 = id_{Omega^2},
+    star_1^2 = -id_{Omega^1}.                                        (15)
+
+The Hodge star commutes with D^2 and preserves the eigenvalue eigenspaces
+(HCSM-02, HCSM-03); hence it preserves V_56.
+
+The Hodge star provides a canonical identification Omega^0 = Omega^2:
+the constant 0-form is identified with the constant 2-form, and in
+general a form alpha in Omega^0 is identified with star_0 alpha in
+Omega^2. This identification is D4-equivariant (HCSM-02).
+
+2.3 The D4 action
+--------------------------------------------------------------------------------
+
+The D4 point group of the square acts on the Hodge complex preserving
+each form degree (HCSM-02). We denote the action by R = rho(r) and
+S = rho(s) on V_56.
+
+Remark. The D4 actions on Omega^0 and Omega^2 are both site-permutation
+actions induced by the point group of the square. Because the Hodge
+star identification Omega^0 = Omega^2 is D4-equivariant, the D4 action
+on Omega^2 coincides with the D4 action on Omega^0 under this
+identification.
+
+2.4 Sector operators
+--------------------------------------------------------------------------------
+
+On V_56, define the three sector operators (HCSM-06 [HCSM-06]):
+
+    I = P_{Omega^0} + P_{Omega^1} + P_{Omega^2},
+    F = P_{Omega^0} - P_{Omega^1} + P_{Omega^2},
+    O = P_{Omega^0} - P_{Omega^2}.                                   (16)
+
+Restricted to the three sectors, their signatures are
+
+    I|_sectors = (1, 1, 1),
+    F|_sectors = (1, -1, 1),
+    O|_sectors = (1, 0, -1).                                         (17)
+
+2.5 The hypercharge functional
+--------------------------------------------------------------------------------
+
+The hypercharge functional is a specific element of the 15-dimensional
+sector-coarse space (HCSM-07 [HCSM-07]):
+
+    Y = sum_rho (alpha_rho I + beta_rho F + gamma_rho O) P_rho,      (18)
+
+with A_1 and B_1 coefficients uniquely determined by the Standard Model
+content and the sector assignment:
+
+    (alpha_{A_1}, beta_{A_1}, gamma_{A_1}) = (0, -1/6, -1/2),        (19)
+
+    (alpha_{B_1}, beta_{B_1}, gamma_{B_1}) = (0, +1/2, +1/2).        (20)
+
+The corresponding sector hypercharge values are
+
+    Y_{A_1}: (-2/3, +1/6, +1/3),
+    Y_{B_1}: (+1, -1/2, 0).                                          (21)
+
+
+================================================================================
+3. THE SECTOR FLIP sigma
+================================================================================
+
+Definition 3.1 (Sector flip). The sector flip sigma : V_56 -> V_56 is
+the R-linear map
+
+    sigma(alpha_0 + omega_1 + alpha_2)
+        = star_0 alpha_2 + omega_1 + star_2 alpha_0,                  (22)
+
+where alpha_0 in Omega^0|_{lambda=4}, omega_1 in Omega^1|_{lambda=4},
+alpha_2 in Omega^2|_{lambda=4}, and star_0, star_2 are the Hodge star
+maps defined in (14).
+
+Remark (Simplification). Because star_0 and star_2 are the identity maps
+on their respective sectors (HCSM-02), the flip takes the simple form
+
+    sigma(alpha_0, omega_1, alpha_2) = (alpha_2, omega_1, alpha_0).   (23)
+
+That is, sigma swaps the Omega^0 and Omega^2 sectors while fixing
+Omega^1 pointwise.
+
+Remark (Topological character). The flip sigma is defined using the
+Hodge star, which depends only on the orientation of the torus, not on
+a metric. It is therefore a topological symmetry: it is insensitive to
+continuous deformations of the metric and depends only on the
+cohomological (de Rham) structure of the Hodge complex. This is the
+"gauge topology" content of the paper's title.
+
+
+================================================================================
+4. INVOLUTION
+================================================================================
+
+Lemma 4.1 (Involution). sigma^2 = I_56.
+
+Proof. For v = (alpha_0, omega_1, alpha_2) in V_56,
+
+    sigma^2(v) = sigma(alpha_2, omega_1, alpha_0)
+               = (alpha_0, omega_1, alpha_2) = v.
+
+Hence sigma is an involution. [Box]
+
+Corollary 4.2 (Z2 action). sigma generates a Z2 action on V_56: the
+group Z2 = {e, sigma} acts on V_56 by e . v = v and sigma . v = sigma(v).
+
+Remark (Non-degeneracy). sigma != I_56, since sigma exchanges nontrivial
+subspaces Omega^0|_{lambda=4} != Omega^2|_{lambda=4} (as subspaces of
+V_56). The Z2 action is therefore faithful.
+
+
+================================================================================
+5. D4-EQUIVARIANCE
+================================================================================
+
+Theorem 5.1 (D4-equivariance). The sector flip commutes with the D4
+action on V_56:
+
+    [sigma, R] = [sigma, S] = 0.                                     (24)
+
+Proof. It suffices to check the two generators R = rho(r) and S = rho(s)
+on each sector.
+
+On Omega^0 + Omega^2: The D4 actions on Omega^0 and Omega^2 are
+site-permutation actions induced by the point group of the square.
+Because the Hodge star identification Omega^0 = Omega^2 is
+D4-equivariant (HCSM-02, Proposition 2.5), the two actions coincide
+under this identification. Hence for v = (alpha_0, 0, alpha_2),
+
+    sigma R v = sigma(R alpha_0, 0, R alpha_2) = (R alpha_2, 0, R alpha_0)
+              = R (alpha_2, 0, alpha_0) = R sigma v.
+
+The same computation holds for S.
+
+On Omega^1: sigma acts trivially on Omega^1, so
+
+    sigma R v = sigma(R omega_1) = R omega_1 = R sigma v
+
+for v = (0, omega_1, 0). The same for S.
+
+Combining the two cases, sigma commutes with R and S on V_56. [Box]
+
+Corollary 5.2 (Sector-coarse compatibility). The flip sigma preserves
+the D4 isotypic structure of V_56. In particular, sigma commutes with
+the isotypic projectors P_rho for all rho in {A_1, A_2, B_1, B_2, E}.
+
+
+================================================================================
+6. SECTOR-OPERATOR TRANSFORMATION
+================================================================================
+
+Theorem 6.1 (Sector-operator transformation). Under the flip sigma, the
+sector operators transform as
+
+    sigma I sigma^{-1} = I,
+    sigma F sigma^{-1} = F,
+    sigma O sigma^{-1} = -O.                                         (25)
+
+Proof. The sector projections transform under sigma as
+
+    sigma P_{Omega^0} sigma^{-1} = P_{Omega^2},
+    sigma P_{Omega^1} sigma^{-1} = P_{Omega^1},
+    sigma P_{Omega^2} sigma^{-1} = P_{Omega^0}.                      (26)
+
+(Conjugating P_{Omega^0} by sigma gives the projector onto the image
+sigma(Omega^0) = Omega^2, and similarly for the other sectors.)
+
+Then:
+
+    sigma I sigma^{-1}
+        = sigma P_{Omega^0} sigma^{-1}
+        + sigma P_{Omega^1} sigma^{-1}
+        + sigma P_{Omega^2} sigma^{-1}
+        = P_{Omega^2} + P_{Omega^1} + P_{Omega^0} = I.
+
+    sigma F sigma^{-1}
+        = sigma P_{Omega^0} sigma^{-1}
+        - sigma P_{Omega^1} sigma^{-1}
+        + sigma P_{Omega^2} sigma^{-1}
+        = P_{Omega^2} - P_{Omega^1} + P_{Omega^0} = F.
+
+    sigma O sigma^{-1}
+        = sigma P_{Omega^0} sigma^{-1}
+        - sigma P_{Omega^2} sigma^{-1}
+        = P_{Omega^2} - P_{Omega^0} = -O.
+
+[Box]
+
+Corollary 6.2 (Algebraic transformation). The flip sigma acts on the
+sector-coarse algebra as the involution
+
+    (alpha, beta, gamma) -> (alpha, beta, -gamma)                    (27)
+
+on the coefficients of alpha I + beta F + gamma O.
+
+Proof. Immediate from Theorem 6.1: the span of {I, F, O} is preserved
+by sigma, with the stated action on coordinates. [Box]
+
+
+================================================================================
+7. HYPERCHARGE FUNCTIONAL TRANSFORMATION
+================================================================================
+
+7.1 A_1 coefficient transformation
+--------------------------------------------------------------------------------
+
+Theorem 7.1 (A_1 coefficient transformation). Under sigma, the A_1
+hypercharge coefficients transform as
+
+    (alpha_{A_1}, beta_{A_1}, gamma_{A_1})
+        = (0, -1/6, -1/2) -> (0, -1/6, +1/2).                        (28)
+
+Proof. The flip acts on the sector-coarse algebra as
+(alpha, beta, gamma) -> (alpha, beta, -gamma). Applying this to the A_1
+coefficients from (19):
+
+    (0, -1/6, -1/2) -> (0, -1/6, +1/2).
+
+The projectors P_rho are invariant under sigma (Theorem 5.1), so the
+action on the full functional is well-defined. [Box]
+
+7.2 B_1 coefficient transformation
+--------------------------------------------------------------------------------
+
+Theorem 7.2 (B_1 coefficient transformation). Under sigma, the B_1
+hypercharge coefficients transform as
+
+    (alpha_{B_1}, beta_{B_1}, gamma_{B_1})
+        = (0, +1/2, +1/2) -> (0, +1/2, -1/2).                        (29)
+
+Proof. Same as Theorem 7.1 applied to the B_1 coefficients from (20).
+[Box]
+
+7.3 Sector-value swap
+--------------------------------------------------------------------------------
+
+Theorem 7.3 (Sector-value swap). Under sigma, the sector hypercharge
+values transform by swapping Omega^0 and Omega^2:
+
+    Y_{A_1}: (-2/3, +1/6, +1/3) -> (+1/3, +1/6, -2/3),               (30)
+
+    Y_{B_1}: (+1, -1/2, 0) -> (0, -1/2, +1).                         (31)
+
+Proof. Direct evaluation of the transformed coefficients on the sector
+signatures.
+
+For A_1 with transformed coefficients (0, -1/6, +1/2):
+
+    Y_{A_1}'(Omega^0) = 0 + (-1/6) + (+1/2) = +1/3,
+
+    Y_{A_1}'(Omega^1) = 0 - (-1/6) = +1/6,
+
+    Y_{A_1}'(Omega^2) = 0 + (-1/6) - (+1/2) = -2/3.
+
+So Y_{A_1} on (Omega^0, Omega^1, Omega^2) transforms from
+(-2/3, +1/6, +1/3) to (+1/3, +1/6, -2/3).
+
+For B_1 with transformed coefficients (0, +1/2, -1/2):
+
+    Y_{B_1}'(Omega^0) = 0 + (+1/2) + (-1/2) = 0,
+
+    Y_{B_1}'(Omega^1) = 0 - (+1/2) = -1/2,
+
+    Y_{B_1}'(Omega^2) = 0 + (+1/2) - (-1/2) = +1.
+
+So Y_{B_1} transforms from (+1, -1/2, 0) to (0, -1/2, +1).
+
+In both cases, the transformation is exactly the swap
+Omega^0 <-> Omega^2. [Box]
+
+
+================================================================================
+8. PHYSICAL CONSEQUENCES
+================================================================================
+
+8.1 Magnitude-multiset invariance
+--------------------------------------------------------------------------------
+
+Corollary 8.1 (Magnitude multiset invariant). The multiset of
+hypercharge magnitudes
+
+    {|Y_{A_1}(Omega^0)|, |Y_{A_1}(Omega^1)|, |Y_{A_1}(Omega^2)|}
+        = {2/3, 1/6, 1/3}                                            (32)
+
+on the A_1 block and
+
+    {|Y_{B_1}(Omega^0)|, |Y_{B_1}(Omega^1)|, |Y_{B_1}(Omega^2)|}
+        = {1, 1/2, 0}                                                (33)
+
+on the B_1 block are invariant under sigma.
+
+Proof. By Theorem 7.3, the flip swaps Omega^0 and Omega^2 while fixing
+Omega^1. On the A_1 block, the sector values {-2/3, +1/6, +1/3} map to
+{+1/3, +1/6, -2/3}, which has the same multiset of absolute values. On
+the B_1 block, {+1, -1/2, 0} maps to {0, -1/2, +1}, again with the same
+multiset of absolute values. [Box]
+
+8.2 Relabeling of color-triplet and lepton multiplets
+--------------------------------------------------------------------------------
+
+Corollary 8.2 (Multiplet relabeling). Under sigma, the color-triplet
+multiplet assignment transforms as
+
+    u_R^c <-> d_R^c,                                                 (34)
+
+and the lepton-multiplet assignment transforms as
+
+    e_R^c <-> nu_R^c.                                                (35)
+
+The multiplet Q_L (color-triplet, weak doublet) and L_L (color-singlet,
+weak doublet), both on Omega^1, are invariant.
+
+Proof. By Theorem 7.3, sigma swaps Omega^0 and Omega^2. Under the sector
+assignment (Input 3 of HCSM-07), u_R^c occupies Omega^0 and d_R^c
+occupies Omega^2; hence they are swapped. Similarly for e_R^c and
+nu_R^c on the B_1 block (which carry the sector values +1 on Omega^0 and
+0 on Omega^2). [Box]
+
+8.3 Invariance of physical-prediction magnitudes
+--------------------------------------------------------------------------------
+
+Corollary 8.3 (Physical-prediction invariance). Any framework prediction
+that depends only on (i) the multiset of hypercharge magnitudes and
+(ii) the D4 structure of the multiplet is invariant under sigma up to
+the relabeling u_R^c <-> d_R^c and e_R^c <-> nu_R^c. In particular:
+
+(a) The magnitudes |V_ij| of the CKM matrix are invariant:
+
+        |V_ij| -> |V_ji| = |V_ij|.                                   (36)
+
+(b) The magnitudes |U_ij| of the PMNS matrix are invariant.
+
+(c) The Jarlskog invariant J flips sign:
+
+        J = c_12 s_12 c_23 s_23 c_13^2 s_13 sin(delta) -> -J.        (37)
+
+Proof. Under u <-> d exchange, the CKM matrix transforms as
+V -> V^dagger. The magnitudes satisfy |(V^dagger)_ij| = |V_ji|; by
+unitarity of V, the magnitudes |V_ij| and |V_ji| are equal (this is a
+standard fact about the CKM matrix in the standard PDG phase
+convention). Hence |V_ij| is invariant under sigma.
+
+The same argument applies to the PMNS matrix U under e <-> nu exchange.
+
+The Jarlskog invariant, in the standard PDG parametrization, is
+J = c_12 s_12 c_23 s_23 c_13^2 s_13 sin(delta). Under complex
+conjugation of the CKM matrix (equivalent to the u <-> d exchange
+combined with a phase redefinition of the quark fields), delta -> -delta,
+so sin(delta) -> -sin(delta). Hence J -> -J. The magnitudes |J| are
+preserved. [Box]
+
+Remark (Status of the flavor-sector application). The flavor-sector
+predictions (CKM and PMNS matrices) are the subject of HCSM-34 [HCSM-34]
+and HCSM-36 [HCSM-36]. The corollary above is stated as a symmetry of
+the HCSM sector-coarse structure, and applies to any framework
+prediction that inherits its dependence on the SM content through the
+hypercharge multiset.
+
+Corollary 8.4 (Labeling convention). The sign of O is a labeling
+convention, fixed by the requirement Y(u_R^c) < Y(d_R^c). Flipping the
+convention produces an equivalent formulation of the framework.
+
+Proof. By Theorems 7.1 and 7.2, flipping the sign of O is equivalent to
+acting with sigma. By Corollary 8.3, all magnitudes of physical
+predictions are invariant under sigma. Hence the two formulations are
+physically equivalent. [Box]
+
+
+================================================================================
+9. ANOMALY PRESERVATION
+================================================================================
+
+Corollary 9.1 (Anomaly preservation). The four one-loop anomaly
+cancellation conditions
+
+    Tr(Y) = 0,
+    Tr(Y^3) = 0,
+    SU(2)^2 U(1) = 0,
+    SU(3)^2 U(1) = 0                                                 (38)
+
+and the three cubic gauge anomaly cancellations are invariant under
+sigma.
+
+Proof. Under sigma, the sector hypercharge values are permuted: Omega^0
+and Omega^2 exchange their values, and Omega^1 is fixed. The anomaly
+sums are weighted traces over the sector content; the weights depend on
+the SM representation multiplicities attached to each sector.
+
+For the mixed SU(3)^2 U(1) anomaly, the sector-coarse form is (HCSM-08
+[HCSM-08], Proposition 10.1)
+
+    Y_0 + 2 Y_1 + Y_2 = 0.                                           (39)
+
+Under sigma, this becomes
+
+    Y_2 + 2 Y_1 + Y_0 = 0.                                           (40)
+
+Since the sum is symmetric in Y_0 and Y_2, the condition is preserved.
+
+For the other three conditions, the invariance follows from the multiset
+invariance of Corollary 8.1: any symmetric function of the sector
+hypercharge values that vanishes before sigma also vanishes after.
+Specifically, Tr(Y), Tr(Y^3), and SU(2)^2 U(1) are all symmetric sums of
+hypercharge values weighted by sector content, and the flip permutes
+Omega^0 and Omega^2 without changing the multiset of values.
+
+The cubic gauge anomalies vanish by content structure (HCSM-08, Theorem
+7.1) regardless of the sector assignment, so they are trivially
+invariant. [Box]
+
+Remark (Physical reading). The anomaly preservation means that if the
+HCSM hypercharge functional is anomaly-free with the assignment
+u_R^c in Omega^0, d_R^c in Omega^2, it is also anomaly-free with the
+flipped assignment u_R^c in Omega^2, d_R^c in Omega^0. The anomaly
+cancellation does not distinguish the two assignments.
+
+
+================================================================================
+10. INPUTS AND DERIVED
+================================================================================
+
+10.1 Derived
+--------------------------------------------------------------------------------
+
+The following results are proved in this paper:
+
+1. The sector flip sigma is a well-defined Z2 action on V_56
+   (Definition 3.1, Lemma 4.1).
+2. sigma commutes with D4 (Theorem 5.1).
+3. sigma acts on the sector operators as I -> I, F -> F, O -> -O
+   (Theorem 6.1).
+4. The A_1 coefficients transform as (0, -1/6, -1/2) -> (0, -1/6, +1/2)
+   (Theorem 7.1).
+5. The B_1 coefficients transform as (0, +1/2, +1/2) -> (0, +1/2, -1/2)
+   (Theorem 7.2).
+6. The sector hypercharge values swap Omega^0 <-> Omega^2
+   (Theorem 7.3).
+7. The magnitude multiset is invariant (Corollary 8.1).
+8. The relabeling is u_R^c <-> d_R^c, e_R^c <-> nu_R^c
+   (Corollary 8.2).
+9. Anomaly cancellation is preserved (Corollary 9.1).
+10. Physical-prediction magnitudes are invariant; J flips sign
+    (Corollary 8.3).
+
+10.2 Inputs
+--------------------------------------------------------------------------------
+
+- HCSM-02, HCSM-03: the Hodge complex, the Hodge star, and the
+  D4-equivariance of the Hodge star identification Omega^0 = Omega^2.
+- HCSM-06: the sector-coarse space and the sector operators.
+- HCSM-07: the hypercharge coefficients and the sector hypercharge
+  values.
+- HCSM-08: the anomaly cancellation conditions.
+- Input 3 (sector assignment): the assignment u_R^c in Omega^0,
+  Q_L in Omega^1, d_R^c in Omega^2 from HCSM-07.
+- Universal tools: the transformation of the CKM matrix V -> V^dagger
+  under u <-> d exchange, the transformation of the PMNS matrix
+  U -> U^dagger under e <-> nu exchange, and the standard PDG
+  parametrization of the Jarlskog invariant.
+
+10.3 What is not claimed
+--------------------------------------------------------------------------------
+
+We do not claim to derive the CKM or PMNS matrices. These are the
+subject of HCSM-34 [HCSM-34] and HCSM-36 [HCSM-36]. We claim that if
+the flavor-sector predictions inherit their dependence on the SM content
+through the multiset of hypercharge magnitudes, then they are invariant
+under sigma up to the relabeling.
+
+We do not claim to privilege any specific sector assignment. The
+framework is invariant under sigma: the assignment u_R^c in Omega^0,
+d_R^c in Omega^2 and the flipped assignment u_R^c in Omega^2, d_R^c in
+Omega^0 produce equivalent formulations. The convention
+Y(u_R^c) < Y(d_R^c) is a labeling convention, not a physical content.
+
+
+================================================================================
+11. REPRODUCIBILITY
+================================================================================
+
+All numerical and algebraic claims in this paper are verified at
+machine precision in IEEE-754 double precision, or exactly in rational
+arithmetic. The verification script is provided in the HCSM companion
+repository at 12-VERIFICATION/HCSM-09_verification.py. It constructs the
+Hodge complex on Lambda = Z_8 x Z_8, the sector operators, and the
+hypercharge functional, and verifies:
+
+1. The sector flip sigma as an explicit Z2 action on V_56 (Lemma 4.1).
+2. D4-equivariance [sigma, R] = [sigma, S] = 0 (Theorem 5.1).
+3. The sector-operator transformation (25) (Theorem 6.1).
+4. The coefficient transformations of Theorems 7.1 and 7.2.
+5. The sector-value swap of Theorem 7.3.
+6. The magnitude-multiset invariance (Corollary 8.1).
+7. The anomaly preservation (Corollary 9.1).
+8. The physical-prediction invariance of Corollary 8.3.
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim in
+the HCSM paper stack.
+
+
+================================================================================
+12. CONCLUSION
+================================================================================
+
+This paper has established the orientation-flip Z2 symmetry of the HCSM
+sector-coarse structure. The flip sigma, defined by the Hodge-star
+identification of the outer sectors Omega^0 = Omega^2, is a well-defined
+involution on the 56-dimensional Hodge sector that commutes with D4 and
+swaps Omega^0 <-> Omega^2 while fixing Omega^1.
+
+Under sigma, the sector operators transform as I -> I, F -> F, and
+O -> -O. The hypercharge coefficients transform as
+(0, -1/6, -1/2) -> (0, -1/6, +1/2) on the A_1 block and
+(0, +1/2, +1/2) -> (0, +1/2, -1/2) on the B_1 block. The sector
+hypercharge values swap Omega^0 <-> Omega^2, exchanging
+u_R^c <-> d_R^c and e_R^c <-> nu_R^c.
+
+All framework predictions of the magnitudes of physical observables are
+invariant under sigma. The hypercharge magnitude multiset is preserved,
+the anomaly cancellation conditions are preserved, and (conditional on
+the flavor-sector dependence) the CKM and PMNS element magnitudes are
+preserved while the Jarlskog invariant flips sign. The framework does
+not privilege Omega^0 over Omega^2: the two outer sectors are Hodge-dual,
+carry identical D4 decompositions, and are distinguished only by the
+labeling convention for the orientation operator O.
+
+The framework derives the space of hypercharge functionals (HCSM-06),
+the coefficient values (HCSM-07), the anomaly cancellation (HCSM-08),
+and the Z2 symmetry that acts on all of them (this paper). The Z2
+symmetry closes the gauge-sector structure of the framework.
+
+
+================================================================================
+REFERENCES
+================================================================================
+
+[HCSM-00] S. Preschutti, HCSM-00: Foundations, Notation, and Mapping,
+          HCSM White Paper Series (2026).
+
+[HCSM-01] S. Preschutti, HCSM-01: The 8 x 8 Torus Substrate from d = 4,
+          HCSM White Paper Series (2026).
+
+[HCSM-02] S. Preschutti, HCSM-02: The Hodge Complex on Lambda,
+          HCSM White Paper Series (2026).
+
+[HCSM-03] S. Preschutti, HCSM-03: Lorentzian Signature from the Hodge
+          Star, HCSM White Paper Series (2026).
+
+[HCSM-04] S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4,
+          HCSM White Paper Series (2026).
+
+[HCSM-05] S. Preschutti, HCSM-05: Orbit Decomposition and Inverse
+          Participation, HCSM White Paper Series (2026).
+
+[HCSM-06] S. Preschutti, HCSM-06: Sector-Coarse Correspondence,
+          HCSM White Paper Series (2026).
+
+[HCSM-07] S. Preschutti, HCSM-07: Hypercharge Quantization,
+          HCSM White Paper Series (2026).
+
+[HCSM-08] S. Preschutti, HCSM-08: Anomaly Cancellation as a Theorem,
+          HCSM White Paper Series (2026).
+
+[HCSM-34] S. Preschutti, HCSM-34: CKM Matrix,
+          HCSM White Paper Series (2026).
+
+[HCSM-36] S. Preschutti, HCSM-36: PMNS Matrix,
+          HCSM White Paper Series (2026).
+
+[Dodziuk] J. Dodziuk, Finite-difference approach to the Hodge theory of
+          harmonic forms, Amer. J. Math. 98, 79 (1976).
+
+[Nakahara] M. Nakahara, Geometry, Topology and Physics, 2nd ed.,
+           CRC Press (2003).
+
+[PDG] Particle Data Group (S. Navas et al.), Review of Particle Physics,
+      Phys. Rev. D 110, 030001 (2024).
+
+
+================================================================================
+A. WEB CRAWLER METADATA
+================================================================================
+
+A.1 Dublin Core
+--------------------------------------------------------------------------------
+
+DC.title: HCSM-09: Gauge Topology and Orientation-Flip Z2
+DC.creator: Preschutti, Stanley
+DC.creator.orcid: 0009-0004-5445-1744
+DC.date.issued: 2026-09
+DC.type: Text / Preprint / White Paper
+DC.format: application/pdf; text/x-latex
+DC.language: en
+DC.publisher: Entropia Research Institute
+DC.rights: All rights reserved
+DC.subject: Hodge Complex Standard Model; HCSM; orientation-flip Z2;
+  sector flip; Hodge star; Omega^0 Omega^2 swap; hypercharge functional;
+  CKM Jarlskog; anomaly preservation; labeling convention
+DC.description: The Hodge Complex Standard Model admits a Z2 symmetry,
+  the orientation flip, defined by the Hodge-star identification of the
+  outer sectors Omega^0 and Omega^2. The flip swaps Omega^0 <-> Omega^2
+  while fixing Omega^1, commutes with D4, and transforms the sector
+  operators as I -> I, F -> F, O -> -O. The hypercharge coefficients
+  transform as (0, -1/6, -1/2) -> (0, -1/6, +1/2) on A1 and
+  (0, +1/2, +1/2) -> (0, +1/2, -1/2) on B1. The sector values swap
+  Omega^0 <-> Omega^2. The multiset of hypercharge magnitudes is
+  invariant; anomaly cancellation is preserved; CKM/PMNS magnitudes
+  are invariant; the Jarlskog invariant flips sign. The framework does
+  not privilege Omega^0 over Omega^2.
+DC.identifier: HCSM-09-2026-09
+
+A.2 Schema.org JSON-LD
+--------------------------------------------------------------------------------
+
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "HCSM-09: Gauge Topology and Orientation-Flip Z2",
+  "alternateName": "The Hodge-Dual Sector Symmetry Omega^0 <-> Omega^2 and Its Action on the Hypercharge Functional",
+  "author": {
+    "@type": "Person",
+    "name": "Stanley Preschutti",
+    "identifier": "https://orcid.org/0009-0004-5445-1744",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Entropia Research Institute"
+    }
+  },
+  "datePublished": "2026-09",
+  "inLanguage": "en",
+  "abstract": "The 56-dimensional Hodge sector V_56 = Omega^0 + Omega^1 + Omega^2 at lambda = 4 admits a Z2 symmetry, the orientation flip, defined by the Hodge-star identification of the outer sectors. The flip swaps Omega^0 <-> Omega^2 and fixes Omega^1. It commutes with D4 and transforms the sector operators as I -> I, F -> F, O -> -O. The A1 hypercharge coefficients transform as (0, -1/6, -1/2) -> (0, -1/6, +1/2); the B1 coefficients as (0, +1/2, +1/2) -> (0, +1/2, -1/2). The multiset of hypercharge magnitudes is invariant; anomaly cancellation is preserved. The flip exchanges u_R^c <-> d_R^c and e_R^c <-> nu_R^c, with no consequence for the magnitudes of physical predictions.",
+  "keywords": [
+    "Hodge Complex Standard Model",
+    "HCSM",
+    "orientation-flip Z2",
+    "sector flip",
+    "Hodge star",
+    "Omega^0 Omega^2 swap",
+    "hypercharge functional",
+    "CKM Jarlskog",
+    "anomaly preservation",
+    "labeling convention"
+  ],
+  "license": "All rights reserved",
+  "identifier": "HCSM-09-2026-09",
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "HCSM White Paper Series"
+  }
+}
+
+A.3 BibTeX for Automated Indexing
+--------------------------------------------------------------------------------
+
+@article{PreschuttiHCSM09,
+  author = {Preschutti, Stanley},
+  title = {{HCSM-09}: Gauge Topology and Orientation-Flip Z2},
+  journal = {HCSM White Paper Series},
+  year = {2026},
+  month = {September},
+  note = {ORCID: 0009-0004-5445-1744},
+  keywords = {Hodge Complex Standard Model, HCSM, orientation-flip Z2,
+    sector flip, Hodge star, hypercharge functional, CKM Jarlskog,
+    anomaly preservation},
+  abstract = {The 56-dimensional Hodge sector at lambda = 4 admits a
+    Z2 symmetry, the orientation flip, defined by the Hodge-star
+    identification of the outer sectors Omega^0 and Omega^2. The flip
+    swaps Omega^0 <-> Omega^2 while fixing Omega^1, commutes with D4,
+    and transforms the sector operators as I -> I, F -> F, O -> -O.
+    The hypercharge coefficients transform as (0, -1/6, -1/2) ->
+    (0, -1/6, +1/2) on A1 and (0, +1/2, +1/2) -> (0, +1/2, -1/2) on B1.
+    The framework does not privilege Omega^0 over Omega^2.}
+}
+
+================================================================================
+END OF HCSM-09
+================================================================================
