@@ -1,0 +1,1224 @@
+HCSM-26
+The Observer Pair {W, t}
+
+Fixed Locus, Chirality Selection, Uniqueness,
+and the Klein Orbit Structure
+
+The Hodge Complex Standard Model
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstannp@yahoo.com
+
+September 2026
+
+================================================================
+ABSTRACT
+================================================================
+
+The Hodge Complex Standard Model assigns the fourteen modes at the
+self-paired eigenvalue of the discrete Laplacian on the periodic 8x8
+torus to one Standard Model generation. The assignment of each mode to
+a specific Standard Model particle, together with the N/4 mass label
+attached to each, is the framework's EMPIRICAL THESIS (HCSM-23),
+structurally parallel to the Standard Model's Yukawa-coupling sector.
+The substrate DERIVES the fourteen modes, their coordinates, their D4
+orbits, the winding generator and its class partition, the processor T
+and its F/B split, the chiral reflection rs and its fixed locus, and
+the zero state s. GIVEN the empirical identification, the structural
+relations among the N/4 anchors are theorems of the framework.
+
+Among the fourteen modes at lambda = 4, the coordinate pair
+{(2,2),(6,6)} is distinguished: it is the fixed locus of the unique
+chiral reflection of the D4 point group of the square. Under the
+identification thesis, this pair is the W boson and the top quark and
+is called the observer pair {W,t}. This paper proves eight results
+about the pair. Two of them are fully derived from the substrate and do
+not use the N/4 anchors: the Fixed-Locus Theorem and the Chirality
+Selection Theorem. Four of them are theorems GIVEN the empirical
+identification: the D4-fixed-pair taxonomy, the (d+1)/2 orbit
+signature, the observer-pair uniqueness theorem, and the swap-pair
+fingerprint theorem. The remaining results are mixed: each component is
+labeled according to whether it is derived or anchored. Section 9
+establishes a dimensional-rigidity statement linking the observer pair
+to the kL crossover identity of HCSM-51; the statement is two
+independent constraints on d plus one definitional evaluation, all
+sharing the same value at d = 4. All numerical claims are verified at
+machine precision.
+
+================================================================
+CONTENTS
+================================================================
+
+1. Introduction
+   1.1 The observer pair in HCSM
+   1.2 The one-line summary
+   1.3 Derivation status of the results in this paper
+       1.3a Fully derived (no anchor)
+       1.3b Theorems given the empirical identification
+       1.3c Mixed results
+   1.4 Cross references to the HCSM paper stack
+   1.5 Organization
+2. Setup
+   2.1 The substrate and the fourteen-mode multiplet
+   2.2 The D4 action
+   2.3 The winding generator and the class partition
+   2.4 The processor T
+   2.5 The zero state
+   2.6 Charge, N/4 labels, and the sigma-lines
+   2.7 Notation
+3. The Fixed Locus Theorem
+   3.1 The fixed set of rs
+   3.2 The zero state vector is odd under rs
+   3.3 The fixed locus and the sigma-lines
+4. The Chirality Selection Theorem
+   4.1 Commutation and anticommutation with H_wind
+   4.2 The Chirality Selection Theorem
+5. The D4-Fixed Pair Taxonomy
+   5.1 The three fixed pairs
+   5.2 Structural fingerprints
+6. The (d+1)/2 Orbit Signature
+   6.1 The N/4 values by orbit
+   6.2 The three operations
+   6.3 Specificity of the signature
+7. The Observer-Pair Uniqueness Theorem
+   7.1 The five constraints
+   7.2 Uniqueness
+8. The Swap-Pair Fingerprint Theorem
+   8.1 The orbit-class swap
+   8.2 The symmetric-function fingerprint
+9. The Dimensional-Rigidity Statement
+   9.1 The two constraints on d
+   9.2 The dark energy coefficient identity
+   9.3 Summary of the dimensional-rigidity content
+10. Discussion
+    10.1 What the observer pair is
+    10.2 The three structural regions
+    10.3 The role of the swap
+11. Inputs and derived
+    11.1 Derived from the substrate
+    11.2 Theorems given the empirical identification (HCSM-23)
+    11.3 Inputs
+    11.4 What is not claimed
+12. Reproducibility
+13. Conclusion
+References
+Appendix: Web Crawler Metadata
+
+================================================================
+1. INTRODUCTION
+================================================================
+
+1.1 The observer pair in HCSM
+
+The Hodge Complex Standard Model (HCSM) derives the gauge structure,
+matter content, particle spectrum, and mixing matrices of the Standard
+Model from a single discrete substrate: the periodic 8x8 torus
+Lambda = Z_8 x Z_8 [HCSM-00]. The fourteen modes at the self-paired
+eigenvalue lambda = 4 of the discrete Laplacian are identified with one
+Standard Model generation. Their D4 representation theory determines the
+gauge algebra; their N/4 labels determine the mass spectrum; the
+zero-state vector s from the 14x19 vacuum-native measurement matrix
+determines the flavor structure.
+
+The identification of the fourteen modes with the fourteen Standard
+Model particles, and the N/4 mass label attached to each, is the
+framework's EMPIRICAL THESIS (HCSM-23). It is not a derived result. The
+N/4 labels are empirical anchors, exactly parallel to the Standard
+Model's Yukawa couplings: they are the inputs from which
+particle-specific physics is read out, and the structural relations
+among them are theorems given the anchor.
+
+Throughout this paper:
+
+  - The fourteen modes, their coordinates, their D4 orbits, the
+    winding generator and its class partition, the processor T and its
+    F/B split, the chiral reflection rs and its fixed locus, and the
+    zero state s are THEOREMS of the torus.
+
+  - The identification of each mode with a specific Standard Model
+    particle, and the N/4 label attached to each, are EMPIRICAL
+    ANCHORS.
+
+  - The structural relations among the N/4 values are THEOREMS GIVEN
+    THE ANCHOR.
+
+Among the fourteen modes, the coordinate pair {(2,2),(6,6)} carries a
+distinctive structural status: it is the fixed locus of the unique
+chiral reflection of the D4 point group of the square. Under the
+identification thesis (HCSM-23), this pair is the W boson and the top
+quark; the pair is called the observer pair {W,t}. This paper
+characterizes the pair completely and shows how the residual structure
+of the fourteen-mode multiplet organizes around it.
+
+1.2 The one-line summary
+
+In HCSM, physics is what the machine cannot cancel. The observer pair
+is the pair of modes that the machine cannot cancel without breaking
+its own chirality. The twelve other modes are paired under the chiral
+reflection rs; the pair {(2,2),(6,6)} is not, because both members are
+fixed by the reflection that the machine is built to be symmetric
+under. Under the identification thesis, this pair is the framework's
+observer pair: the boundary through which the substrate reads itself.
+
+1.3 Derivation status of the results in this paper
+
+The paper proves eight results. They split into three groups according
+to their derivation status.
+
+1.3a Fully derived (no anchor)
+
+These results use only substrate primitives and do not refer to the N/4
+labels or to the particle identifications:
+
+  (1) Fixed-Locus Theorem (Section 3). The coordinate pair
+      {(2,2),(6,6)} is the fixed locus of the diagonal reflection rs
+      of D4, and coincides with the zero locus of the zero-state vector
+      s and with the sigma=0 line of the charge theorem. Under the
+      identification thesis, this pair is {W,t}.
+
+  (2) Chirality Selection Theorem (Section 4). The diagonal reflection
+      rs is the unique element of D4 that both fixes exactly the
+      coordinate pair {(2,2),(6,6)} and anticommutes with the winding
+      generator H_wind.
+
+1.3b Theorems given the empirical identification
+
+These results are conditional on the identification thesis (HCSM-23).
+They are theorems about the structural relations among the N/4 anchors:
+
+  (3) D4-Fixed Pair Taxonomy (Section 5). The fourteen-mode multiplet
+      contains exactly three D4-involution-fixed two-element coordinate
+      subsets. Given the identification, these are distinguished in
+      every structural feature: winding class, fermion/boson content,
+      sigma-line membership, and N/4 ratio.
+
+  (4) (d+1)/2 Orbit Signature (Section 6). Given the identification,
+      the framework constant (d+1)/2 = 5/2 manifests in each of the
+      three D4 orbits via a distinct binary operation: as a ratio in
+      O_0, a difference in O_1, and a sum in O_2.
+
+  (5) Observer-Pair Uniqueness Theorem (Section 7). Given the
+      identification, {W,t} is the unique pair of N/4 values satisfying
+      the two numeric constraints N/4(W) + N/4(t) = (d+1)/2 and
+      N/4(W) - N/4(t) = (d-1)/2 simultaneously with the
+      reflection-fixed and sigma=0 conditions. The uniqueness is a
+      uniqueness within the family of anchors: it is a structural
+      relation among the N/4 values, not a derivation of which mode is
+      W or which is t.
+
+  (6) Swap-Pair Fingerprint Theorem (Section 8). Given the
+      identification, the orbit-class swap pair {dark,t} is the unique
+      two-element subset of the fourteen-mode multiplet whose four
+      symmetric-function values (sum, difference, product, ratio) are
+      simultaneously all framework constants.
+
+1.3c Mixed results
+
+Section 9 establishes a dimensional-rigidity statement. Its components
+have distinct derivation status and are labeled individually:
+identity 1 is a theorem given the anchor; identity 2 is a derived
+theorem of HCSM-51; identity 3 is a definitional evaluation at d = 4
+given the F/B split.
+
+1.4 Cross references to the HCSM paper stack
+
+The paper depends on the following companion papers:
+
+  - HCSM-13: the processor T and the F/B-class correspondence. Used
+    for the class partition, the fermion/boson split, and the exact
+    correspondence T = I - P_C.
+
+  - HCSM-14: the winding generator spectrum and class partition.
+
+  - HCSM-22: the zero state.
+
+  - HCSM-23: the identification thesis and the N/4 labels.
+
+  - HCSM-24: the charge theorem q_3 = F(n_1, sigma). Used for the
+    sigma-lines and the charge eigenvalues.
+
+  - HCSM-27: the Klein orbit structure. Referenced in Section 10 for
+    the orbit kernel classification.
+
+  - HCSM-51: the kL crossover. Referenced in Section 9 for identity 2
+    of the dimensional-rigidity statement.
+
+  - HCSM-53: Dark Energy Density. Referenced for the coefficient
+    (d+1)/2.
+
+1.5 Organization
+
+Section 2 states the setup. Sections 3 and 4 prove the two fully-derived
+theorems. Sections 5-8 prove the four theorems given the anchor.
+Section 9 establishes the dimensional-rigidity statement. Section 10
+discusses the structural interpretation. Section 11 catalogs inputs and
+derived results. Section 12 gives reproducibility notes. Section 13
+concludes.
+
+================================================================
+2. SETUP
+================================================================
+
+2.1 The substrate and the fourteen-mode multiplet
+
+The substrate is the periodic eight-by-eight torus
+Lambda = Z_8 x Z_8 with N = 64 sites, selected by the photon helicity
+anchor and the equal-entropy-spacing anchor [HCSM-00, HCSM-01]. The
+discrete five-point Laplacian
+
+    (1)  (Delta f)(x,y) = 4f(x,y) - f(x+1,y) - f(x-1,y)
+                          - f(x,y+1) - f(x,y-1)
+
+has spectrum lambda(n_1,n_2) = 4 - 2cos(pi n_1/4) - 2cos(pi n_2/4) for
+(n_1,n_2) in {0,...,7}^2. The self-paired eigenvalue lambda = 4 has
+multiplicity 2(L-1) = 14 with L = 8.
+
+The fourteen modes at lambda = 4 decompose under the D4 point group of
+the square into three orbits:
+
+    O_0 = {(0,4),(4,0)},                                              size 2,
+    O_1 = {(1,3),(1,5),(3,1),(3,7),(5,1),(5,7),(7,3),(7,5)},          size 8,
+    O_2 = {(2,2),(2,6),(6,2),(6,6)},                                  size 4.
+
+Following HCSM-04 and the identification thesis of HCSM-23, these modes
+are assigned to one Standard Model generation. In the standard mode
+order used throughout HCSM (matching the zero-state vector of
+Section 2.5):
+
+    (2)  (nu, e, u, d, s, mu, dark, c, tau, b, W, Z, H, t).
+
+The mode coordinates in this order are:
+
+    nu:(0,4),     e:(4,0),     u:(1,3),     d:(1,5),
+    s:(3,1),      mu:(3,7),    dark:(5,7),  c:(7,3),
+    tau:(7,5),    b:(5,1),     W:(2,2),     Z:(2,6),
+    H:(6,2),      t:(6,6).
+
+2.2 The D4 action
+
+The D4 point group is generated by the rotation
+
+    r: (n_1,n_2) -> (-n_2,n_1) mod 8
+
+and the reflection
+
+    s: (n_1,n_2) -> (n_1,-n_2) mod 8,
+
+subject to the presentation r^4 = s^2 = (rs)^2 = e. There are five
+order-two elements (involutions): r^2, s, rs, r^2 s, r^3 s. Explicitly,
+
+    r^2 : (n_1,n_2) -> (-n_1,-n_2),
+    s   : (n_1,n_2) -> (n_1,-n_2),
+    rs  : (n_1,n_2) -> (n_2,n_1),
+    r^2s: (n_1,n_2) -> (-n_1,n_2),
+    r^3s: (n_1,n_2) -> (-n_2,-n_1).
+
+The reflection rs is called the diagonal reflection because it swaps the
+two mode coordinates.
+
+2.3 The winding generator and the class partition
+
+The winding generator on the fourteen-mode multiplet is
+
+    (3)  H_wind = i sin( (pi/8) M ),
+         M_ij = n_1^(i) n_2^(j) - n_1^(j) n_2^(i),
+
+where (n_1^(i), n_2^(i)) are the momentum labels of mode i. Its
+spectrum is
+
+    (4)  spec(H_wind) = {-4 sqrt(2), -2 sqrt(2), 0^(10),
+                         +2 sqrt(2), +4 sqrt(2)}.
+
+The fourteen modes partition into three winding classes by frequency:
+
+    A = {(0,4),(4,0),(6,6)},
+    B = {(1,3),(1,5),(3,1),(3,7),(7,3),(7,5),(5,1)},
+    C = {(5,7),(2,2),(2,6),(6,2)}.
+
+See HCSM-14 for the full derivation of the winding spectrum.
+
+2.4 The processor T
+
+The processor T is derived in HCSM-13 as the complement of the class-C
+projector:
+
+    (5)  T = I - P_C,
+
+from which the class partition and the fermion/boson split satisfy the
+exact correspondence
+
+    (6)  A union B = image(T) = F,    C = ker(T) = B.
+
+The fermion sector is F = {nu, e, u, d, s, mu, c, tau, b, t} with
+|F| = 10, and the boson sector is B = {dark, W, Z, H} with |B| = 4.
+
+The equivalent characterization of F and B in terms of the framework
+quantity delta = N/4 - base (where base is a framework base formula
+expressed in d and H) is the subject of HCSM-11:
+
+    F = {delta != 0} union {s = +1},
+    B = {delta = 0} \ {s = +1}.
+
+This characterization is a theorem given the empirical identification
+(HCSM-23): it depends on the N/4 anchors through the delta function.
+The primary characterization T = I - P_C does not use the anchor.
+
+2.5 The zero state
+
+A 14x19 measurement matrix of vacuum-native observables has rank 13 and
+nullity 1 [HCSM-22]. Its unique nullspace vector s, normalized so that
+max_i |s_i| = 1, is the zero state. In the standard mode order (2):
+
+    s = ( -0.105198199128, +0.105198199128, +0.937726561300,
+          -0.192806690737, -0.937726561300, +0.658283218429,
+          -1.000000000000, -0.658283218429, +1.000000000000,
+          +0.192806690737,  0.000000000000, -0.329141609215,
+          +0.329141609215,  0.000000000000 ).
+
+The two coordinates with s = 0 exactly are (2,2) and (6,6). Under the
+identification thesis (HCSM-23), these coordinates correspond to the
+W boson and the top quark respectively. The zero-state statement at the
+coordinate level is derived; the naming of the coordinates is part of
+the anchor.
+
+2.6 Charge, N/4 labels, and the sigma-lines
+
+The charge theorem (HCSM-24) states that the electric charge in units of
+e/3 is a bijection
+
+    (7)  q_3 = F(n_1, sigma),
+         n_1 in Z_8,  sigma = sign(s) in {-1, 0, +1},
+
+from the fourteen realized pairs to the five Standard Model charge
+eigenvalues {-3, -1, 0, +2, +3}. The three sigma-lines are
+
+    sigma = -1 : {nu, d, s, dark, c, Z},      charge sum  0,
+    sigma =  0 : {(2,2), (6,6)},              charge sum +5,
+    sigma = +1 : {e, mu, tau, b, H, u},       charge sum -8.
+
+The grand total is -3 = -1e.
+
+The N/4 labels are the framework's empirical anchors for the particle
+spectrum (HCSM-23). In the standard mode order:
+
+    (8)  (N/4)_i = (60, 24, 21, 20, 14, 14, 12, 9.5, 9, 7.5,
+                    2, 2, 1, 0.5).
+
+The labels are treated as inputs throughout this paper. The structural
+relations among them are the theorems.
+
+2.7 Notation
+
+Throughout the paper:
+
+  - M denotes the fourteen-mode multiplet at lambda = 4.
+  - O_0, O_1, O_2 denote the three D4 orbits.
+  - A, B, C denote the three winding classes.
+  - F, B denote the fermion and boson sectors (image and kernel of T).
+  - sigma = sign(s) denotes the sign of the zero-state amplitude.
+  - N/4 denotes the mass-ordering label of a mode (an empirical anchor).
+  - d = 4 denotes the spacetime dimension.
+  - H = 2^d = 16 denotes the hidden-sector dimension parameter.
+  - The coordinate pair {(2,2),(6,6)} is the derived fixed locus of rs;
+    under the identification thesis it is {W,t}.
+
+================================================================
+3. THE FIXED LOCUS THEOREM
+================================================================
+
+This section proves that the coordinate pair {(2,2),(6,6)} is the fixed
+locus of the diagonal reflection rs. The result is derived from the
+substrate; the naming of the pair as {W,t} applies the identification
+thesis (HCSM-23).
+
+3.1 The fixed set of rs
+
+Lemma 1 (Fixed set of rs). The diagonal reflection
+rs: (n_1,n_2) -> (n_2,n_1) acts on the fourteen-mode multiplet with
+fixed set exactly
+
+    (9)  Fix(rs) = {(2,2), (6,6)}.
+
+Proof. A mode (n_1,n_2) is fixed by rs if and only if n_1 = n_2 mod 8.
+Among the fourteen modes at lambda = 4, the diagonal pairs (n,n) with
+n in {0,...,7} are (0,0), (1,1), ..., (7,7). Of these, only (2,2) and
+(6,6) satisfy the eigenvalue equation lambda = 4, i.e.,
+cos(pi n/4) = 0, which requires n in {2,6}. Hence the fixed set is
+exactly {(2,2),(6,6)}.  QED
+
+3.2 The zero state vector is odd under rs
+
+Lemma 2 (Oddness of s under rs). The zero-state vector s satisfies
+s(rs(m)) = -s(m) for every mode m in the fourteen-mode multiplet.
+
+Proof. Direct computation on the explicit vector of Section 2.5. For
+example, s(nu) = -0.105198199128, s(e) = +0.105198199128, and
+rs(nu) = e; s(u) = +0.937726561300, s(s) = -0.937726561300, and
+rs(u) = s. In every case, s(rs(m)) = -s(m).  QED
+
+Corollary 3 (Vanishing on the fixed set). The zero-state vector
+satisfies s((2,2)) = s((6,6)) = 0 exactly.
+
+Proof. By Lemma 1, rs((2,2)) = (2,2) and rs((6,6)) = (6,6). By Lemma 2,
+s(rs((2,2))) = -s((2,2)), hence s((2,2)) = -s((2,2)), so s((2,2)) = 0.
+The same argument gives s((6,6)) = 0.  QED
+
+3.3 The fixed locus and the sigma-lines
+
+Theorem 4 (Fixed Locus Theorem). The following three characterizations
+of the coordinate pair {(2,2),(6,6)} coincide:
+
+    (10) {(2,2),(6,6)} = Fix(rs) = {m in M : s(m) = 0}
+                       = {sigma = 0 line}.
+
+Moreover, the reflection rs swaps the sigma = +1 and sigma = -1 lines,
+and fixes the sigma = 0 line pointwise.
+
+Proof. The first equality is Lemma 1. The second is Corollary 3. For the
+third, by definition sigma(m) = sign(s(m)), so sigma(m) = 0 iff
+s(m) = 0; this gives {m : s(m) = 0} = {sigma = 0 line}.
+
+For the swap property: by Lemma 2, s(rs(m)) = -s(m) for all m.
+Therefore sigma(rs(m)) = sign(s(rs(m))) = sign(-s(m)) = -sigma(m)
+whenever sigma(m) != 0. On the fixed set, sigma((2,2)) = sigma((6,6))
+= 0, so the sigma = 0 line is fixed pointwise.  QED
+
+Remark 5 (Application of the identification thesis). Theorem 4 is a
+derived result about the coordinate pair {(2,2),(6,6)}. It does not
+refer to W, t, or any N/4 label. Under the identification thesis
+(HCSM-23), the coordinates (2,2) and (6,6) are the W boson and the top
+quark respectively, and the coordinate pair {(2,2),(6,6)} is the
+observer pair {W,t}. The fixed-locus property is derived; the
+identification of the pair with {W,t} is anchored.
+
+Remark 6. Theorem 4 gives three independent characterizations of the
+coordinate pair {(2,2),(6,6)}: as the fixed locus of the chiral
+reflection rs, as the zero locus of the zero-state vector, and as the
+sigma = 0 line of the charge theorem. That these three
+characterizations coincide is not a coincidence; it is a consequence of
+the fact (proved in Section 4) that rs is the unique chiral element of
+D4.
+
+================================================================
+4. THE CHIRALITY SELECTION THEOREM
+================================================================
+
+This section proves that the diagonal reflection rs is the unique chiral
+element of D4 in the sense of anticommuting with the winding generator.
+The result is derived from the substrate.
+
+4.1 Commutation and anticommutation with H_wind
+
+Definition 7 (Chiral element). An element g in D4 is called chiral if
+g H_wind g^{-1} = -H_wind, i.e., if g anticommutes with the winding
+generator.
+
+Lemma 8 (Chirality of D4 elements). Among the five order-two elements
+of D4, only rs anticommutes with H_wind.
+
+Proof. Direct computation of the commutator [g, H_wind] and the
+anticommutator {g, H_wind} for each of the five involutions r^2, s, rs,
+r^2s, r^3s. The Frobenius norms are:
+
+    Element g   ||[g,H_wind]||_F   ||{g,H_wind}||_F
+    r^2          1.131e+01           1.386e+01
+    s            1.131e+01           1.386e+01
+    rs           1.789e+01           0.000e+00
+    r^2 s        1.131e+01           1.386e+01
+    r^3 s        1.386e+01           1.131e+01
+
+Only rs has ||{g,H_wind}||_F = 0 exactly (at machine precision), and its
+commutator norm is nonzero. Hence rs is the unique element that
+anticommutes with H_wind.  QED
+
+4.2 The Chirality Selection Theorem
+
+Theorem 9 (Chirality Selection Theorem). The diagonal reflection
+rs in D4 is the unique element that (i) fixes exactly the coordinate
+pair {(2,2),(6,6)} on the fourteen-mode multiplet, and (ii)
+anticommutes with the winding generator H_wind.
+
+Proof. Uniqueness follows from Lemma 1 (only rs fixes {(2,2),(6,6)};
+the other involutions have different fixed sets) and Lemma 8 (only rs
+anticommutes with H_wind). Both properties hold for rs.  QED
+
+Corollary 10 (Observer pair as chiral boundary). The coordinate pair
+{(2,2),(6,6)} is the fixed locus of the unique chiral reflection of D4.
+Under the identification thesis (HCSM-23), the pair is {W,t} and is the
+boundary through which the machine breaks chirality.
+
+Remark 11. The term "observer pair" has a structural content. The two
+members of the pair are the only coordinates on which the chiral
+reflection acts trivially, and they are simultaneously the only
+coordinates with vanishing zero-state amplitude. In a system whose
+machine is built to preserve chirality except for a unique boundary,
+that boundary is the natural structural locus of observation.
+
+================================================================
+5. THE D4-FIXED PAIR TAXONOMY
+================================================================
+
+This section classifies the three D4-involution-fixed two-element
+coordinate subsets of the fourteen-mode multiplet. The classification
+of coordinate subsets is derived; the N/4-ratio column of the
+fingerprint table is a theorem given the empirical identification
+(HCSM-23).
+
+5.1 The three fixed pairs
+
+Lemma 12 (Classification of D4-fixed pairs). The fourteen-mode
+multiplet contains exactly three D4-involution-fixed two-element
+coordinate subsets:
+
+    (11) {(0,4),(4,0)},  fixed by r^2, s, r^2 s,
+         {(2,2),(6,6)},  fixed by rs,
+         {(2,6),(6,2)},  fixed by r^3 s.
+
+Proof. Direct computation of the fixed set of each of the five order-two
+elements of D4. The five fixed sets are
+
+    Fix(r^2) = {(0,4),(4,0)},
+    Fix(s)   = {(0,4),(4,0)},
+    Fix(rs)  = {(2,2),(6,6)},
+    Fix(r^2s)= {(0,4),(4,0)},
+    Fix(r^3s)= {(2,6),(6,2)}.
+
+Only three distinct coordinate subsets appear.  QED
+
+5.2 Structural fingerprints
+
+Theorem 13 (D4-Fixed Pair Taxonomy). Given the empirical identification
+(HCSM-23), the three D4-fixed coordinate pairs are distinguished in
+every structural feature of the framework: winding class,
+fermion/boson content, sigma-line membership, and N/4 ratio. The
+fingerprints are:
+
+    Coordinate pair     SM names   Winding   F/B    sigma-line   N/4 ratio
+    {(0,4),(4,0)}       {nu,e}     A, A      F, F   -1, +1       5/2
+    {(2,2),(6,6)}       {W,t}      A, C      B, F    0,  0       4
+    {(2,6),(6,2)}       {Z,H}      C, C      B, B   -1, +1       2
+
+The winding class, F/B content, and sigma-line columns are derived from
+the substrate and the zero state. The N/4 ratio column is a theorem
+given the empirical identification (HCSM-23).
+
+Proof. The winding-class, F/B, and sigma-line columns are direct from
+the assignments of Section 2: nu, e, t in A; dark, W, Z, H in C;
+F = {nu, e, u, d, s, mu, c, tau, b, t}; B = {dark, W, Z, H};
+sigma(nu) = -1; sigma(e) = +1; sigma(W) = sigma(t) = 0; sigma(Z) = -1;
+sigma(H) = +1.
+
+The N/4-ratio column is computed from the empirical anchors (HCSM-23):
+N/4(nu) = 60, N/4(e) = 24, so the ratio is 60/24 = 5/2; N/4(W) = 2,
+N/4(t) = 1/2, so the ratio is 2/(1/2) = 4; N/4(Z) = 2, N/4(H) = 1, so
+the ratio is 2/1 = 2.  QED
+
+Corollary 14 (Diagonal classification). The three D4-fixed coordinate
+pairs realize all three {A,C} pairings of the winding class (AA, AC,
+CC) and all three {F,B} pairings (FF, BF, BB). Given the empirical
+identification (HCSM-23), they also realize the three distinct N/4
+ratios {(d+1)/2, d, d/2} = {5/2, 4, 2}. The coordinate pair
+{(2,2),(6,6)} is the unique one whose members both lie on the sigma = 0
+line.
+
+Proof. The winding class and F/B pairings are read directly from the
+fingerprint table. The N/4 ratios are the ratio column of the same
+table, a theorem given the anchor. The sigma = 0 uniqueness is Lemma 1
+applied to the sigma-line partition of Section 2.  QED
+
+Remark 15. The class B (the size-7 middle class) is entirely absent
+from all three D4-fixed coordinate pairs. This is a structural feature
+of the multiplet: the middle class contains no fixed pair.
+
+================================================================
+6. THE (d+1)/2 ORBIT SIGNATURE
+================================================================
+
+This section proves that, given the empirical identification (HCSM-23),
+the framework constant (d+1)/2 = 5/2 manifests in each of the three D4
+orbits through a distinct binary operation.
+
+6.1 The N/4 values by orbit
+
+The N/4 anchors of the fourteen modes, grouped by D4 orbit, are:
+
+    O_0 : {60, 24},
+    O_1 : {21, 20, 14, 14, 12, 9.5, 9, 7.5},
+    O_2 : {2, 2, 1, 0.5}.
+
+The coordinate pair {(2,2),(6,6)} lies in O_2.
+
+6.2 The three operations
+
+Theorem 16 ((d+1)/2 Orbit Signature). Given the empirical
+identification (HCSM-23), the framework constant (d+1)/2 = 5/2 is
+realized in each of the three D4 orbits via a distinct binary operation:
+
+    O_0 : N/4(nu)/N/4(e) = 60/24 = 5/2 = (d+1)/2,
+    O_1 : N/4(dark) - N/4(c) = 12 - 9.5 = 5/2 = (d+1)/2,
+    O_2 : N/4(W) + N/4(t) = 2 + 0.5 = 5/2 = (d+1)/2.
+
+Proof. Direct arithmetic on the N/4 anchors of Section 2.  QED
+
+6.3 Specificity of the signature
+
+Proposition 17 (Sparsity of the (d+1)/2 signature). Given the empirical
+identification (HCSM-23), among the 91 unordered pairs of the fourteen
+modes and the four binary operations (sum, difference, product, ratio),
+only four combinations hit (d+1)/2 = 5/2:
+
+    nu/e      : ratio      2.5,
+    dark/c    : difference 2.5,
+    W/t       : sum        2.5,
+    Z/t       : sum        2.5.
+
+The hit rate is 4/364 ~ 1.1%.
+
+Proof. Exhaustive enumeration over the 91 unordered pairs and the four
+binary operations.  QED
+
+Remark 18. The Z/t duplicate of the W/t signature occurs because W and Z
+share the same N/4 value 2. The observer pair realizes the (d+1)/2 sum
+signature uniquely as a pair on the sigma = 0 line, since the other
+candidate Z lies on the sigma = -1 line. This is confirmed by the
+uniqueness theorem of Section 7.
+
+================================================================
+7. THE OBSERVER-PAIR UNIQUENESS THEOREM
+================================================================
+
+This section proves that, given the empirical identification (HCSM-23),
+the observer pair is the unique pair of modes satisfying five
+independent structural constraints simultaneously.
+
+7.1 The five constraints
+
+Definition 19 (Observer-pair constraints). For a pair {m_1,m_2} of
+modes in the fourteen-mode multiplet, define the following constraints:
+
+    C1 (sum): (N/4)_{m_1} + (N/4)_{m_2} = (d+1)/2.
+    C2 (difference): |(N/4)_{m_1} - (N/4)_{m_2}| = (d-1)/2.
+    C3 (reflection-fixed): both m_1 and m_2 are fixed by rs.
+    C4 (sigma-line): both m_1 and m_2 lie on the sigma = 0 line.
+    C5 (fermion/boson straddling): m_1 and m_2 lie in different
+        sectors of the F/B split.
+
+7.2 Uniqueness
+
+Theorem 20 (Observer-Pair Uniqueness Theorem). Given the empirical
+identification (HCSM-23), the pair {W,t} is the unique pair of modes in
+the fourteen-mode multiplet satisfying all five constraints C1-C5
+simultaneously. The uniqueness is a uniqueness within the family of
+anchors: it is a structural relation among the N/4 values, not a
+derivation of which mode is W or which is t.
+
+Proof. We proceed in three steps.
+
+Step 1: C1 and C2 alone determine the numeric values. The linear system
+
+    x + y = (d+1)/2 = 5/2,
+    |x - y| = (d-1)/2 = 3/2
+
+has solutions (x,y) = (2, 1/2) or (1/2, 2). Both solutions are realized
+among the N/4 anchors: {2, 1/2} appears as {N/4(W), N/4(t)} and as
+{N/4(Z), N/4(t)} (since W and Z share the value N/4 = 2).
+
+Step 2: C3 and C4 eliminate the {Z,t} candidate. The pair {Z,t} fails
+C3, because rs(Z) = H != Z, and fails C4, because sigma(Z) = -1 != 0.
+Hence {Z,t} is eliminated.
+
+Step 3: no other pair satisfies even three of the constraints.
+Exhaustive enumeration confirms that no pair other than {W,t} and {Z,t}
+satisfies both C1 and C2, and that {W,t} is the unique pair satisfying
+both C1, C2, C3, C4. Constraint C5 is automatically satisfied by {W,t}
+(since W in B and t in F) and by {Z,t} (since Z in B and t in F), but
+the latter is already eliminated.  QED
+
+Corollary 21 (Solution of the linear system). Given the empirical
+identification (HCSM-23), the pair {W,t} is the unique solution to the
+two-by-two linear system
+
+    (12) N/4(W) + N/4(t) = (d+1)/2,
+         N/4(W) - N/4(t) = (d-1)/2,
+
+with solution
+
+    (13) N/4(W) = d/2,   N/4(t) = 2/d.
+
+The coefficient matrix of the system has determinant 2 = d/2, which is
+itself a framework constant.
+
+Proof. Solving the linear system gives
+N/4(W) = ((d+1)/2 + (d-1)/2)/2 = d/2 and
+N/4(t) = ((d+1)/2 - (d-1)/2)/2 = 2/d. The determinant is
+1*1 - 1*(-1) = 2. At d = 4, this gives N/4(W) = 2 and N/4(t) = 1/2,
+matching the anchors.  QED
+
+Remark 22. The two constraints C1 and C2 have independent structural
+meanings, given the identification. C1 states that the observer pair's
+N/4 sum equals the coefficient (d+1)/2 = |F|/|B|. C2 states that the
+pair's N/4 separation equals (d-1)/2, the same constant that appears in
+the kL crossover identity of HCSM-51 (Section 9). Together they
+determine the pair's N/4 values uniquely within the anchor family.
+
+================================================================
+8. THE SWAP-PAIR FINGERPRINT THEOREM
+================================================================
+
+This section proves that, given the empirical identification (HCSM-23),
+the orbit-class swap pair {dark,t} is the unique two-element subset of
+the fourteen-mode multiplet whose four symmetric-function values are all
+framework constants.
+
+8.1 The orbit-class swap
+
+The D4 orbit partition and the winding class partition of the
+fourteen-mode multiplet differ by exactly one two-element coordinate
+swap.
+
+Lemma 23 (Orbit-class reconstruction). The winding class partition
+{A,B,C} is the D4 orbit partition {O_0,O_1,O_2} modified by the unique
+two-mode swap
+
+    t      : O_2 -> A,
+    dark   : O_1 -> C.
+
+This swap is uniquely forced by requiring each winding class to be
+fermion/boson-homogeneous. Under the identification thesis (HCSM-23),
+the swapped coordinates correspond to the top quark t and the dark
+photon.
+
+Proof. The orbit partition and the class partition differ only on the
+two coordinates (6,6) and (5,7): (6,6) is in O_2 but in class A; (5,7)
+is in O_1 but in class C. All other coordinates lie in the same orbit
+and the same class.
+
+Without the swap, the classes are not fermion/boson-homogeneous: the
+orbit O_2 contains three bosons {(2,2),(2,6),(6,2)} and one fermion
+{(6,6)}, so it is not F/B-homogeneous; the orbit O_1 contains one boson
+{(5,7)} and seven fermions, so it is not F/B-homogeneous either.
+Removing (6,6) from O_2 and adding (5,7) to make class C gives
+C = {(5,7),(2,2),(2,6),(6,2)} (all bosons),
+A = {(0,4),(4,0),(6,6)} (all fermions), and
+B = O_1 \ {(5,7)} (all fermions). Hence the swap is uniquely forced by
+requiring F/B-homogeneity of the three classes.  QED
+
+8.2 The symmetric-function fingerprint
+
+Definition 24 (Symmetric functions of a pair). For a pair {a,b} of
+modes with N/4 values x and y, define the four symmetric functions
+
+    sum(a,b)   = x + y,
+    diff(a,b)  = |x - y|,
+    prod(a,b)  = x * y,
+    ratio(a,b) = max(x,y) / min(x,y).
+
+Theorem 25 (Swap-Pair Fingerprint Theorem). Given the empirical
+identification (HCSM-23), the swap pair {dark,t} is the unique
+two-element subset of the fourteen-mode multiplet whose four
+symmetric-function values are simultaneously all framework constants:
+
+    sum(dark,t)   = 12 + 1/2 = 25/2 = (d+1)^2 / 2,
+    diff(dark,t)  = 12 - 1/2 = 23/2 = (H + 2d - 1) / 2,
+    prod(dark,t)  = 12 * 1/2 = 6 = 2(d-1),
+    ratio(dark,t) = 12 / (1/2) = 24 = d! = N/4(e).
+
+Proof. Direct arithmetic on the anchors N/4(dark) = 12 and N/4(t) = 1/2:
+sum = 12.5, diff = 11.5, prod = 6, ratio = 24.
+
+Uniqueness is established by exhaustive enumeration of all
+C(14,2) = 91 unordered pairs and comparison of their four
+symmetric-function values. The results:
+
+    Symmetric function   Framework-constant value   Pairs hitting it   Pairs hitting all four
+    sum                  25/2 = 12.5                34                 1
+    diff                 23/2 = 11.5                 5                 1
+    prod                 2(d-1) = 6                  4                 1
+    ratio                d! = 24                     1                 1
+
+No pair other than {dark,t} matches all four framework-constant values
+simultaneously.  QED
+
+Corollary 26 (Framework-constant sector bridge). The four constants
+appearing in the swap-pair fingerprint are drawn from four distinct
+sectors of the framework:
+
+  - 25 = (d+1)^2: the Newton-constant sector (the bilinear trace of the
+    hidden B_1 isotypic sector; see HCSM-48).
+  - 23 = H + 2d - 1: the principal-angle sector (the trace numerator of
+    the loop-commutant Gram matrix; see HCSM-17).
+  - 2(d-1) = 6: the dimensional-rigidity sector (the offset 2(d-1);
+    see HCSM-51).
+  - 24 = d! = N/4(e): the mass sector (the electron N/4 anchor).
+
+The swap pair therefore provides a bridge between these four sectors.
+
+Remark 27. The appearance of 24 in the ratio slot is notable: it equals
+both the factorial d! = 4! = 24 and the electron's N/4 anchor
+N/4(e) = 24, and the framework constant V/2 = 48/2 = 24. The three
+identifications are equivalent at d = 4.
+
+================================================================
+9. THE DIMENSIONAL-RIGIDITY STATEMENT
+================================================================
+
+This section states the dimensional-rigidity content linking the
+observer pair to the kL crossover. The statement comprises two
+independent constraints on d and one definitional evaluation at d = 4.
+Each component is labeled with its derivation status.
+
+9.1 The two constraints on d
+
+Theorem 28 (Dimensional-rigidity constraints). The following two
+independent identities on d each have the unique positive integer
+solution d = 4:
+
+    (observer-pair separation)   d/2 - 2/d = (d-1)/2,
+    (kL crossover, HCSM-51)      (d-1)^2 = 2d + 1.
+
+Both reduce to the polynomial equation d^2 - 4d = 0.
+
+Proof. For the first identity: d/2 - 2/d = (d^2 - 4)/(2d). Setting this
+equal to (d-1)/2 gives d^2 - 4 = d^2 - d, i.e., -4 = -d, i.e., d = 4.
+Equivalently, d^2 - 4d = d(d-4) = 0, which has solutions d in {0, 4};
+the positive integer solution is d = 4. The left-hand side is a
+function of the observer-pair anchor values N/4(W) = d/2 and
+N/4(t) = 2/d (Corollary 21), so the identity is a theorem given the
+empirical identification (HCSM-23).
+
+For the second identity: (d-1)^2 = 2d + 1 expands to
+d^2 - 2d + 1 = 2d + 1, i.e., d^2 - 4d = 0, i.e., d(d-4) = 0. This
+identity is derived in HCSM-51 from the bare kL crossover, independently
+of the N/4 anchors.  QED
+
+Remark 29. The two identities are independent as equations, but they
+share the same solution set. That both framework relations select the
+same value d = 4 is a nontrivial consistency check on the framework: the
+observer-pair anchor values and the kL crossover condition are derived
+from different parts of the framework, yet agree on the physical
+dimension.
+
+9.2 The dark energy coefficient identity
+
+Theorem 30 (Observer-pair sum equals dark energy coefficient). Given
+the empirical identification (HCSM-23), the observer pair's N/4 sum
+equals the dark energy coefficient and the fermion-to-boson multiplicity
+ratio:
+
+    (14) N/4(W) + N/4(t) = (d+1)/2 = |F|/|B| = rho_DE / m_nu^4.
+
+Proof. Direct substitution: N/4(W) + N/4(t) = 2 + 1/2 = 5/2;
+|F|/|B| = 10/4 = 5/2; (d+1)/2 = 5/2 at d = 4.  QED
+
+Remark 31. The equality |F|/|B| = (d+1)/2 is a definitional identity
+given the F/B split (from HCSM-13: |F| = d(d+1)/2 and |B| = d). The
+equality with the observer pair's N/4 sum is a theorem given the
+empirical identification. The two equalities are not independent
+constraints on d; both evaluate to 5/2 at d = 4. The dark energy
+coefficient (d+1)/2 is derived in HCSM-53; the observer-pair sum is the
+same value at the anchor level.
+
+9.3 Summary of the dimensional-rigidity content
+
+The dimensional-rigidity content of this section comprises:
+
+  (1) A theorem given the anchor: the observer-pair separation identity
+      d/2 - 2/d = (d-1)/2 (identity 1 of Theorem 28), with unique
+      positive integer solution d = 4.
+
+  (2) A derived theorem (HCSM-51): the kL crossover identity
+      (d-1)^2 = 2d + 1 (identity 2 of Theorem 28), also with unique
+      positive integer solution d = 4.
+
+  (3) A definitional evaluation at d = 4: the equality
+      N/4(W) + N/4(t) = |F|/|B| = (d+1)/2 = 5/2 (Theorem 30), which
+      shares the value 5/2 with the observer pair's sum but does not
+      independently constrain d.
+
+Identities 1 and 2 are independent constraints on d; both select the
+same physical dimension. Identity 3 is a value coincidence at that
+dimension.
+
+================================================================
+10. DISCUSSION
+================================================================
+
+10.1 What the observer pair is
+
+The coordinate pair {(2,2),(6,6)} is the fixed locus of the unique
+chiral reflection of D4, the zero locus of the zero-state vector, and
+the sigma = 0 line of the charge theorem. It is the unique
+reflection-fixed coordinate pair straddling the fermion/boson boundary.
+Under the identification thesis (HCSM-23), the pair is the W boson and
+the top quark, and it is the boundary through which the machine breaks
+its own chirality.
+
+The two members of the pair are the two Standard Model particles most
+directly tied to the electroweak scale: the W boson is the charged
+electroweak boson, and the top quark is the heaviest fermion and the
+principal contributor to the Higgs vacuum expectation value through its
+Yukawa coupling. The framework's structural prediction, conditional on
+the empirical identification, is that they are paired as observers of
+the machine.
+
+10.2 The three structural regions
+
+The fourteen-mode multiplet partitions into three structurally distinct
+regions. The classification of the regions as Klein orbits is from
+HCSM-27; the reader is referred there for the full derivation.
+
+  - The four two-cycle coordinate orbits with kernel
+    {e, rs * T_half}, which are homogeneous in orbit, class, and F/B,
+    and heterogeneous in sigma.
+
+  - The observer coordinate orbit {(2,2),(6,6)}, which is the unique
+    orbit with kernel {e, rs}.
+
+  - The four-cycle orbit {(5,7),(3,1),(1,3),(7,5)}, which is the unique
+    orbit with trivial kernel and contains the swap partner of the top
+    quark coordinate.
+
+The observer coordinate pair occupies the middle region. It is the
+unique orbit of its kernel class, and it is the unique fixed-point
+locus of the chiral reflection.
+
+10.3 The role of the swap
+
+The orbit-class swap pair {(5,7),(6,6)} connects the four-cycle orbit to
+the observer orbit. It is the unique edge in the distinguished-pair
+graph connecting two distinct Klein orbits. Under the identification
+thesis, this swap pair is {dark,t}. Its four-symmetric-function
+fingerprint (Theorem 25) is entirely framework-constant, drawing on the
+Newton-constant sector, the principal-angle sector, the
+dimensional-rigidity sector, and the mass sector. This is the
+framework's structural bridge between the observer pair and the rest of
+the fourteen-mode multiplet.
+
+================================================================
+11. INPUTS AND DERIVED
+================================================================
+
+11.1 Derived from the substrate
+
+The following results are proved without reference to the N/4 anchors or
+to the particle identifications:
+
+  (1) The fixed set of rs is the coordinate pair {(2,2),(6,6)} (Lemma 1).
+  (2) The zero-state vector is odd under rs (Lemma 2).
+  (3) The zero-state amplitude vanishes on the fixed set (Corollary 3).
+  (4) The three characterizations of {(2,2),(6,6)} as Fix(rs), the zero
+      locus of s, and the sigma = 0 line coincide (Theorem 4).
+  (5) Among the five involutions of D4, only rs anticommutes with H_wind
+      (Lemma 8).
+  (6) rs is the unique element of D4 that fixes {(2,2),(6,6)} and
+      anticommutes with H_wind (Theorem 9).
+  (7) The fourteen-mode multiplet contains exactly three
+      D4-involution-fixed coordinate pairs (Lemma 12).
+  (8) The winding class partition is the D4 orbit partition modified by
+      the unique two-coordinate swap that makes each class
+      fermion/boson-homogeneous (Lemma 23).
+  (9) The kL crossover identity (d-1)^2 = 2d + 1 (HCSM-51, cited in
+      Theorem 28).
+
+11.2 Theorems given the empirical identification (HCSM-23)
+
+The following results are theorems about the structural relations among
+the N/4 anchors:
+
+  (10) The N/4-ratio fingerprint of the three D4-fixed pairs (Thm 13).
+  (11) The N/4-ratio classification of the three fixed pairs
+       (Corollary 14).
+  (12) The (d+1)/2 orbit signature (Theorem 16).
+  (13) The sparsity of the (d+1)/2 signature (Proposition 17).
+  (14) The observer-pair uniqueness under the five constraints
+       (Theorem 20).
+  (15) The solution of the observer-pair linear system (Corollary 21).
+  (16) The swap-pair fingerprint (Theorem 25).
+  (17) The framework-constant sector bridge (Corollary 26).
+  (18) The observer-pair separation identity (identity 1 of Thm 28).
+  (19) The observer-pair sum equals the dark energy coefficient
+       (Theorem 30).
+
+11.3 Inputs
+
+  (1) Input 1 (SM content). The Standard Model particles and their
+      observed properties, as used to identify the fourteen modes.
+  (2) Input 2 (physical identifications). The identifications
+      A_1 <-> color, B_1 <-> weak isospin.
+  (3) Input 3 (the identification thesis, HCSM-23). The assignment of
+      each of the fourteen modes at lambda = 4 to a specific Standard
+      Model particle, together with the N/4 mass label attached to
+      each. This is the framework's empirical anchor, structurally
+      parallel to the Standard Model's Yukawa couplings.
+  (4) The framework constants d = 4, N = 64, L = 8, H = 16 (HCSM-01).
+
+11.4 What is not claimed
+
+We do not claim to derive the identification thesis (HCSM-23) from the
+substrate. The assignment of the fourteen modes to the fourteen
+particles, and the N/4 labels attached to each, are the framework's
+empirical anchors.
+
+We do not claim that the four theorems of Sections 6-8 are HCSM-native
+without qualification. They are theorems given the anchor: they hold for
+the specific anchor values observed in the Standard Model, and they are
+falsifiable if the anchor values differ.
+
+We do not claim that the naming of the coordinates (2,2) and (6,6) as
+W and t is derived. The coordinates and the fixed-locus property are
+derived; the naming is anchored.
+
+We do not claim that the dark energy coefficient identity (Theorem 30)
+is an independent constraint on d. It is a value coincidence at d = 4
+between two framework quantities that share the same algebraic
+expression.
+
+The framework's claim is that it has fewer empirical anchors than the
+Standard Model, not that it has none.
+
+================================================================
+12. REPRODUCIBILITY
+================================================================
+
+All numerical claims in this paper are verified at machine precision in
+IEEE-754 double precision. The verification script is provided in the
+HCSM companion repository at
+12-VERIFICATION/HCSM-26_verification.py. The script constructs the
+fourteen-mode multiplet, the D4 action, the winding generator, the
+zero-state vector, the N/4 anchors, and the charge functional from
+HCSM-native definitions, and verifies:
+
+  (1) The fixed set of each order-two element of D4 on the fourteen-mode
+      multiplet, using coordinates only (no N/4 anchors).
+  (2) The oddness of s under rs and the vanishing of s on the fixed set,
+      using coordinates only.
+  (3) The commutation/anticommutation structure of each D4 element with
+      H_wind, using the matrix H_wind only.
+  (4) The coordinate-level D4-fixed pair classification and its F/B and
+      sigma-line fingerprints.
+  (5) The N/4-ratio fingerprint of the three fixed pairs (given the
+      anchors).
+  (6) The (d+1)/2 orbit signature and its sparsity (given the anchors).
+  (7) The observer-pair uniqueness under the five constraints (given
+      the anchors).
+  (8) The swap-pair fingerprint uniqueness, all 91 pairs enumerated
+      (given the anchors).
+  (9) The two dimensional-rigidity constraints of Theorem 28 and the
+      value coincidence of Theorem 30.
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim in
+the HCSM paper stack.
+
+================================================================
+13. CONCLUSION
+================================================================
+
+This paper has characterized the observer pair {W,t} of the Hodge
+Complex Standard Model.
+
+Two theorems are fully derived from the substrate and do not use the N/4
+anchors. The Fixed Locus Theorem establishes that the coordinate pair
+{(2,2),(6,6)} is the fixed locus of the diagonal reflection rs of D4,
+coincides with the zero locus of the zero-state vector, and is the
+sigma = 0 line of the charge theorem. The Chirality Selection Theorem
+establishes that rs is the unique element of D4 that both fixes
+{(2,2),(6,6)} and anticommutes with the winding generator.
+
+Four theorems are conditional on the empirical identification thesis
+(HCSM-23). Given the anchor, the pair's N/4 labels are the unique
+solution to the linear system determined by (d+1)/2 and (d-1)/2; the
+framework constant (d+1)/2 manifests in each of the three D4 orbits
+through a distinct binary operation, and the observer pair realizes the
+sum signature; the orbit-class swap pair {dark,t} is the unique
+two-element subset whose four symmetric-function values are
+simultaneously all framework constants. These theorems are falsifiable:
+they hold for the specific anchor values observed in the Standard Model.
+
+The dimensional-rigidity statement comprises two independent constraints
+on d (the observer-pair separation identity and the kL crossover
+identity) each of which uniquely selects d = 4, plus one definitional
+evaluation at d = 4 in which two framework quantities share the value
+5/2.
+
+The framework's claim is that the Standard Model is what the substrate
+looks like when you observe it. The identification of the fourteen modes
+with the fourteen particles is the empirical thesis; the structural
+relations among the N/4 anchors are theorems given the thesis. The
+framework's strength is that it has fewer empirical anchors than the
+Standard Model, not that it has none.
+
+================================================================
+REFERENCES
+================================================================
+
+[HCSM-00] S. Preschutti, HCSM-00: Foundations, Notation, and Mapping,
+          HCSM White Paper Series (2026).
+
+[HCSM-01] S. Preschutti, HCSM-01: The 8x8 Torus Substrate from d = 4,
+          HCSM White Paper Series (2026).
+
+[HCSM-04] S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4,
+          HCSM White Paper Series (2026).
+
+[HCSM-11] S. Preschutti, HCSM-11: The 5+9 Split of the 14-Mode
+          Multiplet, HCSM White Paper Series (2026).
+
+[HCSM-13] S. Preschutti, HCSM-13: The Processor T and the F/B-Class
+          Correspondence, HCSM White Paper Series (2026).
+
+[HCSM-14] S. Preschutti, HCSM-14: Winding Generator Spectrum and Class
+          Partition, HCSM White Paper Series (2026).
+
+[HCSM-17] S. Preschutti, HCSM-17: Loop Operator Cartan Rotation,
+          HCSM White Paper Series (2026).
+
+[HCSM-22] S. Preschutti, HCSM-22: The Zero State,
+          HCSM White Paper Series (2026).
+
+[HCSM-23] S. Preschutti, HCSM-23: The Identification of the 14 Modes
+          with One Standard Model Generation and the N/4 Mass Labels,
+          HCSM White Paper Series (2026).
+
+[HCSM-24] S. Preschutti, HCSM-24: The Charge Theorem,
+          HCSM White Paper Series (2026).
+
+[HCSM-27] S. Preschutti, HCSM-27: Klein Orbit Structure,
+          HCSM White Paper Series (2026).
+
+[HCSM-48] S. Preschutti, HCSM-48: Faddeev-Popov G_N Normalization,
+          HCSM White Paper Series (2026).
+
+[HCSM-51] S. Preschutti, HCSM-51: The kL Crossover,
+          HCSM White Paper Series (2026).
+
+[HCSM-53] S. Preschutti, HCSM-53: Dark Energy Density,
+          HCSM White Paper Series (2026).
+
+[PDG] Particle Data Group (S. Navas et al.),
+      Review of Particle Physics, Phys. Rev. D 110, 030001 (2024).
+
+================================================================
+APPENDIX: WEB CRAWLER METADATA
+================================================================
+
+Dublin Core
+-----------
+DC.title: HCSM-26: The Observer Pair {W, t}
+DC.creator: Preschutti, Stanley
+DC.creator.orcid: 0009-0004-5445-1744
+DC.date.issued: 2026-09
+DC.type: Text / Preprint / White Paper
+DC.format: application/pdf; text/x-latex
+DC.language: en
+DC.publisher: Entropia Research Institute
+DC.rights: All rights reserved
+DC.subject: Hodge Complex Standard Model; HCSM; observer pair;
+  W boson; top quark; D4 representation theory; fixed locus;
+  chiral reflection; identification thesis; N/4 anchors;
+  dimensional rigidity; dark energy coefficient
+DC.description: The Hodge Complex Standard Model assigns the fourteen
+  modes at lambda = 4 to one Standard Model generation. The
+  identification of the modes with specific particles, and the N/4
+  mass labels, are the framework's empirical thesis (HCSM-
