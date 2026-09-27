@@ -1,0 +1,953 @@
+HCSM-27
+Klein Orbit Structure
+
+The Klein Four-Group Action, Kernel Classification,
+and the Framework-Constant Four Orbit
+
+The Hodge Complex Standard Model
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstannp@yahoo.com
+
+September 2026
+
+================================================================
+ABSTRACT
+================================================================
+
+The Hodge Complex Standard Model assigns the fourteen modes at the
+self-paired eigenvalue of the discrete Laplacian on the periodic 8x8
+torus to one Standard Model generation. The assignment of each mode to
+a specific Standard Model particle, together with the N/4 mass label
+attached to each, is the framework's EMPIRICAL THESIS (HCSM-23),
+structurally parallel to the Standard Model's Yukawa-coupling sector.
+The substrate derives the fourteen modes, their coordinates, the D4
+point-group action, and the operations that act on the multiplet.
+
+Two order-two operations act naturally on this multiplet: the diagonal
+reflection rs, identified in HCSM-26 as the unique chiral reflection,
+and the half-period translation T_half. The two commute and each squares
+to the identity, so they generate a Klein four-group. This paper proves
+four results about the action of this group. The Klein Orbit Theorem
+(derived), the Kernel Classification Theorem (derived), and the
+Swap-Pair Bridge Theorem (derived at coordinate level, with the naming
+of the pair applied from HCSM-23) are theorems of the substrate and use
+no N/4 anchors. The Four-Orbit Framework-Constant Theorem is a theorem
+GIVEN the empirical identification: it states that the four-cycle
+orbit's four anchored N/4 values are simultaneously framework
+constants, satisfy two additive identities, and sum to fifty-six, the
+dimension of the Hodge sector at the self-paired eigenvalue; their mean
+equals fourteen, the multiplicity. Section 8 catalogs which results are
+derived and which are anchored. All numerical claims are verified at
+machine precision.
+
+================================================================
+CONTENTS
+================================================================
+
+1. Introduction
+   1.1 The Klein group in HCSM
+   1.2 The one-line summary
+   1.3 Derivation status of the results in this paper
+       1.3a Fully derived (no anchor)
+       1.3b Theorem given the empirical identification
+   1.4 Cross references to the HCSM paper stack
+   1.5 Organization
+2. Setup
+   2.1 The fourteen-mode multiplet
+   2.2 The diagonal reflection
+   2.3 The half-period translation
+   2.4 The Klein four-group
+   2.5 The product rs * T_half
+   2.6 The N/4 anchors
+3. The Klein Orbit Theorem
+   3.1 Orbit decomposition
+   3.2 The three structural regions
+4. Kernel Classification
+   4.1 Definition
+   4.2 Classification
+   4.3 The three stabilizer classes
+5. The Swap-Pair Bridge Theorem
+   5.1 The distinguished-pair graph
+   5.2 The inter-orbit edges
+6. The Four-Orbit Framework-Constant Theorem
+   6.1 The four-cycle orbit's anchored values
+   6.2 The theorem
+   6.3 The algebraic derivation of the sum
+7. Discussion
+   7.1 What the Klein structure gives
+   7.2 Refinement of the D4 orbit partition
+   7.3 Relation to the observer pair
+8. Inputs and derived
+9. Reproducibility
+10. Conclusion
+References
+Appendix: Web Crawler Metadata
+
+================================================================
+1. INTRODUCTION
+================================================================
+
+1.1 The Klein group in HCSM
+
+The Hodge Complex Standard Model (HCSM) derives the gauge structure,
+matter content, particle spectrum, and mixing matrices of the Standard
+Model from a single discrete substrate: the periodic 8x8 torus
+[HCSM-00]. The fourteen modes at the self-paired eigenvalue lambda = 4
+of the discrete Laplacian are identified with one Standard Model
+generation. Their D4 representation theory determines the gauge algebra;
+their N/4 labels determine the mass spectrum; the zero-state vector
+from the 14x19 measurement matrix determines the flavor structure.
+
+The identification of the fourteen modes with the fourteen Standard
+Model particles, and the N/4 mass label attached to each, is the
+framework's EMPIRICAL THESIS (HCSM-23). It is not a derived result. The
+N/4 labels are empirical anchors, structurally parallel to the Standard
+Model's Yukawa couplings.
+
+Throughout this paper:
+
+  - The fourteen modes, their coordinates, the D4 point-group action,
+    the diagonal reflection rs, the half-period translation T_half,
+    and the Klein four-group V they generate are DERIVED from the
+    substrate.
+
+  - The identification of each mode with a specific Standard Model
+    particle, and the N/4 label attached to each, are EMPIRICAL
+    ANCHORS (HCSM-23).
+
+  - The structural relations among the N/4 values are THEOREMS GIVEN
+    THE ANCHOR.
+
+Two order-two operations act on the fourteen-mode multiplet. The first
+is the diagonal reflection rs, which swaps the two mode coordinates and
+has been identified in HCSM-26 as the unique chiral reflection of the
+D4 point group. The second is the half-period translation T_half, which
+shifts both mode coordinates by half the torus side length. The two
+operations commute, and each squares to the identity, so they generate
+a Klein four-group.
+
+This paper proves that the action of the Klein group organizes the
+fourteen-mode multiplet completely: the orbits are classified, the
+stabilizers of the orbits are classified, and one orbit in particular
+--- the four-cycle orbit --- contains four N/4 anchors whose values are
+all framework constants, under the empirical identification.
+
+1.2 The one-line summary
+
+The Klein four-group V = <rs, T_half> acts on the fourteen-mode
+multiplet with five size-2 orbits and one size-4 orbit. The pointwise
+stabilizers of these orbits fall into the three non-trivial subgroups
+of the Klein group. One orbit --- the four-cycle orbit --- is the
+framework-constant orbit: given the empirical identification, its four
+N/4 anchors are simultaneously framework constants and their sum equals
+56, the dimension of the Hodge sector at the self-paired eigenvalue.
+
+1.3 Derivation status of the results in this paper
+
+The paper proves four results. They split into three groups according
+to their derivation status.
+
+1.3a Fully derived (no anchor)
+
+These results use only substrate primitives and do not refer to the N/4
+anchors or to the particle identifications:
+
+  (1) Klein Orbit Theorem (Section 3). The Klein four-group
+      V = <rs, T_half> acts on the fourteen-mode multiplet with orbit
+      decomposition consisting of five size-2 orbits and one size-4
+      orbit.
+
+  (2) Kernel Classification Theorem (Section 4). The pointwise
+      stabilizer of each Klein orbit falls into one of the three
+      non-trivial subgroups of the Klein group: four orbits with
+      stabilizer {e, rs * T_half}, one with {e, rs}, and one with {e}.
+
+  (3) Swap-Pair Bridge Theorem (Section 5). At coordinate level, the
+      edge {(5,7),(6,6)} is the unique edge in the distinguished-pair
+      graph of the fourteen-mode multiplet that connects two distinct
+      Klein orbits. Under the empirical identification, the edge is
+      {dark, t}.
+
+1.3b Theorem given the empirical identification
+
+This result is conditional on the identification thesis (HCSM-23). It
+is a theorem about the structural relations among the N/4 anchors:
+
+  (4) Four-Orbit Framework-Constant Theorem (Section 6). Given the
+      empirical identification, the four-cycle orbit's four N/4
+      anchors are simultaneously framework constants:
+      (d-1)^2, (d-1)d, the multiplicity, and (d-1)(2d-1). They
+      satisfy two additive identities within the orbit, and their sum
+      equals 2(d-1)(2d-1) + 14 = 56, the dimension of the Hodge sector
+      at the self-paired eigenvalue. Their mean equals 14, the
+      multiplicity.
+
+1.4 Cross references to the HCSM paper stack
+
+The paper depends on the following companion papers:
+
+  - HCSM-04: the fourteen-mode multiplet and its D4 orbit
+    decomposition.
+  - HCSM-13: the processor T and the F/B-class correspondence.
+  - HCSM-14: the winding generator spectrum and class partition.
+  - HCSM-22: the zero state. Referenced for the standard mode order.
+  - HCSM-23: the identification thesis and the N/4 labels.
+  - HCSM-26: the observer pair. Referenced for the diagonal
+    reflection, the observer pair definition, and the Fixed Locus
+    Theorem.
+
+1.5 Organization
+
+Section 2 states the setup: the fourteen-mode multiplet, the diagonal
+reflection, the half-period translation, and the Klein structure.
+Section 3 proves the Klein Orbit Theorem. Section 4 proves the Kernel
+Classification Theorem. Section 5 proves the Swap-Pair Bridge Theorem.
+Section 6 proves the Four-Orbit Framework-Constant Theorem. Section 7
+discusses the structural interpretation. Section 8 catalogs inputs and
+derived results. Section 9 gives reproducibility notes. Section 10
+concludes.
+
+================================================================
+2. SETUP
+================================================================
+
+2.1 The fourteen-mode multiplet
+
+The substrate is the periodic eight-by-eight torus Lambda = Z_8 x Z_8
+with N = 64 sites [HCSM-00, HCSM-01]. The discrete five-point Laplacian
+has eigenvalues
+
+    (1) lambda(n_1, n_2) = 4 - 2 cos(pi n_1 / 4) - 2 cos(pi n_2 / 4),
+        (n_1, n_2) in {0, ..., 7}^2.
+
+The self-paired eigenvalue lambda = 4 has multiplicity fourteen. The
+fourteen modes at lambda = 4 decompose under the D4 point group of the
+square into three orbits (HCSM-04):
+
+    O_0 = {(0,4), (4,0)},
+    O_1 = {(1,3), (1,5), (3,1), (3,7), (5,1), (5,7), (7,3), (7,5)},
+    O_2 = {(2,2), (2,6), (6,2), (6,6)}.
+
+In the standard mode order (matching the zero-state vector of HCSM-22),
+the fourteen modes are
+
+    (2) (nu, e, u, d, s, mu, dark, c, tau, b, W, Z, H, t).
+
+The mode coordinates in this order are:
+
+    nu:(0,4),     e:(4,0),     u:(1,3),     d:(1,5),
+    s:(3,1),      mu:(3,7),    dark:(5,7),  c:(7,3),
+    tau:(7,5),    b:(5,1),     W:(2,2),     Z:(2,6),
+    H:(6,2),      t:(6,6).
+
+The particle names attached to these coordinates are the empirical
+thesis of HCSM-23. The coordinates are derived from the substrate; the
+naming is anchored.
+
+Throughout this paper, the primary presentation of every theorem is at
+the coordinate level. The particle names appear where needed for
+readability, and the notation {dark, t} denotes the coordinate pair
+{(5,7), (6,6)} under the identification thesis.
+
+2.2 The diagonal reflection
+
+The diagonal reflection is the map
+
+    (3) rs: (n_1, n_2) -> (n_2, n_1) mod 8.
+
+It is an element of the D4 point group of the square, and it satisfies
+rs^2 = e. It has been identified in HCSM-26 as the unique chiral
+reflection of D4: the unique element that fixes exactly the coordinate
+pair {(2,2),(6,6)} on the fourteen-mode multiplet and anticommutes with
+the winding generator.
+
+The fixed set of rs on the fourteen-mode multiplet is exactly the
+coordinate pair {(2,2),(6,6)} (HCSM-26 Lemma 3.1). Under the
+identification thesis, this pair is {W, t}.
+
+2.3 The half-period translation
+
+The half-period translation is the map
+
+    (4) T_half: (n_1, n_2) -> (n_1 + 4, n_2 + 4) mod 8.
+
+It shifts both mode coordinates by half the torus side length
+L / 2 = 4. It satisfies T_half^2 = e.
+
+2.4 The Klein four-group
+
+Lemma 1 (Klein structure). The diagonal reflection rs and the
+half-period translation T_half commute and each squares to the identity:
+
+    (5) rs^2 = e,  T_half^2 = e,  [rs, T_half] = 0.
+
+Hence they generate a Klein four-group
+
+    (6) V = <rs, T_half> = {e, rs, T_half, rs * T_half}.
+
+Proof. The relations rs^2 = e and T_half^2 = e are immediate from the
+definitions. For the commutator: for any mode (n_1, n_2),
+
+    rs(T_half(n_1, n_2)) = rs(n_1 + 4, n_2 + 4) = (n_2 + 4, n_1 + 4),
+    T_half(rs(n_1, n_2)) = T_half(n_2, n_1) = (n_2 + 4, n_1 + 4).
+
+The two expressions coincide. Hence [rs, T_half] = 0. The group
+generated by two commuting involutions is the Klein four-group; this is
+verified at machine precision in the companion verification script.
+QED
+
+2.5 The product rs * T_half
+
+The product of the two generators is the map
+
+    (7) rs * T_half: (n_1, n_2) -> (n_2 + 4, n_1 + 4) mod 8.
+
+It is an involution, and it is not equal to either rs or T_half.
+
+2.6 The N/4 anchors
+
+The N/4 values are the framework's empirical anchors for the particle
+spectrum (HCSM-23). In the standard mode order:
+
+    (8) (N/4)_i = (60, 24, 21, 20, 14, 14, 12, 9.5, 9, 7.5,
+                    2, 2, 1, 0.5).
+
+The values are treated as inputs throughout this paper. The structural
+relations among them are the theorems. Throughout, we refer to these
+values using descriptive names; e.g., the dark-photon anchor equals
+twelve, and the top-quark anchor equals one half. The reader may
+consult the coordinate-level statement of each theorem and substitute
+the particle names for the corresponding coordinates.
+
+================================================================
+3. THE KLEIN ORBIT THEOREM
+================================================================
+
+This section proves that the Klein group acts on the fourteen-mode
+multiplet with five size-2 orbits and one size-4 orbit. The result is
+derived at the coordinate level.
+
+3.1 Orbit decomposition
+
+Theorem 2 (Klein Orbit Theorem). The Klein four-group
+V = <rs, T_half> acts on the fourteen-mode multiplet with orbit
+decomposition consisting of five orbits of size two and one orbit of
+size four. Explicitly, the orbits are:
+
+    Orbit   Coordinates (particle names)                              Size
+    V_1     {(0,4),(4,0)} ({nu,e})                                     2
+    V_2     {(6,2),(2,6)} ({H,Z})                                      2
+    V_3     {(1,5),(5,1)} ({d,b})                                      2
+    V_4     {(3,7),(7,3)} ({mu,c})                                     2
+    V_5     {(2,2),(6,6)} ({W,t})                                      2
+    V_6     {(5,7),(3,1),(1,3),(7,5)} ({dark,s,u,tau})                 4
+
+The total mode count is 5*2 + 1*4 = 14, matching the multiplicity at
+the self-paired eigenvalue. The orbit decomposition and the
+coordinate-level presentation are derived from the substrate. The
+particle names in parentheses are attached by the empirical
+identification (HCSM-23).
+
+Proof. Direct computation of the orbit of each coordinate under the
+Klein group. We compute representative orbits.
+
+Orbit of (0,4):
+    e * (0,4) = (0,4),
+    rs * (0,4) = (4,0),
+    T_half * (0,4) = (4,0),
+    (rs * T_half) * (0,4) = (0,4).
+The orbit is {(0,4),(4,0)}, size 2. This is V_1.
+
+Orbit of (6,2):
+    e * (6,2) = (6,2),
+    rs * (6,2) = (2,6),
+    T_half * (6,2) = (2,6),
+    (rs * T_half) * (6,2) = (6,2).
+The orbit is {(6,2),(2,6)}, size 2. This is V_2.
+
+Orbit of (1,5):
+    e * (1,5) = (1,5),
+    rs * (1,5) = (5,1),
+    T_half * (1,5) = (5,1),
+    (rs * T_half) * (1,5) = (1,5).
+The orbit is {(1,5),(5,1)}, size 2. This is V_3.
+
+Orbit of (3,7):
+    e * (3,7) = (3,7),
+    rs * (3,7) = (7,3),
+    T_half * (3,7) = (7,3),
+    (rs * T_half) * (3,7) = (3,7).
+The orbit is {(3,7),(7,3)}, size 2. This is V_4.
+
+Orbit of (2,2):
+    e * (2,2) = (2,2),
+    rs * (2,2) = (2,2),
+    T_half * (2,2) = (6,6),
+    (rs * T_half) * (2,2) = (6,6).
+The orbit is {(2,2),(6,6)}, size 2. This is V_5.
+
+Orbit of (5,7):
+    e * (5,7) = (5,7),
+    rs * (5,7) = (7,5),
+    T_half * (5,7) = (1,3),
+    (rs * T_half) * (5,7) = (3,1).
+The orbit is {(5,7),(7,5),(1,3),(3,1)}, size 4. This is V_6.
+
+The six orbits cover all fourteen coordinates. The orbit decomposition
+is as stated.  QED
+
+3.2 The three structural regions
+
+The orbit decomposition partitions the fourteen-mode multiplet into
+three structurally distinct regions:
+
+The four two-cycle orbits V_1 - V_4. Each of these orbits has two
+members that are exchanged by the diagonal reflection and by the
+half-period translation, and that are fixed by the product
+rs * T_half. They are the framework's standard mirror pairs.
+
+The observer orbit V_5. This orbit is {(2,2),(6,6)}. Both members are
+fixed by the diagonal reflection rs. Under the identification thesis,
+this is the observer pair of HCSM-26.
+
+The four-cycle orbit V_6. This orbit contains four coordinates that are
+cyclically exchanged by the Klein group. It contains the swap partner
+of the top-quark coordinate and has the framework-constant property of
+Section 6.
+
+Remark 2.1. The four-cycle orbit V_6 contains the coordinates (5,7),
+(7,5), (1,3), (3,1), all drawn from the middle D4 orbit O_1. The Klein
+group therefore further refines O_1: the D4 orbit of size 8 splits into
+the three Klein orbits V_3 = {(1,5),(5,1)}, V_4 = {(3,7),(7,3)}, and
+V_6 = {(5,7),(3,1),(1,3),(7,5)}.
+
+================================================================
+4. KERNEL CLASSIFICATION
+================================================================
+
+This section classifies the pointwise stabilizer of each Klein orbit.
+The result is derived at the coordinate level.
+
+4.1 Definition
+
+Definition 3 (Pointwise stabilizer). For a Klein orbit V_i in M, the
+pointwise stabilizer is the subgroup of V consisting of elements g such
+that g * m = m for every mode m in V_i.
+
+4.2 Classification
+
+Theorem 4 (Kernel Classification Theorem). The pointwise stabilizer of
+each Klein orbit is one of the three non-trivial subgroups of the Klein
+group. The classification is:
+
+    Orbit   Members (coordinate-level)           Pointwise stabilizer
+    V_1     {(0,4),(4,0)}                        {e, rs * T_half}
+    V_2     {(6,2),(2,6)}                        {e, rs * T_half}
+    V_3     {(1,5),(5,1)}                        {e, rs * T_half}
+    V_4     {(3,7),(7,3)}                        {e, rs * T_half}
+    V_5     {(2,2),(6,6)}                        {e, rs}
+    V_6     {(5,7),(3,1),(1,3),(7,5)}            {e}
+
+Proof. Direct computation of the action of each group element on each
+orbit. We compute representative cases.
+
+Orbit V_1 = {(0,4),(4,0)}:
+    rs * (0,4) = (4,0) != (0,4)           (swaps),
+    T_half * (0,4) = (4,0) != (0,4)       (swaps),
+    (rs * T_half) * (0,4) = (0,4),
+    (rs * T_half) * (4,0) = (4,0)         (fixed pointwise).
+Hence the pointwise stabilizer is {e, rs * T_half}.
+
+Orbit V_5 = {(2,2),(6,6)}:
+    rs * (2,2) = (2,2), rs * (6,6) = (6,6)     (fixed pointwise),
+    T_half * (2,2) = (6,6) != (2,2)            (swaps),
+    (rs * T_half) * (2,2) = (6,6) != (2,2)     (swaps).
+Hence the pointwise stabilizer is {e, rs}.
+
+Orbit V_6 = {(5,7),(3,1),(1,3),(7,5)}:
+    rs * (5,7) = (7,5) != (5,7)             (swaps),
+    T_half * (5,7) = (1,3) != (5,7)         (swaps),
+    (rs * T_half) * (5,7) = (3,1) != (5,7)  (swaps).
+No non-identity element fixes every member of V_6. Hence the
+pointwise stabilizer is {e}.
+
+The remaining orbits are computed analogously and yield the
+classification as stated.  QED
+
+4.3 The three stabilizer classes
+
+Corollary 5 (Three stabilizer classes). The Klein orbits partition into
+three stabilizer classes:
+
+    Class {e, rs * T_half}:  four orbits, V_1, V_2, V_3, V_4.
+    Class {e, rs}:           one orbit, V_5.
+    Class {e}:               one orbit, V_6.
+
+Proof. Immediate from Theorem 4.  QED
+
+Remark 4.1. The observer orbit V_5 is the unique orbit whose pointwise
+stabilizer is generated by the chiral reflection rs. This is consistent
+with the Chirality Selection Theorem of HCSM-26: the coordinate pair
+{(2,2),(6,6)} is the unique fixed locus of rs on the fourteen-mode
+multiplet.
+
+================================================================
+5. THE SWAP-PAIR BRIDGE THEOREM
+================================================================
+
+This section proves that the orbit-class swap pair is the unique edge
+in the distinguished-pair graph that connects two distinct Klein
+orbits. The graph structure and the edge identification are derived at
+the coordinate level. The naming of the swap pair as {dark, t} applies
+the empirical identification (HCSM-23).
+
+5.1 The distinguished-pair graph
+
+Definition 6 (Distinguished-pair graph). The distinguished-pair graph
+of the fourteen-mode multiplet has a vertex for each mode and an edge
+for each two-element subset that is distinguished by at least one of
+the following structural criteria: (i) being fixed by an involution of
+the D4 point group; (ii) being a two-cycle of the diagonal reflection
+rs; (iii) being a two-cycle of the half-period translation T_half; and
+(iv) being the orbit-class swap pair (defined in HCSM-26).
+
+The distinguished-pair graph has ten edges, listed at coordinate level:
+
+    Index   Edge (coordinates; names)
+    1       {(0,4),(4,0)}            ({nu,e})
+    2       {(1,3),(3,1)}            ({u,s})
+    3       {(1,3),(5,7)}            ({u,dark})
+    4       {(1,5),(5,1)}            ({d,b})
+    5       {(3,7),(7,3)}            ({mu,c})
+    6       {(3,1),(7,5)}            ({s,tau})
+    7       {(5,7),(7,5)}            ({dark,tau})
+    8       {(5,7),(6,6)}            ({dark,t})
+    9       {(2,6),(6,2)}            ({Z,H})
+   10       {(2,2),(6,6)}            ({W,t})
+
+Its vertex set is a subset of the fourteen coordinates.
+
+5.2 The inter-orbit edges
+
+Theorem 7 (Swap-Pair Bridge Theorem). At coordinate level, the edge
+{(5,7),(6,6)} is the unique edge in the distinguished-pair graph of the
+fourteen-mode multiplet that connects two distinct Klein orbits. Under
+the empirical identification (HCSM-23), the edge is {dark, t}.
+
+Proof. The ten edges of the distinguished-pair graph are listed in
+Section 5.1.
+
+Within-orbit edges. The following nine edges have both endpoints in the
+same Klein orbit:
+
+    {(1,3),(3,1)}, {(1,3),(5,7)}, {(3,1),(7,5)}, {(5,7),(7,5)} in V_6,
+    {(0,4),(4,0)}   in V_1,
+    {(1,5),(5,1)}   in V_3,
+    {(3,7),(7,3)}   in V_4,
+    {(2,6),(6,2)}   in V_2,
+    {(2,2),(6,6)}   in V_5.
+
+The remaining edge. The edge {(5,7),(6,6)} has its two endpoints in
+distinct Klein orbits:
+
+    (5,7) in V_6 = {(5,7),(3,1),(1,3),(7,5)},
+    (6,6) in V_5 = {(2,2),(6,6)}.
+
+Hence {(5,7),(6,6)} is the unique inter-orbit edge.  QED
+
+Corollary 8 (Bridge structure). The edge {(5,7),(6,6)} is the unique
+edge of the distinguished-pair graph that bridges the four-cycle orbit
+V_6 and the observer orbit V_5. It is the only connection between the
+four-cycle orbit and the observer orbit. Under the empirical
+identification, this edge is the swap pair {dark, t}.
+
+Proof. Immediate from Theorem 7.  QED
+
+================================================================
+6. THE FOUR-ORBIT FRAMEWORK-CONSTANT THEOREM
+================================================================
+
+This section proves that, given the empirical identification (HCSM-23),
+the four-cycle orbit's four N/4 anchors are simultaneously framework
+constants.
+
+6.1 The four-cycle orbit's anchored values
+
+Given the empirical identification (HCSM-23), the four coordinates of
+the four-cycle orbit V_6 carry the following N/4 anchors:
+
+    (9) N/4(tau)  = 9,
+        N/4(dark) = 12,
+        N/4(s)    = 14,
+        N/4(u)    = 21.
+
+At the coordinate level, these anchors attach to the four coordinates
+(7,5), (5,7), (3,1), (1,3) respectively.
+
+6.2 The theorem
+
+Theorem 9 (Four-Orbit Framework-Constant Theorem). Given the empirical
+identification (HCSM-23), the four N/4 anchors of the four-cycle orbit
+V_6 are simultaneously simple framework constants:
+
+    (10) N/4(tau)  = (d-1)^2 = 9,
+         N/4(dark) = (d-1) * d = 12,
+         N/4(s)    = multiplicity = 14,
+         N/4(u)    = (d-1)(2d-1) = 21.
+
+They satisfy two additive identities within the orbit:
+
+    (11) N/4(tau) + N/4(dark) = N/4(u),
+         N/4(tau) + N/4(s)    = H + 2d - 1 = 23,
+
+where H = 2^d = 16 is the hidden-sector dimension parameter. The sum of
+the four anchors equals
+
+    (12) N/4(tau) + N/4(dark) + N/4(s) + N/4(u)
+           = 9 + 12 + 14 + 21 = 56,
+
+which is the dimension of the Hodge sector at the self-paired
+eigenvalue. The mean of the four anchors equals
+
+    (13) 56 / 4 = 14,
+
+which is the multiplicity at the self-paired eigenvalue.
+
+Proof. Direct arithmetic on the anchors. For the additive identities:
+
+    9 + 12 = 21 (= N/4(u)),
+    9 + 14 = 23 (= H + 2d - 1).
+
+For the sum:
+
+    9 + 12 + 14 + 21 = 56 = 14 + 28 + 14
+                          = dim(Omega^0 + Omega^1 + Omega^2)|_{lambda=4}.
+
+For the mean:
+
+    56 / 4 = 14 = 2(L-1) = multiplicity_{lambda=4}.   QED
+
+6.3 The algebraic derivation of the sum
+
+Proposition 10 (Algebraic derivation of the sum). Given the empirical
+identification (HCSM-23), the sum of the four-cycle orbit's N/4 anchors
+has the framework-constant form
+
+    (14) N/4(tau) + N/4(dark) + N/4(s) + N/4(u)
+           = 2(d-1)(2d-1) + 14.
+
+At d = 4, this evaluates to 2 * 3 * 7 + 14 = 42 + 14 = 56.
+
+Proof. Add the four framework-constant forms:
+
+    N/4(tau) + N/4(dark) + N/4(s) + N/4(u)
+      = (d-1)^2 + (d-1)d + 14 + (d-1)(2d-1).
+
+Collect the terms in (d-1):
+
+    = (d-1) * [(d-1) + d + (2d-1)] + 14
+    = (d-1) * [4d - 2] + 14
+    = 2(d-1)(2d-1) + 14.
+
+At d = 4: 2 * 3 * 7 + 14 = 42 + 14 = 56.   QED
+
+Corollary 11 (Four-orbit as a shadow of the Hodge sector). Given the
+empirical identification (HCSM-23), the four-cycle orbit is a
+four-element shadow of the 56-dimensional Hodge sector at the
+self-paired eigenvalue: its four N/4 anchors sum to the sector
+dimension, and their mean is the multiplicity.
+
+Proof. Immediate from Theorem 9.  QED
+
+================================================================
+7. DISCUSSION
+================================================================
+
+7.1 What the Klein structure gives
+
+The Klein four-group V = <rs, T_half> organizes the fourteen-mode
+multiplet into six orbits at coordinate level. The orbit decomposition
+and its stabilizer classification are derived from the substrate. The
+six orbits are:
+
+  - Four two-cycle orbits with pointwise stabilizer {e, rs * T_half}:
+    V_1 = {(0,4),(4,0)},
+    V_2 = {(6,2),(2,6)},
+    V_3 = {(1,5),(5,1)},
+    V_4 = {(3,7),(7,3)}.
+
+  - One two-cycle orbit with pointwise stabilizer {e, rs}:
+    the observer orbit V_5 = {(2,2),(6,6)}.
+
+  - One four-cycle orbit with trivial pointwise stabilizer:
+    V_6 = {(5,7),(3,1),(1,3),(7,5)}.
+
+The edge {(5,7),(6,6)} (the swap pair {dark, t} under the empirical
+identification) is the unique bridge between the four-cycle orbit and
+the observer orbit. This is the framework's minimal connective
+structure between its two most distinctive orbits.
+
+7.2 Refinement of the D4 orbit partition
+
+The D4 orbit partition of the fourteen-mode multiplet is
+
+    O_0 = {(0,4),(4,0)},
+    O_1 = {(1,3),(1,5),(3,1),(3,7),(5,1),(5,7),(7,3),(7,5)},
+    O_2 = {(2,2),(2,6),(6,2),(6,6)}.
+
+The Klein orbit partition refines the D4 orbit partition:
+
+  - O_0 is the single Klein orbit V_1 = {(0,4),(4,0)}.
+  - O_1 decomposes into three Klein orbits:
+    V_3 = {(1,5),(5,1)}, V_4 = {(3,7),(7,3)}, and
+    V_6 = {(5,7),(3,1),(1,3),(7,5)}.
+  - O_2 decomposes into two Klein orbits:
+    V_2 = {(6,2),(2,6)} and V_5 = {(2,2),(6,6)}.
+
+The Klein group therefore provides a fine-grained partition of the
+multiplet, in which each D4 orbit of size greater than two is further
+decomposed.
+
+7.3 Relation to the observer pair
+
+The coordinate pair {(2,2),(6,6)} of HCSM-26 is the Klein orbit V_5.
+Its pointwise stabilizer is {e, rs}, the subgroup generated by the
+chiral reflection. This is consistent with the Chirality Selection
+Theorem of HCSM-26: the coordinate pair is the unique fixed locus of rs
+on the fourteen-mode multiplet. Under the identification thesis, this
+pair is the observer pair {W, t}.
+
+The four-cycle orbit V_6 has trivial pointwise stabilizer. Its swap
+partner with the observer orbit is the coordinate (6,6) (the
+top-quark coordinate). The two most distinctive orbits of the Klein
+structure are connected by the edge {(5,7),(6,6)}.
+
+================================================================
+8. INPUTS AND DERIVED
+================================================================
+
+8.1 Derived from the substrate
+
+The following results are proved without reference to the N/4 anchors
+or to the particle identifications:
+
+  (1) The Klein structure rs^2 = T_half^2 = e and [rs, T_half] = 0
+      (Lemma 1).
+  (2) The orbit decomposition into five size-2 orbits and one size-4
+      orbit (Theorem 2).
+  (3) The pointwise stabilizer classification of each orbit
+      (Theorem 4 and Corollary 5).
+  (4) The ten edges of the distinguished-pair graph and the unique
+      inter-orbit edge {(5,7),(6,6)} (Theorem 7 and Corollary 8).
+
+8.2 Theorems given the empirical identification (HCSM-23)
+
+The following results are theorems about the structural relations among
+the N/4 anchors:
+
+  (5) The Four-Orbit Framework-Constant Theorem (Theorem 9): the four
+      N/4 anchors of the four-cycle orbit are simultaneously framework
+      constants, satisfy two additive identities, and sum to 56.
+  (6) The algebraic derivation of the sum (Proposition 10).
+  (7) The four-orbit-as-shadow statement (Corollary 11).
+
+8.3 Inputs
+
+  (1) Input 1 (SM content). The Standard Model particles and their
+      observed properties, as used to identify the fourteen modes.
+  (2) Input 2 (physical identifications). The identifications
+      A_1 <-> color, B_1 <-> weak isospin.
+  (3) Input 3 (the identification thesis, HCSM-23). The assignment of
+      each of the fourteen modes at lambda = 4 to a specific Standard
+      Model particle, together with the N/4 mass label attached to
+      each. This is the framework's empirical anchor, structurally
+      parallel to the Standard Model's Yukawa couplings.
+  (4) The framework constants d = 4, N = 64, L = 8, H = 16 (HCSM-01).
+
+8.4 What is not claimed
+
+We do not claim to derive the identification thesis (HCSM-23) from the
+substrate. The assignment of the fourteen modes to the fourteen
+particles, and the N/4 labels attached to each, are the framework's
+empirical anchors.
+
+We do not claim that the Four-Orbit Framework-Constant Theorem is
+HCSM-native without qualification. It is a theorem given the anchor: it
+holds for the specific anchor values observed in the Standard Model,
+and it is falsifiable if the anchor values differ.
+
+We do not claim that the naming of the coordinates (5,7) and (6,6) as
+dark and t is derived. The coordinates and the edge structure are
+derived; the naming is anchored.
+
+The framework's claim is that it has fewer empirical anchors than the
+Standard Model, not that it has none.
+
+================================================================
+9. REPRODUCIBILITY
+================================================================
+
+All numerical claims in this paper are verified at machine precision in
+IEEE-754 double precision. The verification script is provided in the
+HCSM companion repository at 12-VERIFICATION/HCSM-27_verification.py.
+The script constructs the fourteen-mode multiplet, the diagonal
+reflection rs, the half-period translation T_half, the Klein four-group
+V = <rs, T_half>, the orbit decomposition, the pointwise stabilizers,
+the distinguished-pair graph, and the four-cycle orbit's anchors from
+HCSM-native definitions, and verifies:
+
+Derived at coordinate level:
+  (1) The Klein four-group presentation rs^2 = T_half^2 = e and
+      [rs, T_half] = 0.
+  (2) The orbit decomposition into four two-cycle orbits with
+      stabilizer {e, rs * T_half}, one two-cycle orbit with stabilizer
+      {e, rs}, and one four-cycle orbit with trivial stabilizer.
+  (3) The pointwise stabilizer classification of each orbit, computed
+      purely from coordinates.
+  (4) The unique inter-orbit edge {(5,7),(6,6)} in the
+      distinguished-pair graph.
+
+Given the empirical identification (HCSM-23):
+  (5) The four-cycle orbit's N/4 anchors and their framework-constant
+      forms.
+  (6) The additive identities
+      N/4(tau) + N/4(dark) = N/4(u) and
+      N/4(tau) + N/4(s) = H + 2d - 1.
+  (7) The sum = 56 and the mean = 14.
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim in
+the HCSM paper stack.
+
+================================================================
+10. CONCLUSION
+================================================================
+
+This paper has characterized the Klein orbit structure of the
+fourteen-mode multiplet in the Hodge Complex Standard Model.
+
+Three theorems are fully derived from the substrate and do not use the
+N/4 anchors. The Klein Orbit Theorem establishes that the Klein
+four-group generated by the diagonal reflection and the half-period
+translation acts on the multiplet with orbit decomposition consisting
+of five size-2 orbits and one size-4 orbit. The Kernel Classification
+Theorem establishes that the pointwise stabilizer of each orbit is one
+of the three non-trivial subgroups of the Klein group: four orbits have
+stabilizer {e, rs * T_half}, the observer orbit has stabilizer {e, rs},
+and the four-cycle orbit has trivial stabilizer. The Swap-Pair Bridge
+Theorem establishes that the edge {(5,7),(6,6)} is the unique
+inter-orbit edge of the distinguished-pair graph; under the empirical
+identification, this edge is {dark, t}.
+
+One theorem is conditional on the empirical identification thesis
+(HCSM-23). Given the anchor, the four-cycle orbit's four N/4 values are
+simultaneously framework constants, satisfy two additive identities
+within the orbit, and sum to fifty-six, the dimension of the Hodge
+sector at the self-paired eigenvalue; their mean equals fourteen, the
+multiplicity. This theorem is falsifiable: it holds for the specific
+anchor values observed in the Standard Model.
+
+The Klein structure organizes the fourteen-mode multiplet in a way that
+refines the D4 orbit partition and brings the framework-constant
+arithmetic of the four-cycle orbit into focus. The observer pair of
+HCSM-26 is the orbit V_5 of this structure, and the
+framework-constant orbit is V_6.
+
+The framework's claim is that the Standard Model is what the substrate
+looks like when you observe it. The identification of the fourteen
+modes with the fourteen particles is the empirical thesis; the
+structural relations among the N/4 anchors are theorems given the
+thesis. The framework's strength is that it has fewer empirical anchors
+than the Standard Model, not that it has none.
+
+================================================================
+REFERENCES
+================================================================
+
+[HCSM-00] S. Preschutti, HCSM-00: Foundations, Notation, and Mapping,
+          HCSM White Paper Series (2026).
+
+[HCSM-01] S. Preschutti, HCSM-01: The 8x8 Torus Substrate from d = 4,
+          HCSM White Paper Series (2026).
+
+[HCSM-04] S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4,
+          HCSM White Paper Series (2026).
+
+[HCSM-13] S. Preschutti, HCSM-13: The Processor T and the F/B-Class
+          Correspondence, HCSM White Paper Series (2026).
+
+[HCSM-14] S. Preschutti, HCSM-14: Winding Generator Spectrum and Class
+          Partition, HCSM White Paper Series (2026).
+
+[HCSM-22] S. Preschutti, HCSM-22: The Zero State,
+          HCSM White Paper Series (2026).
+
+[HCSM-23] S. Preschutti, HCSM-23: The Identification of the 14 Modes
+          with One Standard Model Generation and the N/4 Mass Labels,
+          HCSM White Paper Series (2026).
+
+[HCSM-26] S. Preschutti, HCSM-26: The Observer Pair {W, t},
+          HCSM White Paper Series (2026).
+
+================================================================
+APPENDIX: WEB CRAWLER METADATA
+================================================================
+
+Dublin Core
+-----------
+DC.title: HCSM-27: Klein Orbit Structure
+DC.creator: Preschutti, Stanley
+DC.creator.orcid: 0009-0004-5445-1744
+DC.date.issued: 2026-09
+DC.type: Text / Preprint / White Paper
+DC.format: application/pdf; text/x-latex
+DC.language: en
+DC.publisher: Entropia Research Institute
+DC.rights: All rights reserved
+DC.subject: Hodge Complex Standard Model; HCSM; Klein four-group;
+  dihedral group; orbit structure; four-cycle orbit; framework
+  constant; pointwise stabilizer; swap-pair bridge; Hodge sector
+  dimension; identification thesis; N/4 anchors
+DC.description: The Klein four-group generated by the diagonal
+  reflection rs and the half-period translation T_half acts on the
+  fourteen-mode multiplet of the Hodge Complex Standard Model with
+  orbit decomposition consisting of five size-2 orbits and one size-4
+  orbit. The Klein Orbit Theorem, the Kernel Classification Theorem,
+  and the Swap-Pair Bridge Theorem are derived from the substrate at
+  coordinate level. The Four-Orbit Framework-Constant Theorem is
+  conditional on the empirical identification (HCSM-23): the
+  four-cycle orbit's four N/4 anchors are simultaneously framework
+  constants, satisfy two additive identities, and sum to fifty-six,
+  the dimension of the Hodge sector at the self-paired eigenvalue.
+DC.identifier: HCSM-27-2026-09
+
+BibTeX
+------
+@article{PreschuttiHCSM27,
+  author = {Preschutti, Stanley},
+  title = {{HCSM-27}: Klein Orbit Structure},
+  journal = {HCSM White Paper Series},
+  year = {2026},
+  month = {September},
+  note = {ORCID: 0009-0004-5445-1744},
+  keywords = {Hodge Complex Standard Model, HCSM, Klein four-group,
+    dihedral group, orbit structure, four-cycle orbit, framework
+    constant, pointwise stabilizer, swap-pair bridge, identification
+    thesis, N/4 anchors},
+  abstract = {The Klein four-group generated by the diagonal
+    reflection rs and the half-period translation T_half acts on the
+    fourteen-mode multiplet with orbit decomposition consisting of
+    five size-2 orbits and one size-4 orbit. The Klein Orbit Theorem,
+    Kernel Classification Theorem, and Swap-Pair Bridge Theorem are
+    derived from the substrate at coordinate level. The Four-Orbit
+    Framework-Constant Theorem is conditional on the empirical
+    identification (HCSM-23): the four-cycle orbit's four N/4 anchors
+    are simultaneously framework constants and sum to fifty-six, the
+    dimension of the Hodge sector at the self-paired eigenvalue.}
+}
+
+================================================================
+END OF HCSM-27
+================================================================
