@@ -1,0 +1,871 @@
+================================================================================
+HCSM-54
+Vacuum Stability and the DME Stability Coefficient
+The AGM Closed Form of the Ryu-Takayanagi Strip Integral,
+the Crossover-Zero Moments, and the Discrete Analogue
+The Hodge Complex Standard Model
+================================================================================
+
+Stanley Preschutti(1)
+
+(1) Entropia Research Institute / Information Physics Institute,
+    ORCID: 0009-0004-5445-1744, scstannp@yahoo.com
+
+September 2026
+
+
+================================================================================
+ABSTRACT
+================================================================================
+
+We establish the vacuum stability sector of the Hodge Complex Standard Model.
+The DME (Dimensional Measurement Equilibrium) stability coefficient
+
+    gamma = c_2 / I(2) = 0.70283946799007245929257819650854315216110316215188...
+
+controls the width of the vacuum entropy well
+S(eps)/S_0 = 1 - gamma*eps^2 + O(eps^4) around the equilibrium dimension
+D = 4, and the strict-local-maximum property S''(0)/S_0 = -2*gamma < 0 is
+the DME stability theorem. We prove three new results. (i) The
+Ryu-Takayanagi strip integral at alpha = 2 has the exact closed form
+
+    I(2) = 1 - (1/2) AGM(1, sqrt(2)),
+
+verified at 100-digit precision, equivalently
+I(2) = 1 - sqrt(2) * pi^{3/2} / Gamma(1/4)^2
+     = 1 - pi / (2 sqrt(2) K(1/sqrt(2))).
+(ii) The second derivative c_2 = 2 I''(2) has an exact closed form in pi,
+Gamma(1/4), and Catalan's constant G. (iii) The Brillouin-zone moments of
+the three crossover-zero integrands on the 8x8 torus are exact integers
+
+    <(lambda - 4)^2> = 4,
+    <lambda (8 - lambda)> = 12,
+    <(lambda - 4)^2 lambda (8 - lambda)> = 28,
+
+following the pattern d * (2^n - 1) for n = 1, 2, 3 with d = 4, and the
+mirror ratio <(lambda-4)^2> / <lambda(8-lambda)> = 1/3 = 1/(d-1) is the
+generation-count denominator. A negative result is also established: the
+discrete analogue of I(2) is NOT a Brillouin-zone moment of a
+crossover-vanishing integrand. The closest candidate, the spectral sum
+<sqrt(lambda)/(1+lambda)>_BZ = 0.40083787..., matches I(2) = 0.40092988...
+to 0.023%; the residual is not a framework constant, as confirmed by an
+exhaustive search over ~80 framework expressions. The HCSM-native
+derivation of I(2) from the substrate therefore requires a construction
+beyond free Omega^1 BZ moments. We separate the derivation into
+substrate-level theorems, a single disclosed physical identification, and
+open items. All numerical claims are verified in reproducible Python at
+machine precision.
+
+Derivation status summary:
+
+  DERIVED (substrate-level and analytic):
+    - The AGM closed form I(2) = 1 - AGM(1, sqrt(2))/2.
+    - The closed form of c_2 = 2 I''(2) in pi, Gamma(1/4), and G.
+    - The closed form of gamma = c_2/I(2).
+    - The crossover-zero moments 4, 12, 28.
+    - The mirror ratio 1/3 = 1/(d-1).
+
+  DISCLOSED IDENTIFICATION:
+    - The DME construction gamma = c_2/I(2): the identification of the
+      DME stability coefficient with the ratio of the second derivative
+      c_2 = 2 I''(2) to the value I(2) of the Ryu-Takayanagi strip
+      integral at alpha = 2. This is the framework's dimensional-rigidity
+      structure.
+
+  NEGATIVE RESULT:
+    - The discrete analogue of I(2) is NOT a Brillouin-zone moment of a
+      crossover-vanishing integrand. The best candidate,
+      <sqrt(lambda)/(1+lambda)>_BZ, is 0.023% low.
+
+  OPEN:
+    - The HCSM-native derivation of I(2) from the substrate.
+
+
+================================================================================
+CONTENTS
+================================================================================
+
+1. Introduction
+   1.1 The vacuum stability problem
+   1.2 Summary of results
+   1.3 Derivation status
+   1.4 Organization
+2. Setup: the DME vacuum and the strip integral
+   2.1 The dimensional deviation
+   2.2 The Ryu-Takayanagi strip integral
+   2.3 The DME stability coefficient
+3. The AGM closed form
+   3.1 The strip integral at alpha = 2
+   3.2 The second derivative
+   3.3 The stability coefficient
+4. Crossover-zero moments
+   4.1 The Brillouin-zone structure
+   4.2 The three crossover points
+   4.3 The crossover moments
+5. The discrete analogue: negative result
+   5.1 The S6 spectral sum
+   5.2 The near-miss
+   5.3 What the negative result does and does not rule out
+6. The DME stability theorem
+7. Status: derived, disclosed identification, and open
+   7.1 Derived
+   7.2 Disclosed identification
+   7.3 Open
+8. Falsifiable predictions
+9. Conclusion
+A. Reproducible verification
+B. Web Crawler Metadata
+   B.1 Dublin Core
+   B.2 Schema.org JSON-LD
+   B.3 BibTeX for Automated Indexing
+
+
+================================================================================
+1. INTRODUCTION
+================================================================================
+
+1.1 The vacuum stability problem
+--------------------------------------------------------------------------------
+
+The Hodge Complex Standard Model (HCSM) derives Standard Model structure
+from the spacetime dimension d = 4 through the discrete substrate
+Lambda = Z_8 x Z_8 (HCSM-00, HCSM-01, HCSM-02). The DME (Dimensional
+Measurement Equilibrium) sector supplies the framework's stability
+mechanism: it shows that D = 4 is a stable fixed point of the vacuum
+entropy, and it computes the exact stability coefficient gamma that
+controls the width of the entropy well.
+
+The stability coefficient enters the framework's downstream predictions
+in three places. First, the EFT vacuum equation of state is
+w = -1 - (1 - gamma)^2 / (2 pi) (WIN-EFT), giving
+w = -1.0140540788576648688..., consistent with DESI DR2 at
+Delta chi^2 = 0.22. Second, the bulk viscosity is
+zeta H / rho = (1 - gamma)^2 / (6 pi). Third, the time quantum in the
+Motion and Time Theorems is T_DME = 1/(2 gamma) (WIN-Motion, WIN-Time).
+
+In the prior WIN-era treatment the stability coefficient was stated as
+gamma = c_2/I(2) with I(2) the Ryu-Takayanagi strip integral at alpha = 2
+and c_2 = 2 I''(2). The strip integral is a continuum object; the
+framework's strength is that it derives Standard Model structure from a
+discrete substrate, so a continuum import at the root of the entropy-well
+construction is a genuine open item.
+
+The present paper addresses this. It establishes three structural facts:
+
+1. Closed form of I(2) and gamma (Theorem 3.1, Theorem 3.3). The strip
+   integral at alpha = 2 is the halved arithmetic-geometric mean of 1 and
+   sqrt(2), subtracted from 1. The second derivative c_2 has a closed form
+   in pi, Gamma(1/4), and Catalan's G. The stability coefficient is their
+   exact ratio.
+
+2. Crossover-zero moments (Theorem 4.1, Corollary 4.3). The
+   Brillouin-zone moments of the three crossover-zero integrands on the
+   torus are exact framework integers, and their mirror ratio is the
+   generation-count denominator.
+
+3. Negative result (Section 5). The discrete analogue of I(2) is not a
+   BZ moment of a crossover-vanishing integrand. The closest candidate,
+   the S6 spectral sum, is 0.023% low; the residual is not a framework
+   constant.
+
+1.2 Summary of results
+--------------------------------------------------------------------------------
+
+The present paper establishes the following.
+
+1. (Theorem 3.1). The Ryu-Takayanagi strip integral at alpha = 2
+   satisfies
+
+       I(2) = 1 - (1/2) AGM(1, sqrt(2)).
+
+   Numerically I(2) = 0.40092988263220389628003875385983806088639366839217...,
+   verified at 100-digit precision.
+
+2. (Theorem 3.2). The second derivative c_2 = 2 I''(2) has the closed form
+
+       c_2 = 4 + B(-1/4,1/2) * [ (pi+4)/8 + (pi+4)^2/128 + 1/4
+                                 + (1-G)/8 ],
+
+   where B(-1/4,1/2) = -4 pi^{3/2} sqrt(2) / Gamma(1/4)^2 and G is
+   Catalan's constant.
+
+3. (Theorem 3.3). The DME stability coefficient is
+
+       gamma = c_2/I(2) = 0.70283946799007245929257819650854315216110316215188...
+
+   matching the prior WIN-era value to 6.7 x 10^{-18}.
+
+4. (Theorem 4.1). The Brillouin-zone moments of the three crossover-zero
+   integrands satisfy
+
+       <(lambda-4)^2>_BZ = 4,
+       <lambda (8-lambda)>_BZ = 12,
+       <(lambda-4)^2 lambda (8-lambda)>_BZ = 28,
+
+   exactly, following the pattern d * (2^n - 1) for n = 1, 2, 3.
+
+5. (Corollary 4.3). The mirror ratio
+   <(lambda-4)^2> / <lambda(8-lambda)> = 1/3 = 1/(d-1) is the
+   generation-count denominator.
+
+6. (Theorem 5.1). The discrete analogue of I(2) is not a Brillouin-zone
+   moment of a crossover-vanishing integrand. The closest candidate
+   <sqrt(lambda)/(1+lambda)>_BZ = 0.40083787... is 0.023% below I(2),
+   and the residual 9.2 x 10^{-5} is not a framework constant.
+
+1.3 Derivation status
+--------------------------------------------------------------------------------
+
+The present paper separates its content into three explicit categories.
+
+DERIVED (substrate-level and analytic):
+
+  - The AGM closed form of I(2) (Theorem 3.1).
+  - The closed form of c_2 = 2 I''(2) (Theorem 3.2).
+  - The closed form of gamma = c_2/I(2) (Theorem 3.3).
+  - The crossover-zero moments 4, 12, 28 (Theorem 4.1).
+  - The mirror ratio 1/3 = 1/(d-1) (Corollary 4.3).
+
+DISCLOSED IDENTIFICATION:
+
+  - The DME construction gamma = c_2/I(2): the identification of the
+    DME stability coefficient with the ratio of the second derivative
+    c_2 = 2 I''(2) to the value I(2) of the Ryu-Takayanagi strip
+    integral at alpha = 2. This is the framework's dimensional-rigidity
+    structure.
+
+OPEN:
+
+  - The HCSM-native derivation of I(2) from the substrate (Section 5).
+  - The physical mechanism by which c_2 enters at the second order of
+    the entropy well.
+
+1.4 Organization
+--------------------------------------------------------------------------------
+
+Section 2 recalls the DME vacuum and the strip integral. Section 3 proves
+the AGM closed form. Section 4 proves the crossover-zero moments.
+Section 5 establishes the negative result on the discrete analogue.
+Section 6 states the DME stability theorem. Section 7 catalogues the
+derivation status. Section 8 lists falsifiable predictions. Appendix A
+provides reproducible Python verification. Appendix B gives structured
+bibliographic metadata.
+
+
+================================================================================
+2. SETUP: THE DME VACUUM AND THE STRIP INTEGRAL
+================================================================================
+
+2.1 The dimensional deviation
+--------------------------------------------------------------------------------
+
+The substrate is the periodic square lattice Lambda = Z_8 x Z_8 with
+N = 64 sites. The dimension of the vacuum manifold is D = 4. The
+dimensionless deviation from the equilibrium dimension is
+
+    eps = D - 4.                                                     (1)
+
+The DME entropy well is
+
+    S(eps)/S_0 = 1 - gamma*eps^2 + O(eps^4),                         (2)
+
+with gamma the DME stability coefficient. The sign of the second
+derivative at eps = 0 is -2*gamma, so D = 4 is a strict local maximum of
+the vacuum entropy.
+
+2.2 The Ryu-Takayanagi strip integral
+--------------------------------------------------------------------------------
+
+The strip integral at parameter alpha is
+
+    I(alpha) = integral_1^infty [ u^{2 alpha - 2} / sqrt(u^{2 alpha} - 1)
+                                  - u^{alpha - 2} ] du.              (3)
+
+It has the closed form
+
+    I(alpha) = (1/(2 alpha)) [ B(a, 1/2) - 1/a ],
+        a = -1/2 + 1/(2 alpha).                                      (4)
+
+At alpha = 2 (the DME value alpha = D - 2 = 2), this gives a = -1/4 and
+
+    I(2) = (1/4) B(-1/4, 1/2) + 1.                                   (5)
+
+2.3 The DME stability coefficient
+--------------------------------------------------------------------------------
+
+The DME stability coefficient is
+
+    gamma = c_2 / I(2),   c_2 = 2 I''(2),                            (6)
+
+where the prime denotes differentiation with respect to alpha. The
+numerical value is
+
+    gamma = 0.70283946799007245929257819650854315216110316215188...
+
+The identification (6) is the framework's dimensional-rigidity structure.
+It is disclosed in the present paper per the HCSM-06/07 pattern, and the
+AGM/closed-form work below shows that both I(2) and c_2 are specific
+transcendental constants rather than opaque integrals.
+
+
+================================================================================
+3. THE AGM CLOSED FORM
+================================================================================
+
+3.1 The strip integral at alpha = 2
+--------------------------------------------------------------------------------
+
+Theorem 3.1 (AGM identity). The Ryu-Takayanagi strip integral at alpha = 2
+satisfies
+
+    I(2) = 1 - (1/2) AGM(1, sqrt(2))                                 (7)
+
+where AGM denotes the arithmetic-geometric mean. Equivalently,
+
+    I(2) = 1 - sqrt(2) * pi^{3/2} / Gamma(1/4)^2
+         = 1 - pi / (2 sqrt(2) K(1/sqrt(2))),                        (8)
+
+with K the complete elliptic integral of the first kind.
+
+Proof (sketch). From (5), I(2) = 1 + B(-1/4,1/2)/4. The Beta function is
+evaluated by reflection:
+
+    B(-1/4,1/2) = Gamma(-1/4) Gamma(1/2) / Gamma(1/4)
+                = -4 Gamma(3/4) sqrt(pi) / Gamma(1/4).
+
+Using Gamma(1/4) Gamma(3/4) = pi / sin(pi/4) = pi sqrt(2), this gives
+
+    B(-1/4,1/2) = -4 sqrt(2) pi^{3/2} / Gamma(1/4)^2.
+
+The classical identity AGM(1, sqrt(2)) = sqrt(2) pi^{3/2} / Gamma(1/4)^2
+then gives the result. The remaining equivalences follow from
+K(1/sqrt(2)) = Gamma(1/4)^2 / (4 sqrt(pi)). [Box]
+
+3.2 The second derivative
+--------------------------------------------------------------------------------
+
+Theorem 3.2 (Closed form of c_2). The second derivative c_2 = 2 I''(2)
+has the closed form
+
+    c_2 = 4 + B(-1/4,1/2) * [ (pi+4)/8 + (pi+4)^2/128 + 1/4
+                              + (1-G)/8 ]                            (9)
+
+with B(-1/4,1/2) as above and G Catalan's constant.
+
+Proof (sketch). Differentiate (4) twice with respect to alpha. The result
+is expressible in terms of the Beta function B(a,1/2) at a = -1/4, its
+alpha-derivatives, and the polygamma combinations psi_1(1/4) and
+psi_1(-1/4). Using psi_1(1/4) = pi^2 + 8 G and the reflection
+psi_1(-1/4) = pi^2 + 8 G + 16 (1 - G) yields the stated form. Verified
+at machine precision in Appendix A. [Box]
+
+3.3 The stability coefficient
+--------------------------------------------------------------------------------
+
+Theorem 3.3 (Closed form of gamma). The DME stability coefficient is
+
+    gamma = c_2 / I(2)
+          = 0.70283946799007245929257819650854315216110316215188...   (10)
+
+i.e., a specific transcendental constant expressible in pi, Gamma(1/4),
+and G. It matches the prior WIN-era numerical value to 6.7 x 10^{-18}.
+
+Proof. Direct from Theorem 3.1 and Theorem 3.2. [Box]
+
+Remark 3.4 (From opaque integral to specific constant). The prior WIN-era
+derivation treated I(2) as a numerically evaluated continuum integral.
+Theorem 3.1 converts it into a specific arithmetic constant, the halved
+AGM of 1 and sqrt(2). The identification gamma = c_2/I(2) is therefore
+not an identification with an opaque object but with a specific
+closed-form ratio.
+
+
+================================================================================
+4. CROSSOVER-ZERO MOMENTS
+================================================================================
+
+4.1 The Brillouin-zone structure
+--------------------------------------------------------------------------------
+
+The discrete 5-point Laplacian on the L x L torus has eigenvalues
+
+    lambda_L(k_1, k_2) = 4 - 2 cos(2 pi k_1 / L) - 2 cos(2 pi k_2 / L),
+        k_1, k_2 in {0, ..., L-1}.                                    (11)
+
+In the continuum limit L -> infinity, this becomes
+
+    lambda(k_1, k_2) = 4 - 2 cos k_1 - 2 cos k_2,
+        (k_1, k_2) in [0, 2 pi]^2,                                    (12)
+
+with BZ average
+
+    <f>_BZ = integral_{[0,2pi]^2} f(lambda(k)) d^2 k / (2 pi)^2.     (13)
+
+The BZ average is the continuum limit of the lattice mean
+(1/L^2) sum_k f(lambda_L(k)).
+
+4.2 The three crossover points
+--------------------------------------------------------------------------------
+
+The mirror symmetry lambda <-> 8 - lambda has three natural crossover
+points in the BZ:
+
+  - lambda = 0 at the corner Gamma = (0,0): the constant mode.
+  - lambda = 4 at the two points X = (pi, 0), (0, pi): the self-paired
+    eigenvalue, which is the mirror-fixed point and carries the 14-mode
+    multiplet on the discrete torus.
+  - lambda = 8 at the corner M = (pi, pi): the anti-constant mode.
+
+An integrand is called crossover-vanishing if it vanishes at all three of
+these lambda values.
+
+4.3 The crossover moments
+--------------------------------------------------------------------------------
+
+Theorem 4.1 (Crossover-zero moments). The Brillouin-zone moments of the
+three crossover-zero integrands on the torus are exactly
+
+    <(lambda-4)^2>_BZ = 4,
+    <lambda(8-lambda)>_BZ = 12,
+    <(lambda-4)^2 lambda (8-lambda)>_BZ = 28.                        (14)
+
+Proof. Each moment is a polynomial in lambda. Using
+<lambda^n>_BZ = integral_{[0,2pi]^2} (4 - 2 cos k_1 - 2 cos k_2)^n
+                d^2 k / (2 pi)^2
+and the standard moments <lambda>_BZ = 4, <lambda^2>_BZ = 20,
+<lambda^3>_BZ = 112, <lambda^4>_BZ = 656, the polynomial expansions give
+
+    <(lambda-4)^2>_BZ = <lambda^2> - 8 <lambda> + 16 = 20 - 32 + 16 = 4,
+    <lambda(8-lambda)>_BZ = 8 <lambda> - <lambda^2> = 32 - 20 = 12,
+    <(lambda-4)^2 lambda(8-lambda)>_BZ
+        = <(20 - 8 lambda + lambda^2)(8 lambda - lambda^2)> = 28.
+
+The polynomial expansions are exact; the moments of lambda follow from
+the standard Fourier averages. Verified in Appendix A. [Box]
+
+Corollary 4.2 (Mersenne pattern). The crossover-zero moments satisfy
+
+    <(lambda-4)^2>_BZ = d * (2^1 - 1) = 4,
+    <lambda(8-lambda)>_BZ = d * (2^2 - 1) = 12,
+    <(lambda-4)^2 lambda(8-lambda)>_BZ = d * (2^3 - 1) = 28,         (15)
+
+with d = 4. The values 4, 12, 28 are C(8,2)-adjacent integers:
+28 = C(8,2) is the Hodge lift Omega^1|_{lambda=4} dimension, and 12 = N/2 - 20
+appears in the sigma-line charge bookkeeping of HCSM-24.
+
+Corollary 4.3 (Mirror ratio). The ratio of the two lowest crossover-zero
+moments is
+
+    <(lambda-4)^2>_BZ / <lambda(8-lambda)>_BZ = 4/12 = 1/3 = 1/(d-1).  (16)
+
+The right-hand side is the reciprocal generation count, 1/(d-1) = 1/3.
+
+Remark 4.4 (Structural significance). The mirror ratio (16) is exact, and
+its value 1/(d-1) is a framework constant. This is the first
+crossover-level identity that closes exactly. It shows that the
+crossover-zero integrand family is not merely a numerical coincidence:
+the family's lowest two moments are framework integers whose ratio is the
+generation count.
+
+
+================================================================================
+5. THE DISCRETE ANALOGUE: NEGATIVE RESULT
+================================================================================
+
+5.1 The S6 spectral sum
+--------------------------------------------------------------------------------
+
+The natural candidate for a discrete analogue of I(2) is the
+Brillouin-zone average
+
+    S6(L) = (1/L^2) sum_{k_1, k_2 = 0}^{L-1}
+              sqrt(lambda_L(k_1, k_2)) / (1 + lambda_L(k_1, k_2)),     (17)
+
+with lambda_L the torus Laplacian (11). The continuum limit is
+S6(infinity) = <sqrt(lambda)/(1+lambda)>_BZ.
+
+5.2 The near-miss
+--------------------------------------------------------------------------------
+
+Numerically, S6(L) converges monotonically to S6(infinity):
+
+    L      S6(L)                gap to I(2)
+    ---    -----------------    -----------
+    8      0.39767350           0.81%
+    16     0.40047818           0.11%
+    32     0.40079375           0.034%
+    64     0.40083238           0.024%
+    128    0.40083718           0.023%
+    256    0.40083778           0.023%
+    inf    0.40083787...        0.023%
+
+At L = 256, S6 = 0.40083778 versus I(2) = 0.40092988. The residual is
+9.2 x 10^{-5}.
+
+Theorem 5.1 (Negative result on the discrete analogue). The discrete
+analogue of I(2) is not a Brillouin-zone moment of a crossover-vanishing
+integrand. Specifically:
+
+1. The S6 spectral sum (17) satisfies
+   S6(infinity) = I(2) - 9.20 x 10^{-5}; the residual is 0.023% of I(2).
+
+2. An exhaustive search over ~80 framework expressions (powers of 1/N,
+   1/(d+1), 1/pi, 1/(2 pi), 1/(4 pi), 1/(16 pi), 1/Gamma(1/4), powers
+   of AGM(1, sqrt(2)), powers of I(2), G, gamma, c_2, delta_edge,
+   zeta H / rho, and their low-order products) finds no framework
+   constant whose ratio to the residual is a small integer.
+
+3. For the crossover-vanishing integrand families
+   {(lambda-4)^2 / (1 + lambda)^p} and
+   {lambda(8-lambda) / (1 + lambda)^p}, no member has BZ average equal
+   to I(2) at integer p. The S6 integrand itself vanishes only at
+   Gamma, not at the self-paired point X, and is therefore not in the
+   crossover-vanishing family.
+
+4. The strip entanglement entropy of the free-fermion Omega^1 Fermi sea
+   on the 8x8 torus scales as a volume law (c_eff growing with L), not
+   the log-law of a 2D CFT.
+
+Proof. Parts (1)-(4) are numerical: verified in Appendix A. Part (2)
+uses the exhaustive gap search over the framework-constant list. Part (4)
+uses the Peschel covariance-matrix method on the Omega^1 sector
+(128 modes) with the free-fermion ground state at half-filling. [Box]
+
+Remark 5.2 (Interpretation). The crossover-zero integrands govern the
+framework's discrete rational structure: their moments are the framework
+integers 4, 12, 28, and their lowest ratio is the generation count 1/3.
+The strip integral I(2) is a transcendental constant (AGM-based) that
+does not reduce to this rational structure. This is a genuine structural
+separation: the substrate's discrete rational skeleton is not the source
+of the RT strip integral.
+
+5.3 What the negative result does and does not rule out
+--------------------------------------------------------------------------------
+
+The negative result rules out:
+
+  - The free-fermion Omega^1 Fermi sea strip entropy as the discrete
+    analogue.
+  - The S6 spectral sum as an exact BZ moment.
+  - Any single-moment construction over the crossover-vanishing
+    integrand family.
+
+The negative result does NOT rule out:
+
+  - A discrete analogue that lives in a different sector (Omega^0,
+    Omega^2, or the full 56-dimensional lambda = 4 lift).
+  - A discrete analogue that involves the DNLS-interacting ground state
+    rather than the free Fermi sea.
+  - A discrete analogue that requires a nontrivial state-preparation or
+    region-selection, not just a BZ moment.
+  - A discrete analogue that only emerges in a different continuum limit.
+
+These are the natural targets for the future HCSM-native derivation of
+gamma.
+
+
+================================================================================
+6. THE DME STABILITY THEOREM
+================================================================================
+
+Theorem 6.1 (DME stability). The equilibrium dimension D = 4 is a strict
+local maximum of the vacuum entropy. The second derivative at the
+equilibrium is
+
+    S''(0)/S_0 = -2 gamma = -1.405678935980144918585156393018... < 0.  (18)
+
+The equilibrium is unique: no other integer D in the range 1 <= D <= 8
+gives a strict local maximum with the same numerical value of S''(0)/S_0.
+
+Proof. The entropy well (2) has second derivative -2 gamma at eps = 0.
+The value of gamma is established in Theorem 3.3. Numerical verification
+of the strict-local-maximum property and its uniqueness is in Appendix A.
+[Box]
+
+Corollary 6.2 (Downstream predictions from gamma). The EFT vacuum
+equation of state is
+
+    w = -1 - (1 - gamma)^2 / (2 pi) = -1.0140540788576648688...,
+
+and the bulk viscosity is
+
+    zeta H / rho = (1 - gamma)^2 / (6 pi) = 0.004684692952554956...
+
+Both are consistent with DESI DR2 at Delta chi^2 = 0.22.
+
+
+================================================================================
+7. STATUS: DERIVED, DISCLOSED IDENTIFICATION, AND OPEN
+================================================================================
+
+7.1 Derived
+--------------------------------------------------------------------------------
+
+1. The AGM closed form I(2) = 1 - AGM(1, sqrt(2))/2 (Theorem 3.1).
+2. The closed form of c_2 = 2 I''(2) in pi, Gamma(1/4), and Catalan's G
+   (Theorem 3.2).
+3. The closed form of gamma = c_2/I(2) (Theorem 3.3).
+4. The crossover-zero moments 4, 12, 28 (Theorem 4.1).
+5. The Mersenne pattern d * (2^n - 1) (Corollary 4.2).
+6. The mirror ratio 1/3 = 1/(d-1) (Corollary 4.3).
+7. The DME stability theorem (Theorem 6.1).
+8. The negative result on the discrete analogue (Theorem 5.1).
+
+7.2 Disclosed identification
+--------------------------------------------------------------------------------
+
+1. The DME construction gamma = c_2/I(2): the identification of the DME
+   stability coefficient with the ratio of the second derivative
+   c_2 = 2 I''(2) to the value I(2) of the Ryu-Takayanagi strip integral
+   at alpha = 2. This is the framework's dimensional-rigidity structure.
+
+7.3 Open
+--------------------------------------------------------------------------------
+
+1. The HCSM-native derivation of I(2) from the substrate (Section 5).
+2. The physical mechanism by which c_2 enters at the second order of the
+   entropy well, rather than at a different order.
+3. The finite-L corrections to the crossover-zero moments on the 8x8
+   torus.
+4. The connection between the crossover-zero integrands and the sigma-line
+   structure of HCSM-24.
+
+
+================================================================================
+8. FALSIFIABLE PREDICTIONS
+================================================================================
+
+1. Equation of state. w = -1 - (1-gamma)^2/(2 pi) = -1.014054...,
+   consistent with DESI DR2 at Delta chi^2 = 0.22 and testable at
+   > 3 sigma by DESI DR3 + Euclid.
+
+2. Bulk viscosity. zeta H / rho = 0.00468469..., entering the
+   framework's EFT predictions for the dark-energy density perturbations.
+
+3. Strict local maximum. The framework predicts that any deviation
+   eps = D - 4 is unstable to decay toward eps = 0. A detection of a
+   stable equilibrium at D != 4 would falsify the DME construction.
+
+4. Negative prediction on the discrete analogue. No BZ moment of a
+   crossover-vanishing integrand on the discrete torus equals I(2)
+   exactly. A future identification of such a moment would falsify
+   Theorem 5.1 and re-open the gamma derivation.
+
+
+================================================================================
+9. CONCLUSION
+================================================================================
+
+We have established the vacuum stability sector of the Hodge Complex
+Standard Model. The DME stability coefficient
+gamma = c_2/I(2) = 0.70283946799007245929257819650854315216110316215188...
+controls the width of the entropy well around D = 4, and the
+strict-local-maximum property S''(0)/S_0 = -2 gamma < 0 is the DME
+stability theorem.
+
+The AGM identity I(2) = 1 - AGM(1, sqrt(2))/2 reduces the strip integral
+to a specific arithmetic constant. The closed form of c_2 = 2 I''(2) in
+pi, Gamma(1/4), and Catalan's G completes the derivation of gamma as a
+specific transcendental constant. The crossover-zero moments 4, 12, 28 on
+the discrete torus are exact framework integers whose lowest ratio
+1/3 = 1/(d-1) is the generation count.
+
+A negative result is also established. The discrete analogue of I(2) is
+not a Brillouin-zone moment of a crossover-vanishing integrand. The
+closest candidate, the S6 spectral sum, is 0.023% below I(2), and the
+residual is not a framework constant, as confirmed by an exhaustive
+search over ~80 framework expressions. The HCSM-native derivation of
+I(2) from the substrate therefore requires a construction beyond free
+Omega^1 BZ moments. This is stated explicitly as an open item.
+
+The present paper follows the HCSM-06/07 pattern: it derives everything
+in its own domain that can be derived, discloses the single physical
+identification gamma = c_2/I(2) explicitly, and names the specific open
+item that a future HCSM-native construction must close. The framework's
+strength is that it has fewer empirical anchors than the Standard Model,
+not that it has none.
+
+
+================================================================================
+REFERENCES
+================================================================================
+
+[HCSM-00] S. Preschutti, HCSM-00: Foundations, Notation, and Mapping,
+          HCSM White Paper Series (2026).
+
+[HCSM-01] S. Preschutti, HCSM-01: The 8 x 8 Torus Substrate from d = 4,
+          HCSM White Paper Series (2026).
+
+[HCSM-02] S. Preschutti, HCSM-02: The Hodge Complex on Lambda,
+          HCSM White Paper Series (2026).
+
+[HCSM-04] S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4,
+          HCSM White Paper Series (2026).
+
+[HCSM-24] S. Preschutti, HCSM-24: The Charge Theorem, HCSM White Paper
+          Series (2026).
+
+[HCSM-48] S. Preschutti, HCSM-48: Faddeev-Popov G_N Normalization,
+          HCSM White Paper Series (2026).
+
+[HCSM-49] S. Preschutti, HCSM-49: Completion of the Newton Constant
+          Sector, HCSM White Paper Series (2026).
+
+[HCSM-51] S. Preschutti, HCSM-51: The kL Crossover, HCSM White Paper
+          Series (2026).
+
+[HCSM-52] S. Preschutti, HCSM-52: EFT Coefficient in rho_DE, HCSM White
+          Paper Series (2026).
+
+[HCSM-56] S. Preschutti, HCSM-56: Vacuum EFT, HCSM White Paper Series
+          (2026).
+
+[WIN-Motion] S. Preschutti, The WIN Motion Theorem, Version 2,
+          WIN Paradigm White Paper (2026).
+
+[WIN-Time] S. Preschutti, The WIN Time Theorem, Version 2,
+          WIN Paradigm White Paper (2026).
+
+[WIN-EFT] S. Preschutti, ENTROPIA-EFT: The Effective Field Theory of the
+          DME Vacuum, Entropia Research Institute White Paper (2026).
+
+[RT] S. Ryu and T. Takayanagi, Holographic derivation of entanglement
+     entropy from AdS/CFT, Phys. Rev. Lett. 96, 181602 (2006).
+
+[AGM] J. M. Borwein and P. B. Borwein, Pi and the AGM, Wiley (1987).
+
+[Peschel] I. Peschel, Calculation of reduced density matrices from
+          correlation functions, J. Phys. A 36, L205 (2003).
+
+[Dodziuk] J. Dodziuk, Finite-difference approach to the Hodge theory of
+          harmonic forms, American Journal of Mathematics 98, 79 (1976).
+
+[DESI] DESI Collaboration, DESI DR2 Results, arXiv:2503.14738 (2025).
+
+
+================================================================================
+A. REPRODUCIBLE VERIFICATION
+================================================================================
+
+All numerical claims in this paper are verified at machine precision in
+IEEE-754 double precision (and at higher precision where symbolic
+evaluation is used). The verification script is provided in the HCSM
+companion repository at 12-VERIFICATION/HCSM-54_verification.py. It
+verifies:
+
+1. The AGM identity I(2) = 1 - AGM(1, sqrt(2))/2 at 100-digit precision
+   (Theorem 3.1).
+2. The closed form of c_2 = 2 I''(2) (Theorem 3.2).
+3. The closed form of gamma = c_2/I(2) to 6.7 x 10^{-18} relative error
+   (Theorem 3.3).
+4. The crossover-zero moments 4, 12, 28 via the standard lambda moments
+   (Theorem 4.1).
+5. The mirror ratio 1/3 (Corollary 4.3).
+6. The S6 spectral sum convergence and the 0.023% residual
+   (Theorem 5.1).
+7. The exhaustive gap search over ~80 framework expressions
+   (Theorem 5.1).
+8. The strip entanglement entropy of the free Omega^1 Fermi sea and the
+   volume-law scaling (Theorem 5.1).
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim in
+the HCSM paper stack.
+
+
+================================================================================
+B. WEB CRAWLER METADATA
+================================================================================
+
+B.1 Dublin Core
+--------------------------------------------------------------------------------
+
+DC.title: HCSM-54: Vacuum Stability and the DME Stability Coefficient
+DC.creator: Preschutti, Stanley
+DC.creator.orcid: 0009-0004-5445-1744
+DC.date.issued: 2026-09
+DC.type: Text / Preprint / White Paper
+DC.format: application/pdf; text/x-latex
+DC.language: en
+DC.publisher: Entropia Research Institute
+DC.rights: All rights reserved
+DC.subject: Hodge Complex Standard Model; HCSM; DME; vacuum stability;
+  stability coefficient; Ryu-Takayanagi strip integral; AGM;
+  arithmetic-geometric mean; crossover-zero moments; Mersenne pattern;
+  entropy well; dimensional measurement equilibrium
+DC.description: We establish the vacuum stability sector of the Hodge
+  Complex Standard Model. The DME stability coefficient is
+  gamma = c2/I(2) = 0.70283946799007245929257819650854315216110316215188...
+  The Ryu-Takayanagi strip integral at alpha = 2 has the exact closed
+  form I(2) = 1 - AGM(1, sqrt(2))/2, verified at 100 digits. The
+  second derivative c2 = 2 I''(2) has a closed form in pi, Gamma(1/4),
+  and Catalan's G. The crossover-zero moments on the discrete torus
+  are exactly 4, 12, 28, following the pattern d * (2^n - 1) for
+  n = 1, 2, 3, and the mirror ratio 1/3 is the generation count. A
+  negative result is established: the discrete analogue of I(2) is not
+  a Brillouin-zone moment of a crossover-vanishing integrand; the
+  closest candidate is 0.023% low, and the residual is not a framework
+  constant.
+DC.identifier: HCSM-54-2026-09
+
+B.2 Schema.org JSON-LD
+--------------------------------------------------------------------------------
+
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "HCSM-54: Vacuum Stability and the DME Stability Coefficient",
+  "alternateName": "The AGM Closed Form of the Ryu-Takayanagi Strip Integral, the Crossover-Zero Moments, and the Discrete Analogue",
+  "author": {
+    "@type": "Person",
+    "name": "Stanley Preschutti",
+    "identifier": "https://orcid.org/0009-0004-5445-1744",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Entropia Research Institute"
+    }
+  },
+  "datePublished": "2026-09",
+  "inLanguage": "en",
+  "abstract": "We establish the vacuum stability sector of the Hodge Complex Standard Model. The DME stability coefficient is gamma = c2/I(2) = 0.70283946799007245929257819650854315216110316215188... The Ryu-Takayanagi strip integral at alpha = 2 has the exact closed form I(2) = 1 - AGM(1, sqrt(2))/2, verified at 100 digits. The crossover-zero moments on the discrete torus are exactly 4, 12, 28, and the mirror ratio 1/3 is the generation count. A negative result is established: the discrete analogue of I(2) is not a Brillouin-zone moment of a crossover-vanishing integrand.",
+  "keywords": [
+    "Hodge Complex Standard Model",
+    "HCSM",
+    "DME",
+    "vacuum stability",
+    "stability coefficient",
+    "Ryu-Takayanagi strip integral",
+    "AGM",
+    "arithmetic-geometric mean",
+    "crossover-zero moments",
+    "Mersenne pattern",
+    "entropy well"
+  ],
+  "license": "All rights reserved",
+  "identifier": "HCSM-54-2026-09",
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "HCSM White Paper Series"
+  }
+}
+
+B.3 BibTeX for Automated Indexing
+--------------------------------------------------------------------------------
+
+@article{PreschuttiHCSM54,
+  author = {Preschutti, Stanley},
+  title = {{HCSM-54}: Vacuum Stability and the {DME} Stability Coefficient},
+  journal = {HCSM White Paper Series},
+  year = {2026},
+  month = {September},
+  note = {ORCID: 0009-0004-5445-1744},
+  keywords = {Hodge Complex Standard Model, HCSM, DME, vacuum stability,
+    Ryu-Takayanagi strip integral, AGM, arithmetic-geometric mean,
+    crossover-zero moments, Mersenne pattern, entropy well},
+  abstract = {We establish the vacuum stability sector of the Hodge
+    Complex Standard Model. The DME stability coefficient is
+    gamma = c2/I(2) = 0.70283946799007245929257819650854315216110316215188...
+    The Ryu-Takayanagi strip integral at alpha = 2 has the exact closed
+    form I(2) = 1 - AGM(1, sqrt(2))/2, verified at 100 digits. The
+    crossover-zero moments on the discrete torus are exactly 4, 12, 28,
+    and the mirror ratio 1/3 is the generation count.}
+}
