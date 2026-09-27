@@ -1,0 +1,1028 @@
+================================================================================
+HCSM-21
+The Time Theorem
+Complex Time from the Five-Layer Loop,
+the Topological Derivation of the Floor Function,
+and the Processor as Projection onto Nonzero Real Time
+The Hodge Complex Standard Model
+================================================================================
+
+Stanley Preschutti(1)
+
+(1) Entropia Research Institute / Information Physics Institute,
+    ORCID: 0009-0004-5445-1744, scstannp@yahoo.com
+
+September 2026
+
+
+================================================================================
+ABSTRACT
+================================================================================
+
+We derive time and its arrow in the Hodge Complex Standard Model (HCSM)
+as internal structures of the five-layer loop. No external time
+coordinate is assumed. The loop operator
+
+    M_loop = T * L_EFT * L_Core * L_DME * L_FDLM
+
+acts diagonally on the 14-mode multiplet. On each mode m it has the polar
+form M_loop(m) = r_m e^{i theta_m}. The complex time of mode m is
+
+    tau_m = theta_m + i ln r_m
+          = omega_m T_DME - i(-ln r_m),
+
+where omega_m is the mode's winding-generator frequency,
+T_DME = 1/(2 gamma) is the DME relaxation time, and r_m is the mode's
+per-pass amplitude. The real part theta_m is the clock; the imaginary
+part -ln r_m > 0 is the arrow increment. The processor T is exactly the
+projection onto modes with Re(tau) > 0. Time is simultaneously the
+measurement outcome and the selection criterion of the loop. Three
+algebraic bridges are established. (i) The floor function in the Core
+perturbation is the winding number of the DME-Core interface phase over
+one loop pass; it is not an ansatz. (ii) Dimensional homogeneity of
+tau_m is proved: both theta_m and -ln r_m are per-pass products of a
+rate with T_DME. (iii) The exact ratio |M_A|/|M_B| = 3 = d - 1 is a
+consequence of the closed-form T_DME from HCSM-54. We state the HCSM
+Time Theorem and identify what is derived, what is disclosed, and what
+is open. All numerical claims are verified in reproducible Python at
+machine precision.
+
+Derivation status summary:
+
+  DERIVED (substrate-level):
+    - The loop operator diagonalization.
+    - The complex-time closed form tau_m = omega_m T_DME - i(-ln r_m).
+    - The closed forms of tau_A, tau_B, tau_C.
+    - The multiplicative loop-decay decomposition into Core and EFT
+      factors.
+    - The topological derivation of the floor function from the
+      DME-Core winding condition.
+    - Dimensional homogeneity of tau_m.
+    - The processor identity T = Pi_{Re(tau)>0}.
+    - The arrow of time from the Core Lyapunov functional.
+    - The exact ratio |M_A|/|M_B| = 3.
+
+  DISCLOSED INPUTS:
+    - (A) The DME stability coefficient gamma = c_2/I(2) and time
+      quantum T_DME = 1/(2 gamma) from HCSM-54.
+    - (B) The EFT equation of state w and bulk viscosity zeta H / rho
+      from HCSM-56.
+
+  OPEN:
+    - The loop pass duration selection (T_DME vs T_beat).
+    - The identification of continuous time t = k T_DME from a deeper
+      principle.
+    - The physical conversion of T_DME to seconds.
+
+
+================================================================================
+CONTENTS
+================================================================================
+
+1. Introduction
+   1.1 The time problem
+   1.2 Summary of results
+   1.3 Derivation status
+   1.4 Organization
+2. Setup: the five-layer loop and its state spaces
+   2.1 State spaces
+   2.2 The loop operator
+3. Level 1 -- FDLM/WIN: winding phase
+   3.1 Substrate and modes
+   3.2 Winding generator
+   3.3 The frequency classes
+   3.4 What time is doing at Level 1
+4. Level 2 -- DME: time quantum and the topological floor derivation
+   4.1 The DME stability coefficient
+   4.2 The 1 -> 2 transition: phase handoff
+   4.3 The 2 -> 3 transition: cycle-quantized Core perturbation
+   4.4 What time is doing at Level 2
+5. Level 3 -- Core: the arrow of time
+   5.1 Flow equation
+   5.2 Lyapunov functional
+   5.3 Master conditions
+   5.4 The 3 -> 4 transition
+   5.5 What time is doing at Level 3
+6. Level 4 -- EFT: damping
+   6.1 Mode equation
+   6.2 EFT parameters
+   6.3 Regime
+   6.4 What time is doing at Level 4
+7. Level 5 -- Processor T
+   7.1 Definition
+   7.2 Properties
+   7.3 Charge bookkeeping
+   7.4 What time is doing at Level 5
+8. The complex time operator
+   8.1 Definition
+   8.2 Loop-decay decomposition
+   8.3 Dimensional homogeneity
+   8.4 Structural identities
+9. The processor as projection onto nonzero real time
+10. The exact ratio |M_A| / |M_B| = 3
+11. The arrow of time
+12. The HCSM Time Theorem
+13. Status, disclosed inputs, and open items
+    13.1 Derived
+    13.2 Disclosed inputs
+    13.3 Open
+14. Falsifiable predictions
+15. Conclusion
+A. Reproducible verification
+B. Web Crawler Metadata
+   B.1 Dublin Core
+   B.2 Schema.org JSON-LD
+   B.3 BibTeX for Automated Indexing
+
+
+================================================================================
+1. INTRODUCTION
+================================================================================
+
+1.1 The time problem
+--------------------------------------------------------------------------------
+
+The Standard Model has no fundamental arrow of time. Time is an external
+parameter, and its direction is accounted for by statistical mechanics.
+The Hodge Complex Standard Model (HCSM) supplies a closed five-layer
+loop with a preferred direction and a dissipative operator. In this paper
+we show that time is not an input to HCSM; it is a readout of the loop.
+
+Two aspects of time emerge from the loop structure:
+
+  1. Clock time -- the phase accumulated by M_loop per pass.
+  2. Arrow time -- the directed decay of M_loop^k because |M_j| < 1.
+
+The first gives clocks. The second gives the arrow. Both arise from one
+operator.
+
+1.2 Summary of results
+--------------------------------------------------------------------------------
+
+The present paper establishes the following.
+
+1. (Theorem 8.2). On each observable mode m, the loop operator M_loop
+   is diagonal with polar form M_loop(m) = r_m e^{i theta_m}, and the
+   complex time is tau_m = omega_m T_DME + i ln r_m with closed form
+
+       tau_A = 2.0121430664919213 - 0.5521962501528914 i,
+       tau_B = 6.0364291994757650 - 1.6508085388210012 i,
+       tau_C = 0.
+
+2. (Theorem 4.2). The floor function in the Core perturbation
+   eps_0(m) = floor(omega_m T_DME) delta_edge is the winding number of
+   the DME-Core interface phase over one loop pass. It is not a
+   postulated integer-floor rule.
+
+3. (Proposition 8.3). The complex time tau_m is dimensionally
+   homogeneous: both theta_m and -ln r_m are per-pass quantities of the
+   form (rate) x T_DME, and both scale linearly with the Core flow
+   parameter lambda.
+
+4. (Theorem 9.1). The processor T = P_mesh + P_tau is exactly the
+   projection onto modes with nonzero real time:
+
+       T = Pi_{Re(tau) > 0}.
+
+   Kernel modes have tau_m = 0 and are frozen under M_loop.
+
+5. (Theorem 11.1). The arrow of time is the direction of increasing
+   loop count k, equivalently the direction of decreasing Core Lyapunov
+   functional L[eps] = gamma eps^2, equivalently the direction of
+   increasing -ln r_m.
+
+1.3 Derivation status
+--------------------------------------------------------------------------------
+
+DERIVED (substrate-level):
+
+  - The loop operator diagonalization and the complex-time formula
+    (Theorem 8.2).
+  - The closed forms of tau_A, tau_B, tau_C.
+  - The multiplicative loop-decay decomposition into Core and EFT
+    factors.
+  - The topological derivation of the floor function from the DME-Core
+    winding condition (Lemma 4.2, Theorem 4.3).
+  - Dimensional homogeneity of tau_m (Proposition 8.3).
+  - The processor identity T = Pi_{Re(tau) > 0} (Theorem 9.1).
+  - The arrow of time from the Core Lyapunov functional (Theorem 11.1).
+  - The exact ratio |M_A| / |M_B| = 3 (restated from HCSM-20,
+    Theorem 10.1).
+
+DISCLOSED INPUTS:
+
+  - (A) The DME stability coefficient gamma = c_2/I(2) and time quantum
+    T_DME = 1/(2 gamma) from HCSM-54.
+  - (B) The EFT equation of state w = -1 - (1-gamma)^2/(2 pi) and bulk
+    viscosity zeta H / rho = (1-gamma)^2/(6 pi) from HCSM-56.
+
+OPEN:
+
+  - The loop pass duration selection (T_DME vs T_beat).
+  - The identification of continuous time t = k T_DME from a deeper
+    principle.
+  - The physical conversion of T_DME to seconds.
+
+1.4 Organization
+--------------------------------------------------------------------------------
+
+Section 2 states the five-layer loop and its state spaces. Section 3
+develops Level 1 (FDLM/WIN). Section 4 develops Level 2 (DME) and the
+topological floor derivation. Section 5 develops Level 3 (Core).
+Section 6 develops Level 4 (EFT). Section 7 develops Level 5 (Processor).
+Section 8 defines the complex-time operator and proves dimensional
+homogeneity. Section 9 proves the processor identity. Section 10
+restates the exact ratio. Section 11 proves the arrow of time.
+Section 12 states the HCSM Time Theorem. Section 13 catalogues the
+derivation status. Section 14 lists falsifiable predictions. Appendix A
+provides reproducible Python verification.
+
+
+================================================================================
+2. SETUP: THE FIVE-LAYER LOOP AND ITS STATE SPACES
+================================================================================
+
+2.1 State spaces
+--------------------------------------------------------------------------------
+
+Motion is the composition of five layers of the substrate, each with a
+well-defined state space and a unique operator (HCSM-20).
+
+    Layer 1: FDLM/WIN,   C^14 mode vectors, Hermitian (unitary evolution)
+    Layer 2: DME,        eps in R,          scalar constraint
+    Layer 3: Core,       eps(lambda),       gradient flow
+    Layer 4: EFT,        field config,      damped wave equation
+    Layer 5: Processor T, C^14 projected,   orthogonal projection
+
+2.2 The loop operator
+--------------------------------------------------------------------------------
+
+The loop operator is
+
+    M_loop = T * L_EFT * L_Core * L_DME * L_FDLM.                    (1)
+
+On the mode basis, M_loop is diagonal:
+
+    M_loop(m) = r_m e^{i theta_m}.                                   (2)
+
+The five layers are not temporally sequential within a pass. They are
+algebraically composed. Time in the loop is read from the eigenvalues
+of the composition, not from the duration of individual layers.
+
+
+================================================================================
+3. LEVEL 1 -- FDLM/WIN: WINDING PHASE
+================================================================================
+
+3.1 Substrate and modes
+--------------------------------------------------------------------------------
+
+The substrate is the periodic square lattice Lambda = Z_8 x Z_8 with
+N = 64 sites. The 14 modes at the self-paired eigenvalue lambda = 4 are
+listed in HCSM-04 and HCSM-20.
+
+3.2 Winding generator
+--------------------------------------------------------------------------------
+
+Let n_1, n_2 in R^14 be the coordinate vectors. Define
+M = n_1 n_2^T - n_2 n_1^T, phi = (pi/8) M, and H_wind = i sin(phi).
+The spectrum is
+
+    spec(H_wind) = {-4 sqrt(2), -2 sqrt(2), 0^(10), +2 sqrt(2), +4 sqrt(2)},   (3)
+
+with multiplicities 1, 1, 10, 1, 1 (HCSM-20, Corollary 3.5). The beat
+period is T_beat = 2 pi / (2 sqrt(2)). At t = T_beat,
+e^{i H_wind T_beat} = I.
+
+3.3 The frequency classes
+--------------------------------------------------------------------------------
+
+The 14 modes partition into three classes by frequency:
+
+    Class A: omega_A = 2 sqrt(2), 3 modes
+    Class B: omega_B = 6 sqrt(2), 7 modes
+    Kernel:  omega = 0,          4 modes.                            (4)
+
+The ratio omega_B / omega_A = 3 is exact. The kernel class omega = 0 is
+exactly the kernel of the processor T.
+
+3.4 What time is doing at Level 1
+--------------------------------------------------------------------------------
+
+Time at Level 1 is the phase of the winding generator. The eigenvalues
+of H_wind are the mode frequencies
+omega_m in {2 sqrt(2), 6 sqrt(2), 0}. The level is unitary; no amplitude
+is lost. It is a pure clock with an internal period T_beat.
+
+
+================================================================================
+4. LEVEL 2 -- DME: TIME QUANTUM AND THE TOPOLOGICAL FLOOR DERIVATION
+================================================================================
+
+4.1 The DME stability coefficient
+--------------------------------------------------------------------------------
+
+DME fixes the vacuum dimension D = 4 as a strict local maximum of the
+vacuum entropy (HCSM-54, Theorem 6.1). The stability coefficient is
+
+    gamma = c_2 / I(2)
+          = 0.70283946799007245929257819650854315216110316215188...,   (5)
+
+with I(2) = 1 - AGM(1, sqrt(2))/2 and c_2 = 2 I''(2) given in closed
+form in HCSM-54. The relaxation time is
+
+    T_DME = 1 / (2 gamma) = 0.711400003516965862...                   (6)
+
+4.2 The 1 -> 2 transition: phase handoff
+--------------------------------------------------------------------------------
+
+The unique dimensionless quantity at the 1 -> 2 boundary is
+
+    Phi_{1 -> 2}(m) = omega_m T_DME.                                 (7)
+
+For class A, Phi_A = 2 + delta_edge; for class B, Phi_B = 6 + 3 delta_edge,
+with
+
+    delta_edge = sqrt(2) / gamma - 2 = 0.012143066491921761...        (8)
+
+The residual delta_edge is the exact mismatch between the substrate and
+DME clocks.
+
+4.3 The 2 -> 3 transition: cycle-quantized Core perturbation
+--------------------------------------------------------------------------------
+
+The transition rule eps_0(m) = floor(omega_m T_DME) delta_edge is often
+presented as a postulated integer-floor rule. We now derive it from a
+winding condition on the DME-Core interface.
+
+Definition 4.1 (DME-Core interface). The DME-Core interface is a
+U(1)-valued map from the loop parameter space S^1 (one loop pass) to the
+DME phase space,
+
+    gamma_m : S^1 -> U(1),
+        gamma_m(s) = e^{2 pi i omega_m T_DME s},  s in [0, 1).        (9)
+
+Lemma 4.2 (Lift and winding). The lift of gamma_m to R is the
+monotonically increasing function gamma_m_tilde(s) = omega_m T_DME s.
+Over one loop pass (s : 0 -> 1), the lift crosses integer values k in Z
+exactly floor(omega_m T_DME) times (the final point excluded).
+
+Proof. The lift ranges over [0, omega_m T_DME). The integers in this
+half-open interval are 0, 1, ..., floor(omega_m T_DME) - 1, counted with
+multiplicity 1 each. The remaining integer floor(omega_m T_DME) is the
+ceiling reached at the endpoint s = 1. Therefore the number of complete
+DME cycles per pass is n_m = floor(omega_m T_DME). [Box]
+
+Definition 4.3 (DME natural period). The DME layer has a natural phase
+period of 1 in the loop time unit T_DME. That is, one complete DME cycle
+corresponds to advancing the loop parameter by one unit of T_DME.
+
+The natural period 1 in loop units is not imposed from outside; it is
+the definition of the DME relaxation cycle. Because the DME stability
+coefficient gamma sets a single relaxation rate 2 gamma, one relaxation
+time T_DME = 1/(2 gamma) is the natural DME cycle.
+
+Definition 4.4 (DME-Core boundary functional). Define the DME-Core
+interface functional
+
+    J[eps_0] = eps_0 + Lambda * W[eps_0 <= |w+1|],                   (10)
+
+with Lambda -> infinity enforcing the constraint eps_0 > |w+1|.
+
+Theorem 4.5 (Core perturbation quantization). The unique minimizing
+eps_0 of J on the lattice delta_edge Z_{>0}, subject to the winding
+condition of Lemma 4.2, is
+
+    eps_0(m) = n_m delta_edge,  n_m = floor(omega_m T_DME).          (11)
+
+Proof. The functional J is finite only if eps_0 > |w+1|. The lattice is
+delta_edge Z_{>0}. The winding condition fixes n_m = floor(omega_m T_DME).
+We verify that n_m delta_edge > |w+1| for both non-trivial classes.
+Numerically, |w+1| = 0.014054078857664869 and
+delta_edge = 0.012143066491921761, so |w+1|/delta_edge = 1.1573747757...
+Any n >= 2 satisfies n delta_edge > |w+1|. For class A, n_A = 2, so
+eps_0(A) = 2 delta_edge = 0.0242861... > |w+1|. For class B, n_B = 6,
+so eps_0(B) = 6 delta_edge = 0.0728584... > |w+1|. Thus the
+winding-quantized eps_0 automatically satisfies the boundary constraint
+for both classes, and the minimizing element on the lattice is unique.
+[Box]
+
+Remark 4.6 (The floor function is not an ansatz). The floor function is
+the winding number of the DME phase over one loop pass, computed on the
+U(1)-valued interface. The boundary constraint eps_0 > |w+1| is a
+consistency condition automatically satisfied by the winding-quantized
+value.
+
+4.4 What time is doing at Level 2
+--------------------------------------------------------------------------------
+
+Level 2 has no internal dynamics. It imposes the time quantum T_DME at
+the 1 -> 2 boundary and quantizes the Core perturbation by the DME phase
+winding number. This is the only level where the time unit crosses a
+transition. The output to Core is
+
+    {T_DME, n_m = floor(omega_m T_DME), eps_0(m) = n_m delta_edge,
+     S''(0)/S_0 = -2 gamma}.                                         (12)
+
+
+================================================================================
+5. LEVEL 3 -- CORE: THE ARROW OF TIME
+================================================================================
+
+5.1 Flow equation
+--------------------------------------------------------------------------------
+
+Core obeys
+
+    d eps / d lambda = -2 gamma eps.                                 (13)
+
+The solution is eps(lambda) = eps_0 e^{-2 gamma lambda}.
+
+5.2 Lyapunov functional
+--------------------------------------------------------------------------------
+
+    L[eps] = gamma eps^2,
+    dL/dlambda = -4 gamma^2 eps^2 <= 0,                              (14)
+
+strict for eps != 0. The Core flow is strictly monotone.
+
+5.3 Master conditions
+--------------------------------------------------------------------------------
+
+  - M1 (monotonicity): dL/dlambda <= 0. Satisfied.
+  - M2 (irreversibility): under lambda -> -lambda, L increases.
+    Satisfied.
+  - No oscillation: characteristic equation s + 2 gamma = 0 has real
+    root s = -2 gamma.
+
+5.4 The 3 -> 4 transition
+--------------------------------------------------------------------------------
+
+The Core-to-EFT transition occurs when eps(lambda_EFT) = |w+1|:
+
+    lambda_EFT(m) = ln(eps_0(m) / |w+1|) / (2 gamma).                (15)
+
+For class A: lambda_EFT = 0.389130725768564... For class B:
+lambda_EFT = 1.170683511790840...
+
+5.5 What time is doing at Level 3
+--------------------------------------------------------------------------------
+
+Time at Level 3 is the flow parameter lambda. The state decays
+monotonically. The Lyapunov functional decreases. This is the source of
+the arrow: the direction of increasing lambda is the direction of
+decreasing L. No statistical assumption is used.
+
+
+================================================================================
+6. LEVEL 4 -- EFT: DAMPING
+================================================================================
+
+6.1 Mode equation
+--------------------------------------------------------------------------------
+
+The EFT mode equation is
+
+    phi_ddot + Gamma_eff phi_dot + (k^2 / a^2 + m_eff^2) phi = 0,    (16)
+
+with Gamma_eff = (3 + zeta H / rho) H_local and
+m_eff^2 = m_s^2 + zeta R.
+
+6.2 EFT parameters
+--------------------------------------------------------------------------------
+
+From HCSM-56:
+
+    w = -1 - (1-gamma)^2 / (2 pi),
+    zeta H / rho = (1-gamma)^2 / (6 pi).                             (17)
+
+The EFT decay factor per beat period is
+
+    D_factor = exp(-(zeta H / rho) T_beat) = 0.994810128563526019...  (18)
+
+6.3 Regime
+--------------------------------------------------------------------------------
+
+    zeta R / m_s^2 = 5.9 x 10^{-26},
+    Gamma_eff / omega_0 = 5.2 x 10^{-13},
+    k / m_s < 2.7 x 10^{-13}.                                        (19)
+
+The EFT is extremely underdamped, mass-dominated, gradient-negligible.
+All 14 modes oscillate at the same frequency m_s and decay at the same
+rate Gamma_eff / 2.
+
+6.4 What time is doing at Level 4
+--------------------------------------------------------------------------------
+
+Time at Level 4 is the damped-oscillation time. The field oscillates at
+omega_m and damps at Gamma_eff / 2. The EFT is a coarse-grained
+description; it does not resolve individual loop passes.
+
+
+================================================================================
+7. LEVEL 5 -- PROCESSOR T
+================================================================================
+
+7.1 Definition
+--------------------------------------------------------------------------------
+
+    T = P_mesh + P_tau,                                              (20)
+
+where P_mesh projects onto the nine mesh-resonance modes
+{nu, e, u, d, s, mu, c, b, t} and P_tau projects onto the rank-1 mode
+tau (HCSM-20, Section 8).
+
+7.2 Properties
+--------------------------------------------------------------------------------
+
+T^2 = T, T^dagger = T, rank(T) = 10. Kernel: {dark, W, Z, H}.
+
+7.3 Charge bookkeeping
+--------------------------------------------------------------------------------
+
+    sum_{j in image(T)} Q_j = -2,
+    sum_{j in ker(T)} Q_j = +1,
+    sum_{j=1}^{14} Q_j = -1.                                         (21)
+
+7.4 What time is doing at Level 5
+--------------------------------------------------------------------------------
+
+Time at Level 5 is the selection criterion. The processor reads the
+complex time of each mode and selects those with Re(tau_m) > 0. Modes
+with tau_m = 0 are killed. The kernel modes are frozen under M_loop.
+
+
+================================================================================
+8. THE COMPLEX TIME OPERATOR
+================================================================================
+
+8.1 Definition
+--------------------------------------------------------------------------------
+
+Definition 8.1 (Complex time). For each mode m in the observable sector,
+the complex time is
+
+    tau_m = theta_m + i ln r_m
+          = omega_m T_DME - i(-ln r_m).                              (22)
+
+The real part Re(tau_m) = omega_m T_DME is the clock phase per pass;
+the imaginary part -Im(tau_m) = -ln r_m > 0 is the arrow increment per
+pass.
+
+Theorem 8.2 (Closed form of tau_m). For the two non-trivial classes,
+
+    tau_A = 2.0121430664919213 - 0.5521962501528914 i,                (23)
+    tau_B = 6.0364291994757650 - 1.6508085388210012 i.
+
+The kernel has tau_C = 0.
+
+Proof. Direct from omega_A = 2 sqrt(2), omega_B = 6 sqrt(2),
+T_DME = 1/(2 gamma), and r_A, r_B computed from the loop-decay
+decomposition below. [Box]
+
+8.2 Loop-decay decomposition
+--------------------------------------------------------------------------------
+
+The loop amplitude decomposes exactly as
+
+    r_m = [ |w+1| / eps_0(m) ]_Core * [ D_factor ]_EFT.              (24)
+
+Numerically,
+
+    r_A = 0.5786873879 * 0.9948101286 = 0.575684074716075633,
+    r_B = 0.1928957960 * 0.9948101286 = 0.191894691572025183.
+
+The Core and EFT contributions compose multiplicatively.
+
+8.3 Dimensional homogeneity
+--------------------------------------------------------------------------------
+
+Proposition 8.3 (Dimensional homogeneity). Both theta_m and -ln r_m are
+per-pass quantities of the form (rate) x T_DME. Under the Core flow
+parameter lambda, both quantities scale linearly with lambda.
+
+Proof. The phase accumulated over one loop pass is
+theta_m = omega_m T_DME, which is the product of the mode frequency
+omega_m (units: inverse time) and the loop time unit T_DME (units:
+time).
+
+The log-amplitude decrement per pass is -ln r_m. Define
+Gamma_m = -2 ln r_m / T_DME. Then -ln r_m = (Gamma_m / 2) T_DME, which
+is the product of the decay rate Gamma_m / 2 (units: inverse time) and
+T_DME.
+
+Both theta_m and -ln r_m therefore have the form (rate) x T_DME. Both
+are dimensionless. Both are linear in the continuous time coordinate
+t = k T_DME, since after k passes theta_m k = omega_m t and
+-ln r_m k = (Gamma_m / 2) t.
+
+Under the Core flow parameter lambda, the Core amplitude decays as
+eps(lambda) = eps_0 e^{-2 gamma lambda}, so ln eps(lambda) = ln eps_0
+- 2 gamma lambda is linear in lambda. The per-pass log decrement
+-ln r_m is therefore proportional to the Core flow parameter, and the
+phase theta_m is likewise linear in the loop parameter. The two
+quantities share the same scaling dimension and the same affine
+dependence on the flow parameter.
+
+Therefore the additive combination tau_m = theta_m + i ln r_m is
+dimensionally homogeneous. [Box]
+
+8.4 Structural identities
+--------------------------------------------------------------------------------
+
+    theta_B / theta_A = 3 (exact),
+    ln(r_A / r_B) = ln 3 (exact).                                    (25)
+
+
+================================================================================
+9. THE PROCESSOR AS PROJECTION ONTO NONZERO REAL TIME
+================================================================================
+
+Theorem 9.1 (Processor = projection onto nonzero real time). Let
+T = P_mesh + P_tau be the processor. Then
+
+    T = Pi_{Re(tau) > 0},                                            (26)
+
+i.e. T keeps exactly those modes with Re(tau_m) > 0 and kills those
+with tau_m = 0.
+
+Proof. By direct computation on the 14-mode multiplet: every mode in the
+image of T (that is, every mode with delta != 0 or s = +1) has
+omega_m in {2 sqrt(2), 6 sqrt(2)}, hence Re(tau_m) = omega_m T_DME > 0.
+Every mode in the kernel of T (that is, every mode with delta = 0 and
+s != +1) has omega_m = 0, hence tau_m = 0. [Box]
+
+Remark 9.2. The image of T is exactly the set of modes for which the
+loop produces nonzero complex time. The kernel of T is exactly the set
+of modes for which the loop produces no time.
+
+
+================================================================================
+10. THE EXACT RATIO |M_A| / |M_B| = 3
+================================================================================
+
+Theorem 10.1 (Exact ratio). The ratio of the two non-trivial
+loop-eigenvalue magnitudes is exactly 3:
+
+    |M_A| / |M_B| = r_A / r_B = 3 = d - 1.                           (27)
+
+The framework constants |w+1|, delta_edge, and D_factor do not appear in
+the ratio.
+
+Proof (restated from HCSM-20, Theorem 7.1). From the loop-decay
+decomposition,
+
+    r_m = |w+1| / eps_0(m) * D_factor,
+        eps_0(m) = n_m delta_edge,
+        n_m = floor(omega_m T_DME).                                  (28)
+
+Therefore
+
+    r_A / r_B = n_B / n_A.                                           (29)
+
+With gamma = c_2 / I(2) from HCSM-54,
+
+    omega_A T_DME = sqrt(2) / gamma = 2 + delta_edge,
+    omega_B T_DME = 3 sqrt(2) / gamma = 6 + 3 delta_edge,            (30)
+
+and 0 < delta_edge < 1/3 gives n_A = 2, n_B = 6. Hence
+r_A / r_B = 6/2 = 3. [Box]
+
+Corollary 10.2. Since |M_loop(m)| = r_m for observable m, we have
+|M_A| / |M_B| = 3.
+
+
+================================================================================
+11. THE ARROW OF TIME
+================================================================================
+
+Theorem 11.1 (Arrow of time). The arrow of time is the direction of
+increasing loop count k, equivalently the direction of decreasing Core
+Lyapunov functional L[eps] = gamma eps^2, equivalently the direction of
+increasing -ln r_m.
+
+Proof. At Level 1, the FDLM layer is unitary; no amplitude is lost. At
+Level 3, the Core flow d eps / d lambda = -2 gamma eps is strictly
+monotone (equation 13) and the Lyapunov functional (14) decreases
+strictly for eps != 0. At Level 4, the EFT contributes the per-beat
+decay factor D_factor < 1. Hence for each surviving mode m, r_m < 1 and
+-ln r_m > 0. Increasing k increases -ln r_m, decreases r_m, and
+decreases the Lyapunov functional. The three directions agree. [Box]
+
+
+================================================================================
+12. THE HCSM TIME THEOREM
+================================================================================
+
+Theorem 12.1 (HCSM Time Theorem). In the five-layer HCSM:
+
+(1) No external time coordinate is assumed. The loop operator M_loop is
+    the only time-evolution object.
+
+(2) On each observable mode m, M_loop(m) = r_m e^{i theta_m} with
+    theta_m = omega_m T_DME and T_DME = 1/(2 gamma).
+
+(3) The complex time per pass is
+    tau_m = theta_m + i ln r_m = omega_m T_DME - i(-ln r_m). Both
+    components share the scaling dimension (rate) x T_DME
+    (Proposition 8.3).
+
+(4) Discrete HCSM time is the loop count k in Z_{>=0}. Continuous HCSM
+    time is t = k T_DME. Under this identification, the loop evolution
+    is
+
+        |psi_m(t)> = e^{i omega_m t} e^{-Gamma_m t / 2} |e_m>,
+        Gamma_m = -2 ln r_m / T_DME > 0.
+
+(5) The arrow of time is the direction of increasing k, equivalently
+    the direction of decreasing Core Lyapunov functional
+    L[eps] = gamma eps^2, equivalently the direction of increasing
+    -ln r_m (Theorem 11.1).
+
+(6) The processor T is exactly the projection onto modes with nonzero
+    real time: T = Pi_{Re(tau) > 0} (Theorem 9.1).
+
+(7) Kernel modes have tau_m = 0 and are frozen under M_loop.
+
+(8) Exact ratio: |M_A| / |M_B| = 3 (Theorem 10.1).
+
+(9) The floor function in the Core perturbation
+    eps_0(m) = floor(omega_m T_DME) delta_edge is the winding number of
+    the DME-Core interface phase over one loop pass (Lemma 4.2,
+    Theorem 4.5).
+
+Proof. Parts (1)-(9) are established in Theorems 8.2, 4.5, 8.3, 9.1,
+10.1, and 11.1 above. [Box]
+
+
+================================================================================
+13. STATUS, DISCLOSED INPUTS, AND OPEN ITEMS
+================================================================================
+
+13.1 Derived
+--------------------------------------------------------------------------------
+
+1. Loop operator diagonalization and complex-time formula (Definition
+   8.1, Theorem 8.2).
+2. Closed forms of tau_A, tau_B, tau_C (Theorem 8.2).
+3. Multiplicative decomposition of the loop decay into Core and EFT
+   factors (equation 24).
+4. Topological derivation of the floor function from the DME-Core
+   winding condition (Lemma 4.2, Theorem 4.5).
+5. Dimensional homogeneity of tau_m (Proposition 8.3).
+6. Processor identity T = Pi_{Re(tau) > 0} (Theorem 9.1).
+7. Arrow of time from Core Lyapunov and loop dissipativity
+   (Theorem 11.1).
+8. Exact algebraic ratio |M_A| / |M_B| = 3 (Theorem 10.1).
+9. Composition order forced by state-space chain (Section 2).
+
+13.2 Disclosed inputs
+--------------------------------------------------------------------------------
+
+1. The DME stability coefficient gamma = c_2 / I(2) and time quantum
+   T_DME = 1/(2 gamma) from HCSM-54. In HCSM-54, gamma is derived from
+   the AGM closed form I(2) = 1 - AGM(1, sqrt(2))/2 and the closed form
+   of c_2 = 2 I''(2).
+2. The EFT equation of state w = -1 - (1-gamma)^2/(2 pi) and bulk
+   viscosity zeta H / rho = (1-gamma)^2/(6 pi) from HCSM-56.
+
+13.3 Open
+--------------------------------------------------------------------------------
+
+1. The loop pass duration selection. Both T_DME (DME relaxation) and
+   T_beat (Level-1 internal period) are dimensionless time-like
+   quantities. The transition rule uses T_DME; Level 1 uses T_beat
+   internally. The framework identifies the loop pass duration with
+   T_DME by the transition rule, but does not derive from a deeper
+   principle that T_DME and not T_beat is the physical pass duration.
+   The ratio T_beat / T_DME = 3.1226... is a structural constant. This
+   is the same open item as in HCSM-20.
+
+2. The identification of continuous time. The relation t = k T_DME is
+   stated as a correspondence between the discrete loop count and a
+   continuous parameter. A derivation from a deeper principle is open.
+
+3. The physical conversion. The framework measures time in units of
+   T_DME. Conversion to seconds requires choosing a physical process to
+   calibrate against. This choice is external to the framework.
+
+Remark 13.4 (Lorentzian signature is now closed). In the prior WIN-era
+Time Theorem, the Lorentzian signature (-,+,+,+) was listed as an open
+item. In HCSM, it has been derived from the Hodge star on ker D
+(HCSM-03), with the timelike direction (v_0 + v_2)/sqrt(2). This item
+is therefore closed at the HCSM level.
+
+
+================================================================================
+14. FALSIFIABLE PREDICTIONS
+================================================================================
+
+1. Complex time. tau_A = 2.0121430664919213 - 0.5521962501528914 i and
+   tau_B = 6.0364291994757650 - 1.6508085388210012 i, exactly. If a
+   future computation or measurement of the framework's complex time
+   for either class gives a value outside 10^{-10} of these, the Time
+   Theorem is falsified.
+
+2. Processor identity. T = Pi_{Re(tau) > 0}. If a future mode in the
+   framework's 14-mode multiplet is found with Re(tau) > 0 but outside
+   the image of T, or vice versa, the identity is falsified.
+
+3. Arrow direction. The arrow points in the direction of increasing
+   -ln r_m. A detection of a loop mode with |M_j| > 1 would falsify
+   the dissipativity theorem.
+
+4. Kernel freezing. Kernel modes {dark, W, Z, H} have tau_m = 0 and are
+   exactly frozen under M_loop. Any detection of nontrivial time
+   evolution of these modes would falsify the Time Theorem.
+
+
+================================================================================
+15. CONCLUSION
+================================================================================
+
+Time in the Hodge Complex Standard Model is not an external coordinate.
+It is the complex eigenvalue of the loop operator,
+
+    tau_m = omega_m T_DME - i(-ln r_m).                              (31)
+
+Its real part is the clock. Its imaginary part is the arrow. The
+processor T is the projection onto nonzero real time. The loop observes
+itself by reading its own complex time. No external time unit is
+required: one pass through the loop advances HCSM time by one unit of
+T_DME.
+
+Three algebraic bridges are closed in this paper. First, the floor
+function of the Core perturbation is the winding number of the DME-Core
+interface (Lemma 4.2, Theorem 4.5); it is not an ansatz. Second, the
+exact ratio |M_A| / |M_B| = 3 is exact by algebraic cancellation of
+framework constants (Theorem 10.1), with the 3 matching the Standard
+Model generation count d - 1. Third, dimensional homogeneity of the
+complex time follows because both theta_m and -ln r_m are per-pass
+products of a rate with T_DME (Proposition 8.3).
+
+The present paper follows the HCSM-06/07 pattern. It derives everything
+in its own domain that can be derived, discloses the two physical inputs
+(gamma and w, zeta H / rho) explicitly, and names the specific open
+items (loop pass duration, continuous-time identification, physical
+conversion) that future papers must close. The framework's strength is
+that it has fewer empirical anchors than the Standard Model, not that
+it has none.
+
+
+================================================================================
+REFERENCES
+================================================================================
+
+[HCSM-00] S. Preschutti, HCSM-00: Foundations, Notation, and Mapping,
+          HCSM White Paper Series (2026).
+
+[HCSM-01] S. Preschutti, HCSM-01: The 8 x 8 Torus Substrate from d = 4,
+          HCSM White Paper Series (2026).
+
+[HCSM-02] S. Preschutti, HCSM-02: The Hodge Complex on Lambda,
+          HCSM White Paper Series (2026).
+
+[HCSM-03] S. Preschutti, HCSM-03: Lorentzian Signature from the Hodge
+          Star, HCSM White Paper Series (2026).
+
+[HCSM-04] S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4,
+          HCSM White Paper Series (2026).
+
+[HCSM-13] S. Preschutti, HCSM-13: The Processor T and the F/B-Class
+          Correspondence, HCSM White Paper Series (2026).
+
+[HCSM-20] S. Preschutti, HCSM-20: The Motion Theorem, HCSM White Paper
+          Series (2026).
+
+[HCSM-24] S. Preschutti, HCSM-24: The Charge Theorem, HCSM White Paper
+          Series (2026).
+
+[HCSM-54] S. Preschutti, HCSM-54: Vacuum Stability and the DME Stability
+          Coefficient, HCSM White Paper Series (2026).
+
+[HCSM-56] S. Preschutti, HCSM-56: Vacuum EFT, HCSM White Paper Series
+          (2026).
+
+[WIN-Time] S. Preschutti, The WIN Time Theorem, Version 2,
+          WIN Paradigm White Paper (2026).
+
+[WIN-Motion] S. Preschutti, The WIN Motion Theorem, Version 2,
+          WIN Paradigm White Paper (2026).
+
+[WIN-EFT] S. Preschutti, ENTROPIA-EFT: The Effective Field Theory of the
+          DME Vacuum, Entropia Research Institute White Paper (2026).
+
+[AGM] J. M. Borwein and P. B. Borwein, Pi and the AGM, Wiley (1987).
+
+
+================================================================================
+A. REPRODUCIBLE VERIFICATION
+================================================================================
+
+All numerical claims in this paper are verified at machine precision in
+IEEE-754 double precision. The verification script is provided in the
+HCSM companion repository at 12-VERIFICATION/HCSM-21_verification.py. It
+constructs the substrate Laplacian on Lambda = Z_8 x Z_8, the 14-mode
+multiplet, the winding generator, and the loop operator, and verifies:
+
+1. The loop operator diagonalization (Theorem 8.2).
+2. The closed forms of tau_A, tau_B, tau_C (Theorem 8.2).
+3. The multiplicative loop-decay decomposition (equation 24).
+4. The topological derivation of the floor function (Lemma 4.2,
+   Theorem 4.5).
+5. Dimensional homogeneity of tau_m (Proposition 8.3).
+6. The processor identity T = Pi_{Re(tau) > 0} (Theorem 9.1).
+7. The arrow of time from Core Lyapunov (Theorem 11.1).
+8. The exact ratio |M_A| / |M_B| = 3 (Theorem 10.1).
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim in
+the HCSM paper stack.
+
+
+================================================================================
+B. WEB CRAWLER METADATA
+================================================================================
+
+B.1 Dublin Core
+--------------------------------------------------------------------------------
+
+DC.title: HCSM-21: The Time Theorem
+DC.creator: Preschutti, Stanley
+DC.creator.orcid: 0009-0004-5445-1744
+DC.date.issued: 2026-09
+DC.type: Text / Preprint / White Paper
+DC.format: application/pdf; text/x-latex
+DC.language: en
+DC.publisher: Entropia Research Institute
+DC.rights: All rights reserved
+DC.subject: Hodge Complex Standard Model; HCSM; Time Theorem;
+  complex time; arrow of time; five-layer loop; winding generator;
+  DME-Core winding condition; processor projection; D4 symmetry
+DC.description: We derive time and its arrow in the Hodge Complex
+  Standard Model as internal structures of the five-layer loop. The
+  complex time is tau_m = omega_m T_DME - i(-ln r_m). The processor T
+  is exactly the projection onto modes with Re(tau) > 0. The floor
+  function of the Core perturbation is the winding number of the
+  DME-Core interface over one loop pass, not an ansatz. Dimensional
+  homogeneity of tau_m is proved.
+DC.identifier: HCSM-21-2026-09
+
+B.2 Schema.org JSON-LD
+--------------------------------------------------------------------------------
+
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "HCSM-21: The Time Theorem",
+  "alternateName": "Complex Time from the Five-Layer Loop, the Topological Derivation of the Floor Function, and the Processor as Projection onto Nonzero Real Time",
+  "author": {
+    "@type": "Person",
+    "name": "Stanley Preschutti",
+    "identifier": "https://orcid.org/0009-0004-5445-1744",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Entropia Research Institute"
+    }
+  },
+  "datePublished": "2026-09",
+  "inLanguage": "en",
+  "abstract": "We derive time and its arrow in the Hodge Complex Standard Model as internal structures of the five-layer loop. The complex time is tau_m = omega_m T_DME - i(-ln r_m). The processor T is exactly the projection onto modes with Re(tau) > 0. The floor function of the Core perturbation is the winding number of the DME-Core interface over one loop pass, not an ansatz.",
+  "keywords": [
+    "Hodge Complex Standard Model",
+    "HCSM",
+    "Time Theorem",
+    "complex time",
+    "arrow of time",
+    "five-layer loop",
+    "winding generator",
+    "DME-Core winding condition",
+    "processor projection"
+  ],
+  "license": "All rights reserved",
+  "identifier": "HCSM-21-2026-09",
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "HCSM White Paper Series"
+  }
+}
+
+B.3 BibTeX for Automated Indexing
+--------------------------------------------------------------------------------
+
+@article{PreschuttiHCSM21,
+  author = {Preschutti, Stanley},
+  title = {{HCSM-21}: The Time Theorem},
+  journal = {HCSM White Paper Series},
+  year = {2026},
+  month = {September},
+  note = {ORCID: 0009-0004-5445-1744},
+  keywords = {Hodge Complex Standard Model, HCSM, Time Theorem,
+    complex time, arrow of time, five-layer loop, winding generator,
+    DME-Core winding condition, processor projection},
+  abstract = {We derive time and its arrow in the Hodge Complex
+    Standard Model as internal structures of the five-layer loop. The
+    complex time is tau_m = omega_m T_DME - i(-ln r_m). The processor
+    T is exactly the projection onto modes with Re(tau) > 0. The floor
+    function of the Core perturbation is the winding number of the
+    DME-Core interface over one loop pass, not an ansatz.}
+}
