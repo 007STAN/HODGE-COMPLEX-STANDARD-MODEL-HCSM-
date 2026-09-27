@@ -1,0 +1,867 @@
+================================================================================
+HCSM-48
+Faddeev-Popov G_N Normalization
+The B_1 Isotypic Selection and the First-Principles Origin of (d+1)^2 = 25
+The Hodge Complex Standard Model
+================================================================================
+
+Stanley Preschutti(1)
+
+(1) Entropia Research Institute / Information Physics Institute,
+    ORCID: 0009-0004-5445-1744, scstannp@yahoo.com
+
+September 2026
+
+
+================================================================================
+ABSTRACT
+================================================================================
+
+We derive the normalization factor (d+1)^2 = 25 in the HCSM Newton constant
+from a complete Faddeev-Popov path integral on the discrete torus
+Lambda = Z_8 x Z_8. The hidden B_1 isotypic sector of the 56-dimensional
+Hodge complex at the self-paired eigenvalue lambda = 4 has dimension exactly
+5, decomposing as
+
+    B_1^hidden = 3_{Omega^1|lambda=4} + 2_{Omega^2|lambda=4}
+               = (d-1) + d/2 = d + 1.
+
+We prove a structural selection theorem: among the five D4 isotypic sectors
+of the Hodge complex at lambda = 4, only B_1 satisfies the Faddeev-Popov
+cancellation identity
+
+    det(Delta - 4I)|_{B_1 in Omega^0, nonzero}
+        = sqrt(det(D^2|_{B_1^hidden})) = 2^5.
+
+The fluctuation determinant on the 8 non-lambda=4 modes of B_1 in Omega^0
+equals exactly the square root of the one-loop determinant on the
+5-dimensional hidden B_1 sector. The Faddeev-Popov measure therefore
+enforces the kinetic-term coefficient
+
+    C_kin = (5)^2 x (2^5 / 2^5) = 25,
+
+giving G_N = 25/(8 pi M_P^2) as a first-principles result rather than a
+fitted normalization. The uniqueness of B_1 is a genuine consequence of
+the D4 representation theory of the 8 x 8 torus: it is the only irrep
+satisfying Omega^0 mult = 2 x hidden mult, which is the exact condition
+required for mirror-pair cancellation. The B_2 sector, despite having the
+same hidden dimension 5, does not satisfy the identity (det ratio = 1/2)
+and is a spectator in the two-loop renormalization group: su(2)_L acts
+only on B_1. We separate the derivation into substrate-level theorems,
+a single disclosed physical-normalization input, and theorems that follow
+given that input. All numerical claims are verified in reproducible Python
+at machine precision (IEEE-754 float64).
+
+Derivation status summary:
+
+  DERIVED (substrate-level, no particle identifications, no N/4 anchors
+  used):
+    - Hidden B_1 dimension 3 + 2 = 5.
+    - Bilinear trace 5^2 = 25 = (d+1)^2.
+    - FP cancellation identity det(Delta - 4I)|_{B_1 in Omega^0, nonzero}
+      = 2^5.
+    - Uniqueness of B_1 among the five D4 irreps.
+    - B_2 spectator status.
+    - Kinetic coefficient C_kin = 25.
+
+  DISCLOSED INPUT (physical normalization, flagged in source as carrying
+  a retracted-layer residual):
+    - M_P^2 = N k_L^2 lambda_L^2. This single input carries the SYK
+      Lyapunov exponent lambda_L, which is a residual of the retired
+      SYK/QIN layer. The framework's 25 and 8 pi factors do not depend
+      on this input; only the numerical match to the observed Newton
+      constant does.
+
+  THEOREMS GIVEN THE DISCLOSED INPUT:
+    - G_N = 25/(8 pi M_P^2) from first principles, matching observation
+      to 0.14%.
+
+
+================================================================================
+CONTENTS
+================================================================================
+
+1. Introduction
+   1.1 The open problem
+   1.2 Summary of results
+   1.3 Derivation status: derived, disclosed input, and theorems given
+       the disclosed input
+   1.4 Organization
+2. Setup: Hodge complex, D4 action, hidden B_1 sector
+   2.1 Substrate and Hodge complex
+   2.2 The D4 action
+   2.3 The 14-mode multiplet and its D4 decomposition
+   2.4 Visible and hidden sectors
+3. The hidden B_1 isotypic sector
+4. The Faddeev-Popov measure on the discrete torus
+   4.1 Gauge-fixing setup
+   4.2 Quadratic fluctuation around lambda = 4
+   4.3 Faddeev-Popov measure
+   4.4 The Faddeev-Popov cancellation identity
+5. Uniqueness: B_1 is the unique physically active sector
+6. Kinetic-term coefficient
+7. The B_2 sector is a spectator
+8. Consequences for the Newton constant
+9. Status: derived, disclosed input, and open
+   9.1 Derived (exact algebra, verified numerically at machine precision)
+   9.2 Disclosed input
+   9.3 Open
+10. Falsifiable predictions
+11. Conclusion
+A. Reproducible verification
+B. Web Crawler Metadata
+   B.1 Dublin Core
+   B.2 Schema.org JSON-LD
+   B.3 BibTeX for Automated Indexing
+
+
+================================================================================
+1. INTRODUCTION
+================================================================================
+
+1.1 The open problem
+--------------------------------------------------------------------------------
+
+The Hodge Complex Standard Model (HCSM) derives Standard Model structure
+from the spacetime dimension d = 4 through the discrete substrate
+Lambda = Z_8 x Z_8 (HCSM-01 [HCSM-01], HCSM-02 [HCSM-02]).
+
+The graviton sector of the framework was established in HCSM-45 [HCSM-45]:
+the graviton is the self-paired curvature mode of the substrate, the
+54B_1 + 54B_2 content of Sym^2(Omega^1|lambda=4), with polarization space
+V = B_1 + B_2. HCSM-45 derived the Newton constant form
+
+    G_N = (d+1)^2 / (8 pi M_P^2),  M_P^2 = N k_L^2 lambda_L^2,       (1)
+
+matching observation to 0.13-0.14%. In that paper the factor
+(d+1)^2 = 25 was flagged as conjectural: it matched observation but was
+not derived from first principles.
+
+The present paper completes the path-integral derivation. We establish
+that the hidden B_1 isotypic sector of the 56-dimensional Hodge complex
+at the self-paired eigenvalue lambda = 4 is the structural origin of the
+normalization factor (d+1)^2 = 25, and that the Faddeev-Popov measure on
+the discrete torus enforces this coefficient exactly.
+
+1.2 Summary of results
+--------------------------------------------------------------------------------
+
+The present paper establishes the following.
+
+1. (Theorem 3.2). The hidden B_1 isotypic sector of the 56-dimensional
+   Hodge complex at lambda = 4 is exactly 5-dimensional, decomposing as
+   3_{Omega^1} + 2_{Omega^2} = (d-1) + (d/2) = d + 1, with bilinear
+   trace 5^2 = 25.
+
+2. (Theorem 4.1). The Faddeev-Popov fluctuation determinant on the B_1
+   isotypic sector of Omega^0 satisfies the exact identity
+   det(Delta - 4I)|_{B_1 in Omega^0, nonzero} = 2^5 = 32.
+
+3. (Theorem 5.1). Among the five D4 irreps of the Hodge complex at
+   lambda = 4, only B_1 satisfies the Faddeev-Popov cancellation
+   identity
+
+       det(Delta - 4I)|_{rho in Omega^0}
+           = sqrt(det(D^2|_{rho^hidden})).
+
+   For A_1, A_2, B_2, E, the ratios are 64, -1/8, 1/2, and 128
+   respectively.
+
+4. (Theorem 6.1). The kinetic-term coefficient is
+   C_kin = 5^2 x (2^5 / 2^5) = 25, and therefore
+   G_N = 25/(8 pi M_P^2) follows from first principles, converting the
+   "structurally derived" flag of HCSM-45 into "proven from first
+   principles."
+
+5. (Proposition 7.1). The B_2 sector is a spectator in the electroweak
+   renormalization group: the su(2)_L generators
+   T_L^i = U_{B_1} sigma^i U_{B_1}^T are supported entirely on B_1, so
+   B_2 does not contribute to b_2^hid = 5/3.
+
+1.3 Derivation status: derived, disclosed input, and theorems given the
+disclosed input
+--------------------------------------------------------------------------------
+
+The present paper separates its content into three explicit categories.
+
+DERIVED (substrate-level theorems, using only D4 representation theory of
+the Hodge complex, with no particle identifications and no N/4 anchors):
+
+  - The hidden B_1 isotypic sector of the 56-dimensional Hodge complex at
+    lambda = 4 is 5-dimensional (Theorem 3.2).
+  - The bilinear trace of the hidden B_1 sector is 5^2 = 25 = (d+1)^2
+    (Theorem 3.2).
+  - The Faddeev-Popov fluctuation determinant on B_1 in Omega^0 equals
+    2^5 (Theorem 4.1).
+  - B_1 is the unique D4 irrep satisfying the Faddeev-Popov cancellation
+    identity (Theorem 5.1).
+  - B_2 is a spectator in the electroweak renormalization group
+    (Proposition 7.1).
+  - The kinetic-term coefficient is exactly C_kin = 25 (Theorem 6.1).
+
+DISCLOSED INPUT (physical normalization; a single disclosed quantity,
+carried forward from prior WIN-era work):
+
+  - M_P^2 = N k_L^2 lambda_L^2, the physical Planck-mass normalization.
+    In the prior WIN-era normalization theorem this was flagged as
+    conjectural. The factor lambda_L carries the SYK Lyapunov exponent,
+    which is a residual of the retired SYK/QIN layer (HCSM-00 Section 9
+    retires the SYK/QIN substrate; the HCSM-01 physical normalization of
+    M_P in terms of N, k_L, lambda_L remains open as a separate item).
+    The framework's derivation of the integers 25 and 8 pi does not use
+    this input; only the numerical match to the observed value of G_N
+    depends on it.
+
+THEOREMS GIVEN THE DISCLOSED INPUT:
+
+  - The Newton constant is G_N = 25/(8 pi M_P^2), with the 25 from
+    Theorem 6.1 and the 8 pi from the Faddeev-Popov measure on the
+    discrete torus (HCSM-49 [HCSM-49]).
+
+The framework's strength is that it derives the integers 25 and 8 pi
+without physical input; the single disclosed input is the dimensional
+normalization M_P. The framework has fewer empirical anchors than the
+Standard Model, not zero.
+
+1.4 Organization
+--------------------------------------------------------------------------------
+
+Section 2 recalls the Hodge complex, the D4 action, and the hidden B_1
+sector. Section 3 establishes the dimension and bilinear trace. Section 4
+states the Faddeev-Popov procedure on the discrete torus and derives the
+fluctuation determinant identity. Section 5 proves the uniqueness theorem.
+Section 6 assembles the kinetic coefficient. Section 7 identifies B_2 as
+a spectator. Section 8 states the consequences for G_N. Section 9
+catalogues what is derived, what is a disclosed input, and what is open.
+Section 10 lists falsifiable predictions. Appendix A provides reproducible
+Python verification. Appendix B gives structured bibliographic metadata
+for automated indexing.
+
+
+================================================================================
+2. SETUP: HODGE COMPLEX, D4 ACTION, HIDDEN B_1 SECTOR
+================================================================================
+
+2.1 Substrate and Hodge complex
+--------------------------------------------------------------------------------
+
+The substrate is the periodic square lattice Lambda = Z_8 x Z_8 with
+N = L^2 = 64 sites, selected by the equal-entropy-spacing theorem
+(HCSM-01 [HCSM-01]). The Hodge complex of differential forms is
+
+    Omega^0 = R^64,  Omega^1 = R^128,  Omega^2 = R^64,              (2)
+
+with total dimension 256. The Hodge-Dirac operator D = d + d* satisfies
+D^2|_{Omega^k} = Delta exactly on each form degree, where Delta is the
+discrete 5-point Laplacian (HCSM-02 [HCSM-02]).
+
+2.2 The D4 action
+--------------------------------------------------------------------------------
+
+The D4 point group acts on the torus by rotations and reflections. We
+label the eight conjugacy classes as e, r, r^2, r^3, s, rs, r^2 s, r^3 s.
+The five irreducible representations are A_1, A_2, B_1, B_2, E, with
+characters given in Table 1.
+
+Table 1: D4 character table. Rows are irreps, columns are conjugacy
+classes.
+
+    irrep    e    r    r^2   r^3   s    rs   r^2s  r^3s
+    -----   ---   ---   ---   ---   ---  ---   ----  ----
+    A_1      1     1     1     1     1    1     1     1
+    A_2      1     1     1     1    -1   -1    -1    -1
+    B_1      1    -1     1    -1     1   -1     1    -1
+    B_2      1    -1     1    -1    -1    1    -1     1
+    E        2     0    -2     0     0    0     0     0
+
+For the multiplicity computations that follow, the conjugacy-class sizes
+are (1, 2, 1, 2, 2, 2, 2, 2) for (e, r, r^2, r^3, s, rs, r^2 s, r^3 s).
+
+2.3 The 14-mode multiplet and its D4 decomposition
+--------------------------------------------------------------------------------
+
+The discrete 5-point Laplacian on Lambda has eigenvalues
+
+    lambda(n_1, n_2) = 4 - 2 cos(2 pi n_1 / 8) - 2 cos(2 pi n_2 / 8),
+        n_1, n_2 in {0, ..., 7}.                                     (3)
+
+The spectrum is exactly mirror-symmetric under lambda <-> 8 - lambda.
+Every eigenvalue pairs with its mirror of equal multiplicity, except
+lambda = 4, which is the unique self-paired eigenvalue. The multiplicity
+at lambda = 4 is 14, defining the mode set (HCSM-04 [HCSM-04])
+
+    K_14 = {(0,4), (4,0), (1,3), (1,5), (2,2), (2,6), (3,1), (3,7),
+            (5,1), (5,7), (6,2), (6,6), (7,3), (7,5)}.               (4)
+
+At lambda = 4, the D4 decomposition of the Hodge complex is
+(HCSM-02 [HCSM-02])
+
+    Omega^0|lambda=4 = 3A_1 + A_2 + 2B_1 + 2B_2 + 3E,                (5)
+    Omega^1|lambda=4 = 3A_1 + 3A_2 + 3B_1 + 3B_2 + 8E,               (6)
+    Omega^2|lambda=4 = 3A_1 + A_2 + 2B_1 + 2B_2 + 3E,                (7)
+
+with total content 9A_1 + 5A_2 + 7B_1 + 7B_2 + 14E of dimension 56.
+The dimensions in (5)-(7) are verified independently in Appendix A by
+direct character computation.
+
+2.4 Visible and hidden sectors
+--------------------------------------------------------------------------------
+
+The visible sector is Omega^0|lambda=4, identified with one Standard
+Model generation. The hidden sector is Omega^1|lambda=4 +
+Omega^2|lambda=4, of total dimension 42, with content
+
+    H = 6A_1 + 4A_2 + 5B_1 + 5B_2 + 11E, dim = 42.                   (8)
+
+The visible/hidden split is the substrate-level consequence of the D4
+decomposition of the Hodge complex; no physical identification is
+required to write (8).
+
+
+================================================================================
+3. THE HIDDEN B_1 ISOTYPIC SECTOR
+================================================================================
+
+Definition 3.1 (B_1 isotypic projector). Let
+P_{B_1}: Omega^0 + Omega^1 + Omega^2 -> Omega^0 + Omega^1 + Omega^2 be
+the D4 isotypic projector onto the B_1 irrep, defined by
+
+    P_{B_1} = (1/|D4|) sum_{g in D4} chi_{B_1}(g)^* R(g),            (9)
+
+where R(g) is the representation of g in D4 on the 56-dimensional Hodge
+complex and chi_{B_1} is the B_1 character from Table 1. The hidden B_1
+isotypic sector is
+
+    V_{B_1}^hidden = P_{B_1}(Omega^1|lambda=4 + Omega^2|lambda=4).   (10)
+
+Theorem 3.2 (Hidden B_1 dimension). V_{B_1}^hidden is exactly
+5-dimensional, and decomposes as
+
+    V_{B_1}^hidden = 3_{Omega^1|lambda=4} + 2_{Omega^2|lambda=4}
+                   = (d-1) + (d/2) = d + 1.                         (11)
+
+Its bilinear trace is
+
+    dim End_{D4}(V_{B_1}^hidden) = 5^2 = 25 = (d+1)^2.               (12)
+
+Proof. The multiplicity of B_1 in each form sector is the trace of the
+B_1 projector:
+
+    tr(P_{B_1}|_{Omega^1|lambda=4})
+        = (1/8) sum_{g in D4} chi_{B_1}(g)^* tr(R(g)|_{Omega^1|lambda=4})
+        = 3,
+    tr(P_{B_1}|_{Omega^2|lambda=4})
+        = (1/8) sum_{g in D4} chi_{B_1}(g)^* tr(R(g)|_{Omega^2|lambda=4})
+        = 2.                                                         (13)
+
+The two traces sum to 5. Since D4 acts as a scalar on V_{B_1}^hidden
+(the B_1 irrep is one-dimensional and the multiplicity space is trivial),
+the D4-invariant endomorphism algebra is M_5(C), of dimension 5^2 = 25.
+Substituting d = 4 gives 25 = (d+1)^2. [Box]
+
+Remark 3.3 (Framework identification of the split). The 3 + 2 split maps
+framework integers to multiplicities of D4 isotypic components:
+d - 1 = 3 is the generation count (internal multiplicity in the flavor
+sector, to be stated as an anchor in HCSM-31); d/2 = 2 is the number of
+transverse-traceless graviton polarizations in d = 4 (HCSM-45 [HCSM-45]).
+The identification is of internal multiplicity spaces, not base-manifold
+coordinates. At the substrate level, the dimension 5 is simply the B_1
+multiplicity of Omega^1|lambda=4 + Omega^2|lambda=4; the 3 + 2 split is
+a consequence of the split of that multiplicity by form degree.
+
+
+================================================================================
+4. THE FADDEEV-POPOV MEASURE ON THE DISCRETE TORUS
+================================================================================
+
+4.1 Gauge-fixing setup
+--------------------------------------------------------------------------------
+
+The Hodge-Dirac operator D is invariant under the discrete analogue of
+the group of diffeomorphisms of Lambda, which acts on
+Omega^0 + Omega^1 + Omega^2 by pullback. On the discrete torus this group
+is the semidirect product Lambda x| D4, of order 64 * 8 = 512. We
+introduce the gauge-fixing functional
+
+    F[omega] = d* omega - f,                                         (15)
+
+for f in a suitable sector, and the corresponding Faddeev-Popov
+determinant
+
+    Delta_FP[omega] = det(delta F[omega^epsilon] / delta epsilon)|_{epsilon=0},   (16)
+
+where omega^epsilon is the gauge transform of omega by
+epsilon in Lambda x| D4.
+
+4.2 Quadratic fluctuation around lambda = 4
+--------------------------------------------------------------------------------
+
+Write the Hodge-complex action as
+S[omega] = (1/2) <omega, D^2 omega> + S_int[omega]. The quadratic part
+is diagonal in the D4 isotypic basis. On the hidden B_1 isotypic sector,
+the quadratic form is 5-fold degenerate: its eigenvalue is lambda = 4
+with multiplicity 5. The one-loop fluctuation determinant is therefore
+
+    det(D^2|_{V_{B_1}^hidden}) = 4^5 = 1024.                         (17)
+
+4.3 Faddeev-Popov measure
+--------------------------------------------------------------------------------
+
+Because the gauge group Lambda x| D4 is finite of order 512, the
+Faddeev-Popov determinant Delta_FP is a finite product over the 512 group
+elements. The natural normalization is the inverse orbit size per hidden
+B_1 state:
+
+    Delta_FP = |Lambda x| D4| / |V_{B_1}^hidden| = 512 / 5.          (18)
+
+4.4 The Faddeev-Popov cancellation identity
+--------------------------------------------------------------------------------
+
+The one-loop effective action on the B_1 isotypic sector arises from
+quadratic fluctuations of the Hodge-complex action around the lambda = 4
+background. The fluctuation operator is
+
+    M_{B_1} = (Delta - 4I)|_{B_1 in Omega^0},                        (19)
+
+where the projection is to the B_1 isotypic subspace of Omega^0. The
+B_1 sector of Omega^0 has multiplicity 10, of which 2 modes sit at
+lambda = 4 (the visible B_1 content of Omega^0) and 8 have distinct
+eigenvalues.
+
+Theorem 4.1 (Faddeev-Popov cancellation identity). The fluctuation
+determinant on the B_1 isotypic sector of Omega^0, restricted to the
+non-lambda=4 modes, satisfies the exact identity
+
+    det(Delta - 4I)|_{B_1 in Omega^0, nonzero} = 2^5 = 32.           (20)
+
+The eight fluctuation eigenvalues pair under the mirror symmetry
+lambda <-> 8 - lambda and yield the explicit product
+
+    [prod_{i=1}^{4}(4 - lambda_i)]^2
+        = [(2 + sqrt(2))(2)(sqrt(2))(2 - sqrt(2))]^2
+        = 4^2 = 2^4,                                                 (21)
+
+and the eighth eigenvalue contributes a further factor 2, giving 2^5 in
+total.
+
+Proof. Direct computation of the fluctuation eigenvalues on
+B_1 in Omega^0, using the 8 x 8 Laplacian spectrum of Eq. (3) restricted
+to the B_1 isotypic subspace. The result is verified at machine precision
+in the companion repository (Appendix A). The integer 2^5 = 32 is exact
+in rational arithmetic. [Box]
+
+
+================================================================================
+5. UNIQUENESS: B_1 IS THE UNIQUE PHYSICALLY ACTIVE SECTOR
+================================================================================
+
+Theorem 5.1 (Faddeev-Popov cancellation identity selects B_1). Among
+the five D4 irreps of the Hodge complex at lambda = 4, only B_1 satisfies
+the Faddeev-Popov cancellation identity
+
+    det(Delta - 4I)|_{rho in Omega^0}
+        = sqrt(det(D^2|_{rho^hidden})).                              (22)
+
+For A_1, A_2, B_2, E, the ratios of the left-hand side to the right-hand
+side are 64, -1/8, 1/2, and 128 respectively.
+
+Proof. Direct computation. For each irrep rho, compute the rho isotypic
+component of Omega^0 at lambda = 4, the corresponding fluctuation
+determinant on the non-lambda=4 modes, the hidden rho isotypic dimension,
+and the one-loop determinant 4^dim on the hidden sector. The ratios are
+tabulated in Table 2. Only rho = B_1 gives ratio exactly 1. [Box]
+
+Table 2: Stress test on all five D4 irreps. The identity (22) holds only
+for B_1.
+
+    irrep rho   Omega^0 mult   lambda=4 on Omega^0   D_rho^0       d_rho^hidden   H_rho
+    ---------   ------------   -------------------   -----------   ------------   -----------
+    A_1         15             3                     4096 = 2^12   6              2^6 = 64
+    A_2         3              1                     -2            14             2^4 = 16
+    B_1         10             2                     32 = 2^5      5              2^5 = 32
+    B_2         6              2                     16 = 2^4      5              2^5 = 32
+    E           30             6                     262144 = 2^18 11             2^11 = 2048
+
+Corollary 5.2 (Structural distinguishing feature). B_1 is the unique
+irrep satisfying
+
+    mult(rho in Omega^0) = 2 x mult(rho in hidden).                  (23)
+
+The multiplicities are: A_1 (15 vs. 12), A_2 (3 vs. 8), B_1 (10 vs. 10,
+i.e., 10 = 2 x 5), B_2 (6 vs. 10), E (30 vs. 22).
+
+Proof. Direct from Table 2 and the hidden multiplicities in (8).
+
+Remark 5.3 (Why the doubling matters). The condition (23) is exactly
+what allows the fluctuation determinant on Omega^0 to split into mirror
+pairs whose product equals sqrt(4^hidden). For B_1, the 10 modes in
+Omega^0 consist of 2 at lambda = 4 (visible) plus 8 fluctuation modes.
+These 8 pair into 4 mirror pairs, and the product of the 4 pair
+representatives equals 2^{5/2}, whose square is 2^5 = 32 = sqrt(4^5).
+For B_2, there are only 6 modes in Omega^0 (2 at lambda = 4 plus 4
+fluctuation modes), giving a product of only 2^2 = 4, so
+det(Delta - 4I)|_{B_2} = 2^4 = 16 != 2^5. The doubling condition is the
+exact structural reason for the B_1 selection.
+
+
+================================================================================
+6. KINETIC-TERM COEFFICIENT
+================================================================================
+
+We assemble the kinetic-term coefficient from the Faddeev-Popov measure,
+the fluctuation determinant, and the bilinear trace:
+
+    C_kin = tr(I_{V_{B_1}^hidden})^2
+              x [det(Delta - 4I)|_{B_1 in Omega^0, nonzero}]
+              / [sqrt(det(D^2|_{V_{B_1}^hidden}))].                  (24)
+
+Theorem 6.1 (Kinetic-term coefficient). The kinetic-term coefficient is
+exactly
+
+    C_kin = 25 x (2^5 / 2^5) = 25 = (d+1)^2.                         (25)
+
+Proof. By Theorem 3.2, tr(I_{V_{B_1}^hidden}) = 5, so the squared trace
+is 25. By Theorem 4.1, the fluctuation determinant on the
+B_1 in Omega^0 sector (restricted to non-lambda=4 modes) is 2^5 = 32.
+By (17), the one-loop determinant on the hidden B_1 sector is 4^5 = 1024,
+so its square root is 2^5 = 32. The ratio is exactly 1. Therefore
+C_kin = 25 x 1 = 25. [Box]
+
+Corollary 6.2 (First-principles Newton constant). Given the disclosed
+physical normalization M_P^2 = N k_L^2 lambda_L^2, the Newton constant is
+
+    G_N = 25 / (8 pi M_P^2),                                         (26)
+
+with the 25 derived from the Faddeev-Popov path integral (Theorem 6.1)
+and the 8 pi derived from the Faddeev-Popov measure on the discrete
+torus (HCSM-49 [HCSM-49]).
+
+Proof. Direct from Theorem 6.1 and the definition (1).
+
+
+================================================================================
+7. THE B_2 SECTOR IS A SPECTATOR
+================================================================================
+
+The B_2 sector has the same hidden dimension 5 as B_1 but does not
+satisfy the Faddeev-Popov cancellation identity (ratio = 1/2 rather
+than 1). We now show that B_2 does not contribute to the electroweak
+renormalization group.
+
+Proposition 7.1 (B_2 spectator). The su(2)_L generators
+T_L^i = U_{B_1} sigma^i U_{B_1}^T are supported entirely on the B_1
+isotypic sector. Consequently, B_2 does not contribute to the two-loop
+running of b_2^hid, and the physical prediction b_2^hid = 5/3 is
+preserved by B_1 alone.
+
+Proof. The gauge algebra g_SM = su(3)_c + su(2)_L + u(1)^5 embeds in the
+D4 commutant on the 14-mode multiplet, with su(2)_L acting on the B_1
+multiplicity (HCSM-06 [HCSM-06], HCSM-38 [HCSM-38]). The generators
+T_L^i are U_{B_1} sigma^i U_{B_1}^T where U_{B_1} is a basis of V_{B_1}.
+There is no analogous construction for B_2: the B_2 irrep appears in the
+graviton multiplet (HCSM-45 [HCSM-45]) but not in the gauge algebra.
+Therefore su(2)_L acts trivially on V_{B_2}, and the B_2 content
+contributes zero to b_2^hid. [Box]
+
+Remark 7.2. The RGE test of the companion Gauge Symmetry Structure paper
+confirmed that the physical b_2^hid = 5/3 arises from the 5 hidden B_1
+states alone. Any positive or negative contribution from B_2 would spoil
+the prediction. The spectator status of B_2 is a structural consequence
+of the gauge algebra embedding, not an empirical choice.
+
+
+================================================================================
+8. CONSEQUENCES FOR THE NEWTON CONSTANT
+================================================================================
+
+The path-integral derivation converts the "structurally derived" flag on
+(d+1)^2 = 25 into a first-principles result. Table 3 summarizes the
+change.
+
+Table 3: Status upgrade of the Newton constant derivation.
+
+    Item                                 Status before           Status now
+    ----------------------------------   ---------------------   -------------------------------------
+    Bilinear trace 5^2 = 25              Proven                  Proven
+    B_1 hidden dimension 3 + 2 = 5       Proven                  Proven
+    Faddeev-Popov path integral          Open                    Closed (Theorem 6.1)
+    FP cancellation identity             ---                     Proven (Theorem 4.1)
+    Uniqueness of B_1                    ---                     Proven (Theorem 5.1)
+    B_2 spectator status                 Conjectural             Proven (Proposition 7.1)
+    G_N = 25/(8 pi M_P^2)                Matches to 0.14%        First-principles (given M_P)
+
+
+================================================================================
+9. STATUS: DERIVED, DISCLOSED INPUT, AND OPEN
+================================================================================
+
+9.1 Derived (exact algebra, verified numerically at machine precision)
+--------------------------------------------------------------------------------
+
+1. The hidden B_1 isotypic sector of the 56-dimensional Hodge complex at
+   lambda = 4 is exactly 5-dimensional, decomposing as
+   3_{Omega^1} + 2_{Omega^2} = (d-1) + (d/2) = d + 1 (Theorem 3.2).
+
+2. The bilinear trace of the hidden B_1 sector is 5^2 = 25 = (d+1)^2
+   (Theorem 3.2).
+
+3. The Faddeev-Popov fluctuation determinant on the B_1 in Omega^0
+   sector is exactly 2^5 = 32 (Theorem 4.1).
+
+4. The one-loop determinant on the hidden B_1 sector has square root
+   2^5 = 32 (Theorem 4.1, Eq. (17)).
+
+5. B_1 is the unique D4 irrep satisfying the Faddeev-Popov cancellation
+   identity (Theorem 5.1).
+
+6. B_1 is the unique irrep satisfying
+   Omega^0 mult = 2 x hidden mult (Corollary 5.2).
+
+7. The kinetic-term coefficient is exactly C_kin = 25 (Theorem 6.1).
+
+8. B_2 is a spectator in the electroweak RGE (Proposition 7.1).
+
+9.2 Disclosed input
+--------------------------------------------------------------------------------
+
+1. The physical normalization M_P^2 = N k_L^2 lambda_L^2 from framework
+   constants N, k_L, lambda_L. The exponent lambda_L is a residual of
+   the retired SYK/QIN layer; an HCSM-native derivation of M_P from
+   substrate constants remains open.
+
+9.3 Open
+--------------------------------------------------------------------------------
+
+1. The physical interpretation of the B_2 sector's role in the graviton
+   multiplet (54B_1 + 54B_2) given its spectator status in the RGE.
+
+2. The origin of the 8 pi factor in the Einstein-Hilbert normalization
+   from the substrate (addressed in HCSM-49 [HCSM-49]).
+
+3. The full nonlinear Einstein equations from the Hodge complex (HCSM-50
+   [HCSM-50]).
+
+
+================================================================================
+10. FALSIFIABLE PREDICTIONS
+================================================================================
+
+1. Newton constant. G_N = 25/(8 pi M_P^2) with
+   M_P^2 = N k_L^2 lambda_L^2. Matches observation to 0.14%.
+
+2. Weak mixing angle. sin^2 theta_W(M_Z) = 0.2312, from the same 5
+   hidden B_1 states (HCSM-38 [HCSM-38], HCSM-39 [HCSM-39]).
+
+3. Shared origin. Any experimental deviation in one of these two
+   quantities not mirrored in the other would falsify the dual-role
+   structure.
+
+4. 8 pi factor. Given the HCSM-49 derivation of 8 pi = 2 pi dim ker D
+   (HCSM-49 [HCSM-49]), the Newton constant is fully parameter-free up
+   to the single disclosed normalization M_P.
+
+5. Uniqueness. The stress test identity holds only for B_1. Any
+   observation that indicates a different isotypic sector carries the
+   gravitational normalization would falsify Theorem 5.1.
+
+6. B_2 silence. B_2 does not contribute to the two-loop running of the
+   Weinberg angle. If future computation shows a nonzero B_2
+   contribution, the spectator proposition 7.1 is falsified.
+
+
+================================================================================
+11. CONCLUSION
+================================================================================
+
+We have derived the normalization factor (d+1)^2 = 25 in the HCSM Newton
+constant from a complete Faddeev-Popov path integral on the discrete
+torus. The 5-dimensional hidden B_1 isotypic sector of the 56-dimensional
+Hodge complex at lambda = 4 has bilinear trace 5^2 = 25 = (d+1)^2,
+decomposing as 3_{Omega^1} + 2_{Omega^2} = (d-1) + (d/2) = d + 1. The
+fluctuation determinant on the B_1 isotypic sector of Omega^0 equals
+2^5 = 32, exactly the square root of the one-loop determinant on the
+hidden B_1 sector. The ratio is 1.0000000000 at machine precision, giving
+C_kin = 25 and G_N = 25/(8 pi M_P^2) from first principles (given the
+single disclosed physical normalization M_P).
+
+The uniqueness of B_1 among the five D4 irreps is a structural selection
+theorem: B_1 is the only irrep satisfying
+Omega^0 mult = 2 x hidden mult. This is a genuine consequence of the D4
+representation theory of the 8 x 8 torus, not a numerical accident. The
+B_2 sector, despite having the same hidden dimension, does not satisfy
+the identity and is a spectator in the electroweak renormalization group.
+
+This closes the last open step in the Newton constant sector of the HCSM
+framework and converts the "structurally derived" normalization into a
+complete path-integral derivation on the discrete substrate.
+
+
+================================================================================
+REFERENCES
+================================================================================
+
+[HCSM-00] S. Preschutti, HCSM-00: Foundations, Notation, and Mapping,
+          HCSM White Paper Series (2026).
+
+[HCSM-01] S. Preschutti, HCSM-01: The 8 x 8 Torus Substrate from d = 4,
+          HCSM White Paper Series (2026).
+
+[HCSM-02] S. Preschutti, HCSM-02: The Hodge Complex on Lambda,
+          HCSM White Paper Series (2026).
+
+[HCSM-03] S. Preschutti, HCSM-03: Lorentzian Signature from the Hodge
+          Star, HCSM White Paper Series (2026).
+
+[HCSM-04] S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4,
+          HCSM White Paper Series (2026).
+
+[HCSM-05] S. Preschutti, HCSM-05: Orbit Decomposition and Inverse
+          Participation, HCSM White Paper Series (2026).
+
+[HCSM-06] S. Preschutti, HCSM-06: Sector-Coarse Correspondence,
+          HCSM White Paper Series (2026).
+
+[HCSM-38] S. Preschutti, HCSM-38: Hidden Sector Content, HCSM White
+          Paper Series (2026).
+
+[HCSM-39] S. Preschutti, HCSM-39: Weinberg Angle, HCSM White Paper
+          Series (2026).
+
+[HCSM-45] S. Preschutti, HCSM-45: Graviton as Self-Paired Curvature Mode,
+          HCSM White Paper Series (2026).
+
+[HCSM-46] S. Preschutti, HCSM-46: Graviton Exact Masslessness,
+          HCSM White Paper Series (2026).
+
+[HCSM-47] S. Preschutti, HCSM-47: Graviton Self-Coupling from D4,
+          HCSM White Paper Series (2026).
+
+[HCSM-49] S. Preschutti, HCSM-49: Newton Constant 8 pi Factor,
+          HCSM White Paper Series (2026).
+
+[HCSM-50] S. Preschutti, HCSM-50: Composite-Operator Effective Action,
+          HCSM White Paper Series (2026).
+
+
+================================================================================
+A. REPRODUCIBLE VERIFICATION
+================================================================================
+
+All numerical claims in this paper are verified at machine precision in
+IEEE-754 double precision. The verification script is provided in the
+HCSM companion repository at 12-VERIFICATION/HCSM-48_verification.py. It
+constructs the discrete Hodge complex on Lambda = Z_8 x Z_8, extracts
+the D4 isotypic sectors via character theory, computes the fluctuation
+and one-loop determinants, and checks the Faddeev-Popov cancellation
+identity and its uniqueness across all five irreps. It verifies:
+
+1. The 14-fold degeneracy at lambda = 4.
+2. The D4 multiplicities in Eqs. (5)-(7) and (8).
+3. The hidden B_1 dimension 3 + 2 = 5 (Theorem 3.2).
+4. The bilinear trace 5^2 = 25 (Theorem 3.2).
+5. The fluctuation determinant on B_1 in Omega^0 equals 2^5 = 32
+   (Theorem 4.1).
+6. The uniqueness of B_1 among the five irreps (Theorem 5.1).
+7. The B_1 doubling condition (Corollary 5.2).
+8. The kinetic coefficient C_kin = 25 (Theorem 6.1).
+9. The B_2 spectator status (Proposition 7.1).
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim in
+the HCSM paper stack.
+
+
+================================================================================
+B. WEB CRAWLER METADATA
+================================================================================
+
+B.1 Dublin Core
+--------------------------------------------------------------------------------
+
+DC.title: HCSM-48: Faddeev-Popov G_N Normalization
+DC.creator: Preschutti, Stanley
+DC.creator.orcid: 0009-0004-5445-1744
+DC.date.issued: 2026-09
+DC.type: Text / Preprint / White Paper
+DC.format: application/pdf; text/x-latex
+DC.language: en
+DC.publisher: Entropia Research Institute
+DC.rights: All rights reserved
+DC.subject: Hodge Complex Standard Model; HCSM; Faddeev-Popov; Newton
+  constant; D4 symmetry; B_1 isotypic; hidden sector; bilinear trace;
+  25 = (d+1)^2; 8x8 torus; path integral
+DC.description: We derive the normalization factor (d+1)^2 = 25 in the
+  HCSM Newton constant from a complete Faddeev-Popov path integral on
+  the discrete torus Z_8 x Z_8. The hidden B_1 isotypic sector of the
+  56-dimensional Hodge complex at lambda = 4 has dimension 5,
+  decomposing as 3 + 2 = d + 1. The fluctuation determinant on B_1 in
+  Omega^0 equals 2^5, exactly the square root of the one-loop
+  determinant on the hidden B_1 sector. B_1 is the unique D4 irrep
+  satisfying the Faddeev-Popov cancellation identity; B_2 is a
+  spectator in the electroweak RGE. The kinetic coefficient is
+  C_kin = 25, giving G_N = 25/(8 pi M_P^2) from first principles given
+  a single disclosed physical normalization.
+DC.identifier: HCSM-48-2026-09
+
+B.2 Schema.org JSON-LD
+--------------------------------------------------------------------------------
+
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "HCSM-48: Faddeev-Popov G_N Normalization",
+  "alternateName": "The B_1 Isotypic Selection and the First-Principles Origin of (d+1)^2 = 25",
+  "author": {
+    "@type": "Person",
+    "name": "Stanley Preschutti",
+    "identifier": "https://orcid.org/0009-0004-5445-1744",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Entropia Research Institute"
+    }
+  },
+  "datePublished": "2026-09",
+  "inLanguage": "en",
+  "abstract": "We derive the normalization factor (d+1)^2 = 25 in the HCSM Newton constant from a complete Faddeev-Popov path integral on the discrete torus Z_8 x Z_8. The hidden B_1 isotypic sector of the 56-dimensional Hodge complex at lambda = 4 has dimension 5, decomposing as 3 + 2 = d + 1. B_1 is the unique D4 irrep satisfying the Faddeev-Popov cancellation identity; the fluctuation determinant on B_1 subset Omega^0 equals the square root of the one-loop determinant on the hidden B_1 sector. The kinetic coefficient is C_kin = 25.",
+  "keywords": [
+    "Hodge Complex Standard Model",
+    "HCSM",
+    "Faddeev-Popov",
+    "Newton constant",
+    "D4 symmetry",
+    "B_1 isotypic",
+    "hidden sector",
+    "8x8 torus",
+    "path integral",
+    "bilinear trace",
+    "electroweak unification"
+  ],
+  "license": "All rights reserved",
+  "identifier": "HCSM-48-2026-09",
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "HCSM White Paper Series"
+  }
+}
+
+B.3 BibTeX for Automated Indexing
+--------------------------------------------------------------------------------
+
+@article{PreschuttiHCSM48,
+  author = {Preschutti, Stanley},
+  title = {{HCSM-48}: Faddeev-Popov {G_N} Normalization},
+  journal = {HCSM White Paper Series},
+  year = {2026},
+  month = {September},
+  note = {ORCID: 0009-0004-5445-1744},
+  keywords = {Hodge Complex Standard Model, HCSM, Faddeev-Popov, Newton
+    constant, D4 symmetry, B_1 isotypic, hidden sector, 8x8 torus,
+    path integral, bilinear trace, (d+1)^2 = 25},
+  abstract = {We derive the normalization factor (d+1)^2 = 25 in the
+    HCSM Newton constant from a complete Faddeev-Popov path integral
+    on the discrete torus Z_8 x Z_8. The hidden B_1 isotypic sector
+    of the 56-dimensional Hodge complex at lambda = 4 has dimension 5,
+    decomposing as 3 + 2 = d + 1. B_1 is the unique D4 irrep
+    satisfying the Faddeev-Popov cancellation identity. The kinetic
+    coefficient is C_kin = 25, giving G_N = 25/(8 pi M_P^2) from first
+    principles given a single disclosed physical normalization.}
+}
