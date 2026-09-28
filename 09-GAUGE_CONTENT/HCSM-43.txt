@@ -1,0 +1,734 @@
+================================================================================
+HCSM-43
+Strong CP from the Orientation Z_2
+The Diagonal Flip as a Substrate Automorphism, the Exact Anticommutation
+{F, H_wind} = 0, and the Vanishing of theta_eff
+Hodge Complex Standard Model
+================================================================================
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+September 2026
+
+================================================================================
+ABSTRACT
+================================================================================
+
+The Hodge Complex Standard Model (HCSM) derives the Standard Model from the
+periodic 8x8 torus Lambda = Z_8 x Z_8. This paper closes the strong-CP
+blocker of the framework. We construct the orientation Z_2 of the substrate
+explicitly: it is the diagonal flip F: (n_1, n_2) -> (n_2, n_1), already
+defined in HCSM-00 Definition 5.3. On the 14-mode multiplet at lambda = 4, F
+acts as an involution that preserves each D_4 orbit O_0, O_1, O_2 individually
+and commutes with the discrete 5-point Laplacian.
+
+The central theorem of this paper is the exact anticommutation
+
+    {F, H_wind} = 0,
+
+where H_wind = i sin(pi M / 8) is the winding generator of HCSM-00 Section
+5.1. The anticommutation is not approximate: it follows analytically from the
+antisymmetry of M_{ij} = n_1^{(i)} n_2^{(j)} - n_1^{(j)} n_2^{(i)} under the
+exchange of the two torus directions, and is verified at machine precision
+(max |{F, H_wind}| = 0.0). Because F is an exact automorphism of the substrate
+Hamiltonian and the substrate vacuum lies in an F-eigensector, every F-odd
+observable has vanishing vacuum expectation value. The winding generator
+H_wind is F-odd; identifying it with the substrate realization of the
+topological density F_{mu nu} F~^{mu nu}, the HCSM vacuum forces
+
+    theta_QCD = 0   exactly.
+
+The HCSM mass map produces positive diagonal masses, so
+arg det(M_u M_d) = 0 and therefore
+
+    theta_eff = theta_QCD + arg det(M_u M_d) = 0.
+
+No axion, no Peccei-Quinn symmetry, no Nelson-Barr mechanism, and no new
+degrees of freedom are required. The strong CP problem is solved by the
+orientation Z_2 of the substrate.
+
+Derivation status summary.
+
+  Derived: the orientation Z_2 action F on the 14-mode multiplet; the
+  orbitwise preservation of O_0, O_1, O_2; the commutation [F, Delta] = 0;
+  the exact anticommutation {F, H_wind} = 0; the vanishing vacuum expectation
+  <H_wind> = 0; the corollary theta_QCD = 0; the corollary theta_eff = 0.
+
+  Disclosed inputs: physical identification F <-> CP (parallel to
+  A_1 <-> color, B_1 <-> weak isospin); identification of H_wind with the
+  substrate realization of F_{mu nu} F~^{mu nu}; the HCSM mass map (HCSM-33).
+
+  Open: whether the identification F <-> CP admits a substrate-level
+  derivation (rather than a disclosed physical choice); the precise form of
+  the EFT matching between H_wind and the standard theta F F~ operator.
+
+================================================================================
+CONTENTS
+================================================================================
+
+1. Introduction
+   1.1 The strong CP problem
+   1.2 The HCSM setting
+   1.3 Summary of results
+   1.4 Organization
+2. Setup
+   2.1 The substrate and the 14-mode multiplet
+   2.2 The winding generator
+   2.3 The diagonal flip
+   2.4 Disclosed inputs
+3. The orientation Z_2
+   3.1 Action on the 14-mode multiplet
+   3.2 Fixed points
+   3.3 The orbitwise sign structure
+4. The exact anticommutation {F, H_wind} = 0
+5. Strong CP: theta_QCD = 0
+   5.1 Physical identification
+   5.2 The vacuum is in an F-eigensector
+   5.3 theta_QCD = 0
+6. The effective theta_eff
+   6.1 The mass-matrix argument
+   6.2 Corollary: theta_eff = 0
+   6.3 Consistency with the observed CP violation
+7. Derivation status
+   7.1 Derived from the substrate
+   7.2 Disclosed inputs
+   7.3 Open
+8. Falsifiable predictions
+9. Conclusion
+A. Reproducible verification
+B. Numerical values
+C. Web Crawler Metadata
+
+================================================================================
+1. INTRODUCTION
+================================================================================
+
+1.1 The strong CP problem
+--------------------------------------------------------------------------------
+
+Quantum chromodynamics admits a topological term
+
+    L_theta = theta_QCD * (g_3^2 / 32 pi^2) * F^a_{mu nu} F~^{a mu nu},
+
+where F~^{a mu nu} = (1/2) eps^{mu nu rho sigma} F^a_{rho sigma}. The effective
+physical parameter is
+
+    theta_eff = theta_QCD + arg det(M_u M_d),
+
+where M_u, M_d are the up- and down-quark mass matrices. The parameter
+theta_eff is CP-odd and is bounded by the neutron electric dipole moment
+[PDG]:
+
+    |theta_eff| <~ 10^{-10}.
+
+The Standard Model offers no explanation for why theta_eff is so small:
+theta_QCD and arg det(M_u M_d) are independent inputs, and their sum is not
+protected by any symmetry. This is the strong CP problem.
+
+The standard solutions require either a new light pseudoscalar (the axion
+[Peccei-Quinn 1977, Weinberg 1978, Wilczek 1978]), a parity-based mechanism
+with new heavy fermions (Nelson-Barr [Nelson 1984, Barr 1984]), or a
+spontaneously broken left-right symmetry. All of these extend the Standard
+Model with new degrees of freedom.
+
+1.2 The HCSM setting
+--------------------------------------------------------------------------------
+
+The Hodge Complex Standard Model derives the Standard Model from a single
+discrete substrate, the periodic 8x8 torus Lambda = Z_8 x Z_8, carrying the
+Hodge complex Omega^0 + Omega^1 + Omega^2 and the Hodge-Dirac operator
+D = d + d* with D^2 = Delta exactly on each form degree [HCSM-00, HCSM-02].
+The 14 modes at the self-paired eigenvalue lambda = 4 are identified with one
+Standard Model generation [HCSM-04, HCSM-23]. The processor T = I - P_C
+[HCSM-13] acts on the 14-mode multiplet; its winding generator is
+
+    H_wind = i sin(pi M / 8),   M_{ij} = n_1^{(i)} n_2^{(j)} - n_1^{(j)} n_2^{(i)}
+                                                                        (1)
+
+with spectrum {-4 sqrt(2), -2 sqrt(2), 0^{(10)}, +2 sqrt(2), +4 sqrt(2)}
+[HCSM-14]. The matrix H_wind is Hermitian with entries in Q(sqrt(2)).
+
+The framework already contains a natural candidate for a discrete orientation
+symmetry: the diagonal flip
+
+    F: (n_1, n_2) -> (n_2, n_1),
+
+introduced in HCSM-00 Definition 5.3 [HCSM-00] and used in HCSM-40 [HCSM-40]
+to characterize the self-mirror orbit O_2. The zero state s is stated to be
+F-odd [HCSM-22].
+
+What has not been established is the anticommutation of F with H_wind. That
+is the missing ingredient. In this paper we prove it, and we show that it
+forces theta_eff = 0 exactly.
+
+1.3 Summary of results
+--------------------------------------------------------------------------------
+
+(1) (Theorem 3.1). F is an involution on the 14-mode multiplet, preserves
+    each D_4 orbit O_0, O_1, O_2 individually, and commutes with the discrete
+    5-point Laplacian Delta: [F, Delta] = 0.
+
+(2) (Theorem 4.1). {F, H_wind} = 0 exactly, and [F, H_wind] != 0. The
+    anticommutation follows analytically from the antisymmetry of M under the
+    exchange of n_1 and n_2.
+
+(3) (Theorem 5.1). The substrate vacuum lies in an F-eigensector, so every
+    F-odd observable has vanishing expectation value: <H_wind> = 0. Hence
+    theta_QCD = 0 exactly.
+
+(4) (Corollary 6.1). With the HCSM mass map [HCSM-33],
+    arg det(M_u M_d) = 0, so theta_eff = 0 exactly.
+
+1.4 Organization
+--------------------------------------------------------------------------------
+
+Section 2 recalls the substrate, the 14-mode multiplet, and the winding
+generator. Section 3 constructs the orientation Z_2 and proves the orbitwise
+preservation and commutation with the Laplacian. Section 4 proves the exact
+anticommutation. Section 5 derives theta_QCD = 0. Section 6 derives
+theta_eff = 0. Section 7 catalogues the derivation status. Section 8 states
+falsifiable predictions. Section 9 concludes.
+
+================================================================================
+2. SETUP
+================================================================================
+
+2.1 The substrate and the 14-mode multiplet
+--------------------------------------------------------------------------------
+
+The substrate is Lambda = Z_8 x Z_8 with N = 64 sites [HCSM-01]. The discrete
+5-point Laplacian is
+
+    (Delta f)(x, y) = 4 f(x, y) - f(x +- 1, y) - f(x, y +- 1),
+
+with eigenvalues
+
+    lambda(n_1, n_2) = 4 - 2 cos(pi n_1 / 4) - 2 cos(pi n_2 / 4),
+        n_1, n_2 in {0, ..., 7}.
+
+The self-paired eigenvalue lambda = 4 has multiplicity 2(L - 1) = 14
+[HCSM-04], and the 14 modes fall into three D_4 orbits:
+
+    O_0 = {(0,4), (4,0)},                                            |O_0| = 2,
+    O_1 = {(1,3), (1,5), (3,1), (3,7),
+           (5,1), (5,7), (7,3), (7,5)},                              |O_1| = 8,
+    O_2 = {(2,2), (2,6), (6,2), (6,6)},                              |O_2| = 4.
+
+2.2 The winding generator
+--------------------------------------------------------------------------------
+
+The winding generator is defined by Eq. (1). Its matrix M is antisymmetric
+and real, so H_wind is Hermitian and traceless. The spectrum on the 14-mode
+subspace is
+
+    sigma(H_wind) = {-4 sqrt(2), -2 sqrt(2), 0^{(10)}, +2 sqrt(2), +4 sqrt(2)},
+
+corresponding to winding classes A, B, C [HCSM-14]. The class C of winding-
+zero modes has dimension 10 and coincides with ker H_wind.
+
+2.3 The diagonal flip
+--------------------------------------------------------------------------------
+
+Definition 2.1 (Diagonal flip, HCSM-00 Def. 5.3). On mode labels,
+
+    F: (n_1, n_2) -> (n_2, n_1).
+
+The map F is an involution on Z_8 x Z_8 and, as we shall see, restricts to
+the 14-mode multiplet.
+
+2.4 Disclosed inputs
+--------------------------------------------------------------------------------
+
+The framework's disclosed-input set [HCSM-00] consists of three discrete
+items (Standard Model per-generation content; physical identifications
+A_1 <-> color and B_1 <-> weak isospin; identification thesis 14 modes <->
+14 Standard Model particles) and one dimensionful anchor (M_P). This paper
+adds one further physical identification, stated explicitly in Section 5:
+the identification of F with the substrate realization of CP, and of H_wind
+with the substrate realization of F_{mu nu} F~^{mu nu}. This is parallel in
+kind to the existing identifications and is a disclosed input, not a
+derivation.
+
+================================================================================
+3. THE ORIENTATION Z_2
+================================================================================
+
+3.1 Action on the 14-mode multiplet
+--------------------------------------------------------------------------------
+
+Theorem 3.1 (Orientation Z_2). The diagonal flip F acts on the 14-mode
+multiplet at lambda = 4 and satisfies:
+
+    (i)   F^2 = I on the multiplet;
+    (ii)  F preserves each D_4 orbit O_0, O_1, O_2 individually;
+    (iii) [F, Delta] = 0.
+
+Proof. (i) and (ii) are direct. For (i), F(F(m)) = m for every mode label m,
+hence F^2 = I.
+
+For (ii), one checks each orbit:
+
+    F(O_0) = {(4,0), (0,4)} = O_0,
+    F(O_1) = {(3,1), (5,1), (1,3), (7,3), (1,5), (7,5), (3,7), (5,7)} = O_1,
+    F(O_2) = {(2,2), (6,2), (2,6), (6,6)} = O_2.
+
+So each orbit is preserved setwise.
+
+For (iii), write the Laplacian eigenvalue as lambda(n_1, n_2)
+= 4 - 2 cos(pi n_1 / 4) - 2 cos(pi n_2 / 4). This is manifestly symmetric
+in n_1 <-> n_2, so lambda(F(m)) = lambda(m) for every mode. Since Delta acts
+diagonally on the plane-wave basis with eigenvalue lambda(m), we have
+[Delta, F] = 0 on the multiplet. [Box]
+
+Remark 3.2. The orbitwise preservation of Theorem 3.1(ii) is why F is a
+substrate Z_2 rather than a large reorganisation: it acts within each D_4
+orbit, not across orbits. This is what permits it to be simultaneously an
+orientation flip and a symmetry of the D_4 orbit structure.
+
+3.2 Fixed points
+--------------------------------------------------------------------------------
+
+The fixed-point set of F on the 14-mode multiplet is
+
+    Fix(F) = {(2,2), (6,6)}.
+
+These are exactly the two Z_2 x Z_2 fixed points of [HCSM-40, Theorem 7.1],
+identified there with the W boson (2,2) and the top quark (6,6). The
+fixed-point structure is thus carried over from the mirror orbit
+O_2 = Fix(M) established in HCSM-40; the diagonal flip does not introduce
+new fixed points.
+
+3.3 The orbitwise sign structure
+--------------------------------------------------------------------------------
+
+The numerical signed-permutation search on the 14-mode multiplet (Section A
+of the verification script) confirms two other commuting signed D_4 operators
+with nontrivial sign patterns on (O_0, O_1, O_2), in addition to F:
+
+  - the identity permutation with signs (-1, -1, -1) (equivalent to -I on the
+    multiplet, trivially commuting with H_wind);
+  - the 180-degree rotation R_180: (n_1, n_2) -> (-n_1, -n_2) with signs
+    (+1, -1, -1).
+
+Both commute with H_wind; the second will be exploited in HCSM-58 (joint
+independence of the geometric kernel). The present paper uses only F, which
+is the unique label-preserving Z_2 that anticommutes with H_wind.
+
+================================================================================
+4. THE EXACT ANTICOMMUTATION {F, H_wind} = 0
+================================================================================
+
+Theorem 4.1 (Anticommutation). On the 14-mode multiplet at lambda = 4,
+
+    {F, H_wind} = 0   exactly,
+
+and
+
+    [F, H_wind] != 0.
+
+Proof. Let m_i = (n_1^{(i)}, n_2^{(i)}) in Z_8 x Z_8 for i = 1, ..., 14 be
+the 14 modes, and let p_F be the permutation of indices induced by F, i.e.
+m_{p_F(i)} = F(m_i) = (n_2^{(i)}, n_1^{(i)}).
+
+The winding matrix is
+
+    M_{ij} = n_1^{(i)} n_2^{(j)} - n_1^{(j)} n_2^{(i)}.
+
+Under F, both momenta are exchanged, so
+
+    M_{p_F(i) p_F(j)} = n_2^{(i)} n_1^{(j)} - n_2^{(j)} n_1^{(i)}
+                      = -(n_1^{(i)} n_2^{(j)} - n_1^{(j)} n_2^{(i)})
+                      = -M_{ij}.
+
+Thus, as a matrix identity on the multiplet,
+
+    P_F M P_F^{-1} = -M,
+
+where P_F denotes the permutation matrix implementing F. Applying the odd
+function x -> i sin(pi x / 8) elementwise,
+
+    P_F H_wind P_F^{-1} = P_F i sin(pi M / 8) P_F^{-1}
+                        = i sin(-pi M / 8)
+                        = -i sin(pi M / 8)
+                        = -H_wind.
+
+Equivalently, P_F H_wind + H_wind P_F = 0, which is {F, H_wind} = 0.
+
+The commutator [F, H_wind] = P_F H_wind - H_wind P_F = 2 P_F H_wind != 0,
+since H_wind != 0 and P_F is invertible. [Box]
+
+Remark 4.2 (Analytic, not numerical). The proof uses only the antisymmetry
+of M under exchange of the two torus directions. It does not rely on any
+numerical diagonalization. The companion verification script confirms
+max |{F, H_wind}| = 0.0 and max |[F, H_wind]| = 2.0 in IEEE-754 double
+precision, exactly consistent with the analytic proof.
+
+Remark 4.3 (The winding spectrum is F-paired). Since H_wind anticommutes
+with the invertible involution F, its spectrum is symmetric about zero:
+every nonzero eigenvalue lambda pairs with -lambda via the F-conjugate
+eigenvector. This is a structural necessity given the spectrum
+{-4 sqrt(2), -2 sqrt(2), 0^{(10)}, +2 sqrt(2), +4 sqrt(2)} of HCSM-14. The
+10-dimensional kernel is F-invariant.
+
+================================================================================
+5. STRONG CP: theta_QCD = 0
+================================================================================
+
+5.1 Physical identification
+--------------------------------------------------------------------------------
+
+We identify the substrate operator H_wind with the realization of the
+topological density F_{mu nu} F~^{mu nu} in the HCSM effective description,
+and the diagonal flip F with the substrate realization of CP. This
+identification is a disclosed physical choice of the same character as
+A_1 <-> color and B_1 <-> weak isospin: the substrate realizes a discrete
+symmetry, and its interpretation in Standard Model language is a physical
+identification, not a derivation.
+
+The justification for this identification is threefold.
+
+(1) Parity and CP action. On the torus, the two fundamental cycles are
+    exchanged by F. This is precisely what CP does to the two chiralities of
+    a fermion. The discrete statement "exchange the two cycles" is the
+    substrate counterpart of "exchange left and right."
+
+(2) The winding generator is the topological density. On a two-torus, the
+    topological density F_{mu nu} F~^{mu nu} reduces to the winding number
+    density. The processor's winding generator H_wind is the discrete
+    realization of that density on the 14-mode multiplet.
+
+(3) Analogy with HCSM-40. In HCSM-40 [HCSM-40], the same map F is used to
+    characterize the mirror-fixed orbit O_2. Its role there is structural
+    (identifying fixed points); its role here is dynamical (forcing an
+    operator to vanish on the vacuum). Both uses are consistent with the
+    same disclosure.
+
+5.2 The vacuum is in an F-eigensector
+--------------------------------------------------------------------------------
+
+Lemma 5.1. The substrate vacuum |0> lies in an eigensector of F with
+eigenvalue eta in {+1, -1}.
+
+Proof. By Theorem 3.1, F is an exact automorphism of the substrate
+Hamiltonian; in particular [F, Delta] = 0. The vacuum is the ground state
+of the substrate's entropy functional, which is a functional of Delta alone.
+Any state that is an eigenstate of Delta can be chosen as an eigenstate of F,
+because F and Delta commute. The vacuum is therefore either F-even
+(eta = +1) or F-odd (eta = -1). [Box]
+
+Remark 5.2. HCSM-22 [HCSM-22] already states that the zero state s is
+F-odd; this is the substrate-level statement that the vacuum lies in the
+eta = -1 eigensector. The choice of sign does not affect the corollaries
+below, which depend only on F being an eigensymmetry of the vacuum.
+
+5.3 theta_QCD = 0
+--------------------------------------------------------------------------------
+
+Theorem 5.1 (Strong CP). Every F-odd observable has vanishing vacuum
+expectation value. In particular,
+
+    <0| H_wind |0> = 0   exactly,
+
+and therefore
+
+    theta_QCD = 0        exactly.
+
+Proof. Let |0> satisfy F |0> = eta |0> with eta = +-1 (Lemma 5.1). Let O be
+any operator with F O F^{-1} = -O (an F-odd operator). Then
+
+    <0| O |0> = <0| F^{-1} (F O F^{-1}) F |0>
+              = eta^2 <0| (-O) |0>
+              = -<0| O |0>,
+
+so <0| O |0> = 0.
+
+By Theorem 4.1, H_wind is F-odd. Therefore <0| H_wind |0> = 0.
+
+Under the physical identification of Section 5.1, H_wind is the substrate
+realization of F_{mu nu} F~^{mu nu} and the corresponding effective coupling
+is precisely theta_QCD. The vanishing of <H_wind> is therefore the statement
+that theta_QCD = 0 exactly. [Box]
+
+Remark 5.3 (No axion; no Peccei-Quinn). The mechanism is not spontaneous
+breaking of a Peccei-Quinn symmetry, and does not introduce a light
+pseudoscalar. It is a discrete symmetry of the substrate that fixes
+theta_QCD at zero. The standard axion mass formula m_a ~ sqrt(chi) does not
+apply; there is no axion in the HCSM spectrum.
+
+Remark 5.4 (No Nelson-Barr). The mechanism does not introduce new heavy
+fermions, and does not invoke a spontaneous CP-violating phase that is later
+cancelled. It uses only the discrete substrate symmetry F.
+
+================================================================================
+6. THE EFFECTIVE theta_eff
+================================================================================
+
+6.1 The mass-matrix argument
+--------------------------------------------------------------------------------
+
+The effective parameter is
+
+    theta_eff = theta_QCD + arg det(M_u M_d).
+
+By Theorem 5.1, theta_QCD = 0. It remains to show that
+arg det(M_u M_d) = 0 in the HCSM framework.
+
+Lemma 6.1. The HCSM quark mass matrices are positive diagonal in the mass-
+eigenstate basis, so arg det(M_u M_d) = 0 exactly.
+
+Proof. The HCSM mass map [HCSM-33] assigns masses via
+
+    m_i = A_mass exp(-B_mass (N/4)_i),
+
+with A_mass > 0 and B_mass > 0 real. Every mass eigenvalue is therefore
+strictly positive. The mass matrices M_u, M_d, after diagonalization by the
+standard CKM procedure, are real positive diagonal. Hence det M_u > 0 and
+det M_d > 0, so arg det(M_u M_d) = 0. [Box]
+
+6.2 Corollary: theta_eff = 0
+--------------------------------------------------------------------------------
+
+Corollary 6.1 (Vanishing theta_eff).
+
+    theta_eff = theta_QCD + arg det(M_u M_d) = 0.
+
+Proof. Immediate from Theorem 5.1 and Lemma 6.1. [Box]
+
+Remark 6.2. The argument is thus genuinely structural. It does not require
+fine-tuning between theta_QCD and arg det(M_u M_d); both terms vanish
+separately. The neutron EDM bound |theta_eff| <~ 10^{-10} is satisfied
+trivially by theta_eff = 0 exactly.
+
+6.3 Consistency with the observed CP violation
+--------------------------------------------------------------------------------
+
+The HCSM framework produces CP violation in the quark and lepton sectors via
+the CKM phase [HCSM-34] and the Dirac PMNS phase [HCSM-36]. The result
+theta_eff = 0 is consistent with these: the CKM phase is a flavour phase,
+not a vacuum phase. The substrate Z_2 forces the vacuum theta-angle to
+vanish while leaving the flavour structure untouched.
+
+================================================================================
+7. DERIVATION STATUS
+================================================================================
+
+7.1 Derived from the substrate
+--------------------------------------------------------------------------------
+
+(1) The orientation Z_2 action F on the 14-mode multiplet (Theorem 3.1).
+(2) The orbitwise preservation F(O_0) = O_0, F(O_1) = O_1, F(O_2) = O_2
+    (Theorem 3.1).
+(3) The commutation [F, Delta] = 0 (Theorem 3.1).
+(4) The exact anticommutation {F, H_wind} = 0 (Theorem 4.1).
+(5) The vanishing of every F-odd vacuum expectation value (Theorem 5.1).
+(6) The corollary theta_QCD = 0 (Theorem 5.1).
+(7) The corollary arg det(M_u M_d) = 0 (Lemma 6.1).
+(8) The corollary theta_eff = 0 (Corollary 6.1).
+
+7.2 Disclosed inputs
+--------------------------------------------------------------------------------
+
+(1) The physical identification F <-> CP.
+(2) The physical identification of H_wind with the substrate realization of
+    F_{mu nu} F~^{mu nu}.
+(3) The HCSM mass map (HCSM-33).
+
+These are disclosed in the same sense as the existing inputs of [HCSM-00]:
+the substrate realizes a discrete structure, and its interpretation in
+Standard Model language is a physical identification. This paper does not
+claim to derive the identification from the substrate.
+
+7.3 Open
+--------------------------------------------------------------------------------
+
+(1) Substrate derivation of F <-> CP. The physical identification is
+    currently a disclosed input. It would be stronger if the CP action could
+    be derived from the substrate's own structure, e.g. from the intersection
+    form on ker D or from the D_4 Schur orthogonality.
+
+(2) EFT matching between H_wind and theta F F~. The present derivation
+    identifies H_wind with the topological density at the substrate level. A
+    precise matching to the standard theta-term in the low-energy effective
+    theory (with the correct normalization g_3^2 / 32 pi^2) remains to be
+    written down. This is a normalization problem, not a structural one; it
+    does not affect the vanishing of theta_QCD, which follows from the
+    F-oddness of H_wind.
+
+================================================================================
+8. FALSIFIABLE PREDICTIONS
+================================================================================
+
+(1) theta_QCD = 0 exactly. Any future measurement of a nonzero theta_QCD at
+    any scale falsifies the framework.
+
+(2) No axion. The HCSM spectrum contains no light pseudoscalar. A confirmed
+    axion detection at any mass would falsify the framework.
+
+(3) No Nelson-Barr sector. No new heavy fermions beyond the HCSM hidden
+    content 5 + 6 + 31 [HCSM-39] are required or predicted.
+
+(4) The neutron EDM vanishes identically. The HCSM prediction is
+    d_n^{QCD} = 0; any observed nonzero contribution to the neutron EDM from
+    the QCD theta-term falsifies Theorem 5.1.
+
+(5) F-oddness of the winding spectrum. Any computational test that finds
+    max |{F, H_wind}| > 0 at machine precision falsifies Theorem 4.1. The
+    companion verification script checks this at every commit.
+
+================================================================================
+9. CONCLUSION
+================================================================================
+
+We have closed the strong-CP blocker of the Hodge Complex Standard Model.
+The orientation Z_2 of the substrate is the diagonal flip
+F: (n_1, n_2) -> (n_2, n_1) already defined in HCSM-00 Definition 5.3. On
+the 14-mode multiplet at lambda = 4, F preserves each D_4 orbit individually
+and commutes with the discrete Laplacian. Its central structural property is
+the exact anticommutation
+
+    {F, H_wind} = 0,
+
+with the winding generator H_wind = i sin(pi M / 8). This forces every F-odd
+observable to have vanishing vacuum expectation value. Since H_wind is
+F-odd and is identified with the substrate realization of
+F_{mu nu} F~^{mu nu}, the HCSM vacuum forces theta_QCD = 0 exactly. The HCSM
+mass map produces positive masses, so arg det(M_u M_d) = 0 as well.
+Therefore
+
+    theta_eff = theta_QCD + arg det(M_u M_d) = 0   exactly.
+
+No axion, no Peccei-Quinn symmetry, no Nelson-Barr sector, and no new degrees
+of freedom are introduced. The strong CP problem is solved by the substrate
+Z_2.
+
+The framework's strength is that it has fewer empirical anchors than the
+Standard Model, not that it has none.
+
+Physics is what the machine cannot cancel. The Hodge complex is the machine.
+
+================================================================================
+REFERENCES
+================================================================================
+
+[HCSM-00]  S. Preschutti, HCSM-00: Foundations, Notation, and Mapping,
+           HCSM White Paper Series (2026).
+[HCSM-01]  S. Preschutti, HCSM-01: The 8x8 Torus Substrate from d = 4,
+           HCSM White Paper Series (2026).
+[HCSM-02]  S. Preschutti, HCSM-02: The Hodge Complex on Lambda,
+           HCSM White Paper Series (2026).
+[HCSM-04]  S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4,
+           HCSM White Paper Series (2026).
+[HCSM-13]  S. Preschutti, HCSM-13: The Processor T and the F/B Split,
+           HCSM White Paper Series (2026).
+[HCSM-14]  S. Preschutti, HCSM-14: Winding Generator Spectrum and Class
+           Partition, HCSM White Paper Series (2026).
+[HCSM-22]  S. Preschutti, HCSM-22: The Zero State, HCSM White Paper
+           Series (2026).
+[HCSM-23]  S. Preschutti, HCSM-23: The Identification of the 14 Modes with
+           One Standard Model Generation, HCSM White Paper Series (2026).
+[HCSM-33]  S. Preschutti, HCSM-33: Mass Map, HCSM White Paper Series (2026).
+[HCSM-34]  S. Preschutti, HCSM-34: The CKM Matrix, HCSM White Paper Series
+           (2026).
+[HCSM-36]  S. Preschutti, HCSM-36: The PMNS Matrix, HCSM White Paper Series
+           (2026).
+[HCSM-39]  S. Preschutti, HCSM-39: The Weinberg Angle, HCSM White Paper
+           Series (2026).
+[HCSM-40]  S. Preschutti, HCSM-40: The Higgs Mechanism, HCSM White Paper
+           Series (2026).
+[Peccei-Quinn 1977]  R. D. Peccei and H. R. Quinn, CP Conservation in the
+           Presence of Pseudoparticles, Phys. Rev. Lett. 38, 1440 (1977).
+[Weinberg 1978]  S. Weinberg, A New Light Boson?, Phys. Rev. Lett. 40, 223
+           (1978).
+[Wilczek 1978]  F. Wilczek, Problem of Strong P and T Invariance in the
+           Presence of Instantons, Phys. Rev. Lett. 40, 279 (1978).
+[Nelson 1984]  A. E. Nelson, Naturally Weak CP Violation, Phys. Lett. B 136,
+           387 (1984).
+[Barr 1984]  S. M. Barr, Solving the Strong CP Problem Without an Axion,
+           Phys. Rev. D 30, 1805 (1984).
+[PDG]  Particle Data Group (S. Navas et al.), Review of Particle Physics,
+           Phys. Rev. D 110, 030001 (2024).
+
+================================================================================
+A. REPRODUCIBLE VERIFICATION
+================================================================================
+
+The companion script HCSM-43_verification.py verifies:
+
+(1) Enumeration of the 14 modes at lambda = 4.
+(2) The orbit decomposition O_0, O_1, O_2.
+(3) F^2 = I on the multiplet.
+(4) F(O_0) = O_0, F(O_1) = O_1, F(O_2) = O_2.
+(5) [F, Delta] = 0 at machine precision.
+(6) Construction of H_wind = i sin(pi M/8) and verification of the spectrum
+    {-4 sqrt(2), -2 sqrt(2), 0^{(10)}, +2 sqrt(2), +4 sqrt(2)}.
+(7) max |{F, H_wind}| = 0.0 at machine precision.
+(8) max |[F, H_wind]| = 2.0 at machine precision.
+(9) Fix(F) = {(2,2), (6,6)}.
+(10) dim ker H_wind = 10.
+(11) <s| H_wind |s> = 0 at machine precision.
+
+Running python HCSM-43_verification.py reproduces every numerical claim.
+
+================================================================================
+B. NUMERICAL VALUES
+================================================================================
+
+    Quantity                              Value
+    ------------------------------------------------------------------
+    max |{F, H_wind}|                     0.0 (machine precision)
+    max |[F, H_wind]|                     2.0 (exact)
+    dim ker H_wind                        10
+    Fix(F)                                {(2,2), (6,6)}
+    |O_0|, |O_1|, |O_2|                   2, 8, 4
+    theta_QCD (HCSM)                      0
+    arg det(M_u M_d) (HCSM)               0
+    theta_eff (HCSM)                      0
+    theta_eff observed bound              <~ 10^{-10}
+
+================================================================================
+C. WEB CRAWLER METADATA
+================================================================================
+
+C.1 Dublin Core
+--------------------------------------------------------------------------------
+
+DC.title: HCSM-43: Strong CP from the Orientation Z2
+DC.creator: Preschutti, Stanley
+DC.creator.orcid: 0009-0004-5445-1744
+DC.date.issued: 2026-09
+DC.type: Text / Preprint / White Paper
+DC.format: application/pdf; text/x-latex
+DC.language: en
+DC.publisher: Entropia Research Institute
+DC.rights: All rights reserved
+DC.subject: Hodge Complex Standard Model; HCSM; strong CP problem;
+  orientation Z2; diagonal flip; winding generator; anticommutation;
+  theta_QCD; theta_eff; axion; neutron EDM
+DC.description: Explicit construction of the HCSM orientation Z2 as the
+  diagonal flip F on the 14-mode multiplet. Theorem: {F, H_wind} = 0
+  exactly. Corollary: theta_QCD = 0 and theta_eff = 0. No axion required.
+DC.identifier: HCSM-43-2026-09
+DC.source: https://github.com/007STAN/HODGE-COMPLEX-STANDARD-MODEL-HCSM-
+
+C.2 BibTeX for Automated Indexing
+--------------------------------------------------------------------------------
+
+@article{PreschuttiHCSM43,
+  author = {Preschutti, Stanley},
+  title = {{HCSM-43}: Strong CP from the Orientation {$Z_2$}},
+  journal = {HCSM White Paper Series},
+  year = {2026},
+  month = {September},
+  note = {ORCID: 0009-0004-5445-1744},
+  keywords = {Hodge Complex Standard Model, HCSM, strong CP problem,
+    orientation Z2, diagonal flip, winding generator, anticommutation},
+  abstract = {Explicit construction of the HCSM orientation Z2 as the
+    diagonal flip F on the 14-mode multiplet. Theorem: {F, H_wind} = 0
+    exactly. Corollary: theta_QCD = 0 and theta_eff = 0. No axion.},
+  url = {https://github.com/007STAN/HODGE-COMPLEX-STANDARD-MODEL-HCSM-}
+}
+
+================================================================================
+END OF HCSM-43
+================================================================================
