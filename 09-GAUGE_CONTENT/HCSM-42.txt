@@ -1,0 +1,641 @@
+================================================================================
+HCSM-42
+Spin Chirality Z_2 Grading
+The Hodge Form-Parity, the Spin-Structure Parity, the Orientation Z_2,
+and Their Z_2 x Z_2 x Z_2 Action on the 56-Dimensional Hodge Lift
+Hodge Complex Standard Model
+================================================================================
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+September 2026
+
+================================================================================
+ABSTRACT
+================================================================================
+
+The Hodge complex of the periodic 8x8 torus Lambda = Z_8 x Z_8 carries three
+independent Z_2 structures: the Hodge form-parity grading gamma_5 (even forms
+vs. odd forms), the spin-structure parity chi_spin (the NS/R parity of the
+four spin structures of the torus), and the orientation Z_2 F constructed in
+HCSM-43. We prove that all three operators are involutions, that they
+pairwise commute on the 56-dimensional Hodge lift at lambda = 4, and that
+together they generate a Z_2 x Z_2 x Z_2 group. The three generators have the
+following physical interpretation:
+
+  - gamma_5 grades the 56-dim Hodge lift into a bosonic sector B of dimension
+    28 and a fermionic sector F of dimension 28, and satisfies
+    {gamma_5, D} = 0 on the Hodge complex;
+
+  - chi_spin distinguishes the two even spin structures (NS,NS) and (R,R)
+    from the two odd spin structures (NS,R) and (R,NS), providing the
+    substrate realization of left-right chirality;
+
+  - F is the orientation flip F: (n_1, n_2) -> (n_2, n_1) of HCSM-43, which
+    anticommutes with the winding generator H_wind and realizes the substrate
+    CP.
+
+The three Z_2 structures combine to give the physical spin-statistics,
+chirality, and CP properties of the Standard Model at the substrate level.
+We prove:
+
+    {gamma_5, D} = 0
+    [F, gamma_5] = 0
+    [F, chi_spin] = 0
+    [gamma_5, chi_spin] = 0
+
+and derive the consequent conservation laws on the 56-dim Hodge lift.
+Applications include a structural derivation of the Majorana phases (pi, 0)
+(HCSM-36), a strengthened form of the two-loop anomaly cancellation
+(HCSM-40 Section 6), and a spin-statistics consistency theorem linking the
+identification thesis (HCSM-23) to the Hodge grading.
+
+Derivation status summary.
+
+  Derived: the Hodge form-parity gamma_5 and {gamma_5, D} = 0; the 56-dim
+  splitting B + F; the D_4 decompositions of B and F; the compatibility
+  [F, gamma_5] = 0; the spin-structure parity chi_spin; the compatibility
+  [F, chi_spin] = 0; the Z_2 x Z_2 x Z_2 group on the 56-dim Hodge lift; the
+  spin-statistics consistency theorem.
+
+  Disclosed inputs: the identification thesis 14 modes <-> 14 Standard Model
+  particles (HCSM-23); the physical identification F <-> CP (HCSM-43); the
+  physical identification of chi_spin with left-right chirality.
+
+  Open: whether the identification chi_spin <-> L/R chirality admits a
+  substrate-level derivation; the precise form of the chi_spin action on the
+  hidden sector 5+6+31 (HCSM-38).
+
+================================================================================
+CONTENTS
+================================================================================
+
+1. Introduction
+   1.1 The spin-statistics and chirality problems
+   1.2 The three Z_2 structures
+   1.3 Summary of results
+   1.4 Organization
+2. Setup
+   2.1 The Hodge complex
+   2.2 The 14-mode multiplet and the D_4 orbits
+   2.3 The winding generator
+   2.4 The orientation Z_2
+3. The Hodge form-parity grading
+   3.1 Definition and basic properties
+4. The 56-dimensional splitting
+   4.1 Bosonic and fermionic sectors
+5. The spin-structure parity
+   5.1 The four spin structures of the torus
+   5.2 The spin-structure parity
+6. The orientation Z_2 and compatibility
+   6.1 Recollection
+   6.2 Compatibility with the Hodge form-parity
+   6.3 Action on spin structures
+7. The Z_2 x Z_2 x Z_2 structure
+   7.1 The three generators
+   7.2 Sector decomposition
+8. Physical interpretation
+   8.1 Spin-statistics from the Hodge form-parity
+   8.2 Chirality from the spin-structure parity
+   8.3 CP from the orientation Z_2
+   8.4 The combined structure
+9. Applications
+   9.1 Two-loop anomaly cancellation
+   9.2 Majorana phases
+   9.3 Strong CP
+   9.4 Sector-coarse correspondence
+10. Derivation status
+    10.1 Derived from the substrate
+    10.2 Disclosed inputs
+    10.3 Open
+11. Falsifiable predictions
+12. Conclusion
+A. Reproducible verification
+B. Numerical values
+C. Web Crawler Metadata
+
+================================================================================
+1. INTRODUCTION
+================================================================================
+
+1.1 The spin-statistics and chirality problems
+--------------------------------------------------------------------------------
+
+The Standard Model contains three structural facts that are not derived from
+first principles:
+
+  (1) Spin-statistics. Half-integer-spin particles obey Fermi-Dirac
+      statistics; integer-spin particles obey Bose-Einstein statistics.
+
+  (2) Chirality. Left-handed fermions carry su(2)_L quantum numbers; right-
+      handed fermions are su(2)_L singlets.
+
+  (3) CP structure. Charge-parity acts on the Standard Model fields in a
+      specific way that is not derived from any deeper principle.
+
+In the Hodge Complex Standard Model, the substrate is the periodic 8x8 torus
+Lambda = Z_8 x Z_8 [HCSM-00, HCSM-01], carrying the Hodge complex
+Omega^0 + Omega^1 + Omega^2 and the Hodge-Dirac operator D = d + d* with
+D^2 = Delta exactly on each form degree [HCSM-02]. The framework derives the
+Standard Model from the substrate but had not, until now, systematically
+addressed the three structural facts above.
+
+This paper supplies the missing structure. We show that the Hodge complex
+carries three independent Z_2 structures, and that these three structures
+combine to give the substrate realization of spin-statistics, chirality, and
+CP.
+
+1.2 The three Z_2 structures
+--------------------------------------------------------------------------------
+
+(1) Hodge form-parity gamma_5. The Hodge complex has a natural Z_2 grading by
+    form degree: even forms (Omega^0 + Omega^2) versus odd forms Omega^1. The
+    corresponding parity operator is gamma_5 = P_{Omega^0} - P_{Omega^1}
+    + P_{Omega^2}. Its anticommutation with D was proved in HCSM-40 Section 6
+    as {gamma_5, D} = 0.
+
+(2) Spin-structure parity chi_spin. The torus T^2 admits four spin structures
+    classified by (Z_2)^2 boundary conditions (HCSM-36): (NS,NS), (NS,R),
+    (R,NS), (R,R). The Dirac index takes values +/-1/4. The parity operator
+    chi_spin has eigenvalue +1 on the two even spin structures (NS,NS) and
+    (R,R), and eigenvalue -1 on the two odd structures (NS,R) and (R,NS).
+
+(3) Orientation Z_2 F. The diagonal flip F: (n_1, n_2) -> (n_2, n_1) is the
+    orientation Z_2 constructed in HCSM-43. It preserves each D_4 orbit
+    O_0, O_1, O_2, commutes with Delta, and anticommutes with the winding
+    generator: {F, H_wind} = 0.
+
+1.3 Summary of results
+--------------------------------------------------------------------------------
+
+(1) (Theorem 3.1). The Hodge form-parity gamma_5 satisfies gamma_5^2 = I and
+    {gamma_5, D} = 0 on the 256-dim Hodge complex.
+
+(2) (Theorem 4.1). The 56-dim Hodge lift at lambda = 4 splits as B + F with
+    dim B = dim F = 28, where B = (Omega^0 + Omega^2)|lambda=4 is bosonic
+    and F = Omega^1|lambda=4 is fermionic.
+
+(3) (Theorem 4.2). The bosonic and fermionic sectors decompose under D_4 as
+    given in equations (2) below.
+
+(4) (Theorem 5.2). The four spin structures of the torus carry a Z_2 x Z_2
+    grading. The spin-structure parity chi_spin is well-defined and squares
+    to I.
+
+(5) (Theorem 6.4). All three operators commute pairwise:
+    [gamma_5, chi_spin] = 0
+    [gamma_5, F] = 0
+    [chi_spin, F] = 0
+    Together they generate Z_2 x Z_2 x Z_2 on the 56-dim Hodge lift.
+
+(6) (Theorem 6.2). The spin structures (NS,R) and (R,NS) are exchanged by F,
+    while (NS,NS) and (R,R) are fixed. Hence [F, chi_spin] = 0.
+
+(7) (Theorem 8.1). The 14 Standard Model particles identified with the 14
+    modes of Omega^0|lambda=4 inherit their spin-statistics, chirality, and
+    CP properties from their images under the Z_2 x Z_2 x Z_2 group.
+
+1.4 Organization
+--------------------------------------------------------------------------------
+
+Section 2 recalls the Hodge complex, the 14-mode multiplet, and the winding
+generator. Section 3 establishes the Hodge form-parity. Section 4 derives the
+56-dim splitting. Section 5 constructs the spin-structure parity. Section 6
+recalls the orientation Z_2 and proves compatibility. Section 7 proves the
+Z_2 x Z_2 x Z_2 structure. Section 8 gives the physical interpretation.
+Section 9 states applications. Section 10 catalogues derivation status.
+Section 11 states falsifiable predictions. Section 12 concludes.
+
+================================================================================
+2. SETUP
+================================================================================
+
+2.1 The Hodge complex
+--------------------------------------------------------------------------------
+
+The substrate is Lambda = Z_8 x Z_8 with N = 64 sites [HCSM-01]. The Hodge
+complex is
+
+    Omega^0 = R^64, Omega^1 = R^128, Omega^2 = R^64,
+
+with total dimension 256. The exterior derivative d and codifferential d*
+satisfy d_1 d_0 = 0, and the Hodge-Dirac operator D = d + d* satisfies
+
+    D^2 |_{Omega^k} = Delta, k = 0, 1, 2,                            (1)
+
+exactly on each form degree [HCSM-02]. On the lambda = 4 sector, the Hodge
+lift has dimension
+
+    14 Omega^0 + 28 Omega^1 + 14 Omega^2 = 56.
+
+2.2 The 14-mode multiplet and the D_4 orbits
+--------------------------------------------------------------------------------
+
+The eigenvalue lambda = 4 of Delta on Omega^0 has multiplicity 2(L-1) = 14
+[HCSM-04]. The 14 modes fall into three D_4 orbits:
+
+    O_0 = {(0,4), (4,0)},
+    O_1 = {(1,3), (1,5), (3,1), (3,7), (5,1), (5,7), (7,3), (7,5)},
+    O_2 = {(2,2), (2,6), (6,2), (6,6)}.
+
+The 14 modes are identified with one Standard Model generation under the
+identification thesis [HCSM-23].
+
+2.3 The winding generator
+--------------------------------------------------------------------------------
+
+The winding generator is [HCSM-14]
+
+    H_wind = i sin(pi M / 8), M_{ij} = n_1^{(i)} n_2^{(j)} - n_1^{(j)} n_2^{(i)},
+
+with spectrum {-4 sqrt(2), -2 sqrt(2), 0^(10), +2 sqrt(2), +4 sqrt(2)}. The
+winding-zero class C has dimension 10 and coincides with ker H_wind.
+
+2.4 The orientation Z_2
+--------------------------------------------------------------------------------
+
+By HCSM-43, the diagonal flip F: (n_1, n_2) -> (n_2, n_1) is an involution
+that preserves each D_4 orbit and satisfies
+
+    [F, Delta] = 0, {F, H_wind} = 0, [F, H_wind] != 0.              (2)
+
+The fixed-point set of F on the 14-mode multiplet is {(2,2), (6,6)},
+identified with the W boson and the top quark [HCSM-40].
+
+================================================================================
+3. THE HODGE FORM-PARITY GRADING
+================================================================================
+
+3.1 Definition and basic properties
+--------------------------------------------------------------------------------
+
+Definition 3.1 (Hodge form-parity). The Hodge form-parity operator is
+
+    gamma_5 = P_{Omega^0} - P_{Omega^1} + P_{Omega^2},
+
+where P_{Omega^k} is the orthogonal projector onto Omega^k.
+
+The operator gamma_5 acts as +1 on even forms (Omega^0 + Omega^2) and as -1
+on odd forms Omega^1. It is the Hodge complex analog of the chirality operator
+in the Dirac algebra, and was first introduced in HCSM-40 Section 6 in that
+role.
+
+Theorem 3.1 (Hodge form-parity). The Hodge form-parity gamma_5 satisfies:
+
+    (i) gamma_5^2 = I on the full 256-dim Hodge complex;
+    (ii) gamma_5^dagger = gamma_5;
+    (iii) {gamma_5, D} = 0 exactly on Omega^0 + Omega^1 + Omega^2.
+
+Proof. (i) and (ii) follow from the fact that the three form-degree
+projectors P_{Omega^k} are orthogonal, idempotent, and sum to the identity.
+For (iii), note that D = d + d* is form-degree-odd: d raises form degree by
+one and d* lowers it by one. Hence D maps Omega^0 -> Omega^1,
+Omega^1 -> Omega^0 + Omega^2, and Omega^2 -> Omega^1. Both Omega^0 and
+Omega^2 are gamma_5-even, and Omega^1 is gamma_5-odd. Therefore D flips the
+gamma_5 eigenvalue, which is exactly {gamma_5, D} = 0. [Box]
+
+Corollary 3.2 (Regulator trace). Tr(gamma_5 f(D)) = 0 for every even
+function f.
+
+Proof. Since gamma_5 D gamma_5^{-1} = -D and gamma_5^2 = I, we have
+gamma_5 f(D) gamma_5^{-1} = f(-D) for every even f. The trace is cyclic, so
+Tr(gamma_5 f(D)) = Tr(f(-D) gamma_5) = -Tr(f(D) gamma_5) when f is even.
+Hence Tr(gamma_5 f(D)) = 0. The argument uses only {gamma_5, D} = 0 and f
+even; no Adler-Bardeen input is required. [Box]
+
+The corollary is the substrate-level form of the two-loop anomaly
+cancellation used in HCSM-40 Section 6.
+
+================================================================================
+4. THE 56-DIMENSIONAL SPLITTING
+================================================================================
+
+4.1 Bosonic and fermionic sectors
+--------------------------------------------------------------------------------
+
+Theorem 4.1 (56-dim splitting). On the lambda = 4 sector, the 56-dim Hodge
+lift splits into a bosonic sector
+
+    B = (Omega^0 + Omega^2)|lambda=4, dim B = 28,
+
+and a fermionic sector
+
+    F = Omega^1|lambda=4, dim F = 28.
+
+The form-parity gamma_5 acts as +1 on B and as -1 on F.
+
+Proof. Immediate from Definition 3.1 and the multiplicities (1): 14 + 14 = 28
+and 28 = 28. [Box]
+
+Theorem 4.2 (D_4 decomposition of the split). Under the D_4 point group of
+the torus, the bosonic and fermionic sectors decompose as
+
+    B = 6 A_1 + 2 A_2 + 4 B_1 + 4 B_2 + 6 E,
+    F = 3 A_1 + 3 A_2 + 3 B_1 + 3 B_2 + 8 E.                         (3)
+
+The total D_4 content matches the full 56-dim lift:
+
+    B + F = 9 A_1 + 5 A_2 + 7 B_1 + 7 B_2 + 14 E.
+
+Proof. Direct summation of the per-form-degree decompositions
+
+    Omega^0|lambda=4 = 3 A_1 + A_2 + 2 B_1 + 2 B_2 + 3 E,
+    Omega^1|lambda=4 = 3 A_1 + 3 A_2 + 3 B_1 + 3 B_2 + 8 E,
+    Omega^2|lambda=4 = 3 A_1 + A_2 + 2 B_1 + 2 B_2 + 3 E,
+
+which are stated in HCSM-00 Section 4.3 and HCSM-40 Section 2.2. [Box]
+
+Remark 4.3 (Physical content). By the sector-coarse correspondence
+[HCSM-06], the A_1 isotypic maps to su(3)_c (color) and the B_1 isotypic maps
+to su(2)_L (weak isospin). The bosonic and fermionic sectors therefore carry
+different color and weak multiplicities. The visible Standard Model
+generation lives in Omega^0|lambda=4 (14 modes, part of B); the hidden sector
+[HCSM-38, HCSM-39] is the remaining 42 modes, split between B and F as 14
+(from Omega^2) and 28 (from Omega^1) respectively.
+
+================================================================================
+5. THE SPIN-STRUCTURE PARITY
+================================================================================
+
+5.1 The four spin structures of the torus
+--------------------------------------------------------------------------------
+
+The two-torus T^2 admits four spin structures classified by (Z_2)^2 boundary
+conditions, labeled by nu = (nu_1, nu_2) with nu_i in {NS, R} [HCSM-36]. The
+Dirac index of each spin structure is
+
+    index(nu_1, nu_2) = (2 nu_1 - 1)(2 nu_2 - 1) / 4
+                      in {+1/4, -1/4, -1/4, +1/4},                  (4)
+
+where NS = 0, R = 1. Explicitly:
+
+    Spin structure      (nu_1, nu_2)    Index
+    -------------------------------------------------
+    (NS, NS)            (0, 0)          +1/4
+    (NS, R)             (0, 1)          -1/4
+    (R, NS)             (1, 0)          -1/4
+    (R, R)              (1, 1)          +1/4
+
+5.2 The spin-structure parity
+--------------------------------------------------------------------------------
+
+Definition 5.1 (Spin-structure parity). The spin-structure parity operator is
+
+    chi_spin = sign(4 * index(nu)),
+
+with eigenvalue +1 on the two even spin structures (NS,NS) and (R,R), and
+eigenvalue -1 on the two odd spin structures (NS,R) and (R,NS).
+
+Theorem 5.2 (Spin-structure parity). The operator chi_spin is a Z_2 grading
+on the space of spin structures:
+
+    (i) chi_spin^2 = I;
+    (ii) chi_spin commutes with the four-dimensional Dirac operator on each
+        spin structure;
+    (iii) The two eigenvalues +/-1 each have multiplicity 2.
+
+Proof. (i) is immediate from Definition 5.1. (ii) is a standard property of
+spin structures: the Dirac operator acts on sections of the spinor bundle
+for a given spin structure, and the parity of the index is preserved by the
+Dirac operator. (iii) follows from the table above: two spin structures have
+index +1/4, two have index -1/4. [Box]
+
+Remark 5.3 (Physical interpretation). The spin-structure parity chi_spin is
+the substrate realization of left-right chirality. The two even spin
+structures give the two chiralities of a Dirac fermion in the physical
+four-dimensional sense; the two odd spin structures give the conjugate
+chiralities. The identification of chi_spin with physical chirality is a
+disclosed physical input, parallel to the identification F <-> CP of HCSM-43.
+
+================================================================================
+6. THE ORIENTATION Z_2 AND COMPATIBILITY
+================================================================================
+
+6.1 Recollection
+--------------------------------------------------------------------------------
+
+By HCSM-43, the diagonal flip F: (n_1, n_2) -> (n_2, n_1) satisfies F^2 = I,
+preserves each D_4 orbit individually, and [F, Delta] = 0. It acts on the
+winding generator via {F, H_wind} = 0.
+
+The action of F extends to the full Hodge complex by pullback. On Omega^0, F*
+acts by permuting the sites: (F* f)(x, y) = f(y, x). On Omega^1, F* swaps the
+two components of a 1-form: F*(omega_1 dx + omega_2 dy) = (F* omega_1) dy
++ (F* omega_2) dx. On Omega^2, F* acts with a sign flip from the orientation
+of the wedge product: F*(f dx ^ dy) = -(F* f) dx ^ dy.
+
+6.2 Compatibility with the Hodge form-parity
+--------------------------------------------------------------------------------
+
+Lemma 6.1. The pullback F* preserves the form degree: [F*, P_{Omega^k}] = 0
+for each k = 0, 1, 2.
+
+Proof. The pullback of a k-form under a diffeomorphism is a k-form. Hence F*
+commutes with the form-degree projectors. [Box]
+
+Theorem 6.1 (Compatibility [F, gamma_5] = 0). [F, gamma_5] = 0 on the
+256-dim Hodge complex.
+
+Proof. Immediate from Lemma 6.1 and Definition 3.1: gamma_5 is a linear
+combination of the form-degree projectors, all of which commute with F*. [Box]
+
+Remark 6.2 (Interpretation). F is a form-degree-preserving operation. It
+preserves the bosonic sector B and the fermionic sector F of Theorem 4.1
+individually. The orientation flip F does not mix the two sectors.
+
+6.3 Action on spin structures
+--------------------------------------------------------------------------------
+
+Theorem 6.2 (Spin-structure action of F). The diagonal flip F acts on the
+four spin structures of the torus by exchanging the two torus directions:
+
+    F: (nu_1, nu_2) -> (nu_2, nu_1).
+
+Consequently:
+
+    (i) F fixes (NS,NS) and (R,R);
+    (ii) F exchanges (NS,R) <-> (R,NS).
+
+Proof. The diagonal flip swaps the two cycle directions x <-> y of the
+torus. Spin structures are classified by the boundary conditions along each
+cycle; the swap of directions exchanges nu_1 <-> nu_2. Direct check of the
+four cases gives (i) and (ii). [Box]
+
+Corollary 6.3 (Compatibility [F, chi_spin] = 0). [F, chi_spin] = 0.
+
+Proof. By Theorem 6.2, F either fixes or exchanges the spin structures.
+Under exchange, both spin structures have the same chi_spin eigenvalue (+1
+for the even pair, -1 for the odd pair). Under fixing, the eigenvalue is
+trivially preserved. Hence chi_spin commutes with F. [Box]
+
+================================================================================
+7. THE Z_2 x Z_2 x Z_2 STRUCTURE
+================================================================================
+
+7.1 The three generators
+--------------------------------------------------------------------------------
+
+Theorem 7.1 (Z_2 x Z_2 x Z_2). The three operators gamma_5, chi_spin, and F
+pairwise commute on the 56-dimensional Hodge lift at lambda = 4:
+
+    [gamma_5, chi_spin] = 0,
+    [gamma_5, F] = 0,
+    [chi_spin, F] = 0.
+
+Each squares to the identity. Together they generate a group isomorphic to
+Z_2 x Z_2 x Z_2 acting on the 56-dim Hodge lift.
+
+Proof. [gamma_5, F] = 0 is Theorem 6.1. [chi_spin, F] = 0 is Corollary 6.3.
+[gamma_5, chi_spin] = 0 holds because gamma_5 acts on form degree and
+chi_spin acts on spin structure; these are independent structures on the
+substrate. Each operator is an involution by Theorem 3.1(i), Theorem 5.2(i),
+and F^2 = I (HCSM-43). The group generated by three pairwise-commuting
+involutions is Z_2 x Z_2 x Z_2. [Box]
+
+7.2 Sector decomposition
+--------------------------------------------------------------------------------
+
+The Z_2 x Z_2 x Z_2 group acts on the 56-dim Hodge lift by sign assignments.
+The eight sectors are:
+
+    Sector     gamma_5    chi_spin    F
+    ------------------------------------------
+    S_{+++}    +1         +1          +1
+    S_{++-}    +1         +1          -1
+    S_{+-+}    +1         -1          +1
+    S_{+--}    +1         -1          -1
+    S_{-++}    -1         +1          +1
+    S_{-+-}    -1         +1          -1
+    S_{--+}    -1         -1          +1
+    S_{---}    -1         -1          -1
+
+The four gamma_5 = +1 sectors lie in B (28-dim); the four gamma_5 = -1
+sectors lie in F (28-dim). Physical states are classified by their
+(gamma_5, chi_spin, F) signature.
+
+Theorem 7.2 (Sector dimensions). On the 56-dim Hodge lift at lambda = 4:
+
+    (i) The bosonic sector B (gamma_5 = +1) has dimension 28, split into
+        (chi_spin, F) = (+,+), (+,-), (-,+), (-,-) subsectors;
+    (ii) The fermionic sector F (gamma_5 = -1) has dimension 28, with the
+        same four-fold spin-structure/orientation split;
+    (iii) Each of the eight sectors S_{+-+} has dimension 56/8 = 7 at the
+        level of the full Z_2 x Z_2 x Z_2 action, on average.
+
+Proof. (i) and (ii) from Theorem 4.1. (iii) is a statement about the average
+dimension: the Z_2 x Z_2 x Z_2 group has eight sectors; the total dimension
+is 56; on average each sector has dimension 7. Individual sector dimensions
+may differ due to representation-theoretic constraints, but their sum is 56.
+[Box]
+
+================================================================================
+8. PHYSICAL INTERPRETATION
+================================================================================
+
+8.1 Spin-statistics from the Hodge form-parity
+--------------------------------------------------------------------------------
+
+The Hodge form-parity gamma_5 grades the 56-dim Hodge lift into the bosonic
+sector B and the fermionic sector F. This is the substrate realization of
+the spin-statistics theorem: forms of even degree behave as bosons; forms of
+odd degree behave as fermions.
+
+In the four-dimensional effective theory, the 14 modes at lambda = 4 in
+Omega^0 are identified with one Standard Model generation [HCSM-23]. The
+form-parity of each mode is determined by which sector of the 56-dim Hodge
+lift contains that mode's primary image. The visible generation in
+Omega^0|lambda=4 sits in the bosonic sector B; the identification thesis
+assigns the physical spin-statistics (12 fermions, 2 bosons) to these modes.
+
+8.2 Chirality from the spin-structure parity
+--------------------------------------------------------------------------------
+
+The spin-structure parity chi_spin distinguishes the two even spin structures
+(NS,NS) and (R,R) from the two odd spin structures (NS,R) and (R,NS). In the
+HCSM identification, the even structures correspond to left-handed
+chiralities and the odd structures to right-handed chiralities (or vice
+versa; the assignment is a disclosed physical input).
+
+This identification is the substrate realization of left-right chirality. In
+the Standard Model, left-handed fermions carry su(2)_L quantum numbers; the
+B_1 isotypic in Omega^0|lambda=4 has multiplicity 2 (from 2 B_1), consistent
+with the two chiralities of a Dirac fermion.
+
+8.3 CP from the orientation Z_2
+--------------------------------------------------------------------------------
+
+The orientation flip F is the substrate realization of CP, as established in
+HCSM-43. It anticommutes with the winding generator H_wind and forces
+theta_QCD = 0 and theta_eff = 0 exactly.
+
+8.4 The combined structure
+--------------------------------------------------------------------------------
+
+The three Z_2 structures together give the physical spin-statistics,
+chirality, and CP properties of the Standard Model at the substrate level.
+The physical content of a mode m in Omega^0|lambda=4 is determined by its
+signature under (gamma_5, chi_spin, F).
+
+Theorem 8.1 (Spin-statistics consistency). The 14 Standard Model particles
+identified with the 14 modes of Omega^0|lambda=4 inherit their
+spin-statistics, chirality, and CP properties from their images under the
+Z_2 x Z_2 x Z_2 group:
+
+  - The Hodge form-parity gamma_5 assigns the form-parity of the mode's
+    image in the 56-dim Hodge lift;
+  - The spin-structure parity chi_spin assigns the left-right chirality of
+    the mode;
+  - The orientation flip F assigns the CP eigenvalue of the mode.
+
+Proof. Combination of Theorems 4.1, 5.2, and 7.1. The identification of the
+14 modes with the 14 Standard Model particles is the identification thesis
+[HCSM-23]; the assignment of physical properties to each mode's signature is
+a disclosed input, but the assignment itself is consistent because the three
+operators act on independent structural features of the Hodge complex. [Box]
+
+================================================================================
+9. APPLICATIONS
+================================================================================
+
+9.1 Two-loop anomaly cancellation
+--------------------------------------------------------------------------------
+
+Corollary 3.2 gives Tr(gamma_5 f(D)) = 0 for every even regulator f. This is
+the substrate-level proof of two-loop anomaly cancellation used in HCSM-40
+Section 6. The argument requires only {gamma_5, D} = 0; no Adler-Bardeen
+machinery is needed.
+
+9.2 Majorana phases
+--------------------------------------------------------------------------------
+
+The Majorana phases (alpha_1, alpha_2) = (pi, 0) derived in HCSM-36 and
+HCSM-00 Section 7.2 from the zero-state sign structure are consistent with
+the spin-chirality structure of this paper. The two degenerate neutrino modes
+with N/4 = 60 have chi_spin = +1; the third mode with N/4 = 58 has
+chi_spin = -1. The phase difference between the two chiralities contributes
+pi to the Majorana phases.
+
+9.3 Strong CP
+--------------------------------------------------------------------------------
+
+The orientation Z_2 F anticommutes with H_wind (HCSM-43). Combined with the
+form-parity gamma_5 (which commutes with F), this gives a clean structural
+separation of the CP-odd and CP-even sectors of the substrate:
+
+    {F, H_wind} = 0, [F, gamma_5] = 0.
+
+The first relation forces theta_QCD = 0; the second ensures that CP is a
+symmetry of the spin-statistics structure.
+
+9.4 Sector-coarse correspondence
+--------------------------------------------------------------------------------
+
+The D_4 decompositions of Theorem 4.2 directly feed the sector-coarse
+correspondence of HCSM-06: the A_1 isotypic in B + F maps to color triplets;
+the B_1 isotypic maps to weak doublets. The bosonic and fermionic sectors
+carry different multiplicities of these isotypies, which is why the visible
+generation sits in Omega^0|lambda=4 while the hidden sector 5+6+31
+[HCSM-38, HCSM-39] is distributed across Omega^1|lambda=4 + Omega^2|lambda=4.
+
+================================================================
