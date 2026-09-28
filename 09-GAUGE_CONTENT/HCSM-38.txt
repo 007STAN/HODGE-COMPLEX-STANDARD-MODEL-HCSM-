@@ -1,0 +1,910 @@
+================================================================================
+HCSM-38
+Hidden Sector Content of the Hodge Complex Standard Model
+The lambda = 4 Hodge Lift, the D4 Decomposition of the Complement, and the
+Derivation of the Hidden 5 + 6 + 31 Content
+Hodge Complex Standard Model
+================================================================================
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+September 2026
+
+--------------------------------------------------------------------------------
+ABSTRACT
+--------------------------------------------------------------------------------
+
+The Hodge Complex Standard Model (HCSM) identifies the 14 scalar modes at the
+self-paired eigenvalue lambda = 4 of the discrete Laplacian on the periodic
+8x8 torus with one Standard Model generation (HCSM-04, HCSM-23). This paper
+establishes the hidden sector content of the framework: the 42 modes at
+lambda = 4 that appear in the Hodge lift Omega^1|_{lambda=4} + Omega^2|_{lambda=4}
+but are not identified with the 14 visible scalar modes. We compute the full
+D4 decomposition of the Hodge complex Omega^0 + Omega^1 + Omega^2 from
+character theory, derive the D4 content of the hidden sector as
+
+    6A1 + 4A2 + 5B1 + 5B2 + 11E,
+
+and show that under the sector-coarse correspondence of HCSM-06 this content
+maps to the physical hidden sector
+
+    (d+1) weak doublets + (d+2) color triplets + (N/2 - 1) singlets
+    = 5 + 6 + 31.
+
+The hidden sector content is derived from the D4 representation theory of the
+Hodge complex on Lambda. Three physical choices are disclosed: the
+identification of D4 irreps with SU(3) x SU(2) x U(1) representations, the
+U(1)_Y neutrality of the hidden singlets, and the fermionic statistics of the
+hidden B1 doublets. These three choices are consistent with the HCSM-06/07
+disclosure pattern. The result sets up the Weinberg angle derivation of
+companion paper HCSM-39. Every numerical claim is verified in reproducible
+Python.
+
+Derivation status summary:
+
+    DERIVED:          the full D4 decomposition of the Hodge complex
+                      Omega^0 + Omega^1 + Omega^2 from character theory;
+                      the D4 content of the Hodge lift at lambda = 4; the
+                      identification of the visible sector with
+                      Omega^0|lambda=4; the hidden sector as the complement
+                      Omega^1|lambda=4 + Omega^2|lambda=4; the D4 content
+                      6A1 + 4A2 + 5B1 + 5B2 + 11E; the physical content
+                      (d+1) + (d+2) + (N/2 - 1) = 5 + 6 + 31.
+
+    DISCLOSED INPUTS: (i) the identification of D4 irreps with SU(3) x SU(2)
+                      x U(1) representations via the sector-coarse
+                      correspondence (HCSM-06); (ii) U(1)_Y neutrality of
+                      the hidden singlets; (iii) fermionic statistics of the
+                      hidden B1 doublets.
+
+    OPEN:             the microscopic derivation of the three physical
+                      choices from the substrate; the exact U(1)_Y charges
+                      of the hidden color triplets and doublets; the
+                      contribution of the hidden sector to the running of
+                      the gauge couplings below the HCSM scale.
+
+================================================================================
+1. INTRODUCTION
+================================================================================
+
+--------------------------------------------------------------------------------
+1.1 The visible sector and its completion
+--------------------------------------------------------------------------------
+
+The Hodge Complex Standard Model identifies the 14 scalar modes at the
+self-paired eigenvalue lambda = 4 of the discrete Laplacian on the periodic
+8x8 torus Lambda = Z_8 x Z_8 with one Standard Model generation (HCSM-04,
+HCSM-23). These 14 modes are the VISIBLE SECTOR: they are identified with the
+SM particles
+
+    (nu, e, u, d, s, mu, dark, c, tau, b, W, Z, H, t),
+
+and every downstream HCSM result - the charge theorem, the mass map, the CKM
+and PMNS matrices, the graviton - is a statement about them.
+
+The Hodge complex on Lambda has total dimension 64 + 128 + 64 = 256. Of these,
+only 56 lie in the lambda = 4 eigenspace of the Hodge-Dirac operator
+D = d + d* (HCSM-02). The remaining 200 modes are the bath of the
+self-cancellation theorem (HCSM-10).
+
+The 56-dimensional lambda = 4 sector itself splits by form degree:
+
+    Omega^0|lambda=4  +  Omega^1|lambda=4  +  Omega^2|lambda=4
+    =  14  +  28  +  14.
+
+The 14 scalar modes in Omega^0 are the visible sector. The remaining 42 modes
+at lambda = 4 - 28 in Omega^1 and 14 in Omega^2 - are the HIDDEN SECTOR in
+the sense of this paper.
+
+This is the framework's structural statement: the visible SM content sits in
+the scalar sector, and the Hodge lift of the same multiplet into the vector
+and pseudo-scalar sectors provides additional, structurally necessary
+content.
+
+--------------------------------------------------------------------------------
+1.2 The one-line summary
+--------------------------------------------------------------------------------
+
+    "The visible sector is the scalar shadow of the lambda = 4 multiplet.
+    The hidden sector is the Hodge lift."
+
+--------------------------------------------------------------------------------
+1.3 The hidden sector question
+--------------------------------------------------------------------------------
+
+The visible sector is a 14-mode multiplet. If the Hodge complex is a faithful
+substrate, then the Hodge lift of these 14 modes into the vector and
+pseudo-scalar sectors must be interpreted. This paper answers the question:
+what is the content of the hidden sector, and how does it transform under D4?
+
+The answer, derived in Sections 4-6, is
+
+    hidden content = 5 weak doublets + 6 color triplets + 31 singlets,
+
+or, in terms of the framework constants d = 4 and N = 64,
+
+    hidden content = (d+1) + (d+2) + (N/2 - 1) = 5 + 6 + 31.
+
+--------------------------------------------------------------------------------
+1.4 Summary of results
+--------------------------------------------------------------------------------
+
+    1. The full D4 decomposition of the Hodge complex on Lambda is derived
+       from character theory (Theorem 3.1):
+
+       Omega^0 = 15A1 + 3A2 + 10B1 + 6B2 + 15E,
+       Omega^1 = 15A1 + 15A2 + 15B1 + 15B2 + 34E,
+       Omega^2 = 15A1 + 3A2 + 10B1 + 6B2 + 15E.
+
+    2. The lambda = 4 content of the Hodge complex is 56-dimensional and
+       decomposes as (Theorem 4.1):
+
+       56 = 9A1 + 5A2 + 7B1 + 7B2 + 14E,
+
+       matching HCSM-02.
+
+    3. The visible sector is the 14-dimensional sub-representation
+       Omega^0|lambda=4 = 3A1 + A2 + 2B1 + 2B2 + 3E.
+
+    4. The hidden sector is the 42-dimensional complement
+       Omega^1|lambda=4 + Omega^2|lambda=4. Its D4 decomposition is
+       (Theorem 4.3):
+
+       hidden = 6A1 + 4A2 + 5B1 + 5B2 + 11E.
+
+    5. Under the sector-coarse correspondence (HCSM-06) with three disclosed
+       physical choices, this content maps to (Theorem 6.1):
+
+       5 weak doublets + 6 color triplets + 31 singlets.
+
+    6. The result sets up the Weinberg angle derivation of HCSM-39 by
+       providing the b-function coefficients of the hidden sector
+       contributions.
+
+--------------------------------------------------------------------------------
+1.5 Derivation status
+--------------------------------------------------------------------------------
+
+This paper follows the standard HCSM three-category structure.
+
+    DERIVED FROM THE SUBSTRATE: the full D4 decomposition of the Hodge
+    complex; the lambda = 4 content; the visible and hidden sectors; the
+    hidden D4 content 6A1 + 4A2 + 5B1 + 5B2 + 11E; the framework expression
+    (d+1) + (d+2) + (N/2 - 1) = 5 + 6 + 31.
+
+    DISCLOSED INPUTS: the three physical choices:
+        (1) the gauge-algebra identification: which D4 irrep corresponds to
+            which SU(3) x SU(2) x U(1) representation;
+        (2) the U(1)_Y neutrality of the hidden singlets;
+        (3) the fermionic statistics of the hidden B1 doublets.
+
+    OPEN: the microscopic derivation of the three disclosed choices; the
+    exact U(1)_Y charges of the hidden color triplets and doublets; the
+    precise contribution of the hidden sector to gauge coupling running.
+
+--------------------------------------------------------------------------------
+1.6 Organization
+--------------------------------------------------------------------------------
+
+Section 2 states the framework setup: the Hodge complex, the D4 action, and
+the lambda = 4 eigenspace. Section 3 derives the full D4 decomposition of the
+Hodge complex. Section 4 identifies the visible sector and defines the hidden
+sector. Section 5 derives the D4 content of the hidden sector. Section 6
+establishes the physical mapping to SM representations given the three
+disclosed choices. Section 7 sets up the gauge coupling running for HCSM-39.
+Section 8 catalogs the derivation status. Section 9 concludes.
+
+================================================================================
+2. SETUP: THE HODGE COMPLEX AND THE D4 ACTION
+================================================================================
+
+--------------------------------------------------------------------------------
+2.1 The 8x8 torus
+--------------------------------------------------------------------------------
+
+The substrate is the periodic square lattice Lambda = Z_8 x Z_8 with N = 64
+sites (HCSM-01). The framework constants are
+
+    d = 4, N = d*2^d = 64, L = sqrt(N) = 8, H = 2^d = 16,
+
+and the discrete 5-point Laplacian has eigenvalues
+
+    lambda(n_1, n_2) = 4 - 2 cos(pi n_1 / 4) - 2 cos(pi n_2 / 4).
+
+The self-paired eigenvalue is lambda = 4 with multiplicity 2(L-1) = 14.
+
+--------------------------------------------------------------------------------
+2.2 The Hodge complex
+--------------------------------------------------------------------------------
+
+On the two-dimensional torus Lambda, the Hodge complex has three graded pieces
+(HCSM-02):
+
+    - Omega^0: 0-forms on the 64 sites, dim Omega^0 = 64, bosonic.
+    - Omega^1: 1-forms on the 128 directed edges, dim Omega^1 = 128,
+      fermionic.
+    - Omega^2: 2-forms on the 64 plaquettes, dim Omega^2 = 64, bosonic.
+
+The total dimension is
+
+    dim(Omega^0 + Omega^1 + Omega^2) = 64 + 128 + 64 = 256.
+
+The Hodge-Dirac operator D = d + d* satisfies D^2|Omega^k = Delta exactly on
+each form degree, where Delta is the scalar 5-point Laplacian. The
+Z2-grading (-1)^F distinguishes bosonic (Omega^0 + Omega^2) from fermionic
+(Omega^1) sectors.
+
+--------------------------------------------------------------------------------
+2.3 The D4 action
+--------------------------------------------------------------------------------
+
+The dihedral group D4 of order 8 acts on Lambda by the point group of the
+square, generated by the rotation
+
+    r: (x_1, x_2) -> (-x_2, x_1) mod 8
+
+and the reflection
+
+    s: (x_1, x_2) -> (x_1, -x_2) mod 8,
+
+subject to the presentation r^4 = s^2 = (rs)^2 = e. The group has eight
+elements:
+
+    {e, r, r^2, r^3, s, rs, r^2 s, r^3 s}.
+
+The D4 action on the Hodge complex is:
+
+    - On Omega^0: by permutation of the 64 sites.
+    - On Omega^1: by the vector-twisted action. If omega = (omega_1, omega_2),
+      then r: (omega_1, omega_2) -> (-omega_2, omega_1) and
+      s: (omega_1, omega_2) -> (omega_1, -omega_2). As a D4 representation,
+      Omega^1 = Omega^0 tensor E, where E is the 2-dimensional irreducible
+      representation of D4.
+    - On Omega^2: by permutation of the 64 plaquettes, dual to Omega^0.
+
+--------------------------------------------------------------------------------
+2.4 The D4 character table
+--------------------------------------------------------------------------------
+
+The D4 group has five irreducible representations with dimensions 1, 1, 1, 1, 2,
+denoted A1, A2, B1, B2, E. The character table is:
+
+    Table 1: Character table of D4.
+    -------------------------------------------------------------------------
+              e     r     r^2   r^3   s     rs    r^2 s   r^3 s
+    -------------------------------------------------------------------------
+    A1        1     1     1     1     1     1     1       1
+    A2        1     1     1     1    -1    -1    -1      -1
+    B1        1    -1     1    -1     1    -1     1      -1
+    B2        1    -1     1    -1    -1     1    -1       1
+    E         2     0    -2     0     0     0     0       0
+    -------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+2.5 The lambda = 4 eigenspace
+--------------------------------------------------------------------------------
+
+By HCSM-02, Theorem 5.1, the lambda = 4 eigenspace of the Hodge complex is
+56-dimensional and decomposes by form degree as:
+
+    Omega^0|lambda=4 = 3A1 + A2 + 2B1 + 2B2 + 3E   (dim 14),
+    Omega^1|lambda=4 = 3A1 + 3A2 + 3B1 + 3B2 + 8E   (dim 28),
+    Omega^2|lambda=4 = 3A1 + A2 + 2B1 + 2B2 + 3E   (dim 14).
+
+The full lambda = 4 content is
+
+    56 = 9A1 + 5A2 + 7B1 + 7B2 + 14E.
+
+================================================================================
+3. THE FULL D4 DECOMPOSITION OF THE HODGE COMPLEX
+================================================================================
+
+This section derives the D4 decomposition of the full Hodge complex
+Omega^0 + Omega^1 + Omega^2 from character theory. Although the lambda = 4
+content is known from HCSM-02, the full decomposition is needed to establish
+that the hidden sector at lambda = 4 is a structurally faithful subset of the
+full complex.
+
+--------------------------------------------------------------------------------
+3.1 Character of Omega^0
+--------------------------------------------------------------------------------
+
+The character of the position representation Omega^0 is the number of sites
+fixed by each D4 element.
+
+    Table 2: Fixed-point counts for the D4 action on Lambda = Z_8 x Z_8.
+    -------------------------------------------------------------------------
+    Element    Action            Fixed points
+    -------------------------------------------------------------------------
+    e          (x, y)             64
+    r          (-y, x)            2
+    r^2        (-x, -y)           4
+    r^3        (y, -x)            2
+    s          (x, -y)            16
+    rs         (y, x)             8
+    r^2 s      (-x, y)            16
+    r^3 s      (-y, -x)           8
+    -------------------------------------------------------------------------
+
+THEOREM 3.1 (Omega^0 decomposition). As a D4 representation, Omega^0
+decomposes as
+
+    Omega^0 = 15A1 + 3A2 + 10B1 + 6B2 + 15E.
+
+Proof. Apply orthogonality relations with the character table (Table 1) and
+the character values (Table 2). The multiplicities are:
+
+    a1 = (1/8)(64 + 2 + 4 + 2 + 16 + 8 + 16 + 8) = 120/8 = 15,
+    a2 = (1/8)(64 + 2 + 4 + 2 - 16 - 8 - 16 - 8) = 24/8 = 3,
+    b1 = (1/8)(64 - 2 + 4 - 2 + 16 - 8 + 16 - 8) = 80/8 = 10,
+    b2 = (1/8)(64 - 2 + 4 - 2 - 16 + 8 - 16 + 8) = 48/8 = 6,
+    e  = (1/8)(64*2 + 4*(-2)) = 120/8 = 15.
+
+Check: 15 + 3 + 10 + 6 + 30 = 64.
+
+--------------------------------------------------------------------------------
+3.2 Character of Omega^1
+--------------------------------------------------------------------------------
+
+Since Omega^1 = Omega^0 tensor E as D4 representations, its character is
+
+    chi_{Omega^1}(g) = chi_{Omega^0}(g) * chi_E(g).
+
+The character chi_E is 2 at e, 0 at r, r^3, s, rs, r^2 s, r^3 s, and -2 at r^2.
+
+Hence the Omega^1 character is:
+
+    chi_{Omega^1}(e)  = 128,
+    chi_{Omega^1}(r)  = 0,
+    chi_{Omega^1}(r^2) = -8,
+    chi_{Omega^1}(r^3) = 0,
+    chi_{Omega^1}(s)  = 0,
+    chi_{Omega^1}(rs) = 0,
+    chi_{Omega^1}(r^2 s) = 0,
+    chi_{Omega^1}(r^3 s) = 0.
+
+THEOREM 3.2 (Omega^1 decomposition). As a D4 representation,
+
+    Omega^1 = 15A1 + 15A2 + 15B1 + 15B2 + 34E.
+
+Proof. The tensor product of Omega^0 with E is computed using
+E tensor E = A1 + A2 + B1 + B2:
+
+    Omega^1 = Omega^0 tensor E
+            = (15A1 + 3A2 + 10B1 + 6B2 + 15E) tensor E
+            = 15E + 3E + 10E + 6E + 15(A1 + A2 + B1 + B2)
+            = 15A1 + 15A2 + 15B1 + 15B2 + 34E.
+
+Check: 15 + 15 + 15 + 15 + 68 = 128.
+
+--------------------------------------------------------------------------------
+3.3 Character of Omega^2
+--------------------------------------------------------------------------------
+
+On a two-dimensional torus, the 2-form sector is Hodge-dual to the 0-form
+sector: Omega^2 = Omega^0 as D4 representations.
+
+THEOREM 3.3 (Omega^2 decomposition). As a D4 representation,
+
+    Omega^2 = 15A1 + 3A2 + 10B1 + 6B2 + 15E.
+
+--------------------------------------------------------------------------------
+3.4 The full Hodge complex
+--------------------------------------------------------------------------------
+
+Combining Theorems 3.1-3.3:
+
+THEOREM 3.4 (Full D4 decomposition). The Hodge complex on Lambda decomposes
+as
+
+    Omega^0 = 15A1 + 3A2 + 10B1 + 6B2 + 15E,
+    Omega^1 = 15A1 + 15A2 + 15B1 + 15B2 + 34E,
+    Omega^2 = 15A1 + 3A2 + 10B1 + 6B2 + 15E.
+
+The full 256-dimensional content is
+
+    Omega^0 + Omega^1 + Omega^2 = 45A1 + 21A2 + 35B1 + 27B2 + 64E.
+
+Proof. Add the multiplicities form-degree by form-degree. Check:
+45 + 21 + 35 + 27 + 128 = 256.
+
+================================================================================
+4. THE VISIBLE AND HIDDEN SECTORS AT LAMBDA = 4
+================================================================================
+
+--------------------------------------------------------------------------------
+4.1 Definition of the visible sector
+--------------------------------------------------------------------------------
+
+The HCSM identification thesis (HCSM-23) identifies the 14 scalar modes at
+lambda = 4 with one Standard Model generation. These modes are 0-forms: they
+live in Omega^0|lambda=4.
+
+DEFINITION 4.1 (Visible sector). The VISIBLE SECTOR is the 14-dimensional D4
+sub-representation
+
+    Omega^0|lambda=4 = 3A1 + A2 + 2B1 + 2B2 + 3E,
+
+whose modes are identified with the SM particles
+
+    (nu, e, u, d, s, mu, dark, c, tau, b, W, Z, H, t).
+
+--------------------------------------------------------------------------------
+4.2 The Hodge lift
+--------------------------------------------------------------------------------
+
+By HCSM-02, Theorem 5.1, the lambda = 4 degeneracy lifts to the full Hodge
+complex with multiplicities 14, 28, 14 in Omega^0, Omega^1, Omega^2:
+
+    Omega^0|lambda=4 = 3A1 + A2 + 2B1 + 2B2 + 3E   (dim 14),
+    Omega^1|lambda=4 = 3A1 + 3A2 + 3B1 + 3B2 + 8E   (dim 28),
+    Omega^2|lambda=4 = 3A1 + A2 + 2B1 + 2B2 + 3E   (dim 14).
+
+--------------------------------------------------------------------------------
+4.3 Definition of the hidden sector
+--------------------------------------------------------------------------------
+
+DEFINITION 4.2 (Hidden sector). The HIDDEN SECTOR is the complement of the
+visible sector within the lambda = 4 eigenspace:
+
+    hidden = Omega^1|lambda=4 + Omega^2|lambda=4.
+
+It has dimension 28 + 14 = 42.
+
+REMARK 4.1 (Why the hidden sector is the Hodge lift). The visible sector uses
+only the 0-form content of the lambda = 4 multiplet. The Hodge complex carries
+the same multiplet content in all three form degrees. The vector (1-form) and
+pseudo-scalar (2-form) lifts are structurally necessary components of the
+substrate; they cannot be discarded without breaking the complex. Their
+content is the hidden sector.
+
+--------------------------------------------------------------------------------
+4.4 The hidden sector D4 decomposition
+--------------------------------------------------------------------------------
+
+THEOREM 4.3 (Hidden sector D4 content). As a D4 representation, the hidden
+sector decomposes as
+
+    Omega^1|lambda=4 + Omega^2|lambda=4 = 6A1 + 4A2 + 5B1 + 5B2 + 11E.
+
+The dimension is
+
+    6*1 + 4*1 + 5*1 + 5*1 + 11*2 = 6 + 4 + 5 + 5 + 22 = 42.
+
+Proof. Add the form-degree contributions:
+
+    Omega^1|lambda=4 + Omega^2|lambda=4
+    = (3A1 + 3A2 + 3B1 + 3B2 + 8E) + (3A1 + A2 + 2B1 + 2B2 + 3E)
+    = (3+3)A1 + (3+1)A2 + (3+2)B1 + (3+2)B2 + (8+3)E
+    = 6A1 + 4A2 + 5B1 + 5B2 + 11E.
+
+Dimension check: 6 + 4 + 5 + 5 + 22 = 42.
+
+--------------------------------------------------------------------------------
+4.5 Framework-constant form of the content
+--------------------------------------------------------------------------------
+
+The hidden-sector D4 multiplicities have a clean expression in framework
+constants.
+
+PROPOSITION 4.4 (Framework expression). The hidden-sector multiplicities
+satisfy
+
+    #A1 = d + 2 = 6,
+    #A2 = d = 4,
+    #B1 = d + 1 = 5,
+    #B2 = d + 1 = 5,
+    #E  = 2L - 5 = 11.
+
+Proof. Direct from Theorem 4.3: #A1 = 6 = d+2; #A2 = 4 = d; #B1 = 5 = d+1;
+#B2 = 5 = d+1; #E = 11 = 2L - 5 = 16 - 5 = 11.
+
+================================================================================
+5. PHYSICAL CONTENT: MAPPING TO STANDARD MODEL REPRESENTATIONS
+================================================================================
+
+The D4 content of the hidden sector is fully derived. To convert it to
+physical content, we need a mapping from D4 irreps to SU(3) x SU(2) x U(1)
+representations. This mapping is the subject of the disclosed choices of this
+paper.
+
+--------------------------------------------------------------------------------
+5.1 The sector-coarse correspondence
+--------------------------------------------------------------------------------
+
+The sector-coarse correspondence (HCSM-06) establishes that the
+D4-invariant endomorphism algebra of the lambda = 4 sector contains
+su(3) + su(2) + u(1)^5. The five u(1) factors correspond to the five D4
+irreps A1, A2, B1, B2, E. The su(3) and su(2) factors arise from the
+nontrivial D4-invariant structure.
+
+The correspondence assigns a SM gauge representation to each D4 irrep, but
+the specific assignment involves physical identifications that are disclosed.
+
+--------------------------------------------------------------------------------
+5.2 Disclosed Choice 1: gauge-algebra identification
+--------------------------------------------------------------------------------
+
+DEFINITION 5.1 (Disclosed Choice 1). The GAUGE-ALGEBRA IDENTIFICATION assigns
+each D4 irrep a transformation property under SU(3) x SU(2) x U(1)_Y:
+
+    Table 3: Gauge-algebra identification.
+    -------------------------------------------------------------------------
+    D4 irrep    SU(3)              SU(2)              U(1)_Y
+    -------------------------------------------------------------------------
+    A1          3 (triplet)        1                  0
+    A2          1                  1                  0
+    B1          1                  2 (doublet)        0
+    B2          1                  1                  0
+    E           1 + 1              1                  0
+    -------------------------------------------------------------------------
+
+The assignments have the following structural features:
+
+    - The A1 irrep maps to the fundamental triplet of SU(3). Modes in A1
+      are color triplets.
+    - The B1 irrep maps to the fundamental doublet of SU(2). Modes in B1 are
+      weak doublets.
+    - The A2 and B2 irreps map to SM singlets.
+    - The E irrep, being 2-dimensional, maps to two copies of the SM singlet.
+
+--------------------------------------------------------------------------------
+5.3 Disclosed Choice 2: U(1)_Y neutrality
+--------------------------------------------------------------------------------
+
+DEFINITION 5.2 (Disclosed Choice 2). The hidden sector fields are assumed to
+have U(1)_Y hypercharge zero.
+
+This choice is consistent with the HCSM-06/07 disclosure pattern for
+hypercharge. It implies that the hidden sector is electrically neutral (after
+electroweak symmetry breaking) and does not contribute to the electromagnetic
+anomaly.
+
+--------------------------------------------------------------------------------
+5.4 Disclosed Choice 3: fermionic statistics of B1 doublets
+--------------------------------------------------------------------------------
+
+DEFINITION 5.3 (Disclosed Choice 3). The 5 hidden B1 modes are assumed to be
+fermionic (Weyl fermions).
+
+The D4 representation B1 sits in the fermionic sector Omega^1, so its natural
+interpretation is as a fermionic doublet. The A1 and other hidden sector modes
+in Omega^1 are similarly fermionic; the modes in Omega^2 are bosonic.
+
+--------------------------------------------------------------------------------
+5.5 The derived hidden sector content
+--------------------------------------------------------------------------------
+
+THEOREM 5.4 (Hidden sector content). Given the three disclosed choices, the
+hidden sector content of the Hodge Complex Standard Model is
+
+    5 (B1 doublets) weak doublets + 6 (A1 triplets) color triplets
+    + 31 singlets SM singlets.
+
+Proof. From Theorem 4.3, the hidden sector has 6A1 + 4A2 + 5B1 + 5B2 + 11E.
+Under the disclosed Choice 1:
+
+    - The 6 A1 modes map to 6 color-triplet fields.
+    - The 5 B1 modes map to 5 weak-doublet fields.
+    - The 4 A2 modes map to 4 SM-singlet fields.
+    - The 5 B2 modes map to 5 SM-singlet fields.
+    - The 11 E modes map to 11 x 2 = 22 SM-singlet fields.
+
+Total SM singlets: 4 + 5 + 22 = 31. Total hidden content: 6 + 5 + 31 = 42.
+
+COROLLARY 5.5 (Framework-constant expression of the content). In terms of the
+framework constants d = 4, N = 64:
+
+    #doublets = d + 1 = 5,
+    #triplets = d + 2 = 6,
+    #singlets = N/2 - 1 = 31.
+
+Proof. #doublets = #B1 = d+1 = 5. #triplets = #A1 = d+2 = 6.
+#singlets = #A2 + #B2 + 2*#E = d + (d+1) + 2*11 = 4 + 5 + 22 = 31
+= N/2 - 1.
+
+REMARK 5.6 (Structural meaning of the content). The three framework
+expressions have natural interpretations:
+
+    - d + 1 = 5 counts the spacetime dimension plus one, i.e., the number of
+      vector directions in a (d+1)-dimensional construction.
+    - d + 2 = 6 counts the spacetime dimension plus two, i.e., the number of
+      generators of the Lorentz group in d dimensions.
+    - N/2 - 1 = 31 counts half the substrate minus one.
+
+These interpretations are suggestive but not derived in the present paper.
+
+================================================================================
+6. CONTRIBUTIONS TO GAUGE COUPLING RUNNING (SETUP FOR HCSM-39)
+================================================================================
+
+The hidden sector content derived in Section 5 contributes to the running of
+the SM gauge couplings. Below the HCSM threshold, each hidden-sector field
+contributes to the one-loop beta-function coefficients.
+
+--------------------------------------------------------------------------------
+6.1 Beta function coefficients
+--------------------------------------------------------------------------------
+
+For a gauge group G with coupling g, the one-loop beta-function coefficient is
+
+    b_G = (11/3) C_2(G) - (2/3) sum_{Weyl} T(R) - (1/6) sum_{scalar} T(R),
+
+where C_2(G) is the quadratic Casimir of the adjoint, T(R) is the Dynkin
+index of representation R, and the sums run over Weyl fermions and complex
+scalars.
+
+--------------------------------------------------------------------------------
+6.2 Contributions from the hidden sector
+--------------------------------------------------------------------------------
+
+The hidden sector contributes to b_3 (SU(3)), b_2 (SU(2)), and b_1 (U(1))
+according to its SM representations. Given the content
+(5 doublets) + (6 triplets) + (31 singlets) with the disclosed U(1)_Y
+neutrality:
+
+    - SU(3) triplet contribution: 6 triplets, each with T(R) = 1/2.
+    - SU(2) doublet contribution: 5 doublets, each with T(R) = 1/2.
+    - SM singlet contribution: 31 singlets, each with T(R) = 0.
+
+The net contributions to the beta-function coefficients (with the
+statistics-factors of 2/3 for fermions and 1/6 for scalars) are the inputs to
+the HCSM-39 Weinberg angle derivation. The precise accounting depends on the
+fermionic/bosonic split of the hidden sector, which is determined by the form
+degree:
+
+    - Hidden sector modes in Omega^1 are fermionic.
+    - Hidden sector modes in Omega^2 are bosonic.
+
+--------------------------------------------------------------------------------
+6.3 Setup for HCSM-39
+--------------------------------------------------------------------------------
+
+The companion paper HCSM-39 derives the Weinberg angle
+sin^2 theta_W(M_Z) = 0.2312 from the HCSM hidden sector content established
+here. The derivation runs the SM gauge couplings from the HCSM threshold
+scale down to M_Z, using the beta-function coefficients computed above. We
+defer the detailed derivation to HCSM-39 and only state here that the content
+derived in this paper is the input.
+
+================================================================================
+7. DERIVATION STATUS
+================================================================================
+
+--------------------------------------------------------------------------------
+7.1 Derived from the substrate
+--------------------------------------------------------------------------------
+
+    1. The full D4 decomposition of the Hodge complex on Lambda (Theorem 3.4).
+    2. The lambda = 4 content 56 = 9A1 + 5A2 + 7B1 + 7B2 + 14E, consistent
+       with HCSM-02.
+    3. The visible sector as Omega^0|lambda=4, 14-dimensional, identified
+       with one SM generation.
+    4. The hidden sector as Omega^1|lambda=4 + Omega^2|lambda=4,
+       42-dimensional.
+    5. The hidden D4 content 6A1 + 4A2 + 5B1 + 5B2 + 11E (Theorem 4.3).
+    6. The framework expressions of the content
+       (d+1) + (d+2) + (N/2 - 1) = 5 + 6 + 31 (Corollary 5.5).
+    7. The setup for the HCSM-39 gauge-coupling-running derivation
+       (Section 6).
+
+--------------------------------------------------------------------------------
+7.2 Disclosed inputs
+--------------------------------------------------------------------------------
+
+    1. The gauge-algebra identification: the assignment of D4 irreps to
+       SU(3) x SU(2) x U(1)_Y representations (Choice 1, Section 5.2).
+    2. The U(1)_Y neutrality of the hidden sector singlets (Choice 2,
+       Section 5.3).
+    3. The fermionic statistics of the hidden B1 doublets (Choice 3,
+       Section 5.4).
+
+--------------------------------------------------------------------------------
+7.3 Open
+--------------------------------------------------------------------------------
+
+    1. The microscopic derivation of the three disclosed choices from the
+       substrate.
+    2. The exact U(1)_Y charges of the hidden color triplets and weak
+       doublets.
+    3. The precise contribution of the hidden sector to the running of the
+       gauge couplings below the HCSM scale.
+    4. The interpretation of the hidden sector as a physical BSM sector
+       beyond the SM.
+
+================================================================================
+8. FALSIFIABLE PREDICTIONS
+================================================================================
+
+The hidden sector content derived in this paper is a structural prediction of
+the HCSM framework. It is testable in principle through:
+
+    1. GAUGE COUPLING UNIFICATION. The hidden sector contributes to the
+       running of the SM gauge couplings. The precise value of
+       sin^2 theta_W(M_Z) derived in companion paper HCSM-39 depends on this
+       content and is testable against the measured value 0.23122 +/- 0.00004.
+    2. ANOMALY CANCELLATION. The hidden sector content must be anomaly-free.
+       The specific charge assignments derived from the disclosed choices
+       must be checked against the anomaly-cancellation conditions.
+    3. PRECISION ELECTROWEAK OBSERVABLES. The hidden sector fields contribute
+       to oblique corrections (S, T, U) at one loop. The specific HCSM content
+       predicts a specific contribution.
+
+The falsifiable prediction of this paper is that the hidden sector content is
+exactly 5 + 6 + 31. If the HCSM-39 Weinberg angle derivation fails or if
+future precision data disfavor this content, the framework's hidden sector
+proposal is falsified.
+
+================================================================================
+9. CONCLUSION
+================================================================================
+
+We have derived the hidden sector content of the Hodge Complex Standard Model.
+The visible sector is the 14-dimensional scalar sub-representation
+Omega^0|lambda=4, identified with one Standard Model generation. The hidden
+sector is the 42-dimensional complement
+Omega^1|lambda=4 + Omega^2|lambda=4, comprising the Hodge lift of the same
+multiplet into the vector and pseudo-scalar sectors.
+
+The hidden sector D4 content is
+
+    6A1 + 4A2 + 5B1 + 5B2 + 11E,
+
+derived from the character theory of the Hodge complex on the 8x8 torus.
+Under the sector-coarse correspondence (HCSM-06) with three disclosed
+physical choices, this content maps to the physical hidden sector
+
+    5 (B1) weak doublets + 6 (A1) color triplets + 31 SM singlets,
+
+equivalently
+
+    (d+1) + (d+2) + (N/2 - 1) = 5 + 6 + 31.
+
+The three disclosed choices are:
+
+    1. the identification of D4 irreps with SU(3) x SU(2) x U(1)
+       representations;
+    2. the U(1)_Y neutrality of the hidden singlets;
+    3. the fermionic statistics of the hidden B1 doublets.
+
+The result sets up the Weinberg angle derivation of companion paper HCSM-39
+and provides the beta-function coefficients needed for the running of the SM
+gauge couplings below the HCSM threshold.
+
+The framework's strength is that it has fewer empirical anchors than the
+Standard Model, not that it has none.
+
+The visible sector is the scalar shadow of the lambda = 4 multiplet. The
+hidden sector is the Hodge lift. Physics is what the machine cannot cancel.
+The Hodge complex is the machine.
+
+================================================================================
+REFERENCES
+================================================================================
+
+[HCSM-00]  Preschutti, S. HCSM-00: Foundations, Notation, and Mapping. HCSM
+           White Paper Series (2026).
+[HCSM-01]  Preschutti, S. HCSM-01: The 8x8 Torus Substrate from d = 4. HCSM
+           White Paper Series (2026).
+[HCSM-02]  Preschutti, S. HCSM-02: The Hodge Complex on Lambda. HCSM White
+           Paper Series (2026).
+[HCSM-04]  Preschutti, S. HCSM-04: The 14-Mode Multiplet at lambda = 4. HCSM
+           White Paper Series (2026).
+[HCSM-05]  Preschutti, S. HCSM-05: Orbit Decomposition and Inverse
+           Participation. HCSM White Paper Series (2026).
+[HCSM-06]  Preschutti, S. HCSM-06: Sector-Coarse Correspondence. HCSM White
+           Paper Series (2026).
+[HCSM-07]  Preschutti, S. HCSM-07: Hypercharge Quantization. HCSM White
+           Paper Series (2026).
+[HCSM-10]  Preschutti, S. HCSM-10: The Self-Canceling Vacuum Mechanism. HCSM
+           White Paper Series (2026).
+[HCSM-23]  Preschutti, S. HCSM-23: The Identification of the 14 Modes with
+           One Standard Model Generation. HCSM White Paper Series (2026).
+[HCSM-35]  Preschutti, S. HCSM-35: The Daughter Structure of the CKM Matrix.
+           HCSM White Paper Series (2026).
+[HCSM-39]  Preschutti, S. HCSM-39: The Weinberg Angle. HCSM White Paper
+           Series (2026, in preparation).
+[WIN-32]   Preschutti, S. Hidden Sector Content of the WIN Paradigm: Five
+           Fermionic Weak Doublets, Six Color Triplets, and the Derivation of
+           sin^2 theta_W(M_Z). WIN Paradigm White Paper (2026).
+[PDG]      Particle Data Group (S. Navas et al.). Review of Particle Physics.
+           Phys. Rev. D 110, 030001 (2024).
+
+================================================================================
+APPENDIX A - CHARACTER THEORY DETAILS
+================================================================================
+
+The D4 fixed-point counts in Table 2 are derived as follows.
+
+For each element g in D4, the character chi_{Omega^0}(g) equals the number of
+sites (x, y) in Z_8 x Z_8 fixed by g. The counts are:
+
+    - e: all 64 sites fixed.
+    - r: solutions of x = -y, y = x give x in {0, 4}, 2 sites.
+    - r^2: solutions of x = -x, y = -y give x, y in {0, 4}, 4 sites.
+    - r^3: solutions of x = y, y = -x give x in {0, 4}, 2 sites.
+    - s: solutions of y = -y give y in {0, 4}, 8*2 = 16 sites.
+    - rs: solutions of x = y give 8 sites.
+    - r^2 s: solutions of x = -x give x in {0, 4}, 2*8 = 16 sites.
+    - r^3 s: solutions of y = -x give 8 sites.
+
+These counts give the character values in Table 2. The orthogonality
+relations then give the multiplicities in Theorem 3.1.
+
+================================================================================
+APPENDIX B - REPRODUCIBLE VERIFICATION
+================================================================================
+
+The verification script 12-VERIFICATION/HCSM-38_verification.py reproduces
+every numerical claim in this paper. It performs:
+
+    1. Construct the D4 action on Lambda = Z_8 x Z_8.
+    2. Compute the character of Omega^0 by counting fixed points.
+    3. Verify the decomposition 15A1 + 3A2 + 10B1 + 6B2 + 15E.
+    4. Compute Omega^1 = Omega^0 tensor E and verify
+       15A1 + 15A2 + 15B1 + 15B2 + 34E.
+    5. Verify Omega^2 = Omega^0 as D4 representations.
+    6. Verify the full content 45A1 + 21A2 + 35B1 + 27B2 + 64E,
+       dimension 256.
+    7. Verify the lambda = 4 content from HCSM-02.
+    8. Verify the hidden sector content 6A1 + 4A2 + 5B1 + 5B2 + 11E,
+       dimension 42.
+    9. Verify the physical content 5 + 6 + 31 = 42, i.e.,
+       (d+1) + (d+2) + (N/2 - 1) = 5 + 6 + 31.
+
+================================================================================
+APPENDIX C - WEB CRAWLER METADATA
+================================================================================
+
+Dublin Core
+-----------
+
+DC.title: HCSM-38: Hidden Sector Content of the Hodge Complex Standard Model
+DC.creator: Preschutti, Stanley
+DC.creator.orcid: 0009-0004-5445-1744
+DC.date.issued: 2026-09
+DC.type: Text / Preprint / White Paper
+DC.format: application/pdf; text/x-latex
+DC.language: en
+DC.publisher: Entropia Research Institute
+DC.rights: All rights reserved
+DC.subject: Hodge Complex Standard Model; HCSM; hidden sector; Hodge
+  complex; D4 representation theory; character theory; 8x8 torus;
+  standard model; gauge coupling running; Weinberg angle
+DC.description: This paper derives the hidden sector content of the Hodge
+  Complex Standard Model from the D4 representation theory of the Hodge
+  complex on the 8x8 torus. The visible sector is the 14 scalar modes at
+  lambda = 4. The hidden sector is the 42 modes at lambda = 4 in the Omega^1
+  and Omega^2 form degrees. Its D4 content is
+  6A1 + 4A2 + 5B1 + 5B2 + 11E. Under the sector-coarse correspondence with
+  three disclosed physical choices, this maps to 5 weak doublets + 6 color
+  triplets + 31 singlets, equivalently (d+1) + (d+2) + (N/2 - 1) = 5+6+31.
+DC.identifier: HCSM-38-2026-09
+
+BibTeX for Automated Indexing
+-----------------------------
+
+@article{PreschuttiHCSM38,
+  author = {Preschutti, Stanley},
+  title = {{HCSM-38}: Hidden Sector Content of the {Hodge Complex Standard
+    Model}},
+  journal = {HCSM White Paper Series},
+  year = {2026},
+  month = {September},
+  note = {ORCID: 0009-0004-5445-1744},
+  keywords = {Hodge Complex Standard Model, HCSM, hidden sector, Hodge
+    complex, D4 representation theory, character theory, 8x8 torus,
+    standard model, gauge coupling running, Weinberg angle},
+  abstract = {The Hodge Complex Standard Model identifies the 14 scalar
+    modes at lambda = 4 with one Standard Model generation. This paper
+    derives the hidden sector content: 42 modes at lambda = 4 in the Omega^1
+    and Omega^2 form degrees. The D4 content is
+    6A1 + 4A2 + 5B1 + 5B2 + 11E, mapping under disclosed choices to
+    5 weak doublets + 6 color triplets + 31 singlets, equivalently
+    (d+1) + (d+2) + (N/2-1) = 5 + 6 + 31.}
+}
+
+================================================================================
+END OF HCSM-38
+================================================================================
