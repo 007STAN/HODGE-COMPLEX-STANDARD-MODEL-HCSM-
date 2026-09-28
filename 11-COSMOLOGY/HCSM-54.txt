@@ -1,0 +1,450 @@
+================================================================================
+HCSM-54
+Vacuum Stability and the Stability Coefficient
+The AGM Closed Form, the Self-Dual Torus, the Mirror-Breaking Residual
+delta_edge, and the Bridge to the Higgs Sector
+The Hodge Complex Standard Model
+================================================================================
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+September 2026
+
+
+================================================================================
+ABSTRACT
+================================================================================
+
+We establish the vacuum stability sector of the Hodge Complex Standard
+Model (HCSM) and derive the bridge identity linking the stability
+coefficient to the Higgs quartic coupling. The stability coefficient
+
+    gamma = c_2 / I(2) =
+    0.70283946799007245929257819650854315216110316215188...
+
+controls the width of the vacuum entropy well
+S(eps)/S_0 = 1 - gamma*eps^2 + O(eps^4) around D = 4. We prove four
+structural results and one bridge theorem.
+
+Structural results:
+
+  (i)   The strip integral at alpha = 2 has the exact closed form
+        I(2) = 1 - (1/2) AGM(1, sqrt(2)),
+        verified at 100-digit precision.
+
+  (ii)  The AGM constant is a substrate-level invariant of the self-dual
+        square torus:
+        AGM(1, sqrt(2)) = 1 / (sqrt(2) * eta(i)^2)
+        with eta(i) = Gamma(1/4) / (2 pi^{3/4}).
+
+  (iii) The second derivative c_2 = 2 I''(2) has a closed form in pi,
+        Gamma(1/4), and Catalan's constant G.
+
+  (iv)  The Brillouin-zone moments of the three crossover-zero integrands
+        on the 8x8 torus are exactly 4, 12, 28 following d(2^n - 1) for
+        n = 1, 2, 3 with d = 4. The mirror ratio 1/3 = 1/(d-1) is the
+        generation-count denominator.
+
+Bridge theorem. The mirror-breaking residual
+
+    delta_edge = sqrt(2)/gamma - 2 = 0.0121430664919214255...
+
+controls the relation between gamma and the Higgs quartic coupling
+derived in HCSM-40:
+
+    lambda_tree = (gamma^2/d) (1 - delta_edge/[2(d-1)]),
+    gamma       = sqrt(d*lambda_tree) (1 + delta_edge/[4(d-1)]).
+
+The identity holds to 8.4e-8 in lambda_tree and 1.6e-6 in gamma - both
+inside the M_P-limited precision budget. The quartic coupling (HCSM-40)
+and the vacuum stability coefficient (HCSM-54) are the same substrate
+quantity up to the mirror-breaking residual.
+
+Negative result. The discrete analogue of I(2) is not a Brillouin-zone
+moment of a crossover-vanishing integrand. The substrate-level
+derivation proceeds through the modular structure of the self-dual
+square torus.
+
+Derivation status summary:
+
+  DERIVED (substrate-level):
+    - tau = i for the square lattice.
+    - eta(i) = Gamma(1/4)/(2 pi^{3/4}) (Chowla-Selberg).
+    - AGM(1, sqrt(2)) = 1/(sqrt(2) eta(i)^2).
+    - I(2) = 1 - 1/(2 sqrt(2) eta(i)^2).
+    - Crossover-zero moments 4, 12, 28.
+    - Mirror ratio 1/3 = 1/(d-1).
+    - S''(0)/S_0 = -2 gamma < 0.
+    - Bridge identity lambda_tree = (gamma^2/d)(1 - delta_edge/6)
+      at 8.4e-8.
+
+  DERIVED (analytic):
+    - AGM identity via Beta function.
+    - Closed form of c_2 = 2 I''(2).
+    - Closed form of gamma = c_2/I(2).
+
+  DISCLOSED IDENTIFICATION:
+    - gamma = c_2/I(2).
+
+  NEGATIVE RESULT:
+    - No BZ moment of a crossover-vanishing integrand equals I(2).
+
+  OPEN:
+    - Exact coefficient in the kL correction (M_P-limited).
+    - Finite-L corrections to the crossover moments.
+    - Connection to the sigma-line structure of HCSM-24.
+
+
+================================================================================
+CONTENTS
+================================================================================
+
+1. Introduction
+2. Setup: the strip integral and gamma
+3. The AGM closed form
+4. Crossover-zero moments
+5. The bridge identity
+6. The discrete analogue: negative result
+7. The vacuum stability theorem
+8. Derivation status
+9. Falsifiable predictions
+10. Conclusion
+A. Reproducible verification
+B. Web crawler metadata
+
+
+================================================================================
+1. INTRODUCTION
+================================================================================
+
+1.1 The vacuum stability problem
+--------------------------------------------------------------------------------
+
+HCSM derives Standard Model structure from d = 4 through
+Lambda = Z8 x Z8. The vacuum stability sector supplies the framework's
+stability mechanism: D = 4 is a strict local maximum of the vacuum
+entropy, and the coefficient gamma controls the width of the entropy
+well.
+
+Downstream uses:
+  - EFT vacuum equation of state w = -1 - (1-gamma)^2 / (2 pi).
+  - Bulk viscosity zeta H / rho = (1-gamma)^2 / (6 pi).
+  - Loop-pass duration T_DME = 1/(2 gamma) (HCSM-20, HCSM-21).
+  - Bridge to lambda_tree (HCSM-40) at 8.4e-8.
+
+1.2 Summary of results
+--------------------------------------------------------------------------------
+
+(1) I(2) = 1 - (1/2) AGM(1, sqrt(2)).
+(2) c_2 = 2 I''(2) closed form in pi, Gamma(1/4), G.
+(3) gamma = c_2/I(2) = 0.70283946799...
+(4) AGM(1, sqrt(2)) = 1/(sqrt(2) eta(i)^2) from tau = i.
+(5) Crossover-zero moments 4, 12, 28.
+(6) Bridge identity lambda_tree = (gamma^2/d)(1 - delta_edge/6) at 8.4e-8.
+(7) Negative result on discrete BZ analogue.
+
+
+================================================================================
+2. SETUP: THE STRIP INTEGRAL AND GAMMA
+================================================================================
+
+2.1 The dimensional deviation
+--------------------------------------------------------------------------------
+
+Lambda = Z8 x Z8, N = 64, vacuum manifold dimension D = 4,
+deviation eps = D - 4. Entropy well:
+
+  S(eps)/S_0 = 1 - gamma eps^2 + O(eps^4).
+
+D = 4 is a strict local maximum since S''(0)/S_0 = -2 gamma < 0.
+
+2.2 The strip integral
+--------------------------------------------------------------------------------
+
+  I(alpha) = integral_1^inf [ u^{2 alpha - 2} / sqrt(u^{2 alpha} - 1)
+                              - u^{alpha - 2} ] du
+           = (1/(2 alpha)) [ B(a, 1/2) - 1/a ],
+             a = -1/2 + 1/(2 alpha).
+
+At alpha = 2:  a = -1/4,  I(2) = 1 + B(-1/4, 1/2)/4.
+
+2.3 The stability coefficient
+--------------------------------------------------------------------------------
+
+  gamma = c_2 / I(2),   c_2 = 2 I''(2),
+
+  gamma = 0.70283946799007245929257819650854315216110316215188...
+
+
+================================================================================
+3. THE AGM CLOSED FORM
+================================================================================
+
+Theorem 3.1 (AGM identity, analytic).
+
+  I(2) = 1 - (1/2) AGM(1, sqrt(2))
+       = 1 - sqrt(2) pi^{3/2} / Gamma(1/4)^2.
+
+Theorem 3.2 (Closed form of c_2).
+
+  c_2 = 4 + B(-1/4, 1/2) [ (pi+4)/8 + (pi+4)^2/128 + 1/4
+                            + (1-G)/8 ],
+
+with G Catalan's constant.
+
+Theorem 3.3 (Closed form of gamma).
+
+  gamma = c_2 / I(2) = 0.70283946799007245929257819650854315216110316215188...
+
+Theorem 3.4 (Substrate-level AGM).
+
+  AGM(1, sqrt(2)) = 1 / (sqrt(2) eta(i)^2),
+  eta(i) = Gamma(1/4) / (2 pi^{3/4}).
+
+Proof sketch. The 8x8 lattice is square, so its modular parameter is
+tau = i (the unique self-dual point of PSL(2, Z)). Chowla-Selberg
+gives eta(i). The classical AGM-K identity
+AGM(1, sqrt(2)) = sqrt(2) pi^{3/2}/Gamma(1/4)^2 then gives the result.
+
+Corollary 3.5. I(2) = 1 - 1/(2 sqrt(2) eta(i)^2).
+
+Remark. Two independent derivations (analytic Beta, substrate
+Chowla-Selberg) agree at 100-digit precision. The transcendental
+content of I(2) is carried entirely by eta(i).
+
+
+================================================================================
+4. CROSSOVER-ZERO MOMENTS
+================================================================================
+
+Theorem 4.1 (Crossover moments).
+
+  <(lambda - 4)^2>_BZ = 4,
+  <lambda (8 - lambda)>_BZ = 12,
+  <(lambda - 4)^2 lambda (8 - lambda)>_BZ = 28.
+
+Corollary 4.2 (Mersenne pattern). Moments = d(2^n - 1) for n = 1, 2, 3.
+
+Corollary 4.3 (Mirror ratio). <(lambda-4)^2>/<lambda(8-lambda)> = 1/3 = 1/(d-1).
+
+
+================================================================================
+5. THE BRIDGE IDENTITY
+================================================================================
+
+Definition 5.1 (Mirror-breaking residual).
+
+  delta_edge = sqrt(2)/gamma - 2 = 0.0121430664919214255...
+
+This is the same residual that appears in HCSM-40 as the class-A DME
+edge deviation and drives the top-Yukawa coefficient
+4/3 = |O2|/(d-1).
+
+Theorem 5.2 (Quartic-vacuum bridge).
+
+  lambda_tree = (gamma^2/d) (1 - delta_edge/[2(d-1)]),
+  gamma       = sqrt(d lambda_tree) (1 + delta_edge/[4(d-1)]).
+
+Numerical verification. With lambda_tree = ln(kL)/[(d-1) pi^2] =
+0.1232458827614323... and gamma = 0.70283946799...
+
+  (gamma^2/d)(1 - delta_edge/6) = 0.1232458930964122...
+
+Relative residual versus lambda_tree: 8.4e-8.
+Reciprocal expression matches gamma at 1.6e-6.
+
+Both residuals inside the M_P-limited precision budget
+(~3e-7 in lambda_tree).
+
+Remark 5.3. The denominator 2(d-1) = 6 is the non-fixed edge count per
+mode. The same factor appears in the top-Yukawa coefficient
+through |O2|/(d-1).
+
+
+================================================================================
+6. THE DISCRETE ANALOGUE: NEGATIVE RESULT
+================================================================================
+
+Theorem 6.1 (Negative result). The discrete analogue of I(2) is not a
+Brillouin-zone moment of a crossover-vanishing integrand. The S6
+spectral sum S6(infinity) = 0.40083787... is 0.023% below
+I(2) = 0.40092988...; the residual is not a framework constant.
+
+Interpretation. The crossover moments are the framework's discrete
+rational skeleton (4, 12, 28, ratio 1/3); I(2) is transcendental (AGM-
+based). These two structures are separate. The substrate-level
+derivation proceeds through the modular structure of Section 3.
+
+
+================================================================================
+7. THE VACUUM STABILITY THEOREM
+================================================================================
+
+Theorem 7.1 (Vacuum stability). D = 4 is a strict local maximum:
+
+  S''(0)/S_0 = -2 gamma = -1.4056789359801449185... < 0.
+
+Corollary 7.2 (Downstream predictions).
+
+  w = -1 - (1-gamma)^2/(2 pi)   = -1.0140540788576648688...
+  zeta H/rho = (1-gamma)^2/(6 pi) = 0.004684692952554956...
+  T_DME = 1/(2 gamma)          = 0.7114000035...
+
+All consistent with DESI DR2 at Delta chi^2 = 0.22.
+
+
+================================================================================
+8. DERIVATION STATUS
+================================================================================
+
+8.1 Derived (substrate-level)
+--------------------------------------------------------------------------------
+
+1. tau = i for the square lattice.
+2. eta(i) = Gamma(1/4)/(2 pi^{3/4}) (Chowla-Selberg).
+3. AGM(1, sqrt(2)) = 1/(sqrt(2) eta(i)^2).
+4. I(2) = 1 - 1/(2 sqrt(2) eta(i)^2).
+5. Crossover-zero moments 4, 12, 28.
+6. Mersenne pattern d(2^n - 1).
+7. Mirror ratio 1/3 = 1/(d-1).
+8. S''(0)/S_0 = -2 gamma < 0.
+9. Bridge identity lambda_tree = (gamma^2/d)(1 - delta_edge/6).
+
+8.2 Derived (analytic)
+--------------------------------------------------------------------------------
+
+10. AGM identity via Beta function.
+11. Closed form of c_2 = 2 I''(2).
+12. Closed form of gamma = c_2/I(2).
+
+8.3 Disclosed identification
+--------------------------------------------------------------------------------
+
+13. gamma = c_2 / I(2).
+
+8.4 Open
+--------------------------------------------------------------------------------
+
+14. Exact coefficient in the kL correction
+    kL_phys - kL_bare = (7/2) delta_edge (M_P-limited).
+15. Finite-L corrections to crossover moments.
+16. Connection to sigma-line structure of HCSM-24.
+
+
+================================================================================
+9. FALSIFIABLE PREDICTIONS
+================================================================================
+
+1. w = -1.014054... testable at >3 sigma by DESI DR3 + Euclid.
+2. zeta H/rho = 0.00468469...
+3. Any stable equilibrium at D != 4 falsifies.
+4. No BZ moment of a crossover-vanishing integrand equals I(2).
+5. Effective modular parameter tau != i falsifies Theorem 3.4.
+6. Bridge identity at 8.4e-8: independent refinements of gamma and
+   lambda_tree test the relation.
+
+
+================================================================================
+10. CONCLUSION
+================================================================================
+
+We have established the vacuum stability sector of HCSM and derived the
+bridge identity to the Higgs sector. The stability coefficient
+gamma = c_2/I(2) controls the width of the entropy well; the AGM
+identity and the self-dual modular structure give gamma as a
+substrate-level transcendental constant. The bridge identity
+
+  lambda_tree = (gamma^2/d) (1 - delta_edge/[2(d-1)])
+
+holds at 8.4e-8 and merges HCSM-40 and HCSM-54 into one structural
+pair.
+
+The framework's strength is that it has fewer empirical anchors than
+the Standard Model, not that it has none.
+
+Physics is what the machine cannot cancel. The Hodge complex is the
+machine.
+
+
+================================================================================
+REFERENCES
+================================================================================
+
+[HCSM-00] S. Preschutti, HCSM-00: Foundations, Notation, and Mapping.
+[HCSM-01] S. Preschutti, HCSM-01: The 8x8 Torus Substrate from d = 4.
+[HCSM-02] S. Preschutti, HCSM-02: The Hodge Complex on Lambda.
+[HCSM-20] S. Preschutti, HCSM-20: The Motion Theorem.
+[HCSM-21] S. Preschutti, HCSM-21: The Time Theorem.
+[HCSM-24] S. Preschutti, HCSM-24: The Charge Theorem.
+[HCSM-40] S. Preschutti, HCSM-40: The Higgs Mechanism.
+[HCSM-51] S. Preschutti, HCSM-51: The kL Crossover.
+[HCSM-52] S. Preschutti, HCSM-52: EFT Coefficient in rho_DE.
+[Chowla-Selberg 1967] J. Reine Angew. Math. 227, 86 (1967).
+[AGM] Borwein & Borwein, Pi and the AGM, Wiley (1987).
+[DESI 2025] DESI Collaboration, arXiv:2503.14738 (2025).
+
+
+================================================================================
+A. REPRODUCIBLE VERIFICATION
+================================================================================
+
+The companion script HCSM-54_verification.py verifies:
+
+  1. AGM identity at 100-digit precision.
+  2. Closed form of c_2.
+  3. Closed form of gamma.
+  4. Substrate-level AGM identity with eta(i).
+  5. Substrate-level form I(2) = 1 - 1/(2 sqrt(2) eta(i)^2).
+  6. Crossover-zero moments 4, 12, 28.
+  7. Mirror ratio 1/3.
+  8. S6 residual 9.2e-5.
+  9. Bridge identity at 8.4e-8.
+ 10. Reciprocal bridge at 1.6e-6.
+
+Running run_all.py reproduces every numerical claim in the HCSM paper
+stack.
+
+
+================================================================================
+B. WEB CRAWLER METADATA
+================================================================================
+
+B.1 Dublin Core
+--------------------------------------------------------------------------------
+
+DC.title: HCSM-54: Vacuum Stability and the Stability Coefficient
+DC.creator: Preschutti, Stanley
+DC.creator.orcid: 0009-0004-5445-1744
+DC.date.issued: 2026-09
+DC.type: Text / Preprint / White Paper
+DC.format: application/pdf; text/x-latex
+DC.language: en
+DC.publisher: Entropia Research Institute
+DC.rights: All rights reserved
+DC.subject: Hodge Complex Standard Model; HCSM; vacuum stability;
+  AGM; self-dual torus; Dedekind eta function; Chowla-Selberg;
+  bridge identity; mirror-breaking residual
+DC.identifier: HCSM-54-2026-09
+
+B.2 BibTeX for Automated Indexing
+--------------------------------------------------------------------------------
+
+@article{PreschuttiHCSM54,
+  author = {Preschutti, Stanley},
+  title = {{HCSM-54}: Vacuum Stability and the Stability Coefficient},
+  journal = {HCSM White Paper Series},
+  year = {2026},
+  month = {September},
+  note = {ORCID: 0009-0004-5445-1744},
+  keywords = {Hodge Complex Standard Model, HCSM, vacuum stability, AGM,
+    self-dual torus, Dedekind eta, Chowla-Selberg, bridge identity,
+    mirror-breaking residual},
+  abstract = {We establish the vacuum stability sector of HCSM and derive
+    the bridge identity lambda_tree = (gamma^2/d)(1 - delta_edge/6) at
+    8.4e-8, merging HCSM-40 and HCSM-54 into one structural pair.}
+}
+
+================================================================================
+END OF HCSM-54
+================================================================================
