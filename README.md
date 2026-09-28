@@ -8,6 +8,7 @@
 [![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-red.svg)](#license)
 [![Status](https://img.shields.io/badge/Status-Active%20Research-blue.svg)](#repository-structure)
 [![Papers](https://img.shields.io/badge/Papers-55%20of%2060-orange.svg)](#repository-structure)
+[![Blockers](https://img.shields.io/badge/Open%20Blockers-0-brightgreen.svg)](#still-open)
 
 **Physics is what the machine cannot cancel. The Hodge complex is the machine.**
 
@@ -25,7 +26,6 @@ Stanley Preschutti · Entropia Research Institute / Information Physics Institut
 - [Falsifiable Predictions](#falsifiable-predictions)
 - [Fully Derived](#fully-derived)
 - [Still Open](#still-open)
-- [Recent Progress](#recent-progress)
 - [Repository Structure](#repository-structure)
 - [Citation](#citation)
 - [Contact](#contact)
@@ -39,8 +39,8 @@ HCSM derives the Standard Model's gauge structure, matter content, particle spec
 
 The dimension itself is derived from the photon's two helicity states and independently from the equal entropy spacing of the torus Laplacian.
 
-> **No other inputs. No fitted parameters in the structural sector.**
-> Every result below follows from `d = 4` and the 8×8 torus it forces.
+> **One dimensionful anchor (M_P). Three discrete disclosed inputs (SM content, physical identifications, identification thesis).**
+> Every other result below follows from `d = 4` and the 8×8 torus it forces.
 
 ---
 
@@ -60,7 +60,7 @@ Each level uses only the level above it. **Every arrow is a theorem.**
 | **7** | Hidden `B₁` sector | Normalization | `(d+1)² = 25`; `8π = 2π · dim ker D` |
 | **8** | Charge theorem `q₃ = F(n₁, σ)` | Electric charge | Bijection to `{−3, −1, 0, +2, +3}` |
 | **9** | `N/4` labels via δ function | Mass ordering | Mass map `m = A · exp(−B · N/4)` |
-| **10** | `D₄` breaking pattern | Flavor | CKM (RMS 0.0975), PMNS (RMS 0.035) |
+| **10** | `D₄` breaking pattern | Flavor | CKM hierarchical in `π/14`; PMNS `(60, 60, 58)` |
 | **11** | `kL` self-consistency | Cosmology | `ρ_DE = (d+1)/2 · m_ν⁴`; `w = −1` |
 
 ---
@@ -105,14 +105,16 @@ Every observed structure in the Standard Model is a **residue** — a zero that 
 
 | # | Prediction | Value | Test | Timeline |
 |:-:|---|---|---|---|
-| 1 | CKM element `\|V_td\|` | `0.0061 ± 0.0001` | Belle II, LHCb | 2026–2028 |
-| 2 | Equation of state `w` | `−1.014054…` | DESI DR3 + Euclid | 2026–2027 |
-| 3 | Bulk viscosity `ζH/ρ` | `0.004685…` | Euclid growth rate | 2027–2028 |
-| 4 | Graviton spin | Exactly 2 | LIGO/Virgo polarization | Ongoing |
-| 5 | Graviton mass | Exactly 0 | Any detection above bound falsifies | Ongoing |
-| 6 | Kaluza–Klein tower | Absent | HL-LHC | 2026+ |
-| 7 | Kinetic mixing `ε` | `0.001193` | Dark photon searches | 2026+ |
-| 8 | Equivalence principle | Exact at leading order | STEP at `η < 10⁻¹⁸` | Future |
+| 1 | Top quark mass | `172.688 GeV` | Improved `m_t` measurement | Ongoing |
+| 2 | CKM element `\|V_td\|` | `0.0061 ± 0.0001` | Belle II, LHCb | 2026–2028 |
+| 3 | Cabibbo angle | `sin θ₁₂ = π/14 = 0.2243995` | Refined CKM fit | 2026+ |
+| 4 | Equation of state `w` | `−1.014054…` | DESI DR3 + Euclid | 2026–2027 |
+| 5 | Bulk viscosity `ζH/ρ` | `0.004685…` | Euclid growth rate | 2027–2028 |
+| 6 | Graviton spin | Exactly 2 | LIGO/Virgo polarization | Ongoing |
+| 7 | Graviton mass | Exactly 0 | Any detection above bound falsifies | Ongoing |
+| 8 | Kaluza–Klein tower | Absent | HL-LHC | 2026+ |
+| 9 | Kinetic mixing `ε` | `0.001193` | Dark photon searches | 2026+ |
+| 10 | Normal neutrino ordering | `m₁ ≈ m₂ < m₃` | JUNO, DUNE | 2027+ |
 
 ---
 
@@ -126,7 +128,7 @@ Every item below is **100% HCSM-native**.
 |---|---|
 | `d = 4` from photon helicity | Analytical |
 | `d = 4` from equal entropy spacing | Analytic + numerical to `L = 10⁴` |
-| `N = d · 2ᵈ = 64` | Arithmetic |
+| `N = d · 2ᵈ = 64` | Theorem (photon × Hodge degrees) |
 | 8×8 torus from `2(L−1) = 14` | Unique for `L ≤ 10⁴` |
 | 14-mode multiplet at `λ = 4` | Direct computation |
 | Support classes `64, 48, 32` | Direct computation |
@@ -141,6 +143,7 @@ Every item below is **100% HCSM-native**.
 | `su(3) ⊕ su(2) ⊕ u(1)⁵` embedding | Proven |
 | `dim ker D = 4` (dimensional uplift) | Proven |
 | Lorentzian signature `(−, +, +, +)` | From Hodge star on `ker D` |
+| Emergent `SO(3,1)` Lorentz invariance | From Hodge metric on `ker D` |
 
 ### Gravity
 
@@ -151,11 +154,12 @@ Every item below is **100% HCSM-native**.
 | Masslessness Theorem | Proven (Schur) |
 | Graviton–IPR correspondence | Verified |
 | Equivalence principle | Verified |
-| `(d+1)² = 25` from hidden `B₁` bilinear trace | Derived |
+| `(d+1)² = 25` from hidden `B₁` bilinear trace | Theorem |
 | Dual role of hidden `B₁` (`G_N` and `sin²θ_W`) | Derived |
 | Pythagorean identity `(d−1)² + d² = (d+1)²` | Proven (unique at `d = 4`) |
+| `G_N = (d+1)² / (8π M_P²)` | Derived |
 
-### Charge and Mass
+### Charge, Mass, and the Processor
 
 | Result | Method |
 |---|---|
@@ -163,31 +167,52 @@ Every item below is **100% HCSM-native**.
 | `4×4` charge density | Exact periodicity |
 | `N/4` labels via δ function | Direct computation |
 | Shell rule (support, `n₁` → shell) | 14/14 match, zero fitted parameters |
+| Mass-map coefficient `(d−1)/2 = 3/2` | Processor `F/B` split + DNLS orbit trace |
 | Mass map RMS `0.0449 dex` | Zero free parameters |
+| `O₂ = Fix(M)` self-mirror orbit | Theorem |
+| Top-Yukawa coefficient `4/3 = \|O₂\|/(d−1)` | Theorem |
+| Loop-pass duration `T_DME = 1/(2γ)` | Landauer selection |
+
+### Higgs Sector
+
+| Result | Method |
+|---|---|
+| Tree-level quartic `λ_tree = ln(kL)/[(d−1)π²]` | Theorem |
+| Mexican-hat shape from DME entropy well | Derived |
+| Top-Yukawa `y_t² = 1 − (4/3)δ_edge` | Theorem |
+| Bridge identity `λ_tree = γ²/d · (1 − δ_edge/6)` | Theorem (`8.4×10⁻⁸`) |
+| Single mass anchor `v_EW = M_P exp(−kL_phys)` | Theorem |
 
 ### Flavor
 
 | Result | Method |
 |---|---|
-| CKM matrix (8/9 within 4%) | RMS 0.0975 |
-| Jarlskog invariant `J` | 0.05% error |
+| Cabibbo angle `sin θ₁₂ = π/14` | Theorem (`0.044%`) |
+| Wolfenstein `A = d/(d+1) · (1+δ_edge)` | Theorem (`0.066%`) |
+| `√(ρ̄² + η̄²) = 5/12` | Theorem (`0.27%`) |
+| CKM hierarchical in `π/14` | Derived |
+| Z₃ cyclic partition and daughter relations | Derived |
+| Neutrino `N/4` spectrum `(60, 60, 58)` | Spin-structure theorem |
 | PMNS matrix (all 9 elements) | RMS 0.035 |
-| `\|V_td\| = 0.0061 ± 0.0001` | Falsifiable |
+| PMNS mixing angles `34.2°, 47.9°, 8.5°` | All within `1.3°` of PDG |
+| Dirac CP phase `δ_CP ≈ 197°` | Derived |
 
 ### Cosmology
 
 | Result | Method |
 |---|---|
-| `kL` self-consistency | `38.440831` to 0.004% |
-| Dark energy `ρ_DE = (d+1)/2 · m_ν⁴` | 0.76% |
+| `kL` self-consistency | `38.440831` to `0.004%` |
+| Dark energy `ρ_DE = (d+1)/2 · m_ν⁴` | `0.76%` |
 | Equation of state `w = −1` | Exact (topological Casimir) |
+| Vacuum stability coefficient `γ` | From `τ = i`, `η(i)`, AGM closed form |
+| Two-loop anomaly closure | `{γ₅, D} = 0` (structural) |
 
 ### Gauge Content
 
 | Result | Method |
 |---|---|
-| Higgs mass `125.14 GeV` | 0.09% error |
-| Weinberg angle `sin²θ_W(M_Z) = 0.2312` | 0.02% error |
+| Higgs mass `125.14 GeV` | `0.09%` error |
+| Weinberg angle `sin²θ_W(M_Z) = 0.2312` | `0.02%` error |
 | Hidden sector content (5 `B₁`, 6 `A₁`, 31 singlets) | Derived from `D₄` multiplicities |
 | Kinetic mixing `ε = 2025/1697500` | Derived |
 
@@ -195,105 +220,72 @@ Every item below is **100% HCSM-native**.
 
 ## Still Open
 
+**All seven structural rank blockers are closed.** The remaining open items are refinements and extensions, not structural gaps.
+
 ### Substrate
-- Microscopic derivation of `N = d · 2ᵈ` from first principles
 - Finite-volume corrections to the residual zero-point
 
-### Hodge Complex
-- Full HCSM-native derivation of the boundary functional
-
-### Processor Dynamics
-- Higher-order DNLS mean-field corrections
-- Loop-pass duration selection (`T_DME` vs `T_beat`)
-
-### Mass Sector
-- `(d−1)/2` coefficient from higher-order DNLS
-- Exact accuracy of the mass map (currently RMS 0.0449 dex)
-
 ### Flavor
-- Microscopic derivation of the flavor weights from `D₄` representation theory
-- Spin-structure construction for PMNS (fully rigorous)
-- 3D-irrep extension for the residual `\|V_td\|`
+- Exact phase within the five framework candidates for `φ_gen ≈ 0.6π`
+- Anti-daughter relations `|V₃₁| = (15/16)|V₃₂||V₂₁|`, `|V₁₃| = (4/9)|V₃₁|` — candidates at `<0.1%`
+- Class-1 daughter denominator `145 = N + (d−1)ᵈ` — three equivalent interpretations
 
 ### Cosmology
-- Promotion of the residual vacuum energy to the observed cosmological constant
+- Exact coefficient in the `kL` correction `kL_phys − kL_bare = (7/2)·δ_edge` (M_P-limited)
 - Finite-`L` corrections to the crossover-zero moments
 
 ### Framework Level
-- The physical mechanism by which `c₂` (rather than another derivative) enters at second order
-
----
-
-## Recent Progress
-
-The following papers have been completed and are HCSM-native:
-
-| # | Title | Status |
-|---|---|---|
-| HCSM-20 | The Motion Theorem | ✅ Written |
-| HCSM-31 | Generation Count and Flavor Mechanics | ✅ Written |
-| HCSM-32 | The Shell Assignment Rule | ✅ Written |
-| HCSM-53 | Dark Energy Density | ✅ Written |
-| HCSM-54 | Vacuum Stability and the Stability Coefficient | ✅ Written |
-
-**Key results delivered this session:**
-
-- **Rank 1 blocker closed.** The stability coefficient `γ` is now derived from the self-dual square torus. The `8×8` torus is square, its modular parameter is `τ = i`, and the Dedekind eta function at the self-dual point gives
-
-  ```
-  η(i) = Γ(1/4) / (2π^{3/4})
-  AGM(1, √2) = 1 / (√2 · η(i)²)
-  I(2) = 1 − AGM(1, √2) / 2
-  γ = c₂/I(2) = 0.70283946799007245929257819650854315216110316215188...
-  ```
-
-  This removes the Ryu–Takayanagi continuum import from the entire framework.
-
-- **Cosmology tier closed.** `ρ_DE = (d+1)/2 · m_ν⁴ = 2.4809 × 10⁻⁴⁷ GeV⁴`, matching observation to 0.76% (0.067% refined). Equation of state `w = −1` exactly from topological Casimir.
-
-- **Generation count derived.** `d − 1 = 3` from the `ℤ₃` cyclic partition of the CKM daughter relations.
-
-- **Motion derived.** Five-layer loop with the winding generator `H_wind = i sin((π/8)M)`, standing-wave amplitudes `28/9, 7/18, 21/16`, and closed-form loop eigenvalue magnitudes `|M_A|, |M_B|` with exact ratio `|M_A|/|M_B| = 3`.
+- Majorana phases (current construction is Dirac-like)
+- Higher-order corrections to the mass map (currently RMS 0.0449 dex)
+- Promotion of the residual vacuum energy to the observed cosmological constant
 
 ---
 
 ## Repository Structure
-
-```
 hcsm/
 ├── README.md
 ├── LICENSE
 ├── CITATION.cff
 │
 ├── papers/
-│   ├── 00-FOUNDATIONS/             HCSM-00
-│   ├── 01-SUBSTRATE/               HCSM-01
-│   ├── 02-HODGE_COMPLEX/           HCSM-02, 03
-│   ├── 03-SPECTRAL_MIDPOINT/       HCSM-04, 05
-│   ├── 04-GAUGE_STRUCTURE/         HCSM-06, 07, 08, 09
-│   ├── 05-PROCESSOR/               HCSM-10, 11, 12, 13
-│   ├── 06-PROCESSOR_DYNAMICS/      HCSM-14–21
-│   ├── 07-OUTPUT_STRUCTURES/       HCSM-22–30
-│   ├── 08-FLAVOR_SECTOR/           HCSM-31–37
-│   ├── 09-GAUGE_CONTENT/           HCSM-38–44
-│   ├── 10-GRAVITY/                 HCSM-45–50
-│   ├── 11-COSMOLOGY/               HCSM-51–58
-│   └── 12-VERIFICATION/            HCSM-59
+│ ├── 00-FOUNDATIONS/ HCSM-00
+│ ├── 01-SUBSTRATE/ HCSM-01
+│ ├── 02-HODGE_COMPLEX/ HCSM-02, 03
+│ ├── 03-SPECTRAL_MIDPOINT/ HCSM-04, 05
+│ ├── 04-GAUGE_STRUCTURE/ HCSM-06, 07, 08, 09
+│ ├── 05-PROCESSOR/ HCSM-10, 11, 12, 13
+│ ├── 06-PROCESSOR_DYNAMICS/ HCSM-14–21
+│ ├── 07-OUTPUT_STRUCTURES/ HCSM-22–30
+│ ├── 08-FLAVOR_SECTOR/ HCSM-31–37
+│ ├── 09-GAUGE_CONTENT/ HCSM-38–44
+│ ├── 10-GRAVITY/ HCSM-45–50
+│ ├── 11-COSMOLOGY/ HCSM-51–58
+│ └── 12-VERIFICATION/ HCSM-59
 │
 ├── docs/
-│   ├── maps/                       WIN_to_HCSM_mapping.md
-│   ├── handoffs/                   session handoffs
-│   └── theorem_ledger.md
+│ ├── maps/ WIN_to_HCSM_mapping.md
+│ ├── handoffs/ session handoffs
+│ └── theorem_ledger.md
 │
 ├── shared/
-│   ├── preamble.tex
-│   ├── macros.tex
-│   └── bibliography.bib
+│ ├── preamble.tex
+│ ├── macros.tex
+│ └── bibliography.bib
 │
 └── code/
-    ├── hcsm/                       Python package
-    └── tests/                      verification scripts
-```
+├── hcsm/ Python package
+└── tests/ verification scripts
+
+
+### Paper Status
+
+| Status | Count |
+|---|---|
+| Complete | 55 |
+| Writable | 2 (HCSM-53, HCSM-59) |
+| Pending | 4 (HCSM-43, 44, 57, 58) |
+| Retired | 2 (SYK/QIN, ENTROPIX/MESA) |
+| **Total** | **60** |
 
 ---
 
@@ -307,17 +299,12 @@ hcsm/
   title        = {{HCSM}: The Hodge Complex Standard Model},
   year         = {2026},
   publisher    = {Entropia Research Institute},
-  howpublished = {\url{https://github.com/007STAN/HCSM}},
+  howpublished = {\url{https://github.com/007STAN/HODGE-COMPLEX-STANDARD-MODEL-HCSM-}},
   note         = {ORCID: 0009-0004-5445-1744}
 }
-```
+Machine-readable metadata
 
-### Machine-readable metadata
-
-<details>
-<summary><b>Schema.org JSON-LD</b> (click to expand)</summary>
-
-```json
+<details> <summary><b>Schema.org JSON-LD</b> (click to expand)</summary>
 {
   "@context": "https://schema.org",
   "@type": "ScholarlyArticle",
@@ -338,7 +325,7 @@ hcsm/
   "datePublished": "2026",
   "inLanguage": "en",
   "license": "All rights reserved",
-  "abstract": "HCSM derives the Standard Model from a single input, the spacetime dimension d = 4, on the 8x8 periodic torus. The Hodge complex on the torus yields the 14-mode particle multiplet at lambda = 4, the gauge algebra su(3) + su(2) + u(1)^5, four-dimensional spacetime as the kernel of the Hodge-Dirac operator, an exactly massless graviton, the Newton constant G_N = 25 / (8 pi M_P^2), the charge theorem q_3 = F(n_1, sigma), the mass map m = A exp(-B N/4), and dark energy rho_DE = (d+1)/2 m_nu^4 with w = -1.",
+  "abstract": "HCSM derives the Standard Model from a single input, the spacetime dimension d = 4, on the 8x8 periodic torus. The Hodge complex on the torus yields the 14-mode particle multiplet at lambda = 4, the gauge algebra su(3) + su(2) + u(1)^5, four-dimensional spacetime as the kernel of the Hodge-Dirac operator, an exactly massless graviton, the Newton constant G_N = (d+1)^2 / (8 pi M_P^2) = 25/(8 pi M_P^2), the charge theorem q_3 = F(n_1, sigma), the mass map m = A exp(-B N/4), the top-Yukawa coefficient y_t^2 = 1 - (4/3) delta_edge, the tree-level quartic lambda_tree = ln(kL)/[(d-1) pi^2], the Cabibbo angle sin(theta_12) = pi/14, the neutrino N/4 spectrum (60,60,58), and dark energy rho_DE = (d+1)/2 m_nu^4 with w = -1.",
   "keywords": [
     "Hodge Complex Standard Model",
     "HCSM",
@@ -348,6 +335,10 @@ hcsm/
     "Standard Model derivation",
     "charge theorem",
     "mass map",
+    "top-Yukawa coefficient",
+    "quartic coupling",
+    "Cabibbo angle",
+    "PMNS matrix",
     "graviton masslessness",
     "Newton constant",
     "dark energy",
@@ -356,36 +347,17 @@ hcsm/
     "Hodge-Dirac operator"
   ]
 }
-```
-
 </details>
+Contact
 
----
-
-## Contact
-
-**Stanley Preschutti** — Physics Researcher
+Stanley Preschutti — Physics Researcher
 Entropia Research Institute / Information Physics Institute
 
-| | |
-|---|---|
-| 📧 Email | scstanp@yahoo.com |
-| 🆔 ORCID | [0009-0004-5445-1744](https://orcid.org/0009-0004-5445-1744) |
-| 🌐 Web | [informationphysicsinstitute.org](https://www.informationphysicsinstitute.org) |
-
----
-
-## License
+📧 Email	scstanp@yahoo.com
+🆔 ORCID	0009-0004-5445-1744
+🌐 Web	informationphysicsinstitute.org
+License
 
 Copyright © 2026 Stanley Preschutti
 
-**All rights reserved.** Open for independent verification and peer review.
-
----
-
-<div align="center">
-
-**Physics is what the machine cannot cancel.**
-**The Hodge complex is the machine.**
-
-</div>
+All rights reserved. Open for independent verification and peer review.
