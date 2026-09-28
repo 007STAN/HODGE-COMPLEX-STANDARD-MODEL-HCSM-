@@ -638,4 +638,227 @@ carry different multiplicities of these isotypies, which is why the visible
 generation sits in Omega^0|lambda=4 while the hidden sector 5+6+31
 [HCSM-38, HCSM-39] is distributed across Omega^1|lambda=4 + Omega^2|lambda=4.
 
-================================================================
+================================================================================
+10. DERIVATION STATUS
+================================================================================
+
+10.1 Derived from the substrate
+--------------------------------------------------------------------------------
+
+(1) The Hodge form-parity gamma_5 and its properties gamma_5^2 = I,
+    gamma_5^dagger = gamma_5, {gamma_5, D} = 0 (Theorem 3.1).
+(2) The regulator trace Tr(gamma_5 f(D)) = 0 (Corollary 3.2).
+(3) The 56-dim splitting B + F with dim B = dim F = 28 (Theorem 4.1).
+(4) The D_4 decompositions of B and F (Theorem 4.2).
+(5) The spin-structure parity chi_spin (Theorem 5.2).
+(6) The compatibility [F, gamma_5] = 0 (Theorem 6.1).
+(7) The spin-structure action of F (Theorem 6.2).
+(8) The compatibility [F, chi_spin] = 0 (Corollary 6.3).
+(9) The Z_2 x Z_2 x Z_2 structure (Theorem 7.1).
+(10) The sector dimensions (Theorem 7.2).
+
+10.2 Disclosed inputs
+--------------------------------------------------------------------------------
+
+(1) The identification thesis 14 modes <-> 14 Standard Model particles
+    (HCSM-23).
+(2) The physical identification F <-> CP (HCSM-43).
+(3) The physical identification of chi_spin with left-right chirality.
+
+10.3 Open
+--------------------------------------------------------------------------------
+
+(1) Whether the identification chi_spin <-> L/R chirality admits a
+    substrate-level derivation (rather than a disclosed physical input).
+
+(2) The precise form of the chi_spin action on the hidden sector 5+6+31
+    [HCSM-38, HCSM-39], including whether the hidden content is chirally
+    symmetric.
+
+(3) Higher-order D_4 invariants beyond the leading Z_2 x Z_2 x Z_2
+    structure; whether they contribute at the level of the M_P precision
+    budget.
+
+================================================================================
+11. FALSIFIABLE PREDICTIONS
+================================================================================
+
+(1) The Hodge form-parity anticommutes with D. Any computational test that
+    finds {gamma_5, D} != 0 on the Hodge complex falsifies Theorem 3.1. The
+    companion verification script checks this at machine precision.
+
+(2) Two-loop anomaly cancellation is exact. The regulator trace
+    Tr(gamma_5 f(D)) = 0 for any even f. A confirmed lattice anomaly at any
+    scale falsifies this.
+
+(3) The D_4 decompositions of B and F are as stated. Any representation-
+    theoretic test finding different multiplicities falsifies Theorem 4.2.
+
+(4) Majorana phases (pi, 0). Consistency of this paper with HCSM-36 requires
+    the Majorana sector to remain CP-conserving. A confirmed Majorana phase
+    outside {0, pi} would falsify the identification of chi_spin with
+    chirality, or the assignment of N/4 labels to chi_spin eigenstates.
+
+(5) Strong CP: theta_eff = 0 exactly. Any confirmed nonzero theta_eff
+    falsifies HCSM-43, and by extension the CP structure of this paper.
+
+(6) Chirality-chi_spin identification. Any measurement of a right-handed
+    neutrino (if (NS,NS) is identified with left chirality) or other direct
+    test of the chirality assignment would test the disclosed input.
+
+================================================================================
+12. CONCLUSION
+================================================================================
+
+We have derived the spin-chirality Z_2 grading of the Hodge Complex Standard
+Model. The 56-dim Hodge lift at lambda = 4 carries three independent Z_2
+structures:
+
+(1) the Hodge form-parity gamma_5 = P_{Omega^0} - P_{Omega^1} + P_{Omega^2},
+    which anticommutes with D and grades the lift into the bosonic sector B
+    (28) and the fermionic sector F (28);
+
+(2) the spin-structure parity chi_spin, which distinguishes even from odd
+    spin structures on the torus;
+
+(3) the orientation Z_2 F constructed in HCSM-43.
+
+All three operators pairwise commute, are involutions, and together generate
+Z_2 x Z_2 x Z_2 on the 56-dim Hodge lift. They give the substrate realization
+of spin-statistics (from gamma_5), left-right chirality (from chi_spin), and
+CP (from F).
+
+The three structures combine to give a clean structural explanation of the
+three open problems of the Standard Model's flavor and gauge sectors:
+spin-statistics, chirality, and CP violation. The Majorana phases (pi, 0) of
+HCSM-36 and the strong-CP result theta_eff = 0 of HCSM-43 are both
+consequences of this Z_2 x Z_2 x Z_2 structure.
+
+The framework's strength is that it has fewer empirical anchors than the
+Standard Model, not that it has none.
+
+Physics is what the machine cannot cancel. The Hodge complex is the machine.
+
+================================================================================
+REFERENCES
+================================================================================
+
+[HCSM-00]  S. Preschutti, HCSM-00: Foundations, Notation, and Mapping,
+           HCSM White Paper Series (2026).
+[HCSM-01]  S. Preschutti, HCSM-01: The 8x8 Torus Substrate from d = 4,
+           HCSM White Paper Series (2026).
+[HCSM-02]  S. Preschutti, HCSM-02: The Hodge Complex on Lambda,
+           HCSM White Paper Series (2026).
+[HCSM-04]  S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4,
+           HCSM White Paper Series (2026).
+[HCSM-06]  S. Preschutti, HCSM-06: Sector-Coarse Correspondence,
+           HCSM White Paper Series (2026).
+[HCSM-14]  S. Preschutti, HCSM-14: Winding Generator Spectrum and Class
+           Partition, HCSM White Paper Series (2026).
+[HCSM-22]  S. Preschutti, HCSM-22: The Zero State, HCSM White Paper
+           Series (2026).
+[HCSM-23]  S. Preschutti, HCSM-23: The Identification of the 14 Modes with
+           One Standard Model Generation, HCSM White Paper Series (2026).
+[HCSM-36]  S. Preschutti, HCSM-36: The PMNS Matrix, HCSM White Paper
+           Series (2026).
+[HCSM-38]  S. Preschutti, HCSM-38: Hidden Sector Content of the Hodge
+           Complex Standard Model, HCSM White Paper Series (2026).
+[HCSM-39]  S. Preschutti, HCSM-39: The Weinberg Angle, HCSM White Paper
+           Series (2026).
+[HCSM-40]  S. Preschutti, HCSM-40: The Higgs Mechanism, HCSM White Paper
+           Series (2026).
+[HCSM-43]  S. Preschutti, HCSM-43: Strong CP from the Orientation Z_2,
+           HCSM White Paper Series (2026).
+
+================================================================================
+A. REPRODUCIBLE VERIFICATION
+================================================================================
+
+The companion script HCSM-42_verification.py verifies:
+
+(1) Construction of gamma_5 as the form-parity operator on the 256-dim Hodge
+    complex.
+(2) gamma_5^2 = I and gamma_5^dagger = gamma_5.
+(3) ||{gamma_5, D}||_F = 0 at machine precision.
+(4) The 56-dim splitting B + F with dim B = dim F = 28.
+(5) The D_4 decompositions of B and F.
+(6) Construction of the four spin structures (NS,NS), (NS,R), (R,NS), (R,R)
+    with Dirac indices +/-1/4.
+(7) Construction of chi_spin with eigenvalue +1 on the even pair, -1 on the
+    odd pair.
+(8) [F, gamma_5] = 0 at machine precision.
+(9) F(NS,R) = (R,NS), F(NS,NS) = (NS,NS), etc.
+(10) [F, chi_spin] = 0 at machine precision.
+(11) [gamma_5, chi_spin] = 0 at machine precision.
+(12) The Z_2 x Z_2 x Z_2 group structure: three commuting involutions.
+
+Running python HCSM-42_verification.py reproduces every numerical claim.
+
+================================================================================
+B. NUMERICAL VALUES
+================================================================================
+
+    Quantity                                Value
+    ------------------------------------------------------------------
+    dim Omega^0                             64
+    dim Omega^1                             128
+    dim Omega^2                             64
+    dim(Hodge complex)                      256
+    dim B                                   28
+    dim F                                   28
+    dim(56-dim Hodge lift)                  56
+    dim O_0, dim O_1, dim O_2               2, 8, 4
+    max ||{gamma_5, D}||_F                  0 (machine precision)
+    max ||[F, gamma_5]||_F                  0 (machine precision)
+    max ||[F, chi_spin]||_F                 0 (machine precision)
+    max ||[gamma_5, chi_spin]||_F           0 (machine precision)
+
+================================================================================
+C. WEB CRAWLER METADATA
+================================================================================
+
+C.1 Dublin Core
+--------------------------------------------------------------------------------
+
+DC.title: HCSM-42: Spin Chirality Z2 Grading
+DC.creator: Preschutti, Stanley
+DC.creator.orcid: 0009-0004-5445-1744
+DC.date.issued: 2026-09
+DC.type: Text / Preprint / White Paper
+DC.format: application/pdf; text/x-latex
+DC.language: en
+DC.publisher: Entropia Research Institute
+DC.rights: All rights reserved
+DC.subject: Hodge Complex Standard Model; HCSM; spin chirality; Z2 grading;
+  Hodge form-parity; spin structures; orientation Z2; 56-dimensional Hodge
+  lift; spin-statistics; chirality; CP
+DC.description: The 56-dim Hodge lift at lambda=4 carries three independent
+  Z2 structures: the Hodge form-parity, the spin-structure parity, and the
+  orientation Z2 of HCSM-43. Together they generate Z2 x Z2 x Z2. This gives
+  the substrate realization of spin-statistics, chirality, and CP.
+DC.identifier: HCSM-42-2026-09
+DC.source: https://github.com/007STAN/HODGE-COMPLEX-STANDARD-MODEL-HCSM-
+
+C.2 BibTeX for Automated Indexing
+--------------------------------------------------------------------------------
+
+@article{PreschuttiHCSM42,
+  author = {Preschutti, Stanley},
+  title = {{HCSM-42}: Spin Chirality {$Z_2$} Grading},
+  journal = {HCSM White Paper Series},
+  year = {2026},
+  month = {September},
+  note = {ORCID: 0009-0004-5445-1744},
+  keywords = {Hodge Complex Standard Model, HCSM, spin chirality,
+    Z2 grading, Hodge form-parity, spin structures, orientation Z2},
+  abstract = {The 56-dim Hodge lift at lambda=4 carries three independent
+    Z2 structures: the Hodge form-parity, the spin-structure parity, and
+    the orientation Z2 of HCSM-43. Together they generate Z2 x Z2 x Z2.
+    This gives the substrate realization of spin-statistics, chirality,
+    and CP.},
+  url = {https://github.com/007STAN/HODGE-COMPLEX-STANDARD-MODEL-HCSM-}
+}
+
+================================================================================
+END OF HCSM-42
+================================================================================
