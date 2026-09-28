@@ -1,0 +1,851 @@
+================================================================================
+HCSM-40
+The Higgs Mechanism
+The Higgs Doublet as the Complexified B1 Isotypic,
+the Vacuum Weak Direction from the Zero State,
+and the Two-Loop Anomaly Closure
+The Hodge Complex Standard Model
+================================================================================
+
+Stanley Preschutti(1)
+
+(1) Entropia Research Institute / Information Physics Institute,
+    ORCID: 0009-0004-5445-1744, scstannp@yahoo.com
+
+September 2026
+
+
+================================================================================
+ABSTRACT
+================================================================================
+
+We derive the Higgs doublet of the Hodge Complex Standard Model (HCSM) as
+the complexification of the B1 isotypic of Omega^0 at lambda = 4, and we
+derive the physical weak direction from the vacuum zero state s. The Higgs
+doublet lives in the 2-dimensional real B1 multiplicity space; its
+complexification is the Standard Model Higgs doublet with the correct
+su(2)_L action. The zero state fixes the weak Cartan with eigenvalues +/-1.
+The DNLS Hartree Hamiltonian H_DNLS = 4 I + U K preserves su(2)_L exactly
+for every interaction strength U by a doubled-momentum cancellation
+mechanism. We close the two-loop anomaly on the Hodge complex by direct
+computation: the chirality grading gamma_5 = (-1)^F anticommutes with the
+Hodge-Dirac operator, forcing Tr(gamma_5 f(D)) = 0 for every even regulator
+f, and the one-loop Standard Model content satisfies Tr(Y) = Tr(Y^3) =
+SU(2)^2 U(1) = SU(3)^2 U(1) = 0 in exact rational arithmetic.
+
+The tree-level quartic coupling and the top-Yukawa radiative correction are
+reported as numerical candidates, not derivations. The formula
+lambda_tree = ln(kL) / (3 pi^2) matches observation to 0.1% given the
+calibration anchor v_EW, and the formula y_t^2 = 1 - (4/3) delta_edge
+matches the observed top Yukawa to 0.002%. Both candidates use only
+HCSM-native constants, but neither is derived from the substrate dynamics.
+The origin of the coefficient 4/3 in the top-Yukawa formula is not
+identified. The electroweak scale v_EW is a calibration anchor and is not
+derived from the framework.
+
+Derivation status summary:
+
+  DERIVED (substrate-level):
+    - The Higgs doublet as the complexified B1 isotypic.
+    - The physical weak direction from the vacuum zero state s.
+    - The exact su(2)_L preservation by the DNLS Hartree Hamiltonian.
+    - Two-loop anomaly cancellation on the Hodge complex.
+    - The chirality grading anticommutation {gamma_5, D} = 0.
+    - The vanishing of Tr(gamma_5 f(D)) for every even regulator f.
+    - Index(D) = 0.
+
+  DISCLOSED INPUTS:
+    - Standard Model per-generation content.
+    - Physical identification A1 <-> color, B1 <-> weak isospin.
+    - Sector assignment u_R^c <-> Omega^0, Q_L <-> Omega^1,
+      d_R^c <-> Omega^2.
+    - Electroweak anchor v_EW = 246.21965 GeV.
+
+  NUMERICALLY CONSISTENT CANDIDATES (not derived):
+    - lambda_tree = ln(kL) / (3 pi^2), matching observed m_H to 0.09%.
+    - y_t^2 = 1 - (4/3) delta_edge, matching observed y_t to 0.002%.
+
+  OPEN:
+    - A first-principles derivation of lambda_tree from the Hodge complex.
+    - A first-principles derivation of the top-Yukawa correction from
+      substrate dynamics.
+    - The origin of the coefficient 4/3 in the top-Yukawa formula.
+    - A derivation of v_EW (candidate no-go).
+    - The Higgs potential shape (Mexican-hat form) from first principles.
+
+
+================================================================================
+CONTENTS
+================================================================================
+
+1. Introduction
+   1.1 The Higgs problem
+   1.2 Summary of results
+   1.3 Organization
+2. Setup
+   2.1 The Hodge complex
+   2.2 The 14-mode multiplet and B1 isotypic
+   2.3 The zero state
+   2.4 Disclosed inputs
+3. The Higgs doublet as the complexified B1 isotypic
+4. The physical weak direction from the zero state
+5. DNLS preservation of su(2)_L
+6. Two-loop anomaly cancellation on the Hodge complex
+   6.1 The chirality grading
+   6.2 The two-loop anomaly
+7. The tree-level quartic coupling: candidate formula
+   7.1 The candidate
+   7.2 Numerical consistency
+   7.3 Honest status
+8. The top-Yukawa radiative correction: candidate formula
+   8.1 The candidate
+   8.2 Numerical consistency
+   8.3 The structural input: the top's unique position
+   8.4 The coefficient 4/3
+   8.5 Honest status
+9. Derivation status
+   9.1 Derived from the substrate
+   9.2 Disclosed inputs
+   9.3 Numerically consistent candidates
+   9.4 Open
+10. Falsifiable predictions
+11. Conclusion
+A. Reproducible verification
+B. Web crawler metadata
+   B.1 Dublin Core
+   B.2 BibTeX for Automated Indexing
+
+
+================================================================================
+1. INTRODUCTION
+================================================================================
+
+1.1 The Higgs problem
+--------------------------------------------------------------------------------
+
+The Standard Model Higgs sector is parameterized by two quantities: the
+electroweak vacuum expectation value v_EW = 246.21965 GeV and the quartic
+coupling lambda ~ 0.129, from which the Higgs mass
+m_H = sqrt(2 lambda) v_EW = 125.25 GeV follows. Neither quantity is derived
+from first principles in the Standard Model; both are empirical anchors.
+
+The Hodge Complex Standard Model (HCSM) derives the gauge algebra
+su(3) + su(2) + u(1)^5, the per-generation matter content, and the Standard
+Model hypercharges from the Hodge complex of differential forms on the 8x8
+torus (HCSM-06, HCSM-07, HCSM-08). The 56-dimensional lambda = 4 sector
+decomposes under the D4 point group as 9A1 + 5A2 + 7B1 + 7B2 + 14E. The
+color algebra su(3)_c acts on the A1 isotypic; the weak isospin algebra
+su(2)_L acts on the B1 isotypic (HCSM-06).
+
+This paper addresses the Higgs sector. We derive the Higgs doublet as the
+complexification of the B1 isotypic of Omega^0 at lambda = 4, and we derive
+the physical weak direction from the vacuum zero state s. We then compute
+the two-loop anomaly on the Hodge complex and close it with a structural
+derivation. The tree-level quartic and the top-Yukawa correction are
+reported as numerical candidates with HCSM-native inputs, but their
+derivation from substrate dynamics remains open.
+
+1.2 Summary of results
+--------------------------------------------------------------------------------
+
+1. (Theorem 3.1). The Higgs doublet is the complexification of the B1
+   isotypic of Omega^0 at lambda = 4.
+
+2. (Theorem 4.2). The physical weak Cartan is fixed by the vacuum zero
+   state s and has eigenvalues +/-1 on the B1 subspace.
+
+3. (Theorem 5.2). The DNLS Hartree Hamiltonian H_DNLS = 4 I + U K
+   preserves su(2)_L exactly, for every U in R, by a doubled-momentum
+   cancellation mechanism.
+
+4. (Theorem 6.4). Two-loop anomaly cancellation on the Hodge complex is
+   exact: the chirality grading satisfies {gamma_5, D} = 0, forcing
+   Tr(gamma_5 f(D)) = 0 for every even regulator, and the one-loop
+   Standard Model content has Tr(Y) = Tr(Y^3) = SU(2)^2 U(1)
+   = SU(3)^2 U(1) = 0.
+
+5. (Proposition 7.1). The quartic coupling
+   lambda_tree = ln(kL) / (3 pi^2) matches the observed Higgs mass to
+   0.09% given the calibration anchor v_EW. The formula uses the
+   HCSM-native warp factor kL = 38.442527 but is not derived from the
+   Hodge complex.
+
+6. (Proposition 8.1). The top Yukawa satisfies the candidate formula
+   y_t^2 = 1 - (4/3) delta_edge to 0.002% accuracy, where
+   delta_edge = sqrt(2) / gamma - 2. All inputs are HCSM-native, but
+   the origin of the coefficient 4/3 is not identified.
+
+1.3 Organization
+--------------------------------------------------------------------------------
+
+Section 2 recalls the Hodge complex, the 14-mode multiplet, the B1
+isotypic, and the zero state. Section 3 derives the Higgs doublet.
+Section 4 derives the physical weak direction. Section 5 proves the DNLS
+preservation of su(2)_L. Section 6 closes the two-loop anomaly. Sections
+7 and 8 report the quartic and top-Yukawa candidates with full honest
+accounting. Section 9 catalogues what is derived, what is disclosed, and
+what is open. Section 10 states falsifiable predictions. Appendix A
+provides reproducible verification.
+
+
+================================================================================
+2. SETUP
+================================================================================
+
+2.1 The Hodge complex
+--------------------------------------------------------------------------------
+
+The substrate is the periodic square lattice Lambda = Z8 x Z8 with N = 64
+sites. The Hodge complex is
+
+    Omega^0 = R^64,   Omega^1 = R^128,   Omega^2 = R^64,
+
+with total dimension 256. The Hodge-Dirac operator D = d + d* satisfies
+D^2 |_Omega^k = Delta exactly on each form degree (HCSM-02).
+
+2.2 The 14-mode multiplet and B1 isotypic
+--------------------------------------------------------------------------------
+
+The self-paired eigenvalue lambda = 4 of the discrete 5-point Laplacian has
+multiplicity 14 on Omega^0, realized on the mode set
+
+    M = O0 union O1 union O2,
+
+with
+
+    O0 = {(0,4), (4,0)},
+    O1 = {(1,3), (1,5), (3,1), (3,7), (5,1), (5,7), (7,3), (7,5)},
+    O2 = {(2,2), (2,6), (6,2), (6,6)}.
+
+The D4 decomposition is
+
+    Omega^0 |_lambda=4 = 3 A1 + A2 + 2 B1 + 2 B2 + 3 E.              (1)
+
+The B1 irrep is 1-dimensional over R. Its multiplicity in Omega^0 at
+lambda = 4 is 2. The B1 isotypic is therefore a real 2-dimensional subspace
+of the 14-mode multiplet.
+
+2.3 The zero state
+--------------------------------------------------------------------------------
+
+The 14 x 19 measurement matrix M of vacuum-native observables has rank 13
+and nullity 1. Its unique nullspace vector s, normalized to max_i |s_i| = 1,
+is the zero state (HCSM-22). The components relevant to the electroweak
+sector are
+
+    s_H   = +0.329142,
+    s_t   =  0,
+    s_nu  = -0.105198,
+    s_e   = +0.105198.
+
+2.4 Disclosed inputs
+--------------------------------------------------------------------------------
+
+This paper uses three disclosed inputs from HCSM-06, stated explicitly in
+the framework's rules:
+
+  Input 1 (SM content). The Standard Model per-generation content:
+    Q_L(3,2,1/6) x 6, u_R^c(3,1,-2/3) x 3, d_R^c(3,1,1/3) x 3,
+    L_L(1,2,-1/2) x 2, e_R^c(1,1,1) x 1, nu_R^c(1,1,0) x 1.
+
+  Input 2 (Physical identification). The identification of the A1
+    isotypic with physical color and the B1 isotypic with physical weak
+    isospin.
+
+  Input 3 (Sector assignment). The assignment of u_R^c, Q_L, d_R^c to the
+    Hodge sectors Omega^0, Omega^1, Omega^2 respectively.
+
+Additionally, the electroweak vacuum expectation value
+v_EW = 246.21965 GeV is used as a calibration anchor in Sections 7 and 8.
+This is disclosed per HCSM-00 rules and its role is analysed in Section 9.
+
+
+================================================================================
+3. THE HIGGS DOUBLET AS THE COMPLEXIFIED B1 ISOTYPIC
+================================================================================
+
+Definition 3.0 (B1 isotypic). Let V_B1 subset Omega^0 |_lambda=4 be the
+isotypic subspace of the B1 irrep. Then dim_R V_B1 = 2.
+
+Theorem 3.1 (Higgs doublet). The complexification
+V_B1 tensor_R C is a 2-dimensional complex vector space carrying the
+fundamental representation of su(2)_L. It is the Standard Model Higgs
+doublet.
+
+Proof. The B1 multiplicity in Omega^0 at lambda = 4 is 2 from equation (1).
+The su(2)_L generators act on the B1 isotypic via the Pauli matrices
+(HCSM-06, Theorem 5.2), giving the fundamental representation on C^2. The
+complex doublet H = (H^+, H^0) is the basis of this representation. The
+hypercharge assignment Y(H) = 1/2 follows from the sector-coarse
+hypercharge construction (HCSM-07).                       [Box]
+
+Remark 3.2. The Higgs doublet is not introduced as a new field. It is the
+B1 isotypic of the Hodge complex, which already appears in the gauge-
+algebra derivation. The complexification is the passage from the real
+2-dimensional D4-invariant subspace to the complex representation space
+of su(2)_L.
+
+
+================================================================================
+4. THE PHYSICAL WEAK DIRECTION FROM THE ZERO STATE
+================================================================================
+
+Definition 4.1 (Aligned Cartan). Let {w1, w2} be an orthonormal basis of
+V_B1. The vacuum zero state s has projection s_B1 = sum_a s_a w_a. Define
+the aligned Cartan
+
+    T_3^aligned = n_hat dot T_vec,     n_hat = s_B1 / ||s_B1||,
+
+where T_vec = (T_L^1, T_L^2, T_L^3) are the su(2)_L generators.
+
+Theorem 4.2 (Weak direction). The aligned Cartan T_3^aligned has
+eigenvalues +/-1 on V_B1, and defines the physical weak up/down direction.
+
+Proof. The su(2)_L generators are T_L^i = U_B1 sigma^i U_B1^T with sigma^i
+the Pauli matrices and U_B1 the basis change to V_B1 (HCSM-06, Theorem
+5.2). The Cartan T_3^aligned = n_hat dot T_vec is a unit-norm element of
+the su(2) algebra. Any unit-norm element of su(2) has eigenvalues +/-1 in
+the fundamental representation. Direct numerical diagonalization gives
++/-1 to machine precision.                                [Box]
+
+Remark 4.3. The zero state s is the unique vacuum configuration determined
+by the 14 x 19 measurement matrix. The weak direction is therefore not a
+free parameter: it is fixed by the vacuum.
+
+
+================================================================================
+5. DNLS PRESERVATION OF su(2)_L
+================================================================================
+
+Definition 5.1 (DNLS Hartree Hamiltonian). The DNLS Hartree Hamiltonian on
+the 14-mode multiplet is
+
+    H_DNLS = 4 I + U K,   K[a,b] = sum_x |phi_a(x)|^2 |phi_b(x)|^2,
+
+where U is the on-site interaction strength.
+
+Theorem 5.2 (Exact su(2)_L preservation). For every U in R, the commutator
+[H_DNLS, T_L^i] = 0 for all three generators T_L^i of su(2)_L.
+
+Proof sketch. By the doubled-momentum pairing lemma (HCSM-03, Lemma 7),
+the B1 basis vectors v0 and w1 pair modes with the same doubled momentum
+(2 n1, 2 n2) mod 8 with opposite signs. This makes the compressed Hartree
+matrix K_B1 = U_B1^T K U_B1 vanish identically on V_B1. Since the su(2)_L
+generators are supported entirely on V_B1, the commutator [K, T_L^i] = 0.
+Full proof in HCSM-03.                                    [Box]
+
+Corollary 5.3. The DNLS dynamics preserves the weak isospin structure of
+the substrate for any interaction strength.
+
+
+================================================================================
+6. TWO-LOOP ANOMALY CANCELLATION ON THE HODGE COMPLEX
+================================================================================
+
+6.1 The chirality grading
+--------------------------------------------------------------------------------
+
+Definition 6.1 (Chirality grading). The chirality grading on the Hodge
+complex is
+
+    gamma_5 = (-1)^F = P_Omega^0 - P_Omega^1 + P_Omega^2.
+
+It assigns eigenvalue +1 to even forms (Omega^0 + Omega^2) and -1 to odd
+forms (Omega^1).
+
+Theorem 6.2 (Anticommutation). {gamma_5, D} = gamma_5 D + D gamma_5 = 0
+exactly.
+
+Proof. The Hodge-Dirac operator is odd with respect to the Z2 grading: it
+maps even forms to odd forms and odd forms to even forms (HCSM-02).
+Therefore gamma_5 D = - D gamma_5, which is equivalent to the
+anticommutation relation. Direct numerical verification gives
+|| gamma_5 D + D gamma_5 ||_F = 0 exactly in IEEE-754 double precision.
+                                                          [Box]
+
+Corollary 6.3 (Regulator trace vanishes). For any even function f with
+f(lambda) = f(-lambda),
+
+    Tr(gamma_5 f(D)) = 0.
+
+Proof. The spectrum of D is +/-symmetric within each sector (HCSM-02,
+Theorem 6.1). The eigenvalues pair as lambda <-> -lambda with opposite
+chirality. Therefore the trace of gamma_5 f(D) vanishes identically for
+every even f. Numerical verification across nine regulators spanning
+compact support, exponential decay, power decay, and oscillatory forms
+gives residuals at the level of machine epsilon (10^-15).  [Box]
+
+Corollary 6.4 (Index of D). Index(D) = Tr(gamma_5 P_ker D) = 0.
+
+Proof. The Betti numbers of the torus are (b0, b1, b2) = (1, 2, 1)
+(HCSM-02). The index of D is b0 - b1 + b2 = 0 (the Euler characteristic
+of T^2). Direct numerical verification gives
+Tr(gamma_5 P_ker D) = 0 at machine precision.             [Box]
+
+6.2 The two-loop anomaly
+--------------------------------------------------------------------------------
+
+Theorem 6.5 (Two-loop anomaly cancellation). The two-loop anomaly on the
+Hodge complex vanishes exactly.
+
+Proof. The two-loop anomaly coefficient on a lattice factorizes as
+
+    A^(2) = Tr_Hodge(gamma_5 R(D)) * Tr_content(Y^3),
+
+where R(D) is the regulator. Each factor vanishes independently:
+
+  Factor 1 (geometry). By Corollary 6.3, Tr(gamma_5 R(D)) = 0 for every
+  even regulator R. This is exact and does not depend on the fermion
+  content.
+
+  Factor 2 (content). The Standard Model per-generation content has
+
+      Tr(Y)          = 6 (1/6) + 3 (-2/3) + 3 (1/3) + 2 (-1/2) + 1 (1)
+                       + 1 (0) = 0,
+      Tr(Y^3)        = 0,
+      SU(2)^2 U(1)   = 0,
+      SU(3)^2 U(1)   = 0,
+
+  verified in exact rational arithmetic.
+
+Both factors vanish. Their product is zero. The two-loop anomaly cancels
+by two independent mechanisms.                            [Box]
+
+Remark 6.6 (Comparison with Adler-Bardeen). The Adler-Bardeen theorem
+states that the ABJ anomaly is one-loop exact: if the one-loop anomaly
+vanishes, all higher-loop anomalies vanish too. The HCSM result is
+stronger: the Hodge-Dirac anticommutation {gamma_5, D} = 0 is a geometric
+identity that forces the regulator trace to vanish at every loop order,
+independent of Adler-Bardeen. The two-loop cancellation is therefore a
+structural theorem of the Hodge complex, not an inherited property of the
+Standard Model content.
+
+
+================================================================================
+7. THE TREE-LEVEL QUARTIC COUPLING: CANDIDATE FORMULA
+================================================================================
+
+7.1 The candidate
+--------------------------------------------------------------------------------
+
+Proposition 7.1 (Quartic candidate). The tree-level quartic coupling
+satisfies the candidate formula
+
+    lambda_tree = ln(kL) / (3 pi^2),
+
+with kL = 38.442527 (HCSM-51), giving lambda_tree = 0.123246.
+
+7.2 Numerical consistency
+--------------------------------------------------------------------------------
+
+Given the calibration anchor v_EW = 246.21965 GeV and the Standard Model
+1-loop top-Yukawa correction
+
+    Delta_lambda_top = (3 y_t^4 / 16 pi^2) ln(m_t / m_H),
+
+the total effective quartic is
+
+    lambda_eff = lambda_tree + Delta_lambda_top
+               = 0.123246 + 0.005906
+               = 0.129152.
+
+The implied Higgs mass is
+
+    m_H = sqrt(2 lambda_eff) v_EW = 125.138 GeV,
+
+matching the observed m_H = 125.25 +/- 0.17 GeV to 0.090%, with a
+statistical pull of 0.66 sigma.
+
+7.3 Honest status
+--------------------------------------------------------------------------------
+
+The formula lambda_tree = ln(kL) / (3 pi^2) is a 5D holographic ansatz. It
+uses the HCSM-native warp factor kL but is not derived from the Hodge
+complex. The numerical match to the observed Higgs mass is 0.09%, but this
+is achieved by combining the candidate formula with the calibration anchor
+v_EW and the Standard Model 1-loop correction.
+
+The specific coefficient 3 pi^2 in the denominator is the 4D loop factor
+with N_c = 3. It is natural but not derived. The 1/(3 pi^2) factor is what
+converts the dimensionless warp depth ln(kL) into a dimensionless quartic
+coupling.
+
+Status: candidate formula, numerically consistent, not derived.
+
+
+================================================================================
+8. THE TOP-YUKAWA RADIATIVE CORRECTION: CANDIDATE FORMULA
+================================================================================
+
+8.1 The candidate
+--------------------------------------------------------------------------------
+
+Proposition 8.1 (Top-Yukawa candidate). The top Yukawa satisfies the
+candidate formula
+
+    y_t^2 = 1 - (4/3) delta_edge,
+
+where delta_edge = sqrt(2) / gamma - 2 is the class-A DME residual
+(HCSM-20, Theorem 6.5).
+
+8.2 Numerical consistency
+--------------------------------------------------------------------------------
+
+The inputs are HCSM-native:
+
+    gamma        = 0.70283946799007245929...   (HCSM-54),
+    delta_edge   = sqrt(2)/gamma - 2 = 0.012143066491921...
+
+The formula gives
+
+    y_t^2 = 1 - (4/3) (0.012143066491921) = 0.9838092447,
+    y_t   = 0.991872.
+
+The observed value is
+
+    y_t^obs = sqrt(2) (172.69) / 246.21965 = 0.991881.
+
+Residual: 0.002% on y_t^2, 0.001% on y_t.
+
+For comparison, the direct SM 1-loop correction is
+Delta_lambda_top = 0.005906 with y_t^obs. Using y_t from the candidate
+formula: Delta_lambda_top^HCSM = 0.0059061, matching to 0.002%.
+
+8.3 The structural input: the top's unique position
+--------------------------------------------------------------------------------
+
+The top mode t = (6,6) sits at the intersection of four structural features
+of the Hodge complex:
+
+  1. It is in orbit O2 (support 32).
+  2. It is in loop class A (omega_A = 2 sqrt(2)).
+  3. Its zero-state amplitude s_t = 0 exactly, forced by the diagonal
+     reflection (n1, n2) -> (n2, n1).
+  4. It is a fixed point of the diagonal reflection, along with (2,2).
+
+No other charged fermion has all four features. The top is therefore
+structurally singled out.
+
+8.4 The coefficient 4/3
+--------------------------------------------------------------------------------
+
+The coefficient 4/3 admits three natural interpretations that coincide:
+
+    4/3 = d / (d-1) = |O2| / (d-1) = (2d - 4) / (d-1).
+
+All three are HCSM-native. The first is the dimension ratio, the second is
+the orbit-size-to-generation-count ratio, and the third is an equivalent
+algebraic form. However, the best-fit coefficient from the observed top
+Yukawa is k = 1.331830, which differs from 4/3 by 0.11%. The candidate is
+not exact.
+
+8.5 Honest status
+--------------------------------------------------------------------------------
+
+The formula y_t^2 = 1 - (4/3) delta_edge uses only HCSM-native quantities.
+It matches observation to 0.002%, which is 180x smaller than the
+experimental uncertainty on y_t propagated through m_t = 172.69 +/- 0.30
+GeV. But the specific origin of the coefficient 4/3 from substrate dynamics
+is not identified. The formula does not generalize to the other charged
+fermions in any obvious way: for u, d, s, c, b, tau, mu, e, the effective
+coefficient k = (1 - y_f^2) / delta_edge takes the trivial value
+1/delta_edge ~ 82.35 because y_f << 1. The top is uniquely singled out.
+
+Status: candidate formula, numerically consistent, not derived.
+
+
+================================================================================
+9. DERIVATION STATUS
+================================================================================
+
+9.1 Derived from the substrate
+--------------------------------------------------------------------------------
+
+1. The Higgs doublet is the complexification of the B1 isotypic of
+   Omega^0 at lambda = 4 (Theorem 3.1).
+2. The physical weak direction is fixed by the vacuum zero state s and
+   has eigenvalues +/-1 (Theorem 4.2).
+3. The DNLS Hartree Hamiltonian preserves su(2)_L exactly, for every
+   U in R (Theorem 5.2).
+4. The chirality grading anticommutes with the Hodge-Dirac operator
+   (Theorem 6.2).
+5. The regulator trace vanishes for every even function (Corollary 6.3).
+6. The index of D is zero (Corollary 6.4).
+7. Two-loop anomaly cancellation on the Hodge complex is exact
+   (Theorem 6.5).
+
+9.2 Disclosed inputs
+--------------------------------------------------------------------------------
+
+1. Standard Model per-generation content (Input 1).
+2. Physical identification of A1 with color and B1 with weak isospin
+   (Input 2).
+3. Sector assignment u_R^c <-> Omega^0, Q_L <-> Omega^1,
+   d_R^c <-> Omega^2 (Input 3).
+4. Electroweak anchor v_EW = 246.21965 GeV, used in Sections 7 and 8.
+
+9.3 Numerically consistent candidates (not derived)
+--------------------------------------------------------------------------------
+
+1. The tree-level quartic lambda_tree = ln(kL) / (3 pi^2), matching the
+   observed Higgs mass to 0.09% given v_EW (Proposition 7.1).
+2. The top Yukawa y_t^2 = 1 - (4/3) delta_edge, matching observation to
+   0.002% (Proposition 8.1).
+
+9.4 Open
+--------------------------------------------------------------------------------
+
+1. Derive lambda_tree from the Hodge complex. The formula
+   ln(kL) / (3 pi^2) is a 5D holographic ansatz. A Hodge-native
+   derivation would express the quartic coupling as a trace over the B1
+   isotypic or as a one-loop correction on the torus. The specific origin
+   of the 3 pi^2 denominator and the ln(kL) numerator is not identified.
+
+2. Derive the coefficient 4/3 in the top-Yukawa formula. The best-fit
+   coefficient from observation is k = 1.331830, which differs from 4/3 by
+   0.11%. The exact value (if it exists) is not identified. A
+   substrate-level derivation of the coefficient from the top's unique
+   structural position is open.
+
+3. Derive v_EW from the framework. The electroweak scale is a calibration
+   anchor. A derivation from kL, gamma, or other HCSM-native constants
+   would require a dimensional-anchor mechanism that is not currently
+   present. This is a candidate no-go: the framework may not have the
+   structure to produce a dimensionful scale from the dimensionless
+   constants alone.
+
+4. Derive the Higgs potential shape. The Mexican-hat form
+   V(H) = -mu^2 H^dag H + lambda (H^dag H)^2 is assumed. Whether the
+   Hodge complex forces this form (or a different one) is open.
+
+5. Derive Delta_lambda_top from substrate dynamics. The 1-loop top-Yukawa
+   correction is currently computed via the Standard Model formula. A
+   HCSM-native computation from the DNLS mean-field or from a discrete
+   loop integral on the torus is open.
+
+
+================================================================================
+10. FALSIFIABLE PREDICTIONS
+================================================================================
+
+1. Higgs doublet structure. The Higgs doublet is the B1 isotypic of
+   Omega^0 at lambda = 4. Any measurement that requires more than the
+   2-dimensional B1 structure would falsify the derivation.
+
+2. Weak direction from zero state. The weak Cartan is fixed by the
+   vacuum. The two eigenvectors of T_3^aligned are the physical up/down
+   weak states with eigenvalues +/-1. A measurement of a different weak
+   direction would falsify the theorem.
+
+3. DNLS preservation. The DNLS Hartree Hamiltonian preserves su(2)_L for
+   every interaction strength U. A detection of su(2)_L violation in the
+   substrate interaction would falsify Theorem 5.2.
+
+4. Two-loop anomaly cancellation. The Hodge complex gives exact two-loop
+   cancellation by a structural mechanism independent of Adler-Bardeen.
+   Any detection of a lattice anomaly at two loops would falsify
+   Theorem 6.5.
+
+5. Quartic candidate. lambda_tree = ln(kL) / (3 pi^2) predicts
+   m_H = 125.138 GeV given v_EW. A future refinement of v_EW or a
+   different value of kL would test the formula.
+
+6. Top-Yukawa candidate. y_t^2 = 1 - (4/3) delta_edge predicts
+   y_t = 0.991872 given gamma from HCSM-54. An improved measurement of
+   m_t (or of gamma via other observables) would test the formula at the
+   0.001% level.
+
+
+================================================================================
+11. CONCLUSION
+================================================================================
+
+We have derived the Higgs doublet as the complexified B1 isotypic of
+Omega^0 at lambda = 4, derived the physical weak direction from the vacuum
+zero state, and closed the two-loop anomaly on the Hodge complex by a
+structural mechanism that does not depend on Adler-Bardeen. The DNLS
+Hartree Hamiltonian preserves su(2)_L exactly for every interaction
+strength.
+
+The tree-level quartic coupling and the top-Yukawa radiative correction
+are reported as numerical candidates with HCSM-native inputs. Both match
+observation at the sub-percent level. Neither is derived from substrate
+dynamics. The origin of the coefficient 4/3 in the top-Yukawa formula and
+the specific form ln(kL) / (3 pi^2) in the quartic formula remain open.
+
+The electroweak scale v_EW = 246.21965 GeV is a calibration anchor. The
+framework does not currently derive it, and there is no obvious HCSM-native
+construction that would produce a dimensionful scale from the dimensionless
+constants {d, N, L, gamma, kL} alone. A candidate no-go is stated.
+
+The paper's contribution to the HCSM stack is threefold: the structural
+derivation of the Higgs doublet from the B1 isotypic; the exact su(2)_L
+preservation theorem for the DNLS Hartree Hamiltonian; and the two-loop
+anomaly closure on the Hodge complex. The remaining items are named
+explicitly and left for future work.
+
+The framework's strength is that it has fewer empirical anchors than the
+Standard Model, not that it has none.
+
+Physics is what the machine cannot cancel. The Hodge complex is the machine.
+
+
+================================================================================
+REFERENCES
+================================================================================
+
+[HCSM-00] S. Preschutti, HCSM-00: Foundations, Notation, and Mapping,
+          HCSM White Paper Series (2026).
+
+[HCSM-02] S. Preschutti, HCSM-02: The Hodge Complex on Lambda,
+          HCSM White Paper Series (2026).
+
+[HCSM-03] S. Preschutti, HCSM-03: Lorentzian Signature from the Hodge
+          Star, HCSM White Paper Series (2026).
+
+[HCSM-04] S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4,
+          HCSM White Paper Series (2026).
+
+[HCSM-06] S. Preschutti, HCSM-06: Sector-Coarse Correspondence,
+          HCSM White Paper Series (2026).
+
+[HCSM-07] S. Preschutti, HCSM-07: Hypercharge Quantization,
+          HCSM White Paper Series (2026).
+
+[HCSM-08] S. Preschutti, HCSM-08: Anomaly Cancellation as a Theorem,
+          HCSM White Paper Series (2026).
+
+[HCSM-13] S. Preschutti, HCSM-13: The Processor T and the F/B-Class
+          Correspondence, HCSM White Paper Series (2026).
+
+[HCSM-20] S. Preschutti, HCSM-20: The Motion Theorem, HCSM White Paper
+          Series (2026).
+
+[HCSM-22] S. Preschutti, HCSM-22: The Zero State, HCSM White Paper
+          Series (2026).
+
+[HCSM-33] S. Preschutti, HCSM-33: Mass Map, HCSM White Paper Series
+          (2026).
+
+[HCSM-51] S. Preschutti, HCSM-51: The kL Crossover, HCSM White Paper
+          Series (2026).
+
+[HCSM-54] S. Preschutti, HCSM-54: Vacuum Stability and the Stability
+          Coefficient, HCSM White Paper Series (2026).
+
+[ABJ] S. L. Adler and W. A. Bardeen, Absence of higher-order corrections
+      to the anomalous vertex functions of quantum electrodynamics,
+      Phys. Rev. 182, 1517 (1969).
+
+[NN] H. B. Nielsen and M. Ninomiya, A no-go theorem for regularizing
+     chiral fermions, Phys. Lett. B 105, 219 (1981).
+
+[Mastropietro] V. Mastropietro, Anomaly cancellation and universality in
+               lattice chiral gauge theories, arXiv:2303.02790 (2023).
+
+[PDG] Particle Data Group (S. Navas et al.), Review of Particle Physics,
+      Phys. Rev. D 110, 030001 (2024).
+
+
+================================================================================
+A. REPRODUCIBLE VERIFICATION
+================================================================================
+
+The companion script HCSM-40_verification.py verifies the following claims
+at machine precision:
+
+1.  The D4 decomposition
+    Omega^0 |_lambda=4 = 3A1 + A2 + 2B1 + 2B2 + 3E.
+
+2.  The B1 isotypic has real dimension 2 and is the complexification basis
+    for the Higgs doublet.
+
+3.  The zero state alignment: s_t = 0 exactly; the aligned Cartan has
+    eigenvalues +/-1.
+
+4.  The DNLS Hartree matrix compressed to V_B1 vanishes: K_B1 = 0 to
+    machine precision.
+
+5.  The chirality grading anticommutation: || {gamma_5, D} ||_F = 0
+    exactly.
+
+6.  The regulator trace: Tr(gamma_5 f(D)) = 0 for nine regulators
+    (compact support, exponential, power, oscillatory).
+
+7.  Index of D: Tr(gamma_5 P_ker D) = 0.
+
+8.  Sector-resolved traces:
+        Tr_Omega^0(e^-D^2) = Tr_Omega^2(e^-D^2) = 6.0916487145,
+        Tr_Omega^1(e^-D^2) = 12.1832974290,
+    the gamma_5-weighted total vanishes.
+
+9.  One-loop anomaly coefficients: exact rational arithmetic gives
+    Tr(Y) = Tr(Y^3) = SU(2)^2 U(1) = SU(3)^2 U(1) = 0.
+
+10. Two-loop anomaly coefficient: A^(2) = 0.
+
+11. Quartic candidate: lambda_tree = 0.123246; m_H = 125.138 GeV; pull
+    0.66 sigma.
+
+12. Top-Yukawa candidate: y_t^2 = 1 - (4/3) delta_edge = 0.9838092447;
+    residual from observation 1.83e-5.
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim in
+the HCSM paper stack.
+
+
+================================================================================
+B. WEB CRAWLER METADATA
+================================================================================
+
+B.1 Dublin Core
+--------------------------------------------------------------------------------
+
+DC.title: HCSM-40: The Higgs Mechanism
+DC.creator: Preschutti, Stanley
+DC.creator.orcid: 0009-0004-5445-1744
+DC.date.issued: 2026-09
+DC.type: Text / Preprint / White Paper
+DC.format: application/pdf; text/x-latex
+DC.language: en
+DC.publisher: Entropia Research Institute
+DC.rights: All rights reserved
+DC.subject: Hodge Complex Standard Model; HCSM; Higgs mechanism;
+  Higgs doublet; B1 isotypic; weak direction; zero state;
+  DNLS Hartree; su(2)_L preservation; two-loop anomaly;
+  chirality grading; quartic coupling; top Yukawa
+DC.description: We derive the Higgs doublet as the complexified B1
+  isotypic of Omega^0 at lambda=4, derive the physical weak direction
+  from the vacuum zero state, prove exact su(2)_L preservation by the
+  DNLS Hartree Hamiltonian, and close the two-loop anomaly on the
+  Hodge complex. The quartic coupling and top-Yukawa correction are
+  reported as HCSM-native candidates matching observation to
+  sub-percent accuracy but not derived from substrate dynamics.
+DC.identifier: HCSM-40-2026-09
+
+B.2 BibTeX for Automated Indexing
+--------------------------------------------------------------------------------
+
+@article{PreschuttiHCSM40,
+  author = {Preschutti, Stanley},
+  title = {{HCSM-40}: The Higgs Mechanism},
+  journal = {HCSM White Paper Series},
+  year = {2026},
+  month = {September},
+  note = {ORCID: 0009-0004-5445-1744},
+  keywords = {Hodge Complex Standard Model, HCSM, Higgs mechanism,
+    Higgs doublet, B1 isotypic, weak direction, zero state,
+    DNLS Hartree, su(2) preservation, two-loop anomaly},
+  abstract = {We derive the Higgs doublet as the complexified B1
+    isotypic of Omega^0 at lambda=4, derive the physical weak
+    direction from the vacuum zero state, prove exact su(2)_L
+    preservation by the DNLS Hartree Hamiltonian, and close the
+    two-loop anomaly on the Hodge complex. The quartic coupling
+    and top-Yukawa correction are reported as HCSM-native
+    candidates matching observation to sub-percent accuracy but
+    not derived from substrate dynamics.}
+}
+
+================================================================================
+End of HCSM-40.
+================================================================================
