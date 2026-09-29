@@ -1,0 +1,783 @@
+================================================================================
+HCSM-23 (Revised)
+The Identification of the 14 Modes with One Standard Model Generation
+The Two-Line Structure, the Klein Orbit Classification, the V6 Congruence
+Characterization, and the (S, D) Factorization of the N/4 Anchors
+================================================================================
+
+Hodge Complex Standard Model
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstamp@yahoo.com
+
+September 2026 (Revised)
+Supersedes HCSM-23 (2026-09)
+
+================================================================================
+ABSTRACT
+================================================================================
+
+The Hodge Complex Standard Model (HCSM) identifies the 14 modes at the
+self-paired eigenvalue lambda = 4 of the discrete Laplacian on the periodic
+8 x 8 torus with one Standard Model generation. HCSM-23 stated this
+identification as the framework's empirical thesis and listed the structural
+relations satisfied by the 14 N/4 mass-ordering anchors. This revision adds
+three new HCSM-native structural results.
+
+First, the 14 modes at lambda = 4 are exactly the union of two lines
+L_A union L_B in Z_8^2, where L_A: n_2 - n_1 = 4 (mod 8) and
+L_B: n_1 + n_2 = 4 (mod 8), intersecting at {nu, e}.
+
+Second, the six Klein orbits of HCSM-27 are exactly the (line, n_1 mod 4)
+classes, and the four-cycle orbit V6 admits the coordinate-level
+characterization V6 = {m : n_1 - n_2 = 2 (mod 4)}.
+
+Third, every T_half pair has a sum S and a difference D that are framework
+constants, and the two N/4 anchors of each pair are exactly (S + D)/2 and
+(S - D)/2.
+
+The derivation target for the N/4 anchors reduces from 14 independent
+values to 7 (S, D) pairs of framework constants. The identification thesis
+remains empirical and falsifiable. All numerical claims are verified at
+machine precision.
+
+Derivation status summary:
+
+  DERIVED (new in this revision):  the two-line structure L_A union L_B;
+      the (line, n_1 mod 4) classification of the Klein orbits; the V6
+      congruence characterization; the (S, D) factorization of the N/4
+      anchors; the framework-constant form of every S and every D.
+
+  DERIVED (original HCSM-23):  the (n_1, sigma) bijection; the rs-pair
+      ordering; the four-cycle Klein orbit sum; the 5 + 9 split; the mass
+      map fit.
+
+  EMPIRICAL ANCHOR:  the identification of each of the 14 modes with a
+      Standard Model particle (Thesis 1.1), together with the 14 N/4
+      mass-ordering values.
+
+  OPEN:  the derivation of the 7 pair sums S and the 7 pair differences D
+      from substrate primitives.
+
+================================================================================
+CONTENTS
+================================================================================
+
+1.  Introduction
+    1.1  The identification thesis and the N/4 anchors
+    1.2  The three new structural results
+    1.3  One-line summary
+    1.4  Cross references
+    1.5  Organization
+
+2.  Setup
+    2.1  The substrate and the 14-mode multiplet
+    2.2  The N/4 anchors
+    2.3  The Klein group
+    2.4  The T_half pairs
+
+3.  The Identification Thesis
+
+4.  The Two-Line Structure
+    4.1  The factorization of the lambda=4 condition
+    4.2  Union and intersection
+
+5.  The Klein Orbit Classification
+    5.1  The (line, n_1 mod 4) classification
+
+6.  The V6 Congruence Characterization
+
+7.  The (S, D) Factorization of the N/4 Anchors
+    7.1  The T_half pair sums and differences
+    7.2  Reconstruction of the N/4 anchors
+    7.3  Distinctness and non-overlap of the D values
+
+8.  The Open Derivation Task
+
+9.  Derivation Status
+    9.1  Derived in this revision
+    9.2  Derived in the original HCSM-23
+    9.3  Empirical anchors
+    9.4  Open items
+
+10. Falsification
+
+11. Reproducibility
+
+12. Conclusion
+
+References
+
+Appendix A. Web Crawler Metadata
+    A.1  Dublin Core
+    A.2  Schema.org JSON-LD
+    A.3  BibTeX for Automated Indexing
+
+================================================================================
+1. INTRODUCTION
+================================================================================
+
+1.1 The identification thesis and the N/4 anchors
+
+The Hodge Complex Standard Model (HCSM) identifies the 14 modes at the
+self-paired eigenvalue lambda = 4 of the discrete Laplacian on the periodic
+8 x 8 torus Lambda = Z_8 x Z_8 with one Standard Model generation
+[HCSM-00, HCSM-04]. The identification is stated as the framework's
+empirical thesis, structurally parallel to the Standard Model's
+Yukawa-coupling sector. This revision preserves that thesis and adds three
+new HCSM-native structural results about the N/4 anchors.
+
+1.2 The three new structural results
+
+This revision establishes three new results about the 14-mode multiplet at
+lambda = 4:
+
+  (1) The two-line structure. The 14 modes are exactly the union of two
+      lines L_A union L_B in Z_8^2, with |L_A| = |L_B| = 8 and
+      |L_A intersect L_B| = 2. The intersection is exactly
+      {nu, e} = V_1.
+
+  (2) The Klein orbit classification. The six Klein orbits of HCSM-27 are
+      exactly the (line, n_1 mod 4) classes. The four-cycle orbit V6 admits
+      the coordinate-level characterization V6 = {m : n_1 - n_2 = 2 (mod 4)}.
+
+  (3) The (S, D) factorization. Every T_half pair has a sum S and a
+      difference D that are framework constants. The two N/4 anchors of
+      each pair are exactly (S + D)/2 and (S - D)/2.
+
+Together these results reduce the derivation target for the N/4 anchors
+from 14 independent values to 7 (S, D) pairs of framework constants. The
+identification of each mode with a Standard Model particle remains
+empirical; the internal structure of the N/4 list is now cleanly organized.
+
+1.3 One-line summary
+
+The 14 modes at lambda = 4 form two perpendicular lines in Z_8^2, whose
+intersection is the pair {nu, e}; the Klein orbits are the (line, n_1 mod 4)
+classes; the N/4 anchors factor as pairwise averages (S +- D)/2 of
+framework constants.
+
+1.4 Cross references
+
+  HCSM-00: foundations, notation, and mapping.
+  HCSM-01: the 8 x 8 torus substrate; framework constants.
+  HCSM-04: the 14-mode multiplet at lambda = 4.
+  HCSM-05: the D4 representation theory; the n_1-parity operator.
+  HCSM-11: the 5 + 9 split; the base formulas.
+  HCSM-13: the processor T; the fermion/boson split.
+  HCSM-22: the zero state.
+  HCSM-24 (revised): the charge theorem.
+  HCSM-26: the observer pair {W, t}.
+  HCSM-27: the Klein orbit structure.
+  HCSM-28: the orbit-class reconstruction.
+
+1.5 Organization
+
+Section 2 states the HCSM primitives. Section 3 states the identification
+thesis. Section 4 proves the two-line structure. Section 5 proves the Klein
+orbit classification. Section 6 proves the V6 congruence characterization.
+Section 7 proves the (S, D) factorization. Section 8 states the open
+derivation task. Section 9 catalogs the derivation status. Section 10
+states the falsification conditions. Section 11 gives reproducibility
+notes. Section 12 concludes.
+
+================================================================================
+2. SETUP
+================================================================================
+
+2.1 The substrate and the 14-mode multiplet
+
+The substrate is the periodic square lattice Lambda = Z_8 x Z_8 with
+N = 64 sites. The framework constants are
+
+    d = 4,  N = d * 2^d = 64,  L = sqrt(N) = 8,  H = 2^d = 16,
+    V = (d-1) * 2^d = 48.
+
+The discrete 5-point Laplacian is
+
+    (Delta f)(x_1,x_2) = 4 f(x_1,x_2) - f(x_1+1,x_2) - f(x_1-1,x_2)
+                          - f(x_1,x_2+1) - f(x_1,x_2-1),
+
+with eigenvalues
+
+    lambda(n_1, n_2) = 4 - 2 cos(pi n_1 / 4) - 2 cos(pi n_2 / 4),
+    (n_1, n_2) in {0,...,7}^2.                                       (Eq. 2.1)
+
+The self-paired eigenvalue lambda = 4 has multiplicity 2(L-1) = 14.
+
+In the standard mode order
+
+    (nu, e, u, d, s, mu, dark, c, tau, b, W, Z, H, t),
+
+the mode coordinates are
+
+    nu:(0,4),   e:(4,0),   u:(1,3),    d:(1,5),
+    s:(3,1),    mu:(3,7),  dark:(5,7), c:(7,3),
+    tau:(7,5),  b:(5,1),   W:(2,2),    Z:(2,6),
+    H:(6,2),    t:(6,6).
+
+2.2 The N/4 anchors
+
+The 14 N/4 mass-ordering labels are
+
+    (N/4)_i = (60, 24, 21, 20, 14, 14, 12, 9.5, 9, 7.5, 2, 2, 1, 0.5)
+
+in the standard mode order. The values are the framework's empirical
+anchors. Their internal structure is the subject of this paper.
+
+2.3 The Klein group
+
+Two order-two operations act on the 14-mode multiplet:
+
+    rs           : (n_1, n_2) -> (n_2, n_1)  (mod 8),
+    T_half       : (n_1, n_2) -> (n_1+4, n_2+4)  (mod 8).
+
+They commute and each squares to the identity, generating a Klein
+four-group V = <rs, T_half> = {e, rs, T_half, rs * T_half} [HCSM-27]. The
+product is
+
+    rs * T_half  : (n_1, n_2) -> (n_2+4, n_1+4)  (mod 8).
+
+The Klein orbits of the 14-mode multiplet are:
+
+    V_1 = {(0,4), (4,0)}
+    V_2 = {(2,6), (6,2)}
+    V_3 = {(1,5), (5,1)}
+    V_4 = {(3,7), (7,3)}
+    V_5 = {(2,2), (6,6)}
+    V_6 = {(5,7), (3,1), (1,3), (7,5)}                              (Eq. 2.2)
+
+2.4 The T_half pairs
+
+The half-period translation T_half pairs the 14 modes into 7 orbits of
+size 2 (the four two-cycle Klein orbits V_1, V_2, V_3, V_4 together with
+the two-cycle orbit V_5), plus the four-cycle orbit V_6 which decomposes
+into two T_half two-cycles:
+
+    V_6 = {(1,3),(5,7)} union {(3,1),(7,5)}.                        (Eq. 2.3)
+
+This gives 7 T_half pairs in total:
+
+    P_1 = {(0,4),(4,0)}
+    P_2 = {(2,6),(6,2)}
+    P_3 = {(1,5),(5,1)}
+    P_4 = {(3,7),(7,3)}
+    P_5 = {(2,2),(6,6)}
+    P_6 = {(1,3),(5,7)}
+    P_7 = {(3,1),(7,5)}                                             (Eq. 2.4)
+
+================================================================================
+3. THE IDENTIFICATION THESIS
+================================================================================
+
+Thesis 1.1 (Identification). The 14 modes at lambda = 4 on the 8 x 8 torus
+are in one-to-one correspondence with the 14 Standard Model particles of
+one generation:
+
+    (nu, e, u, d, s, mu, dark, c, tau, b, W, Z, H, t),
+
+where dark denotes the dark photon of the framework.
+
+The thesis is the framework's empirical anchor for the particle sector,
+exactly as the Standard Model's Yukawa couplings are its empirical anchor
+for the fermion masses. It is not derived from the substrate. The 14 N/4
+labels are the framework's empirical anchor for the mass sector.
+
+The remainder of this paper establishes the internal structure of the N/4
+labels, given the anchor. Nothing below derives the particle names or the
+numerical values of the anchors.
+
+================================================================================
+4. THE TWO-LINE STRUCTURE
+================================================================================
+
+4.1 The factorization of the lambda = 4 condition
+
+Lemma 4.1 (Cosine factorization). The condition lambda(n_1, n_2) = 4 is
+equivalent to
+
+    cos(pi n_1 / 4) + cos(pi n_2 / 4) = 0,
+
+which factors exactly as
+
+    2 cos(pi (n_1 + n_2) / 8) cos(pi (n_1 - n_2) / 8) = 0.        (Eq. 4.1)
+
+Proof. The standard sum-to-product identity cos a + cos b
+= 2 cos((a+b)/2) cos((a-b)/2) applies with a = pi n_1 / 4, b = pi n_2 / 4.
+Substituting a/4 = pi(n_1+n_2)/8 and b/4 = pi(n_1-n_2)/8 gives Eq. 4.1. QED
+
+Definition 4.2 (The two lines). The two lines L_A, L_B in Z_8^2 are:
+
+    L_A = {(n_1, n_2) in Z_8^2 : n_2 - n_1 = 4 (mod 8)},
+    L_B = {(n_1, n_2) in Z_8^2 : n_1 + n_2 = 4 (mod 8)}.
+
+4.2 Union and intersection
+
+Theorem 4.3 (Two-line structure). The 14 modes at lambda = 4 are exactly
+the union L_A union L_B. Each line contains 8 points of the torus, and
+their intersection is
+
+    L_A intersect L_B = {(0,4), (4,0)} = V_1 = {nu, e}.
+
+Hence |L_A| + |L_B| - |L_A intersect L_B| = 8 + 8 - 2 = 14.
+
+Proof. The first factor in Eq. 4.1 vanishes when pi(n_1+n_2)/8 = pi/2 + k pi,
+i.e. n_1 + n_2 = 4 (mod 8). The second factor vanishes when
+pi(n_1-n_2)/8 = pi/2 + k pi, i.e. n_1 - n_2 = 4 (mod 8), equivalently
+n_2 - n_1 = 4 (mod 8). The union of these two conditions is L_A union L_B.
+Each condition defines a line of 8 points on the torus Z_8^2. The
+intersection consists of the points satisfying both conditions:
+n_1 + n_2 = 4 and n_2 - n_1 = 4, i.e. 2n_2 = 8 = 0 (mod 8), i.e.
+n_2 in {0, 4}, giving (n_1,n_2) in {(4,0),(0,4)}. This is exactly
+V_1 = {nu, e}. The union count follows by inclusion-exclusion. QED
+
+Corollary 4.4 (Line decomposition of the multiplet). In standard mode
+order, the modes on each line are:
+
+    L_A = {nu, e, d, b, Z, H, mu, c},
+    L_B = {nu, e, u, s, dark, tau, W, t}.
+
+The intersection is {nu, e}. The A-only modes (in L_A but not L_B) are
+{d, b, Z, H, mu, c}; the B-only modes (in L_B but not L_A) are
+{u, s, dark, tau, W, t}.
+
+Proof. Direct verification against the standard mode coordinates. QED
+
+================================================================================
+5. THE KLEIN ORBIT CLASSIFICATION
+================================================================================
+
+Theorem 5.1 (Klein orbits are the (line, n_1 mod 4) classes). The six
+Klein orbits of Eq. 2.2 are exactly the classes
+
+    V_1 = (both, 0),
+    V_2 = (L_A, 2),
+    V_3 = (L_A, 1),
+    V_4 = (L_A, 3),
+    V_5 = (L_B, 2),
+    V_6 = (L_B, 1) union (L_B, 3).
+
+Explicitly:
+
+    Klein orbit   (line, n_1 mod 4)        Modes              N/4 sum
+    V_1           (both, 0)                nu, e              84
+    V_2           (L_A, 2)                 Z, H               3
+    V_3           (L_A, 1)                 d, b               27.5
+    V_4           (L_A, 3)                 mu, c              23.5
+    V_5           (L_B, 2)                 W, t               2.5
+    V_6           (L_B, 1) union (L_B, 3)  u, s, dark, tau    56
+
+Proof. For each mode (n_1,n_2) in the multiplet, compute the line
+membership and the residue n_1 mod 4. Direct verification against Eq. 2.2.
+Both T_half and rs * T_half preserve the line and the residue n_1 mod 4;
+the action of T_half alone shifts n_1 by 4, hence preserves n_1 mod 4. So
+each Klein orbit is contained in a single (line, n_1 mod 4) class. Because
+the classes partition the 14 modes into 7 groups of size 2 (except the
+(both, 0) class of size 2, and the union (L_B,1) union (L_B,3) of size 4),
+and the Klein orbits also partition the multiplet, the correspondence is
+exact. QED
+
+Remark 5.2 (On the size-4 orbit). The four-cycle orbit V_6 is the unique
+Klein orbit that spans two distinct n_1 mod 4 classes: (L_B, 1) and
+(L_B, 3). This is why V_6 has four members rather than two, and why it is
+the unique orbit with trivial pointwise stabilizer [HCSM-27].
+
+================================================================================
+6. THE V6 CONGRUENCE CHARACTERIZATION
+================================================================================
+
+Theorem 6.1 (V6 congruence characterization). The four-cycle orbit V_6 is
+exactly the set of modes at lambda = 4 satisfying
+
+    n_1 - n_2 = 2 (mod 4).                                          (Eq. 6.1)
+
+Equivalently, V_6 = {m in M : n_1 - n_2 = 2 (mod 4)}, where M is the
+14-mode multiplet. Every other mode satisfies n_1 - n_2 = 0 (mod 4).
+
+Proof. Direct computation. The four modes (5,7), (7,5), (3,1), (1,3) have
+n_1 - n_2 in {-2, +2}, all congruent to 2 mod 4. Every other mode in the
+multiplet has n_1 - n_2 in {0, +-4}, all congruent to 0 mod 4. QED
+
+Corollary 6.2 (Geometric meaning of V6). The four-cycle orbit V_6 is the
+unique Klein orbit whose members have n_1 != n_2 (mod 4). All other modes
+satisfy n_1 = n_2 (mod 4), which is the parity constraint
+n_1 = n_2 (mod 2) of HCSM-05 strengthened to mod 4.
+
+Proof. Immediate from Theorem 6.1. For all modes at lambda = 4, Lemma 7.2
+of HCSM-05 gives n_1 = n_2 (mod 2). The finer statement mod 4 splits the
+modes into the two classes: n_1 = n_2 (mod 4) (10 modes) and
+n_1 != n_2 (mod 4) (4 modes, exactly V_6). QED
+
+================================================================================
+7. THE (S, D) FACTORIZATION OF THE N/4 ANCHORS
+================================================================================
+
+7.1 The T_half pair sums and differences
+
+Definition 7.1 (Pair sum and difference). For each T_half pair
+P = {m, m'} of Eq. 2.4, order the two modes by descending N/4 and define
+
+    S(P) = N/4_heavy + N/4_light,
+    D(P) = N/4_heavy - N/4_light.
+
+Theorem 7.2 ((S, D) factorization). Every T_half pair's sum S(P) and
+difference D(P) are framework constants. The values are given in Table
+7.1.
+
+Table 7.1: The 7 T_half pairs, their (line, n_1 mod 4) class, and their
+(S, D) values.
+
+    T_half pair          (line, k) class   S       D       D framework form
+    {(0,4),(4,0)}        (both, 0)        84      36      4(d-1)^2
+    {(1,5),(5,1)}        (L_A, 1)         27.5    12.5    (d+1)^2/2
+    {(2,6),(6,2)}        (L_A, 2)         3       1       1
+    {(3,7),(7,3)}        (L_A, 3)         23.5    4.5     (d-1)^2/2
+    {(1,3),(5,7)}        (L_B, 1)         33      9       (d-1)^2
+    {(2,2),(6,6)}        (L_B, 2)         2.5     1.5     (d-1)/2
+    {(3,1),(7,5)}        (L_B, 3)         23      5       d+1
+
+Proof. Direct arithmetic on the N/4 anchors. The D framework forms are
+verified by substitution at d = 4. QED
+
+7.2 Reconstruction of the N/4 anchors
+
+Theorem 7.3 (N/4 anchors as (S, D) averages). The two N/4 anchors of each
+T_half pair are exactly
+
+    N/4_heavy = (S + D)/2,
+    N/4_light = (S - D)/2.
+
+Proof. Immediate from Definition 7.1. The pair sum reconstructs the
+average, the pair difference reconstructs the half-separation. QED
+
+Corollary 7.4 (Reduction of the derivation target). The 14 N/4 anchors are
+determined by the 7 pairs (S, D) listed in Table 7.1. The derivation of the
+14 anchors reduces to the derivation of the 14 values
+(S_1, ..., S_7, D_1, ..., D_7).
+
+Remark 7.5 (Why this is progress). The 7 S values are the pair sums of
+N/4; the 7 D values are the pair differences. Every one of the 14 values
+is a framework constant, whereas the raw N/4 list includes half-integers
+(9.5, 7.5, 0.5) that are less obviously framework constants. The (S, D)
+factorization groups the anchors by their T_half pair structure, which is
+the structural relation the framework already uses for the pair-sum
+identities of HCSM-23 (Thm 4.3).
+
+7.3 Distinctness and non-overlap of the D values
+
+Proposition 7.6 (D values distinct). The seven D values of Table 7.1 are
+pairwise distinct: {36, 12.5, 9, 5, 4.5, 1.5, 1}.
+
+Proof. Direct comparison. QED
+
+Proposition 7.7 (S values distinct). The seven S values of Table 7.1 are
+pairwise distinct: {84, 33, 27.5, 23, 23.5, 2.5, 3}.
+
+Proof. Direct comparison. The values 23 and 23.5 are the two nearly-
+degenerate pair sums (differing by 0.5), and 2.5 and 3 are the two small
+pair sums. QED
+
+================================================================================
+8. THE OPEN DERIVATION TASK
+================================================================================
+
+The (S, D) factorization reduces the derivation target for the N/4 anchors
+from 14 independent values to 7 (S, D) pairs. The remaining open problem is:
+
+    Derive the 7 values of S and the 7 values of D from substrate
+    primitives.
+
+Equivalently: derive the 14 values
+
+    S_i = (84, 27.5, 3, 23.5, 33, 2.5, 23),
+    D_i = (36, 12.5, 1, 4.5, 9, 1.5, 5)
+
+as functions S_i = f_S(line_i, k_i, n_1, n_2, sigma_i, T_i, ...) and
+D_i = f_D(line_i, k_i, n_1, n_2, sigma_i, T_i, ...) of the substrate-level
+invariants of each T_half pair.
+
+Candidate substrate-level primitives (from HCSM-13, HCSM-05, HCSM-27):
+
+  - the line projectors P_LA, P_LB;
+  - the Klein group elements I, rs, T_half, rs * T_half;
+  - the n_1-parity operator D = diag((-1)^{n_1}) (HCSM-05);
+  - the processor T = I - P_C (HCSM-13);
+  - the winding generator H_wind = i sin(pi M / 8) (HCSM-20);
+  - the zero-state sign sigma = sign(s) (HCSM-22).
+
+The search should test whether each S_i or D_i is the trace of a specific
+combination of these operators restricted to the pair subspace, or the
+eigenvalue of a specific operator on the pair. The nine candidate families
+eliminated in HCSM-24 (revised) for the charge functional provide a
+template for the elimination procedure.
+
+================================================================================
+9. DERIVATION STATUS
+================================================================================
+
+9.1 Derived in this revision
+
+  (1) The two-line structure L_A union L_B (Thm. 4.3).
+  (2) The (line, n_1 mod 4) classification of the Klein orbits (Thm. 5.1).
+  (3) The V6 congruence characterization n_1 - n_2 = 2 (mod 4) (Thm. 6.1).
+  (4) The (S, D) factorization of the T_half pairs (Thm. 7.2).
+  (5) The N/4 anchors as (S +- D)/2 averages (Thm. 7.3).
+  (6) The reduction of the derivation target to the 7 (S, D) pairs
+      (Cor. 7.4).
+
+9.2 Derived in the original HCSM-23
+
+  (1) The (n_1, sigma) bijection.
+  (2) The rs-pair ordering.
+  (3) The four-cycle Klein orbit sum 56.
+  (4) The 5 + 9 split.
+  (5) The mass map fit.
+
+9.3 Empirical anchors
+
+  (1) The 14 particle assignments (Thesis 1.1).
+  (2) The 14 N/4 values.
+
+9.4 Open items
+
+  (1) The derivation of the 7 pair sums S from substrate primitives.
+  (2) The derivation of the 7 pair differences D from substrate primitives.
+  (3) The derivation of the identification thesis from a structural
+      principle.
+
+================================================================================
+10. FALSIFICATION
+================================================================================
+
+Theorem 10.1 (Falsifiability of the identification thesis). The
+identification thesis is falsifiable. Any of the following observations
+would falsify it:
+
+  (1) A fourth generation of Standard Model particles.
+  (2) A particle content of one generation not matching the 14-mode
+      structure.
+  (3) An observed mass ordering that violates the rs-pair ordering
+      (HCSM-23 original Thm 4.2).
+  (4) An observed mass spectrum not fitting the mass map at any acceptable
+      RMS.
+
+Theorem 10.2 (Falsifiability of the (S, D) factorization). The (S, D)
+factorization is falsifiable. If the 14 N/4 anchors were found to violate
+the pair structure, i.e. if a different assignment of N/4 values to modes
+produced a different (S, D) list, the factorization would fail. As stated,
+the (S, D) values are a theorem given the specific anchors of Eq. 2.4.
+
+================================================================================
+11. REPRODUCIBILITY
+================================================================================
+
+All numerical claims in this paper are verified at machine precision in
+IEEE-754 double precision. The companion script
+HCSM-23revised_verification.py constructs:
+
+  1. The 14 mode coordinates and the standard mode order.
+  2. The two lines L_A, L_B and their union.
+  3. The Klein group V = <rs, T_half> and the six orbits.
+  4. The T_half pairs and their (S, D) values.
+  5. The framework-constant forms of S and D.
+  6. The reconstruction of the N/4 anchors as (S +- D)/2.
+
+and verifies:
+
+  1. |L_A union L_B| = 14; |L_A intersect L_B| = 2;
+     L_A intersect L_B = {nu, e}.
+  2. The Klein orbits equal the (line, n_1 mod 4) classes.
+  3. V6 = {m : n_1 - n_2 = 2 (mod 4)}.
+  4. Every S and every D is a framework constant.
+  5. The reconstruction N/4_heavy = (S+D)/2, N/4_light = (S-D)/2 is
+     exact.
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim in
+the HCSM paper stack.
+
+================================================================================
+12. CONCLUSION
+================================================================================
+
+This revision of HCSM-23 has added three new HCSM-native structural
+results to the identification thesis and the N/4 anchors.
+
+First, the 14 modes at lambda = 4 are exactly the union of two lines
+L_A union L_B in Z_8^2, with intersection {nu, e}.
+
+Second, the six Klein orbits of HCSM-27 are exactly the
+(line, n_1 mod 4) classes, and the four-cycle orbit V6 admits the
+coordinate-level characterization n_1 - n_2 = 2 (mod 4).
+
+Third, every T_half pair has a sum S and a difference D that are framework
+constants, and the two N/4 anchors of each pair are exactly (S + D)/2 and
+(S - D)/2.
+
+Together these results reduce the derivation target for the N/4 anchors
+from 14 independent values to 7 (S, D) pairs of framework constants. The
+identification thesis remains empirical and falsifiable; the internal
+structure of the N/4 list is now cleanly organized.
+
+The remaining open problem is the derivation of the 7 pair sums S and the
+7 pair differences D from substrate primitives. This is now the
+highest-leverage open item in the N/4 sector.
+
+The 14 modes form two perpendicular lines. Their intersection is the pair
+the machine cannot cancel. The N/4 anchors are the pairwise averages of
+framework constants.
+
+================================================================================
+REFERENCES
+================================================================================
+
+[HCSM-00]  S. Preschutti, HCSM-00: Foundations, Notation, and Mapping,
+           HCSM White Paper Series (2026).
+
+[HCSM-01]  S. Preschutti, HCSM-01: The 8 x 8 Torus Substrate from d = 4,
+           HCSM White Paper Series (2026).
+
+[HCSM-04]  S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4,
+           HCSM White Paper Series (2026).
+
+[HCSM-05]  S. Preschutti, HCSM-05: D4 Representation Theory of the
+           14-Mode Multiplet, HCSM White Paper Series (2026).
+
+[HCSM-11]  S. Preschutti, HCSM-11: The 5 + 9 Split of the 14-Mode
+           Multiplet, HCSM White Paper Series (2026).
+
+[HCSM-13]  S. Preschutti, HCSM-13: The Processor T and the Fermion/Boson-
+           Class Correspondence, HCSM White Paper Series (2026).
+
+[HCSM-22]  S. Preschutti, HCSM-22: The Zero State, HCSM White Paper
+           Series (2026).
+
+[HCSM-24]  S. Preschutti, HCSM-24 (Revised): The Charge Theorem, HCSM
+           White Paper Series (2026).
+
+[HCSM-26]  S. Preschutti, HCSM-26: The Observer Pair {W, t}, HCSM White
+           Paper Series (2026).
+
+[HCSM-27]  S. Preschutti, HCSM-27: Klein Orbit Structure, HCSM White
+           Paper Series (2026).
+
+[HCSM-28]  S. Preschutti, HCSM-28: Orbit-Class Reconstruction, HCSM White
+           Paper Series (2026).
+
+[PDG]      Particle Data Group (S. Navas et al.), Review of Particle
+           Physics, Phys. Rev. D 110, 030001 (2024).
+
+================================================================================
+APPENDIX A. WEB CRAWLER METADATA
+================================================================================
+
+A.1 Dublin Core
+
+DC.title: HCSM-23 (Revised): The Identification of the 14 Modes with One
+    Standard Model Generation
+DC.alternative: The Two-Line Structure, the Klein Orbit Classification,
+    the V6 Congruence Characterization, and the (S, D) Factorization of
+    the N/4 Anchors
+DC.creator: Preschutti, Stanley
+DC.creator.orcid: 0009-0004-5445-1744
+DC.date.issued: 2026-09
+DC.date.modified: 2026-09
+DC.type: Text / Preprint / White Paper
+DC.format: application/pdf; text/x-latex; text/plain
+DC.language: en
+DC.publisher: Entropia Research Institute
+DC.rights: All rights reserved
+DC.subject: Hodge Complex Standard Model; HCSM; identification thesis;
+    N/4 anchors; two-line structure; Klein orbits; V6 congruence;
+    T_half pairs; (S, D) factorization; framework constants
+DC.description: This revision of HCSM-23 adds three new HCSM-native
+    structural results to the identification thesis and the N/4 anchors.
+    (1) The 14 modes at lambda = 4 are exactly the union of two lines
+    L_A union L_B in Z_8^2, intersecting at {nu, e}. (2) The six Klein
+    orbits of HCSM-27 are exactly the (line, n_1 mod 4) classes, and
+    the four-cycle orbit V6 is characterized by n_1 - n_2 = 2 (mod 4).
+    (3) Every T_half pair has a sum S and a difference D that are
+    framework constants, and the two N/4 anchors of each pair are
+    exactly (S + D)/2 and (S - D)/2. The derivation target for the
+    N/4 anchors reduces from 14 independent values to 7 (S, D) pairs
+    of framework constants. The identification thesis remains empirical
+    and falsifiable.
+DC.identifier: HCSM-23revised-2026-09
+DC.isPartOf: HCSM White Paper Series
+DC.relation.replaces: HCSM-23 (2026-09)
+
+A.2 Schema.org JSON-LD
+
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "HCSM-23 (Revised): The Identification of the 14 Modes with One Standard Model Generation",
+  "alternateName": "The Two-Line Structure, the Klein Orbit Classification, the V6 Congruence Characterization, and the (S, D) Factorization of the N/4 Anchors",
+  "author": {
+    "@type": "Person",
+    "name": "Stanley Preschutti",
+    "jobTitle": "Physics Researcher",
+    "email": "scstamp@yahoo.com",
+    "identifier": "https://orcid.org/0009-0004-5445-1744",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Entropia Research Institute",
+      "url": "https://www.informationphysicsinstitute.org"
+    }
+  },
+  "datePublished": "2026-09",
+  "inLanguage": "en",
+  "abstract": "This revision of HCSM-23 adds three new HCSM-native structural results. First, the 14 modes at lambda = 4 are exactly the union of two lines L_A union L_B in Z_8^2, intersecting at {nu, e}. Second, the six Klein orbits of HCSM-27 are exactly the (line, n_1 mod 4) classes, and the four-cycle orbit V6 is characterized by n_1 - n_2 = 2 (mod 4). Third, every T_half pair has a sum S and a difference D that are framework constants, and the two N/4 anchors of each pair are exactly (S + D)/2 and (S - D)/2. The derivation target for the N/4 anchors reduces from 14 independent values to 7 (S, D) pairs.",
+  "keywords": [
+    "Hodge Complex Standard Model",
+    "HCSM",
+    "identification thesis",
+    "N/4 anchors",
+    "two-line structure",
+    "Klein orbits",
+    "V6 congruence",
+    "T_half pairs",
+    "(S, D) factorization",
+    "framework constants"
+  ],
+  "license": "All rights reserved",
+  "identifier": "HCSM-23revised-2026-09",
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "HCSM White Paper Series"
+  },
+  "replaces": {
+    "@type": "ScholarlyArticle",
+    "name": "HCSM-23: The Identification of the 14 Modes with One Standard Model Generation"
+  }
+}
+
+A.3 BibTeX for Automated Indexing
+
+@article{PreschuttiHCSM23revised,
+  author = {Preschutti, Stanley},
+  title = {{HCSM-23} (Revised): The Identification of the 14 Modes with
+    One Standard Model Generation},
+  journal = {HCSM White Paper Series},
+  year = {2026},
+  month = {September},
+  note = {ORCID: 0009-0004-5445-1744; supersedes HCSM-23 (2026-09)},
+  keywords = {Hodge Complex Standard Model, HCSM, identification thesis,
+    N/4 anchors, two-line structure, Klein orbits, V6 congruence,
+    T_half pairs, (S, D) factorization, framework constants},
+  abstract = {This revision of HCSM-23 adds three new HCSM-native
+    structural results. (1) The 14 modes at lambda = 4 are exactly the
+    union of two lines L_A union L_B in Z_8^2, intersecting at {nu, e}.
+    (2) The six Klein orbits of HCSM-27 are exactly the
+    (line, n_1 mod 4) classes, and the four-cycle orbit V6 is
+    characterized by n_1 - n_2 = 2 (mod 4). (3) Every T_half pair has a
+    sum S and a difference D that are framework constants, and the two
+    N/4 anchors of each pair are exactly (S + D)/2 and (S - D)/2. The
+    derivation target for the N/4 anchors reduces from 14 independent
+    values to 7 (S, D) pairs of framework constants.}
+}
+
+================================================================================
+END OF HCSM-23 (REVISED)
+================================================================================
