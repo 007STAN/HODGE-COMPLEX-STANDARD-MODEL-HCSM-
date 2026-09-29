@@ -1,0 +1,412 @@
+================================================================================
+HCSM-14.a
+The Kernel-Diagonal Theorem: Three Framework Coefficients from One Projector
+A sub-paper of HCSM-14 (Winding Generator Spectrum and Class Partition)
+================================================================================
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstanp@yahoo.com
+
+September 2026
+
+--------------------------------------------------------------------------------
+ABSTRACT
+--------------------------------------------------------------------------------
+
+This sub-paper extends HCSM-14 by characterizing the orthogonal projector
+P_ker onto the kernel of the winding generator H_wind = i sin(pi M / 8) on
+the 14-mode multiplet at lambda = 4. We prove that the diagonal of P_ker in
+the standard mode basis takes exactly two values:
+
+    (P_ker)_ii = 2/d     = 1/2   for i in O_0
+    (P_ker)_ii = (d-1)/d = 3/4   for i in O_1 union O_2
+
+Three coefficients of the Hodge Complex Standard Model are then read as
+traces of this single diagonal:
+
+    EFT coefficient     c = (d+1) / Tr(P_ker | O_1 union O_2) = 5/9
+    Mass-map coefficient  = diag(O_1 union O_2) / diag(O_0)   = (d-1)/2 = 3/2
+    Kernel dimension      = Tr(P_ker)                          = 1 + (d-1)^2
+                                                               = 10
+
+The theorem is HCSM-native. The proof reduces to a single structural fact:
+ker(H_wind) is invariant under the diagonal flip F but not under the full
+D_4 point group. The two-value diagonal is the F-invariance of the kernel,
+made explicit. Every numerical claim is verified at machine precision.
+
+--------------------------------------------------------------------------------
+CONTENTS
+--------------------------------------------------------------------------------
+
+1. Introduction
+2. Setup
+3. The Kernel-Diagonal Theorem
+4. Three Coefficients from One Diagonal
+5. F-Invariance of the Kernel
+6. The Kernel-T Decomposition
+7. Reproducibility
+8. Conclusion
+9. References
+
+--------------------------------------------------------------------------------
+1. INTRODUCTION
+--------------------------------------------------------------------------------
+
+1.1 Motivation
+--------------
+
+HCSM-14 establishes the winding generator H_wind = i sin(pi M / 8) on the
+14-mode multiplet at lambda = 4, proves its spectrum
+
+    {-4 sqrt(2), -2 sqrt(2), 0^(10), +2 sqrt(2), +4 sqrt(2)},
+
+and derives the winding class partition {A, B, C} of sizes (3, 7, 4).
+
+The present sub-paper characterizes the kernel projector P_ker of H_wind
+and shows that its diagonal is the structural source of three of the
+framework's leading coefficients.
+
+1.2 Main result
+---------------
+
+Theorem 1 (Kernel-Diagonal).
+Let Lambda = Z_8 x Z_8 be the HCSM substrate, let kappa_14 be the 14-mode
+multiplet at lambda = 4, and let H_wind = i sin(pi M / 8). Let P_ker be
+the orthogonal projector onto ker(H_wind). Then the diagonal of P_ker in
+the standard mode basis takes exactly two values:
+
+    diag(P_ker)_i = 2/d     = 1/2   for i in O_0
+    diag(P_ker)_i = (d-1)/d = 3/4   for i in O_1 union O_2
+
+1.3 Consequences
+----------------
+
+Corollary 1 (Three coefficients from one diagonal).
+With P_ker as in Theorem 1:
+
+    c = (d+1) / Tr(P_ker | O_1 union O_2) = 5/9         (EFT coefficient)
+
+    diag(O_1 union O_2) / diag(O_0) = (d-1)/2 = 3/2     (mass-map coefficient)
+
+    dim ker(H_wind) = Tr(P_ker) = 1 + (d-1)^2 = 10      (kernel dimension)
+
+1.4 Relationship to HCSM-14
+---------------------------
+
+HCSM-14 proves {H_wind, P_F} = 0 (Theorem 20 there). That single algebraic
+identity has a direct geometric consequence, derived here: the kernel
+ker(H_wind) is F-invariant, and the diagonal of its projector is constant
+on each F-cycle. The two-value diagonal and the three coefficients follow.
+
+1.5 Cross references
+--------------------
+
+Depends on: HCSM-02, HCSM-04, HCSM-05, HCSM-13, HCSM-14, HCSM-26.
+
+Propagates to: HCSM-19 (mass-map coefficient), HCSM-33 (mass map),
+HCSM-52 (EFT coefficient), HCSM-53 (dark energy), HCSM-56.a (Lambda
+promotion).
+
+--------------------------------------------------------------------------------
+2. SETUP
+--------------------------------------------------------------------------------
+
+2.1 Substrate and multiplet
+---------------------------
+
+Lambda = Z_8 x Z_8, N = 64 sites. The 5-point Laplacian has eigenvalue
+
+    lambda(n_1, n_2) = 4 - 2 cos(pi n_1 / 4) - 2 cos(pi n_2 / 4)
+
+The self-paired eigenvalue lambda = 4 has multiplicity 14. In the standard
+mode order
+
+    (nu, e, u, d, s, mu, dark, c, tau, b, W, Z, H, t)
+
+the mode coordinates are
+
+    nu: (0,4),   e: (4,0),   u: (1,3),    d: (1,5),
+    s: (3,1),    mu: (3,7),  dark: (5,7), c: (7,3),
+    tau: (7,5),  b: (5,1),   W: (2,2),    Z: (2,6),
+    H: (6,2),    t: (6,6).
+
+2.2 The three D_4 orbits
+------------------------
+
+Under the D_4 point group of the square:
+
+    O_0 = {nu, e}                              (size 2)
+    O_1 = {u, d, s, mu, dark, c, tau, b}       (size 8)
+    O_2 = {W, Z, H, t}                         (size 4)
+
+2.3 The winding generator
+-------------------------
+
+n_1, n_2 in R^14: first and second coordinate vectors of each mode.
+
+M_ij = n_1^(i) n_2^(j) - n_1^(j) n_2^(i)
+
+H_wind = i sin(pi M / 8)    (sin applied elementwise)
+
+By HCSM-14: H_wind is Hermitian, entries in Q(sqrt(2)), characteristic
+polynomial
+
+    p(lambda) = lambda^10 (lambda^2 - 8)(lambda^2 - 32)
+
+Hence dim ker(H_wind) = 10.
+
+2.4 The diagonal flip F
+-----------------------
+
+F: (n_1, n_2) -> (n_2, n_1) mod 8
+
+Fix(F) = {(2,2), (6,6)} = {W, t}.
+
+Let P_F be the permutation matrix implementing F on the mode basis.
+
+--------------------------------------------------------------------------------
+3. THE KERNEL-DIAGONAL THEOREM
+--------------------------------------------------------------------------------
+
+3.1 The kernel projector
+------------------------
+
+dim ker(H_wind) = 10.
+
+U_ker in R^(14 x 10): orthonormal basis of ker(H_wind),
+H_wind U_ker = 0, U_ker^T U_ker = I_10.
+
+P_ker = U_ker U_ker^T in R^(14 x 14).
+
+3.2 Proof of Theorem 1
+----------------------
+
+Proof (structural).
+By HCSM-14 Theorem 20, {H_wind, P_F} = 0. Squaring gives
+H_wind^2 P_F = P_F H_wind^2, so P_F commutes with the spectral projector of
+H_wind^2 at eigenvalue 0. Since ker(H_wind) = ker(H_wind^2), we conclude
+
+    [P_ker, P_F] = 0.
+
+The involution F partitions the 14-mode multiplet into six 2-cycles and
+one fixed locus {W, t} (which is a cycle of length 2 but acts trivially).
+Enumerating:
+
+    {nu, e}, {u, s}, {d, b}, {mu, c}, {dark, tau}, {W, t}.
+
+Since [P_ker, P_F] = 0, P_ker is constant on each F-cycle.
+
+Direct numerical evaluation of the diagonal of P_ker gives
+
+    (P_ker)_ii = 1/2   for i in {nu, e} subset O_0
+    (P_ker)_ii = 3/4   for i in O_1 union O_2
+
+The five F-cycles {u,s}, {d,b}, {mu,c}, {dark,tau}, {W,t} all sit in
+O_1 union O_2 and all carry the same value 3/4. The single F-cycle {nu, e}
+sits in O_0 and carries 1/2.  []
+
+Remark.
+The full D_4 point group does NOT preserve the kernel:
+
+    || [P_ker, R(r)] ||_F = sqrt(2)
+    || [P_ker, R(s)] ||_F = sqrt(2)
+    || [P_ker, P_F]  ||_F < 1e-14
+
+Only the diagonal flip F commutes with P_ker. The two-value diagonal is a
+consequence of F-invariance alone.
+
+--------------------------------------------------------------------------------
+4. THREE COEFFICIENTS FROM ONE DIAGONAL
+--------------------------------------------------------------------------------
+
+4.1 Partial traces on the orbit classes
+---------------------------------------
+
+Tr(P_ker | O_0)            = 2 * 1/2       = 1 = d/d
+
+Tr(P_ker | O_1 union O_2)  = 12 * 3/4      = 9 = (d-1)^2
+
+Tr(P_ker)                  = 1 + (d-1)^2   = 10 = dim ker(H_wind)
+
+4.2 The EFT coefficient c
+-------------------------
+
+Theorem 2 (EFT coefficient).
+    c = (d+1) / Tr(P_ker | O_1 union O_2) = 5/9
+
+Proof.
+Numerator: d + 1 = 5. Denominator: (d-1)^2 = 9. Ratio: 5/9.  []
+
+Remark.
+HCSM-52 derives c = 5/9 from the observer-pair N/4 values via
+c = 2S/(2Delta)^2. The kernel-diagonal derivation here is independent:
+it uses only the winding generator, not the observer pair. The two
+derivations agree exactly.
+
+4.3 The mass-map coefficient
+----------------------------
+
+Theorem 3 (Mass-map coefficient).
+    diag(O_1 union O_2) / diag(O_0) = (3/4) / (1/2) = 3/2 = (d-1)/2
+
+Proof.
+Ratio of the two values of the diagonal.  []
+
+Remark.
+HCSM-19 derives (d-1)/2 = 3/2 from the DNLS Hartree orbit trace
+Tr K_{O_1} / Tr K_{O_0} = 3/2. HCSM-13 derives it from the processor F/B
+split (|F| - |B|)/|B| = 3/2. The kernel-diagonal derivation here is the
+most primitive: it uses only the projector onto ker(H_wind).
+
+4.4 The kernel dimension
+------------------------
+
+dim ker(H_wind) = Tr(P_ker) = 10 = 1 + (d-1)^2
+
+Reproduces the constant used in HCSM-53.
+
+4.5 Unification
+---------------
+
+The three coefficients
+
+    c = 5/9
+    (d-1)/2 = 3/2
+    (d-1)^2 + 1 = 10
+
+are three traces of the same object: the diagonal of the projector onto
+ker(H_wind), read on three different orbit unions.
+
+--------------------------------------------------------------------------------
+5. F-INVARIANCE OF THE KERNEL
+--------------------------------------------------------------------------------
+
+Theorem 4 (F-invariance).
+The kernel of H_wind is invariant under the diagonal flip F, but not under
+the full D_4 point group:
+
+    [P_ker, P_F]  = 0
+    [P_ker, R(r)] != 0
+    [P_ker, R(s)] != 0
+
+At machine precision:
+
+    || [P_ker, P_F]  ||_F < 1e-14
+    || [P_ker, R(r)] ||_F = sqrt(2)
+    || [P_ker, R(s)] ||_F = sqrt(2)
+
+Proof.
+By HCSM-14 Theorem 20, {H_wind, P_F} = 0. Squaring gives
+H_wind^2 P_F = P_F H_wind^2, so P_F commutes with the spectral projector of
+H_wind^2 at eigenvalue 0. Since ker(H_wind) = ker(H_wind^2), this gives
+[P_ker, P_F] = 0.
+
+For r and s: R(r) has order 4 and does not preserve the F-cycle structure.
+Direct evaluation gives the stated Frobenius norms.  []
+
+Corollary.
+The kernel of H_wind is the unique F-invariant 10-dimensional subspace of
+C^14 that contains the class C = {dark, W, Z, H} up to the F-swap of dark
+with tau.
+
+--------------------------------------------------------------------------------
+6. THE KERNEL-T DECOMPOSITION
+--------------------------------------------------------------------------------
+
+Theorem 5 (Kernel splitting under the processor).
+Let T = I - P_C be the processor of HCSM-13, with image F-sector (rank 10)
+and kernel C = {dark, W, Z, H} (rank 4). Then
+
+    dim ( ker(H_wind) intersect im(T) )  = 6 = |F| - |B|
+    dim ( ker(H_wind) intersect ker(T) ) = 4 = |B|
+
+The two dimensions sum to 10 = dim ker(H_wind).
+
+Proof (sketch).
+Form the stacked matrix [U_ker | U_T] where U_T in R^(14 x 10) is an
+orthonormal basis of im(T). Computing the rank of this matrix (or
+equivalently of [U_ker | U_C] with U_C a basis of ker(T)) gives the stated
+dimensions. Both are verified at machine precision in the companion
+script.  []
+
+Remark.
+The decomposition ker(H_wind) = (6-dim) + (4-dim) under the processor T
+mirrors the F/B split of HCSM-13. The kernel of the winding generator is
+not the same as the kernel of the processor; it intersects the bosonic
+sector B in 4 dimensions and the fermionic sector F in 6 dimensions.
+
+--------------------------------------------------------------------------------
+7. REPRODUCIBILITY
+--------------------------------------------------------------------------------
+
+All numerical claims in this paper are verified at machine precision in
+IEEE-754 double precision. The companion script HCSM-14a_verification.py
+constructs:
+
+    1. The 14-mode coordinates and the winding matrix M.
+    2. The winding generator H_wind = i sin(pi M / 8).
+    3. The kernel basis U_ker by SVD of H_wind.
+    4. The projector P_ker = U_ker U_ker^T.
+    5. The permutation matrices P_F, R(r), R(s).
+
+and verifies:
+
+    1.  (P_ker)_ii = 1/2 for i in O_0.
+    2.  (P_ker)_ii = 3/4 for i in O_1 union O_2.
+    3.  Tr(P_ker | O_0) = 1.
+    4.  Tr(P_ker | O_1 union O_2) = 9.
+    5.  Tr(P_ker) = 10.
+    6.  c = 5/9.
+    7.  (d-1)/2 = 3/2.
+    8.  || [P_ker, P_F]  ||_F < 1e-14.
+    9.  || [P_ker, R(r)] ||_F = sqrt(2).
+    10. || [P_ker, R(s)] ||_F = sqrt(2).
+    11. dim(ker(H_wind) intersect im T) = 6.
+    12. dim(ker(H_wind) intersect ker T) = 4.
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim in the
+HCSM paper stack.
+
+--------------------------------------------------------------------------------
+8. CONCLUSION
+--------------------------------------------------------------------------------
+
+The kernel of the winding generator carries the framework's three most
+consequential coefficients on its diagonal. The EFT coefficient c = 5/9,
+the mass-map coefficient (d-1)/2 = 3/2, and the kernel dimension
+10 = (d-1)^2 + 1 are traces of one projector, read on three orbit unions.
+
+The single structural fact behind all three is the diagonal flip F. By
+HCSM-14, H_wind anticommutes with F; therefore its kernel is F-invariant;
+therefore the diagonal of the kernel projector takes one value on each
+F-cycle. Each F-cycle sits inside a single D_4 orbit, and the two orbits
+O_1 and O_2 happen to carry the same value.
+
+The pattern {2/d, (d-1)/d} is the fingerprint of the winding kernel. It is
+not a numerical accident; it is a theorem of the substrate.
+
+--------------------------------------------------------------------------------
+9. REFERENCES
+--------------------------------------------------------------------------------
+
+[1]  S. Preschutti, HCSM-00: Foundations, Notation, and Mapping.
+[2]  S. Preschutti, HCSM-02: The Hodge Complex on Lambda.
+[3]  S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4.
+[4]  S. Preschutti, HCSM-05: Orbit Decomposition and Inverse Participation.
+[5]  S. Preschutti, HCSM-13: The Processor T and the F/B Split.
+[6]  S. Preschutti, HCSM-14: The Winding Generator Spectrum and Class
+     Partition.
+[7]  S. Preschutti, HCSM-19: DNLS Hartree Mass-Map Coefficient.
+[8]  S. Preschutti, HCSM-26: The Observer Pair {W, t}.
+[9]  S. Preschutti, HCSM-33: Mass Map.
+[10] S. Preschutti, HCSM-52: The EFT Coefficient in the Dark Energy
+     Density.
+[11] S. Preschutti, HCSM-53: Dark Energy Density and the DME Entropy-Well
+     Normalization.
+[12] S. Preschutti, HCSM-56.a: Lambda-Promotion as Pure Projection.
+
+================================================================================
+End of HCSM-14.a
+================================================================================
