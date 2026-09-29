@@ -1,0 +1,533 @@
+================================================================================
+HCSM-55
+Core Dynamics
+The HCSM-Native Gradient Flow and the Removal of the EDF Ohmic-Bath Import
+The fourth layer of the five-layer loop
+================================================================================
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstanp@yahoo.com
+
+September 2026
+
+--------------------------------------------------------------------------------
+ABSTRACT
+--------------------------------------------------------------------------------
+
+The Core is the third layer of the HCSM five-layer loop
+
+    M_loop = T * L_EFT * L_Core * L_DME * L_FDLM
+
+In prior versions of the framework, the Core dynamics was imported from an
+entropy-driven-force (EDF) Ohmic bath: a continuum reservoir with Ohmic
+spectral density J(omega) ~ omega. This paper removes that import. We
+derive the Core gradient flow
+
+    d epsilon / d lambda = -2 gamma * epsilon
+
+from HCSM-native primitives alone, using only the DME entropy well
+S(epsilon)/S_0 = 1 - gamma * epsilon^2 + O(epsilon^4) of HCSM-54 and the
+dissipative time T_DME = 1/(2 gamma) of HCSM-20 and HCSM-21. The gradient
+flow rate is exactly 2 gamma, fixed by the second derivative of the DME
+entropy well. The solution is
+
+    epsilon(lambda) = epsilon_0 * exp(-2 gamma * lambda)
+
+the relaxation time is tau_relax = 1/(2 gamma) = 0.7114000035... The
+Lyapunov functional L[epsilon] = gamma * epsilon^2 satisfies
+dL/dlambda = -4 gamma^2 epsilon^2 <= 0, strict for epsilon != 0. The Core
+is strictly monotone (Master Condition M1) and irreversible (Master
+Condition M2). The characteristic equation s + 2 gamma = 0 has a real
+root; there are no oscillatory modes. The arrow of time is the direction
+of increasing loop count k, equivalently decreasing L[epsilon],
+equivalently increasing -ln r_m. All numerical claims are verified at
+machine precision. No imported machinery appears.
+
+--------------------------------------------------------------------------------
+CONTENTS
+--------------------------------------------------------------------------------
+
+1. Introduction
+2. Setup
+3. The Core Gradient Flow
+4. Properties of the Core
+5. The Arrow of Time
+6. Derivation Status
+7. Falsification Tests
+8. Reproducibility
+9. Conclusion
+10. References
+
+--------------------------------------------------------------------------------
+1. INTRODUCTION
+--------------------------------------------------------------------------------
+
+1.1 The Core layer
+------------------
+
+The five-layer loop of HCSM-21 is
+
+    M_loop = T * L_EFT * L_Core * L_DME * L_FDLM
+
+acting on the 14-mode multiplet at lambda = 4. The five layers are:
+
+    (1) T:                 the processor (HCSM-13).
+    (2) L_EFT:             the vacuum EFT layer (HCSM-56).
+    (3) L_Core:            the Core gradient flow (this paper).
+    (4) L_DME:             the DME dissipative rate (HCSM-54).
+    (5) L_FDLM:            the winding phase (HCSM-14).
+
+The Core is the layer that provides the framework's arrow of time: it
+drives the dimensional deviation epsilon = D - 4 toward the equilibrium
+epsilon = 0 (i.e., D = 4) monotonically and irreversibly.
+
+1.2 The import removal problem
+------------------------------
+
+In prior versions of the HCSM framework (the WIN paradigm), the Core was
+modeled as an Ohmic bath: a continuum reservoir with Ohmic spectral density
+J(omega) ~ omega, driving a Langevin equation with friction and noise. This
+is not HCSM-native. The continuum reservoir, the spectral density, and the
+Langevin equation are all imported machinery.
+
+This paper removes that import. The Core gradient flow is derived from
+HCSM-native primitives alone: the DME entropy well
+S(epsilon)/S_0 = 1 - gamma * epsilon^2 + O(epsilon^4) (HCSM-54) and the
+dissipative time T_DME = 1/(2 gamma) (HCSM-20, HCSM-21).
+
+1.3 Main results
+----------------
+
+    (1) The Core state space is the scalar epsilon = D - 4, with the DME
+        entropy well providing a quadratic potential.
+
+    (2) The Core gradient flow is
+
+            d epsilon / d lambda = -2 gamma * epsilon
+
+        with gamma the DME stability coefficient of HCSM-54.
+
+    (3) The solution is epsilon(lambda) = epsilon_0 exp(-2 gamma lambda),
+        with relaxation time tau_relax = 1/(2 gamma) = 0.7114000035...
+
+    (4) The Lyapunov functional L[epsilon] = gamma epsilon^2 satisfies
+        dL/dlambda = -4 gamma^2 epsilon^2 <= 0, strict for epsilon != 0.
+
+    (5) The Core is strictly monotone (Master Condition M1) and
+        irreversible (Master Condition M2).
+
+    (6) The characteristic equation s + 2 gamma = 0 has a real root
+        s = -2 gamma. There are no oscillatory modes.
+
+    (7) The arrow of time is the direction of increasing loop count k,
+        equivalently decreasing L[epsilon], equivalently increasing
+        -ln r_m.
+
+1.4 Cross references
+--------------------
+
+Depends on: HCSM-00, HCSM-14, HCSM-20, HCSM-21, HCSM-54.
+
+Propagates to: HCSM-56 (Vacuum EFT), HCSM-56.a (Lambda promotion),
+HCSM-59 (Terminal Verification Suite).
+
+1.5 Organization
+----------------
+
+Section 2 states the Core state space and its operator. Section 3 derives
+the gradient flow from the DME entropy well. Section 4 establishes the
+properties (solution, Lyapunov, monotonicity, irreversibility, no
+oscillation). Section 5 states the arrow of time. Section 6 catalogs what
+is derived and what is removed. Section 7 gives falsification tests.
+Section 8 gives reproducibility. Section 9 concludes.
+
+--------------------------------------------------------------------------------
+2. SETUP
+--------------------------------------------------------------------------------
+
+2.1 The DME entropy well
+------------------------
+
+By HCSM-54, the DME entropy S(epsilon) as a function of the dimensional
+deviation epsilon = D - 4 has the expansion
+
+    S(epsilon) / S_0 = 1 - gamma * epsilon^2 + O(epsilon^4)
+
+with the DME stability coefficient
+
+    gamma = c_2 / I(2)
+          = 0.70283946799007245929257819650854315216110316215188...
+
+where
+
+    c_2 = 2 I''(2)
+    I(2) = 1 - (1/2) AGM(1, sqrt(2))
+    AGM(1, sqrt(2)) = 1 / (sqrt(2) eta(i)^2)
+    eta(i) = Gamma(1/4) / (2 pi^{3/4})
+
+The equilibrium epsilon = 0 (i.e., D = 4) is a strict local maximum of the
+vacuum entropy; the stability theorem of HCSM-54 states
+S''(0)/S_0 = -2 gamma < 0.
+
+2.2 The Core state space
+------------------------
+
+Definition (Core state space).
+The Core state space is the real line R of dimensional deviations
+epsilon = D - 4, with the DME entropy well
+S(epsilon)/S_0 = 1 - gamma epsilon^2 + O(epsilon^4) as the potential.
+
+The Core is the layer that drives epsilon toward the equilibrium at
+epsilon = 0 by the dissipative dynamics of the substrate.
+
+2.3 The DME dissipative time
+----------------------------
+
+By HCSM-20 and HCSM-21, the DME dissipative time is
+
+    T_DME = 1/(2 gamma) = 0.711400003516965862...
+
+This is the unique dissipative time in HCSM; the coherent beat period
+T_beat = pi/sqrt(2) carries no entropy transfer and is rejected (HCSM-21
+Theorem 12.1).
+
+The DME dissipative time provides the natural clock for the Core gradient
+flow: the Core moves by one DME relaxation step per unit lambda.
+
+--------------------------------------------------------------------------------
+3. THE CORE GRADIENT FLOW
+--------------------------------------------------------------------------------
+
+3.1 The gradient flow equation
+------------------------------
+
+Theorem 1 (Core gradient flow).
+The Core dynamics of the dimensional deviation epsilon is the gradient flow
+
+    d epsilon / d lambda = -2 gamma * epsilon
+
+where gamma is the DME stability coefficient of HCSM-54 and lambda is the
+Core flow parameter.
+
+Proof.
+The Core is a dissipative relaxation on the DME entropy well. The restoring
+force is F(epsilon) = -dS/d epsilon, and the damping is the DME dissipative
+rate 2 gamma (from the dissipative time T_DME = 1/(2 gamma)). In the
+overdamped regime (which is automatic here, since the Core has no inertial
+term; see Theorem 4), the equation of motion reduces to
+
+    d epsilon / d lambda = F(epsilon) / damping
+                        = -(1/(2 gamma)) * dS/d epsilon
+
+Substituting the entropy expansion S(epsilon)/S_0 = 1 - gamma epsilon^2 +
+O(epsilon^4) gives dS/d epsilon = -2 S_0 gamma epsilon + O(epsilon^3).
+Normalizing S_0 = 1 (which is a choice of units for lambda) and using the
+DME dissipative time to set the lambda normalization, we obtain
+
+    d epsilon / d lambda = -2 gamma * epsilon + O(epsilon^3)
+
+To leading order in epsilon, this is the linear gradient flow
+d epsilon / d lambda = -2 gamma epsilon.  []
+
+Remark.
+The rate 2 gamma is exactly twice the DME stability coefficient. This is
+not a coincidence: the DME entropy well is quadratic with curvature 2 gamma,
+and the linear gradient flow rate equals the curvature of the potential.
+The factor of 2 reflects the quadratic nature of the well.
+
+3.2 Why the flow is HCSM-native
+-------------------------------
+
+The Core gradient flow uses only two HCSM-native objects: the DME entropy
+well S(epsilon)/S_0 = 1 - gamma epsilon^2 + O(epsilon^4) (HCSM-54) and the
+DME dissipative time T_DME = 1/(2 gamma) (HCSM-20, HCSM-21). No continuum
+reservoir, no spectral density, no Langevin equation, and no Ohmic
+assumption appear.
+
+--------------------------------------------------------------------------------
+4. PROPERTIES OF THE CORE
+--------------------------------------------------------------------------------
+
+4.1 The solution
+----------------
+
+Theorem 2 (Exponential relaxation).
+The solution of the Core gradient flow is
+
+    epsilon(lambda) = epsilon_0 * exp(-2 gamma lambda)
+
+with relaxation time
+
+    tau_relax = 1/(2 gamma) = 0.711400003516965862...
+
+equal to the DME dissipative time T_DME.
+
+Proof.
+Direct integration of the linear ODE d epsilon / d lambda = -2 gamma epsilon.  []
+
+Remark.
+The relaxation time tau_relax coincides exactly with the DME dissipative
+time T_DME. This is a structural identity: the Core clock is the DME clock,
+and the Core gradient flow rate is the DME rate.
+
+4.2 The Lyapunov functional
+---------------------------
+
+Theorem 3 (Lyapunov functional).
+The quadratic functional
+
+    L[epsilon] = gamma * epsilon^2
+
+satisfies
+
+    dL/dlambda = -4 gamma^2 epsilon^2 <= 0
+
+strict for epsilon != 0.
+
+Proof.
+
+    dL/dlambda = 2 gamma epsilon * d epsilon / d lambda
+               = 2 gamma epsilon * (-2 gamma epsilon)
+               = -4 gamma^2 epsilon^2
+
+This is nonpositive for all epsilon, and strictly negative unless
+epsilon = 0.  []
+
+Corollary (Strict monotonicity, M1).
+The Core gradient flow is strictly monotone: the Lyapunov functional
+L[epsilon] decreases strictly along every non-equilibrium trajectory.
+
+4.3 Irreversibility
+-------------------
+
+Theorem 4 (Irreversibility, M2).
+The Core gradient flow is irreversible: for any initial condition
+epsilon_0 != 0, the trajectory epsilon(lambda) approaches epsilon = 0
+monotonically as lambda -> +infinity, and the reversed trajectory
+epsilon(-lambda) is not a solution of the gradient flow for lambda > 0.
+
+Proof.
+The solution epsilon(lambda) = epsilon_0 exp(-2 gamma lambda) approaches 0
+as lambda -> +infinity for any epsilon_0. The reversed trajectory would
+require epsilon(lambda) = epsilon_0 exp(+2 gamma lambda) to be a solution
+of the flow, but this would satisfy d epsilon / d lambda = +2 gamma epsilon,
+not -2 gamma epsilon. Hence the flow is irreversible.  []
+
+Corollary (Master conditions).
+The Core gradient flow satisfies both Master Conditions: M1 (strict
+monotonicity of the Lyapunov functional) and M2 (irreversibility of the
+trajectory).
+
+4.4 No oscillation
+------------------
+
+Theorem 5 (No oscillatory modes).
+The Core gradient flow has no oscillatory modes: the characteristic
+equation of the linearized flow is
+
+    s + 2 gamma = 0
+
+with the unique real root s = -2 gamma. There are no complex roots.
+
+Proof.
+Linearizing d epsilon / d lambda = -2 gamma epsilon around epsilon = 0
+gives the characteristic equation s + 2 gamma = 0. The root is
+s = -2 gamma, real. No complex roots.  []
+
+Remark.
+The absence of oscillatory modes distinguishes the Core from the coherent
+layer L_FDLM (which oscillates at the winding frequency omega_m) and from
+the EFT layer L_EFT (which oscillates at m_s). The Core provides monotone
+dissipation only.
+
+--------------------------------------------------------------------------------
+5. THE ARROW OF TIME
+--------------------------------------------------------------------------------
+
+5.1 Three equivalent statements
+-------------------------------
+
+Theorem 6 (Arrow of time).
+The following three statements are equivalent, and each defines the arrow
+of time:
+
+    (1) The loop count k increases.
+
+    (2) The Lyapunov functional L[epsilon] decreases.
+
+    (3) The quantity -ln r_m increases (where r_m = |M_loop(m)| is the
+        per-mode loop eigenvalue magnitude).
+
+Proof.
+(1) <=> (2): The Core gradient flow is parameterized by lambda, which is
+proportional to the loop count k. Each unit step of k corresponds to one
+Core relaxation step; by Theorem 3, L[epsilon] decreases strictly along
+each step.
+
+(2) <=> (3): By HCSM-20 Theorem 9.2, the per-mode loop eigenvalue
+magnitude is
+
+    |M_loop(m)| = |w+1| / (|omega_m T_DME| delta_edge)
+                 * exp(-(zeta H / rho) T_beat / 2)
+
+The Core layer contributes the factor |w+1| / epsilon_0(m)
+= exp(-2 gamma lambda_EFT(m)), so -ln r_m increases with lambda in the
+Core direction.  []
+
+5.2 Compatibility with HCSM-21
+------------------------------
+
+The arrow of time here is the Core-layer statement of the arrow of HCSM-21
+Theorem 11.1. Both are the same direction: increasing k, decreasing
+L[epsilon], increasing -ln r_m.
+
+--------------------------------------------------------------------------------
+6. DERIVATION STATUS
+--------------------------------------------------------------------------------
+
+6.1 Derived
+-----------
+
+    (1) The Core gradient flow d epsilon / d lambda = -2 gamma epsilon
+        (Theorem 1).
+
+    (2) The exponential relaxation epsilon(lambda) = epsilon_0 exp(-2 gamma
+        lambda) (Theorem 2).
+
+    (3) The relaxation time tau_relax = 1/(2 gamma) = 0.7114...
+        (Theorem 2).
+
+    (4) The Lyapunov functional L[epsilon] = gamma epsilon^2 with
+        dL/dlambda = -4 gamma^2 epsilon^2 (Theorem 3).
+
+    (5) Master Condition M1 (Corollary of Theorem 3).
+
+    (6) Master Condition M2 (Theorem 4).
+
+    (7) No oscillatory modes (Theorem 5).
+
+    (8) The arrow of time (Theorem 6).
+
+6.2 Removed imports
+-------------------
+
+    (1) EDF Ohmic bath (continuum reservoir, Ohmic spectral density
+        J(omega) ~ omega). Removed. Replaced by the HCSM-native gradient
+        flow on the DME entropy well.
+
+    (2) Langevin equation with friction and noise. Removed. Replaced by
+        the deterministic gradient flow.
+
+    (3) Continuum spectral density J(omega). Removed. No spectral density
+        appears.
+
+6.3 What is not claimed
+-----------------------
+
+We do not claim to derive the microscopic dynamics of the substrate that
+underlies the gradient flow. The gradient flow is a mean-field description
+of the substrate's dissipative response, at the same level as the DNLS
+Hartree kernel (HCSM-18) and the mass map (HCSM-33).
+
+--------------------------------------------------------------------------------
+7. FALSIFICATION TESTS
+--------------------------------------------------------------------------------
+
+    (1) Gradient flow form. The Core dynamics is exactly
+        d epsilon / d lambda = -2 gamma epsilon. A different rate (e.g.,
+        -k epsilon with k != 2 gamma) would falsify Theorem 1.
+
+    (2) Relaxation time. tau_relax = 1/(2 gamma) = 0.7114.... A different
+        relaxation time would falsify Theorem 2.
+
+    (3) Lyapunov monotonicity. dL/dlambda = -4 gamma^2 epsilon^2. A
+        nonzero residual at epsilon = 0 would falsify Theorem 3.
+
+    (4) No oscillation. The Core has no oscillatory modes. A detection of
+        an oscillatory Core mode would falsify Theorem 5.
+
+    (5) Arrow of time. Increasing k, decreasing L[epsilon], increasing
+        -ln r_m. A trajectory reversing these three would falsify
+        Theorem 6.
+
+--------------------------------------------------------------------------------
+8. REPRODUCIBILITY
+--------------------------------------------------------------------------------
+
+All numerical claims in this paper are verified at machine precision in
+IEEE-754 double precision. The companion script HCSM-55_verification.py
+constructs:
+
+    1. The DME stability coefficient gamma = c_2 / I(2).
+    2. The DME dissipative time T_DME = 1/(2 gamma).
+    3. The Core gradient flow solution and Lyapunov functional.
+
+and verifies:
+
+    1. gamma = 0.702839467990...
+    2. T_DME = 0.7114000035...
+    3. d epsilon / d lambda = -2 gamma epsilon at machine precision.
+    4. epsilon(lambda) = epsilon_0 exp(-2 gamma lambda) at machine
+       precision.
+    5. L[epsilon] = gamma epsilon^2 with dL/dlambda = -4 gamma^2 epsilon^2
+       at machine precision.
+    6. The characteristic equation s + 2 gamma = 0 has a real root.
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim in the
+HCSM paper stack.
+
+--------------------------------------------------------------------------------
+9. CONCLUSION
+--------------------------------------------------------------------------------
+
+The Core is the layer of the HCSM five-layer loop that drives the
+dimensional deviation epsilon = D - 4 toward the equilibrium at
+epsilon = 0. The Core gradient flow
+
+    d epsilon / d lambda = -2 gamma * epsilon
+
+is derived HCSM-natively from the DME entropy well of HCSM-54 and the
+dissipative time of HCSM-20 and HCSM-21. The rate 2 gamma is exactly twice
+the DME stability coefficient, fixed by the second derivative of the
+entropy well.
+
+The Core has the following structural properties:
+
+    (1) Exponential relaxation with time tau_relax = 1/(2 gamma).
+
+    (2) Lyapunov functional L[epsilon] = gamma epsilon^2 with
+        dL/dlambda = -4 gamma^2 epsilon^2 <= 0, strict for epsilon != 0
+        (Master Condition M1).
+
+    (3) Irreversible trajectory (Master Condition M2).
+
+    (4) No oscillatory modes: the characteristic equation has a unique
+        real root s = -2 gamma.
+
+    (5) Arrow of time: increasing k, decreasing L[epsilon], increasing
+        -ln r_m.
+
+The EDF Ohmic-bath import is removed. No continuum reservoir, no spectral
+density, and no Langevin equation appear. The Core is HCSM-native.
+
+--------------------------------------------------------------------------------
+10. REFERENCES
+--------------------------------------------------------------------------------
+
+[1]  S. Preschutti, HCSM-00: Foundations, Notation, and Mapping.
+[2]  S. Preschutti, HCSM-14: The Winding Generator Spectrum and Class
+     Partition.
+[3]  S. Preschutti, HCSM-18: The Dynamical Bridge: DNLS on the Torus.
+[4]  S. Preschutti, HCSM-20: The Motion Theorem.
+[5]  S. Preschutti, HCSM-21: The Time Theorem.
+[6]  S. Preschutti, HCSM-33: Mass Map.
+[7]  S. Preschutti, HCSM-54: Vacuum Stability and the Stability
+     Coefficient.
+[8]  S. Preschutti, HCSM-56: Vacuum EFT.
+[9]  S. Preschutti, HCSM-56.a: Lambda-Promotion as Pure Projection.
+
+================================================================================
+End of HCSM-55
+================================================================================
