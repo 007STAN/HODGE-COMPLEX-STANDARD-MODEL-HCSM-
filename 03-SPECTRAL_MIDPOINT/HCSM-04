@@ -1,0 +1,603 @@
+================================================================================
+HCSM-04
+The 14-Mode Multiplet at lambda = 4
+The Self-Paired Eigenvalue, the D4 Orbit Decomposition, and the
+Support, IPR, and Entropy Classes
+================================================================================
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstanp@yahoo.com
+
+September 2026
+
+--------------------------------------------------------------------------------
+ABSTRACT
+--------------------------------------------------------------------------------
+
+The Hodge Complex Standard Model identifies the 14 modes at the self-paired
+eigenvalue lambda = 4 of the discrete Laplacian on the periodic 8x8 torus
+with one Standard Model generation. This paper establishes the spectral
+content of that multiplet. We prove that the self-paired eigenvalue is
+lambda = 4 with multiplicity 2(L-1) = 14; that the 14 modes decompose under
+the D4 point group into three orbits of sizes (2, 8, 4); that the three
+orbits carry the support classes {64, 48, 32} = {N, V, N/2}; that the
+inverse participation ratios are {2/128, 3/128, 4/128}; and that the Shannon
+entropy classes are {6.0, 5.5, 5.0} bits with equal spacing 0.5 bits. The
+affine entropy-IPR relation S = log2(N) + 1 - N * IPR is proved as a theorem
+for modes whose squared amplitudes take values in {0, 1/N, 2/N}, and this
+precondition is verified for the 14 modes of the multiplet. The
+identification of the 14 modes with one Standard Model generation, and the
+assignment of an N/4 mass label to each mode, are the framework's empirical
+thesis (HCSM-23) and are stated as disclosed inputs. All numerical claims
+are verified at machine precision.
+
+--------------------------------------------------------------------------------
+CONTENTS
+--------------------------------------------------------------------------------
+
+1. Introduction
+2. Setup
+3. The self-paired eigenvalue
+4. The explicit mode list
+5. The D4 orbit decomposition
+6. Support classes
+7. Inverse participation ratios
+8. Shannon entropy classes
+9. The Hodge lift
+10. Disclosed inputs and open items
+11. Reproducibility
+12. Conclusion
+A. Web Crawler Metadata
+
+--------------------------------------------------------------------------------
+1. INTRODUCTION
+--------------------------------------------------------------------------------
+
+The Hodge Complex Standard Model (HCSM) derives the gauge structure, matter
+content, particle spectrum, and mixing matrices of the Standard Model from a
+single discrete substrate: the periodic 8x8 torus Lambda = Z_8 x Z_8. Every
+downstream result depends on the spectral content of the torus at the self-
+paired eigenvalue lambda = 4. This paper establishes that spectral content.
+
+Disclosed inputs used in this paper:
+
+  (S1) Lambda = Z_8 x Z_8 with D4 symmetry (HCSM-01).
+  (S2) The 5-point Laplacian is the unique nearest-neighbour, D4-invariant,
+       positive-semidefinite operator with kernel equal to the constant
+       functions (HCSM-01, Theorem 2.2.1).
+  (S3) L = 8 is selected by equal entropy spacing (HCSM-01, Section 2.4.1)
+       and by maximal cancellation of the winding generator (HCSM-14.b).
+  (P1) The 14 modes at lambda = 4 are identified with one Standard Model
+       generation (HCSM-23, Section 3).
+  (P7) The N/4 mass-ordering labels (HCSM-23, Input 3).
+  (P8) The coordinate-to-particle correspondence (HCSM-23).
+
+All results in Sections 3 through 8 are derived in this paper from (S1)-(S3).
+The identification thesis (P1) and the mass labels (P7) are disclosed.
+
+--------------------------------------------------------------------------------
+2. SETUP
+--------------------------------------------------------------------------------
+
+Substrate: Lambda = Z_L x Z_L with N = L^2 sites, periodic boundary
+conditions. Site (x1, x2) is identified with (x1 + L, x2) and (x1, x2 + L).
+
+At d = 4: N = d * 2^d = 64, L = sqrt(N) = 8.
+
+The 5-point Laplacian is
+
+    (Delta f)(x) = 4 f(x) - sum_{|e|=1} f(x + e),
+
+where the sum runs over e in {(1,0), (-1,0), (0,1), (0,-1)}.
+
+The Laplacian eigenvalue on the complex plane wave
+phi_{n1,n2}(x) = exp(2 pi i (n1 x1 + n2 x2) / L) is
+
+    lambda(n1, n2) = 4 - 2 cos(2 pi n1 / L) - 2 cos(2 pi n2 / L).
+
+At L = 8: lambda(n1, n2) = 4 - 2 cos(pi n1 / 4) - 2 cos(pi n2 / 4).
+The spectrum is mirror-symmetric under lambda <-> 8 - lambda, with 13
+distinct eigenvalues.
+
+--------------------------------------------------------------------------------
+3. THE SELF-PAIRED EIGENVALUE
+--------------------------------------------------------------------------------
+
+Definition 3.1. An eigenvalue lambda is self-paired if lambda = 8 - lambda.
+
+Theorem 3.2. The unique self-paired eigenvalue of the discrete Laplacian on
+the 8x8 torus is lambda = 4. Its multiplicity is 2(L - 1) = 2(8 - 1) = 14.
+
+Proof. The mirror symmetry lambda <-> 8 - lambda follows from the
+substitution (n1, n2) -> (n1 + 4, n2) or (n1, n2) -> (n1, n2 + 4), which
+sends cos(pi n / 4) -> -cos(pi n / 4) and hence lambda -> 8 - lambda. The
+unique fixed point is lambda = 4.
+
+The eigenvalue lambda = 4 is the set of modes (n1, n2) satisfying
+
+    cos(pi n1 / 4) + cos(pi n2 / 4) = 0.
+
+Using cos(a) + cos(b) = 2 cos((a+b)/2) cos((a-b)/2), this becomes
+
+    2 cos(pi (n1 + n2) / 8) cos(pi (n1 - n2) / 8) = 0.
+
+The solutions are n1 + n2 = 4 (mod 8) or n1 - n2 = 4 (mod 8). Each
+congruence has 8 solutions in Z_8 x Z_8; the two congruences intersect in
+exactly 2 points. By inclusion-exclusion, the total is 2 * 8 - 2 = 14.
+
+--------------------------------------------------------------------------------
+4. THE EXPLICIT MODE LIST
+--------------------------------------------------------------------------------
+
+Theorem 4.1. The 14 momenta at lambda = 4 on the 8x8 torus are
+
+    O_0 = {(0, 4), (4, 0)},
+    O_1 = {(1, 3), (1, 5), (3, 1), (3, 7),
+           (5, 1), (5, 7), (7, 3), (7, 5)},
+    O_2 = {(2, 2), (2, 6), (6, 2), (6, 6)}.
+
+The real mode associated to momentum (n1, n2) is
+
+    phi_{n1,n2}(x1, x2) = cos(pi (n1 x1 + n2 x2) / 4) / N_{n1,n2},
+
+with N_{n1,n2} chosen so that sum_x |phi(x)|^2 = 1. When (n1, n2) is not
+self-conjugate modulo 8, the companion mode
+
+    psi_{n1,n2}(x1, x2) = sin(pi (n1 x1 + n2 x2) / 4) / N_{n1,n2}
+
+is also an eigenvector at lambda = 4.
+
+Proof. Direct enumeration of cos(pi n1 / 4) + cos(pi n2 / 4) = 0 using the
+values cos(pi n / 4) in {1, sqrt(2)/2, 0, -sqrt(2)/2, -1} for n in {0,...,7}.
+
+Remark 4.2 (Standard mode order and disclosed naming). Throughout HCSM the
+14 modes are listed in the standard mode order
+
+    (nu, e, u, d, s, mu, dark, c, tau, b, W, Z, H, t).
+
+The correspondence between the standard mode order and the mode coordinates
+is a disclosed input (P8):
+
+    nu: (0, 4),  e: (4, 0),  u: (1, 3),  d: (1, 5),
+    s: (3, 1),   mu: (3, 7), dark: (5, 7), c: (7, 3),
+    tau: (7, 5), b: (5, 1),  W: (2, 2),  Z: (2, 6),
+    H: (6, 2),   t: (6, 6).
+
+--------------------------------------------------------------------------------
+5. THE D4 ORBIT DECOMPOSITION
+--------------------------------------------------------------------------------
+
+The D4 point group acts on Lambda by
+
+    r: (n1, n2) -> (-n2, n1)  (mod 8),
+    s: (n1, n2) -> (n1, -n2)  (mod 8),
+
+subject to r^4 = s^2 = (rs)^2 = e. The group has order 8:
+D4 = {e, r, r^2, r^3, s, rs, r^2 s, r^3 s}.
+
+Theorem 5.1 (D4 orbit decomposition). The 14 modes at lambda = 4 decompose
+under D4 into three orbits O_0, O_1, O_2 of sizes 2, 8, 4.
+
+Proof. Direct computation.
+
+Orbit of (0, 4). r(0, 4) = (-4, 0) = (4, 0); r^2(0, 4) = (-0, -4) = (0, 4).
+s fixes both. Orbit is {(0, 4), (4, 0)}, size 2.
+
+Orbit of (1, 3). r(1, 3) = (-3, 1) = (5, 1); r^2(1, 3) = (-1, -3) = (7, 5);
+r^3(1, 3) = (3, -1) = (3, 7). Reflection coset gives (1, 5), (7, 3), (5, 7),
+(3, 1). All eight distinct.
+
+Orbit of (2, 2). r(2, 2) = (-2, 2) = (6, 2); r^2(2, 2) = (-2, -2) = (6, 6);
+r^3(2, 2) = (2, -2) = (2, 6). s swaps within the orbit. Orbit is
+{(2, 2), (2, 6), (6, 2), (6, 6)}, size 4.
+
+Theorem 5.2 (Orbit stabilizers). |Stab(O_0)| = 4, |Stab(O_1)| = 1,
+|Stab(O_2)| = 2, satisfying |O_k| = |D4| / |Stab(O_k)|.
+
+Proof. Direct computation.
+
+O_0: The stabilizer of (0, 4) is {e, r^2, s, r^2 s}, order 4.
+
+O_1: The stabilizer of (1, 3) is trivial: direct check gives
+r(1, 3) = (5, 1), s(1, 3) = (1, 5), r^2(1, 3) = (7, 5), rs(1, 3) = (3, 1),
+r^2 s(1, 3) = (7, 3), r^3 s(1, 3) = (5, 7), r^3(1, 3) = (3, 7), all distinct
+from (1, 3). Order 1.
+
+O_2: The stabilizer of (2, 2) is {e, rs} since rs(2, 2) = r(2, -2) =
+r(2, 6) = (-6, 2) = (2, 2), and rs has order 2. Order 2.
+
+--------------------------------------------------------------------------------
+6. SUPPORT CLASSES
+--------------------------------------------------------------------------------
+
+Definition 6.1 (Support). The support of a normalized mode phi is the
+number of sites x with phi(x) != 0. The support of a D4 orbit is the common
+value of the supports of the orbit's modes.
+
+Proposition 6.2 (Support classes). The support classes of the three orbits
+are
+
+    supp(O_0) = 64 = N,
+    supp(O_1) = 48 = V,
+    supp(O_2) = 32 = N/2,
+
+where V = (d - 1) * 2^d = 3 * 16 = 48 at d = 4.
+
+Proof. We compute the support of each orbit from the explicit mode.
+
+O_0. For (n1, n2) = (0, 4), the mode is phi(x1, x2) = cos(pi x2) / N. The
+value cos(pi x2) = +/- 1 for every integer x2, so phi is nonzero on all 64
+sites. The normalization gives sum_x cos^2(pi x2) = 64, so N = 8 and
+|phi|^2 = 1/64 everywhere. Support = 64. Same for (4, 0).
+
+O_1. Both n1 and n2 are odd. Define k(x) = n1 x1 + n2 x2 (mod 8). Since
+n1, n2 are coprime to 8, the map x -> k(x) is a surjection onto Z_8, and
+each residue k in {0,...,7} occurs at exactly 8 sites. Hence
+
+    N^2 = sum_x cos^2(pi k(x) / 4)
+        = 8 sum_{k=0}^{7} cos^2(pi k / 4)
+        = 8 * 4 = 32,
+
+where sum_{k=0}^{7} cos^2(pi k / 4) = 1 + 1/2 + 0 + 1/2 + 1 + 1/2 + 0 + 1/2
+= 4. So N = sqrt(32) and
+
+    |phi(x)|^2 = cos^2(pi k(x) / 4) / 32.
+
+The value cos^2(pi k / 4) = 0 occurs for k in {2, 6}, i.e., at 2 * 8 = 16
+sites. Support = 64 - 16 = 48.
+
+O_2. Both n1 and n2 are even: n1 = 2a, n2 = 2b with a, b in {1, 3}. Then
+k(x) = 2(ax1 + bx2) (mod 8) is always even. Since a, b are coprime to 4,
+the map (x1, x2) -> ax1 + bx2 (mod 4) is surjective, so each even residue
+of k occurs at exactly 16 sites. Then
+
+    N^2 = 16 sum_{k in {0,2,4,6}} cos^2(pi k / 4) = 16 * 2 = 32,
+
+where sum_{k even} cos^2(pi k / 4) = 1 + 0 + 1 + 0 = 2. So N = sqrt(32)
+and |phi(x)|^2 = cos^2(pi k(x) / 4) / 32. The value cos^2 = 0 occurs for
+k in {2, 6}, i.e., at 2 * 16 = 32 sites. Support = 64 - 32 = 32.
+
+--------------------------------------------------------------------------------
+7. INVERSE PARTICIPATION RATIOS
+--------------------------------------------------------------------------------
+
+Definition 7.1 (Inverse participation ratio). For a normalized mode phi,
+IPR(phi) = sum_x |phi(x)|^4. For a D4 orbit, the IPR is the common value
+across the orbit's modes.
+
+Proposition 7.2 (Inverse participation ratios). The IPRs of the three
+orbits are
+
+    IPR(O_0) = 2 / 128,
+    IPR(O_1) = 3 / 128,
+    IPR(O_2) = 4 / 128.
+
+The values are equally spaced by 1/128.
+
+Proof. We compute each IPR from the amplitude structure derived in
+Proposition 6.2.
+
+O_0. |phi(x)|^2 = 1/64 on all 64 sites. Then
+
+    IPR(O_0) = 64 * (1/64)^2 = 1/64 = 2/128.
+
+O_1. |phi(x)|^2 = 1/32 on 16 sites and 1/64 on 32 sites. Then
+
+    IPR(O_1) = 16 * (1/32)^2 + 32 * (1/64)^2
+             = 16/1024 + 32/4096
+             = 1/64 + 1/128
+             = 3/128.
+
+O_2. |phi(x)|^2 = 1/32 on 32 sites and 0 on 32 sites. Then
+
+    IPR(O_2) = 32 * (1/32)^2 = 1/32 = 4/128.
+
+Equal spacing: IPR(O_0) - IPR(O_1) = IPR(O_1) - IPR(O_2) = 1/128.
+
+--------------------------------------------------------------------------------
+8. SHANNON ENTROPY CLASSES
+--------------------------------------------------------------------------------
+
+Definition 8.1 (Shannon entropy). For a normalized mode phi,
+S(phi) = - sum_x |phi(x)|^2 log2 |phi(x)|^2. For a D4 orbit, the entropy is
+the common value across the orbit's modes.
+
+Theorem 8.2 (Affine entropy-IPR relation). Let phi be a normalized mode on
+Lambda = Z_8 x Z_8 with |phi(x)|^2 in {0, 1/N, 2/N} for every site x, where
+N = 64. Then the Shannon entropy and the inverse participation ratio satisfy
+the exact relation
+
+    S = log2(N) + 1 - N * IPR.
+
+Proof. Define c(x) = N * |phi(x)|^2. The hypothesis is c(x) in {0, 1, 2} for
+every x. Normalization gives sum_x c(x) = N * sum_x |phi(x)|^2 = N.
+
+The entropy is
+
+    S = - sum_x |phi(x)|^2 log2 |phi(x)|^2
+      = -(1/N) sum_x c(x) (log2 c(x) - log2 N)
+      = log2(N) - (1/N) sum_x c(x) log2 c(x).
+
+The IPR is
+
+    IPR = sum_x |phi(x)|^4 = (1/N^2) sum_x c(x)^2.
+
+Substituting into the claimed identity gives
+
+    log2(N) - (1/N) sum_x c log2 c = log2(N) + 1 - (1/N) sum_x c^2,
+
+which reduces to
+
+    sum_x (c(x)^2 - c(x) log2 c(x) - c(x)) = 0,
+
+using sum_x c(x) = N. Factor the summand as c(x) (c(x) - log2 c(x) - 1).
+For each allowed value:
+
+    c = 0: 0 * (...) = 0.
+    c = 1: 1 * (1 - 0 - 1) = 0.
+    c = 2: 2 * (2 - 1 - 1) = 0.
+
+The sum vanishes term-by-term. Hence the affine relation holds.
+
+Corollary 8.3 (Entropy classes). The Shannon entropy classes of the three
+orbits are
+
+    S(O_0) = 6.0 bits,
+    S(O_1) = 5.5 bits,
+    S(O_2) = 5.0 bits,
+
+with equal spacing 0.5 bits.
+
+Proof. We verify that every mode satisfies the hypothesis of Theorem 8.2,
+then apply the relation.
+
+O_0. From Proposition 6.2, |phi|^2 = 1/64 = 1/N everywhere. Hypothesis
+holds. S = log2(64) + 1 - 64 * (2/128) = 6 + 1 - 1 = 6.0.
+
+O_1. |phi|^2 in {0, 1/32, 1/64} = {0, 2/N, 1/N}. Hypothesis holds.
+S = log2(64) + 1 - 64 * (3/128) = 6 + 1 - 1.5 = 5.5.
+
+O_2. |phi|^2 in {0, 1/32} = {0, 2/N}. Hypothesis holds.
+S = log2(64) + 1 - 64 * (4/128) = 6 + 1 - 2 = 5.0.
+
+Equal spacing: Delta S = N * Delta IPR = 64 * (1/128) = 0.5 bits.
+
+Remark 8.4 (Consistency with the equal-entropy-spacing anchor). The entropy
+classes {6.0, 5.5, 5.0} bits are the three equally-spaced classes selected
+by the equal-entropy-spacing anchor of HCSM-01. Among all integers L in
+{4, ..., 10000}, only L = 8 produces exactly three equally-spaced entropy
+classes.
+
+--------------------------------------------------------------------------------
+9. THE HODGE LIFT
+--------------------------------------------------------------------------------
+
+The 14 modes at lambda = 4 lift to the full Hodge complex as
+
+    14 Omega^0 + 28 Omega^1 + 14 Omega^2 = 56.
+
+The D4 content of the 56-dimensional sector is
+
+    9 A_1 + 5 A_2 + 7 B_1 + 7 B_2 + 14 E,
+
+derived in HCSM-02.
+
+--------------------------------------------------------------------------------
+10. DISCLOSED INPUTS AND OPEN ITEMS
+--------------------------------------------------------------------------------
+
+10.1 DERIVED
+
+All results in Sections 3 through 8 are proved in this paper from (S1)-(S3):
+
+  (1) The self-paired eigenvalue lambda = 4 and its multiplicity 14
+      (Theorem 3.2).
+  (2) The explicit mode list (Theorem 4.1).
+  (3) The D4 orbit decomposition (2, 8, 4) (Theorem 5.1).
+  (4) The stabilizer orders 4, 1, 2 (Theorem 5.2).
+  (5) The support classes {64, 48, 32} (Proposition 6.2).
+  (6) The IPRs {2/128, 3/128, 4/128} (Proposition 7.2).
+  (7) The affine entropy-IPR relation (Theorem 8.2).
+  (8) The entropy classes {6.0, 5.5, 5.0} bits (Corollary 8.3).
+
+10.2 DISCLOSED INPUTS
+
+  (S1)-(S3) Substrate, Laplacian, and L = 8 selection (HCSM-01, HCSM-14.b).
+  (P1) Identification of the 14 modes with one Standard Model generation
+       (HCSM-23, Section 3).
+  (P7) N/4 mass-ordering labels (HCSM-23, Input 3).
+  (P8) Coordinate-to-particle correspondence (HCSM-23).
+
+10.3 OPEN ITEMS
+
+The identification thesis (P1) and the N/4 labels (P7) are not derived in
+this paper or in any HCSM paper. They are the framework's empirical anchors.
+
+--------------------------------------------------------------------------------
+11. REPRODUCIBILITY
+--------------------------------------------------------------------------------
+
+All numerical claims in this paper are verified at machine precision in
+IEEE-754 double precision. The verification script
+HCSM-04_verification.py constructs the 14 modes, computes their amplitudes,
+supports, IPRs, and Shannon entropies, and verifies:
+
+  (1) The self-paired eigenvalue lambda = 4 and its multiplicity 14.
+  (2) The explicit mode list.
+  (3) The D4 orbit decomposition.
+  (4) The orbit stabilizer orders.
+  (5) The support classes {64, 48, 32}.
+  (6) The IPRs {2/128, 3/128, 4/128}.
+  (7) The amplitude-value precondition |phi|^2 in {0, 1/N, 2/N}.
+  (8) The affine entropy-IPR relation.
+  (9) The entropy classes {6.0, 5.5, 5.0} bits.
+  (10) The equal spacing 0.5 bits.
+  (11) The Hodge lift 14 + 28 + 14 = 56.
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim in the
+HCSM paper stack.
+
+--------------------------------------------------------------------------------
+12. CONCLUSION
+--------------------------------------------------------------------------------
+
+This paper has established the 14-mode multiplet at the self-paired
+eigenvalue lambda = 4 of the discrete Laplacian on the periodic 8x8 torus.
+The self-paired eigenvalue has multiplicity 2(L-1) = 14. The 14 modes
+decompose under D4 into three orbits of sizes (2, 8, 4) with stabilizer
+orders 4, 1, 2.
+
+The three orbits carry the support classes {64, 48, 32} = {N, V, N/2}, the
+inverse participation ratios {2/128, 3/128, 4/128}, and the Shannon entropy
+classes {6.0, 5.5, 5.0} bits with equal spacing 0.5 bits. The affine
+entropy-IPR relation S = log2(N) + 1 - N * IPR is proved as a theorem for
+modes whose squared amplitudes lie in {0, 1/N, 2/N}, and this precondition
+is verified for every mode in the multiplet.
+
+The identification of the 14 modes with one Standard Model generation, and
+the assignment of an N/4 mass label to each mode, are the framework's
+empirical thesis (HCSM-23).
+
+--------------------------------------------------------------------------------
+REFERENCES
+--------------------------------------------------------------------------------
+
+[1] S. Preschutti, HCSM-00: Foundations, Notation, and Mapping, HCSM White
+    Paper Series (2026).
+[2] S. Preschutti, HCSM-01: The 8x8 Torus Substrate from d = 4, HCSM White
+    Paper Series (2026).
+[3] S. Preschutti, HCSM-02: The Hodge Complex on Lambda, HCSM White Paper
+    Series (2026).
+[4] S. Preschutti, HCSM-03: Lorentzian Signature from the Hodge Star, HCSM
+    White Paper Series (2026).
+[5] S. Preschutti, HCSM-05: Orbit Decomposition and Inverse Participation,
+    HCSM White Paper Series (2026).
+[6] S. Preschutti, HCSM-13: The Processor T and the F/B-Class
+    Correspondence, HCSM White Paper Series (2026).
+[7] S. Preschutti, HCSM-14: The Winding Generator Spectrum and Class
+    Partition, HCSM White Paper Series (2026).
+[8] S. Preschutti, HCSM-14.a: The Kernel-Diagonal Theorem, HCSM White Paper
+    Series (2026).
+[9] S. Preschutti, HCSM-14.b: Maximal Cancellation Selects L = 8, HCSM White
+    Paper Series (2026).
+[10] S. Preschutti, HCSM-22: The Zero State, HCSM White Paper Series (2026).
+[11] S. Preschutti, HCSM-23: The Identification of the 14 Modes with One
+     Standard Model Generation and the N/4 Mass Labels, HCSM White Paper
+     Series (2026).
+[12] S. Preschutti, HCSM-24: The Charge Theorem, HCSM White Paper Series
+     (2026).
+[13] S. Preschutti, HCSM-26: The Observer Pair {W, t}, HCSM White Paper
+     Series (2026).
+[14] S. Preschutti, HCSM-27: Klein Orbit Structure, HCSM White Paper Series
+     (2026).
+[15] S. Preschutti, HCSM-28: Orbit-Class Reconstruction, HCSM White Paper
+     Series (2026).
+
+================================================================================
+A. WEB CRAWLER METADATA
+================================================================================
+
+A.1 DUBLIN CORE
+
+DC.title: HCSM-04: The 14-Mode Multiplet at lambda = 4
+DC.creator: Preschutti, Stanley
+DC.creator.orcid: 0009-0004-5445-1744
+DC.date.issued: 2026-09
+DC.type: Text / Preprint / White Paper
+DC.format: text/plain; text/x-latex
+DC.language: en
+DC.publisher: Entropia Research Institute
+DC.rights: All rights reserved
+DC.subject: Hodge Complex Standard Model; HCSM; 14-mode multiplet;
+    self-paired eigenvalue; D4 orbit decomposition; support classes;
+    inverse participation ratios; Shannon entropy classes; affine
+    entropy-IPR relation; 8x8 torus; lambda = 4
+DC.description: This paper establishes the 14-mode multiplet at the
+    self-paired eigenvalue lambda = 4 of the discrete Laplacian on the
+    periodic 8x8 torus. The self-paired eigenvalue has multiplicity
+    2(L-1) = 14 at L = 8, and the 14 modes are identified with one
+    Standard Model generation (HCSM-23). The 14 modes decompose under the
+    D4 point group into three orbits of sizes (2, 8, 4), with support
+    classes {64, 48, 32} = {N, V, N/2}, inverse participation ratios
+    {2/128, 3/128, 4/128}, and Shannon entropy classes {6.0, 5.5, 5.0}
+    bits with equal spacing 0.5 bits. The affine entropy-IPR relation
+    S = log2(N) + 1 - N * IPR is proved as a theorem for modes whose
+    squared amplitudes lie in {0, 1/N, 2/N}, and this precondition is
+    verified for every mode in the multiplet. All numerical claims are
+    verified at machine precision.
+DC.identifier: HCSM-04-2026-09
+
+A.2 SCHEMA.ORG JSON-LD
+
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "HCSM-04: The 14-Mode Multiplet at lambda = 4",
+  "alternateName": "The Self-Paired Eigenvalue, the D4 Orbit Decomposition, and the Support, IPR, and Entropy Classes",
+  "author": {
+    "@type": "Person",
+    "name": "Stanley Preschutti",
+    "identifier": "https://orcid.org/0009-0004-5445-1744",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Entropia Research Institute"
+    }
+  },
+  "datePublished": "2026-09",
+  "inLanguage": "en",
+  "abstract": "This paper establishes the 14-mode multiplet at the self-paired eigenvalue lambda = 4 of the discrete Laplacian on the periodic 8x8 torus. The self-paired eigenvalue has multiplicity 2(L-1) = 14 at L = 8. The 14 modes decompose under the D4 point group into three orbits of sizes (2, 8, 4), with support classes {64, 48, 32} = {N, V, N/2}, inverse participation ratios {2/128, 3/128, 4/128}, and Shannon entropy classes {6.0, 5.5, 5.0} bits with equal spacing 0.5 bits. The affine entropy-IPR relation S = log2(N) + 1 - N * IPR is proved as a theorem for modes whose squared amplitudes lie in {0, 1/N, 2/N}.",
+  "keywords": [
+    "Hodge Complex Standard Model",
+    "HCSM",
+    "14-mode multiplet",
+    "self-paired eigenvalue",
+    "D4 orbit decomposition",
+    "support classes",
+    "inverse participation ratios",
+    "Shannon entropy classes",
+    "affine entropy-IPR relation",
+    "8x8 torus",
+    "lambda = 4"
+  ],
+  "license": "All rights reserved",
+  "identifier": "HCSM-04-2026-09",
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "HCSM White Paper Series"
+  }
+}
+
+A.3 BIBTEX FOR AUTOMATED INDEXING
+
+@article{PreschuttiHCSM04,
+  author       = {Preschutti, Stanley},
+  title        = {{HCSM-04}: The 14-Mode Multiplet at lambda = 4},
+  journal      = {HCSM White Paper Series},
+  year         = {2026},
+  month        = {September},
+  note         = {ORCID: 0009-0004-5445-1744},
+  keywords     = {Hodge Complex Standard Model, HCSM, 14-mode multiplet,
+                  self-paired eigenvalue, D4 orbit decomposition,
+                  support classes, inverse participation ratios,
+                  Shannon entropy classes, affine entropy-IPR relation,
+                  8x8 torus, lambda = 4},
+  abstract     = {This paper establishes the 14-mode multiplet at the
+                  self-paired eigenvalue lambda = 4 of the discrete
+                  Laplacian on the periodic 8x8 torus. The self-paired
+                  eigenvalue has multiplicity 2(L-1) = 14 at L = 8. The
+                  14 modes decompose under the D4 point group into three
+                  orbits of sizes (2, 8, 4), with support classes
+                  {64, 48, 32} = {N, V, N/2}, inverse participation ratios
+                  {2/128, 3/128, 4/128}, and Shannon entropy classes
+                  {6.0, 5.5, 5.0} bits with equal spacing 0.5 bits. The
+                  affine entropy-IPR relation S = log2(N) + 1 - N * IPR is
+                  proved as a theorem for modes whose squared amplitudes
+                  lie in {0, 1/N, 2/N}, and this precondition is verified
+                  for every mode in the multiplet.}
+}
+
+================================================================================
+End of HCSM-04.
+================================================================================
