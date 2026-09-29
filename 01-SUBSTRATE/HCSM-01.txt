@@ -1,0 +1,518 @@
+================================================================================
+HCSM-01
+The 8x8 Torus Substrate from d = 4
+The Framework Relation N = d·2^d, the Emergent Dimension,
+and the Selection of L = 8
+================================================================================
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstanp@yahoo.com
+
+September 2026
+(Revised: September 2026, continued session 3)
+
+--------------------------------------------------------------------------------
+ABSTRACT
+--------------------------------------------------------------------------------
+
+The Hodge Complex Standard Model (HCSM) derives the gauge structure,
+matter content, particle spectrum, and mixing matrices of the Standard
+Model from a single discrete substrate: the periodic 8x8 torus
+Lambda = Z_8 x Z_8. This paper establishes the substrate itself.
+
+The substrate-level disclosed inputs are three: (S1) the substrate is a
+periodic square lattice with D_4 point-group symmetry; (S2) the operators
+of interest are nearest-neighbour and positive-semidefinite with kernel
+equal to the constant functions; (S3) the emergent spacetime dimension
+equals dim ker D of the substrate's Hodge-Dirac operator.
+
+Given these, the paper derives:
+
+  1. The 5-point Laplacian is the unique such operator on Lambda (Section 2.2).
+  2. The emergent spacetime dimension is d = 4, via the Hodge-Dirac kernel
+     on the 2-torus (Section 3.3, citing HCSM-03 for the signature).
+  3. The framework relation N = d*2^d is a consistency identity at d=4,
+     giving N = 64 = 8^2, hence L = 8 (Sections 4.1-4.2).
+  4. The substrate size L = 8 is independently selected by two structurally
+     distinct derivations: equal entropy spacing on the torus Laplacian
+     (Section 4.3) and maximal cancellation of the winding generator
+     (Section 4.4, HCSM-14.b).
+  5. The multiplicity at the self-paired eigenvalue lambda = 4 is
+     2(L-1) = 14 (Section 4.5).
+
+The paper closes with an explicit disclosed-input ledger (Section 5) that
+separates substrate-level disclosures from physics-level disclosures
+(identification thesis, charge table, mass labels) that live in downstream
+papers. All numerical claims are verified at machine precision.
+
+--------------------------------------------------------------------------------
+CONTENTS
+--------------------------------------------------------------------------------
+
+1. Introduction
+   1.1 What HCSM-01 establishes
+   1.2 Disclosed input set at the substrate level
+   1.3 What is derived here, what is derived elsewhere
+   1.4 Cross references
+
+2. The substrate
+   2.1 The periodic LxL torus
+   2.2 The 5-point Laplacian is forced (Theorem)
+   2.3 The Hodge complex
+
+3. The emergent dimension and its signature
+   3.1 The kernel of the Hodge-Dirac operator
+   3.2 The Lorentzian signature
+
+4. The substrate size
+   4.1 N = d*2^d as a consistency identity
+   4.2 The perfect-square observation
+   4.3 First derivation of L=8: equal entropy spacing
+   4.4 Second derivation of L=8: maximal winding cancellation
+   4.5 The 14-mode count
+
+5. Disclosed-input ledger
+   5.1 Substrate-level disclosed inputs
+   5.2 Physics-level disclosed inputs (forward-referenced)
+   5.3 Open derivation targets
+
+6. Reproducibility
+7. Conclusion
+References
+
+--------------------------------------------------------------------------------
+1. INTRODUCTION
+--------------------------------------------------------------------------------
+
+1.1 What HCSM-01 establishes
+----------------------------
+
+HCSM derives the Standard Model from a single discrete substrate: the
+periodic 8x8 torus Lambda = Z_8 x Z_8. Every downstream result depends on
+the substrate being what it is. This paper establishes the substrate and
+states exactly what is derived and what is disclosed.
+
+  "Physics is what the machine cannot cancel. The Hodge complex is the
+   machine."
+
+1.2 Disclosed input set at the substrate level
+-----------------------------------------------
+
+Three items are disclosed at the substrate level. They are the primitive
+assumptions of the framework, and every substrate-level theorem in the
+HCSM stack depends on them.
+
+  (S1) Square-lattice substrate. The substrate is the periodic square
+       lattice Lambda_L = Z_L x Z_L with the D_4 point group of the
+       square acting as its symmetry group.
+
+  (S2) Locality and positivity. The scalar Laplacian of interest is
+       nearest-neighbour, positive-semidefinite, and annihilates exactly
+       the constant functions.
+
+  (S3) Emergent dimension. The emergent spacetime dimension equals
+       dim ker D, where D = d + d* is the Hodge-Dirac operator of the
+       substrate's Hodge complex.
+
+These three disclosures are the substrate-level anchor of the framework.
+Nothing else is disclosed at the substrate level. Section 2.2 shows that
+(S1) and (S2) force the 5-point Laplacian; Section 3 shows that (S3),
+together with the Hodge star on ker D (HCSM-03), forces d = 4 and the
+Lorentzian signature.
+
+1.3 What is derived here, what is derived elsewhere
+---------------------------------------------------
+
+Derived in this paper:
+
+  * The 5-point Laplacian, from (S1) and (S2) (Theorem 2.2.1).
+  * dim ker D = 4 via the Betti numbers of T^2 (Theorem 3.1.1).
+  * The framework relation N = d*2^d as a consistency identity at d=4
+    (Consistency 4.1.1).
+  * The multiplicity at lambda=4: 2(L-1) = 14 at L=8 (Theorem 4.5.1).
+
+Derived in companion papers:
+
+  * d = 4 from the Hodge star on ker D: HCSM-03.
+  * L = 8 from equal entropy spacing: companion equal-entropy paper.
+  * L = 8 from maximal cancellation of the winding generator: HCSM-14.b.
+  * The Hodge complex and D^2 = Delta: HCSM-02.
+
+1.4 Cross references
+--------------------
+
+Depends on: HCSM-00, HCSM-02, HCSM-03, HCSM-04, HCSM-14.b.
+
+Propagates to: every paper in the HCSM stack that uses Lambda, N = 64,
+L = 8, d = 4, or the 14-mode multiplet.
+
+--------------------------------------------------------------------------------
+2. THE SUBSTRATE
+--------------------------------------------------------------------------------
+
+2.1 The periodic LxL torus
+--------------------------
+
+The substrate is the periodic square lattice
+
+    Lambda_L = Z_L x Z_L,    N = L^2,
+
+of N sites arranged in an L x L grid with periodic boundary conditions.
+Site (x_1, x_2) is identified with (x_1 + L, x_2) and with
+(x_1, x_2 + L); topologically, Lambda_L is the torus T^2 = S^1 x S^1.
+The D_4 point group of the square acts by the rotations and reflections
+of the lattice.
+
+2.2 The 5-point Laplacian is forced
+-----------------------------------
+
+THEOREM 2.2.1 (Laplacian uniqueness). Let Delta : C^N -> C^N be a linear
+operator on the substrate Lambda_L = Z_L x Z_L satisfying:
+
+  (1) D_4-invariance: [R, Delta] = 0 for every R in D_4.
+  (2) Nearest-neighbour locality: (Delta f)(x) depends only on f(x) and
+      f at the four nearest neighbours of x.
+  (3) Positivity and kernel: Delta is positive semidefinite and ker Delta
+      is exactly the set of constant functions.
+
+Then Delta is uniquely determined up to overall positive scale, and equals
+the 5-point Laplacian
+
+    (Delta f)(x_1, x_2)
+      = 4 f(x_1, x_2)
+      - f(x_1+1, x_2) - f(x_1-1, x_2)
+      - f(x_1, x_2+1) - f(x_1, x_2-1).                            (2.2.1)
+
+Proof. Condition (2) writes Delta f(x) = a_0 f(x) + sum_mu a_mu f(x+mu).
+Condition (1) forces a_mu = a for all four nearest-neighbour directions.
+So Delta f(x) = a_0 f(x) + a sum_mu f(x+mu). Condition (3) forces
+Delta 1 = 0, hence a_0 = -4a. Normalize a=1. QED.
+
+Remark. The 5-point Laplacian is annihilated by the constant functions by
+construction; its eigenvalue on the plane wave
+phi_{n_1,n_2}(x) = exp(2 pi i (n_1 x_1 + n_2 x_2)/L) is
+
+    lambda(n_1, n_2) = 4 - 2 cos(2 pi n_1 / L) - 2 cos(2 pi n_2 / L),
+    n_1, n_2 in {0, 1, ..., L-1}.                                  (2.2.2)
+
+The spectrum is mirror-symmetric under lambda <-> 8 - lambda.
+
+2.3 The Hodge complex
+---------------------
+
+The Hodge complex of differential forms on the 2-torus Lambda_L has three
+graded pieces:
+
+    Omega^0 = R^N,   Omega^1 = R^{2N},   Omega^2 = R^N,            (2.3.1)
+
+with total dimension N + 2N + N = 4N. On Lambda = Z_8 x Z_8 this gives
+total dimension 4*64 = 256.
+
+By HCSM-02, the Hodge-Dirac operator D = d + d* satisfies
+D^2|_{Omega^k} = Delta exactly on each form degree, where Delta is the
+5-point Laplacian (2.2.1).
+
+--------------------------------------------------------------------------------
+3. THE EMERGENT DIMENSION AND ITS SIGNATURE
+--------------------------------------------------------------------------------
+
+3.1 The kernel of the Hodge-Dirac operator
+------------------------------------------
+
+THEOREM 3.1.1 (Kernel dimension). On the 2-torus Lambda = Z_8 x Z_8, the
+Hodge-Dirac operator D = d + d* has kernel isomorphic to the de Rham
+cohomology of the torus:
+
+    ker D = H^0(T^2; R) + H^1(T^2; R) + H^2(T^2; R),
+
+with dimension dim ker D = b_0 + b_1 + b_2 = 1 + 2 + 1 = 4.
+
+Proof. By the discrete Hodge theorem (Dodziuk 1976), ker D on a discrete
+torus is isomorphic to the de Rham cohomology. The Betti numbers of T^2
+are (b_0, b_1, b_2) = (1, 2, 1). QED.
+
+The four harmonic forms of ker D are explicit: the constant 0-form v_0
+(spanning H^0); the two independent harmonic 1-forms v_1^A, v_1^B
+(spanning H^1); the constant 2-form v_2 (spanning H^2).
+
+3.2 The Lorentzian signature
+----------------------------
+
+By disclosure (S3), the emergent spacetime dimension equals dim ker D = 4.
+The signature of the emergent metric is derived in HCSM-03 from the Hodge
+star restricted to ker D. We summarize that result.
+
+THEOREM 3.2.1 (Lorentzian signature, HCSM-03). The Hodge star * restricted
+to ker D has eigenvalues {+1, -1, +i, -i}: the +-1 eigenvalues come from
+the (H^0 + H^2) sector, the +-i eigenvalues from the H^1 sector. The
+intersection form Q(alpha, beta) = int alpha ^ beta on the even-degree
+sector and the Hodge inner product <alpha, beta> = int alpha ^ *beta on
+the odd-degree sector combine into a canonical metric of signature (3,1)
+on ker D. The timelike direction is (v_0 + v_2)/sqrt(2).
+
+Together, Theorems 3.1.1 and 3.2.1 give d = 4 with signature (-,+,+,+),
+both derived from the substrate and the Hodge star, with no external input
+and no Wick rotation.
+
+REMARK 3.2.2 (Two independent routes to d=4). The number d=4 admits two
+complementary derivations:
+
+  (i)  The internal Hodge-star argument (Theorem 3.2.1): the Hodge star
+       on ker D has eigenvalues {+1, -1, +i, -i}; the intersection form
+       and Hodge inner product force signature (3,1).
+
+  (ii) The dimension-counting argument: dim ker D = 4 is the fixed point
+       of the torus Betti-number structure under Hodge duality. The
+       identity b_0 = b_2 and b_1 = 2 are the only values compatible
+       with Hodge duality on a connected closed surface without boundary.
+
+The two routes agree, and both are derived from the substrate.
+
+--------------------------------------------------------------------------------
+4. THE SUBSTRATE SIZE
+--------------------------------------------------------------------------------
+
+4.1 N = d*2^d as a consistency identity
+---------------------------------------
+
+The HCSM paper stack uses the relation
+
+    N = d * 2^d                                                     (4.1.1)
+
+with N the number of substrate sites and d the emergent spacetime
+dimension. We present (4.1.1) as a consistency identity, not a derivation.
+The reason is structural: on the 2-torus the Hodge complex has dimension
+4N = 256, while the abstract exterior algebra on R^d has dimension
+2^d = 16. These are different mathematical objects; a tensor-product
+argument identifying them is a plausibility statement, not a theorem.
+
+What (4.1.1) does is state that at d=4 the numbers 4 and 2^4 multiply to
+give the substrate size N = 64. This is consistent with the substrate
+being Lambda_L = Z_L x Z_L with L=8:
+
+CONSISTENCY 4.1.1 (Substrate size at d=4). At d=4, the framework
+relation (4.1.1) gives N = 4 * 16 = 64. Since Lambda_L = Z_L x Z_L
+requires N = L^2, this forces L = sqrt(64) = 8.
+
+The physical selection of the substrate size is therefore not (4.1.1)
+alone. It is the two independent derivations of L=8 below.
+
+4.2 The perfect-square observation
+----------------------------------
+
+At d=4, N = 64 = 8^2 is a perfect square, so the substrate is a square
+lattice. We note that d * 2^d = L^2 is not unique to d=4: the integer
+solutions form the infinite family d in {4k^2 : k >= 1}, with
+d = 16, 36, 64, ... also giving perfect squares. The physical selection
+of d=4 is therefore not from the perfect-square condition; it is from
+the emergent-dimension argument of Section 3.
+
+4.3 First derivation of L=8: equal entropy spacing
+--------------------------------------------------
+
+On the L x L torus, the standing-wave modes fall into discrete Shannon
+entropy classes. The companion equal-entropy-spacing paper proves the
+following.
+
+THEOREM 4.3.1 (Equal entropy spacing selects L=8). Among all integers
+4 <= L <= 10^4, the only L for which the L x L torus has exactly three
+equally spaced Shannon entropy classes is L = 8. At L=8 the three
+classes are 6.0 bits, 5.5 bits, 5.0 bits, with uniform spacing 0.5 bits.
+
+This gives L=8 independent of the Standard Model particle count.
+
+4.4 Second derivation of L=8: maximal winding cancellation
+----------------------------------------------------------
+
+The winding generator of HCSM-14 generalizes to any even L as
+H_wind(L) = i sin(pi M / L) on the self-paired mode set of Lambda_L.
+HCSM-14.b proves the following.
+
+THEOREM 4.4.1 (Maximal cancellation selects L=8, HCSM-14.b). Let G_L be
+the parity block graph of H_wind(L) on the five nodes
+{A_odd, A_even, B_odd, B_even, AB}. The number of block couplings that
+vanish identically is
+
+    # zeros(G_L) = 4    if L = 2 mod 4,
+                = 7    if L = 0 mod 4, L >= 12,
+                = 10   if L in {4, 8}.
+
+Among the two maximally-cancelling sizes, only L=8 carries the 14-mode
+multiplet. At L=8 the surviving five block couplings form a unicyclic
+graph on d+1=5 nodes with rank-1 edges; the winding kernel has dimension
+d(d+1)/2 = 10; and the kernel-diagonal values are {2/d, (d-1)/d}.
+
+The two derivations (Sections 4.3 and 4.4) are structurally independent:
+the first uses only the torus Laplacian's entropy classes, the second uses
+only the winding generator's parity block structure. Their agreement
+selects L=8.
+
+4.5 The 14-mode count
+---------------------
+
+THEOREM 4.5.1 (Midpoint multiplicity). On the L x L torus with L even,
+the multiplicity of the self-paired eigenvalue lambda = 4 is
+
+    mult_{lambda=4}(L) = 2(L-1).
+
+At L=8 this gives 14.
+
+Proof. The self-paired eigenvalue is the fixed point of the mirror
+lambda <-> 8 - lambda. Its eigenspace is the set of modes (n_1, n_2) with
+cos(2 pi n_1 / L) + cos(2 pi n_2 / L) = 0, i.e., n_1 +- n_2 = L/2 (mod L).
+Counting the solutions gives 2(L-1). QED.
+
+The 14 modes at lambda = 4 on Lambda = Z_8 x Z_8 are the subject of
+HCSM-04 and are identified with one Standard Model generation in HCSM-23.
+
+--------------------------------------------------------------------------------
+5. DISCLOSED-INPUT LEDGER
+--------------------------------------------------------------------------------
+
+We state the full ledger of disclosed inputs. Substrate-level disclosures
+(Section 1.2) are the framework's primitives. Physics-level disclosures
+live in downstream papers and are listed here for completeness.
+
+5.1 Substrate-level disclosed inputs
+------------------------------------
+
+  (S1) The substrate is a periodic square lattice with D_4 point-group
+       symmetry.
+
+  (S2) The scalar Laplacian of interest is nearest-neighbour,
+       positive-semidefinite, and annihilates exactly the constant
+       functions.
+
+  (S3) The emergent spacetime dimension equals dim ker D.
+
+5.2 Physics-level disclosed inputs (forward-referenced)
+-------------------------------------------------------
+
+  (P1) Identification thesis. The 14 modes at lambda=4 are in one-to-one
+       correspondence with the 14 Standard Model particles of one
+       generation. Disclosed in HCSM-23 Section 3.
+
+  (P2) Physical identifications of D_4 irreps. A_1 <-> color;
+       B_1 <-> weak isospin. Disclosed in HCSM-06 Section 7.
+
+  (P3) Physical identification of the orientation flip. F <-> CP.
+       Disclosed in HCSM-43.
+
+  (P4) Physical identification of spin structure. chi_spin <-> L/R
+       chirality. Disclosed in HCSM-42.
+
+  (P5) Physical identification of the winding generator.
+       H_wind <-> F_{mu nu} F~^{mu nu}. Disclosed in HCSM-43.
+
+  (P6) Charge table. The charge functional q_3 = F(n_1, sigma), with
+       sigma = sign(s) the sign of the zero-state amplitude, is a
+       disclosed input (Input 3 of HCSM-24). The closed form of F is an
+       open item in HCSM-24.
+
+  (P7) Mass-ordering labels. The N/4 values assigned to the 14 modes are
+       the framework's empirical anchor for the mass sector. Disclosed
+       in HCSM-23 (Input 3).
+
+  (P8) Shell values. The shell values {0, 1, 1.5, 2, 3} are inputs from
+       the mass spectrum. Disclosed in HCSM-32.
+
+  (P9) Base formula for the 5+9 split. The framework base formula in
+       HCSM-11 is a disclosed input.
+
+  (P10) Three hidden-sector choices. The gauge-algebra identification,
+        U(1)_Y neutrality, and fermionic statistics of the B_1 doublets
+        are disclosed inputs in HCSM-38.
+
+  (P11) Planck mass M_P. The single dimensionful anchor of the framework.
+
+5.3 Open derivation targets
+---------------------------
+
+  * The closed form of the charge functional F(n_1, sigma) (HCSM-24).
+  * The microscopic derivation of the three hidden-sector choices (HCSM-38).
+  * The derivation of the identification thesis (P1) from substrate
+    invariants alone.
+  * The derivation of H_wind's sine form from more primitive principles.
+  * The discrete-to-continuum scaling limit (item 6.14).
+
+--------------------------------------------------------------------------------
+6. REPRODUCIBILITY
+--------------------------------------------------------------------------------
+
+All numerical claims are verified at machine precision in IEEE-754 double
+precision. The verification script HCSM-01_verification.py constructs the
+substrate Laplacian on Lambda_L = Z_L x Z_L for L in {4, 6, 8, 10, 12, 16},
+and verifies:
+
+  1. The 5-point Laplacian uniqueness (Theorem 2.2.1).
+  2. dim ker D = 4 (Theorem 3.1.1).
+  3. N = 64 at d=4 (Consistency 4.1.1).
+  4. The multiplicity formula mult_{lambda=4}(L) = 2(L-1) (Theorem 4.5.1).
+  5. The equal-entropy-spacing selection of L=8.
+  6. The maximal-cancellation selection of L=8 (HCSM-14.b ledger).
+  7. The four Betti numbers of T^2.
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim in the
+HCSM paper stack. The complete stack is at
+https://github.com/007STAN/HODGE-COMPLEX-STANDARD-MODEL-HCSM-.
+
+--------------------------------------------------------------------------------
+7. CONCLUSION
+--------------------------------------------------------------------------------
+
+This paper has established the substrate of the Hodge Complex Standard
+Model. The substrate is the periodic 8x8 torus Lambda = Z_8 x Z_8 with
+N = 64 sites.
+
+The substrate-level disclosed inputs are three: a square-lattice substrate
+with D_4 symmetry (S1); nearest-neighbour, positive-semidefinite locality
+with kernel equal to the constant functions (S2); and the identification
+of the emergent spacetime dimension with dim ker D (S3).
+
+Given these, the paper derives:
+
+  * The 5-point Laplacian is the unique operator satisfying (S1) and (S2)
+    (Theorem 2.2.1).
+  * dim ker D = 4 (Theorem 3.1.1).
+  * The Lorentzian signature (3,1) on ker D, via HCSM-03's Hodge-star
+    argument (Theorem 3.2.1).
+  * d = 4 (from (S3) and dim ker D = 4).
+  * The framework relation N = d*2^d as a consistency identity at d=4
+    (Consistency 4.1.1).
+  * Two independent derivations of L=8: equal entropy spacing on the
+    torus Laplacian (Section 4.3) and maximal winding cancellation
+    (Section 4.4, HCSM-14.b).
+  * The 14-mode count 2(L-1) = 14 at L=8 (Theorem 4.5.1).
+
+The substrate is not chosen. It is what the framework's three
+substrate-level disclosures jointly require: a square lattice with D_4
+symmetry, nearest-neighbour positive-semidefinite locality, and emergent
+dimension dim ker D. Every downstream result of the HCSM stack follows
+from these plus the physics-level disclosures catalogued in Section 5.
+
+  "Physics is what the machine cannot cancel. The Hodge complex is the
+   machine."
+
+--------------------------------------------------------------------------------
+REFERENCES
+--------------------------------------------------------------------------------
+
+[1]  S. Preschutti, HCSM-00: Foundations, Notation, and Mapping.
+[2]  S. Preschutti, HCSM-02: The Hodge Complex on Lambda.
+[3]  S. Preschutti, HCSM-03: Lorentzian Signature from the Hodge Star.
+[4]  S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4.
+[5]  S. Preschutti, HCSM-06: Sector-Coarse Correspondence.
+[6]  S. Preschutti, HCSM-14: Winding Generator Spectrum and Class Partition.
+[7]  S. Preschutti, HCSM-14.b: Maximal Cancellation Selects L=8.
+[8]  S. Preschutti, HCSM-23: The Identification of the 14 Modes with One
+     Standard Model Generation.
+[9]  S. Preschutti, HCSM-24: The Charge Theorem.
+[10] S. Preschutti, HCSM-38: Hidden Sector Content.
+[11] J. Dodziuk, Finite-difference approach to the Hodge theory of
+     harmonic forms, Amer. J. Math. 98, 79 (1976).
+
+================================================================================
+End of HCSM-01
+================================================================================
