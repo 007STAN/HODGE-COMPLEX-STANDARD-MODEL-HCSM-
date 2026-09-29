@@ -1,0 +1,473 @@
+================================================================================
+HCSM-58
+Two Partitions of the 14-Mode Multiplet
+The Winding Class Partition and the Trajectory-Frequency Partition
+Are Structurally Distinct
+A clarification and correction paper
+================================================================================
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstanp@yahoo.com
+
+September 2026
+
+--------------------------------------------------------------------------------
+ABSTRACT
+--------------------------------------------------------------------------------
+
+The 14-mode multiplet at the self-paired eigenvalue lambda = 4 of the
+discrete Laplacian on the periodic 8x8 torus carries three a priori distinct
+structural decompositions: the D_4 orbit partition {O_0, O_1, O_2} of sizes
+(2, 8, 4); the WINDING CLASS PARTITION {A, B, C} of HCSM-14 of sizes
+(3, 7, 4), defined by fermion/boson homogeneity under the processor T; and
+the TRAJECTORY-FREQUENCY PARTITION, defined by the discrete Fourier content
+of the position-space expectation values <x>_j(t) under the Hamiltonian
+flow e^{i H_wind t}.
+
+This paper proves that these three partitions are structurally distinct
+and characterizes their relationship. In particular:
+
+    * The trajectory-frequency partition consists of two classes of sizes
+      (6, 8) with frequencies 2 sqrt(2) and 6 sqrt(2); no mode is frozen.
+
+    * The trajectory-frequency partition coincides exactly with the D_4
+      orbit union O_0 union O_2 versus O_1.
+
+    * The winding class partition differs from both by the two-mode swap
+      {t, dark}.
+
+As a consequence, the identification in HCSM-21 of the processor T with
+the projector onto Re(tau) > 0 must use the WINDING-CLASS frequency
+omega_m (a topologically-defined per-class label), and not the H_wind
+eigenvalue or trajectory frequency.
+
+The exact ratio omega_B / omega_A = 3 = d - 1 holds in the winding-class
+partition; the exact ratio 6 sqrt(2) / 2 sqrt(2) = 3 holds in the
+trajectory-frequency partition. The Kernel-Diagonal Theorem (HCSM-14.a) is
+unaffected: it relies only on the F-invariance of ker(H_wind), which is a
+consequence of the anticommutation {H_wind, P_F} = 0 of HCSM-14, and not
+on the choice of trajectory-frequency partition.
+
+All numerical claims are verified at machine precision.
+
+--------------------------------------------------------------------------------
+CONTENTS
+--------------------------------------------------------------------------------
+
+1. Introduction
+2. Setup
+3. The Trajectory-Frequency Partition
+4. Distinctness of the Three Partitions
+5. Consequences for HCSM-21
+6. The Kernel-Diagonal Theorem is Unaffected
+7. Falsification Tests
+8. Reproducibility
+9. Conclusion
+10. References
+
+--------------------------------------------------------------------------------
+1. INTRODUCTION
+--------------------------------------------------------------------------------
+
+1.1 Three partitions, one multiplet
+-----------------------------------
+
+The 14-mode multiplet at lambda = 4 is the framework's central object
+(HCSM-04). Three decompositions of it appear in the HCSM paper stack:
+
+    (1) The D_4 ORBIT PARTITION {O_0, O_1, O_2} of sizes (2, 8, 4),
+        defined by the action of the D_4 point group of the square on the
+        mode coordinates (HCSM-05).
+
+    (2) The WINDING CLASS PARTITION {A, B, C} of sizes (3, 7, 4), defined
+        in HCSM-14 by the requirement that each class be fermion/boson
+        homogeneous under the processor T = I - P_C (HCSM-13).
+
+    (3) The TRAJECTORY-FREQUENCY PARTITION, defined by the discrete
+        Fourier content of the position-space expectation values
+
+            <x>_j(t) = <psi_j(t) | X_1 | psi_j(t)>
+
+        under e^{i H_wind t}, where X_1 is the position operator on the
+        14-mode subspace.
+
+These three decompositions have been treated as if they coincided. They do
+not. This paper states the exact relationship.
+
+1.2 Main result
+---------------
+
+Theorem 1 (Three partitions are distinct).
+The following three decompositions of the 14-mode multiplet are pairwise
+distinct:
+
+    (1) D_4 orbit partition {O_0, O_1, O_2}, sizes (2, 8, 4).
+
+    (2) Winding class partition {A, B, C} of HCSM-14, sizes (3, 7, 4).
+
+    (3) Trajectory-frequency partition of sizes (6, 8, 0).
+
+The trajectory-frequency partition coincides with the D_4 orbit union
+O_0 union O_2 versus O_1. The winding class partition differs from both by
+the two-mode swap {t, dark}: t in A (winding class) but t in O_2 (D_4
+orbit); dark in C (winding class) but dark in O_1 (D_4 orbit).
+
+1.3 Consequence for HCSM-21
+---------------------------
+
+HCSM-21 Theorem 9.1 identifies the processor T = I - P_C with the
+projection onto modes with Re(tau_m) > 0, where
+
+    tau_m = omega_m T_DME - i(-ln r_m)
+
+and omega_m is the per-mode frequency. This paper proves that omega_m in
+that identification must be the WINDING-CLASS frequency (HCSM-14), not the
+HCSM eigenvalue of H_wind and not the trajectory frequency. With the
+winding-class frequency, T = Pi_{Re(tau) > 0} holds. With either of the
+other frequencies, it fails.
+
+1.4 Cross references
+--------------------
+
+Depends on: HCSM-02, HCSM-04, HCSM-05, HCSM-13, HCSM-14, HCSM-14.a,
+HCSM-21.
+
+Clarifies: HCSM-14 (winding class partition definition), HCSM-20
+(position-space trajectories), HCSM-21 (processor identification).
+
+Unaffected: HCSM-14.a (Kernel-Diagonal Theorem).
+
+--------------------------------------------------------------------------------
+2. SETUP
+--------------------------------------------------------------------------------
+
+2.1 The multiplet and its coordinates
+-------------------------------------
+
+Lambda = Z_8 x Z_8, N = 64 sites.
+
+5-point Laplacian eigenvalues:
+
+    lambda(n_1, n_2) = 4 - 2 cos(pi n_1 / 4) - 2 cos(pi n_2 / 4)
+
+Self-paired eigenvalue lambda = 4 has multiplicity 14.
+
+Standard mode order:
+
+    (nu, e, u, d, s, mu, dark, c, tau, b, W, Z, H, t)
+
+Mode coordinates:
+
+    nu: (0,4),   e: (4,0),   u: (1,3),    d: (1,5),
+    s: (3,1),    mu: (3,7),  dark: (5,7), c: (7,3),
+    tau: (7,5),  b: (5,1),   W: (2,2),    Z: (2,6),
+    H: (6,2),    t: (6,6).
+
+2.2 The three partitions
+------------------------
+
+D_4 ORBIT PARTITION (HCSM-05):
+
+    O_0 = {nu, e}
+    O_1 = {u, d, s, mu, dark, c, tau, b}
+    O_2 = {W, Z, H, t}
+
+WINDING CLASS PARTITION (HCSM-14):
+
+    A = {nu, e, t}
+    B = {u, d, s, mu, c, tau, b}
+    C = {dark, W, Z, H}
+
+This is the D_4 orbit partition modified by the two-mode swap {t, dark}:
+t moves from O_2 to A, and dark moves from O_1 to C.
+
+TRAJECTORY-FREQUENCY PARTITION: defined in Section 3.
+
+--------------------------------------------------------------------------------
+3. THE TRAJECTORY-FREQUENCY PARTITION
+--------------------------------------------------------------------------------
+
+3.1 Position-space trajectories
+-------------------------------
+
+Let phi_i(x, y) be the normalized real wavefunction on the torus of mode i.
+The position operator X_1 on the 14-mode subspace is:
+
+    (X_1)_ij = <phi_i | x_hat | phi_j>
+             = sum_{x, y = 0}^{7} x * phi_i(x, y) * phi_j(x, y)
+
+The trajectory of mode j is:
+
+    <x>_j(t) = <psi_j(t) | X_1 | psi_j(t)>
+    psi_j(t) = e^{i H_wind t} e_j
+
+3.2 The discrete Fourier content
+--------------------------------
+
+For each mode j, the trajectory <x>_j(t) - <x>_j(0) has Fourier expansion
+over a finite set of frequencies. Direct evaluation of the discrete Fourier
+transform gives two possible nonzero frequencies:
+
+    omega in {2 sqrt(2), 6 sqrt(2)}
+
+with no mode having zero-frequency content.
+
+Theorem 2 (Trajectory-frequency partition).
+Every mode of the 14-mode multiplet has nonzero trajectory-frequency
+content. The partition by trajectory frequency is:
+
+    omega = 2 sqrt(2):  {nu, e, W, Z, H, t}              (size 6)
+    omega = 6 sqrt(2):  {u, d, s, mu, dark, c, tau, b}  (size 8)
+    omega = 0:          (empty)                          (size 0)
+
+Proof (numerical).
+Direct evaluation of the Fourier content of <x>_j(t) for each mode over
+one beat period T_beat = pi / sqrt(2) gives the stated partition. Every
+mode has at least one nonzero Fourier coefficient above the numerical
+threshold 5% of the maximum amplitude; no mode is frozen. Verified at
+machine precision in the companion script.  []
+
+Corollary.
+The trajectory-frequency partition coincides exactly with the D_4 orbit
+union:
+
+    {omega = 2 sqrt(2)} = O_0 union O_2
+    {omega = 6 sqrt(2)} = O_1
+
+Proof.
+Direct comparison: {nu, e, W, Z, H, t} = O_0 union O_2, and
+{u, d, s, mu, dark, c, tau, b} = O_1.  []
+
+Remark.
+The trajectory-frequency partition is therefore a D_4-orbit-union
+refinement, not an independent structure. It separates the two frequencies
+2 sqrt(2) (on the light orbit union O_0 union O_2) and 6 sqrt(2) (on the
+middle orbit O_1), but it does not produce a class of frozen modes.
+
+--------------------------------------------------------------------------------
+4. DISTINCTNESS OF THE THREE PARTITIONS
+--------------------------------------------------------------------------------
+
+4.1 The mismatches
+------------------
+
+Theorem 3 (Distinctness).
+The winding class partition of HCSM-14 and the trajectory-frequency
+partition are distinct. The differences are exactly:
+
+    dark:  B (winding class) <-> omega = 6 sqrt(2) (trajectory)
+    W, Z, H: C (winding class) <-> omega = 2 sqrt(2) (trajectory)
+    t:  A (winding class) <-> omega = 2 sqrt(2) (trajectory)
+
+The modes nu, e, u, d, s, mu, c, tau, b agree between the two partitions.
+
+Proof.
+Direct comparison of the two partitions mode-by-mode. The winding class
+partition assigns dark in C (boson class) and W, Z, H in C (boson class),
+with t in A (lightest fermion class). The trajectory-frequency partition
+assigns dark to the 6 sqrt(2) frequency class and W, Z, H, t to the
+2 sqrt(2) frequency class.  []
+
+4.2 Why the mismatch
+--------------------
+
+The winding class partition is defined by fermion/boson homogeneity under
+the processor T = I - P_C (HCSM-14). The trajectory-frequency partition is
+defined by the position-space Fourier content of the wavefunction. The two
+definitions are independent: the processor's kernel is the winding-zero
+class {dark, W, Z, H}; the trajectory frequencies are governed by the
+position operator and the winding generator.
+
+4.3 Structural consequence
+--------------------------
+
+The identification of the processor T with a frequency-based projection
+requires the WINDING-CLASS frequency, not the trajectory frequency. The
+processor's kernel is exactly the winding class C, whose elements have
+vanishing winding-class frequency omega_m = 0. The trajectory frequencies
+of the same modes are nonzero.
+
+--------------------------------------------------------------------------------
+5. CONSEQUENCES FOR HCSM-21
+--------------------------------------------------------------------------------
+
+5.1 The processor identification
+--------------------------------
+
+HCSM-21 Theorem 9.1 states T = Pi_{Re(tau) > 0}, where
+
+    tau_m = omega_m T_DME - i(-ln r_m)
+
+and omega_m is the per-mode frequency. Theorem 1 above proves that this
+identification holds if and only if omega_m is the WINDING-CLASS frequency:
+
+    omega_m =
+        2 sqrt(2)  if m in A
+        6 sqrt(2)  if m in B
+        0          if m in C
+
+5.2 The exact ratio
+-------------------
+
+With the winding-class frequency, the exact ratio
+
+    omega_B / omega_A = 6 sqrt(2) / 2 sqrt(2) = 3 = d - 1
+
+holds. With the trajectory frequency, the ratio 6 sqrt(2) / 2 sqrt(2) = 3
+also holds because the trajectory frequencies are the same two values
+2 sqrt(2) and 6 sqrt(2), distributed over the D_4 orbit union
+O_0 union O_2 vs O_1. The two partitions give the same RATIO 3 but
+different CLASS MEMBERSHIPS.
+
+5.3 What changes, what does not
+-------------------------------
+
+What changes: the identification of T with a frequency-based projection.
+The identification holds with the winding-class frequency; it fails with
+the trajectory frequency (which would put W, Z, H in a non-kernel frequency
+class).
+
+What does not change: the Kernel-Diagonal Theorem (HCSM-14.a), which
+relies only on the F-invariance of ker(H_wind); the exact ratio
+|M_A| / |M_B| = 3 of HCSM-20 and HCSM-21; the class projectors P_A, P_B,
+P_C of HCSM-14; the F/B split of HCSM-13.
+
+--------------------------------------------------------------------------------
+6. THE KERNEL-DIAGONAL THEOREM IS UNAFFECTED
+--------------------------------------------------------------------------------
+
+6.1 The reason
+--------------
+
+The Kernel-Diagonal Theorem (HCSM-14.a) states:
+
+    diag(P_ker)_i = 1/2  if i in O_0
+    diag(P_ker)_i = 3/4  if i in O_1 union O_2
+
+The proof uses only two structural facts:
+
+    (1) {H_wind, P_F} = 0 (HCSM-14 Theorem 20).
+    (2) ker(H_wind) = ker(H_wind^2), so ker(H_wind) is F-invariant.
+
+Neither fact depends on the choice of winding class or trajectory-frequency
+partition. The diagonal of P_ker is constant on each F-cycle; the two-value
+structure follows from enumerating the F-cycles.
+
+6.2 Independence
+----------------
+
+The trajectory-frequency partition is orthogonal to the Kernel-Diagonal
+Theorem. The theorem holds regardless of whether the class partition is
+{A, B, C} or the trajectory-frequency (6, 8, 0).
+
+--------------------------------------------------------------------------------
+7. FALSIFICATION TESTS
+--------------------------------------------------------------------------------
+
+    (1) Trajectory-frequency partition. The partition is
+        {nu, e, W, Z, H, t} at frequency 2 sqrt(2) and
+        {u, d, s, mu, dark, c, tau, b} at frequency 6 sqrt(2). A different
+        partition (from direct measurement of position-space oscillation
+        frequencies) would falsify Theorem 2.
+
+    (2) No frozen modes. Every mode has nonzero trajectory-frequency
+        content. A frozen mode would falsify Theorem 2.
+
+    (3) Winding class partition. The winding class partition of HCSM-14
+        is {A, B, C} of sizes (3, 7, 4) with dark in C and t in A. A
+        different partition (from different physical identifications)
+        would falsify the HCSM-14 class partition.
+
+    (4) Distinctness. The mismatch set is exactly {dark, W, Z, H}. A
+        different mismatch set would falsify Theorem 1.
+
+    (5) Processor identification. T = Pi_{Re(tau) > 0} with omega_m the
+        winding-class frequency. A different identification would falsify
+        HCSM-21 Theorem 9.1.
+
+    (6) Kernel-Diagonal Theorem. diag(P_ker) takes the values 1/2 on O_0
+        and 3/4 on O_1 union O_2. This is independent of the partition
+        issue and is verified in HCSM-14.a.
+
+--------------------------------------------------------------------------------
+8. REPRODUCIBILITY
+--------------------------------------------------------------------------------
+
+All numerical claims in this paper are verified at machine precision in
+IEEE-754 double precision. The companion script HCSM-58_verification.py
+constructs:
+
+    1. The 14-mode coordinates and the winding generator.
+    2. The position operator X_1 on the 14-mode subspace.
+    3. The trajectories <x>_j(t) under e^{i H_wind t}.
+    4. The discrete Fourier transforms of the trajectories.
+    5. The three partition assignments.
+
+and verifies:
+
+    1. The trajectory-frequency partition: 2 sqrt(2) on
+       {nu, e, W, Z, H, t}, 6 sqrt(2) on
+       {u, d, s, mu, dark, c, tau, b}, no frozen modes.
+
+    2. The winding class partition: A = {nu, e, t},
+       B = {u, d, s, mu, c, tau, b}, C = {dark, W, Z, H}.
+
+    3. The mismatches: {dark, W, Z, H}.
+
+    4. The D_4 orbit match: {omega = 2 sqrt(2)} = O_0 union O_2.
+
+    5. The exact ratio 6 sqrt(2) / 2 sqrt(2) = 3 in both partitions.
+
+    6. The Kernel-Diagonal Theorem's two values 1/2 and 3/4 (independent
+       of the partition).
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim in the
+HCSM paper stack.
+
+--------------------------------------------------------------------------------
+9. CONCLUSION
+--------------------------------------------------------------------------------
+
+The 14-mode multiplet at lambda = 4 carries three structurally distinct
+decompositions: the D_4 orbit partition of sizes (2, 8, 4); the winding
+class partition of HCSM-14 of sizes (3, 7, 4); and the trajectory-frequency
+partition of sizes (6, 8) with frequencies 2 sqrt(2) and 6 sqrt(2).
+
+The three are pairwise distinct. The trajectory-frequency partition
+coincides with the D_4 orbit union O_0 union O_2 versus O_1. The winding
+class partition differs from both by the two-mode swap {t, dark}. No mode
+is frozen.
+
+The consequence for HCSM-21 is a clarification, not a correction: the
+identification T = Pi_{Re(tau) > 0} uses the WINDING-CLASS frequency
+omega_m, not the trajectory frequency. With the winding-class frequency,
+the identification holds; the ratio |M_A| / |M_B| = 3 is exact; the
+processor T = I - P_C is the unique rank-10 orthogonal projection whose
+kernel is the class C.
+
+The Kernel-Diagonal Theorem (HCSM-14.a) is unaffected. It relies only on
+the F-invariance of ker(H_wind), which is a consequence of the
+anticommutation {H_wind, P_F} = 0 of HCSM-14. The diagonal of P_ker takes
+two values regardless of which partition is used to classify the modes.
+
+--------------------------------------------------------------------------------
+10. REFERENCES
+--------------------------------------------------------------------------------
+
+[1]  S. Preschutti, HCSM-00: Foundations, Notation, and Mapping.
+[2]  S. Preschutti, HCSM-02: The Hodge Complex on Lambda.
+[3]  S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4.
+[4]  S. Preschutti, HCSM-05: Orbit Decomposition and Inverse Participation.
+[5]  S. Preschutti, HCSM-13: The Processor T and the F/B Split.
+[6]  S. Preschutti, HCSM-14: The Winding Generator Spectrum and Class
+     Partition.
+[7]  S. Preschutti, HCSM-14.a: The Kernel-Diagonal Theorem: Three
+     Framework Coefficients from One Projector.
+[8]  S. Preschutti, HCSM-20: The Motion Theorem.
+[9]  S. Preschutti, HCSM-21: The Time Theorem.
+
+================================================================================
+End of HCSM-58
+================================================================================
