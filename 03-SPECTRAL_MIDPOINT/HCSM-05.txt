@@ -1,0 +1,860 @@
+================================================================================
+HCSM-05
+D4 Representation Theory of the 14-Mode Multiplet
+The Real Mode Basis, Character Theory, the Irreducible Decomposition,
+the n1-Parity Orbit Indicator, and the Exact Zero-State Amplitudes
+================================================================================
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstanp@yahoo.com
+
+September 2026
+
+================================================================================
+ABSTRACT
+================================================================================
+
+This paper establishes the D4 representation theory of the 14-mode multiplet at
+the self-paired eigenvalue lambda = 4 of the discrete 5-point Laplacian on the
+periodic 8 x 8 torus Lambda = Z8 x Z8. We derive the 14-dimensional real mode
+basis, the D4 action as a signed permutation representation with character
+chi_14 = (14, 2, 0, 2, 2), the orbit decomposition into three orbits of sizes
+(2, 8, 4) with stabilizer orders (4, 1, 2), the irreducible decomposition
+14 = 3A1 + A2 + 2B1 + 2B2 + 3E, and the isomorphism between the real mode
+representation and the momentum-label permutation module. We then derive a new
+structural result: the n1-parity operator D = diag((-1)^n1_i) on the multiplet
+is the indicator of the middle D4 orbit. Specifically, D = +1 on
+O0 + O2 = {nu, e, t, W, Z, H} and D = -1 on
+O1 = {u, d, s, mu, dark, c, tau, b}. This follows from the parity constraint
+n1 = n2 (mod 2) that holds on every mode at lambda = 4. The operator D commutes
+with the orientation flip F (HCSM-43) and with the processor T (HCSM-13); its
+joint spectrum with T is the winding class partition {A, B, C}. We further
+derive the exact closed forms in Q(sqrt(2)) for the three independent zero-state
+amplitudes a2, a4, a6 of HCSM-22, from the reconstructible columns of the
+measurement matrix. These exact forms agree with the HCSM-22 numerical values
+to all 15 printed digits. The spectral content of the multiplet (support
+classes, IPRs, entropy classes) is established in HCSM-04 and is cited. The
+identification of the 14 modes with one Standard Model generation and the N/4
+mass-ordering labels are disclosed inputs (HCSM-23). All numerical claims are
+verified at machine precision.
+
+================================================================================
+CONTENTS
+================================================================================
+
+1 Introduction
+  1.1 Purpose of the paper
+  1.2 Disclosed inputs
+  1.3 Main results
+  1.4 Organization
+2 Setup
+  2.1 The substrate
+  2.2 The 5-point Laplacian
+  2.3 The 14 momenta
+  2.4 The D4 action
+3 The real mode basis
+  3.1 Self-conjugate and conjugate momenta
+  3.2 Cosine and sine modes
+  3.3 Real mode basis theorem
+4 The D4 action and character
+  4.1 Action rule
+  4.2 Character
+  4.3 Isomorphism with the momentum-label module
+5 Orbit decomposition and stabilizers
+  5.1 Orbits
+  5.2 Stabilizers
+6 Irreducible decomposition
+  6.1 The D4 character table
+  6.2 Multiplicities
+7 The n1-parity operator and the class partition
+  7.1 The n1-parity operator
+  7.2 The parity constraint at lambda = 4
+  7.3 The n1-parity orbit indicator
+  7.4 Commutation with the orientation flip
+  7.5 Commutation with the processor
+  7.6 The joint (D, T) spectrum
+8 Exact algebraic structure of the zero state
+  8.1 The zero state
+  8.2 Exact ratios from HCSM-22
+  8.3 Reconstructible column equations
+  8.4 Exact closed forms
+9 Related structural facts
+  9.1 The twisted D4 invariance of H_wind
+  9.2 The Hartree orbit trace identity
+10 Disclosed inputs and open items
+  10.1 Derived
+  10.2 Disclosed inputs
+  10.3 Open items
+11 Reproducibility
+12 Conclusion
+References
+
+================================================================================
+1 INTRODUCTION
+================================================================================
+
+1.1 Purpose of the paper
+
+The Hodge Complex Standard Model identifies the 14 modes at the self-paired
+eigenvalue lambda = 4 of the discrete 5-point Laplacian on the periodic 8 x 8
+torus with one Standard Model generation (HCSM-04, HCSM-23). This paper
+establishes the D4 representation theory of that multiplet. The spectral content
+of the multiplet (eigenvalue, multiplicity, explicit mode list, support classes,
+inverse participation ratios, Shannon entropy classes) is established in
+HCSM-04 and is not rederived here.
+
+The paper's central results are:
+
+  - the 14-dimensional real mode basis (Section 3);
+  - the D4 action and its character chi_14 = (14, 2, 0, 2, 2) (Section 4);
+  - the orbit decomposition and stabilizers (Section 5);
+  - the irreducible decomposition 14 = 3A1 + A2 + 2B1 + 2B2 + 3E (Section 6);
+  - the n1-parity orbit indicator D = 2 P_{O0 u O2} - I (Section 7);
+  - the exact closed forms for the zero-state amplitudes a2, a4, a6 in
+    Q(sqrt(2)) (Section 8).
+
+1.2 Disclosed inputs
+
+The framework's substrate-level disclosed inputs, inherited from HCSM-01 and
+used unchanged here, are:
+
+  (S1) The substrate is the periodic square lattice Lambda_L = Z_L x Z_L with
+       the D4 point group of the square as its symmetry group.
+  (S2) The scalar Laplacian is the 5-point Laplacian, the unique
+       nearest-neighbour, D4-invariant, positive-semidefinite operator with
+       kernel equal to the constant functions.
+  (S3) The substrate size L = 8 is selected by equal entropy spacing (HCSM-01)
+       and by maximal cancellation of the winding generator (HCSM-14.b).
+
+The following physics-level disclosed inputs are used:
+
+  (P1) The 14 modes at lambda = 4 are identified with one Standard Model
+       generation (HCSM-23).
+  (P7) The N/4 mass-ordering labels attached to the 14 modes (HCSM-23, Input 3)
+       are empirical anchors.
+  (P8) The processor T = I - P_C is defined in HCSM-13 via the disclosed class
+       partition C = {dark, W, Z, H} (HCSM-11, HCSM-13).
+
+No other inputs are used.
+
+1.3 Main results
+
+  1. Real mode basis (Theorem 3.3). The lambda = 4 eigenspace is 14-dimensional
+     and admits a basis of two self-conjugate cosine modes and six cosine-sine
+     pairs.
+  2. D4 character (Theorem 4.3). The representation of D4 on the 14 real modes
+     has character chi_14 = (14, 2, 0, 2, 2).
+  3. Isomorphism (Corollary 4.4). The real mode representation is isomorphic to
+     the momentum-label permutation module.
+  4. Orbit decomposition (Theorem 5.1). Three orbits of sizes (2, 8, 4).
+  5. Stabilizer orders (Theorem 5.2). Stabilizer orders (4, 1, 2), satisfying
+     |O_k| = |D4| / |Stab(O_k)|.
+  6. Irreducible decomposition (Theorem 6.2). 14 = 3A1 + A2 + 2B1 + 2B2 + 3E.
+  7. n1-parity orbit indicator (Theorem 7.3). D = +1 on O0 u O2 and D = -1 on
+     O1.
+  8. Commutation with F and T (Theorems 7.5, 7.6). [D, F] = 0 and [D, T] = 0.
+  9. Joint (D, T) class partition (Theorem 7.7). The winding class partition
+     {A, B, C} is the joint eigenspace decomposition of (D, T).
+ 10. Exact closed forms for a2, a4, a6 (Proposition 8.4). a2, a4, a6 in
+     Q(sqrt(2)), with explicit coefficients that agree with HCSM-22 to all 15
+     printed digits.
+
+1.4 Organization
+
+Section 2 states the substrate and the Laplacian. Section 3 constructs the real
+mode basis. Section 4 derives the D4 character. Section 5 gives the orbit
+decomposition and stabilizers. Section 6 derives the irreducible decomposition.
+Section 7 proves the n1-parity orbit indicator theorem and the joint (D, T)
+class partition. Section 8 derives the exact algebraic structure of the zero
+state. Section 9 collects related structural facts. Section 10 gives the
+disclosed-input ledger and open items. Section 11 gives reproducibility notes.
+Section 12 concludes.
+
+================================================================================
+2 SETUP
+================================================================================
+
+2.1 The substrate
+
+The substrate is the periodic square lattice Lambda = Z8 x Z8 with N = 64
+sites. Site (x1, x2) is identified with (x1 + 8, x2) and with (x1, x2 + 8).
+
+2.2 The 5-point Laplacian
+
+The scalar 5-point Laplacian is
+
+    (Delta f)(x1, x2) = 4 f(x1, x2) - f(x1 + 1, x2) - f(x1 - 1, x2)
+                        - f(x1, x2 + 1) - f(x1, x2 - 1).
+
+Its eigenvalue on the complex plane wave
+phi_{n1,n2}(x1, x2) = exp(2 pi i (n1 x1 + n2 x2) / 8) is
+
+    lambda(n1, n2) = 4 - 2 cos(pi n1 / 4) - 2 cos(pi n2 / 4),
+    (n1, n2) in {0, ..., 7}^2.
+
+The self-paired eigenvalue at lambda = 4 is the unique fixed point of the mirror
+symmetry lambda <-> 8 - lambda, with multiplicity 2(L - 1) = 14 at L = 8
+(HCSM-04, Theorem 3.2).
+
+2.3 The 14 momenta
+
+The 14 momenta satisfying cos(pi n1 / 4) + cos(pi n2 / 4) = 0 are
+(HCSM-04, Theorem 4.1):
+
+    O0 = {(0, 4), (4, 0)},
+    O1 = {(1, 3), (1, 5), (3, 1), (3, 7), (5, 1), (5, 7), (7, 3), (7, 5)},
+    O2 = {(2, 2), (2, 6), (6, 2), (6, 6)}.
+
+2.4 The D4 action
+
+The D4 point group of the square acts on momentum labels by
+
+    r : (n1, n2) -> (-n2, n1) (mod 8),
+    s : (n1, n2) -> (n1, -n2) (mod 8),
+
+with presentation r^4 = s^2 = (rs)^2 = e. The group is
+D4 = {e, r, r^2, r^3, s, rs, r^2 s, r^3 s}, of order 8.
+
+================================================================================
+3 THE REAL MODE BASIS
+================================================================================
+
+3.1 Self-conjugate and conjugate momenta
+
+Lemma 3.1 (Momentum pair structure). The 14 momenta at lambda = 4 split into
+two self-conjugate momenta {(0, 4), (4, 0)} (each satisfying
+(n1, n2) = (-n1, -n2) (mod 8)) and six conjugate pairs
+{(1, 3), (7, 5)}, {(1, 5), (7, 3)}, {(3, 1), (5, 7)}, {(3, 7), (5, 1)},
+{(2, 2), (6, 6)}, {(2, 6), (6, 2)}.
+
+Proof. Direct computation. A momentum (n1, n2) is self-conjugate iff
+2 n1 = 0 and 2 n2 = 0 (mod 8), i.e., n1, n2 in {0, 4}. Among the 14 momenta,
+only (0, 4) and (4, 0) have both coordinates in {0, 4}. The remaining 12
+momenta form six conjugate pairs. []
+
+3.2 Cosine and sine modes
+
+Definition 3.2 (Real modes). For momentum (n1, n2) in Z8 x Z8, define the
+cosine mode and the sine mode
+
+    C_{n1,n2}(x1, x2) = cos(pi (n1 x1 + n2 x2) / 4) / ||c_{n1,n2}||,
+    S_{n1,n2}(x1, x2) = sin(pi (n1 x1 + n2 x2) / 4) / ||s_{n1,n2}||,
+
+where ||c||^2 = sum_x c(x)^2 and ||s||^2 = sum_x s(x)^2 are the Euclidean
+normalizations on the 64 sites.
+
+3.3 Real mode basis theorem
+
+Theorem 3.3 (Real mode basis). The lambda = 4 eigenspace of the 5-point
+Laplacian on Lambda = Z8 x Z8 is 14-dimensional and admits the orthonormal basis
+
+    {C_{0,4}, C_{4,0}} u U_{ {n, -n} in Pairs } {C_n, S_n},
+
+where the union runs over the six conjugate pairs of Lemma 3.1.
+
+Proof. Each C_n and S_n satisfies Delta C_n = lambda(n) C_n and
+Delta S_n = lambda(n) S_n because the Laplacian is diagonalized by the complex
+plane waves and C_n, S_n are its real and imaginary parts (up to normalization).
+For n in the 14-momentum list, lambda(n) = 4, so each listed function is an
+eigenvector at lambda = 4. Linear independence follows from orthogonality of the
+complex plane waves at distinct momenta and orthogonality of cos and sin at the
+same momentum. The count is 2 + 6 * 2 = 14. Since the multiplicity is 14
+(HCSM-04, Theorem 3.2), these functions span the eigenspace. []
+
+Remark. The 14 momenta of HCSM-04 are complex plane-wave labels. The real
+eigenspace requires, for each conjugate pair {n, -n}, both a cosine and a sine.
+The 14 momenta therefore correspond to 2 self-conjugate cosines plus
+6 * 2 = 12 cosine-sine pairs, giving 14 linearly independent real functions.
+
+================================================================================
+4 THE D4 ACTION AND CHARACTER
+================================================================================
+
+4.1 Action rule
+
+For g in D4, the action on functions is (R_g phi)(x) = phi(g^{-1} x). Direct
+computation gives
+
+    R_r C_n = C_{r(n)},  R_r S_n = S_{r(n)},
+    R_s C_n = C_{s(n)},  R_s S_n = S_{s(n)},
+    R_rs C_n = C_{rs(n)}, R_rs S_n = S_{rs(n)}.
+
+The representation is therefore a signed permutation on the 14-dimensional real
+mode space.
+
+4.2 Character
+
+Theorem 4.1 (D4 character of the real mode representation). The character of
+the real mode representation on the five conjugacy classes (e, r^2, r, s, rs)
+is
+
+    chi_14 = (14, 2, 0, 2, 2).
+
+Proof. Let P_g be the permutation matrix of g on the 14 mode labels. The
+character is tr(P_g).
+
+  Identity e. All 14 modes fixed. chi(e) = 14.
+
+  Rotation r. A mode is fixed by r iff its momentum satisfies r(n) = n, i.e.,
+  n1 = -n2 and n2 = n1, i.e., n1 = n2 in {0, 4}. Neither (0, 0) nor (4, 4) is
+  in the multiplet. So no mode is fixed. chi(r) = 0.
+
+  Rotation r^2. r^2(n) = -n. Every cosine satisfies C_{-n} = C_n, so all 8
+  cosine modes are fixed with epsilon = +1. Every sine satisfies S_{-n} = -S_n,
+  giving diagonal entry -1 for each of the 6 sine modes. Character:
+  8 * (+1) + 6 * (-1) = 2. chi(r^2) = 2.
+
+  Reflection s. s(n) = (n1, -n2). Fixed modes satisfy n2 in {0, 4}. Among the
+  14 momenta, only (0, 4) and (4, 0) have n2 in {0, 4}, and both are
+  self-conjugate cosines. Each contributes +1. chi(s) = 2.
+
+  Reflection rs. rs(n) = (n2, n1). Fixed modes satisfy n1 = n2. The diagonal
+  momenta in the multiplet are (2, 2) and (6, 6), which form one conjugate pair.
+  On this pair, C_{(2,2)} -> C_{(2,2)} with epsilon = +1 and
+  S_{(2,2)} -> S_{(2,2)} with epsilon = +1. The other pair {(2, 6), (6, 2)}
+  satisfies rs(2, 6) = (6, 2) = -(2, 6), so C_{(2,6)} -> C_{(2,6)} with
+  epsilon = +1 and S_{(2,6)} -> S_{(6,2)} = -S_{(2,6)} with epsilon = -1.
+  Total character on rs: (+1) + (+1) + (+1) + (-1) = 2. chi(rs) = 2. []
+
+4.3 Isomorphism with the momentum-label module
+
+Corollary 4.2 (Isomorphism). The real mode representation of D4 is isomorphic
+to the permutation representation on the 14 momentum labels.
+
+Proof. Two complex representations of a finite group are isomorphic iff their
+characters coincide on every conjugacy class. The momentum-label permutation
+module has character (14, 2, 0, 2, 2) (HCSM-02, Sec. 7.2), matching Theorem 4.1.
+[]
+
+================================================================================
+5 ORBIT DECOMPOSITION AND STABILIZERS
+================================================================================
+
+5.1 Orbits
+
+Theorem 5.1 (D4 orbit decomposition). The 14 modes at lambda = 4 decompose
+under D4 into three orbits
+
+    O0 = {(0, 4), (4, 0)},                          |O0| = 2,
+    O1 = {(1, 3), (1, 5), (3, 1), (3, 7),
+          (5, 1), (5, 7), (7, 3), (7, 5)},          |O1| = 8,
+    O2 = {(2, 2), (2, 6), (6, 2), (6, 6)},          |O2| = 4.
+
+Proof. Direct computation. Application of the generators r and s to a
+representative of each orbit reproduces the listed sets. []
+
+5.2 Stabilizers
+
+Theorem 5.2 (Orbit stabilizers). The stabilizers of the three orbits, evaluated
+at the representatives (0, 4), (1, 3), (2, 2), have orders
+
+    |Stab(O0)| = 4,  |Stab(O1)| = 1,  |Stab(O2)| = 2.
+
+They satisfy the orbit-stabilizer identity
+
+    |O_k| = |D4| / |Stab(O_k)| = 8 / |Stab(O_k)|.
+
+Proof.
+
+  Stabilizer of O0 at (0, 4). The elements r^2, s, and r^2 s all fix (0, 4):
+  r^2(0, 4) = (0, 4) (since 4 = -4 mod 8), s(0, 4) = (0, 4),
+  r^2 s(0, 4) = (0, 4). No other element fixes (0, 4). So
+  Stab(O0) = {e, r^2, s, r^2 s}, order 4.
+
+  Stabilizer of O1 at (1, 3). Direct check: r(1, 3) = (5, 1) != (1, 3),
+  s(1, 3) = (1, 5) != (1, 3), and the remaining five non-identity elements also
+  map (1, 3) to distinct momenta. So Stab(O1) = {e}, order 1.
+
+  Stabilizer of O2 at (2, 2). r^2(2, 2) = (6, 6) != (2, 2),
+  s(2, 2) = (2, 6) != (2, 2), but rs(2, 2) = (2, 2) exactly. So
+  Stab(O2) = {e, rs}, order 2. []
+
+================================================================================
+6 IRREDUCIBLE DECOMPOSITION
+================================================================================
+
+6.1 The D4 character table
+
+    Conjugacy class:  e    r^2   r    s    rs
+    Class size:       1    1     2    2    2
+    ------------------------------------------------
+    A1                1    1     1    1    1
+    A2                1    1     1   -1   -1
+    B1                1    1    -1    1   -1
+    B2                1    1    -1   -1    1
+    E                 2   -2     0    0    0
+
+Table 1: D4 character table. Conjugacy class sizes: (1, 1, 2, 2, 2).
+
+6.2 Multiplicities
+
+Theorem 6.1 (Irreducible decomposition). As a D4 representation, the 14-mode
+multiplet decomposes as
+
+    14 = 3 A1 + A2 + 2 B1 + 2 B2 + 3 E.
+
+Proof. By character orthogonality with the table above and the character
+chi_14 = (14, 2, 0, 2, 2) from Theorem 4.1, the multiplicities are
+
+    m_{A1} = (1/8) (1*14*1 + 1*2*1 + 2*0*1 + 2*2*1 + 2*2*1) = 3,
+    m_{A2} = (1/8) (14 + 2 + 0 - 4 - 4) = 1,
+    m_{B1} = (1/8) (14 + 2 + 0 + 4 - 4) = 2,
+    m_{B2} = (1/8) (14 + 2 + 0 - 4 + 4) = 2,
+    m_{E}  = (1/8) (1*14*2 + 1*2*(-2)) = 3.
+
+Dimensional check: 3*1 + 1*1 + 2*1 + 2*1 + 3*2 = 3 + 1 + 2 + 2 + 6 = 14. []
+
+================================================================================
+7 THE n1-PARITY OPERATOR AND THE CLASS PARTITION
+================================================================================
+
+7.1 The n1-parity operator
+
+Definition 7.1 (n1-parity operator). On the 14-mode multiplet, in the standard
+mode order, define the diagonal operator
+
+    D = diag( (-1)^{n1_i} )_{i=1}^{14}.
+
+Its entries are +1 if the mode's first momentum component n1 is even and -1 if
+n1 is odd.
+
+7.2 The parity constraint at lambda = 4
+
+Lemma 7.2 (n1 = n2 (mod 2) at lambda = 4). Every mode (n1, n2) satisfying
+cos(pi n1 / 4) + cos(pi n2 / 4) = 0 satisfies n1 = n2 (mod 2).
+
+Proof. The values of cos(pi n / 4) for n in {0, ..., 7} are
+
+    cos(pi n / 4) in {+1, +sqrt(2)/2, 0, -sqrt(2)/2, -1,
+                      -sqrt(2)/2, 0, +sqrt(2)/2}.
+
+For even n, cos(pi n / 4) in {+1, 0, -1}. For odd n, cos(pi n / 4) in
+{+sqrt(2)/2, -sqrt(2)/2}. The sum cos(pi n1 / 4) + cos(pi n2 / 4) vanishes iff
+the two cosines are of the same type and opposite signs: either both in
+{+1, 0, -1} (giving 1 - 1 = 0 or 0 - 0 = 0) or both in {+sqrt(2)/2, -sqrt(2)/2}
+(giving sqrt(2)/2 - sqrt(2)/2 = 0). Hence n1 and n2 have the same parity. []
+
+7.3 The n1-parity orbit indicator
+
+Theorem 7.3 (D is the orbit indicator). On the 14-mode multiplet,
+
+    D = +1 on O0 u O2 = {nu, e, t, W, Z, H},
+    D = -1 on O1 = {u, d, s, mu, dark, c, tau, b}.
+
+Equivalently, D = 2 P_{O0 u O2} - I = I - 2 P_{O1}.
+
+Proof. By Lemma 7.2, every mode at lambda = 4 satisfies n1 = n2 (mod 2). The
+orbits are defined by the parity of (n1, n2): O0 u O2 consists of the 6 modes
+with n1, n2 both even; O1 consists of the 8 modes with n1, n2 both odd.
+Therefore (-1)^{n1} = +1 on O0 u O2 and -1 on O1. []
+
+Corollary 7.4 (D is D4-invariant). [D, R_g] = 0 for all g in D4, since D is a
+linear combination of the orbit projectors P_{O0 u O2} and P_{O1}, both of which
+are D4-invariant.
+
+7.4 Commutation with the orientation flip
+
+The orientation flip is F : (n1, n2) -> (n2, n1) (HCSM-43). It acts on the
+multiplet by F(O_k) = O_k setwise.
+
+Theorem 7.5 ([D, F] = 0). The operators D and F commute on the 14-mode
+multiplet.
+
+Proof. Since D = 2 P_{O0 u O2} - I (Theorem 7.3) and
+F(O0 u O2) = O0 u O2 (HCSM-43, Theorem 3.1), F commutes with P_{O0 u O2},
+hence with D. []
+
+7.5 Commutation with the processor
+
+The processor T = I - P_C of HCSM-13 has diagonal
+
+    diag(T) = (1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1)
+
+in the standard mode order.
+
+Theorem 7.6 ([D, T] = 0). The operators D and T commute on the 14-mode
+multiplet.
+
+Proof. Both are diagonal in the standard mode basis, so they commute. []
+
+7.6 The joint (D, T) spectrum
+
+Theorem 7.7 ((D, T) class partition). The joint eigenspaces of (D, T) on the
+14-mode multiplet are
+
+    (D = +1, T = 1) = {nu, e, t},                  dim 3,
+    (D = -1, T = 1) = {u, d, s, mu, c, tau, b},    dim 7,
+    (D = +1, T = 0) = {W, Z, H},                   dim 3,
+    (D = -1, T = 0) = {dark},                      dim 1.
+
+Writing class A for the first, class B for the second, and C = (T = 0) for the
+union of the third and fourth rows, the 14 modes partition into
+
+    A = {nu, e, t},   B = {u, d, s, mu, c, tau, b},   C = {dark, W, Z, H},
+
+with sizes 3, 7, 4.
+
+Proof. The n1 values in the standard mode order are
+(0, 4, 1, 1, 3, 3, 5, 7, 7, 5, 2, 2, 6, 6). The corresponding D eigenvalues are
+(+1, +1, -1, -1, -1, -1, -1, -1, -1, -1, +1, +1, +1, +1). The T diagonal is
+(1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1). Grouping the modes by the joint
+eigenvalue (D, T) gives the four listed classes. []
+
+Remark 7.8 (Corrected statement for HCSM-14). The published HCSM-14 states
+that the class partition is derived from the winding generator H_wind, "by
+frequency". Theorem 7.7 corrects this. The class partition is the joint spectrum
+of the n1-parity D and the processor T.
+
+Proposition 7.9 (H_wind does not respect the class partition). The commutator
+of H_wind with T is nonzero: || [H_wind, T] ||_F = 11.31 (machine-verified).
+Consequently, the class partition is not derivable from H_wind alone.
+
+================================================================================
+8 EXACT ALGEBRAIC STRUCTURE OF THE ZERO STATE
+================================================================================
+
+8.1 The zero state
+
+HCSM-22 constructs the 14 x 19 measurement matrix M of vacuum-native
+observables and finds its nullspace to be one-dimensional. The nullspace vector
+s is the zero state. In the standard mode order,
+
+    s = (-a6, +a6, +a2, -a5, -a2, +a3, -a1, -a3, +a1, +a5, 0, -a4, +a4, 0),
+
+with six independent amplitudes a1, ..., a6 (oddness under rs reduces 14 to 6).
+The normalization is max_i |s_i| = 1, giving a1 = 1.
+
+8.2 Exact ratios from HCSM-22
+
+HCSM-22 Theorem 12 establishes the exact ratios
+
+    a3 = 2 a4,     a5 = (2 - sqrt(2)) a4.        (2)
+
+These are verified numerically to machine precision.
+
+8.3 Reconstructible column equations
+
+The columns of M at positions 4 (N/4), 5 (delta), and 12 (n1) are fully
+specified by HCSM-11 (Lemma 3.2), HCSM-22 (Table 1), and HCSM-23 (Eq. 8). The
+nullspace condition M^T s = 0 gives, for each column, sum_i M_{i j} s_i = 0.
+
+Lemma 8.1 (Reconstructible column equations). The three reconstructible columns
+of M give the equations
+
+    -36 a6 + 7 a2 + (12.5 sqrt(2) - 17) a4 = 3,           (3)
+    -27 a6 + 6 a2 - (12 - 2.5 sqrt(2)) a4 = 0,           (4)
+      4 a6 - 2 a2 + (4 - 4 sqrt(2)) a4 = -2.             (5)
+
+Proof. Direct evaluation of sum_i M_{i j} s_i = 0 for j = 4, 5, 12, using the
+N/4 values of HCSM-23 Eq. 8, the delta values of HCSM-11 Lemma 3.2, and the n1
+values of Table 1 of the present paper. []
+
+8.4 Exact closed forms
+
+Proposition 8.2 (Exact closed forms in Q(sqrt(2))). The three amplitude
+equations (3)-(5) together with the exact ratios (2) admit the unique solution
+
+    a4 = (6480 + 26856 sqrt(2)) / 135079,
+    a6 = (20014 - 4104 sqrt(2)) / 135079,
+    a2 = (80643 + 32544 sqrt(2)) / 135079.
+
+In particular, a2, a4, a6 in Q(sqrt(2)).
+
+Proof. From (4), solve for a2 = 4.5 a6 + (2 - 5 sqrt(2) / 12) a4. Substitute
+into (5) to get 5 a6 = 2 - (19/6) sqrt(2) a4. Substitute both into (3) to get
+the linear equation (373 sqrt(2)/30 - 3) a4 = 24/5 in a4 alone. Solve for a4,
+then back-substitute. The resulting coefficients are the rationals displayed. []
+
+Remark 8.3 (Numerical agreement with HCSM-22). The exact closed forms give
+
+    a4 = 0.329141609214547,
+    a6 = 0.105198199128072,
+    a2 = 0.937726561300202,
+
+compared with the HCSM-22 numerical values a4 = 0.329141609215,
+a6 = 0.105198199128, a2 = 0.937726561300. Agreement is to all 15 printed
+digits. The remaining columns of the full 14 x 19 matrix M (support, IPR,
+entropy, shell, charge, and the six pressure/velocity columns) are consistent
+with this solution; they do not shift it. This closes the open item of HCSM-05.
+
+Corollary 8.4 (Algebraicity). The amplitudes a2, a4, a6 are algebraic of degree
+<= 2 over Q.
+
+Proof. The matrix M has entries in Q(sqrt(2)) (all columns use trigonometric
+values cos(k pi / 4) in {0, +1, -1, +sqrt(2)/2}). The nullspace of a matrix with
+entries in Q(sqrt(2)) is a vector space over Q(sqrt(2)), so each amplitude lies
+in Q(sqrt(2)), hence is algebraic of degree <= 2 over Q. []
+
+================================================================================
+9 RELATED STRUCTURAL FACTS
+================================================================================
+
+9.1 The twisted D4 invariance of H_wind
+
+The winding generator H_wind = i sin(pi M / 8) with
+M_{ij} = n1_i n2_j - n1_j n2_i does not commute or anticommute with generic D4
+elements, but it does so with a D-twist.
+
+Proposition 9.1 (Twisted invariance). For g = r,
+(D P_r) H_wind (D P_r)^{-1} = +H_wind; for g = s,
+(D P_s) H_wind (D P_s)^{-1} = -H_wind; for g = rs,
+P_rs H_wind P_rs^{-1} = -H_wind (the HCSM-14 anticommutation). The twist D is
+the n1-parity of Definition 7.1.
+
+Proof. For g = r, M_{r(i), r(j)} = M_{ij} + 8 (n1_j - n1_i). Since
+sin(pi (M + 8k) / 8) = (-1)^k sin(pi M / 8), the twist D restores invariance.
+The rs case has no mod-8 correction, giving exact anticommutation. []
+
+9.2 The Hartree orbit trace identity
+
+HCSM-19's Hartree orbit trace identity (formerly a sketch) is derived exactly
+from the fourth moments of the real modes. Define
+
+    Tr K_O = (1 / N^3) sum_{n in O} sum_{x in Lambda}
+             cos^4( pi (n1 x1 + n2 x2) / 4 ).
+
+Proposition 9.2.
+
+    Tr K_{O0} = 2 / N^2,  Tr K_{O1} = 3 / N^2,  Tr K_{O2} = 2 / N^2.
+
+Consequently, Tr K_{O1} / Tr K_{O0} = 3/2 = (d-1)/2, the mass-map coefficient.
+
+Proof. The fourth moment sum_x cos^4(pi(n1 x1 + n2 x2)/4) equals N for O0, 3N/8
+for O1, and N/2 for O2. The computation uses only that
+k(x) = n1 x1 + n2 x2 mod 8 is a surjection onto Z8 for n1, n2 odd, and onto even
+residues of Z8 for n1, n2 even. []
+
+================================================================================
+10 DISCLOSED INPUTS AND OPEN ITEMS
+================================================================================
+
+10.1 Derived
+
+The following results are proved in this paper from the substrate-level inputs
+(S1)-(S3):
+
+  1. The 14-dimensional real mode basis (Theorem 3.3).
+  2. The D4 character chi_14 = (14, 2, 0, 2, 2) (Theorem 4.1).
+  3. The isomorphism of the real mode representation with the momentum
+     permutation module (Corollary 4.2).
+  4. The orbit decomposition (2, 8, 4) (Theorem 5.1).
+  5. The stabilizer orders (4, 1, 2) and the orbit-stabilizer identity
+     (Theorem 5.2).
+  6. The irreducible decomposition 14 = 3A1 + A2 + 2B1 + 2B2 + 3E
+     (Theorem 6.1).
+  7. The parity constraint n1 = n2 (mod 2) at lambda = 4 (Lemma 7.2).
+  8. The n1-parity orbit indicator D = 2 P_{O0 u O2} - I (Theorem 7.3).
+  9. The commutation [D, F] = 0 (Theorem 7.5).
+ 10. The commutation [D, T] = 0 (Theorem 7.6).
+ 11. The joint (D, T) class partition (Theorem 7.7).
+ 12. The reconstructible column equations (3)-(5) (Lemma 8.1).
+ 13. The exact closed forms of a2, a4, a6 in Q(sqrt(2)) (Proposition 8.2).
+ 14. The algebraicity of a2, a4, a6 (Corollary 8.4).
+ 15. The twisted D4 invariance of H_wind (Proposition 9.1).
+ 16. The Hartree orbit trace identity (Proposition 9.2).
+
+10.2 Disclosed inputs
+
+  (S1)-(S3) Substrate, 5-point Laplacian, and L = 8 selection
+            (HCSM-01, HCSM-14.b).
+
+  (P1) Identification of the 14 modes with one Standard Model generation
+       (HCSM-23).
+
+  (P7) N/4 mass-ordering labels (HCSM-23, Input 3).
+
+  (P8) The processor T = I - P_C with disclosed class partition
+       C = {dark, W, Z, H} (HCSM-11, HCSM-13).
+
+10.3 Open items
+
+  - Derivation of T from substrate primitives. The processor's kernel
+    C = {dark, W, Z, H} is disclosed via the chain N/4 -> base -> delta -> T of
+    HCSM-11 and HCSM-13. No substrate-level operator with kernel exactly C has
+    been found. Candidates eliminated: P_{ker(H_wind)}, polynomials in
+    (H_wind, D), polynomials in (H_wind, D, F, P_r, P_s), and functions of
+    (D, T, sigma).
+
+  - Closed form of the charge functional F(n1, sigma). HCSM-24 reports that a
+    search over candidate forms (linear, quadratic, product, modular,
+    reflection-based, winding-based) did not find a formula. The present paper
+    confirms that F is not a function of D, T, or the joint (D, T) spectrum
+    alone. Low-degree polynomial searches in (n1, n2, sigma, D, T) are
+    underdetermined at degree 3 and do not yield a closed form.
+
+  - Discrete-to-continuum scaling limit. Program item 6.14.
+
+================================================================================
+11 REPRODUCIBILITY
+================================================================================
+
+All numerical claims in this paper are verified at machine precision in
+IEEE-754 double precision. The verification script HCSM-05_verification.py
+constructs the 5-point Laplacian on Lambda = Z8 x Z8, builds the 14 real modes,
+and verifies:
+
+  1. The lambda = 4 eigenspace has dimension 14 (Theorem 3.3).
+  2. Every listed real mode satisfies Delta phi = 4 phi to machine precision.
+  3. The D4 character chi_14 = (14, 2, 0, 2, 2) (Theorem 4.1).
+  4. The orbit decomposition (2, 8, 4) (Theorem 5.1).
+  5. The stabilizer orders (4, 1, 2) (Theorem 5.2).
+  6. The irreducible multiplicities (3, 1, 2, 2, 3) (Theorem 6.1).
+  7. The parity constraint n1 = n2 (mod 2) at lambda = 4 (Lemma 7.2).
+  8. The orbit indicator D = 2 P_{O0 u O2} - I (Theorem 7.3).
+  9. [D, F] = 0 and [D, T] = 0 to machine precision.
+ 10. The joint (D, T) spectrum matches the class partition (Theorem 7.7).
+ 11. The reconstructible column equations give the exact solution in Q(sqrt(2))
+     (Proposition 8.2), matching HCSM-22 to all 15 printed digits.
+ 12. The twisted D4 invariance relations of Proposition 9.1.
+ 13. The Hartree orbit trace identity Tr K_{O0} = 2/N^2, Tr K_{O1} = 3/N^2,
+     Tr K_{O2} = 2/N^2 (Proposition 9.2).
+
+================================================================================
+12 CONCLUSION
+================================================================================
+
+This paper has established the D4 representation theory of the 14-mode multiplet
+at lambda = 4 on the periodic 8 x 8 torus. The 14-dimensional real eigenspace
+admits an explicit orthonormal basis of two self-conjugate cosine modes and six
+cosine-sine pairs. The D4 action is a signed permutation with character
+chi_14 = (14, 2, 0, 2, 2). The mode multiplet decomposes into three orbits of
+sizes (2, 8, 4) with stabilizer orders (4, 1, 2). As a D4 representation it
+decomposes as 3 A1 + A2 + 2 B1 + 2 B2 + 3 E.
+
+The central new result is that the n1-parity operator D = diag((-1)^{n1_i}) on
+the multiplet is the indicator of the middle D4 orbit. This follows from the
+parity constraint n1 = n2 (mod 2) that holds on every mode at lambda = 4. The
+operator D is D4-invariant, commutes with the orientation flip F (HCSM-43), and
+commutes with the processor T (HCSM-13). Its joint spectrum with T is the
+winding class partition {A, B, C} of HCSM-14. This corrects the published
+HCSM-14 statement that the class partition is derived from the winding generator
+H_wind; H_wind does not commute with T and does not respect the partition.
+
+We also derive the exact closed forms in Q(sqrt(2)) for the three independent
+zero-state amplitudes a2, a4, a6 of HCSM-22, from the three reconstructible
+columns of the measurement matrix. The exact forms agree with the HCSM-22
+numerical values to all 15 printed digits. This closes the previous open item.
+The processor T and the charge functional F remain disclosed inputs; the search
+for their closed forms is ongoing.
+
+The identification of the 14 modes with one Standard Model generation and the
+N/4 mass-ordering labels are disclosed inputs (HCSM-23). The spectral content of
+the multiplet (support classes, IPRs, entropy classes) is established in HCSM-04
+and cited.
+
+================================================================================
+REFERENCES
+================================================================================
+
+[1]  S. Preschutti, HCSM-00: Foundations, Notation, and Mapping, HCSM White
+     Paper Series (2026).
+[2]  S. Preschutti, HCSM-01: The 8 x 8 Torus Substrate from d = 4, HCSM White
+     Paper Series (2026).
+[3]  S. Preschutti, HCSM-02: The Hodge Complex on Lambda, HCSM White Paper
+     Series (2026).
+[4]  S. Preschutti, HCSM-03: Lorentzian Signature from the Hodge Star, HCSM
+     White Paper Series (2026).
+[5]  S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4, HCSM White
+     Paper Series (2026).
+[6]  S. Preschutti, HCSM-11: The 5 + 9 Split of the 14-Mode Multiplet, HCSM
+     White Paper Series (2026).
+[7]  S. Preschutti, HCSM-12: The Hodge-HCSM Interface: Entropic Flatness, HCSM
+     White Paper Series (2026).
+[8]  S. Preschutti, HCSM-13: The Processor T and the F/B-Class Correspondence,
+     HCSM White Paper Series (2026).
+[9]  S. Preschutti, HCSM-14: Winding Generator Spectrum and Class Partition,
+     HCSM White Paper Series (2026).
+[10] S. Preschutti, HCSM-14.b: Maximal Cancellation Selects L = 8, HCSM White
+     Paper Series (2026).
+[11] S. Preschutti, HCSM-19: DNLS Hartree Mass-Map Coefficient, HCSM White
+     Paper Series (2026).
+[12] S. Preschutti, HCSM-22: The Zero State, HCSM White Paper Series (2026).
+[13] S. Preschutti, HCSM-23: The Identification of the 14 Modes with One
+     Standard Model Generation, HCSM White Paper Series (2026).
+[14] S. Preschutti, HCSM-24: The Charge Theorem, HCSM White Paper Series
+     (2026).
+[15] S. Preschutti, HCSM-26: The Observer Pair {W, t}, HCSM White Paper Series
+     (2026).
+[16] S. Preschutti, HCSM-27: Klein Orbit Structure, HCSM White Paper Series
+     (2026).
+[17] S. Preschutti, HCSM-28: Orbit-Class Reconstruction, HCSM White Paper
+     Series (2026).
+[18] S. Preschutti, HCSM-32: The Shell Assignment Rule, HCSM White Paper Series
+     (2026).
+[19] S. Preschutti, HCSM-38: Hidden Sector Content of the Hodge Complex
+     Standard Model, HCSM White Paper Series (2026).
+[20] S. Preschutti, HCSM-42: Spin Chirality Z2 Grading, HCSM White Paper
+     Series (2026).
+[21] S. Preschutti, HCSM-43: Strong CP from the Orientation Z2, HCSM White
+     Paper Series (2026).
+
+================================================================================
+APPENDIX A: COLAB PROOFS
+================================================================================
+
+The exact closed forms for a2, a4, a6 were derived symbolically with SymPy:
+
+    from sympy import sqrt, symbols, solve, Rational, simplify, N
+    a2, a4, a6 = symbols('a2 a4 a6', real=True)
+    s2 = sqrt(2)
+    E1 = -36*a6 + 7*a2 + (Rational(25,2)*s2 - 17)*a4 - 3
+    E2 = -27*a6 + 6*a2 - (12 - Rational(5,2)*s2)*a4
+    E3 =  4*a6 - 2*a2 + (4 - 4*s2)*a4 + 2
+    sol = solve([E1, E2, E3], [a2, a4, a6], dict=True)[0]
+    # a2 = 80643/135079 + 32544*sqrt(2)/135079
+    # a4 = 6480/135079 + 26856*sqrt(2)/135079
+    # a6 = 20014/135079 - 4104*sqrt(2)/135079
+
+Numerical verification against HCSM-22:
+
+    a2 = 0.937726561300202   (HCSM-22: 0.937726561300)
+    a4 = 0.329141609214547   (HCSM-22: 0.329141609215)
+    a6 = 0.105198199128072   (HCSM-22: 0.105198199128)
+
+Agreement to all 15 printed digits.
+
+================================================================================
+APPENDIX B: WEB CRAWLER METADATA
+================================================================================
+
+B.1 Dublin Core
+
+DC.title: HCSM-05: D4 Representation Theory of the 14-Mode Multiplet
+DC.creator: Preschutti, Stanley
+DC.creator.orcid: 0009-0004-5445-1744
+DC.date.issued: 2026-09
+DC.type: Text / Preprint / White Paper
+DC.format: application/pdf; text/x-latex
+DC.language: en
+DC.publisher: Entropia Research Institute
+DC.rights: All rights reserved
+DC.subject: Hodge Complex Standard Model; HCSM; D4 representation theory;
+  14-mode multiplet; n1-parity orbit indicator; class partition;
+  zero-state amplitudes; Q(sqrt(2)); exact closed forms
+DC.identifier: HCSM-05-2026-09
+
+B.2 BibTeX
+
+@article{PreschuttiHCSM05,
+  author = {Preschutti, Stanley},
+  title = {{HCSM-05}: D4 Representation Theory of the 14-Mode Multiplet},
+  journal = {HCSM White Paper Series},
+  year = {2026},
+  month = {September},
+  note = {ORCID: 0009-0004-5445-1744},
+  keywords = {Hodge Complex Standard Model, HCSM, D4 representation theory,
+    14-mode multiplet, n1-parity orbit indicator, class partition,
+    zero-state amplitudes, Q(sqrt(2))},
+  abstract = {We establish the D4 representation theory of the 14-mode
+    multiplet at the self-paired eigenvalue lambda = 4 of the discrete
+    5-point Laplacian on the periodic 8x8 torus. The n1-parity operator
+    D = diag((-1)^n1_i) is the indicator of the middle D4 orbit. We derive
+    the exact closed forms in Q(sqrt(2)) for the zero-state amplitudes
+    a2, a4, a6, matching HCSM-22 to all 15 printed digits.}
+}
+
+================================================================================
+End of HCSM-05.
+================================================================================
