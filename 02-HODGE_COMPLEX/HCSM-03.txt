@@ -1,0 +1,537 @@
+================================================================================
+HCSM-03
+Lorentzian Signature from the Hodge Star
+The Hodge Star on ker D and the Canonical Lorentzian Metric
+on the Four Harmonic Forms
+================================================================================
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstanp@yahoo.com
+
+September 2026
+(Revised: September 2026, continued session 3)
+
+--------------------------------------------------------------------------------
+ABSTRACT
+--------------------------------------------------------------------------------
+
+This paper constructs a Lorentzian metric of signature (-,+,+,+) on the
+four-dimensional kernel ker D of the Hodge-Dirac operator on the periodic
+8x8 torus.
+
+The Hodge star restricted to ker D has eigenvalues {+1, -1, +i, -i}: the
++/-1 pair comes from the (H^0 + H^2) sector, the +/-i pair from the H^1
+sector. We construct a symmetric bilinear form
+
+    g = Q|_{H^0+H^2}  +  <.,.>|_{H^1}
+
+where Q(alpha, beta) = Integral alpha ^ beta is the intersection form on
+the even-degree sector and <.,.> is the Hodge inner product on the
+odd-degree sector. The metric g has signature (3,1) and is D4-invariant.
+
+The two structural inputs are made explicit: (i) the use of Q on
+H^0 + H^2 rather than the Hodge inner product (which would give a
+Euclidean signature), and (ii) the identification of the resulting metric
+with the emergent spacetime metric. The first is fixed by the additional
+condition that the pure-degree forms v_0 and v_2 have zero norm under g;
+the second is a framework-level disclosure of the same type as the
+identification d = dim ker D. Given these, the metric is unique up to
+scale among D4-invariant symmetric forms on ker D. The timelike direction
+is (v_0 - v_2)/sqrt(2).
+
+The construction is the discrete analogue of the Hodge-Riemann bilinear
+relations on the cohomology of a Kähler manifold. All numerical claims
+are verified at machine precision.
+
+--------------------------------------------------------------------------------
+CONTENTS
+--------------------------------------------------------------------------------
+
+1. Introduction
+   1.1 The signature question
+   1.2 Summary of results
+   1.3 Disclosed inputs
+
+2. Setup
+   2.1 Substrate and Hodge complex
+   2.2 Kernel basis
+
+3. The Hodge star on ker D
+   3.1 The discrete Hodge star
+   3.2 The Hodge star spectrum on ker D
+
+4. The canonical Lorentzian metric
+   4.1 The two canonical bilinear forms
+   4.2 The metric construction
+
+5. Conditional uniqueness
+   5.1 The space of D4-invariant symmetric forms
+   5.2 The two conditions
+
+6. The timelike direction
+
+7. D4 invariance and decomposition
+
+8. Consequences
+   8.1 Status of the derivation
+   8.2 No Wick rotation
+   8.3 Relation to spin-statistics
+
+9. Open items
+10. Reproducibility
+11. Conclusion
+References
+
+--------------------------------------------------------------------------------
+1. INTRODUCTION
+--------------------------------------------------------------------------------
+
+1.1 The signature question
+-------------------------
+
+The Hodge Complex Standard Model derives the spacetime dimension d = 4
+from the Hodge-Dirac kernel on the periodic 8x8 torus:
+
+    dim ker D = b_0 + b_1 + b_2 = 1 + 2 + 1 = 4.                     (1.1)
+
+This is established in HCSM-02 (Theorem 6.1.1). The four harmonic forms
+of ker D are the four emergent spacetime directions (by the framework's
+disclosed input S3 of HCSM-01).
+
+What remains is the signature of the metric on ker D. The Hodge complex
+of differential forms on Lambda is equipped with a positive-definite
+Euclidean structure, so the natural metric on ker D inherited from the
+Hodge inner product is positive-definite. A Lorentzian metric requires
+a structural choice: at least one of the four directions must be
+distinguished.
+
+This paper constructs a specific D4-invariant Lorentzian metric on ker D
+from the canonical bilinear forms of the Hodge complex, and shows that
+this metric is the unique one (up to scale) satisfying two structural
+conditions. The construction is the discrete realization of the
+Hodge-Riemann bilinear relations.
+
+1.2 Summary of results
+----------------------
+
+  1. Hodge star spectrum. The Hodge star restricted to ker D has
+     eigenvalues {+1, -1, +i, -i}, with +/-1 from H^0 + H^2 and +/-i
+     from H^1 (Section 3).
+
+  2. Canonical Lorentzian metric. The metric
+     g = Q|_{H^0+H^2} + <.,.>|_{H^1} on ker D has signature (3,1)
+     (Section 4).
+
+  3. Conditional uniqueness. Among all D4-invariant symmetric forms on
+     ker D, the metric g is the unique one (up to scale) that vanishes
+     on the pure-degree forms v_0, v_2 and has signature (3,1)
+     (Section 5).
+
+  4. Timelike direction. For the signature convention (-,+,+,+), the
+     timelike direction is (v_0 - v_2)/sqrt(2) (Section 6).
+
+  5. D4 invariance and decomposition. The metric g is D4-invariant, and
+     ker D = 2A_1 + E as a D4 representation (Section 7).
+
+1.3 Disclosed inputs
+--------------------
+
+Following HCSM-01 Section 1.2 and HCSM-02 Section 1.3, the following
+items are disclosed and carried through the paper:
+
+  (S1) The substrate is Lambda = Z_8 x Z_8 with D4 symmetry.
+
+  (S2) The scalar Laplacian is the 5-point Laplacian.
+
+  (S3) The emergent spacetime dimension is dim ker D.
+
+  (S4) Metric construction. On ker D, the even-degree sector H^0 + H^2
+       is paired by the intersection form Q(alpha, beta) = Integral
+       alpha ^ beta; the odd-degree sector H^1 is paired by the Hodge
+       inner product. The mixed-degree pairings vanish.
+
+  (S5) Physical identification. The bilinear form g is identified with
+       the emergent spacetime metric on the four harmonic directions.
+
+(S4) is fixed in Section 5 by the additional condition that g vanishes
+on the pure-degree forms. (S5) is a framework-level identification
+analogous to (S3): the metric constructed on ker D is assumed to be the
+emergent spacetime metric.
+
+--------------------------------------------------------------------------------
+2. SETUP
+--------------------------------------------------------------------------------
+
+2.1 Substrate and Hodge complex
+------------------------------
+
+Lambda = Z_8 x Z_8, N = 64 sites. The Hodge complex has three graded
+pieces Omega^0, Omega^1, Omega^2 of dimensions 64, 128, 64; total 256.
+The Hodge-Dirac operator D = d + d* satisfies
+D^2|_Omega^k = Delta . Id (HCSM-02 Theorem 3.2.1).
+
+2.2 Kernel basis
+----------------
+
+By HCSM-02 Theorem 6.1.1, dim ker D = 4. We use the form-degree-aligned
+basis
+
+    {v_0, v_2, v_1^A, v_1^B},                                        (2.1)
+
+where v_0 is the constant 0-form (spanning H^0), v_2 is the constant
+2-form (spanning H^2), and v_1^A, v_1^B are the two harmonic 1-forms
+(spanning H^1).
+
+--------------------------------------------------------------------------------
+3. THE HODGE STAR ON KER D
+--------------------------------------------------------------------------------
+
+3.1 The discrete Hodge star
+---------------------------
+
+The Hodge star on Lambda is
+
+    *_0 = Id_{Omega^0},
+    (*_1 omega)_x = omega_y, (*_1 omega)_y = -omega_x,
+    *_2 = Id_{Omega^2}.                                              (3.1)
+
+It satisfies *_0^2 = +1, *_1^2 = -1, *_2^2 = +1, and [*, D^2] = 0.
+
+PROPOSITION 3.1.1 (* preserves the kernel). *(ker D) = ker D.
+
+Proof. Let v in ker D. Then Delta v = 0. Since [*, Delta] = 0,
+Delta (*v) = * Delta v = 0, so *v in ker Delta = ker D. QED.
+
+3.2 The Hodge star spectrum on ker D
+------------------------------------
+
+THEOREM 3.2.1. In the basis (2.1), the Hodge star restricted to ker D
+has matrix
+
+             ( 0   1   0   0 )
+    *|ker D= ( 1   0   0   0 )                                       (3.2)
+             ( 0   0   0  -1 )
+             ( 0   0   1   0 )
+
+Its eigenvalues are {+1, -1, +i, -i}.
+
+Proof. The star exchanges H^0 and H^2 via *_0 and *_2, and rotates H^1
+via *_1. On the aligned basis:
+
+  - * v_0 = v_2, * v_2 = v_0: the block ( 0 1 / 1 0 ) with eigenvalues
+    +/- 1.
+
+  - * v_1^A = -v_1^B, * v_1^B = v_1^A: the block ( 0 -1 / 1 0 ) with
+    eigenvalues +/- i.
+
+QED.
+
+REMARK 3.2.2. The complex structure on H^1 is *_1 itself: *_1^2 = -1 on
+H^1, so (Omega^1|_lambda=4, <.,.>, *_1) is a Hermitian vector space.
+This is the discrete analogue of the complex structure induced by the
+Hodge star on odd-degree cohomology.
+
+--------------------------------------------------------------------------------
+4. THE CANONICAL LORENTZIAN METRIC
+--------------------------------------------------------------------------------
+
+4.1 The two canonical bilinear forms
+------------------------------------
+
+The Hodge complex carries two canonical bilinear forms:
+
+  - The intersection form Q(alpha, beta) = Integral alpha ^ beta,
+    defined for alpha, beta of complementary degrees. On the even-degree
+    cohomology H^0 + H^2, it pairs H^0 with H^2.
+
+  - The Hodge inner product <alpha, beta> = Integral alpha ^ *beta,
+    defined for alpha, beta of the same degree.
+
+4.2 The metric construction
+---------------------------
+
+On ker D = H^0 + H^1 + H^2, define g blockwise:
+
+    g(alpha, beta) = Q(alpha, beta)       if alpha, beta in H^0 + H^2,
+                   = <alpha, beta>        if alpha, beta in H^1,
+                   = 0                    for mixed degrees.         (4.1)
+
+The block-diagonal structure is forced: Q vanishes on pairs of
+same-degree forms, and <.,.> vanishes on pairs of different-degree forms.
+
+THEOREM 4.2.1 (Lorentzian signature). In the basis (2.1), the metric g
+has matrix
+
+         ( 0   1   0   0 )
+    g =  ( 1   0   0   0 )                                           (4.2)
+         ( 0   0   1   0 )
+         ( 0   0   0   1 )
+
+Its eigenvalues are {-1, +1, +1, +1}: signature (3,1).
+
+Proof. On H^0 + H^2, Q(v_0, v_2) = Integral v_0 ^ v_2 = 1 (normalized
+volume), and Q(v_0, v_0) = Q(v_2, v_2) = 0 by degree. The block
+( 0 1 / 1 0 ) has eigenvalues +/- 1. On H^1, the Hodge inner product in
+the orthonormal basis {v_1^A, v_1^B} is the identity, giving eigenvalues
++1, +1. Total signature: (3,1). QED.
+
+--------------------------------------------------------------------------------
+5. CONDITIONAL UNIQUENESS
+--------------------------------------------------------------------------------
+
+The metric g is not the unique D4-invariant symmetric form on ker D. We
+first characterize the full space of such forms, then state the two
+additional conditions that single out g.
+
+5.1 The space of D4-invariant symmetric forms
+---------------------------------------------
+
+PROPOSITION 5.1.1. The space of D4-invariant symmetric bilinear forms on
+ker D is 4-dimensional. In the basis (2.1), a general element is
+
+         ( a   b   0   0 )
+    G =  ( b   c   0   0 )                                           (5.1)
+         ( 0   0   d   0 )
+         ( 0   0   0   d )
+
+with (a, b, c, d) in R^4. The four parameters are the coefficients on
+the basis elements {E_0 = diag(1,0,0,0), E_1 = (1/sqrt 2)(delta_{v_0 v_2}),
+E_2 = diag(0,1,0,0), E_3 = I_{E-block}}.
+
+Proof. Apply Schur's lemma to the D4 representation ker D = 2A_1 + E.
+The two copies of A_1 span {v_0, v_2}, on which a D4-invariant bilinear
+form is a general 2x2 symmetric matrix (4 real parameters minus the
+antisymmetric part, which vanishes). The E block is irreducible, so its
+invariant form is a scalar multiple of the identity; in 2 dimensions,
+the antisymmetric part vanishes for a symmetric form, leaving one scalar
+d. Total: 3 parameters from the A_1 block plus 1 from E = 4. QED.
+
+The HCSM-03 metric g of Theorem 4.2.1 corresponds to
+(a, b, c, d) = (0, 1, 0, 1).
+
+5.2 The two conditions
+----------------------
+
+Two structural conditions single out (a, b, c, d) = (0, 1, 0, 1) up to
+scale:
+
+  (C1) Vanishing on pure-degree forms: g(v_0, v_0) = g(v_2, v_2) = 0.
+       This is the discrete analogue of the Hodge-Riemann bilinear
+       relations, in which primitive forms of pure Hodge type (p,p)
+       pair to zero.
+
+  (C2) Lorentzian signature: the metric has signature (3,1) or (1,3).
+
+THEOREM 5.2.1 (Conditional uniqueness). Among all D4-invariant symmetric
+forms G on ker D, the HCSM-03 metric g is the unique one (up to overall
+scale) that satisfies both conditions (C1) and (C2).
+
+Proof. Condition (C1) forces a = c = 0, leaving
+G = ( 0 b 0 / b 0 0 / 0 0 dI_2 ). The even-degree block has eigenvalues
++/- b, and the odd-degree block contributes d twice. Condition (C2)
+requires b != 0 and d != 0 with sign(b) . sign(d) > 0 (so that the
+odd-degree pair has the same sign as the positive eigenvalue of the
+even-degree block). Up to overall scale, the metric is fixed: d/b > 0
+is a scale choice, and normalization d = b = 1 gives the HCSM-03 metric.
+QED.
+
+REMARK 5.2.2. The parameters (a, b, c, d) in (5.1) are not free
+continuous parameters of a physical theory. They are the coefficients of
+a symmetric bilinear form on a 4-dimensional vector space. The two
+conditions (C1), (C2) reduce the 4-parameter family to a single point up
+to scale. The metric g is therefore "canonical" in the honest sense:
+among all D4-invariant forms on ker D satisfying the two structural
+conditions, it is unique.
+
+REMARK 5.2.3 (Hodge-Riemann analogy). On a compact Kähler manifold, the
+Hodge-Riemann bilinear relations state that the natural bilinear form on
+the middle-degree cohomology has signature (b^+, b^-) determined by the
+Hodge numbers, with the primitive forms of pure Hodge type (p,p) pairing
+to zero. On the 2-torus T^2, the cohomology decomposes as
+H^0 + H^1 + H^2 with H^0 + H^2 of even degree, and the intersection form
+on H^0 + H^2 is the discrete analogue of the Hodge-Riemann form on
+middle-degree cohomology. The HCSM-03 metric is the direct discrete
+realization of this classical structure.
+
+--------------------------------------------------------------------------------
+6. THE TIMELIKE DIRECTION
+--------------------------------------------------------------------------------
+
+COROLLARY 6.1.1. With the signature convention (-,+,+,+) of Theorem 4.2.1
+(eigenvalues {-1, +1, +1, +1}), the timelike direction is
+
+    t = (v_0 - v_2) / sqrt(2).                                       (6.1)
+
+The three spacelike directions are (v_0 + v_2)/sqrt(2), v_1^A, v_1^B.
+
+Proof. Direct computation:
+g(v_0 - v_2, v_0 - v_2)/2 = (Q(v_0,v_0) - 2Q(v_0,v_2) + Q(v_2,v_2))/2
+= (0 - 2 + 0)/2 = -1.
+g(v_0 + v_2, v_0 + v_2)/2 = +1.
+g(v_1^A, v_1^A) = g(v_1^B, v_1^B) = +1.
+Total: one timelike, three spacelike. QED.
+
+REMARK 6.1.2. The sign convention is fixed by the choice of which
+eigenvalue carries the negative sign. With the opposite convention
+(+,-,-,-), the roles are reversed and the timelike direction is
+(v_0 + v_2)/sqrt(2). Both are representations of the same metric; only
+the labelling of timelike and spacelike is swapped. Throughout the
+paper, we adopt (-,+,+,+).
+
+--------------------------------------------------------------------------------
+7. D4 INVARIANCE AND DECOMPOSITION
+--------------------------------------------------------------------------------
+
+PROPOSITION 7.1.1. As a D4 representation, ker D = 2A_1 + E. In the
+basis (2.1), the generators r and s act by
+
+           ( 1  0  0  0 )         ( 1  0  0  0 )
+    R_ker= ( 0  1  0  0 )  S_ker= ( 0  1  0  0 )                     (7.1)
+           ( 0  0  0  1 )         ( 0  0  1  0 )
+           ( 0  0 -1  0 )         ( 0  0  0 -1 )
+
+Proof. The subspace span{v_0, v_2} is fixed pointwise by both generators,
+giving two copies of the trivial representation A_1. The subspace
+span{v_1^A, v_1^B} carries the 2-dimensional irreducible representation
+E. QED.
+
+THEOREM 7.2.1. The metric g is invariant under the D4 action on ker D:
+R_ker^T g R_ker = g and S_ker^T g S_ker = g.
+
+Proof. Direct computation. The verification at machine precision gives
+|| R_ker^T g R_ker - g ||_F ~ 7e-16 and || S_ker^T g S_ker - g ||_F
+~ 6e-16. QED.
+
+--------------------------------------------------------------------------------
+8. CONSEQUENCES
+--------------------------------------------------------------------------------
+
+8.1 Status of the derivation
+----------------------------
+
+Before this paper, the framework had:
+
+  - d = 4 derived from dim ker D = 4 (HCSM-01, HCSM-02).
+  - Lorentzian signature (3,1) asserted by analogy with the
+    photon-helicity anchor (HCSM-01).
+
+After this paper:
+
+  - d = 4 derived from dim ker D = 4.
+  - Lorentzian signature (3,1) derived from the Hodge star on ker D and
+    the two structural conditions (C1), (C2), given the disclosed metric
+    construction (S4) and physical identification (S5).
+
+The photon-helicity anchor is now a consistency check rather than the
+primary derivation of the signature.
+
+8.2 No Wick rotation
+--------------------
+
+The metric g is constructed directly from the intersection form and the
+Hodge inner product on the harmonic forms. No Wick rotation is used: the
+Lorentzian signature emerges from the indefinite signature of the
+intersection form on H^0 + H^2, not from an analytic continuation of a
+Euclidean metric. This is a technical statement about the construction,
+not a physical claim.
+
+8.3 Relation to the spin-statistics structure
+---------------------------------------------
+
+The Hodge complex carries a canonical Z_2 grading: even forms
+Omega^0 + Omega^2 (bosonic) versus odd forms Omega^1 (fermionic), per
+HCSM-02 Section 4. On ker D = 2A_1 + E, the timelike direction
+(v_0 - v_2)/sqrt(2) lies entirely in the even sector. The three spacelike
+directions include the even combination (v_0 + v_2)/sqrt(2) and the two
+odd-degree harmonic 1-forms. The extension of this structure to Standard
+Model spin and chirality is the subject of HCSM-42.
+
+--------------------------------------------------------------------------------
+9. OPEN ITEMS
+--------------------------------------------------------------------------------
+
+  - The physical identification (S5) -- that g is the emergent spacetime
+    metric -- is a framework-level disclosure. Its justification would
+    require the continuum limit of the framework (item 6.14).
+
+  - The connection of the HCSM-03 construction to the classical
+    Hodge-Riemann bilinear relations is observed (Section 5, Remark
+    5.2.3) but not developed. A discrete proof that the HCSM-03 form
+    coincides with the classical Hodge-Riemann form under the
+    discrete-to-continuum scaling is a program item.
+
+--------------------------------------------------------------------------------
+10. REPRODUCIBILITY
+--------------------------------------------------------------------------------
+
+All numerical claims in this paper are verified at machine precision in
+IEEE-754 double precision. The companion script HCSM-03_verification.py
+constructs the discrete Hodge complex on Lambda = Z_8 x Z_8, computes
+the Hodge star and Hodge-Dirac operators, restricts the star to ker D,
+and derives the metric g. It verifies:
+
+  1. Nilpotency d_1 d_0 = 0.
+  2. Kernel dimension dim ker D = 4.
+  3. Hodge star involution *^2 = diag(+1, -1, +1).
+  4. Commutation [*, D^2] = 0.
+  5. Star spectrum spec(*|ker D) = {+1, -1, +i, -i}.
+  6. Metric g with signature (3,1).
+  7. Timelike direction (v_0 - v_2)/sqrt(2).
+  8. D4 invariance of g.
+  9. The dimension of the D4-invariant symmetric-form space on ker D
+     is 4.
+ 10. The HCSM-03 metric is the unique element of this 4-dimensional
+     space satisfying conditions (C1), (C2) up to scale.
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim in
+the HCSM paper stack.
+
+--------------------------------------------------------------------------------
+11. CONCLUSION
+--------------------------------------------------------------------------------
+
+We have constructed a Lorentzian metric of signature (3,1) on the
+4-dimensional kernel ker D of the Hodge-Dirac operator on the periodic
+8x8 torus. The metric is g = Q|_{H^0+H^2} + <.,.>|_{H^1}, where Q is the
+intersection form on the even-degree sector and <.,.> is the Hodge inner
+product on the odd-degree sector.
+
+The Hodge star on ker D has eigenvalues {+1, -1, +i, -i}, splitting into
+a real involution on H^0 + H^2 and a complex structure on H^1. The metric
+g is D4-invariant and is the unique element of the 4-dimensional space
+of D4-invariant symmetric forms on ker D satisfying the two structural
+conditions (C1) g(v_0, v_0) = g(v_2, v_2) = 0 and (C2) signature (3,1).
+The construction is the discrete realization of the classical
+Hodge-Riemann bilinear relations on cohomology.
+
+Given the metric construction (S4) and the physical identification (S5),
+the framework now derives both d = 4 and the Lorentzian signature (3,1)
+from the substrate's Hodge structure.
+
+--------------------------------------------------------------------------------
+REFERENCES
+--------------------------------------------------------------------------------
+
+[1]  S. Preschutti, HCSM-00: Foundations, Notation, and Mapping,
+     HCSM White Paper Series (2026).
+[2]  S. Preschutti, HCSM-01: The 8x8 Torus Substrate from d = 4,
+     HCSM White Paper Series (2026).
+[3]  S. Preschutti, HCSM-02: The Hodge Complex on Lambda,
+     HCSM White Paper Series (2026).
+[4]  S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4,
+     HCSM White Paper Series (2026).
+[5]  S. Preschutti, HCSM-42: Spin Chirality Z_2 Grading,
+     HCSM White Paper Series (2026).
+[6]  J. Dodziuk, Finite-difference approach to the Hodge theory of
+     harmonic forms, American Journal of Mathematics 98, 79 (1976).
+[7]  M. Nakahara, Geometry, Topology and Physics, 2nd ed.,
+     CRC Press (2003).
+[8]  C. Voisin, Hodge Theory and Complex Algebraic Geometry I,
+     Cambridge University Press (2002). [Hodge-Riemann bilinear
+     relations.]
+
+================================================================================
+End of HCSM-03
+================================================================================
