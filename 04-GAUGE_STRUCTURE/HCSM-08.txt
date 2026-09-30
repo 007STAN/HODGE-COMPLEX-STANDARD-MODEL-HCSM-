@@ -1,0 +1,417 @@
+# HCSM-08: Anomaly Cancellation as a Theorem
+
+## The Four One-Loop Conditions, the Cubic Gauge Anomalies, and the Automatic Two-Loop Closure
+
+### The Hodge Complex Standard Model
+
+**Stanley Preschutti**
+
+Entropia Research Institute / Information Physics Institute
+
+ORCID: 0009-0004-5445-1744
+
+scstamp@yahoo.com
+
+September 2026
+
+---
+
+## Abstract
+
+The Hodge Complex Standard Model derives the gauge algebra su(3) ⊕ su(2) ⊕ u(1)^5 as a Lie subalgebra of the D_4 commutant on the 14-mode multiplet at λ = 4, derives the hypercharge functional on the 15-dimensional sector-coarse space, and derives the particle content of one Standard Model generation. This paper proves that the resulting hypercharge functional is anomaly-free.
+
+On the Standard Model content per generation, the four one-loop anomaly conditions
+
+    Tr(Y) = 0,  Tr(Y^3) = 0,  SU(2)^2 U(1) = 0,  SU(3)^2 U(1) = 0
+
+vanish identically in rational arithmetic. The three cubic gauge anomalies SU(3)^3, SU(2)^3, and the mixed SU(3)–SU(2)–U(1) vanish by representation-theoretic structure: SU(3)^3 by the vector-like color content, SU(2)^3 by the safety of SU(2), and the mixed trilinear anomaly by the tracelessness of the non-Abelian generators. The Witten global SU(2) anomaly is evaded because each generation carries an even number of SU(2) doublets. Two-loop cancellation is automatic by the Adler–Bardeen theorem. In the sector-coarse framing, the mixed SU(3)^2 U(1) condition reduces to the weighted sector identity Y_0 + 2Y_1 + Y_2 = 0, satisfied by the HCSM hypercharge values (−2/3, +1/6, +1/3) on the A_1 block.
+
+The anomaly cancellation is a consistency theorem of the HCSM structure. The framework's particle content is derived; the hypercharge functional is derived; the anomaly cancellation is a theorem. All claims are verified at machine precision and are exact in rational arithmetic.
+
+---
+
+## Contents
+
+1. Introduction
+2. Setup
+3. The linear (gravitational) anomaly
+4. The cubic U(1) anomaly
+5. The mixed SU(2)^2 U(1) anomaly
+6. The mixed SU(3)^2 U(1) anomaly
+7. The cubic gauge anomalies
+8. The Witten global anomaly
+9. Two-loop automaticity
+10. Sector-coarse framing
+11. Reproducibility
+12. Conclusion
+13. References
+
+---
+
+## 1. Introduction
+
+### 1.1 The anomaly cancellation problem
+
+A gauge theory with chiral fermions is consistent only if its anomaly coefficients vanish. The Standard Model satisfies this requirement by a delicate interplay between its fermion content and its hypercharge assignments. In the Standard Model, the hypercharge values are empirical inputs, chosen so that the anomaly conditions hold.
+
+The Hodge Complex Standard Model (HCSM) derives the gauge algebra
+
+    g_HCSM = su(3) ⊕ su(2) ⊕ u(1)^5
+
+as a Lie subalgebra of the D_4 commutant on the 14-mode multiplet at λ = 4 [HCSM-06]. On the full 56-dimensional Hodge sector, the hypercharge functional is a specific element of the 15-dimensional sector-coarse space [HCSM-07]:
+
+    Y = Σ_{ρ ∈ {A1, A2, B1, B2, E}} (α_ρ I + β_ρ F + γ_ρ O) P_ρ,
+
+with coefficients for the A_1 and B_1 blocks determined by the particle content and the sector assignment:
+
+    (α_{A1}, β_{A1}, γ_{A1}) = (0, −1/6, −1/2),
+    (α_{B1}, β_{B1}, γ_{B1}) = (0, +1/2, +1/2).
+
+This paper proves that the HCSM hypercharge functional is anomaly-free. The proof is a consistency theorem of the HCSM structure: given the particle content derived in the HCSM stack, the hypercharge functional derived in [HCSM-07] satisfies all known anomaly cancellation conditions.
+
+### 1.2 Main results
+
+1. **Linear (gravitational) anomaly** (Theorem 3.1). Tr(Y) = 0 exactly on the Standard Model content per generation.
+2. **Cubic U(1) anomaly** (Theorem 4.1). Tr(Y^3) = 0 exactly.
+3. **Mixed SU(2)^2 U(1) anomaly** (Theorem 5.1). SU(2)^2 U(1) = 0 exactly.
+4. **Mixed SU(3)^2 U(1) anomaly** (Theorem 6.1). SU(3)^2 U(1) = 0 exactly.
+5. **Cubic gauge anomalies** (Theorem 7.1). SU(3)^3 = SU(2)^3 = SU(3)–SU(2)–U(1) = 0 by representation-theoretic structure.
+6. **Witten global anomaly** (Theorem 8.1). The global SU(2) anomaly is evaded; each generation carries an even number of SU(2) doublets.
+7. **Two-loop automatic** (Theorem 9.1). By the Adler–Bardeen theorem, vanishing one-loop conditions imply vanishing at all loops.
+8. **Sector-coarse identity** (Proposition 10.1). The mixed SU(3)^2 U(1) condition takes the sector-coarse form Y_0 + 2Y_1 + Y_2 = 0.
+
+### 1.3 Cross references
+
+The paper depends on the following companions in the HCSM stack: HCSM-00 [1] (foundations and notation); HCSM-01 [2] (the 8×8 torus substrate); HCSM-02 [3] (the Hodge complex); HCSM-06 [6] (sector-coarse correspondence, gauge algebra, A_1 uniqueness, B_1/B_2 convention); HCSM-07 [7] (hypercharge quantization, coefficient theorems, hypercharge values from anomaly cancellation); HCSM-09 [8] (orientation-flip Z_2); HCSM-23 [9] (the 14-mode identification); HCSM-24 [10] (the charge theorem).
+
+### 1.4 Organization
+
+Section 2 states the HCSM content and the anomaly conditions. Section 3 proves the linear anomaly vanishes. Section 4 proves the cubic U(1) anomaly vanishes. Sections 5 and 6 prove the two mixed anomalies vanish. Section 7 establishes the cubic gauge anomalies by representation-theoretic structure. Section 8 establishes the evasion of the Witten global anomaly. Section 9 establishes two-loop automaticity. Section 10 gives the sector-coarse framing. Section 11 gives reproducibility notes. Section 12 concludes.
+
+---
+
+## 2. Setup
+
+### 2.1 The state content
+
+The Standard Model content per generation, in all-left-handed convention, is
+
+    Q_L(3, 2, +1/6) × 6,   u_R^c(3, 1, −2/3) × 3,   d_R^c(3, 1, +1/3) × 3,
+    L_L(1, 2, −1/2) × 2,   e_R^c(1, 1, +1) × 1,     ν_R^c(1, 1, 0) × 1.
+
+Here the notation is X(SU(3), SU(2), Y) × n with n the multiplicity.
+
+The content is realized on the HCSM state space as follows. The color-triplet states u_R^c, Q_L, d_R^c occupy the A_1 multiplicity space of the 56-dimensional Hodge sector at λ = 4 [HCSM-06]. The weak-doublet states Q_L, L_L occupy the B_1 multiplicity space [HCSM-06]. The hypercharge values are the HCSM hypercharge functional evaluated on the corresponding sector [HCSM-07].
+
+### 2.2 The HCSM hypercharge values
+
+By [HCSM-07], the hypercharge functional has the sector values
+
+    Y_{A1}: (Ω^0, Ω^1, Ω^2) = (−2/3, +1/6, +1/3),
+    Y_{B1}:                  (+1, −1/2, 0).
+
+These are the values assigned to the HCSM sectors, matching the Standard Model content under the sector assignment of [HCSM-07].
+
+**Remark 2.1 (Sector-coarse reading of the content).** The four multiplets u_R^c, Q_L, d_R^c (color-triplet) are assigned to the three Hodge sectors Ω^0, Ω^1, Ω^2 respectively. The three multiplets e_R^c, L_L, ν_R^c (leptons) carry the B_1 hypercharge values +1, −1/2, 0 on the same three sectors.
+
+### 2.3 The four one-loop anomaly conditions
+
+The four one-loop anomaly conditions for a SU(3)_c × SU(2)_L × U(1)_Y chiral gauge theory are
+
+    Tr(Y) = 0                  (linear / gravitational),
+    Tr(Y^3) = 0                (cubic U(1)),
+    SU(2)^2 U(1) = 0           (mixed electroweak),
+    SU(3)^2 U(1) = 0           (mixed color).
+
+The traces run over the chiral fermion content per generation. With the content above, each condition is a rational-arithmetic sum that must vanish for the theory to be consistent.
+
+### 2.4 The three cubic gauge anomalies
+
+The cubic gauge anomalies are
+
+    SU(3)^3,   SU(2)^3,   SU(3)–SU(2)–U(1).
+
+These vanish by the structure of the Standard Model content and the safety of the gauge groups, as established in Section 7.
+
+---
+
+## 3. The linear (gravitational) anomaly
+
+**Theorem 3.1 (Linear anomaly).** The linear (gravitational) anomaly vanishes identically on the Standard Model content per generation:
+
+    Tr(Y) = 6 · (1/6) + 3 · (−2/3) + 3 · (1/3) + 2 · (−1/2) + 1 · 1 + 1 · 0 = 0.
+
+**Proof.** Direct evaluation of the sum. Each term contributes the hypercharge of a state, weighted by the multiplicity of that state:
+
+    6 · (1/6) = 1               (Q_L),
+    3 · (−2/3) = −2             (u_R^c),
+    3 · (1/3) = 1               (d_R^c),
+    2 · (−1/2) = −1             (L_L),
+    1 · 1 = 1                   (e_R^c),
+    1 · 0 = 0                   (ν_R^c).
+
+The sum is 1 − 2 + 1 − 1 + 1 + 0 = 0. All arithmetic is exact rational. □
+
+**Remark 3.1 (Sector-coarse reading).** The vanishing Tr(Y) = 0 is a statement about the sum of Y over the HCSM state content. In the sector-coarse framing (Proposition 10.1), it is the statement that the total hypercharge of a generation, weighted by state multiplicity, vanishes.
+
+---
+
+## 4. The cubic U(1) anomaly
+
+**Theorem 4.1 (Cubic anomaly).** The cubic U(1) anomaly vanishes identically on the Standard Model content per generation:
+
+    Tr(Y^3) = 6 · (1/6)^3 + 3 · (−2/3)^3 + 3 · (1/3)^3 + 2 · (−1/2)^3 + 1 · 1^3 + 1 · 0^3 = 0.
+
+**Proof.** Direct evaluation of the sum of hypercharge cubes, weighted by state multiplicity:
+
+    6 · (1/6)^3 = 6/216 = 1/36,
+    3 · (−2/3)^3 = 3 · (−8/27) = −24/27 = −8/9 = −32/36,
+    3 · (1/3)^3 = 3 · (1/27) = 3/27 = 1/9 = 4/36,
+    2 · (−1/2)^3 = 2 · (−1/8) = −1/4 = −9/36,
+    1 · 1^3 = 1 = 36/36,
+    1 · 0^3 = 0.
+
+The sum is
+
+    Tr(Y^3) = 1/36 − 32/36 + 4/36 − 9/36 + 36/36 = (1 − 32 + 4 − 9 + 36)/36 = 0/36 = 0.
+
+All arithmetic is exact rational. □
+
+**Remark 4.1 (Numerator cancellation).** The numerator 1 − 32 + 4 − 9 + 36 cancels to zero through the combination 1 + 4 + 36 = 41 from the positive contributions (Q_L, d_R^c, e_R^c) and 32 + 9 = 41 from the negative contributions (u_R^c, L_L). This is a nontrivial exact cancellation among the Standard Model hypercharge values.
+
+---
+
+## 5. The mixed SU(2)^2 U(1) anomaly
+
+**Definition 5.1 (Mixed SU(2)^2 U(1) coefficient).** The mixed SU(2)^2 U(1) anomaly coefficient is
+
+    SU(2)^2 U(1) = (1/2) · Σ_{doublets} n_color · Y,
+
+where the sum runs over all SU(2)_L doublets, weighted by their color multiplicity and hypercharge.
+
+**Theorem 5.1 (Mixed electroweak anomaly).** The mixed SU(2)^2 U(1) anomaly vanishes identically:
+
+    SU(2)^2 U(1) = (1/2) · [3 · (1/6) + 1 · (−1/2)] = (1/2) · [1/2 − 1/2] = 0.
+
+**Proof.** The SU(2)_L doublets in the content are Q_L (3 colors) and L_L (color singlet). The weighted sum is
+
+    Σ_{doublets} n_color · Y = 3 · (1/6) + 1 · (−1/2) = 1/2 − 1/2 = 0.
+
+Multiplied by the Dynkin index factor T(2) = 1/2 for the SU(2) doublet representation, the total coefficient is 0. □
+
+**Remark 5.1 (Dynkin index).** The factor 1/2 is the Dynkin index T(2) for the fundamental representation of SU(2), a standard Lie algebra fact. It is not a framework input. The vanishing of the mixed anomaly is due to the exact cancellation of the weighted hypercharge sum, which is independent of the Dynkin index value.
+
+---
+
+## 6. The mixed SU(3)^2 U(1) anomaly
+
+**Definition 6.1 (Mixed SU(3)^2 U(1) coefficient).** The mixed SU(3)^2 U(1) anomaly coefficient is
+
+    SU(3)^2 U(1) = (1/2) · Σ_{color triplets} n_weak · Y,
+
+where the sum runs over all SU(3)_c triplets, weighted by their weak-isospin multiplicity and hypercharge.
+
+**Theorem 6.1 (Mixed color anomaly).** The mixed SU(3)^2 U(1) anomaly vanishes identically:
+
+    SU(3)^2 U(1) = (1/2) · [2 · (1/6) + 1 · (−2/3) + 1 · (1/3)] = (1/2) · [1/3 − 2/3 + 1/3] = 0.
+
+**Proof.** The SU(3)_c triplets in the content are Q_L (weak doublet, so multiplicity 2), u_R^c (weak singlet), and d_R^c (weak singlet). The weighted sum is
+
+    Σ_{color triplets} n_weak · Y = 2 · (1/6) + 1 · (−2/3) + 1 · (1/3) = 1/3 − 2/3 + 1/3 = 0.
+
+Multiplied by the Dynkin index factor T(3) = 1/2 for the SU(3) fundamental representation, the total coefficient is 0. □
+
+---
+
+## 7. The cubic gauge anomalies
+
+**Theorem 7.1 (Cubic gauge anomalies).** The three cubic gauge anomalies SU(3)^3, SU(2)^3, and SU(3)–SU(2)–U(1) vanish identically on the Standard Model content per generation.
+
+**Proof.** We treat each separately.
+
+**SU(3)^3.** The SU(3)^3 anomaly coefficient is
+
+    A(SU(3)^3) = Σ_{color multiplets} n_weak · A_3(R_3),
+
+where A_3(R_3) is the cubic anomaly coefficient of the color representation R_3, normalized so that A_3(3) = +1 and A_3(3̄) = −1 for the fundamental and anti-fundamental representations respectively, and A_3(singlet) = 0.
+
+The color-triplet content, in all-left-handed convention, is:
+
+- Q_L(3, 2): color triplet 3, so A_3 = +1, weak multiplicity 2. Contribution: 2 · (+1) = +2.
+- u_R^c(3̄, 1): color anti-triplet 3̄ in the all-left-handed convention, so A_3 = −1, weak multiplicity 1. Contribution: 1 · (−1) = −1.
+- d_R^c(3̄, 1): color anti-triplet 3̄, so A_3 = −1, weak multiplicity 1. Contribution: 1 · (−1) = −1.
+
+The sum is
+
+    A(SU(3)^3) = 2 − 1 − 1 = 0.
+
+This is the standard statement that the content is vector-like with respect to QCD: the color triplets and anti-triplets appear with multiplicities that cancel the cubic anomaly coefficient exactly.
+
+**SU(2)^3.** The group SU(2) is a *safe group*: all its representations have vanishing cubic anomaly coefficient A_2(R_2) = 0. This is a standard Lie algebra fact: the symmetric invariant d^{abc} of SU(2) vanishes identically because SU(2) has no independent cubic Casimir. Consequently,
+
+    A(SU(2)^3) = 0
+
+regardless of the SU(2) content. Exact vanishing.
+
+**SU(3)–SU(2)–U(1).** The mixed trilinear anomaly coefficient is
+
+    A(SU(3)–SU(2)–U(1)) = Σ_{states} Y · Tr_{R_3}[T^a] · Tr_{R_2}[T^i],
+
+where the trace factorizes over the color and weak-isospin factors. For any state in a representation (R_3, R_2, Y) of SU(3) × SU(2) × U(1), the trace over the color factor vanishes:
+
+    Tr_{R_3}[T^a] = 0
+
+because the SU(3) generators are traceless in every representation. Hence every term in the sum vanishes, and
+
+    A(SU(3)–SU(2)–U(1)) = 0
+
+identically. □
+
+**Remark 7.1 (Structural status of the cubic anomalies).** The three cubic anomalies vanish by representation-theoretic structure, not by numerical cancellation of HCSM-specific values. The SU(3)^3 anomaly vanishes because the content is vector-like with respect to QCD; the SU(2)^3 anomaly vanishes because SU(2) is safe; the mixed trilinear anomaly vanishes because the non-Abelian generators are traceless. These are properties of the content structure, not additional constraints on the hypercharge functional.
+
+---
+
+## 8. The Witten global anomaly
+
+**Definition 8.1 (Witten global anomaly).** The Witten global SU(2) anomaly is a Z_2-valued global anomaly associated with the fourth homotopy group π_4(SU(2)) = Z_2. A theory with chiral SU(2) content is globally consistent only if the number of SU(2) doublets is even.
+
+**Theorem 8.1 (Witten anomaly evasion).** The Witten global SU(2) anomaly is evaded: each generation of the Standard Model content carries an even number of SU(2)_L doublets.
+
+**Proof.** The SU(2)_L doublets in the content are Q_L and L_L:
+
+    Q_L: 3 colors × 1 doublet = 3 doublet states,
+    L_L: 1 color singlet × 1 doublet = 1 doublet state.
+
+Total: 3 + 1 = 4 doublets per generation, which is even. The global SU(2) anomaly is therefore evaded. □
+
+**Remark 8.1 (HCSM framing).** In HCSM terms, the number of SU(2)_L doublets is the multiplicity of the B_1 isotypic content that participates in the weak interaction. The even count is a structural feature of the content as realized on the A_1 and B_1 multiplicity spaces [HCSM-06].
+
+---
+
+## 9. Two-loop automaticity
+
+**Theorem 9.1 (Two-loop automatic).** By the Adler–Bardeen theorem, if the one-loop anomaly coefficients vanish, then all higher-loop anomaly coefficients vanish. In particular, the two-loop anomaly cancels automatically.
+
+**Proof.** The Adler–Bardeen theorem states that the ABJ anomaly (the anomaly of the axial current) is one-loop exact: it receives no corrections at higher loops. Consequently, the anomaly coefficient A satisfies A = A_{one-loop} at all orders. Since the one-loop coefficients vanish by Theorems 3.1–6.1, the anomaly vanishes at all loops. □
+
+**Remark 9.1 (Wess–Zumino consistency).** The Wess–Zumino consistency conditions relate the anomaly coefficients across different orders. When the one-loop coefficients vanish, the Wess–Zumino conditions are trivially satisfied at all orders. The two-loop anomaly is therefore automatically zero, with no additional constraints on the content.
+
+---
+
+## 10. Sector-coarse framing
+
+The anomaly conditions have a natural expression in the sector-coarse language of [HCSM-06, HCSM-07].
+
+**Proposition 10.1 (Sector-coarse identity for the mixed color anomaly).** On the A_1 isotypic block, the mixed SU(3)^2 U(1) anomaly takes the sector-coarse form
+
+    Y_0 + 2Y_1 + Y_2 = 0,
+
+where Y_0, Y_1, Y_2 are the hypercharge values on the sectors Ω^0, Ω^1, Ω^2.
+
+**Proof.** The mixed SU(3)^2 U(1) coefficient is
+
+    SU(3)^2 U(1) = (1/2) · [n_weak(u_R^c) · Y_0 + n_weak(Q_L) · Y_1 + n_weak(d_R^c) · Y_2],
+
+where the weak multiplicities are n_weak(u_R^c) = 1 (singlet), n_weak(Q_L) = 2 (doublet), n_weak(d_R^c) = 1 (singlet). The sector assignment places u_R^c on Ω^0, Q_L on Ω^1, d_R^c on Ω^2.
+
+Substituting:
+
+    SU(3)^2 U(1) = (1/2) · [Y_0 + 2Y_1 + Y_2].
+
+The vanishing of this quantity is equivalent to
+
+    Y_0 + 2Y_1 + Y_2 = 0.
+
+With the HCSM values Y_0 = −2/3, Y_1 = +1/6, Y_2 = +1/3 [HCSM-07], the weighted sum is
+
+    −2/3 + 2 · (1/6) + 1/3 = −2/3 + 1/3 + 1/3 = 0.
+
+□
+
+**Corollary 10.1 (Sector-coarse reading of anomaly cancellation).** In the sector-coarse framing, the mixed SU(3)^2 U(1) anomaly condition is a specific weighted sum of hypercharge values over the three Hodge sectors:
+
+    Y(Ω^0) + 2Y(Ω^1) + Y(Ω^2) = 0.
+
+The weight on Ω^1 is 2, reflecting the fact that the middle sector hosts the weak doublet content (Q_L); the outer sectors Ω^0 and Ω^2 host singlet content with weight 1 each.
+
+**Remark 10.1 (Sector-coarse content of the other conditions).** The other three anomaly conditions admit analogous sector-coarse readings:
+
+- Tr(Y) = 0: the weighted sum over all states of Y vanishes.
+- Tr(Y^3) = 0: the weighted sum over all states of Y^3 vanishes.
+- SU(2)^2 U(1) = 0: the weighted sum over the weak-doublet content vanishes.
+
+In each case, the vanishing is due to an exact rational cancellation among the hypercharge values, reflecting the anomaly-free structure of the hypercharge functional.
+
+---
+
+## 11. Reproducibility
+
+All numerical claims in this paper are verified at machine precision in IEEE-754 double precision, and are exact in rational arithmetic. The verification script is provided in the HCSM companion repository at `12-VERIFICATION/HCSM-08_verification.py`. It constructs the content per generation and verifies:
+
+1. Tr(Y) = 0 (Theorem 3.1).
+2. Tr(Y^3) = 0 (Theorem 4.1).
+3. SU(2)^2 U(1) = 0 (Theorem 5.1).
+4. SU(3)^2 U(1) = 0 (Theorem 6.1).
+5. The cubic gauge anomalies vanish (Theorem 7.1).
+6. The Witten global SU(2) anomaly evasion (Theorem 8.1).
+7. The sector-coarse identity Y_0 + 2Y_1 + Y_2 = 0 (Proposition 10.1).
+
+Running `12-VERIFICATION/run_all.py` reproduces every numerical claim in the HCSM paper stack.
+
+---
+
+## 12. Conclusion
+
+This paper has established that the HCSM hypercharge functional is anomaly-free.
+
+The four one-loop anomaly conditions
+
+    Tr(Y) = 0,  Tr(Y^3) = 0,  SU(2)^2 U(1) = 0,  SU(3)^2 U(1) = 0
+
+vanish identically in rational arithmetic on the Standard Model content per generation, with hypercharge values given by the HCSM sector-coarse functional [HCSM-07]. The three cubic gauge anomalies SU(3)^3, SU(2)^3, SU(3)–SU(2)–U(1) vanish by representation-theoretic structure: SU(3)^3 by the vector-like color content, SU(2)^3 by the safety of SU(2), and the mixed trilinear anomaly by the tracelessness of the non-Abelian generators. The Witten global SU(2) anomaly is evaded because each generation carries 4 SU(2) doublets (an even number). Two-loop cancellation is automatic by the Adler–Bardeen theorem.
+
+In the sector-coarse framing, the mixed SU(3)^2 U(1) condition reduces to the weighted sector identity
+
+    Y(Ω^0) + 2Y(Ω^1) + Y(Ω^2) = 0,
+
+which is satisfied by the HCSM hypercharge values (−2/3, +1/6, +1/3) on the A_1 block. The weight 2 on the middle sector reflects the weak-doublet content hosted there.
+
+The anomaly cancellation is a consistency theorem of the HCSM structure. The particle content is derived in the HCSM stack; the hypercharge functional is derived; the anomaly cancellation follows. The framework's claim is: the HCSM hypercharge functional is the unique anomaly-free functional compatible with the sector-coarse structure and the Standard Model content.
+
+---
+
+## References
+
+[1] S. Preschutti, HCSM-00: Foundations, Notation, and Mapping, HCSM White Paper Series (2026).
+
+[2] S. Preschutti, HCSM-01: The 8×8 Torus Substrate from d = 4, HCSM White Paper Series (2026).
+
+[3] S. Preschutti, HCSM-02: The Hodge Complex on Λ, HCSM White Paper Series (2026).
+
+[4] S. Preschutti, HCSM-04: The 14-Mode Multiplet at λ = 4, HCSM White Paper Series (2026).
+
+[5] S. Preschutti, HCSM-05: Orbit Decomposition and Inverse Participation, HCSM White Paper Series (2026).
+
+[6] S. Preschutti, HCSM-06: Sector-Coarse Correspondence, HCSM White Paper Series (2026).
+
+[7] S. Preschutti, HCSM-07: Hypercharge Quantization, HCSM White Paper Series (2026).
+
+[8] S. Preschutti, HCSM-09: Gauge Topology and Orientation-Flip Z_2, HCSM White Paper Series (2026).
+
+[9] S. Preschutti, HCSM-23: The Midpoint Sorting Theorem, HCSM White Paper Series (2026).
+
+[10] S. Preschutti, HCSM-24: The Charge Theorem, HCSM White Paper Series (2026).
+
+[11] S. L. Adler and W. A. Bardeen, Absence of higher-order corrections to the anomalous vertex functions of quantum electrodynamics, Phys. Rev. 182, 1517 (1969).
+
+[12] E. Witten, An SU(2) anomaly, Phys. Lett. B 117, 324 (1982).
+
+[13] H. B. Nielsen and M. Ninomiya, A no-go theorem for regularizing chiral fermions, Phys. Lett. B 105, 219 (1981).
+
+[14] M. E. Peskin and D. V. Schroeder, An Introduction to Quantum Field Theory, Addison-Wesley (1995).
+
+[15] M. D. Schwartz, Quantum Field Theory and the Standard Model, Cambridge University Press (2014).
+
+[16] S. Weinberg, The Quantum Theory of Fields, Vol. II: Modern Applications, Cambridge University Press (1996).
+
+[17] Particle Data Group (S. Navas et al.), Review of Particle Physics, Phys. Rev. D 110, 030001 (2024).
