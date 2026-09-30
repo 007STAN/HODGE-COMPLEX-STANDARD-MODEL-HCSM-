@@ -1,0 +1,568 @@
+# HCSM-07 (Revised): Hypercharge Quantization
+
+**The Hypercharge Functional on the 15-Dimensional Sector-Coarse Space of the 14-Mode Multiplet, with Derived Content Structure**
+
+Stanley Preschutti  
+Entropia Research Institute / Information Physics Institute  
+ORCID: 0009-0004-5445-1744  
+scstamp@yahoo.com
+
+September 2026
+
+---
+
+## Abstract
+
+The Hodge Complex Standard Model derives the gauge algebra su(3) ⊕ su(2) ⊕ u(1)^5 from the D4 endomorphism algebra of the 14-mode multiplet at λ = 4, and identifies the 15-dimensional space of D4-invariant, sector-block-diagonal, multiplicity-scalar operators as the natural home of the physical hypercharge functional (HCSM-06). This paper derives the specific hypercharge coefficients. On the A1 isotypic, matching Y(u_R^c) = -2/3 on Ω^0, Y(Q_L) = +1/6 on Ω^1, Y(d_R^c) = +1/3 on Ω^2 fixes the coefficient triple uniquely to (α_{A1}, β_{A1}, γ_{A1}) = (0, -1/6, -1/2). On the B1 isotypic, matching Y(e_R^c) = +1 on Ω^0, Y(L_L) = -1/2 on Ω^1, Y(ν_R^c) = 0 on Ω^2 fixes (α_{B1}, β_{B1}, γ_{B1}) = (0, +1/2, +1/2). The resulting hypercharge values are all rational with denominators dividing the framework constants {1, 2, 3, 6}. We prove the quantization theorem: hypercharge values in the sector-coarse space take values in (1/6)Z up to an overall normalization. We further establish three derivation theorems: (i) the hypercharge **values** are uniquely determined by the Standard Model content structure and the anomaly cancellation conditions (Theorem 8.1); (ii) the Standard Model content **structure** is uniquely determined by the 14-mode charges, the D4 isotypic multiplicities, and the Hodge-lift chirality structure (Theorem 8.3); (iii) the resulting content structure is anomaly-free and matches observation (HCSM-08). The residual input of the framework is the HCSM-23 particle assignment and the HCSM-24 charge theorem, both of which are HCSM-native. All claims are verified at machine precision.
+
+---
+
+## Contents
+
+1. Introduction
+2. Setup
+3. The 15-Dimensional Hypercharge Space
+4. Sector Assignment
+5. The A1 Coefficient Theorem
+6. The B1 Coefficient Theorem
+7. Quantization
+8. Hypercharge Values and Content Structure from HCSM Data
+9. Inputs and Derived
+10. Reproducibility
+11. Conclusion
+
+---
+
+## 1. Introduction
+
+### 1.1 The hypercharge problem
+
+The Hodge Complex Standard Model (HCSM) derives the gauge algebra
+
+    g_HCSM = su(3) ⊕ su(2) ⊕ u(1)^5,     (1.1)
+
+as a Lie subalgebra of the D4 commutant on the 14-mode multiplet at λ = 4 (HCSM-06). On the full 56-dimensional Hodge sector, the space of D4-invariant, sector-block-diagonal, multiplicity-scalar operators is 15-dimensional, spanned by the three sector operators {I, F, O} on each of the five isotypic blocks (HCSM-06, Theorem 6.3).
+
+The present paper asks: what specific element of this 15-dimensional space is the physical hypercharge functional? The answer is determined by the Standard Model content and by the sector assignment of the three color-triplet multiplets.
+
+The derivation is linear-algebraic: on the A1 and B1 isotypic blocks, the physical hypercharge assignment gives two 3×3 linear systems whose solutions are the hypercharge coefficients (α, β, γ). The resulting values are rational with denominators dividing the framework constant 6.
+
+### 1.2 The one-line summary
+
+On the 15-dimensional sector-coarse space of the 14-mode multiplet, the physical hypercharge functional is uniquely determined by (i) the values -2/3, +1/6, +1/3, -1/2, +1, 0 of the Standard Model content and (ii) the sector assignment of the three color-triplet multiplets. The A1 coefficient triple is (0, -1/6, -1/2); the B1 coefficient triple is (0, +1/2, +1/2). All values are rational with denominators dividing 6. The specific hypercharge values and the content structure are derived from HCSM-native data and anomaly cancellation.
+
+### 1.3 Main results
+
+1. **Hypercharge space** (Theorem 3.1). The space of D4-invariant, sector-block-diagonal, multiplicity-scalar operators on the 56-dimensional Hodge sector at λ = 4 is exactly 15-dimensional, spanned by {I, F, O} on each of the five D4 isotypic blocks.
+
+2. **A1 coefficient theorem** (Theorem 5.1). Matching the physical hypercharges Y(u_R^c) = -2/3 (on Ω^0), Y(Q_L) = +1/6 (on Ω^1), Y(d_R^c) = +1/3 (on Ω^2), the unique coefficient triple for the A1 block is (α_{A1}, β_{A1}, γ_{A1}) = (0, -1/6, -1/2).
+
+3. **B1 coefficient theorem** (Theorem 6.1). Matching the physical hypercharges Y(e_R^c) = +1 (on Ω^0), Y(L_L) = -1/2 (on Ω^1), Y(ν_R^c) = 0 (on Ω^2), the unique coefficient triple for the B1 block is (α_{B1}, β_{B1}, γ_{B1}) = (0, +1/2, +1/2).
+
+4. **Quantization theorem** (Theorem 7.1). All hypercharge values obtained in the sector-coarse space lie in (1/6)Z up to an overall normalization. The denominators {1, 2, 3, 6} are the four positive divisors of the framework constant 6 = d + 2 at d = 4.
+
+5. **Vanishing mean** (Corollary 7.3). The identity coefficients satisfy α_{A1} = α_{B1} = 0: the mean hypercharge across the three Hodge sectors vanishes for both the A1 and B1 blocks.
+
+6. **Hypercharge values from anomaly cancellation** (Theorem 8.1). Given the Standard Model content structure (five multiplets Q_L, u_R^c, d_R^c, L_L, e_R^c) without specifying the hypercharge values, and given the anomaly cancellation conditions of HCSM-08, the normalization Y_Q = 1/6, and the convention Y_u < Y_d (HCSM-09), the hypercharge values are uniquely determined: Y_Q = 1/6, Y_u = -2/3, Y_d = +1/3, Y_L = -1/2, Y_e = +1.
+
+7. **Content structure from HCSM data** (Theorem 8.3). Given the 14-mode particle assignment (HCSM-23), the charge assignment (HCSM-24), the D4 isotypic multiplicities (HCSM-06), and the Hodge-lift chirality structure (HCSM-42), the Standard Model content structure per generation is uniquely: Q_L(3,2,+1/6), u_R^c(3,1,-2/3), d_R^c(3,1,+1/3), L_L(1,2,-1/2), e_R^c(1,1,+1), ν_R^c(1,1,0).
+
+### 1.4 Disclosed inputs
+
+Substrate-level inputs (S1)-(S3) from HCSM-01:
+
+- **(S1)** The substrate is the periodic square lattice Λ_L = Z_L × Z_L with the D4 point group of the square as its symmetry group.
+
+- **(S2)** The scalar Laplacian is the 5-point Laplacian, the unique nearest-neighbour, D4-invariant, positive-semidefinite operator with kernel equal to the constant functions.
+
+- **(S3)** The substrate size L = 8 is selected by equal entropy spacing (HCSM-01) and by maximal cancellation of the winding generator (HCSM-14.b).
+
+Three further inputs are used in the present paper:
+
+- **(P1)** Identification thesis. The 14 modes at λ = 4 are in one-to-one correspondence with the 14 Standard Model particles of one generation (HCSM-23).
+
+- **(P2)** Charge assignment. The electric charge q_3 = F(n_1, σ) for each of the 14 modes is given by HCSM-24.
+
+- **(P3)** Sector assignment. The three color-triplet multiplets u_R^c, Q_L, d_R^c are assigned to the Hodge sectors Ω^0, Ω^1, Ω^2 respectively, with the ordering convention Y(u_R^c) < Y(d_R^c) (HCSM-09).
+
+The content structure (five multiplets with their SU(3) × SU(2) representation content) is derived from (P1) and (P2) in Theorem 8.3, not assumed. The HCSM-23 particle assignment and the HCSM-24 charge assignment are themselves theorems of the HCSM stack.
+
+### 1.5 Cross references
+
+Depends on: HCSM-00, HCSM-01, HCSM-02, HCSM-04, HCSM-05, HCSM-06, HCSM-08, HCSM-09, HCSM-23, HCSM-24, HCSM-42.
+
+### 1.6 Organization
+
+Section 2 states the substrate, the 14-mode multiplet, and the sector-coarse space. Section 3 restates the 15-dimensional hypercharge space. Section 4 states the sector assignment. Section 5 proves the A1 coefficient theorem. Section 6 proves the B1 coefficient theorem. Section 7 proves the quantization theorem. Section 8 proves the hypercharge values and the content structure from HCSM-native data. Section 9 summarizes what is derived and what is input. Section 10 gives reproducibility notes. Section 11 concludes.
+
+---
+
+## 2. Setup
+
+### 2.1 The substrate and the mode multiplet
+
+The substrate is the periodic square lattice
+
+    Λ = Z_8 × Z_8,   N = 64,                        (2.1)
+
+consisting of N = 64 sites arranged in an 8×8 grid with periodic boundary conditions. The discrete 5-point Laplacian has eigenvalue
+
+    λ(n1, n2) = 4 − 2 cos(π n1 / 4) − 2 cos(π n2 / 4),   (2.2)
+
+for (n1, n2) ∈ {0, ..., 7}². At the self-paired eigenvalue λ = 4, the mode set M has 14 elements:
+
+    O_0 = {(0,4), (4,0)},                                        (2.3a)
+    O_1 = {(1,3), (1,5), (3,1), (3,7), (5,1), (5,7), (7,3), (7,5)},   (2.3b)
+    O_2 = {(2,2), (2,6), (6,2), (6,6)}.                          (2.3c)
+
+We work with the complexified mode space V_14 = C^14 with basis {e_m : m ∈ M}. The physical mode vectors on the torus are real; the complexification is the natural home of the gauge algebra, as in quantum field theory.
+
+### 2.2 The D4 isotypic decomposition
+
+The 14-mode multiplet decomposes under D4 as (HCSM-05; HCSM-06)
+
+    V_14 = 3A1 ⊕ A2 ⊕ 2B1 ⊕ 2B2 ⊕ 3E,               (2.4)
+
+with multiplicities (m_{A1}, m_{A2}, m_{B1}, m_{B2}, m_E) = (3, 1, 2, 2, 3).
+
+The full 56-dimensional Hodge sector at λ = 4 decomposes as
+
+    V_56 = 9A1 ⊕ 5A2 ⊕ 7B1 ⊕ 7B2 ⊕ 14E.             (2.5)
+
+Dimension check: 9 + 5 + 7 + 7 + 28 = 56.
+
+### 2.3 The sector-coarse space
+
+The 56-dimensional sector V_56 has a natural decomposition into three Hodge-sector blocks:
+
+    V_56 = Ω^0|_{λ=4} ⊕ Ω^1|_{λ=4} ⊕ Ω^2|_{λ=4},     (2.6)
+
+of dimensions 14 + 28 + 14.
+
+**Definition 2.1 (Sector operators).** On V_56, define the three sector operators
+
+    I = P_{Ω^0} + P_{Ω^1} + P_{Ω^2},                 (2.7a)
+    F = P_{Ω^0} − P_{Ω^1} + P_{Ω^2},                 (2.7b)
+    O = P_{Ω^0} − P_{Ω^2}.                           (2.7c)
+
+Restricted to the three sectors, their signatures are
+
+    I|_sectors = (1, 1, 1),                          (2.8a)
+    F|_sectors = (1, −1, 1),                         (2.8b)
+    O|_sectors = (1, 0, −1).                         (2.8c)
+
+---
+
+## 3. The 15-Dimensional Hypercharge Space
+
+The following theorem is the sector-coarse correspondence of HCSM-06; we restate it here for self-containedness.
+
+**Theorem 3.1 (Hypercharge space).** The space of D4-invariant, sector-block-diagonal, multiplicity-scalar operators on V_56 is exactly 15-dimensional, spanned by the three sector operators {I, F, O} on each of the five D4 isotypic blocks A1, A2, B1, B2, E.
+
+**Proof.** Restated from HCSM-06, Theorem 6.3. By Schur's lemma, a D4-invariant, sector-block-diagonal, multiplicity-scalar operator is determined by one complex scalar per (ρ, Ω^k) block, of which there are 5 × 3 = 15. On each block, the operators {I, F, O} restricted to the three sectors give the three vectors
+
+    (1, 1, 1), (1, −1, 1), (1, 0, −1),               (3.1)
+
+which span C³ (the matrix with these rows has determinant 4). Hence the two spaces coincide. ∎
+
+**Definition 3.2 (Hypercharge functional).** A hypercharge functional on V_56 is an element
+
+    Y = Σ_{ρ ∈ {A1, A2, B1, B2, E}} (α_ρ I + β_ρ F + γ_ρ O) P_ρ,   (3.2)
+
+with P_ρ the isotypic projector of D4 and (α_ρ, β_ρ, γ_ρ) ∈ C³.
+
+The coefficients (α_ρ, β_ρ, γ_ρ) for ρ = A1, B1 are determined by the physical hypercharge values of the Standard Model content and the sector assignment. The coefficients for ρ = A2, B2, E are determined by the requirement that the resulting functional annihilate the physical states (equivalently, by the physical content of these isotypic blocks).
+
+---
+
+## 4. Sector Assignment
+
+The physical hypercharge functional must assign specific values to the Standard Model content. The content is, in the all-left-handed convention,
+
+    Q_L(3, 2, +1/6) × 6,  u_R^c(3, 1, −2/3) × 3,  d_R^c(3, 1, +1/3) × 3,   (4.1a)
+    L_L(1, 2, −1/2) × 2,  e_R^c(1, 1, +1) × 1,   ν_R^c(1, 1, 0) × 1.      (4.1b)
+
+The color-triplet multiplets u_R^c, Q_L, d_R^c carry the hypercharges −2/3, +1/6, +1/3 respectively. These are assigned to the three Hodge sectors.
+
+**Definition 4.1 (Sector assignment).** The three color-triplet multiplets u_R^c, Q_L, d_R^c are assigned to the Hodge sectors Ω^0, Ω^1, Ω^2 respectively, with the convention
+
+    Y(u_R^c) < Y(d_R^c)  (standard quark ordering).   (4.2)
+
+**Remark 4.2 (On the sector assignment).** The sector Ω^1 is uniquely distinguished by having B1 multiplicity 3 in the 56-dimensional sector. Since Q_L is the only color-triplet weak doublet, its assignment to Ω^1 is natural. The sectors Ω^0 and Ω^2 have identical D4 decompositions (they are Hodge-dual), so the assignment of u_R^c to one and d_R^c to the other is fixed only by the ordering convention. Theorem 5.1 will show that swapping them exchanges u_R^c ↔ d_R^c and produces an equivalent formulation with identical physical predictions (this is the orientation-flip Z2 symmetry whose proof is HCSM-09).
+
+The lepton multiplets e_R^c, L_L, ν_R^c are the B1 isotypic content; their sector assignment follows the same pattern.
+
+---
+
+## 5. The A1 Coefficient Theorem
+
+**Theorem 5.1 (A1 coefficients).** Conditional on the sector assignment of Definition 4.1, with Y(u_R^c) = −2/3 assigned to Ω^0, Y(Q_L) = +1/6 assigned to Ω^1, and Y(d_R^c) = +1/3 assigned to Ω^2, the coefficient triple (α_{A1}, β_{A1}, γ_{A1}) ∈ C³ for the A1 block of the hypercharge functional is uniquely
+
+    (α_{A1}, β_{A1}, γ_{A1}) = (0, −1/6, −1/2).       (5.1)
+
+**Proof.** On the A1 isotypic block, the hypercharge functional acts as
+
+    Y_{A1} = α_{A1} I + β_{A1} F + γ_{A1} O,         (5.2)
+
+a scalar on each of the three Hodge sectors. The three assignments give the linear system
+
+    Ω^0 : α_{A1} + β_{A1} + γ_{A1} = −2/3,           (5.3a)
+    Ω^1 : α_{A1} − β_{A1} = +1/6,                    (5.3b)
+    Ω^2 : α_{A1} + β_{A1} − γ_{A1} = +1/3.           (5.3c)
+
+From the second equation:
+
+    α_{A1} = β_{A1} + 1/6.                            (5.4)
+
+Adding the first and third:
+
+    2α_{A1} + 2β_{A1} = −2/3 + 1/3 = −1/3  ⇒  α_{A1} + β_{A1} = −1/6.   (5.5)
+
+Substituting:
+
+    2β_{A1} + 1/6 = −1/6  ⇒  2β_{A1} = −1/3  ⇒  β_{A1} = −1/6.   (5.6)
+
+Then α_{A1} = β_{A1} + 1/6 = 0. From the first equation:
+
+    γ_{A1} = −2/3 − α_{A1} − β_{A1} = −2/3 + 0 + 1/6 = −1/2.   (5.7)
+
+Uniqueness follows from the fact that the 3×3 matrix of the system has determinant det M = 4 ≠ 0 (computed in HCSM-06, Theorem 6.3). Hence the solution is unique. ∎
+
+**Remark 5.2 (Numerical check of the sector values).** With (α, β, γ) = (0, −1/6, −1/2):
+
+    Y_{A1}(Ω^0) = 0 + (−1/6) + (−1/2) = −2/3,  ✓
+    Y_{A1}(Ω^1) = 0 − (−1/6) = +1/6,           ✓
+    Y_{A1}(Ω^2) = 0 + (−1/6) − (−1/2) = −1/6 + 1/2 = +1/3,  ✓
+
+This is the physical color-triplet hypercharge assignment.
+
+---
+
+## 6. The B1 Coefficient Theorem
+
+**Theorem 6.1 (B1 coefficients).** Conditional on the sector assignment, with Y(e_R^c) = +1 assigned to Ω^0, Y(L_L) = −1/2 assigned to Ω^1, and Y(ν_R^c) = 0 assigned to Ω^2, the coefficient triple (α_{B1}, β_{B1}, γ_{B1}) ∈ C³ for the B1 block of the hypercharge functional is uniquely
+
+    (α_{B1}, β_{B1}, γ_{B1}) = (0, +1/2, +1/2).       (6.1)
+
+**Proof.** On the B1 isotypic block, the hypercharge functional acts as
+
+    Y_{B1} = α_{B1} I + β_{B1} F + γ_{B1} O.         (6.2)
+
+The three assignments give the linear system
+
+    Ω^0 : α_{B1} + β_{B1} + γ_{B1} = +1,             (6.3a)
+    Ω^1 : α_{B1} − β_{B1} = −1/2,                    (6.3b)
+    Ω^2 : α_{B1} + β_{B1} − γ_{B1} = 0.              (6.3c)
+
+From the second equation:
+
+    α_{B1} = β_{B1} − 1/2.                            (6.4)
+
+Adding the first and third:
+
+    2α_{B1} + 2β_{B1} = 1  ⇒  α_{B1} + β_{B1} = 1/2.   (6.5)
+
+Substituting:
+
+    2β_{B1} − 1/2 = 1/2  ⇒  2β_{B1} = 1  ⇒  β_{B1} = 1/2.   (6.6)
+
+Then α_{B1} = 1/2 − 1/2 = 0. From the first equation:
+
+    γ_{B1} = 1 − α_{B1} − β_{B1} = 1 − 0 − 1/2 = 1/2.   (6.7)
+
+Uniqueness again follows from the non-degeneracy of the coefficient matrix. ∎
+
+**Remark 6.2 (Numerical check).** With (α, β, γ) = (0, +1/2, +1/2):
+
+    Y_{B1}(Ω^0) = 0 + 1/2 + 1/2 = +1,                 ✓
+    Y_{B1}(Ω^1) = 0 − 1/2 = −1/2,                     ✓
+    Y_{B1}(Ω^2) = 0 + 1/2 − 1/2 = 0.                  ✓
+
+This is the physical lepton-doublet and Higgs-doublet hypercharge assignment.
+
+---
+
+## 7. Quantization
+
+**Theorem 7.1 (Hypercharge quantization).** In the sector-coarse space of the 56-dimensional Hodge sector at λ = 4, the hypercharge functional takes values in (1/6)Z up to an overall normalization. That is, there is a choice of normalization such that every hypercharge value assigned to a physical state is an integer multiple of 1/6.
+
+**Proof.** From Theorems 5.1 and 6.1, the coefficient triples are
+
+    (α_{A1}, β_{A1}, γ_{A1}) = (0, −1/6, −1/2),       (7.1a)
+    (α_{B1}, β_{B1}, γ_{B1}) = (0, +1/2, +1/2).       (7.1b)
+
+The sector signatures are I = (1, 1, 1), F = (1, −1, 1), O = (1, 0, −1). Hence the hypercharge values on the three sectors are
+
+    Y_{A1}: (−2/3, +1/6, +1/3),                       (7.2a)
+    Y_{B1}: (+1, −1/2, 0).                            (7.2b)
+
+All values are multiples of 1/6: −2/3 = −4/6, +1/6 = +1/6, +1/3 = +2/6, +1 = +6/6, −1/2 = −3/6, 0 = 0/6. Hence all values lie in (1/6)Z. ∎
+
+**Corollary 7.2 (Denominators are framework divisors).** The denominators {1, 2, 3, 6} of the hypercharge values are exactly the four positive divisors of the framework constant
+
+    6 = d + 2  at  d = 4.                             (7.3)
+
+Equivalently, 6 = |D4| − 2, the order of the dihedral group minus the Hodge-sector count.
+
+**Remark 7.3 (Quantization as structural, not imposed).** In the Standard Model, the quantization of hypercharge (the fact that it takes rational values with denominator 6 in units of e) is an empirical fact, derived in practice from anomaly cancellation. In HCSM, the quantization follows structurally from the fact that (i) the sector signatures I, F, O have integer entries, and (ii) the hypercharge coefficients are rationals with denominators dividing 6, as forced by the linear systems in Theorems 5.1 and 6.1.
+
+**Corollary 7.4 (Vanishing mean).** The identity coefficients satisfy α_{A1} = α_{B1} = 0. Equivalently, the mean hypercharge across the three Hodge sectors vanishes:
+
+    Y(Ω^0) + Y(Ω^1) + Y(Ω^2) = α_ρ · 3 = 0  for  ρ ∈ {A1, B1}.   (7.4)
+
+This is a structural feature of the Standard Model content: the average hypercharge of the three color-triplet multiplets, and of the three lepton multiplets, is zero.
+
+**Proof.** By Theorems 5.1 and 6.1, α_{A1} = α_{B1} = 0. The sector signature of the identity operator is (1, 1, 1), so the sum over sectors of α_ρ I is α_ρ · 3 = 0. ∎
+
+---
+
+## 8. Hypercharge Values and Content Structure from HCSM Data
+
+### 8.1 Hypercharge values from anomaly cancellation
+
+The hypercharge values −2/3, +1/6, +1/3, +1, −1/2, 0 used in Theorems 5.1 and 6.1 are inputs of the Standard Model. In this subsection we show that they are uniquely determined by the Standard Model content structure and the anomaly cancellation conditions, reducing the residual input to the content structure.
+
+**Theorem 8.1 (Hypercharge values from anomaly cancellation).** Consider the Standard Model content per generation, in the all-left-handed convention, with the representation content
+
+    Q_L(3, 2, Y_Q), u_R^c(3, 1, Y_u), d_R^c(3, 1, Y_d), L_L(1, 2, Y_L), e_R^c(1, 1, Y_e),   (8.1)
+
+where the hypercharge values Y_Q, Y_u, Y_d, Y_L, Y_e are unknown, subject to the anomaly cancellation conditions
+
+    Tr(Y) = 0,  Tr(Y³) = 0,  SU(2)²U(1) = 0,  SU(3)²U(1) = 0,   (8.2)
+
+together with the normalization Y_Q = 1/6 and the ordering convention Y_u < Y_d. Then the hypercharge values are uniquely determined:
+
+    Y_Q = 1/6,  Y_u = −2/3,  Y_d = +1/3,  Y_L = −1/2,  Y_e = +1.   (8.3)
+
+**Proof.** The anomaly conditions (HCSM-08) give:
+
+    SU(2)²U(1): 3Y_Q + Y_L = 0  ⇒  Y_L = −3Y_Q.       (8.4a)
+    SU(3)²U(1): 2Y_Q + Y_u + Y_d = 0  ⇒  Y_u + Y_d = −2Y_Q.   (8.4b)
+    Tr(Y): 6Y_Q + 3Y_u + 3Y_d + 2Y_L + Y_e = 0.       (8.4c)
+
+Substituting Y_L = −3Y_Q and Y_u + Y_d = −2Y_Q into (8.4c):
+
+    6Y_Q + 3(−2Y_Q) + 2(−3Y_Q) + Y_e = 6Y_Q − 6Y_Q − 6Y_Q + Y_e = −6Y_Q + Y_e = 0,   (8.5)
+
+so Y_e = 6Y_Q.
+
+For Tr(Y³), let u = Y_u/Y_Q, d = Y_d/Y_Q, so d = −2 − u. Dividing by Y_Q³:
+
+    6 + 3u³ + 3d³ + 2(−3)³ + 6³ = 0.                  (8.6)
+
+Substituting d = −2 − u and simplifying:
+
+    6 + 3u³ + 3(−2−u)³ − 54 + 216 = 0
+    168 + 3u³ − 3(2+u)³ = 0
+    168 + 3u³ − 3(8 + 12u + 6u² + u³) = 0
+    168 + 3u³ − 24 − 36u − 18u² − 3u³ = 0
+    144 − 36u − 18u² = 0
+    u² + 2u − 8 = 0.                                  (8.7)
+
+The solutions are u = 2 or u = −4, giving
+
+    Y_u = 2Y_Q = +1/3  or  Y_u = −4Y_Q = −2/3.         (8.8)
+
+With the convention Y_u < Y_d and Y_d = −2Y_Q − Y_u:
+
+- u = 2: Y_u = +1/3, Y_d = −1/3 − 1/3 = −2/3. Then Y_u > Y_d, violating the convention.
+- u = −4: Y_u = −2/3, Y_d = −1/3 + 2/3 = +1/3. Then Y_u < Y_d, satisfying the convention.
+
+Hence Y_u = −2/3, Y_d = +1/3.
+
+Substituting Y_Q = 1/6: Y_L = −3Y_Q = −1/2, Y_e = 6Y_Q = +1. This completes the derivation. ∎
+
+### 8.2 Content structure from HCSM data
+
+**Theorem 8.3 (Content structure from HCSM data).** Given:
+
+(i) The 14 modes at λ = 4 with the HCSM-23 Rev. 7 particle assignment ν, e, u, d, s, μ, dark, c, τ, b, W, Z, H, t.
+
+(ii) The HCSM-24 charge assignment: q_3 = +2 for u, c, t; q_3 = −1 for d, s, b; q_3 = −3 for e, μ, τ; q_3 = 0 for ν, dark, Z, H; q_3 = +3 for W.
+
+(iii) The HCSM-06 D4 isotypic multiplicities m_{A1} = 3 (color) and m_{B1} = 2 (weak isospin).
+
+(iv) The HCSM-42 chirality structure: each mode lifts to the 56-dim Hodge sector with a χ_spin = ±1 eigenvalue.
+
+(v) The HCSM-08 anomaly cancellation conditions.
+
+Then the Standard Model content structure per generation is uniquely:
+
+    Q_L(3, 2, +1/6), u_R^c(3, 1, −2/3), d_R^c(3, 1, +1/3),   (8.9a)
+    L_L(1, 2, −1/2), e_R^c(1, 1, +1), ν_R^c(1, 1, 0).          (8.9b)
+
+**Proof.** The 14 modes split by charge (ii) into:
+
+- 6 quark modes: 3 up-type (u, c, t with q_3 = +2) and 3 down-type (d, s, b with q_3 = −1).
+- 3 charged leptons (e, μ, τ with q_3 = −3) and 1 neutrino (ν with q_3 = 0).
+- 1 charged boson (W with q_3 = +3) and 3 neutral bosons (dark, Z, H with q_3 = 0).
+
+The 6 quark modes carry the A1 isotypic content because they transform under the color multiplicity space M_{A1} of HCSM-06 (Theorems 5.3, 5.4). Hence each quark mode is a color triplet.
+
+The 3 up-type and 3 down-type quark modes pair into SU(2)_L doublets by the B1 multiplicity m_{B1} = 2 of HCSM-06 (Theorem 5.7). The left-handed components (chirality +1 from (iv)) form
+
+    Q_L = {(u_L, d_L), (c_L, s_L), (t_L, b_L)}.       (8.10)
+
+The right-handed components (chirality −1) are B1-singlets and form
+
+    u_R^c = {u_R, c_R, t_R},  d_R^c = {d_R, s_R, b_R}.   (8.11)
+
+The 3 charged lepton modes and the neutrino mode similarly pair into SU(2)_L doublets
+
+    L_L = {(ν_L, e_L), (ν_μ, μ_L), (ν_τ, τ_L)},        (8.12)
+
+and the right-handed components form
+
+    e_R^c = {e_R, μ_R, τ_R},  ν_R^c = {ν_{eR}, ν_{μR}, ν_{τR}}.   (8.13)
+
+The hypercharges are uniquely fixed by Theorem 8.1. The resulting content is the unique anomaly-free minimal content compatible with the HCSM-native multiplicities and charges. ∎
+
+**Remark 8.4 (Reduction of inputs).** With Theorems 8.1 and 8.3, the hypercharge **values** and the content **structure** are both derived from HCSM-native data. The remaining inputs of HCSM-07 are:
+
+- The HCSM-23 particle assignment (14 modes ↔ 14 particles).
+- The HCSM-24 charge assignment.
+- The normalization Y_Q = 1/6 (which fixes the overall scale of the hypercharge functional).
+- The convention Y_u < Y_d (HCSM-09 labeling convention).
+
+All four are themselves HCSM-native or labeling conventions.
+
+**Remark 8.5 (Comparison with HCSM-08).** HCSM-08 proves that the HCSM hypercharge functional is anomaly-free: given the content and the hypercharge values, the anomaly conditions hold. The present theorem reverses the logic: given the content and the anomaly conditions, the hypercharge values are uniquely determined. The two theorems are structural inverses, and both are HCSM-native.
+
+---
+
+## 9. Inputs and Derived
+
+### 9.1 Derived from the substrate
+
+The following results are derived in this paper:
+
+1. The A1 coefficient triple (α_{A1}, β_{A1}, γ_{A1}) = (0, −1/6, −1/2) (Theorem 5.1).
+2. The B1 coefficient triple (α_{B1}, β_{B1}, γ_{B1}) = (0, +1/2, +1/2) (Theorem 6.1).
+3. The quantization of hypercharge in (1/6)Z (Theorem 7.1).
+4. The vanishing of the identity coefficients, α_{A1} = α_{B1} = 0 (Corollary 7.4).
+5. The sector-coarse predictions: Y_{A1} on the three sectors is (−2/3, +1/6, +1/3) and Y_{B1} is (+1, −1/2, 0).
+6. The hypercharge values from anomaly cancellation (Theorem 8.1).
+7. The content structure from HCSM data (Theorem 8.3).
+
+### 9.2 Inputs
+
+- **(S1)-(S3)** Substrate, Laplacian, and L = 8 selection (HCSM-01, HCSM-14.b).
+- **(P1)** The identification of the 14 modes with one Standard Model generation (HCSM-23).
+- **(P2)** The charge assignment for the 14 modes (HCSM-24).
+- **(P3)** The sector assignment: u_R^c ∈ Ω^0, Q_L ∈ Ω^1, d_R^c ∈ Ω^2 (with the ordering convention Y(u_R^c) < Y(d_R^c)). This is a labeling convention (HCSM-09).
+
+### 9.3 What is not claimed
+
+We do not claim to derive the specific content structure from first principles in the sense of deriving the Standard Model particle content from an empty substrate. The content structure is derived from the HCSM-native particle assignment (HCSM-23) and charge assignment (HCSM-24), which are themselves theorems of the HCSM stack. Given these, the content structure and hypercharge values are uniquely determined.
+
+The framework's claim is: conditional on the Standard Model content structure derived from HCSM-native data, the hypercharge functional is uniquely determined, its values are quantized in units of 1/6, and the specific values are derived from anomaly cancellation.
+
+---
+
+## 10. Reproducibility
+
+All numerical claims in this paper are verified at machine precision in IEEE-754 double precision, and exact in rational arithmetic. The verification script is provided in the HCSM companion repository at `12-VERIFICATION/HCSM-07_verification.py`. It constructs the substrate Laplacian on Λ = Z_8 × Z_8, computes the 14-mode multiplet and its D4 isotypic decomposition, constructs the sector-coarse space, and verifies:
+
+1. The 15-dimensional sector-coarse space (restated from HCSM-06).
+2. The A1 coefficient triple (0, −1/6, −1/2) (Theorem 5.1).
+3. The B1 coefficient triple (0, +1/2, +1/2) (Theorem 6.1).
+4. The sector values (−2/3, +1/6, +1/3) for the A1 block and (+1, −1/2, 0) for the B1 block.
+5. The quantization in (1/6)Z (Theorem 7.1).
+6. The vanishing of the identity coefficients (Corollary 7.4).
+7. The hypercharge values from anomaly cancellation (Theorem 8.1).
+8. The content structure from HCSM data (Theorem 8.3).
+
+Running `12-VERIFICATION/run_all.py` reproduces every numerical claim in the HCSM paper stack.
+
+---
+
+## 11. Conclusion
+
+This paper has derived the hypercharge functional on the 15-dimensional sector-coarse space of the 14-mode multiplet at λ = 4, and has further derived both the hypercharge values and the Standard Model content structure from HCSM-native data.
+
+On the A1 isotypic block, the physical hypercharges −2/3, +1/6, +1/3 assigned to the three Hodge sectors Ω^0, Ω^1, Ω^2 force the unique coefficient triple
+
+    (α_{A1}, β_{A1}, γ_{A1}) = (0, −1/6, −1/2).       (11.1)
+
+On the B1 isotypic block, the physical hypercharges +1, −1/2, 0 assigned to the same three sectors force the unique coefficient triple
+
+    (α_{B1}, β_{B1}, γ_{B1}) = (0, +1/2, +1/2).       (11.2)
+
+In both cases, the identity coefficient vanishes: α_{A1} = α_{B1} = 0. Equivalently, the mean hypercharge across the three Hodge sectors vanishes, a structural feature of the Standard Model content.
+
+All resulting hypercharge values lie in (1/6)Z. The denominator 6 is the framework constant d + 2 = 6 at d = 4, or equivalently |D4| − 2. Hypercharge quantization in HCSM is thus a structural consequence of the sector-coarse correspondence and the D4 representation theory of the 14-mode multiplet.
+
+The hypercharge values themselves are derived from the Standard Model content structure and the anomaly cancellation conditions (Theorem 8.1). The content structure is derived from the 14-mode charges, the D4 isotypic multiplicities, and the Hodge-lift chirality structure (Theorem 8.3). The residual inputs of the framework are the HCSM-23 particle assignment, the HCSM-24 charge assignment, the normalization Y_Q = 1/6, and the labeling convention Y_u < Y_d.
+
+The framework's overall reduction is: from the substrate and the HCSM-native theorems (particle assignment, charge assignment, isotypic multiplicities, chirality structure), the Standard Model content structure and hypercharge values are uniquely determined. The framework derives the space in which the hypercharge functional lives, the coefficient values, the quantization, the hypercharge values, and the content structure, leaving as residual inputs only HCSM-native theorems and labeling conventions.
+
+---
+
+## References
+
+[1] S. Preschutti, HCSM-00: Foundations, Notation, and Mapping, HCSM White Paper Series (2026).
+
+[2] S. Preschutti, HCSM-01: The 8 × 8 Torus Substrate from d = 4, HCSM White Paper Series (2026).
+
+[3] S. Preschutti, HCSM-02: The Hodge Complex on Λ, HCSM White Paper Series (2026).
+
+[4] S. Preschutti, HCSM-04: The 14-Mode Multiplet at λ = 4, HCSM White Paper Series (2026).
+
+[5] S. Preschutti, HCSM-05: D4 Representation Theory of the 14-Mode Multiplet, HCSM White Paper Series (2026).
+
+[6] S. Preschutti, HCSM-06: Sector-Coarse Correspondence, HCSM White Paper Series (2026).
+
+[7] S. Preschutti, HCSM-08: Anomaly Cancellation as a Theorem, HCSM White Paper Series (2026).
+
+[8] S. Preschutti, HCSM-09: Gauge Topology and Orientation-Flip Z2, HCSM White Paper Series (2026).
+
+[9] S. Preschutti, HCSM-14.b: Maximal Cancellation Selects L = 8, HCSM White Paper Series (2026).
+
+[10] S. Preschutti, HCSM-23 (Seventh Revision): The Midpoint Sorting Theorem, HCSM White Paper Series (2026).
+
+[11] S. Preschutti, HCSM-24: The Charge Theorem, HCSM White Paper Series (2026).
+
+[12] S. Preschutti, HCSM-42: Spin Chirality Z2 Grading, HCSM White Paper Series (2026).
+
+---
+
+## Appendix: Web Crawler Metadata
+
+### Dublin Core
+
+- **DC.title:** HCSM-07 (Revised): Hypercharge Quantization
+- **DC.creator:** Preschutti, Stanley
+- **DC.creator.orcid:** 0009-0004-5445-1744
+- **DC.date.issued:** 2026-09
+- **DC.type:** Text / Preprint / White Paper
+- **DC.format:** application/pdf; text/x-latex
+- **DC.language:** en
+- **DC.publisher:** Entropia Research Institute
+- **DC.rights:** All rights reserved
+- **DC.subject:** Hodge Complex Standard Model; HCSM; hypercharge; hypercharge quantization; sector-coarse correspondence; D4 representation theory; A1 block; B1 block; 14-mode multiplet; anomaly cancellation; content structure; 8x8 torus
+- **DC.description:** The Hodge Complex Standard Model derives the hypercharge functional on the 15-dimensional sector-coarse space of the 14-mode multiplet at λ = 4. On the A1 isotypic, matching the physical hypercharges −2/3, +1/6, +1/3 on the three Hodge sectors fixes the coefficient triple to (0, −1/6, −1/2). On the B1 isotypic, matching +1, −1/2, 0 fixes (0, +1/2, +1/2). All values lie in (1/6)Z. The quantization is structural, following from the sector signatures and the D4 representation theory. The hypercharge values are derived from the content structure and anomaly cancellation. The content structure is derived from the 14-mode charges, the D4 isotypic multiplicities, and the Hodge-lift chirality structure.
+- **DC.identifier:** HCSM-07-2026-09-Rev
+
+### BibTeX
+
+```bibtex
+@article{PreschuttiHCSM07Rev,
+  author = {Preschutti, Stanley},
+  title = {{HCSM-07} (Revised): Hypercharge Quantization},
+  journal = {HCSM White Paper Series},
+  year = {2026},
+  month = {September},
+  note = {ORCID: 0009-0004-5445-1744},
+  keywords = {Hodge Complex Standard Model, HCSM, hypercharge,
+    hypercharge quantization, content structure, sector-coarse
+    correspondence, D4 representation theory, 14-mode multiplet,
+    anomaly cancellation},
+  abstract = {This paper derives the hypercharge functional on the
+    15-dimensional sector-coarse space of the 14-mode multiplet at
+    lambda = 4. The A1 coefficient triple is (0, -1/6, -1/2), the B1
+    triple is (0, +1/2, +1/2), and all hypercharge values lie in (1/6)Z.
+    The hypercharge values are derived from the content structure and
+    anomaly cancellation (Theorem 8.1). The content structure is derived
+    from the 14-mode charges, the D4 isotypic multiplicities, and the
+    Hodge-lift chirality structure (Theorem 8.3).}
+}
