@@ -1,0 +1,790 @@
+================================================================================
+HCSM-12 (Second Revision)
+The Hodge-HCSM Interface: Entropic Flatness
+The Maximally Mixed State on the 56-Dimensional Hodge Sector
+and the Processor Channel
+The Hodge Complex Standard Model
+================================================================================
+
+Stanley Preschutti(1)
+
+(1) Entropia Research Institute / Information Physics Institute,
+    ORCID: 0009-0004-5445-1744, scstamp@yahoo.com
+
+September 2026
+
+
+================================================================================
+ABSTRACT
+================================================================================
+
+The Hodge Complex Standard Model identifies the 14 modes at the
+self-paired eigenvalue lambda = 4 of the discrete Laplacian on the
+periodic 8 x 8 torus with one Standard Model generation (HCSM-04),
+and on the full 56-dimensional Hodge sector
+V_56 = Omega^0 + Omega^1 + Omega^2 at lambda = 4, the processor T
+selects a fermion sector of dimension |F| = 10 and a boson sector
+of dimension |B_bos| = 4 (HCSM-13). This paper establishes the
+entropic properties of the Hodge-HCSM interface. We prove:
+
+  (i) the natural state on the 56-dimensional Hodge sector is the
+      maximally mixed state rho_in = I_56/56, obtained as the image
+      of the maximally mixed state on the full Hodge complex under
+      the mirror-cancellation projection of HCSM-10; its von
+      Neumann entropy is S_in = log 56;
+
+ (ii) the processor T extends to a rank-40 orthogonal projection
+      T_56 = extend(T) on V_56 (HCSM-16, Definition 1), and the
+      associated processor channel is a completely positive
+      trace-preserving map whose output on the maximally mixed
+      input is the maximally mixed state on the 40-dimensional
+      image of T_56, with entropy S_out = log 40;
+
+(iii) the entropy reduction is
+      Delta S = log 56 - log 40 = log(7/5) ~ 0.33647 nats;
+
+ (iv) the reduction equals the exact deterministic Landauer bound
+      for the processor's information-processing step, conditional
+      on the HCSM measurement-irreversibility principle.
+
+All claims are HCSM-native and verified at machine precision.
+
+
+================================================================================
+CONTENTS
+================================================================================
+
+1. Introduction
+   1.1 The Hodge-HCSM interface
+   1.2 The one-line summary
+   1.3 Main results
+   1.4 Cross references to the HCSM paper stack
+   1.5 Organization
+2. Setup
+   2.1 The 56-dimensional Hodge sector
+   2.2 The HCSM processor
+   2.3 Extension of the processor to V_56
+3. Entropic flatness of the Hodge output
+   3.1 The full Hodge complex and its maximally mixed state
+   3.2 Mirror cancellation and the projection onto V_56
+4. The processor channel
+   4.1 The CPTP map
+   4.2 The output state
+5. The entropy reduction
+6. Landauer saturation
+7. Interpretation
+8. Inputs and derived
+9. Reproducibility
+10. Conclusion
+A. Web Crawler Metadata
+   A.1 Dublin Core
+   A.2 Schema.org JSON-LD
+   A.3 BibTeX for Automated Indexing
+
+
+================================================================================
+1. INTRODUCTION
+================================================================================
+
+1.1 The Hodge-HCSM interface
+--------------------------------------------------------------------------------
+
+The Hodge Complex Standard Model (HCSM) has two structural levels.
+The first is the Hodge complex: the exterior algebra of differential
+forms Omega^0 + Omega^1 + Omega^2 on the periodic 8 x 8 torus
+(HCSM-02 [HCSM-02]), with the Hodge-Dirac operator D = d + d* and
+the self-paired eigenvalue lambda = 4 of the discrete Laplacian. The
+second is the HCSM processor: the rank-10 orthogonal projection T on
+the 14-mode multiplet at lambda = 4, which separates the fermion
+sector F (|F| = 10) from the boson sector B_bos (|B_bos| = 4)
+(HCSM-13 [HCSM-13]).
+
+The Hodge-HCSM interface is the passage from the abstract Hodge
+complex to the processed fermion/boson structure. This paper
+establishes the information-theoretic properties of that interface:
+the entropy of the state the Hodge complex delivers, and the entropy
+of the state the processor produces.
+
+1.2 The one-line summary
+--------------------------------------------------------------------------------
+
+    The natural state on the 56-dimensional Hodge sector is the
+    maximally mixed state, with entropy log 56 nats. The processor
+    T maps this to the maximally mixed state on its 40-dimensional
+    image, with entropy log 40 nats. The entropy reduction is
+    exactly log(7/5) ~ 0.33647 nats, saturating the deterministic
+    Landauer bound.
+
+1.3 Main results
+--------------------------------------------------------------------------------
+
+(1) Entropic flatness (Theorem 3.1). The natural state on the
+    56-dimensional Hodge sector at lambda = 4 is the maximally
+    mixed state rho_in = I_56/56, obtained as the image of the
+    maximally mixed state on the full Hodge complex under the
+    mirror-cancellation projection of HCSM-10. Its von Neumann
+    entropy is S_in = log 56 nats.
+
+(2) Processor channel (Theorem 4.1). The processor T extends to a
+    rank-40 orthogonal projection T_56 = extend(T) on V_56 (HCSM-16,
+    Definition 1), and the associated processor channel is a
+    completely positive trace-preserving map. Applied to rho_in,
+    it yields the maximally mixed state on im(T_56) of dimension
+    40, with entropy S_out = log 40 nats.
+
+(3) Entropy reduction (Corollary 5.1).
+
+        Delta S = S_in - S_out = log 56 - log 40
+                = log(56/40) = log(7/5) ~ 0.33647 nats.           (1)
+
+(4) Landauer saturation (Theorem 6.1). The reduction
+    Delta S = log(7/5) equals the deterministic Landauer bound for
+    the processor's information-processing step, conditional on the
+    HCSM measurement-irreversibility principle (Principle 6.1).
+
+(5) Framework-constant characterization (Corollary 5.2). The
+    reduction has the clean HCSM-native form
+
+        Delta S = log(dim V_56 / rank(T_56))
+                = log(56/40) = log(7/5).                          (2)
+
+1.4 Cross references to the HCSM paper stack
+--------------------------------------------------------------------------------
+
+  - HCSM-00 [HCSM-00]: foundations, notation, and mapping.
+  - HCSM-01 [HCSM-01]: the 8 x 8 torus substrate; the framework
+    constants.
+  - HCSM-02 [HCSM-02]: the Hodge complex; the 56-dimensional
+    sector.
+  - HCSM-04 [HCSM-04]: the 14-mode multiplet.
+  - HCSM-05 [HCSM-05]: D4 representation theory of the 14-mode
+    multiplet.
+  - HCSM-10 [HCSM-10]: the mirror-cancellation theorem; residual
+    7/32.
+  - HCSM-13 [HCSM-13]: the processor T; the F/B_bos split.
+  - HCSM-16 [HCSM-16]: the loop operator on the full 56-dimensional
+    Hodge sector; the block-diagonal extension map.
+
+1.5 Organization
+--------------------------------------------------------------------------------
+
+Section 2 states the Hodge sector and the processor. Section 3 proves
+the entropic-flatness theorem. Section 4 proves the processor-channel
+theorem. Section 5 derives the entropy reduction. Section 6
+establishes the Landauer saturation as a conditional theorem.
+Section 7 gives the information-theoretic interpretation.
+Section 8 summarizes inputs and derived results. Section 9 gives
+reproducibility notes. Section 10 concludes.
+
+
+================================================================================
+2. SETUP
+================================================================================
+
+2.1 The 56-dimensional Hodge sector
+--------------------------------------------------------------------------------
+
+The substrate is the periodic square lattice Lambda = Z_8 x Z_8 with
+N = 64 sites (HCSM-01 [HCSM-01]). The Hodge complex at the self-paired
+eigenvalue lambda = 4 is
+
+    V_56 = Omega^0|_{lambda=4} + Omega^1|_{lambda=4}
+           + Omega^2|_{lambda=4},                                    (3)
+
+of total dimension 14 + 28 + 14 = 56 (HCSM-02 [HCSM-02]). Its D4
+isotypic decomposition is
+
+    V_56 = 9A_1 + 5A_2 + 7B_1 + 7B_2 + 14E                            (4)
+
+with dimension check 9 + 5 + 7 + 7 + 28 = 56
+(HCSM-02 [HCSM-02], HCSM-05 [HCSM-05]).
+
+2.2 The HCSM processor
+--------------------------------------------------------------------------------
+
+On the 14-mode multiplet at lambda = 4, the processor T is the
+rank-10 orthogonal projection (HCSM-13 [HCSM-13]):
+
+    T = P_mesh + P_tau = I_14 - P_C,                                 (5)
+
+with image the fermion sector F and kernel the boson sector B_bos:
+
+    F = {nu, e, u, d, s, mu, c, tau, b, t}, |F| = 10,                (6)
+
+    B_bos = {dark, W, Z, H},                |B_bos| = 4.             (7)
+
+The classes A, B_wind, C are the winding classes of HCSM-14; the
+boson sector is the winding class C.
+
+2.3 Extension of the processor to V_56
+--------------------------------------------------------------------------------
+
+By HCSM-16 (Definition 1, Lemma 2), the block-diagonal extension map
+extend : C^{14 x 14} -> C^{56 x 56},
+
+    extend(G) = diag(G, G (x) I_2, G),                               (8)
+
+in the block ordering C^14 + (C^14 (x) C^2) + C^14 is a Lie algebra
+homomorphism. We denote by
+
+    T_56 = extend(T) = T (+) (T (x) I_2) (+) T                        (9)
+
+the 56-dimensional processor.
+
+Lemma 2.1 (Processor rank on V_56). The operator T_56 is an
+orthogonal projection with
+
+    rank(T_56) = 10 + 20 + 10 = 40,
+    dim ker(T_56) = 16.                                              (10)
+
+Proof. T is a rank-10 projection on C^14 with T^2 = T and
+T^dagger = T. The block-diagonal structure (9) inherits idempotence
+and Hermiticity. The rank is rank(T) + rank(T (x) I_2) + rank(T)
+= 10 + 20 + 10 = 40. The kernel has dimension 56 - 40 = 16. [Box]
+
+Lemma 2.2 (Fermion/boson structural decomposition). The processor
+T_56 distinguishes a fermion sector of dimension |F| = 10 and a
+boson sector of dimension |B_bos| = 4 per form degree; on V_56 the
+processor image has dimension
+
+    rank(T_56) = |F| * (1 + 2 + 1) = 10 * 4 = 40.                   (11)
+
+Proof. By Lemma 2.1, rank(T_56) = 40. The factor 1 + 2 + 1 counts
+the contributions to Omega^0, Omega^1, and Omega^2 respectively.
+[Box]
+
+
+================================================================================
+3. ENTROPIC FLATNESS OF THE HODGE OUTPUT
+================================================================================
+
+3.1 The full Hodge complex and its maximally mixed state
+--------------------------------------------------------------------------------
+
+The full Hodge complex on Lambda has dimension
+dim(Omega^0 + Omega^1 + Omega^2) = 64 + 128 + 64 = 256 (HCSM-02
+[HCSM-02]). We take as the natural state on the full Hodge complex
+the maximally mixed state
+
+    rho_full = I_256 / 256,                                         (12)
+
+the unique unit-trace state invariant under the full unitary group
+U(256) preserving the Hodge inner product. This is a maximum-entropy
+principle, not a D4-uniqueness claim: on a reducible representation,
+the D4 commutant is strictly larger than the scalars, so D4
+invariance alone does not single out I/dim.
+
+3.2 Mirror cancellation and the projection onto V_56
+--------------------------------------------------------------------------------
+
+By HCSM-10 [HCSM-10], the mirror symmetry lambda <-> 8 - lambda of
+the 5-point Laplacian spectrum pairs 50 of the 64 scalar modes into
+cancelling partners; only the 14 self-paired modes at lambda = 4
+survive. On the full Hodge complex this is the orthogonal projection
+P_mir = P_{lambda=4} onto the 56-dimensional self-paired eigenspace
+V_56 (3).
+
+The mirror-cancellation projection defines a completely positive
+trace-preserving (CPTP) map
+
+    Phi_mir(rho) = P_mir rho P_mir
+                 + Tr((I_256 - P_mir) rho) |0><0|_bath,             (13)
+
+where |0>_bath is a fixed reference state on the discarded
+200-dimensional bath.
+
+Theorem 3.1 (Entropic flatness). The natural state on the
+56-dimensional Hodge sector V_56 is the maximally mixed state
+
+    rho_in = Phi_mir(rho_full) = I_56 / 56,                         (14)
+
+the image of the maximally mixed state on the full Hodge complex
+under the mirror-cancellation projection. Its von Neumann entropy is
+
+    S_in = -Tr(rho_in log rho_in)
+         = log 56 ~ 4.0253516907 nats.                             (15)
+
+Proof. Since P_mir is a projection and rho_full = I_256 / 256,
+
+    P_mir rho_full P_mir = P_mir / 256 = (I_56 + 0_200) / 256.
+
+Taking the trace and normalizing yields rho_in = I_56 / 56. The
+entropy follows: S_in = -sum_{i=1}^{56} (1/56) log(1/56) = log 56.
+[Box]
+
+Remark 3.1 (Why maximally mixed). The state rho_in = I_56 / 56 is
+the unique unit-trace state invariant under the full unitary group
+U(56) acting on V_56. The derivation via the mirror-cancellation
+projection is HCSM-native: the projection onto the self-paired
+eigenspace is the structural content of the mirror-cancellation
+theorem (HCSM-10).
+
+Remark 3.2 (Entropic flatness). The term "entropic flatness" refers
+to the fact that rho_in is uniform over the 56 dimensions of V_56:
+every dimension carries equal weight 1/56. This is the maximum-entropy
+state on V_56.
+
+
+================================================================================
+4. THE PROCESSOR CHANNEL
+================================================================================
+
+4.1 The CPTP map
+--------------------------------------------------------------------------------
+
+Definition 4.1 (Processor channel). The processor channel is the
+CPTP map
+
+    Phi_T(rho) = T_56 rho T_56
+               + Tr((I_56 - T_56) rho) |0><0|_bos,                 (16)
+
+with T_56 = extend(T) from (9) and |0>_bos a fixed reference state
+on the 16-dimensional bosonic kernel.
+
+The map Phi_T is completely positive because it is a sum of two
+completely positive maps (rho -> T_56 rho T_56 and the trace-scaling
+channel onto |0><0|_bos), and it is trace-preserving because
+Tr(T_56 rho T_56) + Tr((I - T_56) rho) = Tr(rho).
+
+4.2 The output state
+--------------------------------------------------------------------------------
+
+Theorem 4.1 (Processor channel output). The processor channel Phi_T
+maps the maximally mixed input rho_in = I_56 / 56 to the maximally
+mixed state on the 40-dimensional image of T_56:
+
+    rho_out proportional to Phi_T(rho_in)
+          = T_56 / 56
+          = (I_{im(T_56)} + 0_16) / 56.                             (17)
+
+Restricted to the image of T_56 and renormalized,
+rho_out|_{im(T_56)} = I_40 / 40, with von Neumann entropy
+
+    S_out = log 40 ~ 3.6888794541 nats.                            (18)
+
+Proof. Since T_56 is a projection (T_56^2 = T_56) and
+rho_in = I_56 / 56,
+
+    T_56 rho_in T_56 = T_56 / 56.
+
+The trace of this term is rank(T_56) / 56 = 40 / 56 = 5/7. The
+complementary term Tr((I - T_56) rho_in) |0><0|_bos contributes a
+pure state on the 16-dimensional kernel with weight 16/56 = 2/7.
+The marginal on im(T_56) is therefore I_40 / 40, with entropy
+log 40. [Box]
+
+Remark 4.1 (Image-of-T_56 language). The output state is naturally
+a state on the image of T_56, of dimension 40. The state is not,
+strictly speaking, a state on the product space F (x) B_bos; the
+language of "fermion-boson product space" of the first revision
+should be replaced by the language of the image of T_56.
+
+
+================================================================================
+5. THE ENTROPY REDUCTION
+================================================================================
+
+Corollary 5.1 (Entropy reduction). The entropy reduction effected
+by the processor is
+
+    Delta S = S_in - S_out = log 56 - log 40
+            = log(56/40) = log(7/5) ~ 0.3364722366 nats.             (19)
+
+Proof. By Theorems 3.1 and 4.1, S_in = log 56 and S_out = log 40.
+Subtract. [Box]
+
+Corollary 5.2 (Framework-constant form). The entropy reduction has
+the clean HCSM-native form
+
+    Delta S = log(dim V_56 / rank(T_56))
+            = log(56/40) = log(7/5).                                (20)
+
+The numerator dim V_56 = 56 is the dimension of the Hodge sector;
+the denominator rank(T_56) = 40 is the rank of the processor. Both
+are framework constants at d = 4. [Box]
+
+Remark 5.1 (Ratio in bits). The entropy reduction in bits is
+
+    Delta S / log 2 = log_2(7/5) ~ 0.4854268272 bits.               (21)
+
+
+================================================================================
+6. LANDAUER SATURATION
+================================================================================
+
+The entropy reduction Delta S = log(7/5) of Corollary 5.1 is a
+structural identity of the HCSM state space. Whether it equals the
+thermodynamic Landauer bound is a physical statement that requires
+an additional principle: the identification of the entropy reduction
+with heat dissipated into the DME bath at the rate 1/T_DME.
+
+Principle 6.1 (Measurement irreversibility). The processor channel
+Phi_T is a non-unitary projection. The entropy reduction
+Delta S = log(7/5) is transferred to the DME bath at the rate
+1/T_DME, where T_DME = 1/(2 gamma) is the unique dissipative time
+scale of the HCSM five-layer loop (HCSM-21 [HCSM-21],
+HCSM-54 [HCSM-54]).
+
+Theorem 6.1 (Landauer saturation, conditional). Conditional on
+Principle 6.1, the entropy reduction Delta S = log(7/5) equals the
+exact deterministic Landauer bound for the processor's information-
+processing step. The processor erases exactly log(7/5) nats of
+entropy per pass, at the exact deterministic limit. The loop-pass
+duration is T_pass = T_DME = 1/(2 gamma).
+
+Proof. The processor channel Phi_T is a deterministic rank-40
+projection with well-defined image and kernel; no randomness enters
+its action. By Principle 6.1, the entropy reduction is transferred
+to the DME bath at the rate 1/T_DME. The deterministic Landauer
+bound is therefore saturated exactly, and the loop-pass duration
+equals the dissipative time T_DME. [Box]
+
+Remark 6.1 (Determinism of the processor). The processor T_56 is a
+fixed linear map with a well-defined image (the fermion sector on
+each form degree) and a well-defined kernel (the boson sector on
+each form degree). No randomness enters its action. The Landauer
+bound is therefore saturated exactly, conditional on Principle 6.1.
+
+Remark 6.2 (Status of the conditional). The Landauer saturation is
+a conditional theorem: the structural identity Delta S = log(7/5)
+is unconditional, but the identification with the thermodynamic
+Landauer bound requires Principle 6.1. This principle is HCSM-native
+(it is the content of HCSM-21, Theorem 12.1) but is not derived from
+the substrate alone.
+
+
+================================================================================
+7. INTERPRETATION
+================================================================================
+
+7.1 The Hodge-HCSM interface as an information-theoretic transition
+--------------------------------------------------------------------------------
+
+The Hodge complex provides the substrate's raw information content:
+a flat (maximally mixed) state on the 56-dimensional Hodge sector,
+of entropy log 56 nats. The processor T_56 reads out the
+fermion/boson structure, reducing the entropy to log 40 nats.
+
+The interface therefore performs an information-theoretic transition
+from a flat state on 56 dimensions to a flat state on 40 dimensions.
+The reduction is exactly log(7/5) ~ 0.33647 nats. This is the
+information the processor extracts, and it is the amount of entropy
+the substrate's raw state must release for the fermion/boson
+structure to be observable.
+
+7.2 The interface preserves a specific structure
+--------------------------------------------------------------------------------
+
+The reduction preserves the fermion/boson factorization. The state
+before processing is flat on all 56 dimensions; the state after
+processing is flat on the 40-dimensional image of T_56. The
+processor's information content is the fermion/boson label
+structure; the finer structure of the Hodge complex (the individual
+D4 multiplicities, the class partition) is not directly observable
+at the level of the interface.
+
+7.3 Relation to the Landauer bound
+--------------------------------------------------------------------------------
+
+The processor is a Maxwell demon in the exact deterministic limit,
+conditional on Principle 6.1. The Landauer bound is the
+thermodynamic constraint on the amount of entropy that can be
+erased per bit of information processing. The processor saturates
+this bound exactly:
+Delta S = log(7/5) = log(dim V_56 / rank(T_56)).
+
+The fact that the reduction saturates the bound, rather than being
+strictly larger, is a statement about the optimality of the
+processor: it erases exactly the entropy needed to convert the raw
+Hodge state into the fermion/boson output state, and no more.
+
+7.4 What the interface does not claim
+--------------------------------------------------------------------------------
+
+The interface does not claim to derive any particle properties
+(masses, charges, mixings) from the entropic reduction. Those are
+the subject of downstream papers (HCSM-23, HCSM-30, etc.). The
+interface establishes only the information-theoretic transition:
+what state the Hodge complex delivers, what state the processor
+produces, and how much entropy is reduced.
+
+The interface also does not claim that the entropy reduction is a
+fundamental physical process. It is a structural identity: the
+difference between two specific entropies computed from the HCSM
+state space.
+
+
+================================================================================
+8. INPUTS AND DERIVED
+================================================================================
+
+8.1 Derived
+--------------------------------------------------------------------------------
+
+1. The entropic flatness of the Hodge output: S_in = log 56
+   (Theorem 3.1).
+2. The processor channel: S_out = log 40 (Theorem 4.1).
+3. The entropy reduction: Delta S = log(7/5) (Corollary 5.1).
+4. The framework-constant form of the reduction (Corollary 5.2).
+5. The Landauer saturation, conditional on Principle 6.1
+   (Theorem 6.1).
+
+8.2 Inputs
+--------------------------------------------------------------------------------
+
+1. The 56-dimensional Hodge sector V_56 at lambda = 4
+   (HCSM-02 [HCSM-02]).
+2. The fermion and boson sector dimensions |F| = 10,
+   |B_bos| = 4 (HCSM-13 [HCSM-13]).
+3. The framework constants d = 4, N = 64, L = 8
+   (HCSM-01 [HCSM-01]).
+4. The block-diagonal extension map extend (HCSM-16 [HCSM-16]).
+5. The mirror-cancellation projection onto the self-paired
+   eigenspace (HCSM-10 [HCSM-10]).
+6. The standard density-matrix formalism: von Neumann entropy
+   S(rho) = -Tr(rho log rho), maximally mixed state rho = I/d,
+   and the Landauer bound ([Landauer], [Nielsen-Chuang]).
+
+8.3 Disclosed inputs
+--------------------------------------------------------------------------------
+
+1. The maximally mixed state on the full Hodge complex
+   rho_full = I_256 / 256 (a maximum-entropy principle).
+2. The measurement-irreversibility principle (Principle 6.1) for
+   the Landauer interpretation of the entropy reduction.
+
+8.4 What is not claimed
+--------------------------------------------------------------------------------
+
+We do not claim that the entropy reduction log(7/5) has any direct
+observational consequence. It is a structural identity of the HCSM
+state space. We also do not claim that a physical process produces
+the flat state on the Hodge sector: the flat state is the image of
+the maximally mixed state on the full Hodge complex under the
+mirror-cancellation projection, and its flatness is a property of
+the Hodge-HCSM interface.
+
+
+================================================================================
+9. REPRODUCIBILITY
+================================================================================
+
+All numerical claims are verified at machine precision in IEEE-754
+double precision. The verification script is provided in the HCSM
+companion repository at 12-VERIFICATION/HCSM-12_verification.py. It
+verifies:
+
+1. The dimension of the 56-dimensional Hodge sector.
+2. The fermion and boson sector dimensions |F| = 10, |B_bos| = 4.
+3. The processor extension T_56 = extend(T) and rank(T_56) = 40.
+4. The entropy S_in = log 56 ~ 4.0253516907.
+5. The entropy S_out = log 40 ~ 3.6888794541.
+6. The reduction Delta S = log(7/5) ~ 0.3364722366.
+7. The reduction in bits Delta S / log 2 ~ 0.4854268272.
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim
+in the HCSM paper stack.
+
+
+================================================================================
+10. CONCLUSION
+================================================================================
+
+This paper has established the entropic properties of the
+Hodge-HCSM interface of the Hodge Complex Standard Model.
+
+The natural state on the 56-dimensional Hodge sector at lambda = 4
+is the maximally mixed state rho_in = I_56 / 56, obtained as the
+image of the maximally mixed state on the full Hodge complex under
+the mirror-cancellation projection of HCSM-10. Its von Neumann
+entropy is S_in = log 56 ~ 4.02535 nats.
+
+The processor T extends to a rank-40 orthogonal projection
+T_56 = extend(T) on V_56 (HCSM-16), and the associated processor
+channel Phi_T maps rho_in to the maximally mixed state on im(T_56)
+of dimension 40, with entropy S_out = log 40 ~ 3.68888 nats. The
+entropy reduction is
+
+    Delta S = log 56 - log 40 = log(7/5) ~ 0.33647 nats.            (22)
+
+The reduction saturates the deterministic Landauer bound,
+conditional on the HCSM measurement-irreversibility principle
+(Principle 6.1).
+
+The Hodge-HCSM interface is therefore an information-theoretic
+transition from a flat state on 56 dimensions to a flat state on
+40 dimensions, with entropy reduction log(7/5). The transition is
+structural, exact, and HCSM-native. It is the natural starting
+point for downstream information-theoretic analyses of the processor
+and its outputs.
+
+Physics is what the machine cannot cancel. The Hodge complex is the
+machine. The log(7/5) is what the machine cannot cancel.
+
+
+================================================================================
+REFERENCES
+================================================================================
+
+[HCSM-00] S. Preschutti, HCSM-00: Foundations, Notation, and
+          Mapping, HCSM White Paper Series (2026).
+
+[HCSM-01] S. Preschutti, HCSM-01: The 8 x 8 Torus Substrate from
+          d = 4, HCSM White Paper Series (2026).
+
+[HCSM-02] S. Preschutti, HCSM-02: The Hodge Complex on Lambda,
+          HCSM White Paper Series (2026).
+
+[HCSM-04] S. Preschutti, HCSM-04: The 14-Mode Multiplet at
+          lambda = 4, HCSM White Paper Series (2026).
+
+[HCSM-05] S. Preschutti, HCSM-05: D4 Representation Theory of the
+          14-Mode Multiplet, HCSM White Paper Series (2026).
+
+[HCSM-10] S. Preschutti, HCSM-10: The Mirror Cancellation Theorem,
+          HCSM White Paper Series (2026).
+
+[HCSM-13] S. Preschutti, HCSM-13: The Processor T and the F/B-Class
+          Correspondence, HCSM White Paper Series (2026).
+
+[HCSM-16] S. Preschutti, HCSM-16: Loop Operator on the Full
+          56-Dimensional Hodge Sector, HCSM White Paper Series
+          (2026).
+
+[HCSM-21] S. Preschutti, HCSM-21: The Time Theorem, HCSM White
+          Paper Series (2026).
+
+[HCSM-54] S. Preschutti, HCSM-54: Vacuum Stability and the
+          Stability Coefficient, HCSM White Paper Series (2026).
+
+[Landauer] R. Landauer, Irreversibility and heat generation in the
+           computing process, IBM J. Res. Dev. 5, 183 (1961).
+
+[Nielsen-Chuang] M. A. Nielsen and I. L. Chuang, Quantum Computation
+                 and Quantum Information, Cambridge University
+                 Press (2000).
+
+
+================================================================================
+A. WEB CRAWLER METADATA
+================================================================================
+
+A.1 Dublin Core
+--------------------------------------------------------------------------------
+
+DC.title: HCSM-12 (Second Revision): The Hodge-HCSM Interface:
+  Entropic Flatness
+DC.creator: Preschutti, Stanley
+DC.creator.orcid: 0009-0004-5445-1744
+DC.date.issued: 2026-09
+DC.date.modified: 2026-09
+DC.type: Text / Preprint / White Paper
+DC.format: application/pdf; text/x-latex
+DC.language: en
+DC.publisher: Entropia Research Institute
+DC.rights: All rights reserved
+DC.subject: Hodge Complex Standard Model; HCSM; entropic flatness;
+  Hodge-HCSM interface; maximally mixed state; von Neumann entropy;
+  Landauer bound; fermion/boson split; 56-dimensional Hodge sector;
+  processor channel; CPTP map
+DC.description: The Hodge Complex Standard Model's Hodge-HCSM
+  interface delivers a maximally mixed state on the 56-dimensional
+  Hodge sector at lambda = 4, with von Neumann entropy
+  S_in = log 56. The state is the image of the maximally mixed
+  state on the full Hodge complex under the mirror-cancellation
+  projection of HCSM-10. The processor T extends to a rank-40
+  orthogonal projection T_56 on V_56 (HCSM-16), and the associated
+  CPTP channel maps rho_in to the maximally mixed state on im(T_56),
+  with entropy S_out = log 40. The entropy reduction is
+  Delta S = log 56 - log 40 = log(7/5) ~ 0.33647 nats, saturating
+  the deterministic Landauer bound conditional on the HCSM
+  measurement-irreversibility principle.
+DC.identifier: HCSM-12-2026-09-Rev2
+
+A.2 Schema.org JSON-LD
+--------------------------------------------------------------------------------
+
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "HCSM-12 (Second Revision): The Hodge-HCSM Interface:
+    Entropic Flatness",
+  "alternateName": "The Maximally Mixed State on the 56-Dimensional
+    Hodge Sector and the Processor Channel",
+  "author": {
+    "@type": "Person",
+    "name": "Stanley Preschutti",
+    "identifier": "https://orcid.org/0009-0004-5445-1744",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Entropia Research Institute"
+    }
+  },
+  "datePublished": "2026-09",
+  "inLanguage": "en",
+  "abstract": "The Hodge-HCSM interface delivers a maximally mixed
+    state on the 56-dimensional Hodge sector at lambda = 4, with
+    entropy S_in = log 56. The state is the image of the maximally
+    mixed state on the full Hodge complex under the
+    mirror-cancellation projection of HCSM-10. The processor T
+    extends to a rank-40 orthogonal projection T_56 on V_56
+    (HCSM-16), and the associated CPTP channel maps rho_in to the
+    maximally mixed state on im(T_56), with entropy S_out = log 40.
+    The entropy reduction is Delta S = log 56 - log 40 = log(7/5)
+    approximately 0.33647 nats, saturating the deterministic
+    Landauer bound conditional on the HCSM measurement-
+    irreversibility principle.",
+  "keywords": [
+    "Hodge Complex Standard Model",
+    "HCSM",
+    "entropic flatness",
+    "Hodge-HCSM interface",
+    "maximally mixed state",
+    "von Neumann entropy",
+    "Landauer bound",
+    "fermion/boson split",
+    "processor channel",
+    "CPTP map"
+  ],
+  "license": "All rights reserved",
+  "identifier": "HCSM-12-2026-09-Rev2",
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "HCSM White Paper Series"
+  }
+}
+
+A.3 BibTeX for Automated Indexing
+--------------------------------------------------------------------------------
+
+@article{PreschuttiHCSM12Rev2,
+  author = {Preschutti, Stanley},
+  title  = {{HCSM-12} (Second Revision): The Hodge-{HCSM}
+            Interface: Entropic Flatness},
+  journal = {HCSM White Paper Series},
+  year   = {2026},
+  month  = {September},
+  note   = {ORCID: 0009-0004-5445-1744},
+  keywords = {Hodge Complex Standard Model, HCSM, entropic
+              flatness, Hodge-HCSM interface, maximally mixed
+              state, von Neumann entropy, Landauer bound,
+              fermion/boson split, processor channel, CPTP map},
+  abstract = {The Hodge-HCSM interface delivers a maximally mixed
+              state on the 56-dimensional Hodge sector at
+              lambda = 4, with entropy S_in = log 56. The state
+              is the image of the maximally mixed state on the
+              full Hodge complex under the mirror-cancellation
+              projection of HCSM-10. The processor T extends to
+              a rank-40 orthogonal projection T_56 on V_56
+              (HCSM-16), and the associated CPTP channel maps
+              rho_in to the maximally mixed state on im(T_56),
+              with entropy S_out = log 40. The entropy reduction
+              is Delta S = log 56 - log 40 = log(7/5) approx
+              0.33647 nats, saturating the deterministic Landauer
+              bound conditional on the HCSM measurement-
+              irreversibility principle.}
+}
+
+================================================================================
+END OF HCSM-12
+================================================================================
