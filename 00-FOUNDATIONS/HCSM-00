@@ -1,0 +1,799 @@
+# HCSM-00 (Eighth Revision, Corrected)
+
+## Foundations, Notation, and Mapping
+
+### The Hodge Complex Standard Model: Substrate, Hodge Complex, Spectral Midpoint, Processor, Output Structures, Emergent Physics, and Cosmology
+
+**Stanley Preschutti**
+
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstamp@yahoo.com
+
+September 2026
+
+---
+
+## Abstract
+
+The Hodge Complex Standard Model (HCSM) derives the gauge structure, matter content, particle spectrum, mixing matrices, spacetime dimension, graviton, Newton constant, and vacuum stability coefficient of the Standard Model from a single discrete substrate: the periodic 8x8 torus Lambda = Z8 x Z8. The substrate is selected by the unified substrate selection theorem (Section 2.6), and the emergent spacetime dimension is fixed by the topology of the Hodge-Dirac kernel. The Hodge complex of differential forms carries the operator D = d + d* with D^2 = Delta exactly on each form degree. The 14 modes at the self-paired eigenvalue lambda = 4 are identified with one Standard Model generation.
+
+This paper establishes the framework's foundational objects and states the notation. All seven rank blockers of the framework's derivation program are closed. The framework has a single dimensionful anchor (the Planck mass M_P) and derives every other quantity from the substrate at d = 4 and L = 8.
+
+The paper establishes the following theorems. The 5-point Laplacian is the unique D4-invariant nearest-neighbour positive-semidefinite operator with kernel equal to the constants. The Hodge-Dirac operator satisfies D^2|_{Omega^k} = Delta . id on each form degree, with smallest nonzero eigenvalue 2 sin(pi/L) on Lambda_L. The Lorentzian metric on ker D is the unique D4-invariant symmetric form that vanishes on pure-degree forms and has signature (3,1). The Kernel-Diagonal Theorem yields the EFT coefficient c = 5/9, the mass-map coefficient (d-1)/2 = 3/2, and the kernel dimension 10 = (d-1)^2 + 1 as three traces of one projector. The Lambda-promotion mechanism is a pure projection onto the timelike direction of ker D, and the refined dark energy density matches observation to 0.010%.
+
+The charge sector is a rigidity-class result: five structural constraints reduce the charge assignment from 5^14 ~ 6 x 10^9 configurations to exactly two, both with total charge -1e. The residual binary choice is resolved by the Midpoint Sorting Theorem of HCSM-23 Rev. 7.
+
+The present revision incorporates two structural sharpenings. First, the identification of the A1 isotypic block with physical color is now a theorem (HCSM-06, Theorem 5.4), derived from a dimension-and-invariance argument; the identification of the B1 block with weak isospin is now a labeling convention (HCSM-06, Theorem 5.10), forced by the outer automorphism of D4. Second, the Standard Model content structure and the hypercharge values are now derived (HCSM-07, Theorems 8.1 and 8.3) from the 14-mode charges, the D4 isotypic multiplicities, the Hodge-lift chirality structure, and the anomaly cancellation conditions.
+
+This corrected version fixes the supercharge algebra statement (Theorem 3.6) and updates derivation-status citations throughout.
+
+---
+
+## 1. Introduction
+
+### 1.1 What HCSM is
+
+The Hodge Complex Standard Model derives the Standard Model of particle physics from a single discrete substrate: the periodic 8x8 torus Lambda = Z8 x Z8. The framework's central claim is that the Standard Model is not a fundamental description of nature but the residue left when a small, discrete, information-bearing lattice cancels against its own mirror.
+
+Physics is what the machine cannot cancel. The Hodge complex is the machine.
+
+HCSM does not ask what fields exist or what symmetry groups are broken. It asks a single question: what substrate could produce exactly the Standard Model, and nothing else? The answer is a discrete lattice whose mirror cancellation leaves exactly the observed particle content.
+
+### 1.2 The single dimensionful anchor
+
+The framework has exactly one dimensionful input: the Planck mass M_P. Every other dimensionful quantity is a derived multiple of an appropriate power of M_P. The dimensionless integers d = 4 and N = 64 are derived from the substrate (Section 2); the substrate size L = 8 is derived from the unified selection theorem (Section 2.6); and the emergent Lorentzian signature (3,1) is derived from the Hodge star on ker D (Section 3.5).
+
+At the particle level, the framework has zero empirical anchors. The identification of the 14 modes at lambda = 4 with one Standard Model generation was until recently a disclosed input; it is now a theorem (HCSM-23 Rev. 7). The charge table was until recently a disclosed input up to a binary choice; it is now a theorem whose binary residue is resolved by the same sorting theorem.
+
+As of the present revision, the gauge sector also has zero empirical anchors in the physical-identification step. The identification of the A1 isotypic block with physical color su(3)_c is a theorem (HCSM-06, Theorem 5.4): the A1 block is the unique three-dimensional D4-invariant subspace of V_14, so it is the unique candidate for the physical color triplet. The identification of the B1 block with physical weak isospin su(2)_L is a labeling convention (HCSM-06, Theorem 5.10): the two blocks B1 and B2 are exchanged by the outer automorphism of D4, and no D4-equivariant operator on V_14 distinguishes them.
+
+The hypercharge sector also has zero empirical anchors in the hypercharge-value step. The hypercharge values -2/3, +1/6, +1/3, -1/2, +1, 0 are now derived from the Standard Model content structure and the anomaly cancellation conditions (HCSM-07, Theorem 8.1). The content structure itself is derived from the 14-mode charges, the D4 isotypic multiplicities, the Hodge-lift chirality structure, and the requirement of anomaly cancellation (HCSM-07, Theorem 8.3).
+
+### 1.3 Architectural levels
+
+The framework's architecture is a chain from the substrate to observable physics, organized in six levels.
+
+| Level | Name | Content |
+|-------|------|---------|
+| 0 | Substrate | 8 x 8 torus, 5-point Laplacian |
+| 1 | Hodge complex | Omega^0 + Omega^1 + Omega^2, D = d + d* |
+| 2 | Spectral midpoint | lambda = 4, 14 modes, D4 orbits (2,8,4) |
+| 3 | Processor | T = I - P_C, zero state s, five-layer loop |
+| 4 | Output structures | Charge q_3, mass map, N/4 labels, (S,D) pairs |
+| 5 | Emergent physics | Gauge, flavor, Higgs, gravity, dark photon |
+| 6 | Cosmology | kL crossover, dark energy, Lambda-promotion |
+
+### 1.4 Continuum limit and emergent Lorentz invariance
+
+The substrate is not a discretization of an underlying continuum. The framework's claim is the opposite: the continuum emerges from the substrate. The physical scale is set by the mass map and the kL crossover.
+
+The 5-point Laplacian has the isotropic expansion
+
+    lambda(n_1, n_2) = (pi^2/16)(n_1^2 + n_2^2) + O(n^4).
+
+---
+
+## 2. Level 0: The Substrate
+
+### 2.1 The periodic L x L torus
+
+The substrate is the periodic square lattice
+
+    Lambda_L = Z_L x Z_L,   N = L^2,
+
+consisting of N sites arranged in an L x L grid with periodic boundary conditions. Site (x_1, x_2) is identified with (x_1 + L, x_2) and with (x_1, x_2 + L); equivalently, the coordinates x_1 and x_2 are each defined modulo L. Topologically, Lambda_L is the torus T^2 = S^1 x S^1.
+
+The D4 point group of the square acts on Lambda_L by the eight rotations and reflections of the lattice. Its presentation is D4 = <r, s | r^4 = s^2 = (rs)^2 = e>.
+
+### 2.2 The 5-point Laplacian is forced
+
+**Theorem 2.1 (Laplacian uniqueness).** Let Delta: C^N -> C^N be a linear operator on the substrate Lambda_L = Z_L x Z_L satisfying:
+
+(1) D4-invariance: [R, Delta] = 0 for every R in D4.
+(2) Nearest-neighbour locality: (Delta f)(x) depends only on f(x) and f at the four nearest neighbours of x.
+(3) Positivity and kernel: Delta is positive-semidefinite and ker Delta is exactly the set of constant functions.
+
+Then Delta is uniquely determined up to an overall positive scale, and equals the 5-point Laplacian
+
+    (Delta f)(x_1, x_2) = 4 f(x_1, x_2) - sum_{|e|=1} f(x + e).
+
+**Proof.** Condition (2) writes Delta f(x) = a_0 f(x) + sum_mu a_mu f(x + mu). The four nearest-neighbour directions +-e_1, +-e_2 lie in a single D4 orbit. Hence condition (1) forces a_mu = a for all four directions. Condition (3) forces Delta 1 = 0, so a_0 + 4a = 0, giving a_0 = -4a. Normalizing a = 1 gives the 5-point Laplacian. []
+
+**Remark 2.2.** The 5-point Laplacian annihilates the constants by construction. Its eigenvalue on the plane wave phi_{n_1, n_2}(x) = exp(2 pi i (n_1 x_1 + n_2 x_2)/L) is
+
+    lambda(n_1, n_2) = 4 - 2 cos(2 pi n_1 / L) - 2 cos(2 pi n_2 / L),
+
+with n_1, n_2 in {0, 1, ..., L-1}. The spectrum is mirror-symmetric under lambda <-> 8 - lambda.
+
+### 2.3 The framework relation N = d . 2^d
+
+The framework uses the relation
+
+    N = d . 2^d,
+
+with N the number of substrate sites and d the emergent spacetime dimension. At d = 4 this gives N = 4 . 2^4 = 64. Since Lambda_L = Z_L x Z_L requires N = L^2, this gives L = sqrt(64) = 8.
+
+At d = 4, N = 64 is a perfect square. The integer solutions of d . 2^d = L^2 form the infinite family d in {4k^2: k >= 1}, with d = 16, 36, 64, ... also giving perfect squares. The physical selection of d = 4 comes from the unified selection theorem of Section 2.6.
+
+### 2.4 Two derivations of L = 8
+
+The substrate size L = 8 is selected by two independent derivations.
+
+**First derivation: equal entropy spacing.** On the L x L torus, the standing-wave modes fall into discrete Shannon entropy classes.
+
+**Theorem 2.3 (Equal entropy spacing selects L = 8).** Among all integers 4 <= L <= 10^4, the only L for which the L x L torus has exactly three equally spaced Shannon entropy classes is L = 8. At L = 8 the three classes are 6.0 bits, 5.5 bits, and 5.0 bits, with uniform spacing 0.5 bits.
+
+**Second derivation: maximal winding cancellation.** The winding generator generalizes to any even L as H_wind(L) = i sin(pi M / L) on the self-paired mode set of Lambda_L.
+
+**Theorem 2.4 (Maximal cancellation selects L = 8).** Let G_L be the parity block graph of H_wind(L) on the five nodes {A_odd, A_even, B_odd, B_even, AB}. The number of block couplings that vanish identically is
+
+    #zeros(G_L) = { 4,   L = 2 mod 4,
+                    7,   L = 0 mod 4, L >= 12,
+                    10,  L in {4, 8} }.
+
+Among the two maximally-cancelling sizes, only L = 8 carries the 14-mode multiplet.
+
+The two derivations are independent: the first uses only the torus Laplacian's entropy classes; the second uses only the winding generator's parity block structure.
+
+### 2.5 The 14-mode count
+
+**Theorem 2.5 (Midpoint multiplicity).** On the L x L torus with L even, the multiplicity of the self-paired eigenvalue lambda = 4 is
+
+    mult_{lambda=4}(L) = 2(L - 1).
+
+At L = 8 this gives 14.
+
+**Proof.** The self-paired eigenvalue is the fixed point of the mirror symmetry lambda <-> 8 - lambda. Its eigenspace consists of the modes (n_1, n_2) satisfying cos(2 pi n_1 / L) + cos(2 pi n_2 / L) = 0. Using the sum-to-product identity cos a + cos b = 2 cos((a+b)/2) cos((a-b)/2), this becomes 2 cos(pi(n_1+n_2)/L) cos(pi(n_1-n_2)/L) = 0. The solutions are n_1 + n_2 = L/2 (mod L) or n_1 - n_2 = L/2 (mod L). Each congruence has L solutions; the two congruences intersect in exactly two points. By inclusion-exclusion, the total is 2L - 2 = 2(L - 1). []
+
+### 2.6 Unified substrate selection
+
+The substrate size L = 8 and the emergent dimension d = 4 are selected by four independent derivations in the current framework: equal entropy spacing on the torus Laplacian; maximal winding cancellation of the winding generator; Lorentzian signature on ker D; and the Betti numbers of T^2. This subsection shows that they are corollaries of a single selection theorem.
+
+#### 2.6.1 The two framework identities
+
+**Identity 1 (site-count relation).** The number of substrate sites N and the emergent dimension d satisfy
+
+    N = d . 2^d.
+
+**Identity 2 (mode-content relation).** The self-paired mode count of the torus Laplacian at the midpoint eigenvalue equals the total particle content of one Standard Model generation:
+
+    mult_{lambda=4}(L) = |F| + |B|.
+
+The right-hand side is derived content: the fermion-sector dimension |F| = d(d+1)/2 (HCSM-13, HCSM-19) and the boson-sector dimension |B| = d (HCSM-13, HCSM-19). At d = 4 they give |F| = 10, |B| = 4, and total content 14.
+
+The left-hand side is HCSM-04's multiplicity theorem:
+
+    mult_{lambda=4}(L) = 2(L - 1).
+
+#### 2.6.2 The selection theorem
+
+**Theorem 2.6 (Unified substrate selection).** The system
+
+    L^2 = d . 2^d,
+    2(L - 1) = d(d + 3)/2,
+
+has the unique even-integer solution L = 8, d = 4, N = 64.
+
+**Proof.** By Identity 1, L = sqrt(d . 2^d). For L to be an even integer, d . 2^d must be a perfect square. Since 2^d is a perfect square iff d is even, write d = 2m. Then d . 2^d = 2m . 2^{2m}, which is a perfect square iff 2m is a perfect square, i.e. m = 2k^2 for integer k >= 1. Hence
+
+    d = 4k^2,   L = 2^{2k^2 + 1} . k.
+
+Substituting into Identity 2 gives
+
+    2^{2k^2 + 1} . k - 1 = k^2 (4k^2 + 3).
+
+Case k = 1: Left side 2^3 . 1 - 1 = 7. Right side 1 . 7 = 7. Satisfied.
+
+Case k = 2: Left side 2^9 . 2 - 1 = 1023. Right side 4 . 19 = 76. Left exceeds right.
+
+Case k >= 3: The left side grows as k . 2^{2k^2 + 1}, super-exponentially in k^2; the right side grows as 4k^4 + 3k^2, polynomially. The left strictly dominates for all k >= 2.
+
+Hence k = 1 is the unique solution, giving d = 4, L = 8, N = 64.
+
+**Corollary 2.7 (Uniqueness).** The pair (L, d) = (8, 4) is the unique even-integer pair satisfying the two framework identities simultaneously.
+
+#### 2.6.3 The four prior derivations as corollaries
+
+**Corollary 2.8 (Entropy spacing).** At L = 8, the substrate Lambda = Z8 x Z8 has exactly three equally spaced Shannon entropy classes: 6.0, 5.5, and 5.0 bits.
+
+**Corollary 2.9 (Maximal winding cancellation).** At L = 8, the winding generator H_wind = i sin(pi M / 8) has cancellation depth 10 on the five-node parity block graph, with kernel dimension d(d+1)/2 = 10.
+
+**Corollary 2.10 (Lorentzian signature).** At L = 8, the Hodge star on ker D = H^0 + H^1 + H^2 has eigenvalues {+1, -1, +i, -i}, giving a metric of signature (3,1) on ker D.
+
+**Corollary 2.11 (Betti numbers).** At L = 8, the kernel dimension is d = dim ker D = b_0 + b_1 + b_2 = 1 + 2 + 1 = 4.
+
+#### 2.6.4 What this changes
+
+| Item | Before | After |
+|------|--------|-------|
+| Derivations of L = 8 | 2 independent | 1 theorem, 1 corollary |
+| Derivations of d = 4 | 2 independent | 1 theorem, 2 corollaries |
+| Status of L = 8 | 4 consistent derivations | 1 theorem, 3 consistency checks |
+| Status of d = 4 | 4 consistent derivations | 1 theorem, 3 consistency checks |
+
+After the unified selection, the framework has exactly one open item outside the particle sector: the continuum limit.
+
+---
+
+## 3. Level 1: The Hodge Complex
+
+### 3.1 The three form degrees
+
+On the 2-torus Lambda_L, the Hodge complex of differential forms has three graded pieces:
+
+    Omega^0 = R^N,   Omega^1 = R^{2N},   Omega^2 = R^N,
+
+with total dimension N + 2N + N = 4N. At N = 64 this gives 256.
+
+### 3.2 The exterior derivative and the codifferential
+
+Let e_1 = (1,0) and e_2 = (0,1) be the two oriented lattice directions. The exterior derivative acts on 0-forms by
+
+    (d_0 f)(x, mu) = f(x + e_mu) - f(x),   mu in {1, 2},
+
+and on 1-forms by
+
+    (d_1 omega)(x) = omega_1(x) + omega_2(x + e_1) - omega_1(x + e_2) - omega_2(x).
+
+These satisfy d_1 d_0 = 0 exactly.
+
+The codifferential d* = d^dagger is defined as the adjoint with respect to the standard Euclidean inner product. Taking d_0* = d_0^T and d_1* = d_1^T as matrices gives the explicit formulas used throughout the stack.
+
+### 3.3 The Hodge-Dirac operator
+
+**Definition 3.1 (Hodge-Dirac operator).** The Hodge-Dirac operator is D = d + d*, acting on the full Hodge complex Omega^0 + Omega^1 + Omega^2. In block form,
+
+    D = [ 0      d_0*   0    ]
+        [ d_0    0      d_1* ]
+        [ 0      d_1    0    ],
+
+a symmetric 256 x 256 real operator.
+
+**Theorem 3.2 (Hodge-Dirac square).** On the discrete torus Lambda, the identity D^2|_{Omega^k} = Delta . id_{Omega^k} holds exactly on each form degree k = 0, 1, 2.
+
+**Proof.** On Omega^0, D^2 = d_0* d_0 = Delta. On Omega^1, D^2 = d_0 d_0* + d_1* d_1 = Delta by direct component expansion. On Omega^2, D^2 = d_1 d_1* = Delta. Cross terms are removed by nilpotency d_1 d_0 = 0. All three identities are verified at machine precision. []
+
+**Remark 3.3 (No species doubling).** The Hodge-Dirac operator on the discrete torus has no species doubling: its square equals the scalar Laplacian on each form degree. The low-energy spectrum is bounded away from zero by 2 sin(pi/L) except for the four zero modes.
+
+### 3.4 The Z2 grading and the supercharge structure
+
+**Definition 3.4 (Parity operator).** The parity operator (-1)^F on the Hodge complex is +1 on Omega^0 + Omega^2 and -1 on Omega^1. It Z2-grades the complex into a bosonic sector Omega^0 + Omega^2 and a fermionic sector Omega^1.
+
+**Proposition 3.5.** D (-1)^F = - (-1)^F D.
+
+**Theorem 3.6 (Supercharge structure).** In the Z2 grading, the Hodge-Dirac operator decomposes as
+
+    D = Q + Q^dagger,
+
+where Q is the off-diagonal block of D mapping the bosonic sector to the fermionic sector, and Q^dagger is its adjoint. The supercharges satisfy
+
+    Q^2 = (Q^dagger)^2 = 0,   {Q, Q^dagger} = D^2 = Delta,
+
+and the Hamiltonian H = D^2 / 2 = Delta / 2 satisfies
+
+    {Q, Q^dagger} = 2H.
+
+This is the standard N = 1 supersymmetric quantum mechanics algebra.
+
+**Proof.** In the Z2 grading, D is off-diagonal:
+
+    D = [ 0       Q^dagger ]
+        [ Q       0        ],
+
+with Q: Omega^0 + Omega^2 -> Omega^1 and Q^dagger: Omega^1 -> Omega^0 + Omega^2. Then
+
+    D^2 = [ Q^dagger Q   0          ]
+          [ 0            Q Q^dagger ].
+
+By Theorem 3.2, D^2 = Delta on each form degree, so Q^dagger Q = Delta|_{bosonic} and Q Q^dagger = Delta|_{fermionic}. The nilpotency Q^2 = 0 follows from the fact that Q raises form degree by 1: Q maps Omega^0 -> Omega^1 and Omega^2 -> 0. Similarly (Q^dagger)^2 = 0. []
+
+**Corollary 3.7 (Boson-fermion pairing).** Every bosonic mode at energy lambda_n has a fermionic partner at the same energy, unless the mode is annihilated by Q or Q^dagger. In particular, at lambda = 4: 28 bosons + 28 fermions.
+
+### 3.5 The kernel and the emergent dimension
+
+**Theorem 3.8 (Kernel dimension).** The kernel of the Hodge-Dirac operator is isomorphic to the de Rham cohomology of the torus: ker D = direct sum_{k=0}^2 H^k(T^2; R), with
+
+    dim ker D = b_0 + b_1 + b_2 = 1 + 2 + 1 = 4.
+
+**Corollary 3.9 (Emergent dimension).** d = dim ker D = 4.
+
+**Theorem 3.10 (Lorentzian signature).** The Hodge star star restricted to ker D has eigenvalues {+1, -1, +i, -i}: the +-1 pair from the (H^0 + H^2) sector, the +-i pair from the H^1 sector. The intersection form Q(alpha, beta) = integral_Lambda alpha ^ beta on the even-degree sector and the Hodge inner product <alpha, beta> = integral_Lambda alpha ^ star beta on the odd-degree sector combine into a metric
+
+    g = Q|_{H^0 + H^2} + <.,.>|_{H^1}
+
+of signature (3,1) on ker D.
+
+### 3.6 The spectral gap and absence of species doubling
+
+**Theorem 3.12 (Smallest nonzero eigenvalue of D).** On Lambda_L = Z_L x Z_L with L even, the smallest nonzero eigenvalue of the Hodge-Dirac operator is exactly mu_min(L) = 2 sin(pi/L).
+
+**Corollary 3.13.** For every finite even L, the Hodge-Dirac operator has exactly four zero eigenvalues and the next eigenvalue is bounded away from zero by 2 sin(pi/L).
+
+---
+
+## 4. Level 2: The Spectral Midpoint
+
+### 4.1 The self-paired eigenvalue
+
+The mirror symmetry lambda <-> 8 - lambda of the scalar Laplacian spectrum has a unique fixed point at lambda = 4. The eigenspace at lambda = 4 has multiplicity 2(L - 1) = 14 at L = 8. The 14 modes are
+
+    O_0 = {(0,4), (4,0)},
+    O_1 = {(1,3), (1,5), (3,1), (3,7), (5,1), (5,7), (7,3), (7,5)},
+    O_2 = {(2,2), (2,6), (6,2), (6,6)}.
+
+### 4.2 The D4 orbit decomposition
+
+**Proposition 4.1 (Orbit stabilizers).** Under the D4 point group, the 14 modes decompose into the three orbits above of sizes (2, 8, 4). The stabilizer orders of the three orbits are 4, 1, 2 respectively, satisfying the orbit-stabilizer identity |O_k| = |D4| / |Stab(O_k)| = 8 / |Stab(O_k)|.
+
+### 4.3 The 56-dimensional Hodge lift
+
+**Theorem 4.2 (Fourteen-fold lift).** The 14-fold degeneracy of the scalar Laplacian at lambda = 4 lifts to the Hodge complex as 14 Omega^0 + 28 Omega^1 + 14 Omega^2 = 56.
+
+### 4.4 The D4 decomposition of the 56-dimensional sector
+
+**Theorem 4.3 (D4 decomposition).** As D4 representations,
+
+    Omega^0|_{lambda=4} = 3A1 + A2 + 2B1 + 2B2 + 3E,
+    Omega^1|_{lambda=4} = Omega^0|_{lambda=4} x E = 3A1 + 3A2 + 3B1 + 3B2 + 8E,
+    Omega^2|_{lambda=4} = 3A1 + A2 + 2B1 + 2B2 + 3E.
+
+The full 56-dimensional sector decomposes as 56 = 9A1 + 5A2 + 7B1 + 7B2 + 14E.
+
+---
+
+## 5. Level 3: The Processor and Its Dynamics
+
+### 5.1 The winding generator
+
+**Definition 5.1 (Winding matrix and winding generator).** Let n_1, n_2 in R^14 be the coordinate vectors of the 14 modes. The winding matrix is the rank-2 antisymmetric bilinear M_ij = n_1^(i) n_2^(j) - n_1^(j) n_2^(i). The winding generator is H_wind = i sin(pi M / 8), with sin applied elementwise.
+
+**Theorem 5.2 (Characteristic polynomial).** The characteristic polynomial of H_wind is
+
+    p(lambda) = det(lambda id_14 - H_wind) = lambda^10 (lambda^2 - 8)(lambda^2 - 32).
+
+Its spectrum is {-4 sqrt(2), -2 sqrt(2), 0^(10), +2 sqrt(2), +4 sqrt(2)}.
+
+### 5.2 The winding classes and the processor
+
+**Definition 5.3 (Winding class partition).** The 14 modes partition into three winding classes:
+
+    A = {nu, e, t}, |A| = 3;
+    B = {u, d, s, mu, c, tau, b}, |B| = 7;
+    C = {dark, W, Z, H}, |C| = 4.
+
+The partition is the joint eigenspace decomposition of the n_1-parity D and the processor T.
+
+**Definition 5.4 (Processor).** The processor T is the rank-10 orthogonal projection T = I - P_C with P_C the diagonal projector onto winding class C.
+
+**Proposition 5.5 (Fermion/boson split).** T = I - P_C = P_A + P_B, with im(T) = F = A u B and ker(T) = C. The fermion and boson sector dimensions are |F| = d(d+1)/2 = 10 and |B| = d = 4 (HCSM-13, HCSM-19). The internal ratios are (|F| - |B|)/|B| = (d-1)/2 = 3/2 and |F|/|B| = (d+1)/2 = 5/2.
+
+### 5.3 The Kernel-Diagonal Theorem
+
+**Theorem 5.6 (Kernel-Diagonal).** Let P_ker be the orthogonal projector onto ker(H_wind). The diagonal of P_ker in the standard mode basis takes exactly two values:
+
+    diag(P_ker)_i = { 2/d = 1/2,        i in O_0,
+                      (d-1)/d = 3/4,    i in O_1 u O_2 }.
+
+**Corollary 5.7 (Three coefficients from one diagonal).** With P_ker as above,
+
+    c = (d+1) / Tr(P_ker|_{O_1 u O_2}) = 5/9,
+    diag(P_ker)|_{O_1 u O_2} / diag(P_ker)|_{O_0} = (d-1)/2 = 3/2,
+    dim ker(H_wind) = 1 + (d-1)^2 = 10.
+
+### 5.4 The five-layer loop
+
+The five-layer loop acts diagonally on the 14-mode multiplet: M_loop = T . L_EFT . L_Core . L_DM . L_FDLM.
+
+**Theorem 5.8 (Loop-pass duration).** The loop-pass duration is selected by the deterministic Landauer bound: T_pass = T_DM = 1/(2 gamma) = 0.7114000035169658...
+
+**Theorem 5.9 (Exact ratio).** |M_A| / |M_B| = 3 = d - 1.
+
+### 5.5 The zero state
+
+The zero state s is the unique nullspace vector of a 14 x 19 measurement matrix M of vacuum-native observables. The matrix has rank 13, nullity 1.
+
+**Theorem 5.10 (Zero-state structure).** The zero state satisfies s(rs(m)) = -s(m) for all modes m, where rs is the diagonal reflection (n_1, n_2) -> (n_2, n_1). The two rs-fixed modes W = (2,2) and t = (6,6) have s(W) = s(t) = 0 exactly. The six independent amplitudes satisfy a_3 = 2a_4 and a_5 = (2 - sqrt(2))a_4. Weight fractions: 3.3% on O_0, 86.5% on O_1, 10.2% on O_2.
+
+**Remark 5.11 (Zero state as sort key).** The zero state is not only the unique nullvector of the measurement matrix; it is also the sort key of the charge assignment and one of the three native operators used in the Midpoint Sorting Theorem (HCSM-23 Rev. 7).
+
+---
+
+## 6. Level 4: Output Structures
+
+### 6.1 The charge functional
+
+The electric charge in units of e/3 is given by the functional
+
+    q_3 = F(n_1, sigma),   sigma = sign(s),
+
+where n_1 is the mode's first momentum index and s is the zero-state amplitude.
+
+**Theorem 6.1 (Charge bijection).** The 14 modes have 14 pairwise distinct (n_1, sigma) tuples. The map F is well-defined on the realized pairs and is a bijection onto the five Standard Model charge eigenvalues {-3, -1, 0, +2, +3}.
+
+**Theorem 6.2 (sigma-line sums).** The charge sums over the three sigma-lines are
+
+    sum_{sigma=-1} q_3 = 0,
+    sum_{sigma=0}  q_3 = +5,
+    sum_{sigma=+1} q_3 = -8.
+
+The total vacuum charge is sum_i q_{3i} = -3 = -1e.
+
+### 6.2 The rigidity class of the charge assignment
+
+**Theorem 6.3 (Charge rigidity class).** Among the 5^14 assignments of charge values {-3, -1, 0, +2, +3} to the 14 modes at lambda = 4, exactly two assignments simultaneously satisfy the following five structural constraints:
+
+(C1) SM multiset. The multiset of charges is {-3, -1, 3, 0, 4, +2, 3, +3, 1}.
+
+(C2) sigma-line sums. The charge sums over the three zero-state sign lines are 0, d + 1 = 5, and -2d = -8.
+
+(C3) F-pair sum rules. Within each |Delta n| shell, the pair charge sum is rank-d (for |Delta n| = 4) or (d+1) - d . rank (for |Delta n| = 2).
+
+(C4) n_1 + n_2 = 4 line. The five modes on the line n_1 + n_2 = 4 carry the five charge values exactly once each.
+
+(C5) Processor bookkeeping. The image-of-T charge sum is -2 and the kernel-of-T charge sum is +1.
+
+**Proof.** Exhaustive enumeration. The F-pair sum rules (C3) reduce the assignment space to 192 configurations. Constraints (C1), (C2), and (C4) reduce this to 3; constraint (C5) reduces this to exactly 2. []
+
+**Theorem 6.4 (Charge assignment solutions).** The two rigid solutions are
+
+    Q_3^(1) = (-3, 0, -1, -1, 2, -3, 0, 2, -3, -1, 3, 0, 0, 2),
+    Q_3^(2) = (0, -3, 2, -1, -1, -3, 0, 2, -3, -1, 3, 0, 0, 2).
+
+The two solutions differ only by the linked swap on the pair {nu, e} and the pair {u, s}.
+
+**Theorem 6.5 (Total charge rigidity).** Both solutions have total charge sum_i q_{3i} = -3 = -1e. Consequently, every assignment satisfying the five structural constraints has total charge -1e:
+
+    sum_i q_{3i} = -(d - 1) = -1e.
+
+The total vacuum charge is a rigidity-class invariant.
+
+**Corollary 6.6 (Empirical residue of the charge sector).** The charge assignment is determined up to exactly one binary choice: which member of the pair {nu, e} carries charge 0 and which carries -3. The Standard Model content resolves this choice: the electron e carries -1e and the neutrino nu carries 0. This binary choice is now derived, not disclosed: HCSM-23 Rev. 7 Corollary 4.4 shows that the within-pair ordering rule of the Midpoint Sorting Theorem forces nu = (0,4) and e = (4,0).
+
+**Remark 6.7 (Physical reading: what the machine must not cancel).** The rigidity theorem states that the machine cannot cancel its residual charge. Any attempt to modify the charge assignment away from the two-element family violates one of the five structural constraints. The total charge -1e is not a choice made by the machine; it is the unique value permitted by the machine's own structure.
+
+### 6.3 The mass map
+
+The mass map is m_i = A_mass exp(-B_mass N/4_i), with
+
+    A_mass = (2d - 1)N/2 = 224 GeV,
+    B_mass = (d - 1) kL^2 / (2N^2) = 0.5411967...
+
+The map reproduces the twelve charged fermion masses and the W, Z, H, and t masses at RMS 0.0449 dex across thirteen orders of magnitude in mass. The coefficient (d-1)/2 in B_mass is derived in HCSM-19 by two independent routes (the processor F/B split and the DNLS Hartree orbit trace). The mass map itself is derived in HCSM-33.
+
+### 6.4 The Midpoint Sorting Theorem (summary)
+
+The identification of the 14 modes with one Standard Model generation is now a theorem (HCSM-23 Rev. 7). The sorting uses the T_half involution (n_1, n_2) -> (n_1 + 4, n_2 + 4), the pair index k = min(n_1), the parity-block node from the sign of the signed coordinate v of the smaller-n_1 member, the (S, D) table of HCSM-23 Rev. 6, and the within-pair ordering rule.
+
+---
+
+## 7. Level 5: Emergent Physics
+
+### 7.1 Gauge algebra from the D4 commutant
+
+The gauge algebra su(3) + su(2) + u(1)^5 is derived as a Lie subalgebra of the D4 commutant on the 14-mode multiplet (HCSM-06). The A1 isotypic block is uniquely identified with physical color by a dimension-and-invariance theorem (HCSM-06, Theorem 5.4). The B1 block is identified with physical weak isospin up to the outer-automorphism labeling convention (HCSM-06, Theorem 5.10).
+
+### 7.2 Hypercharge quantization
+
+The hypercharge functional is a specific element of the 15-dimensional sector-coarse space (HCSM-06, Theorem 6.3; HCSM-07). The A1 coefficients are (0, -1/6, -1/2) and the B1 coefficients are (0, +1/2, +1/2), uniquely determined by the Standard Model content and the sector assignment (HCSM-07, Theorems 5.1 and 6.1). The hypercharge values are derived from the content structure and the anomaly cancellation conditions (HCSM-07, Theorem 8.1). The content structure is derived from the 14-mode charges, the D4 isotypic multiplicities, and the Hodge-lift chirality structure (HCSM-07, Theorem 8.3). All values lie in (1/6)Z.
+
+### 7.3 Flavor: the CKM matrix
+
+The Cabibbo angle satisfies sin theta_12 = pi/14 = 0.2243995..., matching observation to 0.044% (HCSM-34, Theorem 1). The winding amplitude a = 3/5 is topological: a = (|F| - |B|)/|F| = 6/10. The Wolfenstein parameters are lambda = pi/14, A = (d/(d+1))(1 + delta_edge), and sqrt(rho_bar^2 + eta_bar^2) = (d+1)/(d(d-1)) = 5/12 (HCSM-34, Theorem 3). The full CKM hierarchy is derived in HCSM-34, Theorems 5 and 9.
+
+### 7.4 Flavor: the PMNS matrix
+
+The neutrino N/4 spectrum is (60, 60, 58), derived from the four spin structures of the torus with Dirac indices +-1/4 (HCSM-36, Theorem 4.1). The PMNS magnitudes match at RMS 0.035 (HCSM-36, Theorem 6.1). The mixing angles are theta_12 = 34.2 deg, theta_23 = 47.9 deg, theta_13 = 8.5 deg; the Dirac CP phase is delta_CP ~ 197 deg. The generation phase phi_gen = (3/5)pi is exact (HCSM-36, Section 5).
+
+### 7.5 Higgs sector
+
+The top-Yukawa coefficient is y_t^2 = 1 - (4/3) delta_edge with 4/3 = |O_2|/(d-1) (HCSM-40). The top mass is m_t = 172.688398 GeV (PDG 172.690 +- 0.30 GeV). The tree-level quartic coupling is lambda_tree = ln(kL) / [(d-1) pi^2], and the electroweak vacuum expectation value is v_EW = M_P exp(-kL_phys).
+
+### 7.6 Gravity
+
+The graviton is the self-paired B1 + B2 curvature mode of Sym^2(Omega^1|_{lambda=4}), consisting of 54B1 + 54B2 = 108 modes (HCSM-45, HCSM-46). It is exactly massless at all orders by D4 Schur orthogonality (HCSM-46). The Newton constant is G_N = (d+1)^2 / (8 pi M_P^2) = 25 / (8 pi M_P^2) (HCSM-48).
+
+### 7.7 Absence of a light dark photon
+
+**Theorem 7.9 (Absence of a light dark photon).** The kinetic mixing parameter satisfies epsilon = 0 exactly over all mass scales.
+
+**Proof.** The HCSM gauge algebra su(3)_c + su(2)_L + u(1)^5 contains no hidden Abelian factor coupling to electrically charged matter. The hidden sector 5 + 6 + 31 is U(1)_Y-neutral (HCSM-41). []
+
+### 7.8 Spin chirality Z2 grading
+
+The 56-dimensional Hodge lift at lambda = 4 carries three commuting Z2 operators: gamma_5 = P_{Omega^0} - P_{Omega^1} + P_{Omega^2} (Hodge form-parity), chi_spin (spin-structure parity), and F: (n_1, n_2) -> (n_2, n_1) (orientation flip). All three square to I and pairwise commute, generating Z2 x Z2 x Z2 (HCSM-42).
+
+### 7.9 Strong CP from orientation Z2
+
+**Theorem 7.10 (Strong CP).** theta_QCD = theta_eff = 0 exactly.
+
+**Proof.** On the 14-mode multiplet at lambda = 4, [F, Delta] = 0 and {F, H_wind} = 0 exactly. The winding matrix M is antisymmetric under F; the odd function sin(pi M / 8) preserves the antisymmetry. The physical identification H_wind <-> F_{mu nu} F_tilde^{mu nu} gives theta_eff = 0 exactly (HCSM-43). []
+
+### 7.10 Proca sector and u(1)_Y origin
+
+The u(1)_Y gauge symmetry is generated by the hypercharge functional Y_hat on Omega^0|_{lambda=4}, with [Y_hat, T] = 0, [Y_hat, F] = 0, and eigenvalues in (1/6)Z. The Proca Lagrangian is
+
+    L_Proca = -1/4 W_{mu nu}^a W^{a mu nu} - 1/4 B_{mu nu} B^{mu nu}
+              + 1/2 m_W^2 W_mu^+ W^{-mu} + 1/2 m_Z^2 Z_mu Z^mu,
+
+with m_W = g v_EW / 2 and m_Z = sqrt(g^2 + g'^2) v_EW / 2. The mass ratio m_W / m_Z = cos theta_W = 0.8769 matches PDG 0.8814 at 0.5%. Tree-level rho = 1 exactly (HCSM-44).
+
+---
+
+## 8. Level 6: Cosmology
+
+### 8.1 The kL crossover
+
+The bare warp factor is exact: kL_bare = (d-1)N/(d+1) = 3 . 64 / 5 = 192/5 = 38.4. The physical warp factor is kL_phys = 38.442527, matching ln(M_P / v_EW) to 0.004%. The correction is kL_phys - kL_bare = ((|D4| - 1)/2) delta_edge = (7/2) delta_edge (HCSM-51).
+
+### 8.2 Dark energy and the DME entropy-well normalization
+
+The bare dark energy density is rho_DE^bare = (|F|/|B|) m_s^4 = ((d+1)/2) m_s^4 = 2.4809 x 10^{-47} GeV^4 matching observation to 0.76%. The refined formula is rho_DE = ((d+1)/2)(1 + c delta) m_s^4 with c = (d+1)/(d-1)^2 = 5/9 and delta = (1 - gamma)^2 / (2 pi), giving rho_DE = 2.5003 x 10^{-47} GeV^4, matching observation to 0.010% (HCSM-52, HCSM-53).
+
+The DME entropy-well normalization is S_0 = v_EW^2 . (7/40) . (1 + delta_edge/6) = 10630.722 GeV^2, matching the implied value at relative residual 2.44 x 10^{-6} (HCSM-53).
+
+### 8.3 Vacuum stability
+
+The stability coefficient is gamma = c_2 / I(2) = 0.702839467990..., with I(2) = 1 - (1/2) AGM(1, sqrt(2)), AGM(1, sqrt(2)) = 1 / (sqrt(2) eta(i)^2), and eta(i) = Gamma(1/4) / (2 pi^{3/4}). The stability theorem states S''(0)/S_0 = -2 gamma < 0: the equilibrium D = 4 is a strict local maximum of the vacuum entropy (HCSM-54).
+
+### 8.4 The Lambda-promotion mechanism
+
+The residual vacuum energy after mirror cancellation is promoted to the observed cosmological constant by pure projection, not by gravitational coupling.
+
+The five-layer loop M_loop = T . L_EFT . L_Core . L_DME . L_FDLM acts on the 14-mode multiplet. The EFT layer L_EFT acts as a soft projector with weight 1 + c delta, where c = 5/9 is set by the Kernel-Diagonal Theorem. The residual energy projects onto the timelike direction (v_0 - v_2)/sqrt(2) of ker D, with unit projection weight. The hidden u(1) factors contribute zero.
+
+The mechanism is therefore a projection, not a coupling. There is no gravitational suppression factor 1/M_P^2; the residual vacuum energy is already at the right scale because it is topological. Combined with the absence of a light dark photon, this confirms that no gauge mediator exists between the hidden and visible sectors (HCSM-56.a).
+
+---
+
+## 9. Falsifiable Predictions
+
+(1) **No light dark photon.** The kinetic mixing parameter satisfies epsilon = 0 exactly. Falsifiable by SHiP, FASER2, MATHUSLA, CODEX-b, LDMX, NA64, Belle II, and HL-LHC at epsilon > 10^{-12}.
+
+(2) **Strong CP.** theta_QCD = 0 exactly. Any non-zero measurement of the neutron electric dipole moment at the level predicted by a generic theta_QCD would falsify the framework.
+
+(3) **rho parameter.** Tree-level rho = m_W^2 / (m_Z^2 cos^2 theta_W) = 1 exactly. Any measured deviation of rho from 1 at tree level would falsify the framework.
+
+(4) **Fermion content.** One Standard Model generation contains exactly 14 particles. A fourth generation would falsify the framework.
+
+(5) **Kernel structure.** The winding kernel has dimension 10 on Lambda_8 and the kernel-diagonal values are {1/2, 3/4}. Any modification of the spectrum of H_wind that changes these values would falsify the framework.
+
+(6) **Dark energy.** The dark energy density is rho_DE = ((d+1)/2)(1 + c delta) m_nu^4, matching observation to 0.010%. Any future measurement of rho_DE that deviates from this formula at more than 0.1% would falsify the framework.
+
+(7) **Charge rigidity.** The charge assignment on the 14-mode multiplet satisfies exactly two structurally consistent configurations, both with total charge -1e. A measurement of the vacuum's total electromagnetic charge that differs from -1e (per one Standard Model generation) would falsify the rigidity theorem.
+
+(8) **Identification.** The Midpoint Sorting Theorem (HCSM-23 Rev. 7) assigns the 14 modes uniquely. A Standard Model particle with an N/4 label outside the set {60, 24, 21, 20, 14, 14, 12, 9.5, 9, 7.5, 2, 2, 1, 0.5} would falsify the framework.
+
+(9) **A1 uniqueness.** The physical color algebra is the su(3) subalgebra on the A1 isotypic block, forced by the dimension-and-invariance theorem. A different embedding of su(3)_c in the D4 commutant would falsify Theorem 5.4 of HCSM-06.
+
+(10) **Hypercharge values.** The hypercharge values are uniquely determined by the content structure and anomaly cancellation. A different set of hypercharge values satisfying the same content structure and anomaly conditions would falsify Theorem 8.1 of HCSM-07.
+
+---
+
+## 10. Theorem Inventory
+
+The framework's theorems are catalogued by their home paper. New theorems from the present revision cycle are marked with *.
+
+| Theorem | Location |
+|---------|----------|
+| Laplacian uniqueness | HCSM-01 Thm 2.1 |
+| d . 2^d = 64, L = 8 | HCSM-01 Cor 4.1 |
+| Two derivations of L = 8 | HCSM-01 S4, HCSM-14.b |
+| 2(L - 1) = 14 | HCSM-01 Thm 2.5 |
+| Unified substrate selection | HCSM-00 S2.6 (Rev. 8) |
+| Hodge-Dirac square | HCSM-02 Thm 3.2 |
+| Supercharge algebra | HCSM-02 Thm 4.4 (corrected) |
+| Kernel dimension = 4 | HCSM-02 Thm 3.8 |
+| Spectral gap 2 sin(pi/L) | HCSM-02 Thm 3.12 |
+| Lorentzian metric uniqueness | HCSM-03 Thm 3.10 |
+| Self-paired eigenvalue lambda = 4 | HCSM-04 Thm 3.2 |
+| D4 orbit decomposition (2, 8, 4) | HCSM-04 Thm 5.1 |
+| Support classes {64, 48, 32} | HCSM-04 Prop 6.2 |
+| IPRs {2/128, 3/128, 4/128} | HCSM-04 Prop 7.2 |
+| Entropy classes {6.0, 5.5, 5.0} | HCSM-04 Cor 8.3 |
+| D4 character chi_14 = (14, 2, 0, 2, 2) | HCSM-05 Thm 4.1 |
+| Irreducible decomposition | HCSM-05 Thm 6.1 |
+| n_1-parity orbit indicator | HCSM-05 Thm 7.3 |
+| Joint (D, T) class partition | HCSM-05 Thm 7.7 |
+| Sector-coarse gauge algebra | HCSM-06 Thm 5.10 |
+| * A1 uniqueness for physical color | HCSM-06 Thm 5.4 |
+| * B1/B2 outer automorphism | HCSM-06 Thms 5.8, 5.10 |
+| Hypercharge coefficients | HCSM-07 Thms 5.1, 6.1 |
+| * Hypercharge values from anomaly cancellation | HCSM-07 Thm 8.1 |
+| * Content structure from HCSM data | HCSM-07 Thm 8.3 |
+| Orientation-flip Z2 | HCSM-09 |
+| Winding class partition (3, 7, 4) | HCSM-14 Thm 15 |
+| Kernel-Diagonal Theorem | HCSM-14.a Thm 1 |
+| Three coefficients from one diagonal | HCSM-14.a Cor 2 |
+| Maximal cancellation selects L = 8 | HCSM-14.b Thm 4.4.1 |
+| Hartree orbit trace identity | HCSM-19 Prop 9.2 |
+| Loop-pass duration T_DM = 1/(2 gamma) | HCSM-21 Thm 12.1 |
+| Exact ratio \|M_A\|/\|M_B\| = 3 | HCSM-20 Thm 9.4 |
+| Zero-state structure | HCSM-22 Thm 12 |
+| Midpoint Sorting Theorem | HCSM-23 Rev. 7 Thm 5.3 |
+| Charge bijection | HCSM-24 Thm 4.1 |
+| sigma-line sums | HCSM-24 Thm 5.1 |
+| Non-existence of coordinate closed form | HCSM-24 Thm 9.1 |
+| Sorting-machine interpretation | HCSM-24 Thm 10.1 |
+| Framework-constant sigma-line sums | HCSM-24 Thm 10.6 |
+| F-pair sum rules by shell | HCSM-24 Thm 10.7 |
+| Charge rigidity class (5 constraints) | HCSM-24 Thm 11.1 |
+| Charge assignment solutions (2) | HCSM-24 Thm 11.2 |
+| Total charge rigidity | HCSM-24 Thm 11.3 |
+| Empirical residue of the charge sector | HCSM-24 Cor 11.4 |
+| Top-Yukawa coefficient 4/3 | HCSM-40 |
+| Absence of light dark photon | HCSM-41 Thm 5 |
+| Spin chirality Z2 grading | HCSM-42 |
+| Strong CP theta_QCD = 0 | HCSM-43 Thm 6 |
+| Proca sector | HCSM-44 |
+| Graviton masslessness by Schur | HCSM-45, 46 |
+| G_N = (d+1)^2/(8 pi M_P^2) | HCSM-48 |
+| kL correction (7/2) delta_edge | HCSM-51 |
+| EFT coefficient c = 5/9 | HCSM-52 |
+| S_0 normalization | HCSM-53 |
+| Vacuum stability gamma = c_2/I(2) | HCSM-54 |
+| Lambda-promotion is a projection | HCSM-56.a |
+
+All seven rank blockers of the framework's derivation program are closed. As of the present revision, the physical identification of the A1 and B1 blocks is derived (color) or a labeling convention (weak isospin), and the hypercharge values and content structure are derived. The framework has zero empirical anchors in the particle, gauge, and hypercharge sectors.
+
+---
+
+## 11. Reproducibility
+
+All numerical claims in the HCSM paper stack are verified at machine precision in IEEE-754 double precision. The verification scripts use only standard libraries (NumPy, SciPy, SymPy, mpmath) and construct the objects they need from HCSM-native definitions. Running 12-VERIFICATION/run_all.py reproduces every numerical claim in the stack.
+
+The complete HCSM paper stack, verification scripts, and source are available at
+
+    https://github.com/007STAN/HODGE-COMPLEX-STANDARD-MODEL-HCSM
+
+---
+
+## 12. Conclusion
+
+This paper has established the foundation of the Hodge Complex Standard Model. The substrate is the periodic 8x8 torus Lambda = Z8 x Z8, selected by the unified substrate selection theorem (Section 2.6). The substrate carries the Hodge complex Omega^0 + Omega^1 + Omega^2 with D^2 = Delta exactly on each form degree. The 14 modes at the self-paired eigenvalue lambda = 4 are identified with one Standard Model generation. The processor T and its five-layer loop are the machine's operation. The output structures (charge, mass, flavor, gravity, cosmology) are the residue after mirror cancellation.
+
+The framework's most consequential structural results are five. First, the Kernel-Diagonal Theorem unifies the framework's three leading coefficients under a single projector: the EFT coefficient c = 5/9, the mass-map coefficient (d-1)/2 = 3/2, and the kernel dimension 10 = (d-1)^2 + 1 are three traces of the diagonal of the projector onto ker(H_wind). Second, the Lambda-promotion mechanism is closed: the residual vacuum energy is promoted by pure projection onto the timelike direction of ker D, and the hidden u(1) VEVs vanish. Third, the framework's coverage of the Standard Model gauge content (absence of a light dark photon, spin-chirality Z2 grading, strong-CP solution, Proca sector, topological protection of phi_gen) is complete. Fourth, the charge sector is a rigidity-class result: five structural constraints reduce the charge assignment from 5^14 configurations to exactly two, both with total charge -1e, and the residual binary choice is resolved by the Midpoint Sorting Theorem. Fifth, the identification thesis is closed: the 14 modes are uniquely sorted into the 14 Standard Model particles by native HCSM data, with zero empirical anchors remaining in the particle sector.
+
+The present revision closes the physical identification of the gauge and hypercharge sectors. The A1 isotypic block is uniquely identified with physical color by a dimension-and-invariance theorem (HCSM-06, Theorem 5.4). The B1 block is identified with physical weak isospin up to the outer-automorphism labeling convention (HCSM-06, Theorem 5.10). The Standard Model content structure and hypercharge values are derived from HCSM-native data and anomaly cancellation (HCSM-07, Theorems 8.1 and 8.3). The framework now has zero empirical anchors in the particle, gauge, and hypercharge sectors.
+
+The framework has a single dimensionful anchor (the Planck mass M_P) and derives every other quantity from the substrate at d = 4 and L = 8.
+
+The framework's claim is that the Standard Model is what the substrate looks like when you observe it.
+
+Physics is what the machine cannot cancel. The Hodge complex is the machine. The -1e is what the machine must not cancel.
+
+---
+
+## References
+
+[1] S. Preschutti, HCSM-01: The 8x8 Torus Substrate from d = 4, HCSM White Paper Series (2026).
+
+[2] S. Preschutti, HCSM-02: The Hodge Complex on Lambda, HCSM White Paper Series (2026).
+
+[3] S. Preschutti, HCSM-03: Lorentzian Signature from the Hodge Star, HCSM White Paper Series (2026).
+
+[4] S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4, HCSM White Paper Series (2026).
+
+[5] S. Preschutti, HCSM-05: D4 Representation Theory of the 14-Mode Multiplet, HCSM White Paper Series (2026).
+
+[6] S. Preschutti, HCSM-06 (Revised): Sector-Coarse Correspondence, HCSM White Paper Series (2026).
+
+[7] S. Preschutti, HCSM-07 (Revised): Hypercharge Quantization, HCSM White Paper Series (2026).
+
+[8] S. Preschutti, HCSM-08: Anomaly Cancellation as a Theorem, HCSM White Paper Series (2026).
+
+[9] S. Preschutti, HCSM-09: Gauge Topology and Orientation-Flip Z2, HCSM White Paper Series (2026).
+
+[10] S. Preschutti, HCSM-13: The Processor T and the Fermion/Boson-Class Correspondence, HCSM White Paper Series (2026).
+
+[11] S. Preschutti, HCSM-14: Winding Generator Spectrum and Class Partition, HCSM White Paper Series (2026).
+
+[12] S. Preschutti, HCSM-14.a: The Kernel-Diagonal Theorem, HCSM White Paper Series (2026).
+
+[13] S. Preschutti, HCSM-14.b: Maximal Cancellation Selects L = 8, HCSM White Paper Series (2026).
+
+[14] S. Preschutti, HCSM-19: DNLS Hartree Mass-Map Coefficient, HCSM White Paper Series (2026).
+
+[15] S. Preschutti, HCSM-20: The Motion Theorem, HCSM White Paper Series (2026).
+
+[16] S. Preschutti, HCSM-21: The Time Theorem, HCSM White Paper Series (2026).
+
+[17] S. Preschutti, HCSM-22: The Zero State, HCSM White Paper Series (2026).
+
+[18] S. Preschutti, HCSM-23 (Seventh Revision): The Midpoint Sorting Theorem, HCSM White Paper Series (2026).
+
+[19] S. Preschutti, HCSM-24 (Revised): The Charge Theorem, HCSM White Paper Series (2026).
+
+[20] S. Preschutti, HCSM-33: Mass Map, HCSM White Paper Series (2026).
+
+[21] S. Preschutti, HCSM-34: The CKM Matrix, HCSM White Paper Series (2026).
+
+[22] S. Preschutti, HCSM-36: The PMNS Matrix, HCSM White Paper Series (2026).
+
+[23] S. Preschutti, HCSM-40: The Higgs Mechanism, HCSM White Paper Series (2026).
+
+[24] S. Preschutti, HCSM-41: Absence of a Light Dark Photon, HCSM White Paper Series (2026).
+
+[25] S. Preschutti, HCSM-42: Spin Chirality Z2 Grading, HCSM White Paper Series (2026).
+
+[26] S. Preschutti, HCSM-43: Strong CP from the Orientation Z2, HCSM White Paper Series (2026).
+
+[27] S. Preschutti, HCSM-44: The Proca Sector, HCSM White Paper Series (2026).
+
+[28] S. Preschutti, HCSM-45: Graviton as Self-Paired Curvature Mode, HCSM White Paper Series (2026).
+
+[29] S. Preschutti, HCSM-46: Graviton Exact Masslessness, HCSM White Paper Series (2026).
+
+[30] S. Preschutti, HCSM-48: Faddeev-Popov G_N Normalization, HCSM White Paper Series (2026).
+
+[31] S. Preschutti, HCSM-51: The kL Crossover, HCSM White Paper Series (2026).
+
+[32] S. Preschutti, HCSM-52: The EFT Coefficient in the Dark Energy Density, HCSM White Paper Series (2026).
+
+[33] S. Preschutti, HCSM-53: Dark Energy Density and the DME Entropy-Well Normalization, HCSM White Paper Series (2026).
+
+[34] S. Preschutti, HCSM-54: Vacuum Stability and the Stability Coefficient, HCSM White Paper Series (2026).
+
+[35] S. Preschutti, HCSM-56.a: Lambda-Promotion as Pure Projection, HCSM White Paper Series (2026).
+
+[36] J. Dodziuk, Finite-difference approach to the Hodge theory of harmonic forms, Amer. J. Math. 98, 79 (1976).
+
+[37] M. Nakahara, Geometry, Topology and Physics, 2nd ed., CRC Press (2003).
+
+[38] C. Voisin, Hodge Theory and Complex Algebraic Geometry I, Cambridge University Press (2002).
+
+[39] Particle Data Group, Phys. Rev. D 110, 030001 (2024).
+
+---
+
+## Appendix A: Web Crawler Metadata
+
+### A.1 Dublin Core
+
+- DC.title: HCSM-00 (Eighth Revision, Corrected): Foundations, Notation, and Mapping
+- DC.creator: Preschutti, Stanley
+- DC.creator.orcid: 0009-0004-5445-1744
+- DC.date.issued: 2026-09
+- DC.date.modified: 2026-09
+- DC.type: Text / Preprint / White Paper
+- DC.format: application/pdf; text/x-latex
+- DC.language: en
+- DC.publisher: Entropia Research Institute
+- DC.rights: All rights reserved
+- DC.subject: Hodge Complex Standard Model; HCSM; foundations; notation; mapping; 8x8 torus; Hodge complex; spectral midpoint; processor; output structures; emergent physics; cosmology; Laplacian uniqueness; Hodge-Dirac square; Lorentzian signature; Kernel-Diagonal Theorem; charge rigidity class; total charge invariance; Midpoint Sorting Theorem; identification thesis; zero empirical anchors; A1 uniqueness; B1/B2 outer automorphism; hypercharge values; content structure; Lambda-promotion; falsifiable predictions
+- DC.description: This paper establishes the foundational objects of the Hodge Complex Standard Model and states the notation. The substrate is the periodic 8x8 torus Lambda = Z8 x Z8, selected by the unified substrate selection theorem. The Hodge-Dirac operator D = d + d* satisfies D^2 = Delta on each form degree. The 14 modes at lambda = 4 are identified with one Standard Model generation. The paper derives the Kernel-Diagonal Theorem, the Lorentzian metric uniqueness, the spectral gap 2 sin(pi/L), the three coefficients c = 5/9, (d-1)/2 = 3/2, and dim ker(H_wind) = 10, the Lambda-promotion mechanism, the absence of a light dark photon, and the rigidity class of the charge assignment. The eighth revision incorporates two structural sharpenings: the A1 color identification is now a theorem (HCSM-06 Thm 5.4), the B1/B2 choice is a labeling convention (HCSM-06 Thm 5.10), and the hypercharge values and content structure are derived (HCSM-07 Thms 8.1, 8.3). The framework now has zero empirical anchors in the particle, gauge, and hypercharge sectors. This corrected version fixes the supercharge algebra statement and updates derivation-status citations.
+- DC.identifier: HCSM-00-2026-09-Rev8-Corr
+
+### A.2 BibTeX
+
+```bibtex
+@article{PreschuttiHCSM00Rev8Corr,
+  author = {Preschutti, Stanley},
+  title = {{HCSM-00} (Eighth Revision, Corrected): Foundations, Notation, and Mapping},
+  journal = {HCSM White Paper Series},
+  year = {2026},
+  month = {September},
+  note = {ORCID: 0009-0004-5445-1744},
+  keywords = {Hodge Complex Standard Model, HCSM, foundations, notation,
+              mapping, 8x8 torus, Hodge complex, spectral midpoint, processor,
+              output structures, emergent physics, cosmology, Laplacian
+              uniqueness, Hodge-Dirac square, Lorentzian signature,
+              Kernel-Diagonal Theorem, charge rigidity class, total charge
+              invariance, Midpoint Sorting Theorem, identification thesis,
+              zero empirical anchors, A1 uniqueness, B1/B2 outer automorphism,
+              hypercharge values, content structure, Lambda-promotion,
+              falsifiable predictions},
+  abstract = {This paper establishes the foundational objects of the Hodge
+              Complex Standard Model and states the notation. The substrate is
+              the periodic 8x8 torus Lambda = Z8 x Z8, selected by the unified
+              substrate selection theorem. The Hodge-Dirac operator D = d + d*
+              satisfies D^2 = Delta on each form degree. The 14 modes at
+              lambda = 4 are identified with one Standard Model generation.
+              The paper derives the Kernel-Diagonal Theorem, the Lorentzian
+              metric uniqueness, the spectral gap 2 sin(pi/L), the three
+              coefficients c = 5/9, (d-1)/2 = 3/2, and dim ker(H_wind) = 10,
+              the Lambda-promotion mechanism, the absence of a light dark
+              photon, and the rigidity class of the charge assignment. This
+              corrected version fixes the supercharge algebra statement and
+              updates derivation-status citations.}
+}
