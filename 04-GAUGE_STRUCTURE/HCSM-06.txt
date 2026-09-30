@@ -1,0 +1,489 @@
+# HCSM-06: Sector-Coarse Correspondence
+
+**The Gauge Algebra su(3) ⊕ su(2) ⊕ u(1)^5 from the D4 Endomorphism Algebra of the 14-Mode Multiplet**
+
+Stanley Preschutti  
+Entropia Research Institute / Information Physics Institute  
+ORCID: 0009-0004-5445-1744  
+scstamp@yahoo.com
+
+September 2026
+
+---
+
+## Abstract
+
+The Hodge Complex Standard Model assigns the 14 modes at the self-paired eigenvalue λ = 4 of the discrete Laplacian on the periodic 8×8 torus to one Standard Model generation. This paper derives the gauge algebra su(3) ⊕ su(2) ⊕ u(1)^5 as a Lie subalgebra of the D4 commutant on the complexified 14-mode multiplet, through the endomorphism algebra of the D4 isotypic multiplicity spaces. We prove:
+
+(i) the D4 commutant on C^14 decomposes as ⊕_ρ M_{m_ρ}(C) with complex dimension 27;
+
+(ii) su(3) embeds in the A1-block endomorphism algebra M_3(C) as the traceless anti-Hermitian subalgebra;
+
+(iii) **the A1 block is uniquely selected as the physical color algebra by a dimension-and-invariance theorem**: among the two three-dimensional multiplicity spaces M_{A1} and M_E, only M_{A1} is D4-invariant on its isotypic subspace, so only M_{A1} can host the physical color triplet;
+
+(iv) su(2) embeds in the B1-block endomorphism algebra M_2(C);
+
+(v) **the choice of B1 over B2 is a substrate-level labeling convention**, forced by the outer automorphism of D4 and by the D4-equivariance of all HCSM-native operators;
+
+(vi) the five D4 isotypic projectors span an abelian u(1)^5 subalgebra;
+
+(vii) the generators of these three factors close to su(3) ⊕ su(2) ⊕ u(1)^5, a 16-dimensional real Lie subalgebra of the commutant.
+
+On the full 56-dimensional Hodge sector at λ = 4, we derive the sector-coarse correspondence: the space of D4-invariant, sector-block-diagonal, multiplicity-scalar operators is exactly 15-dimensional, spanned by the three sector operators {I, F, O} on each of the five isotypic blocks. All algebraic claims are verified at machine precision.
+
+---
+
+## Contents
+
+1. Introduction
+2. Setup
+3. The D4 Isotypic Decomposition
+4. The D4 Commutant
+5. The Gauge Algebra
+6. Sector-Coarse Correspondence
+7. Inputs and Derived
+8. Reproducibility
+9. Conclusion
+
+---
+
+## 1. Introduction
+
+### 1.1 The gauge algebra problem
+
+The Hodge Complex Standard Model identifies the 14 modes at the self-paired eigenvalue λ = 4 of the discrete Laplacian on the periodic 8×8 torus with one Standard Model generation (HCSM-04). On this multiplet the D4 point group of the square acts by permutation, and HCSM-05 established the D4 isotypic decomposition.
+
+The present paper asks: what Lie algebra emerges from the D4 isotypic structure of this multiplet? The answer is the gauge algebra
+
+    g_HCSM = su(3) ⊕ su(2) ⊕ u(1)^5,     (1.1)
+
+realized as a Lie subalgebra of the D4 commutant on the complexified 14-mode multiplet C^14.
+
+### 1.2 The one-line summary
+
+The 14-mode multiplet at λ = 4 decomposes under D4 as 3A1 ⊕ A2 ⊕ 2B1 ⊕ 2B2 ⊕ 3E. The D4 commutant on this multiplet is the endomorphism algebra ⊕_ρ M_{m_ρ}(C), of complex dimension 27. The gauge algebra su(3) ⊕ su(2) ⊕ u(1)^5 embeds in the commutant: su(3) acts on the A1 multiplicity space, su(2) on the B1 multiplicity space, and the five isotypic projectors span the u(1)^5 center. The A1 identification with physical color is forced by dimension matching; the B1 identification with physical weak isospin is a labeling convention fixed by the outer automorphism of D4.
+
+### 1.3 Main results
+
+1. **D4 isotypic decomposition** (Theorem 3.1). V_14 = 3A1 ⊕ A2 ⊕ 2B1 ⊕ 2B2 ⊕ 3E, of complex dimension 14.
+
+2. **Commutant dimension** (Theorem 4.3). By Schur's lemma, dim_C Comm(D4, V_14) = 3² + 1² + 2² + 2² + 3² = 27.
+
+3. **Endomorphism algebra** (Theorem 4.4). Comm(D4, V_14) ≅ M_3(C) ⊕ M_1(C) ⊕ M_2(C) ⊕ M_2(C) ⊕ M_3(C).
+
+4. **su(3) subalgebra** (Theorem 5.3). The traceless anti-Hermitian subalgebra of M_3(C) is a copy of su(3) embedded in the commutant.
+
+5. **A1 uniqueness theorem** (Theorem 5.4). Among the two 3-dimensional multiplicity spaces M_{A1} and M_E, only M_{A1} admits an su(3) action on a D4-trivial 3-dimensional subspace. Therefore physical color su(3)_c is the su(3) subalgebra on M_{A1}.
+
+6. **su(2) subalgebra** (Theorem 5.7). The traceless anti-Hermitian subalgebra of M_2(C) is a copy of su(2) embedded in the commutant.
+
+7. **B1/B2 outer automorphism** (Theorems 5.8, 5.10). The outer automorphism φ: D4 → D4 defined by φ(r) = r, φ(s) = rs swaps B1 ↔ B2 while fixing A1, A2, E. No D4-equivariant operator on V_14 implements φ. Therefore the choice of B1 (rather than B2) as physical weak isospin is a substrate-level labeling convention.
+
+8. **u(1)^5 subalgebra** (Theorem 5.11). The five isotypic projectors span an abelian Lie subalgebra isomorphic to u(1)^5.
+
+9. **Closure** (Theorem 5.12). The generators of the three factors above close to su(3) ⊕ su(2) ⊕ u(1)^5, of real dimension 8 + 3 + 5 = 16.
+
+10. **Sector-coarse correspondence** (Theorem 6.3). On the full 56-dimensional Hodge sector at λ = 4, the space of D4-invariant, sector-block-diagonal, multiplicity-scalar operators is exactly 15-dimensional, spanned by the three sector operators {I, F, O}.
+
+### 1.4 Disclosed inputs
+
+Substrate-level inputs (S1)-(S3) from HCSM-01:
+
+- **(S1)** The substrate is the periodic square lattice Λ_L = Z_L × Z_L with the D4 point group of the square as its symmetry group.
+- **(S2)** The scalar Laplacian is the 5-point Laplacian, the unique nearest-neighbour, D4-invariant, positive-semidefinite operator with kernel equal to the constant functions.
+- **(S3)** The substrate size L = 8 is selected by equal entropy spacing and by maximal cancellation of the winding generator (HCSM-14.b).
+
+Two further inputs are used in the present paper:
+
+- **(P1)** Identification thesis. The 14 modes at λ = 4 are in one-to-one correspondence with the 14 Standard Model particles of one generation (HCSM-23).
+- **(C1)** Structural premise of color. Physical color is a D4-invariant internal index, i.e., it transforms trivially under the substrate's point group. This is the standard statement in quantum field theory that color is an internal gauge quantum number, orthogonal to spacetime.
+
+No other inputs are used.
+
+### 1.5 Cross references
+
+Depends on: HCSM-00, HCSM-01, HCSM-02, HCSM-04, HCSM-05, HCSM-07, HCSM-09.
+
+Propagates to: HCSM-08, HCSM-38, HCSM-39, HCSM-40, HCSM-42, HCSM-44.
+
+---
+
+## 2. Setup
+
+### 2.1 The substrate and the mode multiplet
+
+The substrate is the periodic square lattice
+
+    Λ = Z_8 × Z_8,    N = 64,    (2.1)
+
+consisting of N = 64 sites arranged in an 8×8 grid with periodic boundary conditions. The discrete 5-point Laplacian has eigenvalue
+
+    λ(n1, n2) = 4 − 2 cos(π n1 / 4) − 2 cos(π n2 / 4),    (2.2)
+
+for (n1, n2) ∈ {0, ..., 7}². At the self-paired eigenvalue λ = 4, the mode set M has 14 elements:
+
+    O_0 = {(0,4), (4,0)},                                (2.3a)
+    O_1 = {(1,3), (1,5), (3,1), (3,7), (5,1), (5,7), (7,3), (7,5)},   (2.3b)
+    O_2 = {(2,2), (2,6), (6,2), (6,6)}.                  (2.3c)
+
+We work with the complexified mode space V_14 = C^14 with basis {e_m : m ∈ M}.
+
+### 2.2 The D4 action
+
+The D4 point group of the square acts on Λ by
+
+    r: (n1, n2) ↦ (−n2, n1)  (mod 8),                   (2.4a)
+    s: (n1, n2) ↦ (n1, −n2)  (mod 8),                   (2.4b)
+
+subject to r⁴ = s² = (rs)² = e. The permutation action on the 14 modes extends to a representation
+
+    ρ_14 : D4 → GL(V_14),    ρ_14(g) e_m = e_{g·m}.     (2.5)
+
+We denote by R = ρ_14(r) and S = ρ_14(s) the two generators.
+
+### 2.3 The D4 character table
+
+The D4 irreps are five: A1, A2 (1-dim), B1, B2 (1-dim), and E (2-dim). On the conjugacy classes {e}, {r²}, {r, r³}, {s, r²s}, {rs, r³s}, with sizes 1, 1, 2, 2, 2:
+
+| irrep | e | r² | r, r³ | s, r²s | rs, r³s |
+|-------|---|----|-------|--------|---------|
+| A1    | 1 | 1  | 1     | 1      | 1       |
+| A2    | 1 | 1  | 1     | −1     | −1      |
+| B1    | 1 | 1  | −1    | 1      | −1      |
+| B2    | 1 | 1  | −1    | −1     | 1       |
+| E     | 2 | −2 | 0     | 0      | 0       |
+
+---
+
+## 3. The D4 Isotypic Decomposition
+
+**Theorem 3.1 (D4 isotypic decomposition of V_14).** Under D4, the complexified 14-mode multiplet decomposes as
+
+    V_14 = 3A1 ⊕ A2 ⊕ 2B1 ⊕ 2B2 ⊕ 3E,                    (3.1)
+
+with multiplicities (m_{A1}, m_{A2}, m_{B1}, m_{B2}, m_E) = (3, 1, 2, 2, 3).
+
+**Proof.** Direct decomposition via the character formula. The character of the permutation module on the 14 modes is
+
+    χ_{V_14} = (14, 2, 0, 2, 2),                          (3.2)
+
+on the conjugacy classes {e}, {r²}, {r, r³}, {s, r²s}, {rs, r³s}. Then
+
+    m_ρ = (1/8) Σ_C |C| χ_{V_14}(C) χ_ρ(C)*,             (3.3)
+
+giving (3, 1, 2, 2, 3). Dimension check: 3 + 1 + 2 + 2 + 6 = 14. ∎
+
+**Remark 3.2 (Isotypic decomposition).** The isotypic decomposition of V_14 is
+
+    V_14 = ⊕_ρ V_ρ ⊗ M_ρ,                                (3.4)
+
+where V_ρ is the irreducible representation space of ρ and M_ρ is the multiplicity space. Explicitly:
+
+    dim V_{A1} = 1, dim M_{A1} = 3;    dim V_{A2} = 1, dim M_{A2} = 1;
+    dim V_{B1} = 1, dim M_{B1} = 2;    dim V_{B2} = 1, dim M_{B2} = 2;
+    dim V_E  = 2, dim M_E  = 3.
+
+**Remark 3.3 (Isotypic dimensions).** The A1 block has isotypic dimension 1 × 3 = 3. The E block has isotypic dimension 2 × 3 = 6. This difference — A1 trivial in V_ρ, E non-trivial — is the structural fact that selects A1 as the color algebra in Section 5.2.
+
+---
+
+## 4. The D4 Commutant
+
+### 4.1 Definition and Schur's lemma
+
+**Definition 4.1 (D4 commutant).** The D4 commutant on V_14 is the algebra of D4-equivariant endomorphisms,
+
+    Comm(D4, V_14) = { X ∈ End_C(V_14) : [X, R] = [X, S] = 0 }.    (4.1)
+
+**Theorem 4.2 (Schur decomposition of the commutant).** For a D4-representation V = ⊕_ρ V_ρ ⊗ M_ρ with dim M_ρ = m_ρ,
+
+    Comm(D4, V) ≅ ⊕_ρ End_C(M_ρ) = ⊕_ρ M_{m_ρ}(C).       (4.2)
+
+**Proof.** Standard Schur's lemma. Since the V_ρ are pairwise non-isomorphic, every D4-equivariant endomorphism preserves the isotypic decomposition; on each block V_ρ ⊗ M_ρ, an equivariant endomorphism must act as id_{V_ρ} ⊗ A_ρ with A_ρ ∈ End(M_ρ). ∎
+
+**Theorem 4.3 (Commutant dimension).** The D4 commutant on the complexified 14-mode multiplet has complex dimension
+
+    dim_C Comm(D4, V_14) = Σ_ρ m_ρ² = 3² + 1² + 2² + 2² + 3² = 27.    (4.3)
+
+**Proof.** Immediate from Theorem 4.2 and the multiplicities (3, 1, 2, 2, 3). ∎
+
+### 4.2 The endomorphism algebra
+
+**Theorem 4.4 (Endomorphism algebra structure).** The commutant decomposes explicitly as
+
+    Comm(D4, V_14) ≅ M_3(C) ⊕ M_1(C) ⊕ M_2(C) ⊕ M_2(C) ⊕ M_3(C),    (4.4)
+
+with C-dimensions 9 + 1 + 4 + 4 + 9 = 27.
+
+**Proof.** Immediate from Theorems 4.2 and 4.3. The five blocks correspond to the five irreps A1, A2, B1, B2, E in that order. ∎
+
+**Remark 4.5 (Block decomposition and physical sectors).** The five matrix blocks are:
+
+- M_3(C) on the A1 multiplicity space: complex dim 9, real dim 18.
+- M_1(C) on the A2 multiplicity space: complex dim 1, real dim 2.
+- M_2(C) on the B1 multiplicity space: complex dim 4, real dim 8.
+- M_2(C) on the B2 multiplicity space: complex dim 4, real dim 8.
+- M_3(C) on the E multiplicity space: complex dim 9, real dim 18.
+
+The gauge algebra su(3) ⊕ su(2) ⊕ u(1)^5 embeds in this algebra.
+
+---
+
+## 5. The Gauge Algebra
+
+### 5.1 The su(3) subalgebra on the A1 multiplicity space
+
+The A1 multiplicity space M_{A1} ≅ C^3 is the home of the color algebra. Let {u_1, u_2, u_3} be an orthonormal basis of M_{A1}.
+
+**Definition 5.1 (Embedding map).**
+
+    φ_{A1} : M_3(C) → End_C(V_14),    φ_{A1}(X) = Σ_{a,b} u_a X_{ab} u_b†,   (5.1)
+
+extended by zero on the other isotypic blocks.
+
+**Proposition 5.2 (Homomorphism).** φ_{A1} is a unital algebra homomorphism and a Lie algebra homomorphism:
+
+    φ_{A1}(XY) = φ_{A1}(X) φ_{A1}(Y),    φ_{A1}([X, Y]) = [φ_{A1}(X), φ_{A1}(Y)].   (5.2)
+
+**Theorem 5.3 (su(3) subalgebra).** The traceless anti-Hermitian subalgebra of M_3(C),
+
+    su(3) = { X ∈ M_3(C) : X† = −X, tr(X) = 0 },         (5.3)
+
+embeds in Comm(D4, V_14) via φ_{A1} as a real 8-dimensional compact Lie subalgebra.
+
+**Proof.** The image φ_{A1}(su(3)) is contained in the A1 block of the commutant, and φ_{A1} preserves brackets by Proposition 5.2. The Lie algebra su(3) is generated by anti-Hermitian traceless 3×3 matrices, of real dimension 8. Using Gell-Mann matrices λ^a, the embedding is T_c^a = φ_{A1}(λ^a / 2), a = 1, ..., 8, with [T^a, T^b] = i Σ_c f^{abc} T^c. ∎
+
+### 5.2 The A1 uniqueness theorem
+
+The commutant Comm(D4, V_14) contains **two** 3-dimensional matrix blocks: M_{A1} and M_E. Both are candidates for hosting an su(3) subalgebra. The following theorem selects the unique candidate compatible with physical color.
+
+**Theorem 5.4 (A1 uniqueness for physical color).** Let M_{A1} and M_E be the two 3-dimensional multiplicity spaces in Comm(D4, V_14). Then:
+
+(a) V_{A1} ⊗ M_{A1} = C^3 is a **D4-trivial** 3-dimensional subspace of V_14.
+
+(b) V_E ⊗ M_E = C^2 ⊗ C^3 is a **6-dimensional** subspace of V_14, decomposing under D4 as E ⊗ C^3.
+
+(c) Physical color is a 3-dimensional internal index that transforms trivially under the D4 symmetry of the substrate: the structural premise (C1).
+
+(d) The unique such subspace of V_14 is V_{A1} ⊗ M_{A1}.
+
+(e) Consequently, physical color su(3)_c is the su(3) subalgebra of the commutant on M_{A1}.
+
+**Proof.**
+
+(a) V_{A1} is 1-dimensional and carries the trivial rep A1. Hence V_{A1} ⊗ M_{A1} = C^3 with D4 acting trivially.
+
+(b) V_E is 2-dimensional and carries the irrep E. Hence V_E ⊗ M_E = C^2 ⊗ C^3 with D4 acting as E on the first factor. Dimension = 6.
+
+(c) This is premise (C1).
+
+(d) From (a) and (b), the only 3-dimensional subspace of V_14 on which D4 acts trivially is V_{A1} ⊗ M_{A1}.
+
+(e) From (c) and (d), the su(3) subalgebra must be the one on M_{A1}. ∎
+
+**Remark 5.5.** Theorem 5.4 replaces the earlier framework input "A1 ↔ physical color" with a derived statement. The only retained premise is (C1), the D4-triviality of color.
+
+### 5.3 The su(2) subalgebra on the B1 multiplicity space
+
+**Definition 5.6 (Embedding map).** φ_{B1} : M_2(C) → End_C(V_14), extended by zero.
+
+**Theorem 5.7 (su(2) subalgebra).** The traceless anti-Hermitian subalgebra su(2) ⊂ M_2(C) embeds in Comm(D4, V_14) via φ_{B1} as a real 3-dimensional compact Lie subalgebra.
+
+**Proof.** Same structure as Theorem 5.3. The standard physics basis uses Pauli matrices σ^i, with T^i = φ_{B1}(σ^i / 2) satisfying [T^i, T^j] = i ε^{ijk} T^k. ∎
+
+### 5.4 The B1/B2 outer automorphism and the labeling convention
+
+**Theorem 5.8 (Outer automorphism of D4).** The map φ : D4 → D4 defined by φ(r) = r, φ(s) = rs is a group automorphism of D4. It is not inner and it exchanges the two reflection conjugacy classes {s, r²s} ↔ {rs, r³s}, thereby swapping B1 ↔ B2 while fixing A1, A2, E.
+
+**Proof.** Check the relations: φ(r)⁴ = r⁴ = e; φ(s)² = (rs)² = r s r s = r (s r) s = r (r³ s) s = r⁴ s² = e; (φ(r) φ(s))² = (r · rs)² = (r² s)² = r² s r² s = r² (r² s) s = r⁴ s² = e. So φ preserves the D4 presentation. Its effect on the character table: on B1, χ_{B1}(s) = +1, χ_{B1}(rs) = −1; on B2, χ_{B2}(s) = −1, χ_{B2}(rs) = +1. Applying φ exchanges the two reflection classes. ∎
+
+**Theorem 5.10 (B1/B2 labeling convention).** The outer automorphism φ of Theorem 5.8 acts on Comm(D4, V_14) by exchanging the two M_2(C) blocks M_{B1} ↔ M_{B2}. No D4-equivariant operator on V_14 implements φ. Therefore the choice of B1 (rather than B2) as the physical weak-isospin block is a substrate-level labeling convention.
+
+**Proof.** The outer automorphism acts on Rep(D4) by permuting irreps: B1 ↔ B2, with A1, A2, E fixed. Hence on V_14 = 3A1 ⊕ A2 ⊕ 2B1 ⊕ 2B2 ⊕ 3E, the automorphism exchanges the two B-blocks. On the commutant ⊕_ρ M_{m_ρ}(C), it exchanges the corresponding M_2(C) factors.
+
+For the second statement: no D4-equivariant operator on V_14 implements φ, because φ is not an element of D4. The set of D4-equivariant operators is exactly Comm(D4, V_14), generated by R and S, both of which cannot implement an outer automorphism. All HCSM-native operators — the processor T (HCSM-13), the winding generator H_wind (HCSM-14), the zero state s (HCSM-22), the sector operators I, F, O (this paper), the orientation flip σ (HCSM-09) — are D4-equivariant. None distinguishes B1 from B2. ∎
+
+**Corollary 5.11 (Physical content invariance).** The physical content of HCSM — gauge algebra, fermion representation content, anomaly cancellation, hypercharge quantization, sector-coarse correspondence, and all downstream predictions — is invariant under the relabeling B1 ↔ B2.
+
+**Proof.** The gauge algebra su(3) ⊕ su(2) ⊕ u(1)^5 is invariant under φ (it fixes su(3), permutes the two isomorphic su(2) factors, and permutes the associated u(1) projectors). The fermion content is fixed by the isotypic decomposition, invariant under φ. Anomaly cancellation (HCSM-08) is a symmetric sum, invariant under φ. Hypercharge quantization is invariant. ∎
+
+### 5.5 The u(1)^5 subalgebra from the isotypic projectors
+
+**Definition 5.12 (Isotypic projectors).** For each irrep ρ of D4,
+
+    P_ρ = (dim ρ / |D4|) Σ_{g ∈ D4} χ_ρ(g)* ρ_14(g).     (5.12)
+
+The five projectors satisfy P_ρ P_{ρ'} = δ_{ρρ'} P_ρ and Σ_ρ P_ρ = I_14.
+
+**Theorem 5.13 (u(1)^5 subalgebra).** The five isotypic projectors span an abelian Lie subalgebra of Comm(D4, V_14) isomorphic to u(1)^5, of real dimension 5.
+
+### 5.6 Closure of the gauge algebra
+
+**Theorem 5.14 (Closure).** The image φ_{A1}(su(3)) ⊕ φ_{B1}(su(2)) ⊕ span{P_{A1}, P_{A2}, P_{B1}, P_{B2}, P_E} is a Lie subalgebra of Comm(D4, V_14) isomorphic to su(3) ⊕ su(2) ⊕ u(1)^5, of real dimension 8 + 3 + 5 = 16.
+
+**Proof.** We verify the brackets: (1) su(3)-su(3) by homomorphism; (2) su(2)-su(2) by homomorphism; (3) su(3)-su(2) vanishes because they act on orthogonal blocks; (4) su(3)-u(1) vanishes because each P_ρ acts as a scalar on the A1 block; (5) su(2)-u(1) same; (6) u(1)-u(1) abelian. ∎
+
+---
+
+## 6. Sector-Coarse Correspondence
+
+### 6.1 The full Hodge sector
+
+    V_56 = Ω^0|_{λ=4} ⊕ Ω^1|_{λ=4} ⊕ Ω^2|_{λ=4},          (6.1)
+
+with D4 decomposition V_56 = 9A1 ⊕ 5A2 ⊕ 7B1 ⊕ 7B2 ⊕ 14E. Dimension check: 9 + 5 + 7 + 7 + 28 = 56.
+
+### 6.2 Sector operators
+
+**Definition 6.1.** On V_56:
+
+    I = P_{Ω^0} + P_{Ω^1} + P_{Ω^2},                       (6.2a)
+    F = P_{Ω^0} − P_{Ω^1} + P_{Ω^2},                       (6.2b)
+    O = P_{Ω^0} − P_{Ω^2}.                                (6.2c)
+
+Sector signatures: I = (1, 1, 1), F = (1, −1, 1), O = (1, 0, −1).
+
+### 6.3 The sector-coarse sub-commutant
+
+**Theorem 6.3 (Sector-coarse correspondence).** The sector-coarse sub-commutant has complex dimension exactly 15 = 5 × 3. It is spanned by the three sector operators {I, F, O} on each isotypic block.
+
+**Proof.** By Schur's lemma, one complex scalar per (ρ, Ω^k) block, of which there are 5 × 3 = 15. On each block, (I, F, O) give the three vectors (1,1,1), (1,−1,1), (1,0,−1), which span C³ (det M = 4 ≠ 0). Over the five irreps, the span has complex dimension 15. ∎
+
+**Corollary 6.4 (Orientation Z2).** Under the sign flip O ↦ −O, the multiset of physical sector values is preserved. Full orientation-Z2 theorem is HCSM-09.
+
+---
+
+## 7. Inputs and Derived
+
+### 7.1 Derived from the substrate
+
+1. D4 isotypic decomposition V_14 = 3A1 ⊕ A2 ⊕ 2B1 ⊕ 2B2 ⊕ 3E (Theorem 3.1).
+2. Commutant dimension 27 (Theorem 4.3).
+3. Endomorphism algebra M_3 ⊕ M_1 ⊕ M_2 ⊕ M_2 ⊕ M_3 (Theorem 4.4).
+4. su(3) embedding in A1 (Theorem 5.3).
+5. **A1 uniqueness for physical color (Theorem 5.4).**
+6. su(2) embedding in B1 (Theorem 5.7).
+7. **B1/B2 outer automorphism (Theorems 5.8, 5.10).**
+8. u(1)^5 from isotypic projectors (Theorem 5.13).
+9. Closure to su(3) ⊕ su(2) ⊕ u(1)^5, real dim 16 (Theorem 5.14).
+10. Sector-coarse correspondence: 15-dim sub-commutant (Theorem 6.3).
+
+### 7.2 Inputs
+
+- **(S1)-(S3)** Substrate, Laplacian, L = 8 selection.
+- **(P1)** 14 modes ↔ SM generation (HCSM-23).
+- **(C1)** Color is D4-trivial (structural premise).
+
+### 7.3 What is not claimed
+
+We do not claim to derive the SM gauge group SU(3)_c × SU(2)_L × U(1)_Y from first principles. We derive the Lie algebra su(3) ⊕ su(2) ⊕ u(1)^5 as a subalgebra of the D4 commutant. The reduction to the physical gauge algebra involves premise (C1) and the labeling convention for B1 vs. B2.
+
+---
+
+## 8. Reproducibility
+
+All numerical claims verified at machine precision (IEEE-754 double). The verification script is provided in the HCSM companion repository at `12-VERIFICATION/HCSM-06_verification`. It verifies:
+
+1. D4 isotypic decomposition of V_14 (Theorem 3.1).
+2. Commutant dimension 27 (Theorem 4.3).
+3. Endomorphism algebra decomposition (Theorem 4.4).
+4. su(3) embedding in A1 (Theorem 5.3).
+5. **Isotypic dimension argument of Theorem 5.4**: dim(V_{A1} ⊗ M_{A1}) = 3 with trivial D4 action; dim(V_E ⊗ M_E) = 6 with nontrivial D4 action.
+6. su(2) embedding in B1 (Theorem 5.7).
+7. **B1/B2 outer automorphism (Theorems 5.8, 5.10).**
+8. u(1)^5 subalgebra from isotypic projectors (Theorem 5.13).
+9. Bracket closure of su(3) ⊕ su(2) ⊕ u(1)^5 (Theorem 5.14).
+10. 15-dimensional sector-coarse sub-commutant (Theorem 6.3).
+
+Running `12-VERIFICATION/run_all.py` reproduces every numerical claim.
+
+---
+
+## 9. Conclusion
+
+This paper has established the sector-coarse correspondence of the Hodge Complex Standard Model. The 14-mode multiplet decomposes under D4 as 3A1 ⊕ A2 ⊕ 2B1 ⊕ 2B2 ⊕ 3E. The D4 commutant is the endomorphism algebra of complex dimension 27. The gauge algebra su(3) ⊕ su(2) ⊕ u(1)^5 embeds in the commutant.
+
+**The identification of the A1 factor with physical color is now a theorem** (Theorem 5.4). The A1 block is the unique 3-dimensional D4-invariant subspace of V_14, so it is the unique candidate for physical color.
+
+**The identification of the B1 factor with physical weak isospin is a labeling convention** (Theorem 5.10). The two blocks B1 and B2 are exchanged by the outer automorphism of D4, and no D4-equivariant operator on V_14 implements this automorphism. The physical content of the framework is invariant under the relabeling.
+
+On the full 56-dimensional Hodge sector at λ = 4, the sector-coarse correspondence is that the space of D4-invariant, sector-block-diagonal, multiplicity-scalar operators is exactly 15-dimensional.
+
+The framework derives the algebraic structure that any physically realized gauge theory with the Standard Model content and the D4 structure of the 14-mode multiplet must be compatible with.
+
+---
+
+## References
+
+[1] S. Preschutti, HCSM-00: Foundations, Notation, and Mapping, HCSM White Paper Series (2026).
+
+[2] S. Preschutti, HCSM-01: The 8 × 8 Torus Substrate from d = 4, HCSM White Paper Series (2026).
+
+[3] S. Preschutti, HCSM-02: The Hodge Complex on Λ, HCSM White Paper Series (2026).
+
+[4] S. Preschutti, HCSM-04: The 14-Mode Multiplet at λ = 4, HCSM White Paper Series (2026).
+
+[5] S. Preschutti, HCSM-05: D4 Representation Theory of the 14-Mode Multiplet, HCSM White Paper Series (2026).
+
+[6] S. Preschutti, HCSM-07: Hypercharge Quantization, HCSM White Paper Series (2026).
+
+[7] S. Preschutti, HCSM-08: Anomaly Cancellation as a Theorem, HCSM White Paper Series (2026).
+
+[8] S. Preschutti, HCSM-09: Gauge Topology and Orientation-Flip Z2, HCSM White Paper Series (2026).
+
+[9] S. Preschutti, HCSM-14.b: Maximal Cancellation Selects L = 8, HCSM White Paper Series (2026).
+
+[10] S. Preschutti, HCSM-23 (Seventh Revision): The Midpoint Sorting Theorem, HCSM White Paper Series (2026).
+
+[11] S. Preschutti, HCSM-38: Hidden Sector Content, HCSM White Paper Series (2026).
+
+[12] S. Preschutti, HCSM-39: The Weinberg Angle, HCSM White Paper Series (2026).
+
+[13] S. Preschutti, HCSM-40: The Higgs Mechanism, HCSM White Paper Series (2026).
+
+[14] S. Preschutti, HCSM-42: Spin Chirality Z2 Grading, HCSM White Paper Series (2026).
+
+[15] S. Preschutti, HCSM-44: The Proca Sector, HCSM White Paper Series (2026).
+
+[16] I. Schur, Neue Begründung der Theorie der Gruppencharaktere, Sitzungsberichte der Königlich Preußischen Akademie der Wissenschaften (1905), 406–432.
+
+---
+
+## Appendix: Web Crawler Metadata
+
+### Dublin Core
+
+- **DC.title:** HCSM-06: Sector-Coarse Correspondence
+- **DC.creator:** Preschutti, Stanley
+- **DC.creator.orcid:** 0009-0004-5445-1744
+- **DC.date.issued:** 2026-09
+- **DC.type:** Text / Preprint / White Paper
+- **DC.format:** application/pdf; text/x-latex
+- **DC.language:** en
+- **DC.publisher:** Entropia Research Institute
+- **DC.rights:** All rights reserved
+- **DC.subject:** Hodge Complex Standard Model; HCSM; D4 commutant; endomorphism algebra; Schur's lemma; gauge algebra; su(3); su(2); u(1)^5; sector-coarse correspondence; A1 uniqueness; B1/B2 outer automorphism; 14-mode multiplet; 8x8 torus
+- **DC.identifier:** HCSM-06-2026-09
+
+### BibTeX
+
+```bibtex
+@article{PreschuttiHCSM06,
+  author = {Preschutti, Stanley},
+  title = {{HCSM-06}: Sector-Coarse Correspondence},
+  journal = {HCSM White Paper Series},
+  year = {2026},
+  month = {September},
+  note = {ORCID: 0009-0004-5445-1744},
+  keywords = {Hodge Complex Standard Model, HCSM, D4 commutant,
+    endomorphism algebra, Schur's lemma, gauge algebra, su(3), su(2),
+    u(1)^5, sector-coarse correspondence, A1 uniqueness,
+    B1/B2 outer automorphism, 14-mode multiplet},
+  abstract = {This paper derives the gauge algebra su(3) + su(2) +
+    u(1)^5 as a Lie subalgebra of the D4 commutant on the complexified
+    14-mode multiplet at lambda = 4. The A1 identification with physical
+    color is derived via a dimension-and-invariance theorem. The B1/B2
+    choice is a labeling convention forced by the outer automorphism of
+    D4. On the 56-dimensional Hodge sector, the sector-coarse
+    correspondence is a 15-dimensional sub-commutant.}
+}
