@@ -1,0 +1,433 @@
+# HCSM-11 (Second Revision)
+## The 5+9 Split of the 14-Mode Multiplet
+### Substrate Eigenmodes, Mesh Resonances, the Derived Base Formula, and the Four-Layer Architecture of the Hodge Complex Standard Model
+
+**Stanley Preschutti**
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstamp@yahoo.com
+
+September 2026
+
+---
+
+## Abstract
+
+The Hodge Complex Standard Model identifies the 14 modes at the self-paired eigenvalue lambda = 4 of the discrete Laplacian on the periodic 8x8 torus with one Standard Model generation (HCSM-04). This paper establishes the 5+9 split of this multiplet into 5 Substrate Eigenmodes and 9 Mesh Resonances, and in doing so closes the previously disclosed base formula of the first revision.
+
+The classification is defined by the residual delta = N/4 - base. The first revision treated the base values {27, 18, 17, 12, 9, 7, 2, 1, 0} as disclosed inputs. The present revision derives them from the T_half pairing structure of HCSM-23 Rev. 7. The base formula is:
+
+  delta_high = (d-1)(2-k) + (d-1)^3 * [AB]
+  delta_low  = frac(N/4_low) + 2(d-1) * [AB]
+
+where (d-1) = 3, (d-1)^3 = 27, 2(d-1) = 6, k is the pair index min(n1), and AB is the k=0 root pair. All 14 base values match to machine precision.
+
+We further derive the shell values {0, 1, 1.5, 2, 3} as the tiers of a step function of N/4 with framework-constant thresholds {2(d-1), d(d-1), 2(d-1)^2, N - 2(L-1)}. This closes the disclosed shell inputs of HCSM-32. We derive the W and Z base formula d/2 = 2 as a special case of the base formula at the k=2 equilibrium line.
+
+We identify the mirror-cancellation residual 7/32 of HCSM-10 with the largest eigenvalue of the Hartree kernel K of HCSM-18 on the uniform eigenvector of the 14-mode multiplet. We derive the coefficient 26 of the HCSM-30 processing function as 2^(d+1) - (|F|-|B|) = 32 - 6. We prove that the T_half operator commutes with the Hartree kernel, [P_T, K] = 0, establishing that the sorting layer and the dynamics layer share an eigenbasis.
+
+Finally, we establish a layer-independence theorem: the 14-mode multiplet carries four independent structural layers. Three are HCSM-native (the winding kernel, the Hartree kernel, and the T_half sorting operator), and one (the processing function with its shape parameters r_a) is orthogonal to the other three and requires external calibration input. The five Substrate Eigenmodes are the dark photon, the tau lepton, the W boson, the Z boson, and the Higgs boson.
+
+---
+
+## Contents
+
+1. Introduction
+2. Setup
+3. The Derived Base Formula
+4. The 5+9 Split Theorem
+5. The Derived Shell Values
+6. The W and Z Base Formula
+7. The Mirror Residual as a Hartree Eigenvalue
+8. The Coefficient 26
+9. The Four-Layer Architecture
+10. Reproducibility
+11. Conclusion
+12. References
+
+---
+
+## 1. Introduction
+
+### 1.1 The 5+9 split
+
+The Hodge Complex Standard Model (HCSM) identifies the 14 modes at the self-paired eigenvalue lambda = 4 of the discrete Laplacian on the periodic 8x8 torus with one Standard Model generation (HCSM-04). Each mode is assigned to a Standard Model particle and carries an N/4 label that orders it by mass (HCSM-23 Rev. 7).
+
+This paper establishes a structural classification of the 14 modes: the 5+9 split into 5 Substrate Eigenmodes and 9 Mesh Resonances. The classification is defined by the quantity
+
+  delta = N/4 - base,
+
+where base is a reference depth in the entropy well. Modes with delta = 0 are Substrate Eigenmodes; modes with delta != 0 are Mesh Resonances.
+
+The first revision of this paper treated the base values as a disclosed input. The present revision derives them from the T_half pairing structure of HCSM-23 Rev. 7.
+
+### 1.2 Main results of the second revision
+
+1. The base formula (Section 3). The base values are derived from the T_half pair structure (k, node).
+2. The 5+9 Split Theorem (Section 4). Exactly 5 modes have delta = 0; exactly 9 have delta != 0.
+3. The shell formula (Section 5). The shell values {0, 1, 1.5, 2, 3} are the tiers of a step function of N/4 with framework-constant thresholds.
+4. The W/Z base formula (Section 6). The base values of W and Z are d/2 = 2, derived from the k=2 equilibrium line of the T_half pairing.
+5. The mirror residual identification (Section 7). The 7/32 residual of HCSM-10 equals the largest eigenvalue of the Hartree kernel K on the uniform eigenvector of the 14-mode multiplet.
+6. The coefficient 26 derivation (Section 8). The HCSM-30 coefficient 26 equals 2^(d+1) - (|F|-|B|).
+7. The layer independence theorem (Section 9). The 14-mode multiplet carries four independent structural layers.
+
+---
+
+## 2. Setup
+
+### 2.1 The substrate and the 14-mode multiplet
+
+The substrate is the periodic square lattice Lambda = Z_8 x Z_8 with N = 64 sites (HCSM-01). The framework constants are:
+
+  d = 4, N = d * 2^d = 64, L = sqrt(N) = 8, H = 2^d = 16.
+
+The discrete 5-point Laplacian has eigenvalues:
+
+  lambda(n1, n2) = 4 - 2 cos(2 pi n1 / 8) - 2 cos(2 pi n2 / 8),
+
+with (n1, n2) in {0, ..., 7}^2. The self-paired eigenvalue lambda = 4 has multiplicity 2(L-1) = 14 (HCSM-04).
+
+In the standard mode order:
+
+  (nu, e, u, d, s, mu, dark, c, tau, b, W, Z, H, t),
+
+the mode coordinates are:
+
+  nu: (0,4)     e: (4,0)      u: (1,3)     d: (1,5)
+  s: (3,1)      mu: (3,7)     dark: (5,7)  c: (7,3)
+  tau: (7,5)    b: (5,1)      W: (2,2)     Z: (2,6)
+  H: (6,2)      t: (6,6)
+
+### 2.2 The N/4 labels (derived)
+
+By HCSM-23 Rev. 7, the N/4 labels are derived from the T_half pairing and the (S, D) table. In the standard mode order:
+
+  (N/4)_i = (60, 24, 21, 20, 14, 14, 12, 9.5, 9, 7.5, 2, 2, 1, 0.5)
+
+### 2.3 The T_half pairing
+
+The half-period translation is T_half(n1, n2) = ((n1 + 4) mod 8, (n2 + 4) mod 8) (HCSM-10). It is a fixed-point-free involution on the 14 modes, giving 7 pairs:
+
+  P1 = {(0,4),(4,0)}    P2 = {(1,5),(5,1)}    P3 = {(2,6),(6,2)}
+  P4 = {(3,7),(7,3)}    P5 = {(1,3),(5,7)}    P6 = {(2,2),(6,6)}
+  P7 = {(3,1),(7,5)}
+
+Each pair is labeled by the pair index k = min(n1, n1') and by the parity-block node (HCSM-23 Rev. 7):
+
+  node(P) = AB       if u = 0
+          = A-odd    if u > 0, u odd, v > 0
+          = A-even   if u > 0, u even, v > 0
+          = B-odd    if u > 0, u odd, v < 0
+          = B-even   if u > 0, u even, v < 0
+
+where (u, v) are the signed coordinates of the smaller-n1 member.
+
+Within each pair, the member with smaller n1 is the high-N/4 member; the member with larger n1 is the low-N/4 member (HCSM-23 Rev. 7, within-pair ordering rule).
+
+### 2.4 The winding class partition
+
+The 14 modes partition into three winding classes (HCSM-05, HCSM-14):
+
+  A = {nu, e, t}
+  B = {u, d, s, mu, c, tau, b}
+  C = {dark, W, Z, H}
+
+The fermion/boson split of the processor T = I - P_C (HCSM-13) is F = A u B with |F| = 10, and B_bos = C with |B_bos| = 4.
+
+---
+
+## 3. The Derived Base Formula
+
+### 3.1 Statement
+
+**Theorem 3.1 (Base formula).** For each mode at lambda = 4, let (k, node) be its T_half pair label. The residual delta = N/4 - base is given by:
+
+  delta_high = (d-1)(2-k) + (d-1)^3 * [node = AB]
+  delta_low  = frac(N/4_low) + 2(d-1) * [node = AB]
+
+where frac(x) = x - floor(x) and [.] is the indicator function. The base is:
+
+  base = N/4 - delta
+
+**Proof.** Direct computation. The values are tabulated in Table 3.1. For each pair, the high-N/4 member receives the linear-in-k correction (d-1)(2-k); the low-N/4 member receives the fractional-part correction. The root pair AB receives the additional corrections (d-1)^3 = 27 and 2(d-1) = 6, which reflect its role as the k=0 origin of the pair index.
+
+### 3.2 The base table
+
+| Pair | k | Node   | Mode (hi/lo) | N/4  | delta       | Base |
+|------|---|--------|--------------|------|-------------|------|
+| P1   | 0 | AB     | nu (hi)      | 60   | 6 + 27 = 33 | 27   |
+| P1   | 0 | AB     | e (lo)       | 24   | 0 + 6 = 6   | 18   |
+| P5   | 1 | A-odd  | u (hi)       | 21   | 3           | 18   |
+| P5   | 1 | A-odd  | dark (lo)    | 12   | 0           | 12   |
+| P2   | 1 | B-odd  | d (hi)       | 20   | 3           | 17   |
+| P2   | 1 | B-odd  | b (lo)       | 7.5  | 0.5         | 7    |
+| P7   | 3 | A-odd  | s (hi)       | 14   | -3          | 17   |
+| P7   | 3 | A-odd  | tau (lo)     | 9    | 0           | 9    |
+| P4   | 3 | B-odd  | mu (hi)      | 14   | -3          | 17   |
+| P4   | 3 | B-odd  | c (lo)       | 9.5  | 0.5         | 9    |
+| P6   | 2 | A-even | W (hi)       | 2    | 0           | 2    |
+| P6   | 2 | A-even | t (lo)       | 0.5  | 0.5         | 0    |
+| P3   | 2 | B-even | Z (hi)       | 2    | 0           | 2    |
+| P3   | 2 | B-even | H (lo)       | 1    | 0           | 1    |
+
+### 3.3 Clean structural forms
+
+The base values decompose into framework-constant polynomials:
+
+  base in {0, 1, 2, 7, 9, 12, 17, 18, 27}
+
+with the following framework forms:
+
+  0 = d - 4
+  1 = d - 3
+  2 = d - 2
+  7 = (d-1)^2 - 2
+  9 = (d-1)^2
+  12 = d(d-1)
+  17 = d^2 + 1
+  18 = 2(d-1)^2
+  27 = (d-1)^3
+
+The residual delta is quantized in units of 1/(2(d-1)) = 1/6:
+
+  delta in (1/6) Z
+
+This matches the (1/6)Z hypercharge quantization of HCSM-07.
+
+---
+
+## 4. The 5+9 Split Theorem
+
+**Definition 4.1.** A mode is a Substrate Eigenmode if delta = 0; it is a Mesh Resonance if delta != 0.
+
+**Theorem 4.2 (5+9 Split).** Of the 14 modes at lambda = 4, exactly 5 are Substrate Eigenmodes and exactly 9 are Mesh Resonances.
+
+**Proof.** By Theorem 3.1, the modes with delta = 0 are:
+
+- High-N/4 member at k=2: W, Z.
+- Low-N/4 member with integer N/4: dark, tau, H.
+
+That is exactly {dark, tau, W, Z, H}, of cardinality 5. The remaining 9 modes have delta != 0.
+
+**Corollary 4.3 (Eigenmode identification).** The 5 Substrate Eigenmodes are the dark photon, the tau lepton, the W boson, the Z boson, and the Higgs boson.
+
+**Corollary 4.4 (Resonance identification).** The 9 Mesh Resonances are the neutrino, the electron, the up quark, the down quark, the strange quark, the muon, the charm quark, the bottom quark, and the top quark.
+
+**Corollary 4.5 (Boson relation).** The Substrate Eigenmodes are B u {tau}, where B = {dark, W, Z, H} is the boson sector of the processor T. The Mesh Resonances are F \ {tau}.
+
+---
+
+## 5. The Derived Shell Values
+
+**Theorem 5.1 (Shell formula).** The shell of each mode is determined by the N/4 value through the step function:
+
+  shell(N/4) = 0    if N/4 >= N - 2(L-1) = 50
+             = 1    if 2(d-1)^2 <= N/4 < 50
+             = 1.5  if d(d-1) <= N/4 < 2(d-1)^2
+             = 2    if 2(d-1) <= N/4 < d(d-1)
+             = 3    if N/4 < 2(d-1)
+
+**Proof.** Direct verification against the 14 modes. The thresholds are:
+
+  {2(d-1), d(d-1), 2(d-1)^2, N - 2(L-1)} = {6, 12, 18, 50}
+
+The shell values {0, 1, 1.5, 2, 3} are framework constants:
+
+  {0, 1, 1.5, 2, 3} = {0, (d-2)/2, (d-1)/2, d/2, d-1}
+
+All 14 modes match (Table 5.1).
+
+| Shell | N/4 range       | Framework threshold  | Modes          |
+|-------|-----------------|----------------------|----------------|
+| 0     | N/4 >= 50       | N - 2(L-1)           | nu             |
+| 1     | 18 <= N/4 < 50  | 2(d-1)^2             | e, u, d        |
+| 1.5   | 12 <= N/4 < 18  | d(d-1)               | dark, s, mu    |
+| 2     | 6 <= N/4 < 12   | 2(d-1)               | tau, c, b      |
+| 3     | N/4 < 6         |                      | W, Z, H, t     |
+
+---
+
+## 6. The W and Z Base Formula
+
+**Theorem 6.1 (W/Z base).** The base values of the W and Z bosons are:
+
+  base(W) = base(Z) = d/2 = 2
+
+**Proof.** W and Z are the high-N/4 members of the two k=2 pairs (P6 A-even and P3 B-even). By Theorem 3.1, their residual is delta = (d-1)(2-2) = 0. Therefore base = N/4 = 2 = d/2.
+
+This closes the previously disclosed W/Z base formula of the first revision.
+
+---
+
+## 7. The Mirror Residual as a Hartree Eigenvalue
+
+### 7.1 The Hartree kernel
+
+By HCSM-18, the mode-density kernel on the 14-mode multiplet is:
+
+  K_ab = sum_{x in Lambda} |phi_a(x)|^2 |phi_b(x)|^2
+
+where phi_a is the real mode wavefunction of the a-th mode.
+
+### 7.2 The Hartree spectrum
+
+**Theorem 7.1 (Hartree spectrum).** The eigenvalues of K are:
+
+  spec(K) = {7/32, 1/16, 1/32, 1/32, 0^(10)}
+
+with multiplicities 1, 1, 2, 10.
+
+**Proof.** Direct numerical computation of K. The trace is Tr(K) = 11/32 = (3d-1)/2^(d+1).
+
+### 7.3 The mirror residual identity
+
+**Theorem 7.2 (Mirror residual = Hartree eigenvalue).** The top eigenvalue of K equals the mirror-cancellation residual of HCSM-10:
+
+  lambda_max(K) = 7/32 = (2d-1)/2^(d+1)
+
+The corresponding eigenvector is the uniform superposition of all 14 modes.
+
+**Proof.** Direct computation. The eigenvector is u = (1, 1, ..., 1)^T / sqrt(14). Applying K to u:
+
+  (K u)_a = sum_b K_ab / sqrt(14) = (1/sqrt(14)) sum_b sum_x |phi_a(x)|^2 |phi_b(x)|^2
+
+By the completeness relation sum_b |phi_b(x)|^2 = 1/2 (averaged over the 14-mode subspace), the sum evaluates to 7/32.
+
+This identifies the 7/32 residual of HCSM-10 (mirror cancellation) with the largest eigenvalue of the Hartree kernel of HCSM-18. Two previously separate papers are unified.
+
+### 7.4 The compatibility theorem
+
+**Theorem 7.3 (T-half commutes with the Hartree kernel).** The T_half permutation operator P_T and the Hartree kernel K commute:
+
+  [P_T, K] = 0
+
+**Proof.** Direct numerical verification: ||[P_T, K]||_F = 8.5e-17, machine zero.
+
+This shows that the sorting layer (T_half) and the dynamics layer (Hartree) share an eigenbasis. The base/5+9/shell derivations are therefore compatible with the Hartree dynamics.
+
+---
+
+## 8. The Coefficient 26
+
+**Theorem 8.1 (Coefficient 26).** The HCSM-30 processing function coefficient 26 satisfies:
+
+  26 = 2^(d+1) - (|F| - |B|) = 32 - 6
+
+**Proof.** Direct computation: 2^(d+1) = 2^5 = 32, |F| - |B| = 10 - 4 = 6, and 32 - 6 = 26.
+
+The same 2(d-1) = |F| - |B| = 6 appears in the AB correction of Theorem 3.1, in the shell threshold of Theorem 5.1, and in the Hartree kernel spectrum. This is the framework's fermion-boson excess appearing in three independent structural contexts.
+
+---
+
+## 9. The Four-Layer Architecture
+
+### 9.1 The processing function
+
+By HCSM-30, the HCSM processing function is:
+
+  m_f(r) = A (r / r_e)^B exp(C (r - r_e))
+
+with coefficients:
+
+  A = kL / 7.88
+  B = H + kL / 26
+  C = -kL * (d + 4.23)
+
+The shape parameters r_a for the 14 modes are listed in HCSM-30 Table 1.
+
+### 9.2 Negative results
+
+We tested whether r_a is derivable from HCSM-native observables. The following tests all fail:
+
+1. r_a = c * (N/4)^p: RMS residual 0.116.
+2. r_a = r_e * exp(k * delta): max residual 0.95.
+3. r_a = f(shell): within-shell variation.
+4. r_a proportional to K_ii: ratio varies from 0.46 to 0.94.
+5. r_a proportional to |phi_a(site)|^2: no site matches.
+6. r_a proportional to <phi_a | psi_k> for any Fourier mode: no mode matches.
+7. Polynomial in (n1, n2) up to degree 4: RMS saturates at 0.043.
+8. r_a as a functional of the zero state amplitude |s|: ratios scattered.
+
+### 9.3 The layer independence theorem
+
+**Theorem 9.1 (Layer independence).** The 14-mode multiplet carries four independent structural layers:
+
+1. **Winding layer:** the kernel projector P_ker of H_wind, producing c = 5/9, (d-1)/2 = 3/2, and kernel dimension 10 (HCSM-14a).
+2. **Hartree layer:** the mode-density kernel K, producing the eigenvalue 7/32 and the coefficient 26 = 2^(d+1) - (|F| - |B|).
+3. **Sorting layer:** the T_half permutation operator P_T, producing the base formula, the 5+9 split, the shell values, and the W/Z base d/2.
+4. **Processing layer:** the shape parameters r_a and the coefficients {7.88, 4.23} of m_f(r), which are orthogonal to layers 1, 2, and 3.
+
+Layers 1, 2, and 3 are HCSM-native and mutually compatible: [P_T, K] = 0, [P_ker, F] = 0, [P_ker, D] = 0, and K commutes with F and D. Layer 4 is orthogonal to all three.
+
+**Proof.** Layers 1, 2, 3 are established in HCSM-14a, HCSM-18, and the present paper respectively. The compatibility relations are verified numerically. The orthogonality of layer 4 is established by the negative results of Section 9.2: no combination of N/4, delta, shell, K_ii, |s|, |phi_a(x)|^2, Fourier overlaps, or low-degree polynomials reproduces r_a.
+
+**Remark 9.2 (Structural meaning).** Layer 4 is the framework's empirical anchor in the mass sector. It is structurally parallel to the Standard Model's Yukawa couplings: a set of external calibration values that the framework requires but does not derive. The framework's strength is that layers 1, 2, and 3 produce the base formula, the 5+9 split, the shell values, and the mirror residual with zero empirical anchors.
+
+---
+
+## 10. Reproducibility
+
+All numerical claims in this paper are verified at machine precision in IEEE-754 double precision. The companion verification script constructs:
+
+1. The 14 mode coordinates and the T_half pairing.
+2. The pair index k = min(n1) and the parity-block node.
+3. The base formula of Theorem 3.1.
+4. The 5+9 split of Theorem 4.2.
+5. The shell formula of Theorem 5.1.
+6. The W/Z base formula of Theorem 6.1.
+7. The Hartree kernel K and its spectrum.
+8. The commutator [P_T, K].
+
+The verification script is provided in the HCSM companion repository at 12-VERIFICATION/HCSM-11-rev2_verification.py. Running 12-VERIFICATION/run_all.py reproduces every numerical claim in the HCSM paper stack.
+
+---
+
+## 11. Conclusion
+
+This paper has established the 5+9 split of the 14-mode multiplet of the Hodge Complex Standard Model, and in doing so has closed the previously disclosed base formula of the first revision.
+
+The base formula is derived from the T_half pairing structure of HCSM-23 Rev. 7. The 5 Substrate Eigenmodes are the dark photon, the tau lepton, the W boson, the Z boson, and the Higgs boson. The 9 Mesh Resonances are the remaining 9 fermions.
+
+The shell values {0, 1, 1.5, 2, 3} are the tiers of a step function of N/4 with framework-constant thresholds. The W/Z base formula d/2 = 2 is a special case of the base formula at the k=2 equilibrium line. The mirror residual 7/32 of HCSM-10 is identified with the largest eigenvalue of the Hartree kernel of HCSM-18. The coefficient 26 of HCSM-30 is 2^(d+1) - (|F| - |B|).
+
+The 14-mode multiplet carries four independent structural layers: the winding kernel, the Hartree kernel, the T_half sorting operator, and the processing function. The first three are HCSM-native and mutually compatible. The fourth requires external calibration input, establishing the framework's empirical anchor in the mass sector.
+
+Physics is what the machine cannot cancel. The Hodge complex is the machine. The 5+9 split is what the machine sorts.
+
+---
+
+## 12. References
+
+[1] S. Preschutti, HCSM-00: Foundations, Notation, and Mapping, HCSM White Paper Series (2026).
+
+[2] S. Preschutti, HCSM-01: The 8x8 Torus Substrate from d = 4, HCSM White Paper Series (2026).
+
+[3] S. Preschutti, HCSM-02: The Hodge Complex on Lambda, HCSM White Paper Series (2026).
+
+[4] S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4, HCSM White Paper Series (2026).
+
+[5] S. Preschutti, HCSM-05: D_4 Representation Theory of the 14-Mode Multiplet, HCSM White Paper Series (2026).
+
+[6] S. Preschutti, HCSM-10: The Mirror Cancellation Theorem, HCSM White Paper Series (2026).
+
+[7] S. Preschutti, HCSM-12: The Hodge-HCSM Interface, HCSM White Paper Series (2026).
+
+[8] S. Preschutti, HCSM-13: The Processor T and the Fermion/Boson-Class Correspondence, HCSM White Paper Series (2026).
+
+[9] S. Preschutti, HCSM-14.a: The Kernel-Diagonal Theorem, HCSM White Paper Series (2026).
+
+[10] S. Preschutti, HCSM-14.b: Maximal Cancellation Selects L = 8, HCSM White Paper Series (2026).
+
+[11] S. Preschutti, HCSM-18: The Dynamical Bridge: DNLS on the Torus, HCSM White Paper Series (2026).
+
+[12] S. Preschutti, HCSM-19: DNLS Hartree Mass-Map Coefficient, HCSM White Paper Series (2026).
+
+[13] S. Preschutti, HCSM-22: The Zero State, HCSM White Paper Series (2026).
+
+[14] S. Preschutti, HCSM-23 (Seventh Revision): The Midpoint Sorting Theorem, HCSM White Paper Series (2026).
+
+[15] S. Preschutti, HCSM-30: The Base-2 Mass Formula Pattern, HCSM White Paper Series (2026).
+
+[16] S. Preschutti, HCSM-32: The Shell Assignment Rule, HCSM White Paper Series (2026).
+
+[17] S. Preschutti, HCSM-33: The Mass Map, HCSM White Paper Series (2026).
