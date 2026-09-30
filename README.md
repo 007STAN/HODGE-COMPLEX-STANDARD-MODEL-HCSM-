@@ -22,10 +22,10 @@ Stanley Preschutti · Entropia Research Institute / Information Physics Institut
 
 ## TL;DR
 
-- The **Standard Model** — gauge structure, matter content, particle spectrum, mixing matrices, spacetime dimension, graviton, Newton constant, and vacuum stability — is derived from a single discrete substrate: the periodic `8 × 8` torus `Λ = ℤ₈ × ℤ₈`.
+- The **Standard Model** — gauge structure, matter content, particle spectrum, mixing matrices, spacetime dimension, graviton, Newton constant, and vacuum stability is derived from a single discrete substrate: the periodic `8 × 8` torus `Λ = ℤ₈ × ℤ₈`.
 - The substrate itself is selected by a **single theorem** (Unified Substrate Selection), from two framework identities: `N = d · 2ᵈ` and `mult_{λ=4}(L) = |F| + |B|`. The unique even-integer solution is `(L, d) = (8, 4)`, `N = 64`.
 - The framework has **one dimensionful anchor** (`M_P`) and **zero empirical anchors in the particle sector**.
-- **All seven rank blockers** of the derivation program are closed; the **need-to-derive list is empty**.
+- **All seven rank blockers** of the derivation program are closed; the **need to derive list is empty**.
 - **Seven derived quantities** already match observation at sub-percent precision. **Eight active predictions** are testable at upcoming facilities.
 
 ---
@@ -73,7 +73,7 @@ Each level uses only the level above it. Every arrow is a theorem.
 
 ## The Substrate Selection
 
-The two identities that select the substrate are not new — they are the framework's own site-count relation and its own mode-content relation.
+The two identities that select the substrate are not new, they are the framework's own site count relation and its own mode content relation.
 
 | Identity | Statement |
 |---|---|
@@ -97,7 +97,7 @@ L² = d · 2ᵈ
 
 The universe is a **machine that cancels itself**. The substrate `Λ = ℤ₈ × ℤ₈` carries a mirror symmetry `λ ↔ 8 − λ` on its Laplacian spectrum. Every excitation pairs with a mirror partner and annihilates. The unique fixed point of the mirror is the self-paired eigenvalue `λ = 4`; the 14 modes that live there are what the mirror cannot cancel.
 
-What we call physics — quarks, leptons, gauge bosons, the Higgs, the graviton, dark energy — is the **residue** at that fixed point.
+What we call physics quarks, leptons, gauge bosons, the Higgs, the graviton, dark energy is the **residue** at that fixed point.
 
 HCSM does not ask *"what fields exist?"* or *"what symmetry groups are broken?"*
 It asks a single question:
@@ -108,7 +108,7 @@ The answer is a small, discrete, information-bearing lattice whose mirror cancel
 
 ### What this means
 
-Every observed structure in the Standard Model is a **residue** — something the mirror could not cancel:
+Every observed structure in the Standard Model is a **residue**  something the mirror could not cancel:
 
 - **Charge** is what the machine *must not* cancel. The charge rigidity theorem shows that five structural constraints reduce `5¹⁴ ≈ 6 × 10⁹` assignments to exactly two, both with total charge `−1e`. The residual `−1e` is not a choice; it is the unique value the machine's own structure permits.
 - **Mass** is the residual weight of the `N/4` label under the mass map `m = A · exp(−B · N/4)`.
@@ -153,7 +153,7 @@ All seven rank blockers of the HCSM derivation program are closed.
 
 ## Evidence — Confirmed
 
-Seven HCSM-derived quantities already match established empirical data.
+Seven HCSM derived quantities already match established empirical data.
 
 | # | Parameter | HCSM Value | Observation | Agreement |
 |:-:|---|---|---|---|
@@ -165,7 +165,7 @@ Seven HCSM-derived quantities already match established empirical data.
 | 6 | Kaluza–Klein towers | Absent | LHC multi-TeV scans | Confirmed |
 | 7 | Dark energy density | `ρ_DE ≈ 2.4809 × 10⁻⁴⁷ GeV⁴` | Planck CMB + DESI BAO | `0.76%` (refined: `0.010%`) |
 
-Additional sub-percent confirmations:
+Additional sub percent confirmations:
 
 | Parameter | HCSM Value | Observation | Agreement |
 |---|---|---|---|
@@ -261,7 +261,7 @@ HCSM/
 
 ## Rank Closure and Session Summary
 
-The need-to-derive list from the September 2026 session is **empty**. All nine items (6.1–6.9) were derived, grounded, or formalized.
+ All nine items (6.1–6.9) were derived, grounded, or formalized.
 
 | # | Item | Result |
 |:---:|---|---|
@@ -275,7 +275,7 @@ The need-to-derive list from the September 2026 session is **empty**. All nine i
 | 6.8 | DME entropy-well `S₀` | `S₀ = v_EW² · 7/40 · (1 + δ_edge/6) = 10630.722 GeV²` |
 | 6.9 | CKM higher-order | `√(ρ̄²+η̄²) = (5/12)(1 + δ_edge/6)` |
 
-**The universal structural signature:** every coefficient is a ratio of two HCSM-native integer counts — orbit sizes, group orders, processor ranks, measurement-matrix ranks. Coefficients are not fitted; they are counts.
+**The universal structural signature:** every coefficient is a ratio of two HCSM native integer counts orbit sizes, group orders, processor ranks, measurement matrix ranks. Coefficients are not fitted; they are counts.
 
 ---
 
