@@ -21,7 +21,7 @@ Stanley Preschutti · Entropia Research Institute / Information Physics Institut
 
 ## TL;DR
 
-- The **Standard Model** — gauge structure, matter content, particle spectrum, mixing matrices, spacetime dimension, graviton, Newton constant, and vacuum stability — is derived from a single discrete substrate: the periodic `8 × 8` torus `Λ = ℤ₈ × ℤ₈`.
+- The **Standard Model** — gauge structure, matter content, particle spectrum, mixing matrices, spacetime dimension, graviton, Newton constant, and vacuum stability is derived from a single discrete substrate: the periodic `8 × 8` torus `Λ = ℤ₈ × ℤ₈`.
 - The substrate itself is selected by a **single theorem** (Unified Substrate Selection), from two framework identities: `N = d · 2ᵈ` and `mult_{λ=4}(L) = |F| + |B|`. The unique even-integer solution is `(L, d) = (8, 4)`, `N = 64`.
 - The framework has **one dimensionful anchor** (`M_P`) and **zero empirical anchors in the particle sector**.
 - **Seven derived quantities** already match observation at sub-percent precision. **Eight active predictions** are testable at upcoming facilities.
@@ -194,13 +194,13 @@ The quantum program recovers the classical and quantum limits of the substrate. 
 
 ### What this is
 
-Most frameworks in theoretical physics take the Standard Model as given. They assume its gauge group, its particle content, and its parameters, then ask what lies beyond it — a larger symmetry, an extra dimension, a deeper structure. The Standard Model is the starting point.
+Most frameworks in theoretical physics take the Standard Model as given. They assume its gauge group, its particle content, and its parameters, then ask what lies beyond it a larger symmetry, an extra dimension, a deeper structure. The Standard Model is the starting point.
 
 HCSM takes the opposite direction. It does not postulate the Standard Model. It asks what substrate produces exactly this structure, and nothing else. The Standard Model is the output, not the input.
 
 The answer is a small, discrete substrate: the periodic torus `Λ = ℤ₈ × ℤ₈`. On this substrate, the Laplacian spectrum carries a mirror symmetry `λ ↔ 8 − λ`. Every excitation pairs with a mirror partner and cancels. The unique fixed point of the mirror is the self-paired eigenvalue `λ = 4`. The 14 modes that live there are what the mirror cannot cancel.
 
-What we call physics — quarks, leptons, gauge bosons, the Higgs, the graviton, dark energy — is the **residue** at that fixed point.
+What we call physics quarks, leptons, gauge bosons, the Higgs, the graviton, dark energy is the **residue** at that fixed point.
 
 HCSM does not ask *"what fields exist?"* or *"what symmetry groups are broken?"* It asks:
 
@@ -208,7 +208,7 @@ HCSM does not ask *"what fields exist?"* or *"what symmetry groups are broken?"*
 
 ### What this means
 
-Every observed structure in the Standard Model is a **residue** — something the mirror could not cancel:
+Every observed structure in the Standard Model is a **residue**  something the mirror could not cancel:
 
 - **Charge** is what the mirror cannot cancel. The charge rigidity theorem shows that five structural constraints reduce `5¹⁴ ≈ 6 × 10⁹` assignments to exactly two, both with total charge `−1e`. The residual `−1e` is not a choice; it is the unique value the substrate's own structure permits.
 - **Mass** is the residual weight of the `N/4` label under the mass map `m = A · exp(−B · N/4)`.
@@ -230,7 +230,7 @@ Every observed structure in the Standard Model is a **residue** — something th
 | ❌ Not | ✅ Is |
 |---|---|
 | A replacement for the Standard Model | The substrate from which the Standard Model emerges |
-| A BSM extension (adds particles, symmetries, dimensions) | A pre-geometric framework (derives SM content) |
+| A BSM extension (adds particles, symmetries, dimensions) | A pre geometric framework (derives SM content) |
 | A model that fits SM parameters | A substrate that derives SM parameters |
 
 ---
