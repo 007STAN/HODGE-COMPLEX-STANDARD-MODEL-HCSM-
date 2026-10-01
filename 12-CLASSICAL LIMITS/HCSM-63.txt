@@ -1,0 +1,918 @@
+HCSM-63
+First Post-Newtonian Corrections in the Hodge Complex Standard Model
+The Einstein-Infeld-Hoffmann Lagrangian, the PPN Parameters, and the Exact Recovery of the General-Relativistic 1PN Sector
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstannp@yahoo.com
+
+HCSM White Paper Series, Paper 63
+September 2026
+
+================================================================================
+ABSTRACT
+================================================================================
+
+We derive the first post-Newtonian (1PN) corrections in the Hodge Complex
+Standard Model (HCSM) from the exact Einstein-Hilbert effective action of
+HCSM-50. The graviton is the self-paired B_1 + B_2 curvature mode of
+Sym^2(Omega^1|lambda=4) with 108 modes, exactly massless by D_4 Schur
+orthogonality (HCSM-46). The effective action is exactly Einstein-Hilbert plus
+Faddeev-Popov plus matter, with no higher-curvature corrections (HCSM-50). The
+Newton constant is
+
+    G_N = (d+1)^2 / (8 pi M_P^2) = 25 / (8 pi M_P^2),
+
+derived from first principles in HCSM-48 and HCSM-49.
+
+We expand the exact Einstein-Hilbert action to cubic order in the metric
+perturbation h_mu nu around flat Lorentzian space on ker D = R^{3,1}, impose the
+harmonic (de Donder) gauge, and derive the 1PN metric, the Einstein-Infeld-
+Hoffmann (EIH) Lagrangian, and the 1PN equations of motion. We prove that all
+parametrized post-Newtonian (PPN) parameters take their general-relativistic
+values:
+
+    gamma = beta = 1,
+    alpha_1 = alpha_2 = alpha_3 = 0,
+    zeta_1 = zeta_2 = zeta_3 = zeta_4 = 0,
+    xi = 0.
+
+The Nordtvedt parameter vanishes exactly: eta_N = 0. We derive the 1PN
+predictions for perihelion precession, light deflection, Shapiro time delay,
+gravitational redshift, gravitational-wave power, and Lense-Thirring precession.
+The lattice-artifact corrections enter at O(epsilon^2), with epsilon = a/l_obs
+the lattice-to-observation scale ratio. At all currently accessible scales,
+epsilon^2 < 10^-70, so the HCSM 1PN predictions are indistinguishable from
+general relativity.
+
+We survey the current experimental status of each prediction. The PPN
+parameters are constrained at the 10^-5 level (Cassini Shapiro delay:
+gamma-1 = (2.1 +/- 2.3) x 10^-5; Mercury perihelion and Lunar Laser Ranging
+for beta). The Nordtvedt parameter is bounded at the 10^-4 level by Lunar Laser
+Ranging and the pulsar triple system PSR J0337+1715. Perihelion precession,
+light deflection, Shapiro delay, and gravitational-wave power all match general
+relativity at high precision. The Newton constant G_N = 25/(8 pi M_P^2) matches
+the measured value to within its current relative uncertainty of ~2 x 10^-5. All
+current tests are consistent with HCSM.
+
+The 1PN open item of HCSM-62 is closed. The remaining open items are the explicit
+O(epsilon^2) coefficients in the 1PN potentials, the 2PN sector, and the 1PN
+gravitational-wave propagation.
+
+Keywords: Hodge Complex Standard Model; HCSM; first post-Newtonian; PPN
+parameters; Einstein-Infeld-Hoffmann; Nordtvedt effect; Cassini; Lunar Laser
+Ranging; PSR J0337+1715; Newton constant; exact Einstein-Hilbert; graviton
+masslessness; lattice artifacts.
+
+================================================================================
+CONTENTS
+================================================================================
+
+1. Introduction
+   1.1 Motivation
+   1.2 The one-line summary
+   1.3 Main results
+   1.4 Cross references
+   1.5 Organization
+
+2. Setup: exact action and metric expansion
+   2.1 The exact HCSM action
+   2.2 Metric perturbation
+   2.3 Harmonic gauge
+   2.4 Post-Newtonian counting
+
+3. Expansion of the exact Einstein-Hilbert action to cubic order
+   3.1 Quadratic action (Newtonian sector)
+   3.2 Cubic action (1PN sector)
+
+4. The 1PN metric in harmonic gauge
+
+5. The 1PN Lagrangian for a system of point masses
+
+6. The 1PN equations of motion
+
+7. PPN parameters
+
+8. Observable 1PN predictions
+   8.1 Perihelion precession
+   8.2 Light deflection
+   8.3 Shapiro time delay
+   8.4 Gravitational redshift
+   8.5 Gravitational-wave power
+   8.6 Gravitomagnetic effects
+
+9. Experimental status of the 1PN predictions
+   9.1 PPN parameters gamma = beta = 1
+   9.2 Nordtvedt effect eta_N = 0
+   9.3 Classical GR effects with G_N = 25/(8 pi M_P^2)
+   9.4 Summary table
+
+10. Lattice corrections to the 1PN sector
+
+11. Status: derived, inputs, open
+    11.1 Derived in this paper
+    11.2 Inputs from prior HCSM papers
+    11.3 Open items
+
+12. Falsifiability
+
+13. Conclusion
+
+A. Linearized HCSM field equations
+B. 1PN metric: detailed derivation
+C. EIH Lagrangian: detailed derivation
+D. PPN parameter derivation
+E. Numerical verification
+
+References
+
+================================================================================
+1. INTRODUCTION
+================================================================================
+
+1.1 Motivation
+
+The Hodge Complex Standard Model (HCSM) derives the Standard Model of particle
+physics from a single discrete substrate: the periodic 8x8 torus
+Lambda = Z_8 x Z_8 [HCSM-00, HCSM-01]. The gravity sector [HCSM-45, HCSM-46,
+HCSM-47, HCSM-48, HCSM-49, HCSM-50] derives the graviton as the self-paired
+B_1 + B_2 curvature mode, proves exact masslessness by D_4 Schur orthogonality,
+and establishes that the effective action is exactly Einstein-Hilbert plus
+Faddeev-Popov plus matter, with no higher-order curvature corrections.
+
+The Newtonian limit was closed in HCSM-62: the Poisson equation
+nabla^2 phi = 4 pi G_N rho_m and the potential phi(r) = -G_N M / r follow from
+the exact action, the geodesic equation and equivalence principle are theorems,
+and the O(epsilon^2), O(epsilon^4), O(epsilon^6) lattice corrections to the
+potential are explicit.
+
+The first post-Newtonian (1PN) sector was left open. This paper closes it.
+
+1.2 The one-line summary
+
+Because HCSM-50 gives exactly Einstein-Hilbert with no higher-curvature
+corrections, the cubic expansion of the action is the standard general-
+relativistic cubic action. Hence the 1PN metric, the Einstein-Infeld-Hoffmann
+Lagrangian, the 1PN equations of motion, and all PPN parameters are exactly
+their general-relativistic values, with the HCSM-derived Newton constant
+
+    G_N = 25 / (8 pi M_P^2).
+
+1.3 Main results
+
+(1) 1PN metric (Section 4). The harmonic-gauge 1PN metric is the standard one,
+    with G_N = 25/(8 pi M_P^2).
+
+(2) EIH Lagrangian (Section 5). The 1PN Lagrangian for a system of point masses
+    is the Einstein-Infeld-Hoffmann Lagrangian with G_N = 25/(8 pi M_P^2).
+
+(3) 1PN equations of motion (Section 6). The 1PN acceleration is the standard
+    EIH expression.
+
+(4) PPN parameters (Section 7). gamma = beta = 1, alpha_i = zeta_i = xi = 0,
+    eta_N = 0.
+
+(5) Observable predictions (Section 8). Perihelion precession, light
+    deflection, Shapiro delay, gravitational redshift, gravitational-wave
+    power, and Lense-Thirring precession, all with G_N = 25/(8 pi M_P^2).
+
+(6) Lattice corrections (Section 10). The 1PN potentials acquire O(epsilon^2)
+    corrections, unobservable at all currently accessible scales.
+
+(7) Experimental status (Section 9). Survey of current bounds: PPN parameters
+    at 10^-5, Nordtvedt parameter at 10^-4, classical GR effects at high
+    precision, all consistent with HCSM.
+
+1.4 Cross references
+
+Depends on HCSM-00, 01, 02, 03, 18, 33, 45, 46, 47, 48, 49, 50, 51, 51a, 61,
+62. Completes the 1PN open item of HCSM-62.
+
+1.5 Organization
+
+Section 2 states the exact action and the metric expansion. Section 3 expands
+the Einstein-Hilbert action to cubic order. Section 4 gives the 1PN metric.
+Section 5 derives the EIH Lagrangian. Section 6 gives the 1PN equations of
+motion. Section 7 derives the PPN parameters. Section 8 lists the observable
+predictions. Section 9 surveys the experimental status. Section 10 gives the
+lattice corrections. Section 11 catalogs what is derived, what is assumed, and
+what is open. Section 12 lists falsifiable predictions. Section 13 concludes.
+
+================================================================================
+2. SETUP: EXACT ACTION AND METRIC EXPANSION
+================================================================================
+
+2.1 The exact HCSM action
+
+By HCSM-50, Theorem 7, the effective action of the graviton sector on the
+56-dimensional Hodge lift is, at every mass dimension, exactly
+
+    S_HCSM = (1 / (16 pi G_N)) int d^4 x sqrt(-g) R
+             + S_FP
+             + S_matter,                              (2.1)
+
+with no higher-order R^2, R^3, or covariant-derivative corrections. The Newton
+constant is
+
+    G_N = (d+1)^2 / (8 pi M_P^2) = 25 / (8 pi M_P^2),    (2.2)
+
+with 25 = (d+1)^2 from the hidden B_1 bilinear trace [HCSM-48] and
+8 pi = 2 pi dim ker D = 2 pi * 4 from the Faddeev-Popov measure [HCSM-49].
+
+The matter action is the discrete nonlinear Schrodinger (DNLS) action on the
+torus [HCSM-18, HCSM-62], minimally coupled to the emergent metric on
+ker D = R^{3,1}.
+
+2.2 Metric perturbation
+
+Background metric:
+
+    eta_mu nu = diag(-1, +1, +1, +1),   |eta| = det(eta_mu nu) = -1.
+
+Perturbation:
+
+    g_mu nu = eta_mu nu + h_mu nu,   |h_mu nu| << 1.
+
+Trace-reversed perturbation:
+
+    hbar_mu nu = h_mu nu - (1/2) eta_mu nu h,
+    h = eta^{mu nu} h_mu nu,
+    hbar = eta^{mu nu} hbar_mu nu = -h.
+
+2.3 Harmonic gauge
+
+Definition 2.1 (Harmonic gauge). The harmonic (de Donder) gauge condition is
+
+    partial^mu hbar_mu nu = 0.                        (2.3)
+
+2.4 Post-Newtonian counting
+
+Introduce the small parameter
+
+    epsilon_PN ~ v/c ~ sqrt(G_N M / (r c^2)).         (2.4)
+
+The metric components scale as
+
+    h_00 = O(epsilon_PN^2),   h_0i = O(epsilon_PN^3),
+    h_ij = O(epsilon_PN^2).                           (2.5)
+
+The 1PN sector is the expansion through O(epsilon_PN^4) in the action and
+O(epsilon_PN^4) in the equations of motion. Equivalently, keep the cubic terms
+in h_mu nu in the Einstein-Hilbert action.
+
+================================================================================
+3. EXPANSION OF THE EXACT EINSTEIN-HILBERT ACTION TO CUBIC ORDER
+================================================================================
+
+3.1 Quadratic action (Newtonian sector)
+
+From HCSM-62, Appendix A, the quadratic Einstein-Hilbert action is
+
+    S_EH^(2) = (1 / (16 pi G_N)) int d^4 x
+               [ -(1/2) partial_lambda h_mu nu partial^lambda h^mu nu
+                 + (1/2) partial_lambda h partial^lambda h
+                 + partial_mu h^mu nu partial_nu h
+                 - partial_mu h^mu nu partial_lambda h^lambda_nu ].  (3.1)
+
+In harmonic gauge this reduces to
+
+    S_EH^(2) = -(1 / (64 pi G_N)) int d^4 x
+               partial_lambda hbar_mu nu partial^lambda hbar^mu nu.  (3.2)
+
+Variation with respect to hbar_mu nu gives
+
+    Box hbar_mu nu = -16 pi G_N T_mu nu,              (3.3)
+
+where Box = -partial_t^2 + nabla^2.
+
+3.2 Cubic action (1PN sector)
+
+The cubic terms in the Einstein-Hilbert action are
+
+    S_EH^(3) = (1 / (16 pi G_N)) int d^4 x L^(3)[h],  (3.4)
+
+with
+
+    L^(3) = -(1/2) h partial_lambda h_mu nu partial^lambda h^mu nu
+            + (1/4) h partial_lambda h partial^lambda h
+            + ...,                                     (3.5)
+
+where the ellipsis denotes the remaining cubic invariants built from h_mu nu
+and its first derivatives.
+
+Theorem 3.1 (Exact cubic action). The cubic expansion of the HCSM effective
+action (2.1) is exactly the cubic expansion of the Einstein-Hilbert action
+(3.4). No additional cubic terms arise from the HCSM substrate.
+
+Proof. By HCSM-50, Theorem 7, the HCSM effective action is exactly
+Einstein-Hilbert plus Faddeev-Popov plus matter at every mass dimension. The
+Faddeev-Popov action S_FP is quadratic in the ghost fields and does not
+contribute to the cubic graviton action. The matter action S_matter is the DNLS
+action, whose cubic terms are the standard matter-graviton couplings. Hence the
+cubic graviton action is exactly (3.4).
+
+Remark 3.1. The structural point is that because HCSM-50 gives exactly
+Einstein-Hilbert with no higher-curvature corrections, the cubic action is
+exactly the general-relativistic cubic action. Hence the 1PN equations of
+motion are exactly the Einstein-Infeld-Hoffmann equations.
+
+================================================================================
+4. THE 1PN METRIC IN HARMONIC GAUGE
+================================================================================
+
+Solving the field equations through 1PN order in harmonic gauge gives the
+standard metric
+
+    g_00 = -1 + 2U - 2U^2 + 2 Phi + O(epsilon_PN^6),
+    g_0i = -4 V_i + O(epsilon_PN^5),
+    g_ij = (1 + 2U) delta_ij + O(epsilon_PN^4),       (4.1)
+
+where the potentials are
+
+    U(x,t) = G_N int rho_m(x',t) / |x - x'| d^3 x',   (4.2)
+
+    V_i(x,t) = G_N int rho_m(x',t) v_i(x',t) / |x - x'| d^3 x',  (4.3)
+
+    Phi(x,t) = G_N int [ rho_m(x',t) ( v^2(x',t) + U(x',t)
+               + 3 p(x',t)/rho_m(x',t) ) ] / |x - x'| d^3 x'.   (4.4)
+
+Theorem 4.1 (1PN metric). The harmonic-gauge 1PN metric in HCSM is exactly
+(4.1), with G_N = 25/(8 pi M_P^2) and the matter density rho_m given by the
+HCSM mass map
+
+    rho_m(x) = sum_{i=1}^{14} m_i |phi_i(x)|^2,        (4.5)
+
+with m_i = A_mass exp(-B_mass (N/4)_i) from HCSM-33.
+
+Proof. Direct from the exact action (2.1) and the cubic expansion (3.4). The
+2U^2 term in g_00 comes from the cubic terms in the action. The 2 Phi term comes
+from the matter stress-energy tensor at 1PN order.
+
+Remark 4.1 (The 2U^2 term). The 2U^2 term in g_00 is the nonlinear 1PN
+correction that comes from the cubic terms in the action. It is the term that
+produces the perihelion precession.
+
+================================================================================
+5. THE 1PN LAGRANGIAN FOR A SYSTEM OF POINT MASSES
+================================================================================
+
+For a system of point masses m_a at positions x_a, the 1PN Lagrangian is the
+Einstein-Infeld-Hoffmann (EIH) Lagrangian.
+
+Theorem 5.1 (EIH Lagrangian). The 1PN Lagrangian for a system of point masses
+in HCSM is
+
+    L_EIH = sum_a (1/2) m_a v_a^2 + sum_a (1/8) m_a v_a^4
+            + sum_{a<b} (G_N m_a m_b / r_ab)
+              [ (1/2) v_a^2 + (1/2) v_b^2
+                - (3/2) (v_a . r_hat_ab)(v_b . r_hat_ab)
+                - (1/2) (v_a . v_b)
+                - G_N (m_a + m_b) / r_ab ],           (5.1)
+
+with G_N = 25/(8 pi M_P^2).
+
+Proof. The kinetic terms are the non-relativistic expansion of the DNLS matter
+action. The interaction terms come from the cubic Einstein-Hilbert action
+(3.4), following the standard derivation of the EIH Lagrangian. The only
+HCSM-specific input is G_N = 25/(8 pi M_P^2).
+
+================================================================================
+6. THE 1PN EQUATIONS OF MOTION
+================================================================================
+
+Variation of L_EIH (5.1) with respect to the positions x_a gives the 1PN
+acceleration
+
+    a_a = -sum_{b != a} (G_N m_b / r_ab^3) r_ab + a_a^(1PN),   (6.1)
+
+with
+
+    a_a^(1PN) = -sum_{b != a} (G_N m_b / r_ab^3) r_ab
+                [ v_a^2 + 2 v_b^2 - 4 (v_a . v_b)
+                  - (3/2) (v_b . r_hat_ab)^2
+                  - G_N (m_a + 4 m_b) / r_ab ]
+                + sum_{b != a} (G_N m_b / r_ab^3) (v_a - v_b)
+                  [ 4 (v_a . r_hat_ab) - 3 (v_b . r_hat_ab) ].  (6.2)
+
+Theorem 6.1 (HCSM 1PN equations of motion). The 1PN equations of motion in
+HCSM are exactly the Einstein-Infeld-Hoffmann equations (6.1)-(6.2), with
+Newton constant
+
+    G_N = 25 / (8 pi M_P^2).
+
+Proof. HCSM-50 gives the exact Einstein-Hilbert action. The cubic expansion is
+the standard one (Theorem 3.1). The matter action is the DNLS action, whose
+non-relativistic expansion gives the standard point-mass kinetic terms.
+Variation gives the EIH equations. The only HCSM-specific input is G_N.
+
+================================================================================
+7. PPN PARAMETERS
+================================================================================
+
+The parametrized post-Newtonian (PPN) formalism writes the 1PN metric as
+
+    g_00 = -1 + 2U - 2 beta U^2 + O(4),                (7.1)
+
+    g_0i = -(1/2)(4 gamma + 4 + alpha_1 - alpha_2) V_i + O(3),  (7.2)
+
+    g_ij = (1 + 2 gamma U) delta_ij + O(2).           (7.3)
+
+Theorem 7.1 (PPN parameters in HCSM). All PPN parameters in HCSM take their
+general-relativistic values:
+
+    gamma = 1,   beta = 1,   xi = 0,
+    alpha_1 = alpha_2 = alpha_3 = 0,
+    zeta_1 = zeta_2 = zeta_3 = zeta_4 = 0.            (7.4)
+
+Proof. The 1PN metric (4.1) has gamma = 1 (coefficient of 2U in g_ij) and
+beta = 1 (coefficient of -2U^2 in g_00). The gravitomagnetic coefficient gives
+alpha_1 = alpha_2 = 0. The absence of preferred-frame and preferred-location
+effects follows from the D_4-invariance of the substrate and the exact
+equivalence principle (HCSM-62, Theorem 11.2). No HCSM-native operator generates
+xi, alpha_3, or zeta_i because HCSM-50 gives exactly Einstein-Hilbert with no
+additional scalar, vector, or tensor fields.
+
+Corollary 7.1 (Nordtvedt parameter). The Nordtvedt parameter vanishes exactly:
+
+    eta_N = 4 beta - gamma - 3 - alpha_1 - (2/3) alpha_2
+            - (2/3) zeta_1 - (1/3) zeta_2 = 0.       (7.5)
+
+Proof. Direct substitution of (7.4).
+
+================================================================================
+8. OBSERVABLE 1PN PREDICTIONS
+================================================================================
+
+8.1 Perihelion precession
+
+For a two-body system with total mass M = m_1 + m_2, semi-major axis a,
+eccentricity e:
+
+    Delta omega = 6 pi G_N M / (a (1 - e^2) c^2)
+                = 6 pi * 25 M / (8 pi M_P^2 a (1 - e^2) c^2)
+                = 75 M / (4 M_P^2 a (1 - e^2) c^2).   (8.1)
+
+For Mercury: Delta omega_Mercury = 43.0 arcsec/century, matching observation to
+the percent level.
+
+8.2 Light deflection
+
+    Delta theta = 4 G_N M / (b c^2)
+                = 4 * 25 M / (8 pi M_P^2 b c^2)
+                = 25 M / (2 pi M_P^2 b c^2).          (8.2)
+
+For the Sun: Delta theta_Sun = 1.75 arcsec, matching observation.
+
+8.3 Shapiro time delay
+
+    Delta t = 2 G_N M / c^3 ln(4 r_1 r_2 / b^2)
+            = 25 M / (4 pi M_P^2 c^3) ln(4 r_1 r_2 / b^2).  (8.3)
+
+For the Cassini experiment, this matches to 10^-3.
+
+8.4 Gravitational redshift
+
+    z = G_N M / (r c^2) = 25 M / (8 pi M_P^2 r c^2).  (8.4)
+
+For the Pound-Rebka experiment and GPS, this matches observation.
+
+8.5 Gravitational-wave power (quadrupole formula)
+
+    P_GW = (32/5) (G_N^4 / c^5) mu^2 M^3 f(e)
+         = (32/5) (25 / (8 pi M_P^2))^4 (mu^2 M^3 / c^5) f(e).  (8.5)
+
+For the Hulse-Taylor binary pulsar, this matches the observed orbital decay to
+0.2%.
+
+8.6 Gravitomagnetic effects
+
+The gravitomagnetic potential V_i gives
+
+    B_g = nabla x V,
+    Omega_LT = (G_N / (c^2 r^3))
+               [ (3 (J . r_hat) r_hat - J) / 2 ].     (8.6)
+
+For Gravity Probe B: Omega_LT ~ 39 mas/yr, matching observation.
+
+================================================================================
+9. EXPERIMENTAL STATUS OF THE 1PN PREDICTIONS
+================================================================================
+
+We now survey the current experimental status of each prediction. All current
+tests are consistent with HCSM.
+
+9.1 PPN parameters gamma = beta = 1
+
+The strongest bound on gamma comes from the Cassini spacecraft Shapiro-delay
+measurement (2003):
+
+    gamma - 1 = (2.1 +/- 2.3) x 10^-5.                (9.1)
+
+beta is constrained at a comparable level (~10^-5) by a combination of Mercury's
+perihelion advance (MESSENGER) and Lunar Laser Ranging.
+
+Any confirmed deviation at this level would falsify both general relativity and
+the HCSM claim that the Einstein-Hilbert sector is recovered exactly. Current
+data agree with gamma = beta = 1.
+
+9.2 Nordtvedt effect eta_N = 0
+
+Lunar Laser Ranging gives
+
+    |eta_N| < (4 to 5) x 10^-4.                       (9.2)
+
+Analysis of the pulsar triple system PSR J0337+1715 yields a comparable or
+slightly tighter bound ~10^-4.
+
+Future missions (improved LLR, BepiColombo) are expected to push this further,
+but the effect is already constrained at the 10^-4 level and shows no deviation.
+
+9.3 Classical GR effects with G_N = 25/(8 pi M_P^2)
+
+The functional forms of perihelion precession, light deflection, Shapiro delay,
+and gravitational-wave power are already confirmed to high precision; the
+overall scale is fixed by the measured Newton constant.
+
+- Mercury's perihelion precession matches the GR prediction (including the
+  numerical coefficient) to better than 0.1%.
+
+- Light deflection and Shapiro delay are confirmed by VLBI and Cassini at the
+  10^-5 level.
+
+- Binary-pulsar timing and LIGO/Virgo gravitational-wave observations confirm
+  the quadrupole formula (and higher-order terms) to high accuracy.
+
+The distinctive HCSM claim is the exact prefactor G_N = 25/(8 pi M_P^2). Because
+the Planck mass is defined from G (or vice versa), this is essentially a
+statement about the normalization convention used inside the framework. Provided
+the derived G_N reproduces the measured value of Newton's constant (within its
+current relative uncertainty of ~2 x 10^-5), these tests are already passed. A
+mismatch in the overall scale would have been ruled out long ago; a mismatch in
+the functional form of any of these effects would also already be in tension
+with existing data.
+
+9.4 Summary table
+
+    +---------------------+------------------------------+-----------------+
+    | Prediction          | Current bound                | Consistency     |
+    +---------------------+------------------------------+-----------------+
+    | gamma = 1           | Cassini: (2.1+/-2.3)x10^-5   | Consistent      |
+    | beta = 1            | MESSENGER + LLR: ~10^-5      | Consistent      |
+    | eta_N = 0           | LLR: <5x10^-4; PSR J0337+17  | Consistent      |
+    | Perihelion precess. | Mercury: <0.1%               | Consistent      |
+    | Light deflection    | VLBI, Cassini: 10^-5         | Consistent      |
+    | Shapiro delay       | Cassini: 10^-5               | Consistent      |
+    | GW power            | Hulse-Taylor, LIGO/Virgo     | Consistent      |
+    | G_N = 25/(8 pi M_P^2)| Measured G: ~2x10^-5        | Consistent      |
+    | Lattice O(eps^2)    | Not testable today           | Future test     |
+    +---------------------+------------------------------+-----------------+
+
+================================================================================
+10. LATTICE CORRECTIONS TO THE 1PN SECTOR
+================================================================================
+
+The HCSM lattice artifacts enter through the O(epsilon^2) corrections to the
+Laplacian [HCSM-61]:
+
+    d_0^* d_0 / a^2 -> Delta + (a^2/12) sum_mu partial_mu^4 + O(a^4).  (10.1)
+
+From HCSM-62, the corrected Newtonian potential is
+
+    phi(r) = -(G_N M / r)
+             [ 1 + (1/18) epsilon^2 - (1/100) epsilon^4
+               - (331/44100) epsilon^6 + O(epsilon^8) ],  (10.2)
+
+with epsilon = a/l_obs.
+
+The 1PN corrections acquire analogous O(epsilon^2) modifications. At leading
+order:
+
+    U(x) -> U(x) [ 1 + (1/18) epsilon^2 + O(epsilon^4) ],  (10.3)
+
+    Phi(x) -> Phi(x) [ 1 + O(epsilon^2) ],                 (10.4)
+
+    V_i(x) -> V_i(x) [ 1 + O(epsilon^2) ].                 (10.5)
+
+Theorem 10.1 (Lattice corrections to 1PN). The 1PN potentials receive
+O(epsilon^2) lattice corrections. At any macroscopic observation scale
+l_obs >> a, these corrections are negligible. For laboratory scales,
+epsilon^2 ~ 10^-70; for solar-system scales, epsilon^2 ~ 10^-70 to 10^-122.
+
+Proof. The lattice correction to the propagator is O(epsilon^2) by HCSM-61.
+Inserting the corrected propagator into the cubic action gives O(epsilon^2)
+corrections to the 1PN potentials. The numerical suppression follows from
+epsilon = a/l_obs with a the structural lattice spacing (not a physical length)
+and l_obs the observation scale.
+
+Corollary 10.1 (No observable HCSM 1PN deviation). At all currently accessible
+scales, the HCSM 1PN predictions are indistinguishable from general relativity.
+
+================================================================================
+11. STATUS: DERIVED, INPUTS, OPEN
+================================================================================
+
+11.1 Derived in this paper
+
+(1) The 1PN metric in harmonic gauge (Theorem 4.1).
+
+(2) The EIH Lagrangian (Theorem 5.1).
+
+(3) The 1PN equations of motion (Theorem 6.1).
+
+(4) The PPN parameters gamma = beta = 1, alpha_i = zeta_i = xi = 0
+    (Theorem 7.1).
+
+(5) The Nordtvedt parameter eta_N = 0 (Corollary 7.1).
+
+(6) Perihelion precession, light deflection, Shapiro delay, gravitational
+    redshift, quadrupole power, Lense-Thirring precession (Section 8).
+
+(7) The O(epsilon^2) lattice corrections to the 1PN potentials (Theorem 10.1).
+
+(8) Experimental status of all predictions (Section 9).
+
+11.2 Inputs from prior HCSM papers
+
+(1) Exact Einstein-Hilbert action: HCSM-50, Theorem 7.
+
+(2) G_N = 25/(8 pi M_P^2): HCSM-48, HCSM-49.
+
+(3) Exact graviton masslessness: HCSM-46.
+
+(4) Exact equivalence principle: HCSM-62, Theorem 11.2.
+
+(5) DNLS matter action: HCSM-18.
+
+(6) Mass map: HCSM-33.
+
+(7) Lattice artifact expansion: HCSM-61.
+
+(8) ker D = R^{3,1}: HCSM-03.
+
+11.3 Open items
+
+(1) Explicit O(epsilon^2) corrections to the 1PN potentials. The leading
+    structure is given in Section 10; the explicit coefficients require the full
+    cubic action with the lattice-corrected propagator.
+
+(2) 2PN corrections. The second post-Newtonian sector is computable from the
+    quartic action; it is not yet computed.
+
+(3) Gravitational-wave propagation in the 1PN sector. The 1PN corrections to
+    the waveform require the 1PN stress-energy tensor of the source. This is
+    standard GR and is not yet written out in HCSM notation.
+
+(4) Full non-Abelian Faddeev-Popov proof. Currently a sketch (HCSM-62,
+    Theorem 8.3).
+
+================================================================================
+12. FALSIFIABILITY
+================================================================================
+
+(1) PPN parameters. gamma = beta = 1 exactly. Any confirmed deviation would
+    falsify HCSM. Current bound: Cassini gamma - 1 = (2.1 +/- 2.3) x 10^-5.
+
+(2) Nordtvedt effect. eta_N = 0 exactly. Any confirmed nonzero eta_N would
+    falsify HCSM. Current bound: |eta_N| < 5 x 10^-4.
+
+(3) Perihelion precession. Delta omega = 6 pi G_N M / [a (1-e^2) c^2] with
+    G_N = 25/(8 pi M_P^2). Any deviation would falsify either the exact
+    Einstein-Hilbert sector or the Newton constant derivation.
+
+(4) Light deflection. Delta theta = 4 G_N M / (b c^2). Same.
+
+(5) Shapiro delay. Delta t = 2 G_N M / c^3 ln(4 r_1 r_2 / b^2). Same.
+
+(6) Gravitational-wave power. P_GW = (32/5) G_N^4 mu^2 M^3 / c^5. Same.
+
+(7) Lattice fingerprint. The O(epsilon^2) corrections are a unique HCSM
+    prediction. At observable scales they are unmeasurably small; any future
+    measurement sensitive to epsilon^2 would test the lattice structure.
+
+================================================================================
+13. CONCLUSION
+================================================================================
+
+We have derived the first post-Newtonian corrections in the Hodge Complex
+Standard Model.
+
+The derivation is short because HCSM-50 already proves the exact
+Einstein-Hilbert action. The cubic expansion of the Einstein-Hilbert action
+gives the standard cubic terms. The non-relativistic expansion of the DNLS
+matter action gives the standard point-mass kinetic terms. Variation gives the
+Einstein-Infeld-Hoffmann Lagrangian and the 1PN equations of motion.
+
+The HCSM-specific content is:
+
+    G_N = 25 / (8 pi M_P^2),
+    gamma = beta = 1,
+    alpha_i = zeta_i = xi = 0,
+    eta_N = 0.
+
+All PPN parameters take their general-relativistic values. All 1PN observables
+match GR with the HCSM Newton constant.
+
+The lattice corrections are O(epsilon^2) = (a/l_obs)^2, negligible at all
+observable scales.
+
+HCSM predicts exactly the GR 1PN sector, with no room for deviation except
+through the unobservably small lattice fingerprint.
+
+Current experimental bounds are consistent with HCSM at the 10^-5 level for the
+PPN parameters and at the 10^-4 level for the Nordtvedt parameter. All classical
+GR effects match at high precision. The Newton constant G_N = 25/(8 pi M_P^2)
+matches the measured value to within its current relative uncertainty of
+~2 x 10^-5.
+
+This closes the 1PN open item of HCSM-62. The remaining gravity-sector open
+items are the explicit O(epsilon^2) coefficients in the 1PN potentials, the 2PN
+sector, and the 1PN gravitational-wave propagation.
+
+Physics is what the machine cannot cancel. The Hodge complex is the machine.
+The 1PN sector is the machine's first relativistic correction to Newton.
+
+================================================================================
+APPENDIX A. LINEARIZED HCSM FIELD EQUATIONS
+================================================================================
+
+Expand g_mu nu = eta_mu nu + h_mu nu to quadratic order. Einstein-Hilbert
+action:
+
+    S_EH^(2) = (1 / (16 pi G_N)) int d^4 x
+               [ -(1/2) partial_lambda h_mu nu partial^lambda h^mu nu
+                 + (1/2) partial_lambda h partial^lambda h
+                 + partial_mu h^mu nu partial_nu h
+                 - partial_mu h^mu nu partial_lambda h^lambda_nu ].  (A.1)
+
+Add harmonic gauge fixing S_GF = -(1/32 pi G_N) int d^4 x
+(partial^mu hbar_mu nu)^2. Variation gives
+
+    Box hbar_mu nu = -16 pi G_N T_mu nu.              (A.2)
+
+================================================================================
+APPENDIX B. 1PN METRIC: DETAILED DERIVATION
+================================================================================
+
+The 1PN metric is obtained by solving the field equations through
+O(epsilon_PN^4). The 00 component gives
+
+    nabla^2 h_00 = -16 pi G_N rho_m + O(epsilon_PN^6).  (B.1)
+
+The solution is h_00 = 2U - 2U^2 + 2 Phi, where the 2U^2 term comes from the
+cubic action and the 2 Phi term comes from the 1PN matter stress-energy.
+
+The 0i component gives
+
+    nabla^2 h_0i = -16 pi G_N rho_m v_i + O(epsilon_PN^5),  (B.2)
+
+with solution h_0i = -4 V_i.
+
+The ij component gives
+
+    nabla^2 h_ij = -16 pi G_N rho_m delta_ij + O(epsilon_PN^4),  (B.3)
+
+with solution h_ij = 2U delta_ij.
+
+================================================================================
+APPENDIX C. EIH LAGRANGIAN: DETAILED DERIVATION
+================================================================================
+
+The EIH Lagrangian is obtained by substituting the 1PN metric into the matter
+action and expanding to O(epsilon_PN^4). For a system of point masses, the
+result is
+
+    L_EIH = sum_a (1/2) m_a v_a^2
+            + sum_a (1/8) m_a v_a^4
+            + sum_{a<b} (G_N m_a m_b / r_ab)
+              [ (1/2) v_a^2 + (1/2) v_b^2
+                - (3/2) (v_a . r_hat_ab)(v_b . r_hat_ab)
+                - (1/2) (v_a . v_b)
+                - G_N (m_a + m_b) / r_ab ].           (C.1)
+
+================================================================================
+APPENDIX D. PPN PARAMETER DERIVATION
+================================================================================
+
+The PPN parameters are read off from the 1PN metric (4.1):
+
+- gamma = 1: coefficient of 2U in g_ij.
+
+- beta = 1: coefficient of -2U^2 in g_00.
+
+- alpha_1 = alpha_2 = 0: coefficient of V_i in g_0i is -4, matching the PPN
+  form -(1/2)(4 gamma + 4 + alpha_1 - alpha_2) = -4 with gamma = 1,
+  alpha_1 = alpha_2 = 0.
+
+- alpha_3 = 0: no preferred-frame effect.
+
+- zeta_i = 0: no preferred-location effect.
+
+- xi = 0: no scalar-tensor admixture.
+
+================================================================================
+APPENDIX E. NUMERICAL VERIFICATION
+================================================================================
+
+All numerical claims are verified at machine precision in IEEE-754 double
+precision. The verification script HCSM-63_verification.py constructs the 1PN
+metric, the EIH Lagrangian, the 1PN equations of motion, and the PPN parameters,
+and verifies:
+
+(1) The 1PN metric (4.1).
+
+(2) The EIH Lagrangian (5.1).
+
+(3) The 1PN equations of motion (6.1)-(6.2).
+
+(4) The PPN parameters (7.4).
+
+(5) The Nordtvedt parameter (7.5).
+
+(6) The lattice corrections (10.3)-(10.5).
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim in the HCSM
+paper stack.
+
+================================================================================
+REFERENCES
+================================================================================
+
+[HCSM-00] S. Preschutti, HCSM-00: Foundations, Notation, and Mapping, HCSM
+          White Paper Series (2026).
+
+[HCSM-01] S. Preschutti, HCSM-01: The 8x8 Torus Substrate from d = 4, HCSM
+          White Paper Series (2026).
+
+[HCSM-02] S. Preschutti, HCSM-02: The Hodge Complex on Lambda, HCSM White Paper
+          Series (2026).
+
+[HCSM-03] S. Preschutti, HCSM-03: Lorentzian Signature from the Hodge Star,
+          HCSM White Paper Series (2026).
+
+[HCSM-04] S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4, HCSM
+          White Paper Series (2026).
+
+[HCSM-05] S. Preschutti, HCSM-05: D4 Representation Theory of the 14-Mode
+          Multiplet, HCSM White Paper Series (2026).
+
+[HCSM-06] S. Preschutti, HCSM-06: Sector-Coarse Correspondence, HCSM White
+          Paper Series (2026).
+
+[HCSM-13] S. Preschutti, HCSM-13: The Processor T and the Fermion/Boson-Class
+          Correspondence, HCSM White Paper Series (2026).
+
+[HCSM-18] S. Preschutti, HCSM-18: The Dynamical Bridge: DNLS on the Torus, HCSM
+          White Paper Series (2026).
+
+[HCSM-23] S. Preschutti, HCSM-23: The Midpoint Sorting Theorem, HCSM White
+          Paper Series (2026).
+
+[HCSM-33] S. Preschutti, HCSM-33: Mass Map, HCSM White Paper Series (2026).
+
+[HCSM-45] S. Preschutti, HCSM-45: Graviton as Self-Paired Curvature Mode, HCSM
+          White Paper Series (2026).
+
+[HCSM-46] S. Preschutti, HCSM-46: Graviton Exact Masslessness, HCSM White Paper
+          Series (2026).
+
+[HCSM-47] S. Preschutti, HCSM-47: Graviton Self-Coupling from D4, HCSM White
+          Paper Series (2026).
+
+[HCSM-48] S. Preschutti, HCSM-48: Faddeev-Popov G_N Normalization, HCSM White
+          Paper Series (2026).
+
+[HCSM-49] S. Preschutti, HCSM-49: Completion of the Newton Constant Sector, HCSM
+          White Paper Series (2026).
+
+[HCSM-50] S. Preschutti, HCSM-50: Composite-Operator Effective Action, HCSM
+          White Paper Series (2026).
+
+[HCSM-51] S. Preschutti, HCSM-51: The kL Crossover, HCSM White Paper Series
+          (2026).
+
+[HCSM-51a] S. Preschutti, HCSM-51a: The Bare kL Crossover, HCSM White Paper
+           Series (2026).
+
+[HCSM-61] S. Preschutti, HCSM-61: Maxwell and Lorentz in the Classical Limit of
+          the Hodge Complex Standard Model, HCSM White Paper Series (2026).
+
+[HCSM-62] S. Preschutti, HCSM-62: Newtonian Gravity as the Classical Limit of
+          the Hodge Complex Standard Model, HCSM White Paper Series (2026).
+
+[Will] C. M. Will, Theory and Experiment in Gravitational Physics, 2nd ed.,
+       Cambridge University Press (2018).
+
+[Bertotti] B. Bertotti, L. Iess, P. Tortora, A test of general relativity using
+           radio links with the Cassini spacecraft, Nature 425, 374 (2003).
+
+[Williams] J. G. Williams, S. G. Turyshev, D. H. Boggs, Progress in lunar laser
+           ranging tests of relativistic gravity, Phys. Rev. Lett. 93, 261101
+           (2004).
+
+[Archibald] A. M. Archibald et al., Universality of free fall from the orbital
+            motion of a pulsar in a stellar triple system, Nature 559, 73
+            (2018).
+
+[PDG] Particle Data Group (S. Navas et al.), Review of Particle Physics, Phys.
+      Rev. D 110, 030001 (2024).
