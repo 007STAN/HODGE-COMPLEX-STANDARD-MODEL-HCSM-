@@ -1,0 +1,478 @@
+# HCSM-13
+
+## The Processor T and the Fermion/Boson-Class Correspondence
+
+**The Rank-Ten Projection, the Fermion/Boson Split, and the Localization of Chirality Breaking**
+
+**The Hodge Complex Standard Model**
+
+---
+
+**Author:** Stanley Preschutti
+**Affiliation:** Entropia Research Institute / Information Physics Institute
+**ORCID:** 0009-0004-5445-1744
+**Email:** scstanp@yahoo.com
+**Date:** September 2026
+**Series:** HCSM White Paper Series, Paper 13
+
+---
+
+## Abstract
+
+The Hodge Complex Standard Model (HCSM) derives the gauge structure, matter content, particle spectrum, and mixing matrices of the Standard Model from a single discrete substrate: the periodic 8×8 torus. The fourteen modes at the self-paired eigenvalue of the discrete Laplacian are identified with one Standard Model generation. On this multiplet the processor T is the rank-ten orthogonal projection that separates the ten Standard Model fermions from the four Standard Model bosons.
+
+This paper proves two theorems about the processor and its action.
+
+First, the **Fermion/Boson-Class Correspondence Theorem**: the processor commutes with the class-C projector of the winding partition, its image is exactly the union of winding classes A and B, and its kernel is exactly winding class C. Equivalently, T = I - P_C. The fermion/boson split is the coarse-graining of the winding class partition that identifies classes A and B.
+
+Second, the **Chirality-Breaking Localization Theorem**: the commutator of the processor with the chiral reflection is supported exactly on the two-element set consisting of the dark photon and the tau. On the two-dimensional plane spanned by these two modes, the commutator is a fourth-order rotation generator. On the other twelve modes, the processor and the chiral reflection commute.
+
+All theorems are HCSM-native, and all numerical claims are verified at machine precision.
+
+---
+
+## Table of Contents
+
+1. Introduction
+2. Setup
+3. The Fermion/Boson-Class Correspondence
+4. The Chirality-Breaking Localization Theorem
+5. Discussion
+6. Reproducibility
+7. Conclusion
+8. Bibliography
+
+---
+
+## 1. Introduction
+
+### 1.1 The processor in HCSM
+
+The Hodge Complex Standard Model (HCSM) derives the gauge structure, matter content, particle spectrum, and mixing matrices of the Standard Model from a single discrete substrate: the periodic 8×8 torus [1]. The fourteen modes at the self-paired eigenvalue of the discrete Laplacian are identified with one Standard Model generation [2, 9]. Their dihedral representation theory determines the gauge algebra [5]; their mass-ordering labels determine the mass spectrum [13]; the zero-state vector from the 14×19 measurement matrix determines the flavor structure [8].
+
+Above the substrate, the **processor T** reads the fourteen-mode multiplet and separates it into a fermion sector and a boson sector. The processor is a rank-ten orthogonal projection: it keeps ten modes (the Standard Model fermions) and kills four modes (the Standard Model bosons). Its matrix is diagonal in the mode basis.
+
+This paper proves that the processor's output is not an independent structure on the multiplet. It is the coarse-graining of the winding class partition that identifies two of the three winding classes. And the failure of the processor to commute with the framework's chiral reflection is localized to a single two-mode plane.
+
+### 1.2 One-line summary
+
+The processor T is exactly the complement of the class-C projector. The fermion/boson split is the same as the winding class partition, with classes A and B fused into a single fermion sector. Chirality is broken only on the plane spanned by the dark photon and the tau: twelve of the fourteen modes see no chirality breaking at all.
+
+### 1.3 The two theorems of this paper
+
+The paper is organized around two theorems.
+
+**Theorem 1 (Fermion/Boson-Class Correspondence).** The processor T commutes with the class-C projector of the winding partition and equals T = I - P_C = P_A + P_B. Equivalently:
+
+1. The image of T is exactly the union of winding classes A and B.
+2. The kernel of T is exactly winding class C.
+3. The commutator [T, P_C] = 0.
+
+**Theorem 2 (Chirality-Breaking Localization).** The commutator [T, P_rs] of the processor with the chiral reflection is supported exactly on the two-element set {dark, τ}. On the two-dimensional plane spanned by these two modes, the commutator is a fourth-order rotation generator. On the other twelve modes, T and P_rs commute.
+
+### 1.4 Cross-references to the HCSM paper stack
+
+The paper depends on three companion papers in the HCSM stack, whose numbering follows the master index in HCSM-00:
+
+- **HCSM-04**: the fourteen-mode multiplet and its dihedral orbit decomposition.
+- **HCSM-14**: the winding generator spectrum and the winding class partition.
+- **HCSM-26**: the observer pair, which supplies the chiral reflection and the fixed-locus theorem.
+
+Additional references to HCSM-22 (the zero state) and HCSM-27 (Klein orbit structure) appear where needed.
+
+### 1.5 Organization
+
+Section 2 states the setup. Section 3 proves the Fermion/Boson-Class Correspondence Theorem. Section 4 proves the Chirality-Breaking Localization Theorem. Section 5 discusses the structural interpretation. Section 6 gives reproducibility notes. Section 7 concludes.
+
+---
+
+## 2. Setup
+
+All statements in this section are HCSM-native; the reader is referred to HCSM-00 for the full foundations.
+
+### 2.1 The fourteen-mode multiplet
+
+The substrate is the periodic eight-by-eight torus
+
+$$\Lambda = \mathbb{Z}_8 \times \mathbb{Z}_8, \qquad |\Lambda| = N = 64,$$
+
+selected by the unified selection theorem of HCSM-00 (equal entropy spacing and maximal winding cancellation). The discrete five-point Laplacian on Λ has eigenvalues
+
+$$\lambda(n_1, n_2) = 4 - 2\cos\left(\frac{\pi n_1}{4}\right) - 2\cos\left(\frac{\pi n_2}{4}\right), \qquad (n_1, n_2) \in \{0, \dots, 7\}^2.$$
+
+The spectrum is mirror-symmetric under λ ↔ 8 - λ. The unique self-paired eigenvalue is λ = 4, with multiplicity 2(L - 1) = 14.
+
+In the standard mode order used throughout HCSM, matching the zero-state vector of HCSM-22, the fourteen modes are
+
+$$(\nu, e, u, d, s, \mu, \mathrm{dark}, c, \tau, b, W, Z, H, t).$$
+
+The mode coordinates (n_1, n_2) in this order are:
+
+| Mode | Coordinates | Mode | Coordinates |
+|------|------------|------|------------|
+| ν | (0, 4) | μ | (3, 7) |
+| e | (4, 0) | dark | (5, 7) |
+| u | (1, 3) | c | (7, 3) |
+| d | (1, 5) | τ | (7, 5) |
+| s | (3, 1) | b | (5, 1) |
+| W | (2, 2) | Z | (2, 6) |
+| H | (6, 2) | t | (6, 6) |
+
+The fourteen modes decompose under the dihedral point group D_4 of the square into three orbits of sizes (2, 8, 4) [2, 4].
+
+### 2.2 The winding generator and class partition
+
+The winding generator on the fourteen-mode multiplet is the Hermitian operator
+
+$$H_{\mathrm{wind}} = i \sin\left(\frac{\pi}{8} M\right), \qquad M_{ij} = n_1^{(i)} n_2^{(j)} - n_1^{(j)} n_2^{(i)},$$
+
+with the sine applied elementwise. Its spectrum is [7]
+
+$$\mathrm{spec}(H_{\mathrm{wind}}) = \{-4\sqrt{2}, -2\sqrt{2}, 0^{(10)}, +2\sqrt{2}, +4\sqrt{2}\}.$$
+
+The fourteen modes partition into three **winding classes** by frequency:
+
+- **Class A**: A = {ν, e, t}. Size 3.
+- **Class B**: B = {u, d, s, μ, c, τ, b}. Size 7.
+- **Class C**: C = {dark, W, Z, H}. Size 4.
+
+The class projectors P_A, P_B, P_C are diagonal in the mode basis, mutually orthogonal, idempotent, and sum to the identity:
+
+$$P_A P_B = P_B P_C = P_A P_C = 0, \qquad P_A + P_B + P_C = I_{14}.$$
+
+### 2.3 The processor T
+
+**Definition (Processor).** The processor T is the rank-ten orthogonal projection onto the fermion sector, defined as the sum
+
+$$T = P_{\mathrm{mesh}} + P_{\tau},$$
+
+where P_mesh projects onto the nine mesh resonances (those modes with residual δ ≠ 0 as defined in HCSM-11) and P_τ projects onto the unique mode with zero-state amplitude s = +1 [8].
+
+In the standard mode order, the processor is diagonal with entries
+
+$$\mathrm{diag}(T) = (1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1).$$
+
+The fermion sector and the boson sector are therefore
+
+- **Fermion sector F**: F = {ν, e, u, d, s, μ, c, τ, b, t}. Size 10.
+- **Boson sector B_bos**: B_bos = {dark, W, Z, H}. Size 4.
+
+**Proposition (Processor properties).** The processor satisfies T² = T, T† = T, and rank(T) = 10.
+
+*Proof.* Orthogonal projection by construction. Verified at machine precision in the companion verification script.
+
+### 2.4 The chiral reflection rs
+
+**Definition (Chiral reflection).** The chiral reflection is the map
+
+$$rs : (n_1, n_2) \longmapsto (n_2, n_1) \pmod 8.$$
+
+It is an element of the dihedral point group D_4, and it satisfies rs² = e.
+
+The map rs was identified in HCSM-26 as the unique chiral reflection of the dihedral group: the unique element that fixes exactly the coordinate pair {(2, 2), (6, 6)} on the fourteen-mode multiplet and anticommutes with the winding generator.
+
+Let P_rs denote the 14×14 permutation matrix implementing rs in the mode basis. It satisfies
+
+$$P_{rs}^2 = I_{14}, \qquad P_{rs}^\dagger = P_{rs}.$$
+
+---
+
+## 3. The Fermion/Boson-Class Correspondence
+
+This section proves that the processor T is exactly the complement of the class-C projector.
+
+### 3.1 The complement formulation
+
+**Theorem 1 (Fermion/Boson-Class Correspondence).** The processor T commutes with the class-C projector P_C and equals
+
+$$T = I_{14} - P_C = P_A + P_B.$$
+
+Equivalently:
+
+1. **Image.** im(T) = A ∪ B = F.
+2. **Kernel.** ker(T) = C = B_bos.
+3. **Commutation.** [T, P_C] = 0.
+
+*Proof.* Direct inspection of the diagonal entries of T and of the class membership of each mode. The processor T is diagonal, with diag(T) = (1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1) in the standard mode order. Hence:
+
+- The image of T (modes with diagonal entry 1) is im(T) = {ν, e, u, d, s, μ, c, τ, b, t} = F.
+- The kernel of T (modes with diagonal entry 0) is ker(T) = {dark, W, Z, H} = B_bos.
+
+On the other hand, the winding classes are:
+
+- A = {ν, e, t}
+- B = {u, d, s, μ, c, τ, b}
+- C = {dark, W, Z, H}
+
+Hence A ∪ B = {ν, e, u, d, s, μ, c, τ, b, t} = F = im(T), and C = {dark, W, Z, H} = B_bos = ker(T). Since T is diagonal and P_C is diagonal, they commute. The identity T = I_14 - P_C is verified by comparing
+
+$$\mathrm{diag}(I_{14} - P_C) = (1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1)$$
+
+with diag(T).
+
+The full matrix identity is verified at machine precision:
+
+$$\| T - (I_{14} - P_C) \|_F = 0. \quad \square$$
+
+**Corollary 1 (The fermion/boson split is a coarse-graining).** The fermion/boson split is the coarse-graining of the winding class partition that identifies classes A and B. Equivalently, the fermion sector is the image of the processor and the boson sector is the kernel of the processor.
+
+*Proof.* Immediate from Theorem 1. $\square$
+
+**Remark 1.** Theorem 1 states that the processor does not add structure beyond the winding class partition. The winding class partition is finer-grained: it separates class A from class B. The fermion/boson split ignores that distinction. The winding class partition and the fermion/boson split encode the same physical content, viewed at different coarse-graining scales.
+
+### 3.2 The Landauer channel
+
+**Proposition 1 (Landauer entropy reduction).** The processor reduces the entropy of the maximally mixed state on the 56-dimensional Hodge sector to the entropy of the maximally mixed state on the fermion/boson product. The entropy reduction is
+
+$$\Delta S = \log 56 - (\log 10 + \log 4) = \log 56 - \log 40 = \log\left(\frac{7}{5}\right) \approx 0.33647 \text{ nats}.$$
+
+This saturates the deterministic Landauer bound.
+
+*Proof.* Direct computation. The 56-dimensional sector is the Hodge lift of the 14-mode multiplet at λ = 4 [3]; the fermion/boson product has dimension 10 × 4 = 40; the ratio 56/40 = 14/10 = 7/5 yields the stated entropy reduction. $\square$
+
+---
+
+## 4. The Chirality-Breaking Localization Theorem
+
+This section proves that the processor T and the chiral reflection rs fail to commute only on the two-dimensional plane spanned by the dark photon and the tau.
+
+### 4.1 The commutator
+
+**Theorem 2 (Chirality-Breaking Localization).** The commutator of the processor with the chiral reflection,
+
+$$C_{rs} := T \cdot P_{rs} - P_{rs} \cdot T,$$
+
+is supported exactly on the two-element set
+
+$$\{\mathrm{dark}, \tau\}.$$
+
+On every other pair of indices the commutator vanishes. The two-dimensional plane spanned by the dark photon and the tau is the framework's unique chirality-breaking plane.
+
+*Proof.* Direct computation of the commutator. The processor T is diagonal with diag(T) = (1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1), and the chiral reflection P_rs permutes the modes by the diagonal reflection. We compute
+
+$$(T \cdot P_{rs})_{ij} = T_{ii} (P_{rs})_{ij}, \qquad (P_{rs} \cdot T)_{ij} = (P_{rs})_{ij} T_{jj}.$$
+
+For the commutator to be nonzero at entry (i, j), we require both (P_rs)_{ij} = 1 (so that rs maps mode j to mode i) and T_ii ≠ T_jj.
+
+The chiral reflection maps each mode as follows in the standard mode order:
+
+- rs(ν) = e, rs(e) = ν
+- rs(u) = s, rs(s) = u
+- rs(d) = b, rs(b) = d
+- rs(μ) = c, rs(c) = μ
+- rs(τ) = dark, rs(dark) = τ
+- rs(W) = W (fixed)
+- rs(Z) = H, rs(H) = Z
+- rs(t) = t (fixed)
+
+For the pairs where rs swaps two modes, we examine whether their diagonal entries in T differ:
+
+| Pair | T entries | Difference |
+|------|-----------|------------|
+| ν, e | 1, 1 | equal |
+| u, s | 1, 1 | equal |
+| d, b | 1, 1 | equal |
+| μ, c | 1, 1 | equal |
+| τ, dark | 1, 0 | **different** |
+| Z, H | 0, 0 | equal |
+
+The only pair with a nonzero commutator is {dark, τ}. The two fixed points W and t contribute nothing, since rs acts trivially on them and hence cannot create off-diagonal commutator entries. Therefore the commutator is supported exactly on the pair {dark, τ}. $\square$
+
+### 4.2 The fourth-order structure of the commutator
+
+**Proposition 2 (The commutator as a fourth-order rotation generator).** On the two-dimensional plane spanned by the dark photon and the tau, the commutator is
+
+$$C_{rs}\big|_{\{\mathrm{dark}, \tau\}} = \begin{pmatrix} 0 & -1 \\ +1 & 0 \end{pmatrix}.$$
+
+Its square is the negative of the plane projector, and its fourth power is the positive plane projector:
+
+$$C_{rs}^2\big|_{\{\mathrm{dark}, \tau\}} = -P_{\{\mathrm{dark}, \tau\}}, \qquad C_{rs}^4\big|_{\{\mathrm{dark}, \tau\}} = +P_{\{\mathrm{dark}, \tau\}}.$$
+
+Hence C_rs generates a fourth-order rotation on the chirality-breaking plane.
+
+*Proof.* Direct computation. The diagonal entries of C_rs on the plane vanish:
+
+$$(C_{rs})_{\tau\tau} = T_{\tau\tau} - T_{\tau\tau} = 0, \qquad (C_{rs})_{\mathrm{dark}, \mathrm{dark}} = T_{\mathrm{dark}, \mathrm{dark}} - T_{\mathrm{dark}, \mathrm{dark}} = 0.$$
+
+The off-diagonal entries are
+
+$$(C_{rs})_{\tau, \mathrm{dark}} = -(P_{rs})_{\tau, \mathrm{dark}} T_{\mathrm{dark}, \mathrm{dark}} = -1,$$
+
+$$(C_{rs})_{\mathrm{dark}, \tau} = +(P_{rs})_{\mathrm{dark}, \tau} T_{\tau\tau} = +1.$$
+
+Hence
+
+$$C_{rs}\big|_{\{\mathrm{dark}, \tau\}} = \begin{pmatrix} 0 & -1 \\ +1 & 0 \end{pmatrix}.$$
+
+Squaring gives
+
+$$C_{rs}^2\big|_{\{\mathrm{dark}, \tau\}} = \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix} = -P_{\{\mathrm{dark}, \tau\}},$$
+
+and fourth power gives
+
+$$C_{rs}^4\big|_{\{\mathrm{dark}, \tau\}} = \begin{pmatrix} +1 & 0 \\ 0 & +1 \end{pmatrix} = +P_{\{\mathrm{dark}, \tau\}}.$$
+
+The commutator therefore generates a fourth-order rotation on the chirality-breaking plane, verified at machine precision in the companion verification script. $\square$
+
+### 4.3 Commutation on the other twelve modes
+
+**Corollary 2 (Commutation elsewhere).** The processor T and the chiral reflection rs commute on the twelve modes not in the chirality-breaking plane {dark, τ}.
+
+*Proof.* Immediate from Theorem 2. The restriction of the commutator to the subspace spanned by the other twelve modes is identically zero. $\square$
+
+**Remark 2.** The localization of chirality breaking is sharp. On the twelve modes outside the plane {dark, τ}, the processor preserves the chiral reflection's action exactly. Only on the two-mode plane does chirality break, and the breaking is a fourth-order rotation. This makes the framework's chirality content highly constrained.
+
+---
+
+## 5. Discussion
+
+### 5.1 What the processor is
+
+The processor T is not an independent structure on the fourteen-mode multiplet. It is the complement of the class-C projector. Its image is the union of classes A and B; its kernel is class C. The fermion/boson split is exactly the coarse-graining of the winding class partition that fuses classes A and B.
+
+This means that the processor's output is determined by the winding class partition, which in turn is determined by the dihedral orbit partition plus the fermion/boson homogeneity constraint of HCSM-28 [12]. The whole processor structure is therefore determined by the substrate, without independent input.
+
+### 5.2 What the chirality breaking is
+
+The chirality breaking of the processor is not a global feature. It is localized to the plane {dark, τ}. On the twelve other modes, the processor and the chiral reflection commute exactly.
+
+The two chirality-breaking modes are the dark photon (a boson in the kernel of T) and the tau (a fermion in the image of T). Together they form the unique two-dimensional subspace on which the processor breaks the symmetry.
+
+This two-mode plane is the intersection of the processor with the chirality structure: it is the unique place where the processor's fermion/boson distinction conflicts with the dihedral reflection.
+
+### 5.3 Relation to the observer pair
+
+The observer pair of HCSM-26 is the pair of fixed points of the chiral reflection: the W boson and the top quark. These are precisely the two modes on which the chiral reflection acts trivially. Since T and rs commute on W and t, the observer pair is not part of the chirality-breaking plane.
+
+The framework's structure therefore separates cleanly: the observer pair is the fixed locus of the chiral reflection, and the chirality-breaking plane is the unique two-mode plane where the processor and the chiral reflection disagree. These are two independent structural features of the fourteen-mode multiplet.
+
+### 5.4 Relation to the Klein orbit structure
+
+The two chirality-breaking modes, the dark photon and the tau, are members of the four-cycle orbit of the Klein group (HCSM-27 [11]). Specifically, the four-cycle orbit is
+
+$$\{\mathrm{dark}, s, u, \tau\},$$
+
+and the chirality-breaking pair is the subset {dark, τ}. The chiral reflection and the half-period translation both individually swap these two modes with other modes in the four-cycle; the product fixes them together, which is why the four-cycle orbit has trivial pointwise stabilizer.
+
+---
+
+## 6. Reproducibility
+
+All numerical claims in this paper are verified at machine precision in IEEE-754 double precision. The companion verification script is provided in the HCSM companion repository at the verification folder with the number thirteen. The script constructs the fourteen-mode multiplet, the winding class projectors, the processor T, and the chiral reflection P_rs from HCSM-native definitions and verifies:
+
+1. The processor properties T² = T, T† = T, rank(T) = 10.
+2. The matrix identity T = I_14 - P_C to machine precision.
+3. The image im(T) = A ∪ B and the kernel ker(T) = C.
+4. The commutation [T, P_C] = 0.
+5. The commutator [T, P_rs] restricted to the pair {dark, τ} and zero on the other twelve modes.
+6. The fourth-order structure: [T, P_rs]² = -P_{dark, τ} and [T, P_rs]⁴ = +P_{dark, τ}.
+7. The Landauer entropy reduction ΔS = log(7/5).
+
+Running the master verification script `12-VERIFICATION/run_all.py` reproduces every numerical claim in the HCSM paper stack.
+
+---
+
+## 7. Conclusion
+
+This paper has proven two theorems about the processor T of the Hodge Complex Standard Model.
+
+The first is the **Fermion/Boson-Class Correspondence Theorem** (Theorem 1): the processor is exactly the complement of the class-C projector of the winding partition. Its image is the union of winding classes A and B; its kernel is class C. The fermion/boson split is the coarse-graining of the winding class partition that fuses classes A and B. Equivalently, T = I_14 - P_C.
+
+The second is the **Chirality-Breaking Localization Theorem** (Theorem 2): the processor's commutator with the chiral reflection is supported exactly on the two-mode plane spanned by the dark photon and the tau. On this plane the commutator is a fourth-order rotation generator. On the other twelve modes the processor and the chiral reflection commute exactly.
+
+The framework's chirality content is therefore highly constrained. The chirality breaking is localized to a single two-mode plane, and the observer pair of HCSM-26 (the W boson and the top quark) is exactly the complement: the fixed locus of the chiral reflection. The processor's output and its chirality breaking are both determined by the winding class partition and the dihedral reflection, with no independent input.
+
+---
+
+## 8. Bibliography
+
+[1] S. Preschutti, *HCSM-00: Foundations, Notation, and Mapping*, HCSM White Paper Series (2026).
+
+[2] S. Preschutti, *HCSM-02: The Hodge Complex on Λ*, HCSM White Paper Series (2026).
+
+[3] S. Preschutti, *HCSM-03: Lorentzian Signature from the Hodge Star*, HCSM White Paper Series (2026).
+
+[4] S. Preschutti, *HCSM-04: The 14-Mode Multiplet at λ = 4*, HCSM White Paper Series (2026).
+
+[5] S. Preschutti, *HCSM-05: Orbit Decomposition and Inverse Participation*, HCSM White Paper Series (2026).
+
+[6] S. Preschutti, *HCSM-06: Sector-Coarse Correspondence*, HCSM White Paper Series (2026).
+
+[7] S. Preschutti, *HCSM-11: The 5+9 Split of the 14-Mode Multiplet*, HCSM White Paper Series (2026).
+
+[8] S. Preschutti, *HCSM-14: Winding Generator Spectrum and Class Partition*, HCSM White Paper Series (2026).
+
+[9] S. Preschutti, *HCSM-22: The Zero State*, HCSM White Paper Series (2026).
+
+[10] S. Preschutti, *HCSM-23: The Identification of the 14 Modes with One Standard Model Generation*, HCSM White Paper Series (2026).
+
+[11] S. Preschutti, *HCSM-26: The Observer Pair*, HCSM White Paper Series (2026).
+
+[12] S. Preschutti, *HCSM-27: Klein Orbit Structure*, HCSM White Paper Series (2026).
+
+[13] S. Preschutti, *HCSM-28: Orbit-Class Reconstruction*, HCSM White Paper Series (2026).
+
+[14] S. Preschutti, *HCSM-33: The Mass Map*, HCSM White Paper Series (2026).
+
+---
+
+## Web crawler metadata
+
+### Dublin Core
+
+- **DC.title:** HCSM-13: The Processor T and the Fermion/Boson-Class Correspondence
+- **DC.creator:** Preschutti, Stanley
+- **DC.creator.orcid:** 0009-0004-5445-1744
+- **DC.date.issued:** 2026-09
+- **DC.type:** Text / Preprint / White Paper
+- **DC.format:** text/markdown
+- **DC.language:** en
+- **DC.publisher:** Entropia Research Institute
+- **DC.rights:** All rights reserved
+- **DC.subject:** Hodge Complex Standard Model; HCSM; processor T; fermion/boson split; winding class partition; chirality-breaking localization; Landauer channel; fourth-order rotation; dark photon; tau
+- **DC.description:** This paper proves two theorems about the processor T of the Hodge Complex Standard Model. First, the Fermion/Boson-Class Correspondence Theorem: the processor is exactly the complement of the class-C projector of the winding partition; its image is the union of winding classes A and B, and its kernel is class C. Second, the Chirality-Breaking Localization Theorem: the commutator of the processor with the chiral reflection is supported exactly on the two-mode plane spanned by the dark photon and the tau, where it is a fourth-order rotation generator; on the other twelve modes, the processor and the chiral reflection commute.
+- **DC.identifier:** HCSM-13-2026-09
+
+### Schema.org JSON-LD
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "HCSM-13: The Processor T and the Fermion/Boson-Class Correspondence",
+  "alternateName": "The Rank-Ten Projection, the Fermion/Boson Split, and the Localization of Chirality Breaking",
+  "author": {
+    "@type": "Person",
+    "name": "Stanley Preschutti",
+    "jobTitle": "Physics Researcher",
+    "email": "scstanp@yahoo.com",
+    "identifier": "https://orcid.org/0009-0004-5445-1744",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Entropia Research Institute",
+      "url": "https://www.informationphysicsinstitute.org"
+    }
+  },
+  "datePublished": "2026-09",
+  "inLanguage": "en",
+  "abstract": "This paper proves two theorems about the processor T of the Hodge Complex Standard Model. First, the Fermion/Boson-Class Correspondence Theorem: the processor is exactly the complement of the class-C projector of the winding partition; its image is the union of winding classes A and B, and its kernel is class C. Second, the Chirality-Breaking Localization Theorem: the commutator of the processor with the chiral reflection is supported exactly on the two-mode plane spanned by the dark photon and the tau, where it is a fourth-order rotation generator; on the other twelve modes, the processor and the chiral reflection commute.",
+  "keywords": [
+    "Hodge Complex Standard Model",
+    "HCSM",
+    "processor T",
+    "fermion/boson split",
+    "winding class partition",
+    "chirality-breaking localization",
+    "Landauer channel",
+    "fourth-order rotation",
+    "dark photon",
+    "tau"
+  ],
+  "license": "All rights reserved",
+  "identifier": "HCSM-13-2026-09",
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "HCSM White Paper Series"
+  }
+}
+```
