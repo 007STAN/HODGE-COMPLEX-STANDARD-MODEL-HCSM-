@@ -1,0 +1,794 @@
+================================================================================
+HCSM-61
+Maxwell and Lorentz in the Classical Limit of the Hodge Complex Standard Model
+================================================================================
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstannp@yahoo.com
+
+September 2026
+
+HCSM White Paper Series, Paper 61
+
+================================================================================
+ABSTRACT
+================================================================================
+
+We derive the classical Maxwell-Lorentz sector of the Hodge Complex Standard
+Model (HCSM) from the discrete substrate Lambda = Z_8 x Z_8.
+
+The substrate is the periodic 8x8 torus with N = 64 sites. The Hodge complex
+Omega^0 + Omega^1 + Omega^2 has total dimension 256. The Hodge-Dirac operator
+D = d + d* satisfies D^2 |_{Omega^k} = Delta exactly on each form degree. The
+self-paired eigenvalue lambda = 4 of the discrete Laplacian has multiplicity
+2(L-1) = 14, identified with one Standard Model generation. The 56-dimensional
+Hodge lift V_56 = 14 Omega^0 + 28 Omega^1 + 14 Omega^2 is the arena of the
+physical world.
+
+The gauge algebra g_SM = su(3)_c + su(2)_L + u(1)^5 is derived as a Lie
+subalgebra of the D_4 commutant on the 14-mode multiplet. The hypercharge
+functional Y is uniquely determined by the sector-coarse correspondence and is
+anomaly-free: all four one-loop conditions and all three cubic gauge anomalies
+vanish in rational arithmetic.
+
+After electroweak symmetry breaking, the unbroken U(1)_EM is identified. The
+photon is its gauge boson: A_mu = sin theta_W W^3_mu + cos theta_W B_mu,
+with sin^2 theta_W (M_Z) = 0.2312 matching observation to 0.02%. The W and Z
+acquire Proca masses m_W = 80.35 GeV, m_Z = 91.63 GeV, with mass ratio
+m_W / m_Z = cos theta_W = 0.8769 matching PDG to 0.5%.
+
+The kinematic continuum limit is derived from the Hodge star on ker D. The
+Hodge star restricted to the 4-dimensional kernel has eigenvalues
+{+1, -1, +i, -i}, yielding a canonical Lorentzian metric of signature (3,1).
+The isotropic dispersion relation lambda(n) = (pi^2/16)(n_1^2 + n_2^2) +
+O(n^4) is derived.
+
+The dynamical continuum limit is closed by the Tensor Product Theorem:
+V_56 = V_14 (x) ker D as D_4 representations. This exact representation-
+theoretic identity forces the bundle construction over ker D with fiber V_14,
+identifies the coarse-graining procedure as projection onto the D_4-invariant
+sector, and yields the continuum Yang-Mills action plus corrections suppressed
+by epsilon^2.
+
+The renormalization group is a structural flow from the finite lattice to the
+infrared. The hidden sector Omega^1|_4 + Omega^2|_4 has 42 modes with D_4
+content 6A_1 + 4A_2 + 5B_1 + 5B_2 + 11E, corresponding to 5 weak doublets,
+6 color triplets, and 31 singlets. The contributions to the one-loop beta
+functions are b_1^hid = 0, b_2^hid = 5/3, b_3^hid = 2. The kL crossover
+provides the RG scale: kL_bare = 38.4 and kL_phys = 38.442527.
+
+We state explicitly what is derived, what is disclosed, and what remains open.
+
+Keywords: Hodge Complex Standard Model; HCSM; Maxwell equations; Lorentz
+covariance; discrete-to-continuum limit; Hodge star; kernel of Hodge-Dirac;
+emergent spacetime; photon; Weinberg angle; anomaly cancellation; tensor
+product structure; renormalization.
+
+================================================================================
+CONTENTS
+================================================================================
+
+1. Introduction
+2. Discrete substrate and Hodge complex
+3. Emergent Lorentzian geometry
+4. The 14-mode multiplet and D_4 representation theory
+5. Gauge algebra from the D_4 commutant
+6. Hypercharge quantization and anomaly cancellation
+7. The electromagnetic sector
+8. Discrete action and equations of motion
+9. Time, arrow, and the Core gradient flow
+10. Continuum Maxwell limit
+11. Charge, matter coupling, and conservation
+12. Classical electrodynamics predictions
+13. Renormalization of the HCSM continuum limit
+14. Relation to gravity and cosmology
+15. Discussion
+16. Conclusion
+
+Appendices:
+A. Discrete Hodge operators and spectra
+B. D_4 character tables
+C. The tensor product theorem: proof details
+D. The 2D->4D map: explicit construction
+E. Renormalization details
+F. Colab notebooks and numerical verification
+G. Open problems
+
+================================================================================
+SECTION 1: INTRODUCTION
+================================================================================
+
+1.1 MOTIVATION
+
+The Standard Model of particle physics describes the electromagnetic, weak,
+and strong interactions with remarkable precision. Yet it contains 19 free
+parameters whose values are not derived from any deeper principle. Among
+these is the question of why the classical Maxwell equations take the form
+they do, and why the Lorentz group SO(3,1) is the symmetry group of
+spacetime.
+
+The Hodge Complex Standard Model (HCSM) proposes that both questions have a
+common answer: the discrete Hodge complex on the periodic 8x8 torus. The
+substrate is pre-geometric; spacetime and the gauge structure emerge from
+its cohomology and representation theory.
+
+This paper derives the classical Maxwell-Lorentz sector of HCSM. We show
+that the discrete Maxwell equations follow from the Hodge-Dirac operator,
+that the Lorentzian signature (3,1) follows from the Hodge star on the
+kernel of D, and that the photon emerges as the unbroken U(1)_EM gauge
+boson after electroweak symmetry breaking.
+
+1.2 REVIEW OF HCSM LEVELS 0-6
+
+The HCSM framework is organized into seven levels:
+
+Level 0: Substrate
+  Lambda = Z_8 x Z_8, N = 64 sites, D_4 point group symmetry
+
+Level 1: Hodge complex
+  Omega^0 + Omega^1 + Omega^2, dim 256, D = d + d*, D^2 = Delta
+
+Level 2: Spectral midpoint
+  lambda = 4, multiplicity 14, one Standard Model generation
+
+Level 3: Processor
+  T = I - P_C, rank 10, F/B split
+
+Level 4: Output structures
+  Charge theorem, mass map
+
+Level 5-6: Physics and cosmology
+  CKM/PMNS, Higgs, gravity, dark energy, vacuum stability
+
+This paper focuses on Levels 0-2 (the substrate and the 14-mode multiplet)
+and Levels 4-5 (the electromagnetic sector).
+
+1.3 THE PROBLEM
+
+The problem is: how does a discrete Hodge complex produce continuous
+Lorentzian electrodynamics?
+
+Specifically:
+  - How does the 2D torus produce 4D spacetime?
+  - How does the Hodge-Dirac operator produce the Maxwell equations?
+  - How does the D_4 commutant produce the gauge algebra?
+  - How does the kernel of D produce the Lorentz group?
+
+1.4 SUMMARY OF RESULTS AND DERIVATION CHAIN
+
+The derivation chain is:
+
+  Substrate (8x8 torus)
+    -> Hodge complex (Omega^0 + Omega^1 + Omega^2)
+    -> Hodge-Dirac D = d + d*
+    -> ker D, dim 4, Betti (1,2,1)
+    -> Hodge star on ker D, eigenvalues {+1, -1, +i, -i}
+    -> Lorentzian metric g of signature (3,1)
+    -> 14-mode multiplet at lambda = 4
+    -> D_4 commutant, gauge algebra su(3) + su(2) + u(1)^5
+    -> Hypercharge functional Y, anomaly cancellation
+    -> Electroweak symmetry breaking
+    -> Unbroken U(1)_EM
+    -> Photon A_mu = sin theta_W W^3_mu + cos theta_W B_mu
+    -> Discrete Maxwell equations dF = 0, d star F = J
+
+The kinematic continuum limit is derived:
+  - Isotropic dispersion lambda(n) = (pi^2/16)(n_1^2 + n_2^2) + O(n^4)
+  - Effective speed of light c = 1 in lattice units (unit conversion)
+  - Exact Lorentz structure on ker D
+
+The dynamical continuum limit is closed by the Tensor Product Theorem:
+  V_56 = V_14 (x) ker D
+as D_4 representations. This forces the bundle construction over ker D with
+fiber V_14, identifies the coarse-graining procedure, and yields the
+continuum Yang-Mills action.
+
+1.5 NOTATION AND CONVENTIONS
+
+Lambda = Z_8 x Z_8: the periodic 8x8 torus
+N = 64: number of sites
+L = 8: linear size
+d = 4: emergent spacetime dimension
+H = 2^d = 16: framework constant
+D = d + d*: Hodge-Dirac operator
+ker D: kernel of D
+V_14 = 14-mode multiplet at lambda = 4
+V_56 = 14 Omega^0 + 28 Omega^1 + 14 Omega^2: 56-dim Hodge lift
+D_4: dihedral point group of the square, order 8
+g_SM = su(3) + su(2) + u(1)^5: gauge algebra
+T = I - P_C: processor
+Y: hypercharge functional
+U(1)_EM: unbroken electromagnetic gauge group
+A_mu: photon field
+
+Throughout, we work in natural units unless otherwise specified.
+
+================================================================================
+SECTION 2: DISCRETE SUBSTRATE AND HODGE COMPLEX
+================================================================================
+
+2.1 PERIODIC TORUS
+
+The substrate is the periodic square lattice
+
+  Lambda = Z_8 x Z_8,
+
+with N = L^2 = 64 sites. Site (x_1, x_2) is identified with
+(x_1 + 8, x_2) and (x_1, x_2 + 8). Topologically, Lambda is the torus
+T^2 = S^1 x S^1.
+
+The substrate size L = 8 is selected by two independent routes:
+  - Equal entropy spacing on the torus Laplacian (HCSM-01)
+  - Maximal cancellation of the winding generator (HCSM-14.b)
+
+The framework constants are d = 4, N = d * 2^d = 64, L = sqrt(N) = 8,
+H = 2^d = 16.
+
+2.2 THE 5-POINT LAPLACIAN
+
+The scalar 5-point Laplacian is
+
+  (Delta f)(x_1, x_2) = 4 f(x_1, x_2) - f(x_1 + 1, x_2) - f(x_1 - 1, x_2)
+                       - f(x_1, x_2 + 1) - f(x_1, x_2 - 1).
+
+This operator is the unique D_4-invariant, nearest-neighbour, positive
+semi-definite operator with kernel equal to the constant functions
+(HCSM-00, Theorem 2.1).
+
+Its eigenvalues on the plane wave phi_{n_1, n_2}(x) = exp(2 pi i
+(n_1 x_1 + n_2 x_2) / 8) are
+
+  lambda(n_1, n_2) = 4 - 2 cos(pi n_1 / 4) - 2 cos(pi n_2 / 4),
+
+for (n_1, n_2) in {0, ..., 7}^2. The spectrum is mirror-symmetric under
+lambda <-> 8 - lambda.
+
+2.3 HODGE COMPLEX
+
+The Hodge complex of differential forms on Lambda has three graded pieces:
+
+  Omega^0 = R^64 (0-forms, bosonic)
+  Omega^1 = R^128 (1-forms, fermionic)
+  Omega^2 = R^64 (2-forms, bosonic)
+
+Total dimension: 64 + 128 + 64 = 256.
+
+2.4 EXTERIOR DERIVATIVE AND CODIFFERENTIAL
+
+The exterior derivative acts on 0-forms by
+
+  (d_0 f)(x, mu) = f(x + e_mu) - f(x),
+
+and on 1-forms by
+
+  (d_1 omega)(x) = omega_1(x) + omega_2(x + e_1)
+                  - omega_1(x + e_2) - omega_2(x).
+
+These satisfy d_1 d_0 = 0 exactly (nilpotency).
+
+The codifferential d* = d^dagger is the adjoint with respect to the
+standard Euclidean inner product:
+
+  (d_0* omega)(x) = sum_{mu=1}^{2} [omega_mu(x - e_mu) - omega_mu(x)],
+
+  (d_1* chi)(x, 1) = chi(x) - chi(x - e_2),
+  (d_1* chi)(x, 2) = chi(x - e_1) - chi(x).
+
+2.5 HODGE-DIRAC OPERATOR
+
+The Hodge-Dirac operator is
+
+  D = d + d*,
+
+acting on the full Hodge complex. In block form,
+
+  D = [ 0      d_0*   0    ]
+      [ d_0    0      d_1* ]
+      [ 0      d_1    0    ].
+
+D is a symmetric 256 x 256 real operator.
+
+THEOREM 2.1 (Hodge-Dirac Square). On the discrete torus Lambda, the identity
+
+  D^2 |_{Omega^k} = Delta * id_{Omega^k}
+
+holds exactly on each form degree k = 0, 1, 2.
+
+Proof. On Omega^0, D^2 = d_0* d_0. Direct computation gives
+(d_0* d_0 f)(x) = 4 f(x) - sum_{|e|=1} f(x + e) = Delta f(x). The
+computations on Omega^1 and Omega^2 follow the same structure with
+nilpotency d_1 d_0 = 0 removing the cross terms. []
+
+2.6 Z_2 GRADING AND STATISTICS
+
+The parity operator (-1)^F is
+
+  (-1)^F = +1 on Omega^0 + Omega^2
+  (-1)^F = -1 on Omega^1
+
+D anticommutes with (-1)^F:
+
+  D (-1)^F = -(-1)^F D.
+
+Under field quantization, the three sectors carry the statistics:
+  Omega^0 (0-forms): bosonic
+  Omega^1 (1-forms): fermionic
+  Omega^2 (2-forms): bosonic
+
+The Z_2 grading is the geometric origin of fermionic statistics.
+
+2.7 N=1 SUPERSYMMETRIC QUANTUM MECHANICS
+
+With Q = D and H = D^2/2 = Delta/2, the operators satisfy
+
+  {Q, Q^dagger} = 2H, Q^2 = (Q^dagger)^2 = 0.
+
+This is the standard N=1 supersymmetric quantum mechanics algebra of
+Witten.
+
+2.8 SPECTRAL MIDPOINT
+
+The self-paired eigenvalue is lambda = 4, with multiplicity
+
+  mult_{lambda=4} = 2(L-1) = 14.
+
+The 14 modes are the physical content of one Standard Model generation.
+
+2.9 HODGE LIFT TO 56-DIMENSIONAL SECTOR
+
+The 14 modes at lambda = 4 lift to the full Hodge complex with
+multiplicities 14, 28, 14:
+
+  14 Omega^0 + 28 Omega^1 + 14 Omega^2 = 56.
+
+The 56-dimensional sector has D_4 decomposition
+
+  56 = 9A_1 + 5A_2 + 7B_1 + 7B_2 + 14E.
+
+2.10 KERNEL OF D
+
+The kernel of the Hodge-Dirac operator is isomorphic to the de Rham
+cohomology of the torus:
+
+  ker D = H^0(T^2) + H^1(T^2) + H^2(T^2),
+
+with dimension
+
+  dim ker D = b_0 + b_1 + b_2 = 1 + 2 + 1 = 4.
+
+The four harmonic forms are:
+  v_0 in H^0: constant 0-form
+  v_1^A, v_1^B in H^1: harmonic 1-forms
+  v_2 in H^2: constant 2-form
+
+2.11 NO SPECIES DOUBLING
+
+The smallest nonzero eigenvalue of D on Lambda_L is
+
+  mu_min(L) = 2 sin(pi/L).
+
+For L = 8: mu_min(8) = 2 sin(pi/8) ~ 0.765.
+
+The Hodge-Dirac operator has no spurious low-energy modes. No species
+doubling.
+
+================================================================================
+SECTION 3: EMERGENT LORENTZIAN GEOMETRY
+================================================================================
+
+3.1 DISCRETE HODGE STAR
+
+The discrete Hodge star on the 2-torus with standard orientation is
+
+  star_0: Omega^0 -> Omega^2, star_0 = id
+  star_1: Omega^1 -> Omega^1, (star_1 omega)_x = omega_y,
+                              (star_1 omega)_y = -omega_x
+  star_2: Omega^2 -> Omega^0, star_2 = id
+
+Properties:
+  star_0^2 = +I, star_1^2 = -I, star_2^2 = +I
+  [star, D^2] = 0
+
+3.2 HODGE STAR ON ker D
+
+Restricted to ker D, in the aligned basis {v_0, v_2, v_1^A, v_1^B},
+
+  star|_{ker D} = [[0, 1, 0, 0],
+                   [1, 0, 0, 0],
+                   [0, 0, 0, -1],
+                   [0, 0, 1, 0]].
+
+Its eigenvalues are
+
+  spec(star|_{ker D}) = {+1, -1, +i, -i}.
+
+The +1 and -1 eigenvalues come from the H^0 + H^2 sector. The +i and
+-i eigenvalues come from the H^1 sector.
+
+3.3 CANONICAL LORENTZIAN METRIC
+
+The two canonical bilinear forms on the Hodge complex are:
+  - Intersection form: Q(alpha, beta) = integral alpha wedge beta
+  - Hodge inner product: <alpha, beta> = integral alpha wedge star beta
+
+On ker D, the metric g is defined blockwise:
+
+  g(alpha, beta) = Q(alpha, beta)    if alpha, beta in H^0 + H^2
+  g(alpha, beta) = <alpha, beta>     if alpha, beta in H^1
+  g(alpha, beta) = 0                 if mixed degrees
+
+In the aligned basis, the matrix form is
+
+  g = [[0, 1, 0, 0],
+       [1, 0, 0, 0],
+       [0, 0, 1, 0],
+       [0, 0, 0, 1]].
+
+Its eigenvalues are {-1, +1, +1, +1}. Signature: (3,1).
+
+3.4 TIMELIKE DIRECTION
+
+The timelike eigenvector of g is
+
+  time = (v_0 - v_2)/sqrt(2).
+
+Its g-norm is -1. The spacelike directions are
+(v_0 + v_2)/sqrt(2), v_1^A, v_1^B, each with g-norm +1.
+
+3.5 D_4-INVARIANCE
+
+The metric g is invariant under the D_4 action on ker D. The D_4 action
+on ker D decomposes as
+
+  ker D = 2A_1 + E.
+
+The generators R_ker, S_ker satisfy
+
+  R_ker^T g R_ker = g, S_ker^T g S_ker = g
+
+at machine precision.
+
+3.6 NO WICK ROTATION
+
+The Lorentzian signature is derived from the Hodge star on ker D. No
+Wick rotation, no external physics, no free parameters. The dimension
+and signature are both structural consequences of the Hodge complex.
+
+3.7 ISOTROPIC DISPERSION
+
+The Laplacian eigenvalue on the plane wave is
+
+  lambda(n_1, n_2) = 4 - 2 cos(pi n_1 / 4) - 2 cos(pi n_2 / 4).
+
+In the limit n_1, n_2 -> 0 (low-momentum),
+
+  lambda(n_1, n_2) = (pi^2/16)(n_1^2 + n_2^2) + O(n^4).
+
+The leading behavior is isotropic. The quartic anisotropy is suppressed
+by epsilon^2 in the IR, where epsilon = lattice/physical scale.
+
+3.8 CONTINUUM LIMIT PREPARATION
+
+Three ingredients are now in hand for the classical limit:
+  1. Isotropic dispersion at leading order
+  2. Cohomological observables in ker D (topological)
+  3. Exact D_4-invariant Lorentzian metric of signature (3,1)
+
+The kinematic continuum limit is derivable from these. The dynamical
+continuum limit requires the tensor product structure (Section 10).
+
+================================================================================
+SECTION 4: THE 14-MODE MULTIPLET AND D_4 REPRESENTATION THEORY
+================================================================================
+
+4.1 REAL MODE BASIS
+
+The 14 modes at lambda = 4 admit an orthonormal basis of two
+self-conjugate cosine modes and six cosine-sine pairs.
+
+Self-conjugate momenta: (0,4), (4,0)
+Conjugate pairs: {(1,3),(7,5)}, {(1,5),(7,3)}, {(3,1),(5,7)},
+                 {(3,7),(5,1)}, {(2,2),(6,6)}, {(2,6),(6,2)}
+
+4.2 D_4 CHARACTER
+
+The character of the real mode representation on the five conjugacy
+classes (e, r^2, r, s, rs) is
+
+  chi_14 = (14, 2, 0, 2, 2).
+
+4.3 ORBIT DECOMPOSITION
+
+The 14 modes decompose under D_4 into three orbits:
+  O_0 = {(0,4), (4,0)}, size 2, support 64
+  O_1 = {(1,3),(1,5),(3,1),(3,7),(5,1),(5,7),(7,3),(7,5)}, size 8, support 48
+  O_2 = {(2,2),(2,6),(6,2),(6,6)}, size 4, support 32
+
+Stabilizer orders: (4, 1, 2).
+
+Support classes: {64, 48, 32} = {N, V, N/2}.
+IPR classes: {2/128, 3/128, 4/128}.
+Shannon entropy classes: {6.0, 5.5, 5.0} bits, equal spacing 0.5 bits.
+
+4.4 IRREDUCIBLE DECOMPOSITION
+
+As a D_4 representation, the 14-mode multiplet decomposes as
+
+  14 = 3A_1 + A_2 + 2B_1 + 2B_2 + 3E.
+
+4.5 n_1-PARITY OPERATOR AND JOINT (D, T) CLASS PARTITION
+
+The n_1-parity operator on the multiplet is
+
+  D = diag((-1)^{n_1}).
+
+It is the indicator of the middle D_4 orbit: D = +1 on O_0 + O_2 and
+D = -1 on O_1. This follows from the parity constraint n_1 = n_2 (mod 2)
+at lambda = 4.
+
+Joint (D, T) class partition:
+  A = {nu, e, t}, size 3
+  B = {u, d, s, mu, c, tau, b}, size 7
+  C = {dark, W, Z, H}, size 4
+
+4.6 MIRROR SYMMETRY AND RESIDUAL RATIO
+
+The Laplacian spectrum is mirror-symmetric under lambda <-> 8 - lambda.
+Of the 64 modes, 50 pair into cancelling mirror partners; only the 14
+self-paired modes at lambda = 4 survive.
+
+For F(lambda) = lambda/2, the residual ratio is
+
+  sum_{m in R} F(lambda_m) / sum_m F(lambda_m) = 28/128 = 7/32.
+
+4.7 TF OPERATOR AND |Delta n| GRADING
+
+The TF operator is TF = T_half . F, where T_half is the half-period
+translation and F is the diagonal flip. TF grades the 14 modes by
+|Delta n| = |n_1 - n_2|:
+
+  8 modes with |Delta n| = 4: {nu, e, d, b, mu, c, Z, H}
+  4 modes with |Delta n| = 2: {u, s, dark, tau}
+  2 modes with |Delta n| = 0: {W, t}
+
+4.8 KLEIN FOUR-GROUP
+
+The four modes {u, s, dark, tau} carry a faithful Klein four-group
+action generated by F and TF.
+
+4.9 5+9 SPLIT AND SHELL VALUES
+
+The 14 modes split into 5 Substrate Eigenmodes {dark, tau, W, Z, H}
+and 9 Mesh Resonances (the remaining 9).
+
+Shell values: {0, 1, 1.5, 2, 3} with thresholds {6, 12, 18, 50}.
+
+4.10 FOUR-LAYER ARCHITECTURE
+
+The 14-mode multiplet carries four independent structural layers:
+  1. Winding kernel (produces c = 5/9, (d-1)/2 = 3/2)
+  2. Hartree kernel (produces 7/32, coefficient 26)
+  3. T_half sorting operator (produces base formula, 5+9 split)
+  4. Processing function (requires external calibration)
+
+Layers 1-3 are HCSM-native. Layer 4 is the empirical anchor.
+
+================================================================================
+SECTION 5: GAUGE ALGEBRA FROM THE D_4 COMMUTANT
+================================================================================
+
+5.1 D_4 COMMUTANT ON C^14
+
+The D_4 commutant on the 14-mode multiplet is
+
+  Comm(D_4, V_14) = bigoplus_rho M_{m_rho}(C),
+
+with m_rho = (3, 1, 2, 2, 3) for rho = (A_1, A_2, B_1, B_2, E).
+Its complex dimension is
+
+  dim_C Comm(D_4, V_14) = 3^2 + 1^2 + 2^2 + 2^2 + 3^2 = 27.
+
+5.2 su(3) IN A_1
+
+The su(3) subalgebra is the traceless anti-Hermitian subalgebra of
+M_{m_{A_1}}(C) = M_3(C).
+
+A_1 UNIQUENESS THEOREM. Among the two 3-dimensional multiplicity spaces
+M_{A_1} and M_E, only M_{A_1} is D_4-invariant on its isotypic subspace.
+Therefore physical color su(3)_c is the su(3) subalgebra on M_{A_1}.
+
+5.3 su(2) IN B_1
+
+The su(2) subalgebra is the traceless anti-Hermitian subalgebra of
+M_{m_{B_1}}(C) = M_2(C).
+
+B_1 / B_2 LABELING CONVENTION. The outer automorphism of D_4 exchanges
+B_1 <-> B_2 while fixing A_1, A_2, E. No D_4-equivariant operator
+distinguishes them. The choice of B_1 (weak isospin) is a labeling
+convention with no physical consequences.
+
+5.4 u(1)^5 FROM ISOTYPIC PROJECTORS
+
+The five isotypic projectors P_{A_1}, P_{A_2}, P_{B_1}, P_{B_2}, P_E
+span an abelian u(1)^5 subalgebra of the D_4 commutant.
+
+5.5 CLOSURE TO g_SM
+
+The generators of the su(3), su(2), and u(1)^5 factors close to
+
+  g_SM = su(3) + su(2) + u(1)^5,
+
+of real dimension 8 + 3 + 5 = 16.
+
+5.6 SECTOR-COARSE CORRESPONDENCE
+
+The space of D_4-invariant, sector-block-diagonal, multiplicity-scalar
+operators on the 56-dim Hodge sector is exactly 15-dimensional. It is
+spanned by the three sector operators {I, F, O} on each of the five
+isotypic blocks.
+
+5.7 ORIENTATION FLIP AS LABELING CONVENTION
+
+The orientation flip sigma: Omega^0 <-> Omega^2 commutes with D_4 and
+acts on the sector operators as
+
+  sigma I sigma^{-1} = I, sigma F sigma^{-1} = F, sigma O sigma^{-1} = -O.
+
+The sign of O is a labeling convention, fixed by Y(u_R^c) < Y(d_R^c).
+Flipping the convention produces an equivalent formulation.
+
+================================================================================
+SECTION 6: HYPERCHARGE QUANTIZATION AND ANOMALY CANCELLATION
+================================================================================
+
+6.1 HYPERCHARGE FUNCTIONAL
+
+The hypercharge functional on the 15-dim sector-coarse space is
+
+  Y = sum_rho (alpha_rho I + beta_rho F + gamma_rho O) P_rho.
+
+6.2 A_1 COEFFICIENTS
+
+Matching the physical hypercharges Y(u_R^c) = -2/3 on Omega^0,
+Y(Q_L) = +1/6 on Omega^1, Y(d_R^c) = +1/3 on Omega^2 fixes
+
+  (alpha_{A_1}, beta_{A_1}, gamma_{A_1}) = (0, -1/6, -1/2).
+
+Sector values: Y_{A_1} = (-2/3, +1/6, +1/3).
+
+6.3 B_1 COEFFICIENTS
+
+Matching Y(e_R^c) = +1, Y(L_L) = -1/2, Y(nu_R^c) = 0 fixes
+
+  (alpha_{B_1}, beta_{B_1}, gamma_{B_1}) = (0, +1/2, +1/2).
+
+Sector values: Y_{B_1} = (+1, -1/2, 0).
+
+6.4 QUANTIZATION IN (1/6)Z
+
+All hypercharge values lie in (1/6)Z. The denominator 6 is the framework
+constant d + 2 = 6.
+
+6.5 HYPERCHARGE VALUES FROM ANOMALY CANCELLATION
+
+Given the Standard Model content structure and the anomaly cancellation
+conditions, the hypercharge values are uniquely determined:
+
+  Y_Q = 1/6, Y_u = -2/3, Y_d = +1/3, Y_L = -1/2, Y_e = +1.
+
+6.6 CONTENT STRUCTURE FROM HCSM DATA
+
+Given the 14-mode particle assignment, the charge assignment, the D_4
+isotypic multiplicities, and the Hodge-lift chirality structure, the
+Standard Model content per generation is uniquely:
+
+  Q_L(3, 2, +1/6), u_R^c(3, 1, -2/3), d_R^c(3, 1, +1/3),
+  L_L(1, 2, -1/2), e_R^c(1, 1, +1), nu_R^c(1, 1, 0).
+
+6.7 ANOMALY CANCELLATION
+
+The four one-loop anomaly conditions vanish identically:
+
+  Tr(Y) = 0, Tr(Y^3) = 0,
+  SU(2)^2 U(1) = 0, SU(3)^2 U(1) = 0.
+
+The three cubic gauge anomalies vanish by representation theory:
+  SU(3)^3: vector-like color content
+  SU(2)^3: SU(2) is safe
+  SU(3)-SU(2)-U(1): traceless non-Abelian generators
+
+The Witten global SU(2) anomaly is evaded (4 doublets per generation).
+
+Two-loop cancellation is automatic by Adler-Bardeen.
+
+6.8 SECTOR-COARSE IDENTITY
+
+The mixed SU(3)^2 U(1) anomaly takes the sector-coarse form
+
+  Y_0 + 2Y_1 + Y_2 = 0,
+
+satisfied by the HCSM values (-2/3, +1/6, +1/3).
+
+================================================================================
+SECTION 7: THE ELECTROMAGNETIC SECTOR
+================================================================================
+
+7.1 ELECTROWEAK SYMMETRY BREAKING
+
+After electroweak symmetry breaking, SU(2)_L x U(1)_Y breaks to U(1)_EM.
+
+7.2 WEINBERG ANGLE
+
+The weak mixing angle at M_Z is
+
+  sin^2 theta_W (M_Z) = 0.2312,
+
+derived from the hidden sector content 5 + 6 + 31 and the GUT-scale
+boundary condition sin^2 theta_W (M_GUT) = 3/8. Matches PDG 0.23122 to
+0.02%.
+
+7.3 HIGGS MECHANISM
+
+The Higgs doublet is the complexified B_1 isotypic of Omega^0|_{lambda=4}.
+The electroweak VEV is
+
+  v_EW = M_P exp(-kL_phys),
+
+with kL_phys = 38.442527. The tree-level quartic coupling is
+
+  lambda_tree = ln(kL) / [(d-1) pi^2],
+
+and the top Yukawa coefficient is y_t^2 = 1 - (4/3) delta_edge.
+
+7.4 UNBROKEN U(1)_EM
+
+The unbroken U(1)_EM is generated by
+
+  Q = T_3 + Y/2.
+
+7.5 PHOTON AS MASSLESS EIGENSTATE
+
+After EWSB, the massless eigenstate of the SU(2)_L x U(1)_Y mass matrix
+is
+
+  A_mu = sin theta_W W^3_mu + cos theta_W B_mu.
+
+This is the photon. It is not a fundamental 14-mode; it is an emergent
+gauge boson of the unbroken U(1)_EM.
+
+7.6 PROCA SECTOR
+
+The W and Z acquire Proca masses:
+
+  m_W = g v_EW / 2 = 80.35 GeV
+  m_Z = sqrt(g^2 + g'^2) v_EW / 2 = 91.63 GeV
+  m_W / m_Z = cos theta_W = 0.8769 (matches PDG 0.8814 to 0.5%)
+
+Transversality: partial^mu A_mu = 0 for the massive vector fields.
+
+The photon remains massless.
+
+7.7 RESOLUTION OF OMEGA^1 GRADING OBSTRUCTION
+
+The photon is not a fundamental Omega^1 form (which is fermionic).
+The gauge algebra lives in the D_4 commutant on the 14-mode multiplet.
+The photon is the unbroken U(1)_EM gauge boson in this commutant, not
+in the form degrees.
+
+7.8 CHIRALITY-BREAKING PLANE
+
+The commutator [T, P_rs] is supported exactly on {dark, tau}. On these
+two modes, the commutator is a fourth-order rotation generator. On the
+other 12 modes, T and P_rs commute.
+
+================================================================================
+SECTION 8: DISCRETE ACTION AND EQUATIONS OF MOTION
+================================================================================
+
+8.1 GAUGE-INVARIANT ACTION
+
+The gauge-invariant action on the Hodge complex is
+
+  S = sum_{Omega^2} F wedge star F + sum
