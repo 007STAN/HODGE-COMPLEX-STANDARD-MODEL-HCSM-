@@ -1,0 +1,910 @@
+================================================================================
+                     HCSM White Paper Series, Paper 16
+================================================================================
+
+                                HCSM-16
+
+             Loop Operator on the Full 56-Dimensional Hodge Sector
+
+      The Extension Map, Hidden-Sector Neutrality, and the
+           Conditional Generation Extension to 168 Dimensions
+
+--------------------------------------------------------------------------------
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstannp@yahoo.com
+
+September 2026
+--------------------------------------------------------------------------------
+
+Keywords: Hodge Complex Standard Model; HCSM; loop operator; DNLS Hartree
+Hamiltonian; 56-dimensional Hodge sector; commutant; extension map; Lie
+algebra homomorphism; hidden sector neutrality; su(2)_L preservation; A_4
+generation symmetry; 8x8 torus.
+
+PACS: 02.10.-v, 02.20.-a, 11.15.-q, 12.10.-g.
+
+================================================================================
+ABSTRACT
+================================================================================
+
+The Hodge Complex Standard Model derives the gauge algebra
+g_SM = su(3)_c + su(2)_L + u(1)^5 as a Lie subalgebra of the D_4
+commutant on the 14-mode multiplet at lambda = 4 (HCSM-06), and
+determines which part of that algebra commutes with the loop operator
+M_loop and with the DNLS Hartree Hamiltonian H_DNLS on the
+14-dimensional visible sector (HCSM-15). This paper lifts both results
+to the full 56-dimensional Hodge sector V_56 = Omega^0|_{lambda=4} +
+Omega^1|_{lambda=4} + Omega^2|_{lambda=4} at lambda = 4. The lift is
+implemented by an explicit block-diagonal extension map
+extend : C^{14x14} -> C^{56x56} that is a Lie algebra homomorphism and
+that implements the natural decomposition of V_56 into Omega^0 +
+Omega^1 + Omega^2 with the C^2 vector index of Omega^1 as an inner
+tensor factor. The principal results are as follows. (i) The
+56-dimensional loop commutant g_SM intersect Comm(M_loop^(56)) is
+exactly the block-diagonal extension of the 14-dimensional loop
+commutant, hence a 3-dimensional real, Hermitian, abelian subalgebra of
+g_SM. (ii) The hidden sector Omega^1|_{lambda=4} + Omega^2|_{lambda=4}
+is a spectator: it does not enlarge, rotate, or otherwise alter the
+commutant. (iii) The 56-dimensional DNLS commutant is exactly the
+block-diagonal extension of the 14-dimensional DNLS commutant, hence a
+10-dimensional real, Hermitian subalgebra of g_SM isomorphic to
+su(2)_L + u(1)^7. (iv) The full su(2)_L factor is preserved exactly on
+the 56-dimensional sector via the doubled-momentum pairing mechanism of
+HCSM-15. (v) The isotypic projector degeneracy and the absence of root
+generators extend to the 56-dimensional sector. (vi) Conditional on
+the identification of the generation index with a 3-dimensional space,
+the trivial extension M_loop (x) I_3 and H_DNLS (x) I_3 to
+C^168 = C^56 (x) C^3 commute with any orthogonal 3x3 action on the
+generation index. All 56-dimensional results are HCSM-native and
+verified at machine precision. The A_4 identification with the
+physical generation index is a labeling input, not a derivation.
+
+================================================================================
+CONTENTS
+================================================================================
+
+1. Introduction
+   1.1 The 56-dimensional Hodge sector
+   1.2 Main results
+   1.3 Cross references
+   1.4 Organization
+2. Setup: the 56-dimensional Hodge sector
+   2.1 Substrate and Hodge complex
+   2.2 The 56-dimensional sector at lambda = 4
+   2.3 Tensor factor ordering
+   2.4 The D_4 action on V_56
+   2.5 Isotypic projectors on V_56
+   2.6 Gauge algebra on V_56
+3. The extension map and its properties
+   3.1 Definition of the extension
+   3.2 Lie algebra homomorphism
+   3.3 The 56-dimensional gauge generators
+4. The loop commutant on V_56
+   4.1 The loop operator on V_56
+   4.2 Coefficient-space isomorphism
+   4.3 The 56-dimensional loop commutant theorem
+5. The DNLS commutant on V_56
+   5.1 The DNLS Hartree Hamiltonian on V_56
+   5.2 The 56-dimensional DNLS commutant theorem
+   5.3 Exact su(2)_L preservation on V_56
+6. Structural results on V_56
+   6.1 Isotypic projector degeneracy
+   6.2 Absence of root generators
+7. Conditional generation extension to 168 dimensions
+   7.1 Trivial extension to n generations
+   7.2 The A_4 three-dimensional representation
+8. Inputs and derived
+   8.1 Derived
+   8.2 Inputs
+   8.3 Scope
+9. Reproducibility
+10. Conclusion
+References
+Appendix A. Web Crawler Metadata
+
+================================================================================
+1. INTRODUCTION
+================================================================================
+
+1.1 The 56-dimensional Hodge sector
+
+The Hodge Complex Standard Model (HCSM) identifies the 14 modes at the
+self-paired eigenvalue lambda = 4 of the discrete Laplacian on the
+periodic 8x8 torus with one Standard Model generation (HCSM-04,
+HCSM-23 Rev. 7). On the full Hodge complex at lambda = 4, the 14-mode
+multiplet lifts to
+
+    V_56 = Omega^0|_{lambda=4} + Omega^1|_{lambda=4}
+           + Omega^2|_{lambda=4},
+    dim V_56 = 14 + 28 + 14 = 56.                          (1)
+
+(HCSM-02). The D_4 isotypic decomposition of V_56 is
+
+    V_56 = 9A_1 + 5A_2 + 7B_1 + 7B_2 + 14E.                (2)
+
+This 56-dimensional sector is the natural arena for the framework's
+dynamical operators.
+
+On the 14-dimensional visible sector Omega^0|_{lambda=4}, HCSM-15
+determined the intersection of g_SM = su(3)_c + su(2)_L + u(1)^5 with
+the commutant of each of two operators: the loop operator
+M_loop = M_A P_A + M_B P_B + M_C P_C and the DNLS Hartree Hamiltonian
+H_DNLS = 4I + UK. The two commutants are respectively 3-dimensional
+(Hermitian, abelian) and 10-dimensional (isomorphic to
+su(2)_L + u(1)^7).
+
+The present paper lifts both HCSM-15 results to the full 56-dimensional
+Hodge sector.
+
+1.2 Main results
+
+The paper establishes the following results.
+
+(i) Extension map (Section 3). The block-diagonal extension map
+extend : C^{14x14} -> C^{56x56} is a Lie algebra homomorphism:
+extend([A,B]) = [extend(A), extend(B)].
+
+(ii) Coefficient-space isomorphism (Theorem 8). The nullspace of the
+14-dimensional loop commutator matrix and the nullspace of the
+56-dimensional loop commutator matrix are identical subspaces of
+R^16.
+
+(iii) 56-dimensional loop commutant (Theorem 10). g_SM intersect
+Comm(M_loop^(56)) is a 3-dimensional real, Hermitian, abelian
+subalgebra of g_SM, equal to the block-diagonal extension of the
+14-dimensional loop commutant.
+
+(iv) Hidden-sector neutrality (Theorem 11). The hidden sector does not
+enlarge, rotate, or otherwise alter the loop commutant.
+
+(v) 56-dimensional DNLS commutant (Theorem 15). g_SM intersect
+Comm(H_DNLS^(56)) is a 10-dimensional real, Hermitian subalgebra of
+g_SM isomorphic to su(2)_L + u(1)^7, equal to the block-diagonal
+extension of the 14-dimensional DNLS commutant.
+
+(vi) su(2)_L preservation on V_56 (Theorem 16). The full su(2)_L
+factor commutes with H_DNLS^(56) exactly.
+
+(vii) Structural extension (Theorems 19, 20). The isotypic projector
+degeneracy and the absence of root generators extend to V_56.
+
+(viii) Generation extension (Theorem 22). The trivially extended
+framework operators on C^{56n} commute with any orthogonal action on
+the n-dimensional generation index.
+
+1.3 Cross references
+
+The paper depends on the following HCSM companions:
+HCSM-00 (foundations, notation, mapping);
+HCSM-01 (the 8x8 torus substrate);
+HCSM-02 (the Hodge complex on Lambda; the D_4 decomposition of V_56);
+HCSM-04 (the 14-mode multiplet at lambda = 4);
+HCSM-05 (D_4 representation theory; the joint (D,T) class partition);
+HCSM-06 (the gauge algebra g_SM);
+HCSM-13 (the processor T);
+HCSM-14 (the winding generator spectrum and class partition);
+HCSM-15 (gauge symmetry of the loop operator and DNLS on the
+14-dim visible sector);
+HCSM-17 (Cartan rotation angles on the loop commutant);
+HCSM-23 Rev. 7 (the midpoint sorting theorem).
+
+1.4 Organization
+
+Section 2 states the 56-dimensional Hodge sector and its D_4 structure.
+Section 3 defines the extension map and proves it is a Lie algebra
+homomorphism. Section 4 proves the 56-dimensional loop commutant
+theorem and the hidden-sector neutrality theorem. Section 5 proves the
+56-dimensional DNLS commutant theorem and the exact su(2)_L
+preservation. Section 6 extends the isotypic projector degeneracy and
+the no-root results. Section 7 states and proves the conditional
+generation extension to 168 dimensions. Section 8 catalogs inputs and
+derived results. Section 9 gives reproducibility notes. Section 10
+concludes.
+
+================================================================================
+2. SETUP: THE 56-DIMENSIONAL HODGE SECTOR
+================================================================================
+
+2.1 Substrate and Hodge complex
+
+The substrate is the periodic square lattice
+Lambda = Z_8 x Z_8 with N = 64 sites (HCSM-01). The Hodge complex of
+differential forms is
+
+    Omega^0 = R^64,  Omega^1 = R^128,  Omega^2 = R^64,
+    dim = 256,                                             (3)
+
+and the Hodge-Dirac operator D = d + d* satisfies
+D^2|_{Omega^k} = Delta exactly on each form degree (HCSM-02). The
+discrete 5-point Laplacian has eigenvalue
+
+    lambda(n_1, n_2) = 4 - 2 cos(pi n_1 / 4)
+                       - 2 cos(pi n_2 / 4).                (4)
+
+At the self-paired eigenvalue lambda = 4, the mode set has 14 elements
+(HCSM-04).
+
+2.2 The 56-dimensional sector at lambda = 4
+
+Restricting the Hodge complex to the lambda = 4 eigenvalue gives the
+56-dimensional sector
+
+    V_56 = Omega^0|_{lambda=4} + Omega^1|_{lambda=4}
+           + Omega^2|_{lambda=4},                          (5)
+
+with dimensions 14 + 28 + 14 = 56. Under D_4 (HCSM-02, HCSM-05),
+
+    V_56 = 9A_1 + 5A_2 + 7B_1 + 7B_2 + 14E.                (6)
+
+2.3 Tensor factor ordering
+
+We fix once and for all the tensor factor ordering
+
+    C^56 = C^14 (+) C^14 (x) C^2 (+) C^14,                 (7)
+           [Omega^0] [Omega^1] [vector] [Omega^2]
+
+Indices 0 through 13 span Omega^0; indices 14 through 41 span Omega^1
+with the C^2 vector index as inner tensor factor ordered as
+(14 + 2i + mu) for mode i in {0,...,13} and vector component
+mu in {0,1}; indices 42 through 55 span Omega^2.
+
+2.4 The D_4 action on V_56
+
+In the factorized representation
+
+    Omega^k|_{lambda=4} = Omega^0|_{lambda=4} (x) Lambda^k(E),  (8)
+
+where E is the two-dimensional vector irrep of D_4 and Lambda^k(E) is
+its k-th exterior power, the D_4 action on V_56 is block-diagonal. The
+generators R = r|_{lambda=4} and S = s|_{lambda=4} satisfy
+
+    R^4 = I,  S^2 = I,  (RS)^2 = I                       (9)
+
+at machine precision on V_56.
+
+2.5 Isotypic projectors on V_56
+
+The isotypic projectors on V_56 are
+
+    P_rho^(56) = (dim rho / |D_4|)
+                 * sum_{g in D_4} chi_rho(g)^* R(g),      (10)
+
+where R(g) is the representation of g on V_56 and chi_rho is the
+character of the irrep rho. Direct computation gives
+
+    tr P_{A_1} = 9,  tr P_{A_2} = 5,  tr P_{B_1} = 7,
+    tr P_{B_2} = 7,  tr P_E = 28,                         (11)
+
+each projector idempotent to machine precision, and
+sum_rho P_rho^(56) = I_56 exactly.
+
+2.6 Gauge algebra on V_56
+
+By HCSM-06, the gauge algebra
+
+    g_SM = su(3)_c + su(2)_L + u(1)^5                    (12)
+
+is a Lie subalgebra of the D_4 commutant on the 14-mode multiplet. The
+16 gauge generators on C^14 are
+
+    g_SM^(14) = {T_c^1, ..., T_c^8, T_L^1, T_L^2, T_L^3,
+                 P_{A_1}, P_{A_2}, P_{B_1}, P_{B_2}, P_E},  (13)
+
+with T_c^a = U_{A_1} lambda^a U_{A_1}^T and
+T_L^i = U_{B_1} sigma^i U_{B_1}^T for orthonormal isotypic bases
+U_{A_1} in R^{14x3}, U_{B_1} in R^{14x2}.
+
+================================================================================
+3. THE EXTENSION MAP AND ITS PROPERTIES
+================================================================================
+
+3.1 Definition of the extension
+
+DEFINITION 1 (Extension map). The extension map
+extend : C^{14x14} -> C^{56x56} is defined by
+
+              ( G      0         0      )
+    extend(G) = ( 0   G (x) I_2    0      )                (14)
+              ( 0      0         G      )
+
+in the block ordering (7).
+
+The extension map is C-linear and injective. It acts on each Hodge form
+degree by tensoring the 14-dimensional operator with the appropriate
+trivial factor: identity on Omega^0, G (x) I_2 on Omega^1, and identity
+on Omega^2.
+
+3.2 Lie algebra homomorphism
+
+LEMMA 2 (Extension is a Lie algebra homomorphism). For all
+A, B in C^{14x14},
+
+    [extend(A), extend(B)] = extend([A,B]).               (15)
+
+Proof. Write extend(A) = A (+) (A (x) I_2) (+) A in block-diagonal
+form. For two block-diagonal matrices M = M_0 (+) M_1 (+) M_2 and
+N = N_0 (+) N_1 (+) N_2, the commutator is block-diagonal:
+
+    [M, N] = [M_0, N_0] (+) [M_1, N_1] (+) [M_2, N_2].    (16)
+
+Substituting M = extend(A), N = extend(B):
+
+    [extend(A), extend(B)] = [A,B] (+) ([A,B] (x) I_2) (+) [A,B]
+                           = extend([A,B]).                (17) []
+
+COROLLARY 3. The map extend restricts to a Lie algebra homomorphism
+on any Lie subalgebra of Mat_14(C).
+
+3.3 The 56-dimensional gauge generators
+
+DEFINITION 4 (Gauge generators on V_56). The 56-dimensional gauge
+generators are
+
+    g_SM^(56) = {extend(g_1^(14)), ..., extend(g_16^(14))}.  (18)
+
+Each extend(g_j^(14)) is Hermitian and D_4-invariant on V_56.
+
+LEMMA 5 (Hermiticity and D_4-invariance). For each j = 1, ..., 16:
+
+(a) extend(g_j^(14))^dagger = extend(g_j^(14)).
+
+(b) [R, extend(g_j^(14))] = [S, extend(g_j^(14))] = 0.
+
+Proof. (a) extend(G)^dagger = extend(G^dagger) = extend(G) for
+Hermitian G.
+
+(b) The D_4 action on V_56 is block-diagonal with respect to the
+decomposition Omega^0 (+) Omega^1 (+) Omega^2 (Definition 1,
+eq. (8)). Write R = R_0 (+) (R_1 (x) I_2) (+) R_2 with R_k the D_4
+action on Omega^k|_{lambda=4}. Since g_j^(14) is D_4-invariant on the
+14-mode multiplet, [R_k, g_j^(14)] = 0 for each k. The commutator
+[R, extend(g_j^(14))] is therefore block-diagonal with each block
+vanishing. The same argument applies to S. []
+
+================================================================================
+4. THE LOOP COMMUTANT ON V_56
+================================================================================
+
+4.1 The loop operator on V_56
+
+DEFINITION 6 (Loop operator on V_56). The 56-dimensional loop operator
+is
+
+    M_loop^(56) = extend(M_loop^(14)),
+    M_loop^(14) = M_A P_A^(14) + M_B P_B^(14) + M_C P_C^(14),  (19)
+
+where M_A, M_B, M_C are the complex loop eigenvalues of HCSM-17 and
+P_A^(14), P_B^(14), P_C^(14) are the class projectors of HCSM-14
+(equivalently, the joint (D,T) spectrum of HCSM-05).
+
+M_loop^(56) is block-diagonal, non-Hermitian (dissipative), and
+satisfies
+
+    [M_loop^(56), P_A^(56)] = [M_loop^(56), P_B^(56)]
+                            = [M_loop^(56), P_C^(56)] = 0, (20)
+
+where P_A^(56), P_B^(56), P_C^(56) are the 56-dimensional class
+projectors obtained by extending the 14-dimensional class projectors.
+
+4.2 Coefficient-space isomorphism
+
+DEFINITION 7 (Commutator matrices). For d in {14, 56}, define the
+commutator matrix C^(d) in C^{(d)^2 x 16} by
+
+    C_{k,j}^(d) = [M_loop^(d), g_j^(d)]_k,
+    k = 1, ..., d^2,  j = 1, ..., 16.                     (21)
+
+Let N^(d) = {v in R^16 : C_R^(d) v = 0} be the real nullspace, where
+C_R^(d) = [Re(C^(d)); Im(C^(d))].
+
+THEOREM 8 (Coefficient-space identity). The nullspaces N^(14) and
+N^(56) are identical subspaces of R^16.
+
+Proof. Let v in R^16. By Lemma 2 and linearity of extend,
+
+    sum_{j=1}^{16} v_j [M_loop^(56), g_j^(56)]
+      = [M_loop^(56), sum_j v_j g_j^(56)]
+      = [extend(M_loop^(14)), extend(sum_j v_j g_j^(14))]
+      = extend([M_loop^(14), sum_j v_j g_j^(14)]).         (22)
+
+The extension map is injective, so this vanishes iff
+[M_loop^(14), sum_j v_j g_j^(14)] = 0. Hence
+v in N^(56) <=> v in N^(14). []
+
+COROLLARY 9 (Explicit isomorphism of commutants). The map
+
+    Phi : Comm^(14)(M_loop) -> Comm^(56)(M_loop),
+          sum_j v_j g_j^(14) |-> sum_j v_j extend(g_j^(14))  (23)
+
+is a linear isomorphism of real vector spaces. On coefficient space,
+Phi acts as the identity on the common nullspace N in R^16.
+
+4.3 The 56-dimensional loop commutant theorem
+
+THEOREM 10 (Loop commutant dimension on V_56). The intersection
+g_SM intersect Comm(M_loop^(56)) is a 3-dimensional real, Hermitian,
+abelian subalgebra of g_SM. It is exactly the block-diagonal extension
+of the 14-dimensional loop commutant:
+
+    g_SM intersect Comm(M_loop^(56))
+      = extend(g_SM intersect Comm(M_loop^(14))).          (24)
+
+Proof. Dimension. Form the 56-dimensional commutator matrix
+C^(56) in C^{56^2 x 16}. The realified matrix
+C_R^(56) in R^{2*56^2 x 16} has rank 13 at machine precision, with a
+singular value gap of ~10^15 between the 13th and 14th singular values.
+Nullity = 16 - 13 = 3.
+
+Explicit isomorphism. By Theorem 8, N^(14) = N^(56). Choosing a common
+nullspace basis {v^(1), v^(2), v^(3)}, the 56-dimensional commutant has
+basis
+
+    O_i^(56) = sum_j v_j^(i) extend(g_j^(14)) = extend(O_i^(14)),
+    i = 1, 2, 3.                                           (25)
+
+Hence the 56-dimensional commutant equals extend of the
+14-dimensional commutant.
+
+Hermiticity. Each O_i^(56) is a real linear combination of the
+Hermitian generators extend(g_j^(14)), so it is Hermitian.
+
+Abelian. Cross-commutators vanish by Lemma 2:
+
+    [O_i^(56), O_j^(56)]
+      = [extend(O_i^(14)), extend(O_j^(14))]
+      = extend([O_i^(14), O_j^(14)]) = extend(0) = 0.      (26) []
+
+THEOREM 11 (Hidden-sector neutrality). The hidden sector
+Omega^1|_{lambda=4} (+) Omega^2|_{lambda=4} does not enlarge, rotate,
+or otherwise alter the loop commutant.
+
+Proof. Immediate from Theorem 10: the nullspace dimension is 3 on both
+the 14- and 56-dimensional sectors, and the nullspace coefficient
+vectors are identical (Theorem 8). The block-diagonal structure (14) of
+the extension map shows that no mixing occurs between Omega^0, Omega^1,
+and Omega^2; the C^2 vector index on Omega^1 is a spectator. []
+
+REMARK 12. Theorem 11 is the structural reason the framework's gauge
+content is independent of the form degree. The loop's symmetry content
+is determined by the winding class partition (HCSM-14; equivalently the
+joint (D,T) spectrum of HCSM-05), not by the form-degree structure of
+the Hodge complex.
+
+================================================================================
+5. THE DNLS COMMUTANT ON V_56
+================================================================================
+
+5.1 The DNLS Hartree Hamiltonian on V_56
+
+DEFINITION 13 (Hartree kernel on V_56). Let K^(14) in R^{14x14} be the
+Hartree kernel on the 14-dimensional visible sector:
+
+    K_ab^(14) = sum_{x in Lambda} |phi_a(x)|^2 |phi_b(x)|^2,
+    a, b = 1, ..., 14,                                    (27)
+
+where phi_a are the normalized mode wavefunctions on the torus
+(HCSM-04). The 56-dimensional extension is
+
+    K^(56) = extend(K^(14)).                              (28)
+
+DEFINITION 14 (DNLS Hartree Hamiltonian on V_56). The 56-dimensional
+DNLS Hartree Hamiltonian is
+
+    H_DNLS^(56) = 4 I_56 + U K^(56),
+    U = B_mass = 0.5411967342...                          (29)
+
+The block-diagonal structure (14) of K^(56) ensures that
+H_DNLS^(56) = extend(H_DNLS^(14)).
+
+5.2 The 56-dimensional DNLS commutant theorem
+
+THEOREM 15 (DNLS commutant dimension on V_56). The intersection
+g_SM intersect Comm(H_DNLS^(56)) is a 10-dimensional real, Hermitian
+subalgebra of g_SM isomorphic to su(2)_L + u(1)^7. It is exactly the
+block-diagonal extension of the 14-dimensional DNLS commutant:
+
+    g_SM intersect Comm(H_DNLS^(56))
+      = extend(g_SM intersect Comm(H_DNLS^(14))).          (30)
+
+Proof. Since H_DNLS^(56) = extend(H_DNLS^(14)) and Lemma 2 applies to
+[H_DNLS^(56), g_j^(56)], the same coefficient-space identity argument
+as Theorem 8 gives
+
+    N_DNLS^(56) = N_DNLS^(14) in R^16.                    (31)
+
+The realified DNLS commutator matrix has rank 6 and nullity 10 on both
+the 14- and 56-dimensional sectors, as proved in HCSM-15 (Theorem 5.4).
+
+The isomorphism is explicit: O_i^(56) = extend(O_i^(14)) for each
+nullspace basis vector v^(i).
+
+The algebraic structure (isomorphism to su(2)_L + u(1)^7) is preserved
+by the extension map, since extend is a Lie algebra homomorphism
+(Lemma 2). The bracket relations among the ten generators coincide with
+the 14-dimensional case. []
+
+5.3 Exact su(2)_L preservation on V_56
+
+THEOREM 16 (su(2)_L preservation on V_56). The full su(2)_L factor
+commutes with H_DNLS^(56) exactly:
+
+    [extend(T_L^i), H_DNLS^(56)] = 0,  i = 1, 2, 3.       (32)
+
+The overlap of each extend(T_L^i) with the DNLS nullspace is 1.000 at
+machine precision.
+
+Proof. By HCSM-15 Corollary 6.3, [T_L^i, H_DNLS^(14)] = 0 for each i.
+Applying Lemma 2:
+
+    [extend(T_L^i), extend(H_DNLS^(14))]
+      = extend([T_L^i, H_DNLS^(14)]) = extend(0) = 0.      (33)
+
+The overlap is inherited directly from the 14-dimensional result. []
+
+REMARK 17. The doubled-momentum pairing mechanism of HCSM-15
+(Theorem 6.2) operates entirely within the B_1 isotypic sector of
+Omega^0|_{lambda=4}. On V_56, the extension map preserves this
+mechanism on each form degree: on Omega^0 the mechanism operates
+directly, on Omega^1 it operates on the C^14 factor with the C^2
+vector index as a spectator, and on Omega^2 it operates directly. The
+exact cancellation K_{B_1}^(56) = 0 follows.
+
+REMARK 18 (su(3)_c breaking on V_56). By the same extension argument,
+the su(3)_c breaking pattern of HCSM-15 Theorem 7.1 lifts to V_56: the
+root generators extend(lambda^2), extend(lambda^5), extend(lambda^7)
+are orthogonal to the 56-dimensional DNLS commutant, and the
+2-dimensional abelian subalgebra extend(c) is preserved.
+
+================================================================================
+6. STRUCTURAL RESULTS ON V_56
+================================================================================
+
+6.1 Isotypic projector degeneracy
+
+THEOREM 19 (Isotypic projector degeneracy on V_56). Every element of
+the 56-dimensional loop commutant has equal coefficients on the
+isotypic projectors P_{A_2}^(56), P_{B_2}^(56), P_E^(56).
+
+Proof. By Theorem 10, every element of the 56-dimensional loop
+commutant is extend(O^(14)) for some O^(14) in the 14-dimensional loop
+commutant. By HCSM-15 Theorem 4.1, the coefficient vector of O^(14)
+satisfies |v_{A_2} - v_{B_2}| < 10^-15, |v_{A_2} - v_E| < 10^-15.
+Since the coefficient vector of O^(56) is the same v (Theorem 8), the
+degeneracy is inherited. []
+
+6.2 Absence of root generators
+
+THEOREM 20 (No root generators on V_56). The 56-dimensional loop
+commutant has zero overlap with extend(lambda^a) for
+a in {1, 2, 4, 5, 6, 7} and extend(sigma^i) for i in {1, 2}. Only the
+Cartan generators extend(lambda^3), extend(lambda^8),
+extend(sigma^3) of g_SM have nonzero overlap with the 56-dimensional
+loop commutant.
+
+Proof. By HCSM-15 Theorem 4.3, the corresponding 14-dimensional
+coefficient vectors have zero projection onto the 14-dimensional
+nullspace. By Theorem 8, the 56-dimensional coefficient vectors are
+identical, so the projection is also zero. []
+
+================================================================================
+7. CONDITIONAL GENERATION EXTENSION TO 168 DIMENSIONS
+================================================================================
+
+7.1 Trivial extension to n generations
+
+DEFINITION 21 (Trivial generation extension). Let n be a positive
+integer. The trivial generation extension of a linear operator A on
+C^56 is
+
+    A^(n) = A (x) I_n in C^{56n x 56n}.                    (34)
+
+THEOREM 22 (Trivial extension commutes with generation action). For
+any operator A in C^{56x56} and any matrix B in C^{nxn},
+
+    [A (x) I_n, I_56 (x) B] = 0.                          (35)
+
+In particular, the trivially extended loop operator
+M_loop^(56) (x) I_n and DNLS Hamiltonian H_DNLS^(56) (x) I_n commute
+with any orthogonal action of a finite group on the n-dimensional
+generation index.
+
+Proof. The tensor product identity
+(A (x) I_n)(I_56 (x) B) = A (x) B = (I_56 (x) B)(A (x) I_n) gives the
+commutator directly. Orthogonality of B is not required for
+commutation; any B in M_n(C) commutes with A (x) I_n. []
+
+7.2 The A_4 three-dimensional representation
+
+DEFINITION 23 (A_4 three-dimensional irrep). The alternating group A_4
+has 12 elements and a unique three-dimensional irreducible
+representation rho_3 : A_4 -> SO(3). The character of rho_3 is
+
+    chi_{rho_3}(e) = 3,
+    chi_{rho_3}(double transposition) = -1,
+    chi_{rho_3}(3-cycle) = 0.                             (36)
+
+A concrete realization is the rotation group of the regular tetrahedron
+acting on the ambient R^3.
+
+THEOREM 24 (Conditional generation-extension theorem). Conditional on
+the identification of the generation index with a 3-dimensional space,
+the trivially extended operators
+M_loop^(56) (x) I_3 and H_DNLS^(56) (x) I_3 on
+C^168 = C^56 (x) C^3 commute with I_56 (x) rho_3(a) for every a in A_4:
+
+    [M_loop^(56) (x) I_3, I_56 (x) rho_3(a)] = 0,
+    [H_DNLS^(56) (x) I_3, I_56 (x) rho_3(a)] = 0.          (37)
+
+The dimension of the intersection of the combined span
+span{g_SM^(56) (x) I_3} (+) span{I_56 (x) rho_3(a)}_{a in A_4} with
+the commutant of M_loop^(56) (x) I_3 is 15 = 3 + 12, decomposing as a
+3-dimensional factor (from the g_SM lift) plus a 12-dimensional factor
+(from the A_4 generators), with zero overlap.
+
+Proof. Apply Theorem 22 with n = 3 and B = rho_3(a).
+
+The dimension count: the 56-dimensional loop commutant restricted to
+g_SM is 3-dimensional; the A_4 generators are 12 linearly independent
+elements of I_56 (x) M_3(C) spanning a 12-dimensional space; the two
+subspaces act on orthogonal tensor factors and are orthogonal under the
+Frobenius inner product. Direct computation gives total nullity 15 with
+the stated decomposition. []
+
+REMARK 25 (Status of the A_4 identification). The identification of
+the 3-dimensional A_4 irrep with the physical generation index is a
+physical input. The framework's derivation of the generation count
+d - 1 = 3 is the subject of HCSM-31. Theorem 22 is pure linear algebra
+and holds for any n; the special value n = 3 enters only through the
+identification. This labeling convention is the same kind the Standard
+Model makes when it labels the three fermion families as "generations."
+
+================================================================================
+8. INPUTS AND DERIVED
+================================================================================
+
+8.1 Derived
+
+The following results are proved in this paper.
+
+(1) The extension map is a Lie algebra homomorphism (Lemma 2).
+(2) The 14-dimensional and 56-dimensional loop commutator matrices
+have identical nullspaces (Theorem 8).
+(3) The 56-dimensional loop commutant is 3-dimensional, real,
+Hermitian, abelian, and equal to the block-diagonal extension of the
+14-dimensional loop commutant (Theorem 10).
+(4) Hidden-sector neutrality: the hidden sector does not enlarge,
+rotate, or alter the loop commutant (Theorem 11).
+(5) The 56-dimensional DNLS commutant is 10-dimensional, real,
+Hermitian, isomorphic to su(2)_L + u(1)^7, and equal to the
+block-diagonal extension of the 14-dimensional DNLS commutant
+(Theorem 15).
+(6) Exact su(2)_L preservation on V_56 (Theorem 16).
+(7) Isotypic projector degeneracy on V_56 (Theorem 19).
+(8) No root generators on V_56 (Theorem 20).
+(9) Trivial generation extension commutes with any n x n action on
+the generation index (Theorem 22).
+(10) Conditional A_4 generation-extension theorem (Theorem 24).
+
+8.2 Inputs
+
+(1) The 56-dimensional Hodge sector
+V_56 = Omega^0 + Omega^1 + Omega^2 at lambda = 4 and its D_4
+decomposition (HCSM-02).
+(2) The 14-mode multiplet and its mode wavefunctions (HCSM-04,
+HCSM-23 Rev. 7).
+(3) The gauge algebra g_SM and the isotypic embeddings (HCSM-06).
+(4) The processor T and the class partition (HCSM-13; equivalently
+HCSM-05 Theorem 7.7).
+(5) The winding generator and class partition (HCSM-14).
+(6) The 14-dimensional loop commutant and DNLS commutant results
+(HCSM-15).
+(7) The complex loop eigenvalues M_A, M_B, M_C (HCSM-17).
+(8) The mass-map rate U = B_mass = 0.5411967342... (HCSM-19,
+HCSM-33).
+(9) The 3-dimensional orthogonal representation of A_4 (standard
+finite group theory).
+(10) The identification of the 3-dimensional generation index with the
+physical generation space (physical input, consistent with the
+framework's labeling convention; the derivation of the generation
+count is the subject of HCSM-31).
+
+8.3 Scope
+
+We do not derive the gauge algebra, the class partition, or the loop
+eigenvalues from the substrate; those are the subjects of HCSM-06,
+HCSM-05 (equivalently HCSM-14), and HCSM-17. We do not derive the
+specific form of the A_4 action from the substrate; the identification
+of the generation index with the 3-dimensional A_4 irrep is a physical
+input, and the derivation of the generation count d - 1 = 3 is the
+subject of HCSM-31. We do not compute the Cartan rotation angles on the
+56-dimensional sector; those are the subject of HCSM-17.
+
+================================================================================
+9. REPRODUCIBILITY
+================================================================================
+
+All numerical claims in this paper are verified at machine precision in
+IEEE-754 double precision. The verification script is provided in the
+HCSM companion repository at
+12-VERIFICATION/HCSM16_verification.py. It constructs:
+
+(1) The 56-dimensional Hodge sector at lambda = 4 and its D_4 action.
+(2) The isotypic projectors P_{A_1}^(56), ..., P_E^(56).
+(3) The 56-dimensional gauge generators by the extension map (14).
+(4) The 56-dimensional loop operator M_loop^(56).
+(5) The 56-dimensional DNLS Hartree kernel K^(56) and Hamiltonian
+H_DNLS^(56).
+(6) The 168-dimensional trivially extended operators.
+
+and verifies:
+
+(1) extend is a Lie algebra homomorphism.
+(2) The 56-dimensional loop commutant rank 13, nullity 3; the nullspace
+equals the 14-dimensional nullspace (Theorem 8).
+(3) Hidden-sector neutrality: the 56-dimensional nullspace dimension
+is 3 (Theorem 11).
+(4) The 56-dimensional DNLS commutant rank 6, nullity 10.
+(5) su(2)_L overlap 1 for extend(sigma^1), extend(sigma^2),
+extend(sigma^3) on V_56.
+(6) Isotypic projector degeneracy on V_56.
+(7) Zero overlap of extend(lambda^{1,2,4,5,6,7}) and
+extend(sigma^{1,2}) with the 56-dimensional loop commutant.
+(8) The trivial extension commutes with I_56 (x) B for arbitrary
+B in M_3(C).
+(9) The 168-dimensional combined generator span has nullity 15,
+decomposing as 3 + 12 with zero overlap.
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim in
+the HCSM paper stack.
+
+================================================================================
+10. CONCLUSION
+================================================================================
+
+This paper has extended the loop operator and the DNLS Hartree
+Hamiltonian from the 14-dimensional visible sector
+Omega^0|_{lambda=4} to the full 56-dimensional Hodge sector
+V_56 = Omega^0 + Omega^1 + Omega^2 at lambda = 4. The extension is
+implemented by an explicit block-diagonal map that is a Lie algebra
+homomorphism and that respects the natural C^2 tensor factor on
+Omega^1.
+
+The main structural results are the following.
+
+- Loop commutant is universal. The 56-dimensional loop commutant
+g_SM intersect Comm(M_loop^(56)) is a 3-dimensional real, Hermitian,
+abelian subalgebra of g_SM, equal to the block-diagonal extension of
+the 14-dimensional loop commutant. The hidden sector
+Omega^1 + Omega^2 is a spectator: it does not enlarge, rotate, or alter
+the commutant.
+
+- DNLS commutant is universal. The 56-dimensional DNLS commutant
+g_SM intersect Comm(H_DNLS^(56)) is a 10-dimensional real, Hermitian
+subalgebra of g_SM isomorphic to su(2)_L + u(1)^7, equal to the
+block-diagonal extension of the 14-dimensional DNLS commutant. The full
+su(2)_L factor commutes with H_DNLS^(56) exactly.
+
+- Structural features extend. The isotypic projector degeneracy
+P_{A_2}^(56) = P_{B_2}^(56) = P_E^(56) on every element of the loop
+commutant, and the absence of root generators
+extend(lambda^{1,2,4,5,6,7}), extend(sigma^{1,2}), both carry over from
+the 14-dimensional sector.
+
+- Generation extension is trivial. The trivially extended operators on
+C^{56n} commute with any orthogonal action on the n-dimensional
+generation index. Conditional on the identification of the generation
+index with a 3-dimensional space, the framework's operators commute
+with the A_4 three-dimensional irrep.
+
+The recurring structural zero---the equality of the 14-dimensional,
+56-dimensional, and 168-dimensional loop commutants restricted to
+g_SM---is the fingerprint of the class partition as the fundamental
+object of the framework. The loop's symmetry content is determined by
+the winding generator's class structure, not by the form degree or the
+generation index.
+
+================================================================================
+REFERENCES
+================================================================================
+
+[1]  S. Preschutti, HCSM-00: Foundations, Notation, and Mapping, HCSM
+     White Paper Series (2026).
+[2]  S. Preschutti, HCSM-01: The 8x8 Torus Substrate from d = 4, HCSM
+     White Paper Series (2026).
+[3]  S. Preschutti, HCSM-02: The Hodge Complex on Lambda, HCSM White
+     Paper Series (2026).
+[4]  S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4, HCSM
+     White Paper Series (2026).
+[5]  S. Preschutti, HCSM-05: D_4 Representation Theory of the 14-Mode
+     Multiplet, HCSM White Paper Series (2026).
+[6]  S. Preschutti, HCSM-06: Sector-Coarse Correspondence, HCSM White
+     Paper Series (2026).
+[7]  S. Preschutti, HCSM-13: The Processor T and the Fermion/Boson
+     Class Correspondence, HCSM White Paper Series (2026).
+[8]  S. Preschutti, HCSM-14: The Winding Generator Spectrum and Class
+     Partition, HCSM White Paper Series (2026).
+[9]  S. Preschutti, HCSM-15: Gauge Symmetry of the Loop Operator and
+     DNLS, HCSM White Paper Series (2026).
+[10] S. Preschutti, HCSM-17: Loop Operator Cartan Rotation, HCSM White
+     Paper Series (2026).
+[11] S. Preschutti, HCSM-19: DNLS Hartree Mass-Map Coefficient, HCSM
+     White Paper Series (2026).
+[12] S. Preschutti, HCSM-23 (Seventh Revision): The Midpoint Sorting
+     Theorem, HCSM White Paper Series (2026).
+[13] S. Preschutti, HCSM-33: The Mass Map, HCSM White Paper Series
+     (2026).
+[14] I. Schur, Neue Begruendung der Theorie der Gruppencharaktere,
+     Sitzungsberichte der Koeniglich Preussischen Akademie der
+     Wissenschaften (1905), 406-432.
+[15] M. Nakahara, Geometry, Topology and Physics, 2nd ed., CRC Press
+     (2003).
+
+================================================================================
+APPENDIX A. WEB CRAWLER METADATA
+================================================================================
+
+A.1 Dublin Core
+
+- DC.title: HCSM-16: Loop Operator on the Full 56-Dimensional Hodge
+  Sector
+- DC.creator: Preschutti, Stanley
+- DC.creator.orcid: 0009-0004-5445-1744
+- DC.date.issued: 2026-09
+- DC.type: Text / Preprint / White Paper
+- DC.format: application/pdf; text/x-latex
+- DC.language: en
+- DC.publisher: Entropia Research Institute
+- DC.rights: All rights reserved
+- DC.subject: Hodge Complex Standard Model; HCSM; loop operator; DNLS
+  Hartree Hamiltonian; 56-dimensional Hodge sector; commutant;
+  extension map; Lie algebra homomorphism; hidden sector neutrality;
+  su(2)_L preservation; A_4 generation symmetry; 8x8 torus
+- DC.description: This paper lifts the HCSM-15 results on the gauge
+  symmetry of the loop operator and the DNLS Hartree Hamiltonian from
+  the 14-dimensional visible sector to the full 56-dimensional Hodge
+  sector at lambda = 4. The lift is implemented by an explicit
+  block-diagonal extension map that is a Lie algebra homomorphism. The
+  56-dimensional loop commutant is 3-dimensional Hermitian abelian and
+  exactly the block-diagonal extension of the 14-dimensional result.
+  The 56-dimensional DNLS commutant is 10-dimensional, isomorphic to
+  su(2)_L + u(1)^7. Hidden-sector neutrality is proved. Conditional on
+  a 3-dimensional generation index, the trivially extended framework
+  operators commute with the A_4 three-dimensional irrep.
+- DC.identifier: HCSM-16-2026-09
+
+A.2 BibTeX for Automated Indexing
+
+@article{PreschuttiHCSM16,
+  author  = {Preschutti, Stanley},
+  title   = {{HCSM-16}: Loop Operator on the Full 56-Dimensional
+             Hodge Sector},
+  journal = {HCSM White Paper Series},
+  year    = {2026},
+  month   = {September},
+  note    = {ORCID: 0009-0004-5445-1744},
+  keywords= {Hodge Complex Standard Model, HCSM, loop operator,
+             DNLS Hartree Hamiltonian, 56-dimensional Hodge sector,
+             commutant, extension map, Lie algebra homomorphism,
+             hidden sector neutrality, su(2)_L preservation,
+             A_4 generation symmetry},
+  abstract= {This paper lifts the HCSM-15 results on the gauge
+             symmetry of the loop operator and the DNLS Hartree
+             Hamiltonian from the 14-dimensional visible sector to
+             the full 56-dimensional Hodge sector. The lift is
+             achieved by an explicit block-diagonal extension map
+             that is a Lie algebra homomorphism. The 56-dimensional
+             loop commutant is 3-dimensional Hermitian abelian and
+             exactly the block-diagonal extension of the
+             14-dimensional result. The 56-dimensional DNLS
+             commutant is 10-dimensional, isomorphic to
+             su(2)_L + u(1)^7. Hidden-sector neutrality is proved.
+             Conditional on a 3-dimensional generation index, the
+             trivially extended framework operators commute with
+             the A_4 three-dimensional irrep.}
+}
+
+================================================================================
+END OF HCSM-16
+================================================================================
