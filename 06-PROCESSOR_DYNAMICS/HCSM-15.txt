@@ -1,0 +1,921 @@
+================================================================
+HCSM-15 (Tenth Revision)
+Gauge Symmetry of the Loop Operator and the DNLS Hartree Hamiltonian
+The Commutants of M_loop and H_DNLS on the 14-Mode Multiplet,
+the Doubled-Momentum Pairing Mechanism,
+and the Exact Preservation of su(2)_L
+================================================================
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstannp@yahoo.com
+
+September 2026
+HCSM White Paper Series, Paper 15
+
+----------------------------------------------------------------
+ABSTRACT
+----------------------------------------------------------------
+
+The Hodge Complex Standard Model derives the gauge algebra
+g_SM = su(3)_c + su(2)_L + u(1)^5 from the D_4 endomorphism algebra of
+the 14-mode multiplet at lambda = 4 (HCSM-06). Two Hermitian operators
+act on that multiplet: the loop operator M_loop of the framework
+(HCSM-17) and the DNLS Hartree Hamiltonian H_DNLS = 4I + U K whose
+kernel has entries K_ab = sum_x |phi_a(x)|^2 |phi_b(x)|^2 built from
+the mode wavefunctions on the torus (HCSM-04, HCSM-19).
+
+We determine the intersection of g_SM with the commutant of each
+operator on the 14-mode multiplet. We prove:
+
+  (i)   g_SM cap Comm(M_loop) is a three-dimensional real, Hermitian,
+        abelian subalgebra of g_SM;
+  (ii)  every element of that subalgebra has equal coefficients on the
+        isotypic projectors P_{A_2}, P_{B_2}, P_E;
+  (iii) the root generators lambda^1, lambda^2, lambda^4, lambda^5,
+        lambda^6, lambda^7 of su(3)_c and sigma^1, sigma^2 of su(2)_L
+        lie in the kernel of the projection onto the loop commutant;
+  (iv)  g_SM cap Comm(H_DNLS) is a ten-dimensional real, Hermitian
+        subalgebra of g_SM isomorphic to su(2)_L + u(1)^7;
+  (v)   the full su(2)_L factor is preserved exactly, with
+        sigma^1, sigma^2, sigma^3 in the nullspace;
+  (vi)  su(3)_c is broken to a two-dimensional abelian subalgebra, with
+        the root generators lambda^2, lambda^3, lambda^7 orthogonal to
+        the DNLS commutant and the Cartan generators lambda^3, lambda^8
+        having partial overlap.
+
+The exact su(2)_L preservation is proved by a doubled-momentum pairing
+mechanism: the two B_1 basis vectors pair modes with the same doubled
+momentum (2n_1, 2n_2) mod 8 and opposite signs, so the B_1-compressed
+kernel U_B1^T K U_B1 vanishes identically. We construct the explicit
+B_1 basis vectors in Appendix A and verify the density-equality
+precondition directly from the HCSM-04 wavefunctions. The closure of
+the DNLS coupling to g = q = 33/64 follows from HCSM-64 section 11.5
+and is consistent with the Hartree trace Tr(K) = 11/32. All claims are
+HCSM-native and verified at machine precision.
+
+================================================================
+1. INTRODUCTION
+================================================================
+
+1.1 Gauge symmetry and the machine
+
+The Hodge Complex Standard Model (HCSM) derives the gauge algebra
+g_SM as a subalgebra of the D_4 commutant on the complexified 14-mode
+multiplet at the self-paired eigenvalue lambda = 4 of the discrete
+Laplacian on the periodic 8x8 torus (HCSM-06). The processor T and the
+winding generator H_wind act on the same multiplet (HCSM-13, HCSM-14),
+and it is a structural question which part of the gauge algebra
+survives each operator's action.
+
+The loop operator M_loop of HCSM-17 and the DNLS Hartree Hamiltonian
+H_DNLS of HCSM-18 and HCSM-19 are the two Hermitian operators whose
+commutants we determine in this paper. Both commutants are finite-
+dimensional real, Hermitian subalgebras of g_SM; their dimensions and
+Lie-algebraic structures are the central results.
+
+1.2 The one-line summary
+
+On the 14-mode multiplet, the loop operator preserves only a three-
+dimensional abelian subalgebra of g_SM; the DNLS Hartree Hamiltonian
+preserves a larger ten-dimensional subalgebra isomorphic to
+su(2)_L + u(1)^7. The DNLS Hamiltonian preserves the full weak-isospin
+factor exactly via a doubled-momentum pairing mechanism in the B_1
+isotypic sector, while reducing the color factor to a two-dimensional
+abelian remnant.
+
+1.3 Main results
+
+  * Loop commutant (Theorem 3.1).
+    g_SM cap Comm(M_loop) is a 3-dimensional real, Hermitian, abelian
+    subalgebra of g_SM.
+
+  * Isotypic projector degeneracy (Theorem 4.1).
+    Every element of the loop commutant has equal coefficients on
+    P_{A_2}, P_{B_2}, P_E.
+
+  * No root generators (Theorem 4.3).
+    The loop commutant has zero overlap with lambda^{1,2,4,5,6,7} and
+    sigma^{1,2}.
+
+  * DNLS commutant (Theorem 5.4).
+    g_SM cap Comm(H_DNLS) is a 10-dimensional real, Hermitian
+    subalgebra of g_SM, isomorphic to su(2)_L + u(1)^7.
+
+  * su(2)_L exact preservation (Corollary 6.3).
+    The three generators sigma^1, sigma^2, sigma^3 lie in the DNLS
+    commutant, with overlap 1 at machine precision.
+
+  * Doubled-momentum pairing (Theorem 6.2 / A.6).
+    The B_1-compressed kernel U_B1^T K U_B1 vanishes identically
+    because the two B_1 basis vectors pair modes with the same doubled
+    momentum (2n_1, 2n_2) mod 8 and opposite signs.
+
+  * su(3)_c breaking (Theorem 7.1).
+    The DNLS commutant contains a 2-dimensional abelian subalgebra of
+    su(3)_c; the roots lambda^2, lambda^5, lambda^7 are orthogonal to
+    the commutant.
+
+  * DNLS coupling closure (Remark 6.5).
+    The DNLS coupling is g = q = 33/64, from HCSM-64 section 11.5,
+    consistent with Tr(K) = 11/32.
+
+1.4 Cross references
+
+Depends on HCSM-00, 02, 04, 05, 06, 13, 14, 17, 18, 19, 61, 64.
+
+1.5 Organization
+
+Section 2 states the setup. Section 3 defines the loop operator and
+derives the loop commutant. Section 4 proves the isotypic projector
+degeneracy and the absence of root generators. Section 5 defines the
+DNLS Hartree Hamiltonian and derives the DNLS commutant. Section 6
+proves the exact su(2)_L preservation via doubled-momentum pairing.
+Section 7 establishes the su(3)_c breaking pattern. Section 8 catalogs
+inputs and derived results. Section 9 gives reproducibility notes.
+Section 10 concludes. Appendix A constructs the explicit B_1 basis
+vectors and proves the doubled-momentum pairing theorem.
+
+================================================================
+2. SETUP
+================================================================
+
+2.1 The substrate and the 14-mode multiplet
+
+The substrate is Lambda = Z_8 x Z_8 with N = 64 sites (HCSM-01). The
+discrete 5-point Laplacian has eigenvalue
+
+  lambda(n_1,n_2) = 4 - 2 cos(pi n_1 / 4) - 2 cos(pi n_2 / 4),
+  (n_1,n_2) in {0,...,7}^2.                                    (2.1)
+
+The self-paired eigenvalue lambda = 4 has multiplicity 14 (HCSM-04).
+In the standard mode order
+
+  (nu, e, u, d, s, mu, dark, c, tau, b, W, Z, H, t),           (2.2)
+
+the mode coordinates are
+
+  nu:(0,4)    e:(4,0)    u:(1,3)    d:(1,5)
+  s:(3,1)     mu:(3,7)   dark:(5,7) c:(7,3)
+  tau:(7,5)   b:(5,1)    W:(2,2)    Z:(2,6)
+  H:(6,2)     t:(6,6).                                          (2.3)
+
+2.2 The D_4 action and isotypic decomposition
+
+The D_4 point group acts on Lambda by
+
+  r : (n_1,n_2) -> (-n_2, n_1) mod 8,
+  s : (n_1,n_2) -> (n_1, -n_2) mod 8,                           (2.4)
+
+with r^4 = s^2 = (rs)^2 = e.
+
+On the 14-mode multiplet, V_14 = C^14 decomposes as
+
+  V_14 = 3 A_1 + A_2 + 2 B_1 + 2 B_2 + 3 E                      (2.5)
+
+(HCSM-05, HCSM-06). The isotypic projectors are
+
+  P_rho = (dim rho / |D_4|) sum_{g in D_4} chi_rho(g)^* R(g),    (2.6)
+
+where R(g) is the permutation representation of g on C^14 and
+chi_rho is the character of the irrep rho. The five projectors satisfy
+P_rho P_rho' = delta_{rho rho'} P_rho and sum_rho P_rho = I_14.
+
+2.3 The gauge algebra g_SM on the 14-mode multiplet
+
+By HCSM-06, the gauge algebra is the Lie subalgebra
+
+  g_SM = su(3)_c + su(2)_L + u(1)^5
+       subset Comm(D_4, V_14)                                   (2.7)
+
+of the D_4 commutant, of real dimension 8 + 3 + 5 = 16. Concretely:
+
+  * su(3)_c acts on the A_1 multiplicity space M_{A_1} = C^3.
+    Generators: T_c^a = U_{A_1} lambda^a U_{A_1}^T for a = 1,...,8,
+    where U_{A_1} is an orthonormal basis of the A_1 isotypic sector
+    and lambda^a are the Gell-Mann matrices.
+
+  * su(2)_L acts on the B_1 multiplicity space M_{B_1} = C^2.
+    Generators: T_L^i = U_B1 sigma^i U_B1^T for i = 1,2,3, where
+    U_B1 is an orthonormal basis of the B_1 isotypic sector and
+    sigma^i are the Pauli matrices.
+
+  * u(1)^5 is spanned by the five isotypic projectors
+    P_{A_1}, P_{A_2}, P_{B_1}, P_{B_2}, P_E.
+
+The ordered list of the 16 gauge generators on C^14 is
+
+  g_SM^(14) = {T_c^1,...,T_c^8, T_L^1, T_L^2, T_L^3,
+               P_{A_1}, P_{A_2}, P_{B_1}, P_{B_2}, P_E}.         (2.8)
+
+All 16 generators are Hermitian and D_4-invariant.
+
+2.4 The winding class partition
+
+By HCSM-05 Theorem 7.7 (joint (D,T) class partition) and HCSM-14
+Definition 5.1, the 14 modes partition into three winding classes
+
+  A = {nu, e, t},
+  B = {u, d, s, mu, c, tau, b},
+  C = {dark, W, Z, H}.                                          (2.9)
+
+The class projectors P_A, P_B, P_C are diagonal in the mode basis,
+orthogonal, idempotent, and sum to the identity. The processor T of
+HCSM-13 satisfies T = I - P_C = P_A + P_B, so the fermion sector is
+A + B and the boson sector is C.
+
+================================================================
+3. THE LOOP OPERATOR AND ITS COMMUTANT
+================================================================
+
+3.1 Definition of M_loop on the 14-mode multiplet
+
+Definition 3.1 (Loop operator; HCSM-17 Definition 2.1). The loop
+operator on the 14-mode multiplet is the diagonal operator
+
+  M_loop = lambda_A P_A + lambda_B P_B + lambda_C P_C,          (3.1)
+
+where P_A, P_B, P_C are the class projectors of Eq. (2.9) and
+lambda_A, lambda_B, lambda_C are the pairwise-distinct complex loop
+eigenvalues defined in HCSM-17. Their physical magnitudes are
+
+  |lambda_A| = 0.5757, |lambda_B| = 0.1919, |lambda_C| = 0,
+  |lambda_A|/|lambda_B| = 3,                                    (3.2)
+
+as given in HCSM-61 section 12.12. For the computation of the loop
+commutant we take (lambda_A, lambda_B, lambda_C) = (1, 2, 0) without
+loss of generality: any other choice of pairwise-distinct eigenvalues
+gives the same commutant.
+
+Remark 3.2 (Winding-generator class values). The winding generator
+H_wind of HCSM-14 carries the class values
+
+  omega_A = 2 sqrt(2), omega_B = 6 sqrt(2), omega_C = 0,
+  |omega_B|/|omega_A| = 3.                                      (3.3)
+
+These values fix the class partition and hence the projectors
+P_A, P_B, P_C. They are not the loop eigenvalues. The ratio
+|omega_B|/|omega_A| = 3 is a property of the winding generator, not of
+the abstract loop operator; the loop commutant is independent of the
+numerical values of lambda_A, lambda_B, lambda_C so long as they are
+pairwise distinct.
+
+M_loop is normal (it is diagonal), so M_loop M_loop^dagger =
+M_loop^dagger M_loop. It commutes with each class projector:
+
+  [M_loop, P_A] = [M_loop, P_B] = [M_loop, P_C] = 0.            (3.4)
+
+3.2 The loop commutant
+
+Definition 3.3 (Loop commutant). The loop commutant is the
+intersection
+
+  g_loop = g_SM cap Comm(M_loop) subset g_SM.                    (3.5)
+
+Theorem 3.4 (Loop commutant dimension). The loop commutant g_loop is
+a three-dimensional real, Hermitian, abelian subalgebra of g_SM.
+
+Proof. Form the stacked commutator matrix C in C^{(14)^2 x 16} whose
+j-th column is vec([M_loop, g_j]) for g_j in g_SM^(14). The realified
+matrix
+
+  C_R = [ Re(C) ; Im(C) ] in R^{2(14)^2 x 16}                    (3.6)
+
+has rank 13 at machine precision, with a singular value gap of
+~10^15 between the 13th and 14th singular values. The nullspace
+dimension is 16 - 13 = 3.
+
+The three nullspace vectors {v^(1), v^(2), v^(3)} in R^16 span a real
+3-dimensional subspace N. Each vector generates a Hermitian operator
+
+  O_i = sum_{j=1}^{16} v_j^(i) g_j in g_SM                      (3.7)
+
+satisfying ||[O_i, M_loop]|| < 10^-15 and ||O_i^dagger - O_i|| = 0.
+Since the g_j are Hermitian and the v_j^(i) are real, every O_i is
+Hermitian; the span of the O_i is therefore a real 3-dimensional
+Hermitian subspace of g_SM.
+
+Cross-commutators [O_i, O_j] vanish at machine precision
+(||[O_i, O_j]|| < 10^-15), so the algebra is abelian. Since each O_i
+is a real linear combination of the 16 Hermitian generators of g_SM
+and the commutator of any two such combinations can be expanded in the
+structure constants of g_SM, direct computation gives zero at machine
+precision. QED
+
+Remark 3.5. The loop commutant g_loop is a proper 3-dimensional
+subalgebra of the 16-dimensional g_SM. The remaining 13 directions of
+g_SM are broken by the loop operator: they correspond to generators
+that do not commute with M_loop.
+
+================================================================
+4. STRUCTURE OF THE LOOP COMMUTANT
+================================================================
+
+4.1 Isotypic projector degeneracy
+
+Theorem 4.1 (Isotypic projector degeneracy). Every element of the
+loop commutant has equal coefficients on the isotypic projectors
+P_{A_2}, P_{B_2}, P_E.
+
+Proof. Let v in R^16 be any nullspace vector. The components of v
+corresponding to the three isotypic projectors P_{A_2}, P_{B_2}, P_E
+are the entries v_{A_2}, v_{B_2}, v_E. Direct computation gives
+
+  |v_{A_2} - v_{B_2}| < 10^-15,
+  |v_{A_2} - v_E|     < 10^-15,
+  |v_{B_2} - v_E|     < 10^-15.                                 (4.1)
+
+The class partition of HCSM-14 is blind to the distinction between the
+A_2, B_2, and E isotypic sectors. This is a structural feature of the
+loop operator's action on the multiplet. QED
+
+Remark 4.2. The degeneracy of P_{A_2}, P_{B_2}, P_E coefficients
+reflects the fact that the loop operator's class partition of HCSM-14
+does not distinguish these three sectors. The triple (A_2, B_2, E)
+shares the property of being invisible to the winding generator's
+class structure.
+
+4.2 No root generators
+
+Theorem 4.3 (No root generators). The loop commutant has zero overlap
+with the root generators lambda^1, lambda^2, lambda^4, lambda^5,
+lambda^6, lambda^7 of su(3)_c and sigma^1, sigma^2 of su(2)_L. Only
+the Cartan generators lambda^3, lambda^8, sigma^3 of g_SM have nonzero
+overlap with the loop commutant.
+
+Proof. For each root generator g_j, project the unit coefficient
+vector e_j in R^16 onto the nullspace N via the orthogonal projector
+P_N:
+
+  ||P_N e_j|| < 10^-15, j in {1,2,4,5,6,7,9,10}.                (4.2)
+
+The vanishing residuals reflect the fact that the loop operator breaks
+all off-diagonal (root) directions of su(3)_c and su(2)_L. Only the
+diagonal (Cartan) generators lambda^3, lambda^8, sigma^3 have nonzero
+overlap with g_loop. QED
+
+Corollary 4.4 (Loop commutant basis). The loop commutant g_loop is
+spanned by three Hermitian combinations of {lambda^3, lambda^8,
+sigma^3, P_{A_1}, P_{A_2}, P_{B_1}, P_{B_2}, P_E}, in which the
+coefficients on P_{A_2}, P_{B_2}, P_E are equal.
+
+================================================================
+5. THE DNLS HARTREE HAMILTONIAN AND ITS COMMUTANT
+================================================================
+
+5.1 Definition of H_DNLS on the 14-mode multiplet
+
+Definition 5.1 (DNLS Hartree kernel). For each mode i of the 14-mode
+multiplet, let phi_i(x,y) denote the normalized real wavefunction on
+the torus (HCSM-04). The Hartree kernel is
+
+  K_ab = sum_{x in Lambda} |phi_a(x)|^2 |phi_b(x)|^2,
+  a, b = 1,...,14.                                              (5.1)
+
+By HCSM-04, the diagonal of K equals the inverse participation ratio
+IPR_a, taking values (2/128, 3/128, 4/128) on the three D_4 orbits.
+The trace is
+
+  Tr(K) = 2*(2/128) + 8*(3/128) + 4*(4/128) = 11/32.           (5.2)
+
+Definition 5.2 (DNLS Hartree Hamiltonian). The DNLS Hartree
+Hamiltonian on the 14-mode multiplet is
+
+  H_DNLS = 4 I_14 + U K,                                        (5.3)
+
+with U = B_mass = (d-1) kL^2 / (2 N^2) = 0.5411967342... the
+mass-map rate (HCSM-19, HCSM-33).
+
+H_DNLS is a real symmetric 14x14 matrix, hence Hermitian. It commutes
+with no particular class projector in general, but as we prove below,
+it commutes with the full su(2)_L factor of g_SM.
+
+5.2 The DNLS commutant
+
+Definition 5.3 (DNLS commutant). The DNLS commutant is
+
+  g_DNLS = g_SM cap Comm(H_DNLS).                               (5.4)
+
+Theorem 5.4 (DNLS commutant dimension). The DNLS commutant g_DNLS is
+a ten-dimensional real, Hermitian subalgebra of g_SM, isomorphic to
+su(2)_L + u(1)^7.
+
+Proof. The realified DNLS commutator matrix has rank 6 and nullity 10
+at machine precision, with a singular value gap of ~10^13 between the
+6th and 7th singular values.
+
+The nullspace decomposes explicitly as
+
+  g_DNLS = su(2)_L
+         + <P_{A_1}, P_{A_2}, P_{B_1}, P_{B_2}, P_E>
+         + c,                                                    (5.5)
+
+where c is a two-dimensional abelian subalgebra of su(3)_c. The
+dimension count is 3 + 5 + 2 = 10, matching the theorem's statement.
+QED
+
+================================================================
+6. EXACT PRESERVATION OF su(2)_L
+================================================================
+
+6.1 The doubled-momentum pairing mechanism
+
+Lemma 6.1 (Density equality from HCSM-04). For each paired pair
+{m, m'} in v_1 and v_2, the modes satisfy
+
+  |phi_{m'}(x)|^2 = |phi_m(x)|^2 for every x in Lambda.         (6.1)
+
+Proof. For nu = (0,4) and e = (4,0): by HCSM-04 Eq. (7),
+
+  phi_nu(x) = cos(pi x_2)/8,  phi_e(x) = cos(pi x_1)/8,        (6.2)
+
+so |phi_nu(x)|^2 = cos^2(pi x_2)/64 and |phi_e(x)|^2 =
+cos^2(pi x_1)/64. Since cos^2(pi x_i) = 1 for every integer x_i, both
+equal 1/64 for all x. Hence |phi_nu|^2 = |phi_e|^2 = 1/64 uniformly.
+
+For each of the four O_1 pairs, the modes differ by (4,4) mod 8 or
+(4,-4) mod 8. Writing the mode as
+
+  phi_n(x) = cos(pi (n_1 x_1 + n_2 x_2)/4) / sqrt(32),         (6.3)
+
+and using n' = n + (4,4),
+
+  phi_{n'}(x) = cos(pi n.x/4 + pi(x_1+x_2)) / sqrt(32)
+              = (-1)^{x_1+x_2} phi_n(x).                        (6.4)
+
+For the pairs (d,b) and (c,mu), the shift is (4,-4), giving
+(-1)^{x_1-x_2} instead. In all cases the sign is +-1, so
+|phi_{n'}(x)|^2 = |phi_n(x)|^2. QED
+
+Theorem 6.2 (Doubled-momentum pairing). The B_1-compressed Hartree
+kernel vanishes identically:
+
+  K_B1 = U_B1^T K U_B1 = 0 in R^{2x2}.                          (6.5)
+
+Proof. See Appendix A, Theorem A.6. QED
+
+Corollary 6.3 (su(2)_L preservation). The three generators sigma^1,
+sigma^2, sigma^3 commute with the DNLS Hartree Hamiltonian:
+
+  [sigma^i, K] = 0, [sigma^i, H_DNLS] = 0, i = 1,2,3.           (6.6)
+
+Each of sigma^1, sigma^2, sigma^3 has overlap 1 with the DNLS
+commutant at machine precision.
+
+Proof. We first establish a lemma.
+
+Lemma 6.4. [P_B1, K] = 0.
+
+Proof of Lemma 6.4. The Hartree kernel K_ab = sum_x |phi_a(x)|^2
+|phi_b(x)|^2 is D_4-invariant: for every g in D_4, [R(g), K] = 0,
+since the sum over all sites is D_4-invariant and the mode index
+transforms by the permutation representation. The isotypic projector
+P_B1 is a polynomial in the R(g)'s (Schur orthogonality), hence
+[P_B1, K] = 0. QED
+
+By Lemma 6.4, the commutator decomposes as
+
+  [T_L^i, K] = U_B1 [sigma^i, K_B1] U_B1^T.                     (6.7)
+
+By Theorem 6.2, K_B1 = 0, so [sigma^i, K_B1] = 0 identically. Hence
+[T_L^i, K] = 0 for all i. Since [sigma^i, I] = 0 trivially,
+[T_L^i, H_DNLS] = 0. QED
+
+Remark 6.5 (DNLS coupling closure). The DNLS coupling closes to
+
+  g = q = (11/32) * (3/2) = 33/64 ~ 0.515625,                   (6.8)
+
+as derived in HCSM-64 section 11.5 from the Hartree trace
+Tr(K) = 11/32 and the mass-map coefficient (d-1)/2 = 3/2.
+
+Remark 6.6 (Independent confirmation). The vanishing K_B1 = 0 is
+independently confirmed in HCSM-61 section 8.11, where it is cited as
+a structural input to the bundle construction over ker D.
+
+================================================================
+7. BREAKING OF su(3)_c
+================================================================
+
+7.1 Root generator exclusion
+
+Theorem 7.1 (su(3)_c breaking). The DNLS commutant contains a
+two-dimensional abelian subalgebra c of su(3)_c. The root generators
+lambda^2, lambda^5, lambda^7 have zero overlap with the DNLS
+commutant; the Cartan generators lambda^3, lambda^8 have partial
+overlap.
+
+Proof. Project each su(3)_c generator onto the DNLS nullspace
+N_DNLS in R^16 via the orthogonal projector P_N_DNLS. Direct
+computation gives
+
+  ||P_N_DNLS e_j|| < 10^-10 for j in {2,5,7},                   (7.1)
+
+so lambda^2, lambda^5, lambda^7 are orthogonal to g_DNLS. The
+remaining five su(3)_c generators lambda^1, lambda^3, lambda^4,
+lambda^6, lambda^8 have partial overlap with N_DNLS; the two-
+dimensional abelian subalgebra c is a specific Hermitian combination
+of these five generators that commutes with K. Because c has
+dimension 2 and is abelian, it is a Cartan-like subalgebra of
+su(3)_c. QED
+
+Remark 7.2. The breaking pattern su(3)_c -> su(3)_c^Cartan
+(2-dimensional abelian) is the color analog of the electroweak
+symmetry breaking pattern, but it occurs at the substrate level (the
+mean-field Hartree dynamics) rather than at the electroweak scale. It
+reflects the mismatch between the A_1 isotypic sector's mode-momentum
+pairing and the B_1 isotypic sector's doubled-momentum pairing.
+
+7.2 Dimension bookkeeping
+
+The DNLS commutant dimension is 3 + 5 + 2 = 10, matching
+Theorem 5.4. The ten generators are:
+
+  * sigma^1, sigma^2, sigma^3: full su(2)_L (3 generators,
+    non-abelian).
+  * P_{A_1}, P_{A_2}, P_{B_1}, P_{B_2}, P_E: full u(1)^5
+    (5 generators, abelian).
+  * Two generators of the abelian subalgebra c in su(3)_c
+    (2 generators, abelian).
+
+Corollary 7.3 (Contrast with the loop commutant). The DNLS commutant
+(10-dimensional, su(2)_L + u(1)^7) is strictly larger than the loop
+commutant (3-dimensional, abelian). The two commutants share the
+u(1)^5 isotypic projector sector but differ on the su(3)_c and su(2)_L
+content: the loop operator preserves only the Cartan generators
+lambda^3, lambda^8, sigma^3 (three abelian directions), while the DNLS
+Hamiltonian preserves the full su(2)_L factor and a two-dimensional
+abelian subalgebra of su(3)_c.
+
+================================================================
+8. INPUTS AND DERIVED
+================================================================
+
+8.1 Derived
+
+  1. g_loop = g_SM cap Comm(M_loop) is 3-dim real, Hermitian,
+     abelian (Theorem 3.4).
+  2. Isotypic projector degeneracy P_{A_2} = P_{B_2} = P_E in
+     nullspace (Theorem 4.1).
+  3. Zero overlap of g_loop with lambda^{1,2,4,5,6,7} and
+     sigma^{1,2} (Theorem 4.3).
+  4. g_DNLS is 10-dim, su(2)_L + u(1)^7 (Theorem 5.4).
+  5. Exact su(2)_L preservation (Corollary 6.3).
+  6. K_B1 = U_B1^T K U_B1 = 0 (Theorem 6.2).
+  7. su(3)_c breaking to a 2-dim abelian subalgebra;
+     lambda^2, lambda^5, lambda^7 orthogonal (Theorem 7.1).
+  8. Tr(K) = 11/32 and g = q = 33/64 (Remark 6.5).
+
+8.2 Inputs
+
+  1. The 14-mode multiplet at lambda = 4 and the mode wavefunctions
+     phi_i (HCSM-04).
+  2. The D_4 isotypic decomposition
+     V_14 = 3 A_1 + A_2 + 2 B_1 + 2 B_2 + 3 E (HCSM-05).
+  3. The gauge algebra g_SM = su(3)_c + su(2)_L + u(1)^5 and the
+     isotypic embeddings (HCSM-06).
+  4. The processor T and the class partition (HCSM-05 Theorem 7.7,
+     HCSM-13).
+  5. The loop eigenvalues lambda_A, lambda_B, lambda_C and their
+     physical magnitudes (HCSM-17, HCSM-61 section 12.12).
+  6. The mass-map rate U = B_mass = (d-1) kL^2 / (2 N^2) =
+     0.5411967342... (HCSM-19, HCSM-33).
+  7. The doubling (2n_1, 2n_2) mod 8 of mode momenta in the B_1
+     isotypic sector (structural property of the 14-mode multiplet;
+     explicit construction in Appendix A).
+  8. Schur's lemma and standard linear algebra.
+
+8.3 What is not claimed
+
+We do not claim to derive the gauge algebra g_SM from the substrate;
+that is the subject of HCSM-06. We do not claim to derive the loop
+eigenvalues lambda_A, lambda_B from the substrate; those are the
+subject of HCSM-14 and HCSM-17. We do not claim to derive the
+mass-map rate U from the substrate; that is the subject of HCSM-19
+and HCSM-33. We do not claim to derive the physical interpretation of
+the surviving 3-dimensional loop commutant or the 2-dimensional
+abelian su(3)_c remnant; these are structural features of the algebra
+whose physical meaning requires the framework's gauge-quantum-number
+dictionary (HCSM-06, HCSM-07). We do not extend any of the analysis to
+the 56-dimensional Hodge sector or the generation-extended space;
+these extensions are the subject of HCSM-16.
+
+================================================================
+9. REPRODUCIBILITY
+================================================================
+
+All numerical claims in this paper are verified at machine precision
+in IEEE-754 double precision. The verification script is provided in
+the HCSM companion repository at
+12-VERIFICATION/HCSM-15_verification.py.
+
+It constructs:
+
+  1. The 14-mode coordinates and mode wavefunctions phi_i(x,y) from
+     HCSM-04 Eq. (7).
+  2. The D_4 action on C^14 and the isotypic projectors
+     P_{A_1}, P_{A_2}, P_{B_1}, P_{B_2}, P_E.
+  3. The explicit B_1 basis vectors v_1^(B_1), v_2^(B_1) (Appendix A).
+  4. The gauge algebra g_SM^(14) of 16 Hermitian generators.
+  5. The loop operator M_loop = lambda_A P_A + lambda_B P_B +
+     lambda_C P_C and its commutator matrix.
+  6. The DNLS Hartree kernel K, the DNLS Hamiltonian
+     H_DNLS = 4 I + U K, and its commutator matrix.
+
+and verifies:
+
+  1. g_loop rank 13, nullity 3; Hermitian, abelian.
+  2. Isotypic projector degeneracy P_{A_2} = P_{B_2} = P_E in
+     nullspace.
+  3. Zero overlap of g_loop with roots lambda^{1,2,4,5,6,7} and
+     sigma^{1,2}.
+  4. g_DNLS rank 6, nullity 10.
+  5. su(2)_L overlap 1 for sigma^1, sigma^2, sigma^3.
+  6. K_B1 = 0 identically.
+  7. lambda^2, lambda^5, lambda^7 zero overlap with g_DNLS.
+  8. The 2-dimensional abelian subalgebra c of su(3)_c with
+     [O_i, O_j] = 0.
+  9. Tr(K) = 11/32 and g = q = 33/64.
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim
+in the HCSM paper stack.
+
+================================================================
+10. CONCLUSION
+================================================================
+
+This paper has determined the gauge symmetry structure of the loop
+operator and the DNLS Hartree Hamiltonian on the 14-mode multiplet of
+the Hodge Complex Standard Model.
+
+The loop operator M_loop = lambda_A P_A + lambda_B P_B + lambda_C P_C
+preserves a three-dimensional real, Hermitian, abelian subalgebra of
+g_SM = su(3)_c + su(2)_L + u(1)^5. The surviving generators are three
+Hermitian combinations of the Cartan generators lambda^3, lambda^8,
+sigma^3 and the isotypic projectors, with equal coefficients on
+P_{A_2}, P_{B_2}, P_E. The root generators lambda^{1,2,4,5,6,7} of
+su(3)_c and sigma^{1,2} of su(2)_L are broken by the loop operator.
+
+The DNLS Hartree Hamiltonian H_DNLS = 4 I + U K preserves a larger
+ten-dimensional subalgebra of g_SM, isomorphic to su(2)_L + u(1)^7.
+The full su(2)_L factor is preserved exactly, a fact proved by a
+doubled-momentum pairing mechanism: the two B_1 basis vectors pair
+modes with the same doubled momentum (2n_1, 2n_2) mod 8 and opposite
+signs, forcing the B_1-compressed kernel K_B1 = U_B1^T K U_B1 to
+vanish identically. The density equality required for this pairing is
+derived directly from the HCSM-04 wavefunctions (Lemma 6.1). The
+su(3)_c factor is broken to a two-dimensional abelian subalgebra, with
+the root generators lambda^2, lambda^5, lambda^7 orthogonal to the
+DNLS commutant.
+
+The contrast between the two commutants (3-dimensional for the loop,
+10-dimensional for the DNLS Hamiltonian) reflects the different
+symmetry structures of the two operators. The loop operator is a
+class-partition projector that selects only the abelian content of the
+multiplet; the DNLS Hamiltonian is a mode-density kernel that
+preserves the full weak-isospin structure through a doubled-momentum
+degeneracy specific to the B_1 isotypic sector.
+
+The exact su(2)_L preservation is the strongest structural statement in
+the paper. It establishes that, at the mean-field level, the
+framework's weak-interaction algebra is a robust symmetry of the
+substrate dynamics. The su(3)_c breaking pattern is equally
+structural: it identifies precisely which color directions survive the
+mean-field reduction, and it exhibits the difference between the A_1
+and B_1 isotypic sectors' pairing mechanisms.
+
+================================================================
+APPENDIX A. EXPLICIT B_1 BASIS VECTORS AND THE
+            DOUBLED-MOMENTUM PAIRING THEOREM
+================================================================
+
+A.1 The B_1 isotypic projector
+
+The B_1 isotypic projector on the 14-mode multiplet is
+
+  P_B1 = (1/8) [ R(e) + R(r^2) - R(r) - R(r^3)
+                 + R(s) + R(r^2 s) - R(rs) - R(r^3 s) ],       (A.1)
+
+where the D_4 action on mode coordinates is given by Eq. (2.4). The
+B_1 character is chi_B1 = (1,1,-1,1,-1) on the conjugacy classes
+(e, r^2, r, s, rs).
+
+A.2 Explicit construction of the basis vectors
+
+Proposition A.1 (First B_1 basis vector). Applying P_B1 to the
+neutrino mode nu = (0,4) gives, after normalization,
+
+  v_1^(B_1) = (|nu> - |e>)/sqrt(2)
+            = (|(0,4)> - |(4,0)>)/sqrt(2).                     (A.2)
+
+Proof. Direct computation:
+
+  P_B1 |nu> = (1/8) [ 4|nu> - 4|e> ]
+            = (|nu> - |e>)/2.                                  (A.3)
+
+Normalizing gives (A.2). QED
+
+Proposition A.2 (Second B_1 basis vector). Applying P_B1 to the
+up-quark mode u = (1,3) gives, after normalization,
+
+  v_2^(B_1) = (sqrt(2)/4) ( |u> + |tau> - |b> - |mu>
+                          + |d> + |c> - |s> - |dark> ).          (A.4)
+
+In coordinate form:
+
+  v_2^(B_1) = (sqrt(2)/4) ( |(1,3)> + |(7,5)> - |(5,1)> - |(3,7)>
+                          + |(1,5)> + |(7,3)> - |(3,1)>
+                          - |(5,7)> ).                           (A.5)
+
+Proof. Direct computation of P_B1 |u> gives
+
+  P_B1 |u> = (1/8) [ |u> + |tau> - |b> - |mu>
+                     + |d> + |c> - |s> - |dark> ].               (A.6)
+
+The eight coefficients are +-1/8 in the standard mode order.
+Normalizing: ||P_B1 |u>||^2 = 8 * (1/8)^2 = 1/8, so the normalized
+vector is sqrt(8) * P_B1 |u> = (sqrt(2)/4)(...). QED
+
+Proposition A.3 (Orthonormality). The two vectors v_1^(B_1) and
+v_2^(B_1) are orthonormal:
+
+  v_1 . v_1 = 1, v_2 . v_2 = 1, v_1 . v_2 = 0.                  (A.7)
+
+Proof. For v_1: ||v_1||^2 = (1/2)(1 + 1) = 1. For v_2:
+||v_2||^2 = (2/16) * 8 = 1. For the inner product: the supports of
+v_1 and v_2 are disjoint (v_1 is supported on {nu, e} subset O_0,
+while v_2 is supported on {u, d, s, mu, dark, c, tau, b} subset O_1),
+so the inner product vanishes. QED
+
+A.3 The matrix U_B1
+
+In the standard mode order (nu, e, u, d, s, mu, dark, c, tau, b, W,
+Z, H, t):
+
+  U_B1 = [  1/sqrt(2)    0
+           -1/sqrt(2)    0
+            0            sqrt(2)/4
+            0            sqrt(2)/4
+            0           -sqrt(2)/4
+            0           -sqrt(2)/4
+            0           -sqrt(2)/4
+            0            sqrt(2)/4
+            0            sqrt(2)/4
+            0            sqrt(2)/4
+            0            0
+            0            0
+            0            0
+            0            0    ].                                 (A.8)
+
+This matrix satisfies U_B1^T U_B1 = I_2.
+
+A.4 Verification of the B_1 transformation properties
+
+Direct computation verifies that both basis vectors transform correctly
+under the B_1 character chi_B1 = (1,1,-1,1,-1):
+
+  g        R(g) v_1     R(g) v_2
+  ---      --------     --------
+  e        + v_1        + v_2
+  r^2      + v_1        + v_2
+  r        - v_1        - v_2
+  r^3      - v_1        - v_2
+  s        + v_1        + v_2
+  r^2 s    + v_1        + v_2
+  rs       - v_1        - v_2
+  r^3 s    - v_1        - v_2
+
+Both vectors transform as B_1. This confirms that U_B1 is a valid
+isotypic basis.
+
+A.5 The doubled-momentum pairing structure
+
+Proposition A.4 (Pairing structure of v_1). The vector v_1^(B_1)
+pairs the two modes nu = (0,4) and e = (4,0), both with doubled
+momentum
+
+  (2*0, 2*4) = (2*4, 2*0) = (0,0) mod 8,                        (A.9)
+
+and with opposite signs +1/sqrt(2) and -1/sqrt(2).
+
+Proposition A.5 (Pairing structure of v_2). The vector v_2^(B_1)
+contains four pairs of modes, each pair with the same doubled momentum
+and opposite signs:
+
+  Pair | Mode 1        | 2n          | Sign | Mode 2         | 2n
+  -----|---------------|-------------|------|----------------|-------------
+   1   | u = (1,3)     | (2,6)       |  +   | dark = (5,7)   | (2,6)
+   2   | tau = (7,5)   | (6,2)       |  +   | s = (3,1)      | (6,2)
+   3   | d = (1,5)     | (2,2)       |  +   | b = (5,1)      | (2,2)
+   4   | c = (7,3)     | (6,6)       |  +   | mu = (3,7)     | (6,6)
+
+Proof. Direct computation from (A.5). For pair 1: u = (1,3) has
+doubled momentum (2,6); dark = (5,7) has doubled momentum
+(10,14) = (2,6) mod 8. The coefficients in v_2 are +sqrt(2)/4 and
+-sqrt(2)/4 respectively. The other three pairs are verified
+analogously. QED
+
+A.6 Proof that K_B1 = 0
+
+Theorem A.6 (B_1-compressed kernel vanishes). The B_1-compressed
+Hartree kernel vanishes identically:
+
+  K_B1 = U_B1^T K U_B1 = 0 in R^{2x2}.                          (A.10)
+
+Proof. The compression K_B1 has entries
+
+  (K_B1)_ij = (v_i^(B_1))^T K v_j^(B_1) = sum_x rho_i(x) rho_j(x),  (A.11)
+
+where the density profiles are
+
+  rho_i(x) = sum_a v_i^(a) |phi_a(x)|^2, i = 1,2.               (A.12)
+
+For i = 1: using Proposition A.4,
+
+  rho_1(x) = (1/sqrt(2)) ( |phi_nu(x)|^2 - |phi_e(x)|^2 ).      (A.13)
+
+By Lemma 6.1, |phi_nu(x)|^2 = |phi_e(x)|^2 = 1/64 for all x in
+Lambda. Therefore rho_1(x) = 0 for all x in Lambda.
+
+For i = 2: using Proposition A.5,
+
+  rho_2(x) = (sqrt(2)/4) [ |phi_u(x)|^2 - |phi_dark(x)|^2
+                          + |phi_tau(x)|^2 - |phi_s(x)|^2
+                          + |phi_d(x)|^2 - |phi_b(x)|^2
+                          + |phi_c(x)|^2 - |phi_mu(x)|^2 ].      (A.14)
+
+By Lemma 6.1, each of the four pairs satisfies
+|phi_{m'}(x)|^2 = |phi_m(x)|^2. Therefore each bracket vanishes
+identically, and rho_2(x) = 0 for all x in Lambda.
+
+Since rho_1 = rho_2 = 0 identically, every entry of K_B1 vanishes:
+
+  K_B1 = [ 0  0
+           0  0 ].                                              (A.15)
+QED
+
+A.7 Corollary: exact su(2)_L preservation
+
+Corollary A.7 (su(2)_L preservation on the 14-mode multiplet). The
+three generators of su(2)_L commute with the Hartree kernel and the
+DNLS Hamiltonian:
+
+  [T_L^i, K] = 0, [T_L^i, H_DNLS] = 0, i = 1,2,3.               (A.16)
+
+Proof. Since T_L^i = U_B1 sigma^i U_B1^T has support only on the
+B_1 isotypic sector, and [P_B1, K] = 0 by Lemma 6.4, we have
+
+  [T_L^i, K] = U_B1 [sigma^i, K_B1] U_B1^T.                     (A.17)
+
+By Theorem A.6, K_B1 = 0, so [sigma^i, K_B1] = 0 identically. Hence
+[T_L^i, K] = 0 for all i. Since [sigma^i, I] = 0 trivially,
+[T_L^i, H_DNLS] = 0. QED
+
+================================================================
+REFERENCES
+================================================================
+
+[1]  S. Preschutti, HCSM-00: Foundations, Notation, and Mapping,
+     HCSM White Paper Series (2026).
+[2]  S. Preschutti, HCSM-01: The 8x8 Torus Substrate from d = 4,
+     HCSM White Paper Series (2026).
+[3]  S. Preschutti, HCSM-02: The Hodge Complex on Lambda,
+     HCSM White Paper Series (2026).
+[4]  S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4,
+     HCSM White Paper Series (2026).
+[5]  S. Preschutti, HCSM-05: D_4 Representation Theory of the
+     14-Mode Multiplet, HCSM White Paper Series (2026).
+[6]  S. Preschutti, HCSM-06: Sector-Coarse Correspondence,
+     HCSM White Paper Series (2026).
+[7]  S. Preschutti, HCSM-07 (Revised): Hypercharge Quantization,
+     HCSM White Paper Series (2026).
+[8]  S. Preschutti, HCSM-13: The Processor T and the
+     Fermion/Boson-Class Correspondence, HCSM White Paper Series
+     (2026).
+[9]  S. Preschutti, HCSM-14: The Winding Generator Spectrum and
+     Class Partition, HCSM White Paper Series (2026).
+[10] S. Preschutti, HCSM-16: Loop Operator on the Full 56-Dimensional
+     Hodge Sector, HCSM White Paper Series (2026).
+[11] S. Preschutti, HCSM-17: Loop Operator Cartan Rotation,
+     HCSM White Paper Series (2026).
+[12] S. Preschutti, HCSM-18: The Dynamical Bridge: DNLS on the
+     Torus, HCSM White Paper Series (2026).
+[13] S. Preschutti, HCSM-19: DNLS Hartree Mass-Map Coefficient,
+     HCSM White Paper Series (2026).
+[14] S. Preschutti, HCSM-33: Mass Map, HCSM White Paper Series
+     (2026).
+[15] S. Preschutti, HCSM-61: Maxwell and Lorentz in the Classical
+     Limit of the Hodge Complex Standard Model, HCSM White Paper
+     Series (2026).
+[16] S. Preschutti, HCSM-64: Relativistic Energy-Momentum Limit of
+     the Hodge Complex Standard Model, HCSM White Paper Series
+     (2026).
+[17] I. Schur, Neue Begruendung der Theorie der Gruppencharaktere,
+     Sitzungsberichte der Koeniglich Preussischen Akademie der
+     Wissenschaften (1905), 406-432.
+[18] M. Nakahara, Geometry, Topology and Physics, 2nd ed., CRC
+     Press (2003).
+
+================================================================
+END OF HCSM-15 (Tenth Revision)
+================================================================
