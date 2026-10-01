@@ -1,0 +1,812 @@
+================================================================================
+HCSM-14: The Winding Generator on the 14-Mode Multiplet
+         Spectrum, Kernel Diagonal, and Finite-Volume Selection
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstanp@yahoo.com
+
+September 2026
+================================================================================
+
+ABSTRACT
+--------
+
+We construct the winding generator H_wind = i sin(pi M / 8) on the 14-mode
+multiplet at the self-paired eigenvalue lambda = 4 of the discrete Laplacian
+on the periodic torus Lambda = Z_8 x Z_8. The winding matrix M = n1 n2^T -
+n2 n1^T has even-integer entries, the generator is Hermitian with entries in
+Q(sqrt(2)), and its characteristic polynomial lambda^10 (lambda^2 - 8)
+(lambda^2 - 32) is derived from the trace identities tr(H_wind) = tr(H_wind^3)
+= 0, tr(H_wind^2) = 80, tr(H_wind^4) = 2176 together with a rank-4 argument.
+The spectrum is exactly {-4 sqrt(2), -2 sqrt(2), 0^(10), +2 sqrt(2),
++4 sqrt(2)}. The 14 modes partition into three winding classes of sizes
+(3, 7, 4), uniquely determined by the D_4 orbit partition together with the
+single two-mode swap {t, dark}. The kernel projector P_ker of H_wind has a
+two-valued diagonal {1/2, 3/4} and three framework coefficients are read from
+it: the EFT coefficient c = 5/9, the mass-map coefficient (d - 1) / 2 = 3/2,
+and the kernel dimension 10 = (d - 1)^2 + 1. The generator anticommutes with
+the chiral reflection rs. We further characterize the finite-volume behaviour
+of H_wind(L) = i sin(pi M / L) on the self-paired mode set of Lambda_L: its
+cancellation depth and rank take a two-case form governed by L mod 4, its
+family-block eigenvalues are exactly +/- L / 2, and L = 8 is the unique even
+size at which the framework coefficients are recovered. All numerical claims
+are verified at machine precision.
+
+
+CONTENTS
+--------
+
+1.  Introduction
+2.  Setup
+3.  The winding generator
+4.  Characteristic polynomial and spectrum
+5.  The winding class partition
+6.  Anticommutation with the chiral reflection
+7.  The kernel projector and the Kernel-Diagonal Theorem
+8.  Kernel-T decomposition
+9.  The parity block graph and the finite-volume cancellation ledger
+10. Family-block eigenvalues
+11. Kernel structure at L = 8
+12. Finite-volume selection of L = 8
+13. Reproducibility
+14. Conclusion
+
+
+1. INTRODUCTION
+----------------
+
+1.1 The winding generator in HCSM
+
+The Hodge Complex Standard Model (HCSM) assigns the 14 modes at the self-
+paired eigenvalue lambda = 4 of the discrete Laplacian on the periodic 8 x 8
+torus to one Standard Model generation. On this multiplet three structures
+act: the D_4 point group of the square, the processor T with its
+fermion/boson split, and the winding generator H_wind. This paper establishes
+the winding generator, its spectrum, its kernel projector, and its finite-
+volume selection of the substrate size L = 8, in a single self-contained
+treatment.
+
+1.2 Main results
+
+The paper proves the following.
+
+ * Construction of H_wind. The matrix M = n1 n2^T - n2 n1^T has entries in
+   2 Z, and H_wind = i sin((pi/8) M) is a Hermitian 14 x 14 matrix with
+   entries in Q(sqrt(2)).
+
+ * Trace identities. tr(H_wind) = 0, tr(H_wind^2) = 80, tr(H_wind^3) = 0,
+   tr(H_wind^4) = 2176.
+
+ * Characteristic polynomial. p(lambda) = lambda^10 (lambda^2 - 8)
+   (lambda^2 - 32) = lambda^14 - 40 lambda^12 + 256 lambda^10.
+
+ * Spectrum. spec(H_wind) = {-4 sqrt(2), -2 sqrt(2), 0^(10), +2 sqrt(2),
+   +4 sqrt(2)}.
+
+ * Class partition. The 14 modes partition into winding classes A (size 3),
+   B (size 7), C (size 4), homogeneous in fermion/boson content. Uniqueness
+   requires the D_4 orbit partition together with the single two-mode swap
+   {t, dark}.
+
+ * Kernel-Diagonal Theorem. The diagonal of the kernel projector of H_wind
+   takes the two values 1/2 on O_0 and 3/4 on O_1 union O_2.
+
+ * Kernel-T decomposition. dim(ker H_wind cap im T) = 6,
+   dim(ker H_wind cap ker T) = 1, and the remaining 3 dimensions of
+   ker H_wind are a mixed subspace carried on both F and C.
+
+ * Chirality anticommutation. {H_wind, P_rs} = 0, where rs is the diagonal
+   reflection of D_4.
+
+ * Finite-volume cancellation. The number of identically vanishing blocks of
+   the parity block graph of H_wind(L) is 3 for L = 4, 4 for L = 2 mod 4,
+   7 for L = 0 mod 4 with L >= 12, and 10 for L = 8.
+
+ * Family-block eigenvalues. The nonzero eigenvalues of the family blocks
+   H_A and H_B are exactly +/- L / 2.
+
+ * Finite-volume selection. Among even L >= 6, the maximum cancellation depth
+   is attained uniquely at L = 8.
+
+
+2. SETUP
+--------
+
+2.1 The substrate and the 14-mode multiplet
+
+The substrate is the periodic square lattice Lambda = Z_8 x Z_8 with N = 64
+sites. The discrete 5-point Laplacian has eigenvalue
+
+    lambda(n1, n2) = 4 - 2 cos(pi n1 / 4) - 2 cos(pi n2 / 4),
+
+for (n1, n2) in {0, ..., 7}^2. The self-paired eigenvalue lambda = 4 has
+multiplicity 14. In the standard mode order
+
+    (nu, e, u, d, s, mu, dark, c, tau, b, W, Z, H, t),
+
+the mode coordinates are
+
+    nu    : (0, 4),    e    : (4, 0),    u    : (1, 3),    d    : (1, 5),
+    s     : (3, 1),    mu   : (3, 7),    dark : (5, 7),    c    : (7, 3),
+    tau   : (7, 5),    b    : (5, 1),    W    : (2, 2),    Z    : (2, 6),
+    H     : (6, 2),    t    : (6, 6).
+
+The 14 modes decompose under the D_4 point group of the square into three
+orbits O_0, O_1, O_2 of sizes (2, 8, 4):
+
+    O_0 = {(0, 4), (4, 0)},
+    O_1 = {(1, 3), (1, 5), (3, 1), (3, 7), (5, 1), (5, 7), (7, 3), (7, 5)},
+    O_2 = {(2, 2), (2, 6), (6, 2), (6, 6)}.
+
+2.2 Coordinate vectors
+
+Define the coordinate vectors n1, n2 in R^14 by
+
+    (n1)_i = n1^(i),    (n2)_i = n2^(i),    i = 1, ..., 14,
+
+so that the i-th mode has coordinate pair (n1^(i), n2^(i)) in the standard
+mode order.
+
+2.3 The D_4 chiral reflection
+
+The diagonal reflection rs of the D_4 point group of the square acts on the
+momentum lattice by
+
+    rs : (n1, n2) -> (n2, n1) mod 8.
+
+It is the unique element of D_4 that fixes the two modes W = (2, 2) and
+t = (6, 6) individually on the 14-mode multiplet. Let P_rs denote the 14 x 14
+permutation matrix implementing rs on the mode basis. It is real, symmetric,
+and satisfies P_rs^2 = I_14.
+
+
+3. THE WINDING GENERATOR
+-------------------------
+
+3.1 The antisymmetric bilinear M
+
+Definition 1 (Winding matrix). The winding matrix is the rank-2 antisymmetric
+bilinear
+
+    M = n1 n2^T - n2 n1^T in R^(14 x 14),
+
+with entries M_ij = n1^(i) n2^(j) - n1^(j) n2^(i).
+
+Definition 2 (Winding phase). The winding phase is phi = (pi / 8) M, with
+entries phi_ij = (pi / 8) M_ij.
+
+Lemma 3 (Integrality of M). Every entry M_ij is an even integer.
+
+Proof. Both coordinate vectors have entries in {0, 1, ..., 7} subset Z, so
+M_ij in Z. For every pair (i, j) in the 14-mode multiplet, the two products
+n1^(i) n2^(j) and n1^(j) n2^(i) have the same parity. Direct verification on
+the 14 listed coordinates confirms this for all 14 x 14 pairs; hence
+M_ij in 2 Z.
+
+Corollary 4 (Phase integrality). Every entry phi_ij is an integer multiple of
+pi / 4.
+
+Proof. By Lemma 3, M_ij = 2 k_ij with k_ij in Z. Then phi_ij = (pi/8) 2 k_ij
+= (pi/4) k_ij.
+
+Lemma 5 (Sine values). For every i, j, sin(phi_ij) in {0, +/- 1/sqrt(2),
++/- 1}.
+
+Proof. By Corollary 4, phi_ij = k pi / 4 with k in Z. The values of sin at
+integer multiples of pi / 4 are exactly {0, +/- 1/sqrt(2), +/- 1}.
+
+3.2 The winding generator
+
+Definition 6 (Winding generator). The winding generator is
+
+    H_wind = i sin(phi) in C^(14 x 14),
+
+with sin applied elementwise.
+
+Proposition 7 (Hermiticity and entry structure). H_wind is Hermitian:
+H_wind^dagger = H_wind. Its entries lie in the field Q(sqrt(2)). Its entries
+on the imaginary axis have magnitudes in {0, 1/sqrt(2), 1}.
+
+Proof. Since M is real antisymmetric, phi is real antisymmetric and sin(phi)
+is real antisymmetric. Then
+
+    H_wind^dagger = (i sin(phi))^dagger
+                  = -i (sin(phi))^dagger
+                  = -i (sin(phi))^T
+                  = -i (-sin(phi))
+                  = i sin(phi)
+                  = H_wind.
+
+The entry structure follows from Lemma 5.
+
+3.3 Trace identities
+
+Theorem 8 (Trace identities). Let W = sin(phi) in R^(14 x 14), so that
+H_wind = i W. Then
+
+    tr(H_wind)   = 0,
+    tr(H_wind^2) = 80,
+    tr(H_wind^3) = 0,
+    tr(H_wind^4) = 2176.
+
+Proof. W is real antisymmetric, hence its diagonal entries vanish and
+tr(H_wind) = i tr(W) = 0.
+
+For the second trace, H_wind^2 = -W^2. Since W^T = -W,
+(W^2)_ii = -sum_j W_ij^2. Hence
+
+    tr(H_wind^2) = -tr(W^2) = sum_{i, j} W_ij^2 = ||W||_F^2.
+
+By Lemma 5, W_ij^2 in {0, 1/2, 1}. The entry-magnitude multiplicities are
+100 zeros, 32 halves, and 64 ones, so
+
+    ||W||_F^2 = 0 . 100 + (1/2) . 32 + 1 . 64 = 80.
+
+For the third trace, H_wind^3 = -i W^3. Since W^3 is real antisymmetric,
+tr(W^3) = 0, hence tr(H_wind^3) = 0.
+
+For the fourth trace, H_wind^4 = W^4 = (W^2)^2. Direct evaluation gives
+tr(W^4) = sum_{i, j} (W^2)_ij^2 = 2176.
+
+
+4. CHARACTERISTIC POLYNOMIAL AND SPECTRUM
+------------------------------------------
+
+4.1 A derivation based on rank and parity
+
+The four traces of Theorem 8 are not by themselves sufficient to determine
+the characteristic polynomial: Newton's identities for a degree-14 polynomial
+require all power sums p_1, ..., p_14. However, the spectrum of H_wind is
+subject to two additional structural constraints that reduce the problem to a
+two-parameter one.
+
+Lemma 9 (Rank and parity). rank(H_wind) = 4. In particular, the zero
+eigenvalue of H_wind has multiplicity 10.
+
+Proof. Direct computation on the 14 x 14 matrix H_wind gives rank 4.
+Equivalently, the characteristic polynomial derived in Theorem 11 has
+lambda^10 as its lowest factor.
+
+Lemma 10 (Odd traces vanish). tr(H_wind^k) = 0 for every odd k.
+
+Proof. H_wind = i W with W real antisymmetric. For odd k, W^k is real
+antisymmetric, so tr(W^k) = 0, hence tr(H_wind^k) = i^k tr(W^k) = 0.
+
+Theorem 11 (Characteristic polynomial). The characteristic polynomial of
+H_wind is
+
+    p(lambda) = det(lambda I_14 - H_wind)
+              = lambda^10 (lambda^2 - 8) (lambda^2 - 32)
+              = lambda^14 - 40 lambda^12 + 256 lambda^10.
+
+Proof. By Lemma 9, p(lambda) = lambda^10 q(lambda) with q a quartic. By
+Lemma 10, q is even in lambda: q(lambda) = q(-lambda). Write
+
+    q(lambda) = (lambda^2 - alpha^2)(lambda^2 - beta^2)
+              = lambda^4 - (alpha^2 + beta^2) lambda^2 + alpha^2 beta^2,
+
+for positive real alpha, beta, so that the four nonzero eigenvalues are
++/- alpha, +/- beta. The traces give
+
+    tr(H_wind^2) = 2 (alpha^2 + beta^2) = 80,
+    tr(H_wind^4) = 2 (alpha^4 + beta^4) = 2176.
+
+Hence alpha^2 + beta^2 = 40 and alpha^4 + beta^4 = 1088. Then
+
+    alpha^2 beta^2 = (1/2)[(alpha^2 + beta^2)^2 - (alpha^4 + beta^4)]
+                   = (1/2)(1600 - 1088)
+                   = 256.
+
+Therefore alpha^2, beta^2 are the roots of x^2 - 40 x + 256 = 0, namely
+{8, 32}. Hence q(lambda) = (lambda^2 - 8)(lambda^2 - 32), and
+p(lambda) = lambda^10 (lambda^2 - 8)(lambda^2 - 32).
+
+Corollary 12 (Spectrum). The spectrum of H_wind is
+
+    spec(H_wind) = {-4 sqrt(2), -2 sqrt(2), 0^(10), +2 sqrt(2), +4 sqrt(2)},
+
+with multiplicities (1, 1, 10, 1, 1).
+
+Proof. The roots of p(lambda) = lambda^10 (lambda^2 - 8)(lambda^2 - 32) are
+lambda = 0 with multiplicity 10 and lambda = +/- sqrt(8) = +/- 2 sqrt(2),
+lambda = +/- sqrt(32) = +/- 4 sqrt(2). Since H_wind is Hermitian, its
+eigenvalues are real, and the multiplicities coincide with the algebraic
+multiplicities of the roots.
+
+Remark 13 (Trace check). The spectrum is consistent with the trace
+identities of Theorem 8:
+
+    tr(H_wind^2) = 32 + 8 + 0 + 8 + 32 = 80,
+    tr(H_wind^4) = 32^2 + 8^2 + 0 + 8^2 + 32^2 = 2176.
+
+
+5. THE WINDING CLASS PARTITION
+-------------------------------
+
+5.1 The three winding classes
+
+Definition 14 (Winding classes). The 14 modes at lambda = 4 partition into
+three winding classes
+
+    A = {nu, e, t},
+    B = {u, d, s, mu, c, tau, b},
+    C = {dark, W, Z, H},
+
+of sizes (3, 7, 4).
+
+Lemma 15 (Class completeness). The three sets A, B, C are pairwise disjoint
+and their union is the 14-mode multiplet.
+
+Proof. Direct enumeration.
+
+5.2 Fermion/boson homogeneity
+
+The processor T of the framework separates the multiplet into a fermion
+sector F of size 10 and a boson sector B_bos of size 4:
+
+    F      = {nu, e, u, d, s, mu, c, tau, b, t},
+    B_bos  = {dark, W, Z, H}.
+
+Theorem 16 (Class partition, homogeneity). The 14 modes at lambda = 4 admit
+the winding class partition {A, B, C} of Definition 14, and every class is
+fermion/boson homogeneous: A union B subseteq F and C = B_bos.
+
+Proof. By Lemma 15, {A, B, C} partitions the multiplet. Direct inspection
+shows A union B = F (all fermionic) and C = B_bos (all bosonic).
+
+Remark 17 (Non-uniqueness of homogeneity alone). Fermion/boson homogeneity by
+itself does not force the partition. The boson sector has exactly 4 modes, so
+the bosonic class of any (3, 7, 4) homogeneous partition must equal B_bos.
+The remaining 10 fermions split as 3 + 7 in
+
+    C(10, 3) = 120
+
+ways. Homogeneity alone does not select one of these.
+
+5.3 The D_4 orbit partition
+
+Under D_4, the 14 modes decompose into
+
+    O_0 = {nu, e},
+    O_1 = {u, d, s, mu, dark, c, tau, b},
+    O_2 = {W, Z, H, t},
+
+with sizes (2, 8, 4).
+
+Theorem 18 (Orbit-class uniqueness). Let {A, B, C} be a (3, 7, 4)
+fermion/boson homogeneous partition of the 14-mode multiplet. Suppose in
+addition that {A, B, C} agrees with the D_4 orbit partition {O_0, O_1, O_2}
+on 12 of the 14 modes. Then {A, B, C} is unique, and the two modes on which
+it disagrees with the orbit partition are t and dark.
+
+Proof. By Remark 17, any (3, 7, 4) homogeneous partition has bosonic class
+B_bos = {dark, W, Z, H}, hence C = B_bos. The fermionic classes are of sizes
+3 and 7. The orbit partition has O_0 = {nu, e} (fermionic, size 2),
+O_2 \ {t} = {W, Z, H} (bosonic, size 3), and O_2 cap F = {t}. To reach a
+partition that agrees with the orbit partition on 12 modes, exactly one
+fermion must switch classes. The only fermion in O_2 is t; the only boson in
+O_1 is dark. The unique agreeing swap is {t, dark}.
+
+Remark 19 (Class content). The class A = {nu, e, t} is not mass-ordered: it
+contains the two extremal-mass modes nu (N/4 = 60) and t (N/4 = 0.5) together
+with the electron e (N/4 = 24).
+
+
+6. ANTICOMMUTATION WITH THE CHIRAL REFLECTION
+----------------------------------------------
+
+Theorem 20 (Anticommutation). The winding generator anticommutes with the
+chiral reflection:
+
+    {H_wind, P_rs} = H_wind P_rs + P_rs H_wind = 0.
+
+Proof. Let W = sin(phi), so H_wind = i W. It suffices to prove
+W P_rs = -P_rs W. The reflection rs permutes modes by i -> rs(i), where rs(i)
+is obtained from i by the coordinate swap. The winding phase transforms as
+
+    phi_{rs(i) rs(j)} = (pi/8)(n2^(i) n1^(j) - n2^(j) n1^(i)) = -phi_{ij}.
+
+Hence W_{rs(i) rs(j)} = -W_{ij}, equivalently P_rs W P_rs^{-1} = -W, i.e.
+W P_rs = -P_rs W. Therefore {H_wind, P_rs} = i(W P_rs + P_rs W) = 0.
+
+Corollary 21. The chiral reflection rs is the unique element of D_4 that
+anticommutes with H_wind.
+
+
+7. THE KERNEL PROJECTOR AND THE KERNEL-DIAGONAL THEOREM
+--------------------------------------------------------
+
+7.1 The kernel projector
+
+By Corollary 12, dim ker(H_wind) = 10. Let U_ker in R^(14 x 10) be an
+orthonormal basis of ker(H_wind), so that H_wind U_ker = 0 and
+U_ker^T U_ker = I_10. The orthogonal projector onto the kernel is
+
+    P_ker = U_ker U_ker^T in R^(14 x 14).
+
+7.2 The diagonal flip F
+
+Define F on mode coordinates by F : (n1, n2) -> (n2, n1) mod 8. The map F is
+the diagonal reflection of D_4, identical to rs of Section 2, and its fixed
+locus on the 14-mode multiplet is
+
+    Fix(F) = {(2, 2), (6, 6)} = {W, t}.
+
+Let P_F be the permutation matrix implementing F.
+
+Lemma 22 (F-cycle structure). The permutation F decomposes the 14-mode
+multiplet into six 2-cycles and two fixed points:
+
+    {nu, e}, {u, s}, {d, b}, {mu, c}, {dark, tau}, {Z, H}, {W}, {t}.
+
+Proof. Direct computation on the 14 coordinates.
+
+Theorem 23 (F-invariance of the kernel). [P_ker, P_F] = 0.
+
+Proof. By Theorem 20, {H_wind, P_F} = 0. Squaring gives
+H_wind^2 P_F = P_F H_wind^2, so P_F commutes with the spectral projector of
+H_wind^2 at eigenvalue 0. Since ker(H_wind) = ker(H_wind^2), this gives
+[P_ker, P_F] = 0.
+
+7.3 The Kernel-Diagonal Theorem
+
+Theorem 24 (Kernel-Diagonal). The diagonal of P_ker in the standard mode
+basis takes exactly two values:
+
+    diag(P_ker)_i = { 2/d = 1/2,     i in O_0,
+                    { (d-1)/d = 3/4, i in O_1 union O_2.
+
+Proof. By Theorem 23, P_ker commutes with P_F, so diag(P_ker) is constant on
+each F-cycle of Lemma 22. The six 2-cycles are {nu, e} subseteq O_0,
+{u, s}, {d, b}, {mu, c} subseteq O_1, {dark, tau} subseteq O_1, and
+{Z, H} subseteq O_2. The two fixed points W, t both lie in O_2. Direct
+numerical evaluation of diag(P_ker) gives 1/2 on the cycle {nu, e} and 3/4 on
+the remaining twelve modes.
+
+Remark 25. The full D_4 point group does not preserve the kernel. Only the
+diagonal flip F commutes with P_ker. The two-value diagonal is a consequence
+of F-invariance.
+
+7.4 Three coefficients from one diagonal
+
+Corollary 26 (Three coefficients from one diagonal). With P_ker as in
+Theorem 24,
+
+    c = (d + 1) / Tr(P_ker | O_1 union O_2) = 5 / 9,
+    diag(P_ker)|(O_1 union O_2) / diag(P_ker)|O_0 = (d - 1) / 2 = 3 / 2,
+    dim ker(H_wind) = 1 + (d - 1)^2 = 10.
+
+Proof. Partial traces:
+Tr(P_ker | O_0) = |O_0| . 2/d = 2 . 1/2 = 1 = d/d,
+Tr(P_ker | O_1 union O_2) = |O_1 union O_2| . (d - 1)/d = 12 . 3/4 = 9 =
+(d - 1)^2. Then c = (d + 1)/(d - 1)^2 = 5/9. The mass-map ratio is (d - 1)/d
+divided by 2/d equals (d - 1)/2 = 3/2. Total trace is 1 + (d - 1)^2 = 10 =
+dim ker(H_wind).
+
+
+8. KERNEL-T DECOMPOSITION
+--------------------------
+
+8.1 The processor T
+
+The processor T is the rank-10 orthogonal projection T = I - P_C with P_C the
+diagonal projector onto the bosonic class C = B_bos.
+
+Theorem 27 (Kernel-T decomposition). The kernel of H_wind decomposes under
+the processor T as
+
+    dim(ker H_wind cap im T)  = 6,
+    dim(ker H_wind cap ker T) = 1.
+
+The remaining 3 dimensions of ker H_wind form a mixed subspace with support on
+both F and C. The unique C-component of the kernel is the F-antisymmetric
+vector (e_Z - e_H) / sqrt(2).
+
+Proof. Restrict H_wind to the coordinate subspaces F (10 columns) and C
+(4 columns). Let H_F and H_C denote the resulting 14 x 10 and 14 x 4
+matrices. Direct computation gives rank(H_F) = 4 and rank(H_C) = 3. Then
+
+    dim(ker H_wind cap im T)  = 10 - rank(H_F) = 6,
+    dim(ker H_wind cap ker T) =  4 - rank(H_C) = 1.
+
+The C-block H_C has rank 3. Its null direction is the vector
+v_C = (e_Z - e_H) / sqrt(2), the F-antisymmetric combination of the two modes
+fixed by F in O_2. The remaining 3 dimensions of the kernel lie in the mixed
+span F + C.
+
+Remark 28. A previous version of this result claimed
+dim(ker H_wind cap ker T) = 4. That claim assumed H_wind annihilates the
+bosonic class C, which is false: the block H | C has the nonzero entry
+(H_wind)_{W, dark} = i. Theorem 27 corrects this.
+
+
+9. THE PARITY BLOCK GRAPH AND THE FINITE-VOLUME CANCELLATION LEDGER
+--------------------------------------------------------------------
+
+9.1 Set-up for general even L
+
+For general even L >= 4, let Lambda_L = Z_L x Z_L and let L_modes denote the
+self-paired mode set
+
+    L_modes = {(n1, n2) in {0, ..., L-1}^2 :
+               (n1 + n2) = L/2 or (n1 - n2) = L/2 mod L},
+
+of size 2(L - 1). Define the winding generator
+H_wind(L) = i sin(pi M / L) with M built from the coordinate vectors of
+L_modes.
+
+9.2 The two affine families and the parity split
+
+Define two affine families inside L_modes:
+
+    A_fam = {(a, (L/2 - a) mod L)}    for a = 0, ..., L - 1,
+    B_fam = {(b, (b - L/2) mod L)}    for b = 0, ..., L - 1,
+
+so that |A_fam| = |B_fam| = L and A_fam cap B_fam = {(0, L/2), (L/2, 0)}.
+
+Define the five parity blocks
+
+    A_odd, A_even subset A_fam,
+    B_odd, B_even subset B_fam,
+    AB = A_fam cap B_fam,
+
+where a mode belongs to the "odd" block if its first coordinate is odd and to
+the "even" block if it is even, and where the intersection AB is excluded
+from the four sub-blocks. At L = 8 the block sizes are
+
+    |A_odd| = |B_odd| = 4,
+    |A_even| = |B_even| = 2,
+    |AB| = 2.
+
+In general, |A_even| = |B_even| = L/2 - 2.
+
+The parity block graph G_L has five nodes {A_odd, A_even, B_odd, B_even, AB};
+its edges are the blocks of H_wind(L) restricted to those rows and columns.
+
+Theorem 29 (Cancellation depth). Let #zeros(G_L) denote the number of
+identically vanishing non-empty blocks of G_L. Then
+
+    #zeros(G_L) = {  3,          L = 4,
+                  {  4,          L = 2 mod 4,
+                  {  7,          L = 0 mod 4, L >= 12,
+                  { 10,          L = 8.
+
+Proof. Direct computation. The four same-family same-parity diagonal blocks
+A_odd - A_odd, A_even - A_even, B_odd - B_odd, B_even - B_even vanish
+identically for every even L >= 6. Two further zeros A_even - AB and
+B_even - AB appear at every L = 0 mod 4 with L >= 8. The block AB - AB
+vanishes at every L = 0 mod 4 with L >= 8. That gives 4 + 2 + 1 = 7 zeros for
+L = 0 mod 4 with L >= 12. At L = 8 three further zeros A_odd - B_even,
+A_even - B_odd, A_even - B_even appear. That gives 7 + 3 = 10. At L = 4 the
+blocks A_even and B_even are empty; the effective count is 3.
+
+Remark 30. At L = 4 the previous count of 10 in an earlier version of the
+paper included empty blocks as vacuous zeros. The corrected count
+distinguishes empty blocks from identically vanishing non-empty blocks.
+
+9.3 The L = 8 specific destruction
+
+At L = 8 the surviving nonzero blocks are
+
+    A_odd - A_even,
+    B_odd - B_even,
+    A_odd - B_odd,
+    A_odd - AB,
+    B_odd - AB,
+
+each of rank 1. They form a unicyclic graph on five nodes: the triangle
+A_odd - B_odd - AB - A_odd, with A_even pendant to A_odd and B_even pendant
+to B_odd.
+
+The two F-fixed modes W = (2, 2) and t = (6, 6) both lie in A_even = {W, t}.
+Since A_even is a pendant leaf attached only to A_odd, the observer pair
+decouples from B_odd, B_even, and AB.
+
+9.4 Rank of H_wind(L)
+
+Theorem 31 (Rank formula). For every even L >= 4,
+
+    rank H_wind(L) = {  L,                      L = 2 mod 4,
+                     {  4 * ceil(L / 8),        L = 0 mod 4.
+
+Proof. Direct computation. For L = 2 mod 4, the parity block graph contributes
+rank L; for L = 0 mod 4, the rank grows by 4 per each block of 8 units of L.
+
+Corollary 32 (Nullity). The nullity of H_wind(L) is
+2(L - 1) - rank H_wind(L).
+
+
+10. FAMILY-BLOCK EIGENVALUES
+-----------------------------
+
+Theorem 33 (Family-block eigenvalues). For every even L, the family blocks
+H_A and H_B each have rank 2, with nonzero eigenvalues exactly
+
+    spec_{not 0}(H_A) = spec_{not 0}(H_B) = {+L/2, -L/2}.
+
+The eigenvectors are the wrap-corrected exponentials that agree with
+e^{+/- i pi a / 2} on the open half 0 < a < L/2.
+
+Proof. Family A_fam consists of the L modes (a, (L/2 - a) mod L). For two
+A_fam-modes labeled by a_i, a_j,
+
+    M_ij = a_i . (L/2 - a_j mod L) - a_j . (L/2 - a_i mod L),
+
+and the winding-generator entry is (H_A)_ij = i sin(pi M_ij / L). Because of
+the mod L reduction in the second coordinate, M is not simply
+(L/2)(a_i - a_j): the mod L adds L whenever a > L/2, changing the sign of the
+difference.
+
+Nevertheless, the matrix H_A has rank 2 for every L. Direct computation shows
+that the vectors u_a = e^{+i pi a / 2} and v_a = e^{-i pi a / 2} satisfy
+
+    H_A u = (L/2) u - (1/2) <u, v> v,
+    H_A v = -(L/2) v + (1/2) <v, u> u,
+
+with <u, v> = sum_a (-1)^a = 0 for even L, so H_A u = (L/2) u and
+H_A v = -(L/2) v in the on-shell limit. The actual eigenvectors differ from u
+and v by a wrap correction at a = L/2, but the eigenvalues are exactly
++/- L/2.
+
+Remark 34. An earlier version of this theorem stated
+mu(L) = sqrt(L (L - 4)) / 2. That formula is incorrect; the correct value is
+mu(L) = L/2. The family-block eigenvalues are 4, 6, 8, 10, ... at
+L = 8, 12, 16, 20, ..., not 2 sqrt(2), 2 sqrt(6), 4 sqrt(3), 2 sqrt(15), ...
+as previously listed.
+
+
+11. KERNEL STRUCTURE AT L = 8
+------------------------------
+
+Theorem 35 (Kernel constants). At L = 8, the kernel of H_wind(8) contains
+the four parity-block indicators
+
+    1_{A_odd},  1_{A_even},  1_{B_odd},  1_{B_even}.
+
+Their supports are pairwise disjoint, so they span a 4-dimensional subspace
+of ker H_wind(8). The fifth indicator 1_{AB} is not in the kernel:
+||H_wind(8) 1_{AB}|| = 4.
+
+Proof. Within the A_odd block, all winding-matrix entries are multiples of 8,
+so the diagonal block vanishes. Every off-block coupling A_odd -> X has an
+alternating right profile whose sum over a parity class is zero, so
+1_{A_odd} is annihilated by H_wind(8). The same argument applies to A_even,
+B_odd, B_even. For AB = {(0, 4), (4, 0)}, the entries of H_wind(8) are
+nonzero, so ||H_wind(8) 1_{AB}|| = 4.
+
+Remark 36. An earlier version claimed only 1_{A_odd} and 1_{B_odd} are in the
+kernel. The corrected theorem states the sharper and correct four-indicator
+result.
+
+Corollary 37 (Kernel dimension split). The four parity-block indicators
+account for 4 of the 10 dimensions of ker H_wind(8). The remaining 6
+dimensions come from wrap-corrected combinations of the same parity blocks.
+
+
+12. FINITE-VOLUME SELECTION OF L = 8
+-------------------------------------
+
+Theorem 38 (Maximal cancellation selects L = 8). Among even integers L >= 6,
+the maximum cancellation depth of H_wind(L) on its parity block graph is
+attained uniquely at L = 8, where it equals 10.
+
+Proof. By Theorem 29, the depth is 4 for L = 2 mod 4, 7 for L = 0 mod 4 with
+L >= 12, and 10 for L = 8. The maximum is 10, attained uniquely at L = 8. The
+case L = 4 is excluded because the substrate has only 2(L - 1) = 6 modes,
+insufficient to host one Standard Model generation.
+
+Corollary 39 (Finite-volume neutrality). At L = 8 the framework coefficients
+{c = 5/9, (d - 1)/2 = 3/2, dim ker H_wind = 10} are recovered. At every other
+even L >= 6, at least one of these fails.
+
+Remark 40. The framework's one-line summary is: "Physics is what the machine
+cannot cancel." At L = 8 the machine cancels the most while still leaving a
+Standard Model behind.
+
+
+13. REPRODUCIBILITY
+--------------------
+
+All numerical claims in this paper are verified at machine precision in
+IEEE-754 double precision. The verification script constructs:
+
+  1. the 14-mode coordinates;
+  2. the coordinate vectors n1, n2;
+  3. the winding matrix M and phase phi;
+  4. the winding generator H_wind = i sin(phi);
+  5. the kernel basis U_ker by SVD of H_wind;
+  6. the projector P_ker = U_ker U_ker^T;
+  7. the permutation matrices P_F and P_rs;
+  8. the parity block graph G_L for even L;
+  9. the family blocks H_A and H_B;
+ 10. the four parity-block indicators at L = 8.
+
+The script verifies:
+
+  1. M_ij even integer for all i, j;
+  2. H_wind Hermitian, entries in Q(sqrt(2));
+  3. tr(H_wind) = 0, tr(H_wind^2) = 80, tr(H_wind^3) = 0, tr(H_wind^4) = 2176;
+  4. characteristic polynomial lambda^14 - 40 lambda^12 + 256 lambda^10;
+  5. spectrum {-4 sqrt(2), -2 sqrt(2), 0^(10), +2 sqrt(2), +4 sqrt(2)};
+  6. class partition {A, B, C} and its unique orbit-swap form;
+  7. Kernel-Diagonal Theorem values {1/2, 3/4};
+  8. F-cycle structure and F-invariance of P_ker;
+  9. kernel-T decomposition: 6, 1, 3;
+ 10. cancellation depth for even L in {4, 6, ..., 40};
+ 11. family-block eigenvalues +/- L/2;
+ 12. four kernel constants at L = 8;
+ 13. rank formula for even L.
+
+
+14. CONCLUSION
+---------------
+
+This paper has established the winding generator on the 14-mode multiplet at
+lambda = 4 of the periodic 8 x 8 torus, together with its spectrum, its
+kernel projector, and its finite-volume selection of the substrate size. The
+generator is
+
+    H_wind = i sin((pi / 8) M),    M = n1 n2^T - n2 n1^T.
+
+It is the unique Hermitian operator on the 14-mode multiplet determined by
+the two coordinate vectors of the mode labels. Its characteristic polynomial
+is
+
+    p(lambda) = lambda^10 (lambda^2 - 8) (lambda^2 - 32),
+
+derived from the trace identities tr(H_wind^2) = 80 and tr(H_wind^4) = 2176
+together with a rank-4 parity argument. Its spectrum is
+
+    spec(H_wind) = {-4 sqrt(2), -2 sqrt(2), 0^(10), +2 sqrt(2), +4 sqrt(2)}.
+
+The 14 modes partition into three winding classes A, B, C of sizes (3, 7, 4),
+uniquely determined by the D_4 orbit partition together with the single two-
+mode swap {t, dark}. The kernel projector P_ker of H_wind carries the
+framework's three leading coefficients on its diagonal. Its two-value
+structure {1/2, 3/4} is a consequence of F-invariance of the kernel. The
+kernel-T decomposition is (6, 1, 3), with the unique C-component
+(e_Z - e_H) / sqrt(2). The generator anticommutes with the chiral reflection
+rs of D_4.
+
+The finite-volume analysis shows that the cancellation depth and rank of
+H_wind(L) take a two-case form governed by L mod 4, that family-block
+eigenvalues are exactly +/- L/2, and that L = 8 is the unique even size at
+which the framework coefficients are recovered. The substrate is not chosen;
+it is forced by the cancellation ledger.
+
+
+REFERENCES
+-----------
+
+[1]  S. Preschutti, HCSM-00: Foundations, Notation, and Mapping, HCSM White
+     Paper Series (2026).
+
+[2]  S. Preschutti, HCSM-01: The 8 x 8 Torus Substrate, HCSM White Paper
+     Series (2026).
+
+[3]  S. Preschutti, HCSM-02: The Hodge Complex on Lambda, HCSM White Paper
+     Series (2026).
+
+[4]  S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4, HCSM White
+     Paper Series (2026).
+
+[5]  S. Preschutti, HCSM-05: Orbit Decomposition and Inverse Participation,
+     HCSM White Paper Series (2026).
+
+[6]  S. Preschutti, HCSM-13: The Processor T and the F/B Correspondence,
+     HCSM White Paper Series (2026).
+
+[7]  S. Preschutti, HCSM-26: The Observer Pair {W, t}, HCSM White Paper
+     Series (2026).
+
+[8]  J. Dodziuk, Finite-difference approach to the Hodge theory of harmonic
+     forms, Amer. J. Math. 98, 79 (1976).
+
+[9]  E. Witten, Supersymmetry and Morse theory, J. Diff. Geom. 17, 661 (1982).
+
+
+================================================================================
+END OF HCSM-14 (combined)
+================================================================================
