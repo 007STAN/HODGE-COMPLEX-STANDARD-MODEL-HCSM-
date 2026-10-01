@@ -1,0 +1,776 @@
+================================================================
+HCSM-17 (Revised)
+Loop Operator Cartan Rotation
+Exact Principal Angles and the Cartan Crossover Theorem
+on the Fourteen-Mode Multiplet
+================================================================
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstannp@yahoo.com
+
+September 2026
+HCSM White Paper Series, Paper 17
+
+----------------------------------------------------------------
+ABSTRACT
+----------------------------------------------------------------
+
+The Hodge Complex Standard Model derives the gauge structure, matter
+content, particle spectrum, and mixing matrices of the Standard Model
+from a single discrete substrate: the periodic eight-by-eight torus
+Lambda = Z_8 x Z_8. The fourteen modes at the self-paired eigenvalue
+lambda = 4 of the discrete Laplacian are identified with one Standard
+Model generation. On this multiplet, the loop operator M_loop is a
+diagonal operator whose three eigenvalues partition the modes into
+three winding classes. The gauge algebra g_SM = su(3)_c + su(2)_L +
+u(1)^5 acts through its isotypic decomposition.
+
+This paper determines the exact structure of the intersection of the
+loop commutant with the gauge algebra. The intersection C = g_SM cap
+Comm(M_loop) is a three-dimensional real, Hermitian, abelian
+subalgebra. Its orientation relative to the standard Cartan h_std =
+<lambda^3, lambda^8, sigma^3> is measured by three principal angles,
+which have a closed algebraic form: the cosines squared are the roots
+of an irreducible quadratic over Q with discriminant 76 = 4*19, and
+one of the angles is exactly a right angle.
+
+The central structural result is the Cartan Crossover Theorem: C and
+h_std intersect in a two-dimensional rotation plane, and the two
+perpendicular directions beyond that plane are (i) the uniform u(1)^5
+direction I_14/sqrt(5), which the substrate contributes, and (ii) the
+traceless color-flip direction v_0 = (1/2)lambda^3 - (sqrt(3)/2)
+lambda^8 = diag(0,-1,+1) on the color triplet, which the emergent
+gauge algebra contributes. These two directions are orthogonal in the
+trace inner product, and this orthogonality is the exact source of
+the 90 degree principal angle. The crossover is the point at which
+the substrate and the emergent gauge structure meet.
+
+All numerical claims are verified at machine precision. Two numerical
+observations -- the Mersenne-prime pattern in the Gram invariants and
+the double appearance of the prime 19 -- are stated explicitly as
+conjectures.
+
+================================================================
+1. INTRODUCTION
+================================================================
+
+1.1 Motivation
+
+The Hodge Complex Standard Model (HCSM) derives the structure of the
+Standard Model from a single discrete substrate: the periodic torus
+Lambda = Z_8 x Z_8 [HCSM-00, HCSM-01]. The fourteen modes at the
+self-paired eigenvalue lambda = 4 of the discrete Laplacian are
+identified with one Standard Model generation [HCSM-04]. Their
+dihedral representation theory determines the gauge algebra [HCSM-06];
+their mass-ordering labels determine the mass spectrum [HCSM-33]; the
+zero-state vector determines the flavor structure [HCSM-22].
+
+Two operators act on the fourteen-mode multiplet. The loop operator
+M_loop is diagonal in the mode basis, with distinct eigenvalues on the
+three winding classes [HCSM-14, HCSM-15, HCSM-17]. The gauge algebra
+g_SM = su(3)_c + su(2)_L + u(1)^5 acts through its isotypic
+decomposition, with generators supported on individual isotypic
+components [HCSM-06]. This paper determines the exact structure of the
+intersection of the loop commutant with the gauge algebra.
+
+1.2 Main results
+
+The central result of this paper is the Cartan Crossover Theorem
+(Theorem 8.3). It states that the loop commutant C and the standard
+Cartan h_std intersect in a two-dimensional rotation plane, and that
+the two directions beyond this plane are:
+
+  * the uniform u(1)^5 direction I_14/sqrt(5), contributed by the
+    substrate;
+  * the traceless color-flip direction
+    v_0 = (1/2)lambda^3 - (sqrt(3)/2)lambda^8, contributed by the
+    emergent gauge algebra.
+
+These directions are orthogonal in the trace inner product, and this
+is the exact structural origin of the 90 degree principal angle.
+
+The exact principal angles are derived in Theorem 7.2:
+
+  theta_1 = arccos sqrt((23+sqrt(19))/34) ~ 26.2288 deg,
+  theta_2 = arccos sqrt((23-sqrt(19))/34) ~ 42.2301 deg,
+  theta_3 = pi/2 exactly.
+
+The exact projection Gram matrix G of the overlap between C and h_std
+is derived in Theorem 4.3; it has entries in Q(sqrt(3)) and
+characteristic polynomial with discriminant 76 = 4*19.
+
+1.3 Organization
+
+Section 2 states the setup. Section 3 establishes the Cartan rotation
+space. Section 4 derives the exact projection Gram matrix. Section 5
+derives the exact invariants. Section 6 derives the characteristic
+polynomial. Section 7 states the exact principal angles. Section 8
+proves the Cartan Crossover Theorem. Section 9 discusses the field
+extension and the prime structure (with conjectures). Section 10
+catalogs derived results, inputs, conjectures, and open items. Section
+11 gives reproducibility notes. Section 12 concludes. Appendix A lists
+the orthonormal nullspace basis. Appendix B gives the D4 character
+table.
+
+================================================================
+2. SETUP
+================================================================
+
+2.1 The fourteen-mode multiplet
+
+The substrate is Lambda = Z_8 x Z_8 with N = 64 sites [HCSM-00]. The
+discrete five-point Laplacian has eigenvalues
+
+  lambda(n_1, n_2) = 4 - 2 cos(pi n_1 / 4) - 2 cos(pi n_2 / 4),
+  (n_1, n_2) in {0,...,7}^2.                                 (2.1)
+
+The self-paired eigenvalue lambda = 4 has multiplicity fourteen. In
+the standard mode order used throughout HCSM [HCSM-04], the fourteen
+modes are
+
+  (nu, e, u, d, s, mu, dark, c, tau, b, W, Z, H, t).         (2.2)
+
+Their coordinates are listed in HCSM-04, Eq. (9).
+
+2.2 The gauge algebra
+
+The gauge algebra of HCSM is
+
+  g_SM = su(3)_c + su(2)_L + u(1)^5,                          (2.3)
+
+acting on the fourteen-mode multiplet through its isotypic
+decomposition [HCSM-06]. The generators are:
+
+  * The eight su(3)_c generators T_c^a = U_A1 lambda^a U_A1^T for
+    a = 1,...,8, where lambda^a are the Gell-Mann matrices and U_A1
+    is an orthonormal A1-multiplicity basis of dimension three.
+  * The three su(2)_L generators T_L^i = U_B1 sigma^i U_B1^T for
+    i = 1,2,3, where sigma^i are the Pauli matrices and U_B1 is an
+    orthonormal B1-multiplicity basis of dimension two.
+  * The five u(1) generators P_A1, P_A2, P_B1, P_B2, P_E, the
+    isotypic projectors onto the irreps A1, A2, B1, B2, E of the
+    dihedral group D4.
+
+The ordered list of the sixteen generators on C^14 is
+
+  g_SM^(14) = (lambda^1,...,lambda^8, sigma^1, sigma^2, sigma^3,
+               P_A1, P_A2, P_B1, P_B2, P_E).                  (2.4)
+
+2.3 The standard Cartan
+
+The standard Cartan subalgebra of g_SM is
+
+  h_std = <lambda^3, lambda^8, sigma^3>.                      (2.5)
+
+In the sixteen-generator basis, h_std is spanned by e_3, e_8, e_11.
+
+2.4 The loop operator
+
+The winding generator H_wind of HCSM-14 partitions the fourteen modes
+into three classes [HCSM-14]:
+
+  A = {nu, e, t},
+  B = {u, d, s, mu, c, tau, b},
+  C = {dark, W, Z, H}.                                        (2.6)
+
+Definition 2.1 (Loop operator; HCSM-15 Definition 3.1). The loop
+operator on the fourteen-mode multiplet is the diagonal operator
+
+  M_loop = lambda_A P_A + lambda_B P_B + lambda_C P_C,         (2.7)
+
+where P_A, P_B, P_C are the class projectors and lambda_A, lambda_B,
+lambda_C are pairwise-distinct complex loop eigenvalues defined in
+HCSM-15. Their physical magnitudes are
+
+  |lambda_A| = 0.5757, |lambda_B| = 0.1919, |lambda_C| = 0,
+  |lambda_A|/|lambda_B| = 3,                                  (2.8)
+
+as given in HCSM-61. In this paper we take (lambda_A, lambda_B,
+lambda_C) = (1, 2, 0) without loss of generality.
+
+Remark. The winding generator carries class values (omega_A, omega_B,
+omega_C) = (2 sqrt(2), 6 sqrt(2), 0), which fix the class partition
+and hence the projectors. They are not the loop eigenvalues. The loop
+commutant depends only on the distinctness of lambda_A, lambda_B,
+lambda_C.
+
+2.5 The loop commutant and the Cartan rotation space
+
+Definition 2.2 (Loop commutant). The loop commutant is
+
+  Comm(M_loop) = {X in End(C^14) : [M_loop, X] = 0}.          (2.9)
+
+Definition 2.3 (Cartan rotation space). The Cartan rotation space is
+
+  C = g_SM cap Comm(M_loop).                                  (2.10)
+
+================================================================
+3. THE CARTAN ROTATION SPACE
+================================================================
+
+3.1 Dimension and structure
+
+Theorem 3.1 (Cartan rotation space). The Cartan rotation space C is a
+three-dimensional real, Hermitian, abelian subalgebra of g_SM.
+
+Proof. Construct the stacked commutator matrix C in C^{196 x 16} whose
+j-th column is vec([M_loop, g_j]), g_j in g_SM^(14). The realified
+matrix C_R = [Re(C); Im(C)] in R^{392 x 16} has rank thirteen at
+machine precision, with a singular-value gap of 10^15 between the
+thirteenth and fourteenth singular values. Hence dim ker C_R =
+16 - 13 = 3.
+
+The nullspace vectors span a real three-dimensional subspace of R^16.
+Each vector v generates a Hermitian operator O = sum_j v_j g_j in
+g_SM satisfying ||[O, M_loop]||_F < 10^-15. Cross-commutators
+[O_i, O_j] vanish at machine precision, so the algebra is abelian. QED
+
+3.2 Structural constraints
+
+Lemma 3.2 (Support and isotypic degeneracy). Every element of C has:
+  (1) zero overlap with the root generators lambda^{1,2,4,5,6,7} of
+      su(3)_c and sigma^{1,2} of su(2)_L;
+  (2) equal coefficients on the isotypic projectors P_A2, P_B2, P_E.
+
+Proof. Project each unit coordinate vector e_j onto C. For root
+generators the residuals are < 10^-15. The equal-coefficient statement
+on P_A2, P_B2, P_E holds to 10^-15 for every nullspace vector. QED
+
+================================================================
+4. THE EXACT PROJECTION GRAM MATRIX
+================================================================
+
+4.1 Overlap and projection Gram matrix
+
+Let {v_1, v_2, v_3} be an orthonormal basis of C arranged as the
+columns of Q_N in R^{16 x 3}. Let Q_hstd = [e_3, e_8, e_11] in
+R^{16 x 3} be the basis of h_std.
+
+Definition 4.1 (Overlap matrix). The overlap matrix is
+
+  M = Q_N^T Q_hstd in R^{3 x 3}.                              (4.1)
+
+Its singular values are the cosines of the principal angles between C
+and h_std.
+
+Definition 4.2 (Projection Gram matrix). The projection Gram matrix is
+
+  G = M^T M = Q_hstd^T Q_N Q_N^T Q_hstd = Q_hstd^T P_C Q_hstd
+    in R^{3 x 3},                                             (4.2)
+
+where P_C = Q_N Q_N^T is the orthogonal projector onto C. The matrix G
+is real symmetric positive semi-definite with eigenvalues
+
+  cos^2 theta_i = lambda_i(G), i = 1, 2, 3.                   (4.3)
+
+Remark. The overlap matrix M and the projection Gram matrix G = M^T M
+are distinct: M is generally non-symmetric, while G is symmetric
+positive semi-definite. The principal angles are extracted from the
+eigenvalues of G, not from the singular values of M directly.
+
+4.2 The exact matrix
+
+Theorem 4.3 (Exact projection Gram matrix). The projection Gram matrix
+is
+
+  G = (1/136) [ 81        27 sqrt(3)  6          ]
+              [ 27 sqrt(3) 27          2 sqrt(3)  ]
+              [ 6          2 sqrt(3)   76         ]           (4.4)
+
+All entries lie in Q(sqrt(3)).
+
+Proof. Direct symbolic computation from the orthonormal nullspace
+basis of C (Appendix A) and the basis Q_hstd of h_std. Entries G_ij =
+e_{a_i}^T P_C e_{a_j} for a_i in {3, 8, 11}. Verified at machine
+precision. QED
+
+Remark (sign convention for sigma^3). The sign of the third column of
+G depends on the convention for sigma^3. We fix sigma^3 = diag(+1,-1)
+on the B1 doublet. The opposite convention flips the sign of the
+off-diagonal entries G_13, G_23, G_31, G_32, leaving all invariants
+and principal angles unchanged.
+
+================================================================
+5. EXACT INVARIANTS
+================================================================
+
+5.1 Trace
+
+Theorem 5.1 (Trace). Tr(G) = 23/17.
+
+Proof. Tr(G) = (81 + 27 + 76)/136 = 184/136 = 23/17. QED
+
+5.2 Determinant
+
+Theorem 5.2 (Determinant). det(G) = 0 exactly.
+
+Proof. Expanding the determinant of 136 G along the first row:
+
+  det(136 G) = 81 (27*76 - 2 sqrt(3) * 2 sqrt(3))
+             - 27 sqrt(3) (27 sqrt(3) * 76 - 2 sqrt(3) * 6)
+             + 6 (27 sqrt(3) * 2 sqrt(3) - 27 * 6)
+             = 81 * 2040 - 27 * 3 * 2040 + 0
+             = 0.
+
+Hence det(G) = 0. QED
+
+Remark (geometric meaning). det(G) = 0 means that the three principal
+angles are not all strictly less than pi/2. At least one angle equals
+exactly pi/2.
+
+5.3 Sum of principal two-by-two minors
+
+Theorem 5.3 (Sum of principal two-by-two minors). sigma_2(G) = 15/34.
+
+Proof. Direct computation of the three principal minors M_12, M_13,
+M_23:
+
+  M_12 = (81*27 - (27 sqrt(3))^2) / 136^2 = 0,
+  M_13 = (81*76 - 36) / 136^2 = 6120 / 136^2,
+  M_23 = (27*76 - 12) / 136^2 = 2040 / 136^2.
+
+Sum: sigma_2(G) = 8160 / 136^2 = 15/34. QED
+
+================================================================
+6. CHARACTERISTIC POLYNOMIAL
+================================================================
+
+Theorem 6.1 (Characteristic polynomial). The characteristic polynomial
+of G is
+
+  det(G - lambda I) = -lambda (lambda^2 - (23/17) lambda + 15/34)
+                    = -(lambda/34) (34 lambda^2 - 46 lambda + 15). (6.1)
+
+Proof. For a 3x3 matrix, det(G - lambda I) = -lambda^3 + Tr(G)
+lambda^2 - sigma_2(G) lambda + det(G). Substituting Tr(G) = 23/17,
+sigma_2(G) = 15/34, det(G) = 0 gives the stated result. QED
+
+Theorem 6.2 (Factorization). The quadratic 34 lambda^2 - 46 lambda + 15
+is irreducible over Q and factors over Q(sqrt(19)) as
+
+  34 lambda^2 - 46 lambda + 15 = 34 (lambda - lambda_+)(lambda - lambda_-),
+  lambda_+/- = (23 +/- sqrt(19)) / 34.                        (6.2)
+
+Proof. The discriminant is Delta = 46^2 - 4 * 34 * 15 = 2116 - 2040 =
+76 = 4 * 19. Since 19 is prime and 76 is not a perfect square, the
+quadratic is irreducible over Q. The roots follow. QED
+
+================================================================
+7. PRINCIPAL ANGLES
+================================================================
+
+Definition 7.1 (Principal angles). For two subspaces U, V in R^n of
+equal dimension, the principal angles theta_1 >= theta_2 >= ... >=
+theta_k in [0, pi/2] are defined by
+
+  cos theta_i = sigma_i(Q_U^T Q_V),                           (7.1)
+
+where sigma_i are the singular values of the overlap matrix between
+orthonormal bases of U and V.
+
+Theorem 7.2 (Exact Principal Angle Theorem). The principal angles of
+C relative to h_std are
+
+  theta_1 = arccos sqrt((23 + sqrt(19))/34) ~ 26.2288492 deg,
+  theta_2 = arccos sqrt((23 - sqrt(19))/34) ~ 42.2301523 deg,
+  theta_3 = pi/2 exactly.                                     (7.2)
+
+Proof. The squares of the cosines of the principal angles are the
+eigenvalues of G, which by Theorem 6.1 are 0 and the two roots
+lambda_+/- = (23 +/- sqrt(19))/34. Taking arccosines gives the result.
+QED
+
+Corollary 7.3 (Right angle). The third principal angle is exactly
+pi/2. The subspace C has a direction orthogonal to the entire standard
+Cartan.
+
+================================================================
+8. THE CARTAN CROSSOVER THEOREM
+================================================================
+
+8.1 The two-dimensional intersection
+
+Theorem 8.1 (Intersection dimension). dim(C cap h_std) = 2.
+
+Proof. The matrix Q_hstd^T P_C Q_hstd = G has eigenvalues
+(23+sqrt(19))/34, (23-sqrt(19))/34, 0. The eigenvectors associated with
+the two nonzero eigenvalues span the two-dimensional intersection
+C cap h_std in the coordinates (e_3, e_8, e_11). QED
+
+Lemma 8.2 (Rotation plane). The two-dimensional intersection
+C cap h_std is not aligned with any coordinate plane of
+(lambda^3, lambda^8, sigma^3). The rotation angles of this plane
+relative to the standard Cartan basis are theta_1 and theta_2.
+
+Proof. The eigenvectors of G associated with the two nonzero
+eigenvalues have generic coefficients on all three Cartan directions.
+Explicitly, the first eigenvector in Cartan coordinates is
+approximately (0.1757, 0.1015, 0.9792) and the second is approximately
+(-0.8480, -0.4896, 0.2029); neither is aligned with a coordinate axis.
+QED
+
+8.2 The two perpendicular directions
+
+Lemma 8.3 (The substrate direction). The unique direction in C
+orthogonal to h_std is the uniform u(1)^5 direction
+
+  v_sub = I_14/sqrt(5)
+        = (1/sqrt(5)) (P_A1 + P_A2 + P_B1 + P_B2 + P_E).      (8.1)
+
+Proof. Let alpha in R^3 be the coefficients of Q_N orthogonal to
+h_std: Q_hstd^T Q_N alpha = 0. The nullspace of the 3x3 matrix
+Q_hstd^T Q_N is one-dimensional. Computing its generator and
+normalizing yields v_sub = I_14/sqrt(5). Verified at machine
+precision: ||Q_hstd^T v_sub|| = 1.9 * 10^-16. QED
+
+Lemma 8.4 (The gauge direction). The unique direction in h_std
+orthogonal to C is
+
+  v_gauge = (1/2) lambda^3 - (sqrt(3)/2) lambda^8.            (8.2)
+
+On the su(3)_c color triplet, v_gauge acts as diag(0, -1, +1) with
+eigenvalues {0, -1, +1}.
+
+Proof. The complement of C in h_std is one-dimensional. Its generator,
+in Cartan coordinates, is (1/2, -sqrt(3)/2, 0), which corresponds to
+v_gauge = (1/2) lambda^3 - (sqrt(3)/2) lambda^8. Applying this
+combination to the color triplet yields
+
+  (1/2) diag(1,-1,0) - (sqrt(3)/2) * (1/sqrt(3)) diag(1,1,-2)
+  = (1/2) diag(1,-1,0) - (1/2) diag(1,1,-2)
+  = diag(0, -1, +1).
+
+Eigenvalues {0, -1, +1}. QED
+
+8.3 Trace orthogonality
+
+Lemma 8.5 (Trace orthogonality). Tr(v_gauge) = 0; hence v_gauge is
+perpendicular to v_sub in the trace inner product on g_SM.
+
+Proof. v_gauge is traceless on the color triplet:
+Tr(diag(0,-1,+1)) = 0. The uniform direction v_sub = I_14/sqrt(5) has
+Tr(v_sub) = 14/sqrt(5) != 0. Therefore Tr(v_gauge v_sub) = 0.
+Verified at machine precision: |Tr(v_gauge v_sub)| = 7.2 * 10^-16. QED
+
+8.4 The Crossover Theorem
+
+Theorem 8.6 (Cartan Crossover). Let C = g_SM cap Comm(M_loop) be the
+Cartan rotation space and h_std = <lambda^3, lambda^8, sigma^3> the
+standard Cartan. Then:
+
+  (i)   dim(C cap h_std) = 2.
+  (ii)  The complement of C cap h_std in C is spanned by the uniform
+        u(1)^5 direction v_sub = I_14/sqrt(5), contributed by the
+        substrate.
+  (iii) The complement of C cap h_std in h_std is spanned by
+        v_gauge = (1/2) lambda^3 - (sqrt(3)/2) lambda^8
+                = diag(0,-1,+1) on the color triplet, contributed by
+        the emergent gauge algebra.
+  (iv)  v_gauge is perpendicular to v_sub in the trace inner product
+        on g_SM.
+  (v)   The third principal angle is exactly pi/2. The orthogonal
+        direction is the crossover pair (v_gauge, v_sub).
+  (vi)  The two nontrivial principal angles theta_1, theta_2 measure
+        the rotation of the two-dimensional intersection plane
+        C cap h_std relative to the standard Cartan basis
+        (lambda^3, lambda^8).
+
+Proof. Parts (i) through (iv) follow from Theorems 8.1, 4.3, and
+Lemmas 8.2-8.5. Part (v) follows from Corollary 7.3. Part (vi) follows
+from the identification of the two-dimensional intersection as the
+rotation plane and the fact that its principal angles are theta_1 and
+theta_2 by Theorem 7.2. QED
+
+Remark (physical reading). The Cartan Crossover Theorem says that the
+substrate and the emergent gauge algebra meet at a two-dimensional
+rotation plane. Beyond that plane, the substrate contributes the
+uniform u(1)^5 direction (equal weight to every isotypic sector),
+while the emergent gauge algebra contributes the traceless color-flip
+direction diag(0,-1,+1). The two extra directions are orthogonal, and
+this orthogonality is the exact structural origin of the 90 degree
+principal angle. The crossover is the geometric place where the
+substrate and the emergent gauge structure are joined.
+
+================================================================
+9. FIELD EXTENSION AND PRIME STRUCTURE
+================================================================
+
+9.1 The field extension
+
+Theorem 9.1 (Fields). The projection Gram matrix G has entries in
+Q(sqrt(3)). Its characteristic polynomial has rational coefficients;
+the eigenvalues of G lie in Q(sqrt(19)). The compositum
+Q(sqrt(3), sqrt(19)) has degree 4 over Q.
+
+Proof. Immediate from Theorems 4.3 and 6.2. Q(sqrt(19)) is not a
+subfield of Q(sqrt(3)) because 19 is not in 3*(Q*)^2. QED
+
+Remark. The eigenvalue field Q(sqrt(19)) is not obtained by combining
+Q(sqrt(2)) and Q(sqrt(3)). It arises from the specific rational
+structure of the characteristic polynomial of G, whose discriminant is
+76 = 4*19.
+
+9.2 Prime structure and conjectures
+
+Theorem 9.2 (Gram invariants). The four integers {15, 17, 19, 23}
+appear in the invariants of G:
+
+  Tr(G) = 23/17,
+  sigma_2(G) = 15/34,
+  det(G) = 0,
+  Delta(charpoly) = 4*19.
+
+With H = 2^d = 16, these satisfy
+
+  23 = H + 7, 17 = H + 1, 15 = H - 1, 19 = H + 3.             (9.1)
+
+The offsets {-1, +1, +3, +7} are, in magnitude, the first three odd
+Mersenne numbers 2^n - 1 for n = 1, 2, 3, together with the trivial
+offset -1.
+
+Proof. Direct arithmetic. QED
+
+Conjecture 9.3 (Mersenne pattern). The four constants {15, 17, 19, 23}
+that appear in the invariants of the projection Gram matrix G are of
+the form H + c with H = 2^d = 16 and c in {-1, +1, +3, +7}, the signed
+Mersenne offsets. The framework does not currently provide a
+first-principles derivation that forces these specific offsets rather
+than any other set; the pattern is a numerical observation.
+
+Conjecture 9.4 (Double appearance of 19). The prime 19 appears in two
+places in HCSM-17:
+
+  * as the square-free part of the discriminant 76 = 4*19 of the
+    characteristic polynomial of G;
+  * as the column count of the 14x19 zero-state measurement matrix of
+    HCSM-22.
+
+Whether these two appearances are structurally related is an open
+question. The numerical relation 19 = 14 + 5 (modes + isotypic
+sectors) is a coincidence of the specific framework integers; no
+derivation currently exists.
+
+================================================================
+10. DERIVED, INPUTS, CONJECTURES, OPEN ITEMS
+================================================================
+
+10.1 Derived in this paper
+
+  1. C = g_SM cap Comm(M_loop) is a 3-dimensional real, Hermitian,
+     abelian subalgebra (Theorem 3.1).
+  2. Support of C on eight generators and isotypic projector
+     degeneracy on P_A2, P_B2, P_E (Lemma 3.2).
+  3. Exact projection Gram matrix G in Q(sqrt(3)) (Theorem 4.3).
+  4. Tr(G) = 23/17 (Theorem 5.1).
+  5. det(G) = 0 (Theorem 5.2).
+  6. sigma_2(G) = 15/34 (Theorem 5.3).
+  7. Characteristic polynomial (Theorem 6.1).
+  8. Factorization over Q(sqrt(19)) (Theorem 6.2).
+  9. Principal angles theta_1, theta_2, theta_3 (Theorem 7.2).
+ 10. Third principal angle exactly pi/2 (Corollary 7.3).
+ 11. Cartan Crossover Theorem (Theorem 8.6).
+ 12. Field extension (Theorem 9.1).
+ 13. Gram invariants {15, 17, 19, 23} (Theorem 9.2).
+
+10.2 Inputs from prior HCSM papers
+
+  1. Substrate, 14-mode multiplet, mode order: HCSM-00, HCSM-01,
+     HCSM-04.
+  2. Gauge algebra g_SM and isotypic embeddings: HCSM-06.
+  3. Winding generator and class partition: HCSM-14.
+  4. Loop operator definition: HCSM-15.
+  5. Physical loop eigenvalue magnitudes: HCSM-61.
+  6. Zero-state measurement matrix column count 19: HCSM-22.
+
+10.3 Conjectures
+
+  * Mersenne-prime pattern (Conjecture 9.3).
+  * Double appearance of 19 (Conjecture 9.4).
+
+10.4 Open items
+
+  * The explicit orthonormal nullspace basis is computed and verified
+    numerically; a first-principles derivation of the exact
+    coefficients from framework axioms alone is not currently
+    available.
+  * The physical interpretation of the Cartan rotation angles as
+    observables is not addressed. Whether theta_1 and theta_2 have
+    direct physical meaning (e.g., as mixing angles in a specific
+    sector) is an open question.
+
+================================================================
+11. REPRODUCIBILITY
+================================================================
+
+All numerical claims in this paper are verified at machine precision
+in IEEE-754 double precision. The verification script
+HCSM-17_verification.py is available in the HCSM companion repository.
+
+The script constructs:
+
+  1. the fourteen-mode coordinates from HCSM-04;
+  2. the D4 action on the mode set and the permutation matrices;
+  3. the isotypic projectors P_A1, ..., P_E;
+  4. the sixteen Hermitian generators of g_SM;
+  5. the loop operator M_loop with (lambda_A, lambda_B, lambda_C) =
+     (1, 2, 0);
+  6. the commutator matrix C in C^{196 x 16} and its realification;
+  7. the orthonormal nullspace basis Q_N in R^{16 x 3} of C;
+  8. the projection Gram matrix G and its exact symbolic form.
+
+It verifies:
+
+  1. dim C = 3; real, Hermitian, abelian.
+  2. Isotypic projector degeneracy P_A2 = P_B2 = P_E.
+  3. Tr(G) = 23/17; det(G) = 0; sigma_2(G) = 15/34.
+  4. Characteristic polynomial and factorization over Q(sqrt(19)).
+  5. Principal angles theta_1 ~ 26.23 deg, theta_2 ~ 42.23 deg,
+     theta_3 = 90 deg exactly.
+  6. Cartan Crossover Theorem: all six statements.
+  7. v_gauge perpendicular to v_sub in the trace inner product.
+
+Running "python HCSM-17_verification.py" reproduces every numerical
+claim in the paper.
+
+================================================================
+12. CONCLUSION
+================================================================
+
+We have determined the exact structure of the intersection of the loop
+commutant with the gauge algebra of the Hodge Complex Standard Model.
+The intersection C is a three-dimensional real, Hermitian, abelian
+subalgebra of g_SM. Its orientation relative to the standard Cartan
+h_std is measured by three principal angles, whose cosines squared are
+the roots of an irreducible quadratic over Q:
+
+  cos^2 theta_{1,2} = (23 +/- sqrt(19))/34,
+  cos^2 theta_3 = 0.
+
+The three angles are, numerically, 26.2288... deg, 42.2301... deg, and
+exactly 90 deg.
+
+The central structural result is the Cartan Crossover Theorem: the
+loop commutant and the standard Cartan intersect in a two-dimensional
+rotation plane; the perpendicular directions beyond this plane are (i)
+the uniform u(1)^5 direction I_14/sqrt(5), contributed by the
+substrate, and (ii) the traceless color-flip direction diag(0,-1,+1),
+contributed by the emergent gauge algebra. These two directions are
+orthogonal in the trace inner product, and this is the exact source of
+the 90 degree principal angle.
+
+The exact projection Gram matrix of the overlap is a rational matrix in
+Q(sqrt(3)), with trace 23/17, determinant 0, and sum of principal
+two-by-two minors 15/34. The characteristic polynomial factors into a
+linear factor and an irreducible quadratic over Q; the discriminant of
+the quadratic is 76 = 4*19, producing the eigenvalue field Q(sqrt(19)).
+
+The four integers {15, 17, 19, 23} that appear in the invariants of G
+are all of the form H + c with H = 2^d = 16 and signed Mersenne
+offsets c in {-1, +1, +3, +7}. This is stated as a conjecture; the
+framework does not currently provide a first-principles derivation.
+Whether the prime 19 that appears in the characteristic-polynomial
+discriminant is structurally related to the 19 that appears as the
+column count of the zero-state measurement matrix is an open question.
+
+The Cartan rotation is not a Z_2 symmetry. It is a genuine rotation of
+the standard Cartan by two nontrivial angles, with one exact right
+angle. The right angle is the trace-orthogonality between the
+substrate's uniform u(1)^5 direction and the emergent gauge's
+color-flip direction. The crossover of the substrate and the emergent
+gauge structure lies in the two-dimensional intersection of the loop
+commutant and the standard Cartan.
+
+================================================================
+APPENDIX A. ORTHONORMAL NULLSPACE BASIS
+================================================================
+
+The orthonormal nullspace basis Q_N in R^{16 x 3} of the commutator
+matrix C_R has nonzero components only on the eight generators
+{lambda^3, lambda^8, sigma^3, P_A1, P_A2, P_B1, P_B2, P_E}:
+
+  Q_N (rows = generators, columns = basis vectors 1,2,3):
+
+  lam1  :  0.000000    0.000000    0.000000
+  lam2  :  0.000000    0.000000    0.000000
+  lam3  : -0.262520   -0.021624   +0.725399
+  lam4  :  0.000000    0.000000    0.000000
+  lam5  :  0.000000    0.000000    0.000000
+  lam6  :  0.000000    0.000000    0.000000
+  lam7  :  0.000000    0.000000    0.000000
+  lam8  : -0.151566   -0.012485   +0.418809
+  sig1  :  0.000000    0.000000    0.000000
+  sig2  :  0.000000    0.000000    0.000000
+  sig3  : +0.286883   +0.687379   +0.063495
+  P_A1  : +0.306094   -0.048810   +0.535049
+  P_A2  : +0.481107   -0.034393   +0.051449
+  P_B1  : +0.194224   -0.721772   -0.012046
+  P_B2  : +0.481107   -0.034393   +0.051449
+  P_E   : +0.481107   -0.034393   +0.051449
+
+Entries are given to six decimal places; the exact values are computed
+symbolically in the verification script.
+
+================================================================
+APPENDIX B. D4 CHARACTER TABLE
+================================================================
+
+D4 conjugacy classes: (e, r^2, r, s, rs).
+
+  Irrep  |  e  |  r^2  |  r   |  s   |  rs
+  -------|-----|-------|------|------|------
+  A1     |  1  |   1   |  1   |  1   |  1
+  A2     |  1  |   1   |  1   | -1   | -1
+  B1     |  1  |   1   | -1   |  1   | -1
+  B2     |  1  |   1   | -1   | -1   |  1
+  E      |  2  |  -2   |  0   |  0   |  0
+
+Tensor product rules:
+  A_i (x) A_j = A_{i+j mod 2}
+  A_i (x) B_j = B_{i+j mod 2}
+  A_i (x) E = E
+  B_i (x) E = E
+  E (x) E = A1 + A2 + B1 + B2
+
+================================================================
+REFERENCES
+================================================================
+
+[HCSM-00] S. Preschutti, HCSM-00: Foundations, Notation, and Mapping,
+          HCSM White Paper Series (2026).
+[HCSM-01] S. Preschutti, HCSM-01: The 8x8 Torus Substrate from d = 4,
+          HCSM White Paper Series (2026).
+[HCSM-02] S. Preschutti, HCSM-02: The Hodge Complex on Lambda,
+          HCSM White Paper Series (2026).
+[HCSM-03] S. Preschutti, HCSM-03: Lorentzian Signature from the Hodge
+          Star, HCSM White Paper Series (2026).
+[HCSM-04] S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4,
+          HCSM White Paper Series (2026).
+[HCSM-05] S. Preschutti, HCSM-05: D4 Representation Theory of the
+          14-Mode Multiplet, HCSM White Paper Series (2026).
+[HCSM-06] S. Preschutti, HCSM-06: Sector-Coarse Correspondence,
+          HCSM White Paper Series (2026).
+[HCSM-14] S. Preschutti, HCSM-14: The Winding Generator Spectrum and
+          Class Partition, HCSM White Paper Series (2026).
+[HCSM-15] S. Preschutti, HCSM-15: Gauge Symmetry of the Loop Operator
+          and the DNLS Hartree Hamiltonian, HCSM White Paper Series
+          (2026).
+[HCSM-16] S. Preschutti, HCSM-16: Loop Operator on the Full
+          56-Dimensional Hodge Sector, HCSM White Paper Series (2026).
+[HCSM-22] S. Preschutti, HCSM-22: The Zero State, HCSM White Paper
+          Series (2026).
+[HCSM-33] S. Preschutti, HCSM-33: Mass Map, HCSM White Paper Series
+          (2026).
+[HCSM-61] S. Preschutti, HCSM-61: Maxwell and Lorentz in the Classical
+          Limit of the Hodge Complex Standard Model, HCSM White Paper
+          Series (2026).
+[Schur]   I. Schur, Neue Begruendung der Theorie der
+          Gruppencharaktere, Sitzungsberichte der Koeniglich
+          Preussischen Akademie der Wissenschaften (1905), 406-432.
+[Nakahara] M. Nakahara, Geometry, Topology and Physics, 2nd ed., CRC
+           Press (2003).
+
+================================================================
+END OF HCSM-17 (Revised)
+================================================================
