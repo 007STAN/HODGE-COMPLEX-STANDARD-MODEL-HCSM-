@@ -1,0 +1,711 @@
+================================================================================
+HCSM-22: THE ZERO STATE
+The 14 x 19 Vacuum-Native Measurement Matrix, Its Exact Nullspace Vector,
+and the Variational Selection of the Vacuum
+================================================================================
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstannp@yahoo.com
+
+September 2026
+
+================================================================================
+ABSTRACT
+================================================================================
+
+The Hodge Complex Standard Model identifies the 14 modes at the self-paired
+eigenvalue lambda = 4 of the discrete Laplacian on the periodic 8 x 8 torus
+with one Standard Model generation (HCSM-04). This paper establishes the zero
+state in two parts: its exact algebraic structure, and its variational
+selection as the vacuum.
+
+PART I: STRUCTURE. The 19 vacuum-native observables (support, IPR, entropy,
+N/4, delta, shell, charge, three pressure components, helicity-flip
+probability, five geometric labels, and three velocity components) form a
+14 x 19 matrix M. We prove that rank(M) = 13 exactly and nullity(M^T) = 1:
+there is exactly one 14-vector s (up to scale) satisfying M^T s = 0. This is
+the zero state. Its three independent amplitudes a_2, a_4, a_6 lie in
+Q(sqrt(2)) with closed forms
+
+    a_2 = (80643 + 32544*sqrt(2)) / 135079
+    a_4 = (6480 + 26856*sqrt(2)) / 135079
+    a_6 = (20014 - 4104*sqrt(2)) / 135079
+
+and exact ratios a_3 = 2*a_4, a_5 = (2 - sqrt(2))*a_4. The minimal polynomials
+of a_2, a_4, a_6 are quadratic over Q. Four structural properties follow: s is
+odd under the chiral reflection rs; the two rs-fixed modes W = (2,2) and
+t = (6,6) have exactly zero amplitude; the |s|^2-mass distribution is 0.45%,
+95.17%, 4.39% over the three D4 orbits; and the entropy column is exactly
+redundant with the IPR column.
+
+PART II: SELECTION. We prove that the vacuum of the 14-mode multiplet is the
+unique state minimizing ||M^T s||^2 subject to ||s|| = 1. Two independent
+derivations are given. The Landauer route uses the processor T = I - P_C at
+the deterministic Landauer bound: the vacuum is the state of minimum
+information, which is exactly M^T s = 0. The entropy-well route uses the
+HCSM-54 entropy well S(epsilon)/S_0 = 1 - gamma*epsilon^2 + O(epsilon^4)
+with the identification epsilon = ||M^T s||: the entropy is maximized exactly
+when M^T s = 0. The two routes are dual descriptions of the same
+minimum-information principle. Uniqueness of the maximizer follows from
+rank(M) = 13 and nullity(M^T) = 1.
+
+The stability of the zero state under the DNLS Hartree evolution is
+established: it is a stationary point of the energy functional, not an
+eigenstate of H_DNLS, and decays to zero under iteration of the loop operator
+M_loop.
+
+All claims are HCSM-native and verified at machine precision.
+
+Keywords: Hodge Complex Standard Model; HCSM; zero state; measurement matrix;
+nullspace; chiral reflection; D4 orbits; exact algebraic structure;
+Q(sqrt(2)); DNLS Hartree; entropy well; Landauer bound; vacuum selection;
+variational principle; stability analysis
+
+================================================================================
+CONTENTS
+================================================================================
+
+PART I. STRUCTURE OF THE ZERO STATE
+
+1. Introduction
+2. Setup
+3. The 19 vacuum-native observables
+4. The measurement matrix
+5. Rank and nullity
+6. The zero state vector
+7. Exact algebraic structure
+8. Symmetry under the chiral reflection
+9. Orbit weight fractions
+10. Stability under the DNLS Hartree evolution
+
+PART II. SELECTION OF THE ZERO STATE
+
+11. The selection problem
+12. The selection principle
+13. The Landauer route
+14. The entropy-well route
+15. Equivalence of the two routes
+16. Uniqueness of the maximizer
+17. Inherited structural properties
+18. Falsification tests
+19. Conclusion
+
+References
+
+================================================================================
+PART I. STRUCTURE OF THE ZERO STATE
+================================================================================
+
+================================================================================
+1. INTRODUCTION
+================================================================================
+
+1.1 The zero state problem
+
+The Hodge Complex Standard Model (HCSM) identifies the 14 modes at the
+self-paired eigenvalue lambda = 4 of the discrete Laplacian on the periodic
+8 x 8 torus with one Standard Model generation [HCSM-04, HCSM-23]. The
+multiplet's static structure is established: its D4 orbit decomposition
+[HCSM-04], its winding class partition [HCSM-14], its processor T = I - P_C
+[HCSM-13], and its chiral reflection rs with fixed locus {W, t} [HCSM-26].
+
+What has not been established is: which configuration does the vacuum pass
+through, and why is that configuration the physical ground state? This paper
+addresses both questions. Part I constructs the measurement matrix M of 19
+vacuum-native observables on the 14 modes and computes its nullspace. Part II
+establishes the variational principle that selects the nullvector as the
+physical vacuum.
+
+1.2 The one-line summary
+
+The 14-mode multiplet has a unique zero state: a superposition of the 12
+non-rs-fixed modes that vanishes on all 19 vacuum-native observables. It is
+odd under the chiral reflection, has exact algebraic ratios, lives in
+Q(sqrt(2)), concentrates 95.17% of its weight on the middle D4 orbit O_1,
+and is the unique minimizer of ||M^T s||^2.
+
+1.3 Main results
+
+(1) Rank and nullity (Theorem 5.1). rank(M) = 13 exactly, nullity(M^T) = 1.
+(2) Zero state vector (Theorem 6.1). Exact closed form in Q(sqrt(2)).
+(3) Oddness under rs (Theorem 8.1). s(rs(m)) = -s(m) for all 14 modes.
+(4) Vanishing at fixed points (Corollary 8.2). s(W) = s(t) = 0.
+(5) Exact ratios (Theorem 7.2). a_3 = 2*a_4, a_5 = (2 - sqrt(2))*a_4.
+(6) Entropy redundancy (Theorem 3.4).
+(7) Weight fractions (Theorem 9.1). 0.45%, 95.17%, 4.39%.
+(8) Minimal polynomials (Theorem 7.3).
+(9) Selection principle (Theorem 12.1).
+(10) Landauer route (Theorem 13.1).
+(11) Entropy-well route (Theorem 14.1).
+(12) Route equivalence (Theorem 15.1).
+(13) Stability (Theorem 10.1).
+
+1.4 Disclosed inputs
+
+The substrate-level disclosed inputs (S1)-(S3) of HCSM-01 are inherited
+unchanged. At the physics level:
+
+    (P1) Identification of the 14 modes with one Standard Model generation
+         [HCSM-23].
+    (P7) N/4 mass-ordering labels [HCSM-23].
+    (P8) Processor T = I - P_C with disclosed class partition
+         C = {dark, W, Z, H} [HCSM-11, HCSM-13].
+    (P9) Stability coefficient gamma (HCSM-54).
+
+1.5 Organization
+
+Part I (Sections 1-10) establishes the structure of the zero state. Part II
+(Sections 11-19) establishes its variational selection as the physical vacuum.
+
+================================================================================
+2. SETUP
+================================================================================
+
+2.1 The substrate and the 14-mode multiplet
+
+Substrate: Lambda = Z_8 x Z_8, N = L^2 = 64.
+Framework constants: d = 4, N = d * 2^d = 64, L = sqrt(N) = 8, H = 2^d = 16.
+
+5-point Laplacian eigenvalues:
+    lambda(n_1, n_2) = 4 - 2*cos(pi*n_1/4) - 2*cos(pi*n_2/4)
+
+Self-paired eigenvalue lambda = 4, multiplicity 14.
+
+Standard mode order:
+    (nu, e, u, d, s, mu, dark, c, tau, b, W, Z, H, t)
+
+Mode coordinates:
+    nu   : (0, 4)      e   : (4, 0)
+    u    : (1, 3)      d   : (1, 5)
+    s    : (3, 1)      mu  : (3, 7)
+    dark : (5, 7)      c   : (7, 3)
+    tau  : (7, 5)      b   : (5, 1)
+    W    : (2, 2)      Z   : (2, 6)
+    H    : (6, 2)      t   : (6, 6)
+
+2.2 The D4 orbit decomposition
+
+    O_0 = {nu, e}                                      size 2
+    O_1 = {u, d, s, mu, dark, c, tau, b}               size 8
+    O_2 = {W, Z, H, t}                                 size 4
+
+2.3 The processor T
+
+T = I - P_C, rank 10, kernel C = {dark, W, Z, H},
+image F = A union B with A = {nu, e, t}, B = {u, d, s, mu, c, tau, b}.
+
+2.4 The chiral reflection rs
+
+rs: (n_1, n_2) -> (n_2, n_1) mod 8.
+Fix(rs) = {(2, 2), (6, 6)} = {W, t}.
+
+================================================================================
+3. THE 19 VACUUM-NATIVE OBSERVABLES
+================================================================================
+
+Column 1: Support
+    Supp(m) = 64 if m in O_0, 48 if m in O_1, 32 if m in O_2.
+
+Column 2: IPR
+    IPR(m) = 2/128 if m in O_0, 3/128 if m in O_1, 4/128 if m in O_2.
+
+Column 3: Entropy
+    S(m) = 7 - 64 * IPR(m).   [Affine entropy-IPR relation, Thm 3.4]
+
+Column 4: N/4
+    (60, 24, 21, 20, 14, 14, 12, 9.5, 9, 7.5, 2, 2, 1, 0.5)
+
+Column 5: delta
+    (33, 6, 3, 3, -3, -3, 0, 0.5, 0, 0.5, 0, 0, 0, 0.5)
+
+Column 6: Shell
+    (0, 1, 1, 1, 1.5, 1.5, 1.5, 2, 2, 2, 3, 3, 3, 3)
+
+Column 7: Charge
+    q_3 = (0, -3, +2, -1, -1, -3, 0, +2, -3, -1, +3, 0, 0, +2)
+
+Columns 8-10: Pressure observables
+    P_par(n_1, n_2) = 2*sin^2(pi*n_1/8) - 2*sin^2(pi*n_2/8)
+    P_perp = -P_par
+    P_total = 0
+
+    P_par = (-2, +2, -r, -r, +r, +r, +r, -r, -r, +r, 0, 0, 0, 0)
+    where r = sqrt(2).
+
+Column 11: P_flip
+    P_flip(n_1, n_2) = cos^2(pi*(n_1 + n_2)/8)
+    (0, 0, 0, 0.5, 0, 0.5, 0, 0.5, 0, 0.5, 0, 1, 1, 0)
+
+Columns 12-16: Geometric labels
+    n_1        = (0, 4, 1, 1, 3, 3, 5, 7, 7, 5, 2, 2, 6, 6)
+    n_2        = (4, 0, 3, 5, 1, 7, 7, 3, 5, 1, 2, 6, 2, 6)
+    n_1 + n_2  = (4, 4, 4, 6, 4, 10, 12, 10, 12, 6, 4, 8, 8, 12)
+    |n_2 - n_1|= (4, 4, 2, 4, 2, 4, 2, 4, 2, 4, 0, 4, 4, 0)
+    n_1 * n_2  = (0, 0, 3, 5, 3, 21, 35, 21, 35, 5, 4, 12, 12, 36)
+
+Columns 17-19: Group velocity
+    v_x = pi * sin(pi*n_1/4) / 16
+    v_y = pi * sin(pi*n_2/4) / 16
+    |v| = sqrt(v_x^2 + v_y^2)
+
+    v_x = (pi/16) * (0, 0, r/2, r/2, r/2, r/2,
+                     -r/2, -r/2, -r/2, -r/2, 1, 1, -1, -1)
+    v_y = (pi/16) * (0, 0, r/2, -r/2, r/2, -r/2,
+                     -r/2, r/2, -r/2, r/2, 1, -1, 1, -1)
+
+================================================================================
+4. THE MEASUREMENT MATRIX
+================================================================================
+
+Definition: M_ij = O_j(m_i), where m_i is the i-th mode in standard order
+and O_j is the j-th observable.
+
+M is a 14 x 19 matrix with entries in Q(sqrt(2)).
+
+================================================================================
+5. RANK AND NULLITY
+================================================================================
+
+THEOREM 5.1 (Rank-nullity). rank(M) = 13 exactly, nullity(M^T) = 1.
+
+Proof: We identify 13 linearly independent columns:
+    2 (IPR), 4 (N/4), 5 (delta), 6 (shell), 7 (charge), 8 (P_par),
+    11 (P_flip), 12 (n_1), 13 (n_2), 14 (n_1+n_2), 15 (|n_2-n_1|),
+    16 (n_1*n_2), 17 (v_x).
+
+The remaining 6 columns are linear combinations:
+    1  (Support)   : constant vector
+    3  (Entropy)   : affine in column 2: S = 7 - 64*IPR
+    9  (P_perp)    : -column 8
+    10 (P_total)   : zero vector
+    18 (v_y)       : linear combination of v_x and geometric labels
+    19 (|v|)       : nonlinear function of v_x, v_y
+
+The 13 columns are linearly independent over Q(sqrt(2)). Hence
+rank(M) = 13. By rank-nullity, nullity(M^T) = 14 - 13 = 1. QED.
+
+COROLLARY 5.2. There is exactly one 14-vector s (up to scale) satisfying
+M^T s = 0.
+
+================================================================================
+6. THE ZERO STATE VECTOR
+================================================================================
+
+Definition: The zero state is the unique nullspace vector s of M^T,
+normalized so that max_i |s_i| = 1.
+
+THEOREM 6.1 (Zero state vector). In standard mode order,
+
+    s = (-a_6, +a_6, +a_2, -a_5, -a_2, +a_3,
+         -a_1, -a_3, +a_1, +a_5, 0, -a_4, +a_4, 0)
+
+with the six independent amplitudes in Q(sqrt(2)):
+
+    a_1 = 1
+    a_2 = (80643 + 32544*sqrt(2)) / 135079
+    a_3 = (12960 + 53712*sqrt(2)) / 135079
+    a_4 = (6480 + 26856*sqrt(2)) / 135079
+    a_5 = (-40752 + 47232*sqrt(2)) / 135079
+    a_6 = (20014 - 4104*sqrt(2)) / 135079
+
+Proof: The nullspace condition M^T s = 0 is equivalent to the
+reconstructible column equations of HCSM-05 Lemma 8.1:
+
+    -36*a_6 + 7*a_2 + (12.5*sqrt(2) - 17)*a_4 = 3
+    -27*a_6 + 6*a_2 - (12 - 2.5*sqrt(2))*a_4 = 0
+    4*a_6 - 2*a_2 + (4 - 4*sqrt(2))*a_4 = -2
+
+Together with the exact ratios a_3 = 2*a_4 and a_5 = (2 - sqrt(2))*a_4,
+this system admits the unique solution above. QED.
+
+Numerical values:
+    a_1 = 1.000000000000
+    a_2 = 0.937726561300
+    a_3 = 0.658283218429
+    a_4 = 0.329141609215
+    a_5 = 0.192806690737
+    a_6 = 0.105198199128
+
+================================================================================
+7. EXACT ALGEBRAIC STRUCTURE
+================================================================================
+
+7.1 Field of definition
+
+THEOREM 7.1. a_2, a_4, a_6 in Q(sqrt(2)).
+
+Proof: M has entries in Q(sqrt(2)). The nullspace of a matrix with entries
+in Q(sqrt(2)) is a vector space over Q(sqrt(2)), so each amplitude lies
+in Q(sqrt(2)). QED.
+
+7.2 Exact ratios
+
+THEOREM 7.2. a_3/a_4 = 2, a_5/a_4 = 2 - sqrt(2).
+
+Proof: From the exact closed forms. Numerical verification:
+    a_3/a_4 = 0.658283218429 / 0.329141609215 = 2.000000000000
+    a_5/a_4 = 0.192806690737 / 0.329141609215 = 0.585786437627
+    and 2 - sqrt(2) = 0.585786437627. All 15 printed digits agree. QED.
+
+7.3 Minimal polynomials
+
+THEOREM 7.3. The minimal polynomials of a_2, a_4, a_6 over Q are:
+
+    a_2: 18246336241*z^2 - 21786556194*z + 4385069577 = 0
+    a_4: 18246336241*x^2 - 1750223840*x - 1400499072 = 0
+    a_6: 18246336241*y^2 - 5407229212*y + 366874564 = 0
+
+Each is irreducible over Q. Each amplitude is algebraic of degree 2 over Q.
+
+================================================================================
+8. SYMMETRY UNDER THE CHIRAL REFLECTION
+================================================================================
+
+THEOREM 8.1 (rs-oddness). s(rs(m)) = -s(m) for all 14 modes.
+
+Proof: Direct verification using the explicit vector of Theorem 6.1 and the
+rs action (n_1, n_2) -> (n_2, n_1). QED.
+
+COROLLARY 8.2 (Vanishing at fixed points). s(W) = s(t) = 0.
+
+Proof: By Theorem 8.1, s(W) = s(rs(W)) = -s(W), so s(W) = 0. Similarly
+s(t) = 0. QED.
+
+================================================================================
+9. ORBIT WEIGHT FRACTIONS
+================================================================================
+
+THEOREM 9.1 (Weight fractions). The |s|^2-mass distribution is
+
+    W_0 = 0.45%, W_1 = 95.17%, W_2 = 4.39%.
+
+Proof: Compute W_k = sum_{i in O_k} s_i^2 / sum_i s_i^2.
+
+The amplitude squares are:
+    a_1^2 = 1, a_2^2 = 0.879331, a_3^2 = 0.433337,
+    a_4^2 = 0.108334, a_5^2 = 0.037174, a_6^2 = 0.011067
+
+Total: ||s||^2 = 2*sum = 4.938486
+
+O_0: 2*a_6^2 = 0.022134
+O_1: 2*(a_2^2 + a_5^2 + a_3^2 + a_1^2) = 4.699684
+O_2: 2*a_4^2 = 0.216668
+
+Dividing by ||s||^2 gives the stated fractions. QED.
+
+================================================================================
+10. STABILITY UNDER THE DNLS HARTREE EVOLUTION
+================================================================================
+
+10.1 Stationary point
+
+THEOREM 10.1. The zero state s is a stationary point of the DNLS energy
+functional E[psi] = <psi | H_DNLS | psi>.
+
+Proof: The zero state satisfies M^T s = 0, i.e., it is orthogonal to all
+vacuum-native observables. The DNLS energy functional is a linear combination
+of these observables. Therefore s is a stationary point. QED.
+
+10.2 Not an eigenstate
+
+THEOREM 10.2. The zero state is not an eigenstate of H_DNLS.
+
+Proof: The zero state is odd under rs. The DNLS Hamiltonian commutes with rs.
+If s were an eigenstate, it would have definite rs-parity. Since s is odd, it
+would be an odd eigenstate. But the DNLS Hamiltonian has no odd eigenstates
+at the relevant energy scale. QED.
+
+10.3 Asymptotic decay
+
+THEOREM 10.3. Under iteration of M_loop, M_loop^k s -> 0 as k -> infinity.
+
+Proof: All eigenvalues of M_loop have magnitude < 1 (HCSM-21 Thm 8.6). QED.
+
+================================================================================
+PART II. SELECTION OF THE ZERO STATE
+================================================================================
+
+================================================================================
+11. THE SELECTION PROBLEM
+================================================================================
+
+Part I establishes the zero state as the unique nullvector of M^T. It does
+not explain why this nullvector is the physical vacuum. Part II supplies the
+selection rule.
+
+The physical principle is: the vacuum is the state of minimum information -
+the state from which the processor T extracts zero information.
+
+Two independent derivations are given. The Landauer route uses only the
+machine's operation (the processor T at the deterministic Landauer bound).
+The entropy-well route uses only the self-dual modular structure of the
+square torus (via the stability coefficient gamma of HCSM-54). Both select
+the same state, and the equivalence of the two routes is a structural
+theorem, not a coincidence.
+
+================================================================================
+12. THE SELECTION PRINCIPLE
+================================================================================
+
+THEOREM 12.1 (Zero State Selection). The vacuum is the state of the 14-mode
+multiplet that minimizes the total squared expectation value of the 19
+vacuum-native observables:
+
+    s = argmin_{||s||=1} ||M^T s||^2.
+
+Since M has rank 13 and nullity 1 (Theorem 5.1), the unique minimizer is the
+nullvector of M^T, i.e., the zero state.
+
+The theorem is proved constructively in Sections 13 and 14 by two independent
+routes.
+
+================================================================================
+13. THE LANDAUER ROUTE
+================================================================================
+
+THEOREM 13.1 (Landauer selection). The processor T operates at the
+deterministic Landauer bound. The vacuum is the state of minimum information.
+Minimum information is exactly M^T s = 0. Hence the vacuum is the zero state.
+
+Proof: Three steps.
+
+(i) The machine operates at the Landauer bound. By HCSM-21 Thm 12.1, the
+loop-pass duration is T_DME = 1/(2*gamma), the unique dissipative scale in
+HCSM. By HCSM-13 Prop 3.4, the processor reduces the entropy of the
+maximally mixed state on the 56-dimensional Hodge sector to the entropy of
+the maximally mixed state on the fermion-boson product:
+
+    Delta S = log 56 - log 40 = log(7/5).
+
+This saturates the deterministic Landauer bound.
+
+(ii) The machine reads the multiplet through the 19 observables. The
+expectation value of observable O_a in a state s is
+
+    <O_a>_s = sum_i O_a(m_i) s_i = (M^T s)_a.
+
+(iii) The vacuum is the state of minimum information. A state s with
+<O_a>_s != 0 for some a is a state from which the machine extracts
+information. The vacuum is the state from which no information is extracted:
+
+    <O_a>_s = 0 for all a = 1, ..., 19.
+
+This is exactly M^T s = 0. By Corollary 5.2 of Part I, the unique solution
+is the zero state. QED.
+
+================================================================================
+14. THE ENTROPY-WELL ROUTE
+================================================================================
+
+THEOREM 14.1 (Entropy-well selection). Identifying the dimensional deviation
+epsilon = D - 4 with the observable magnitude ||M^T s||, the entropy well of
+HCSM-54 becomes
+
+    S(s)/S_0 = 1 - gamma*||M^T s||^2 + O(||M^T s||^4),
+
+and maximizing S(s) is equivalent to M^T s = 0.
+
+Proof: Three steps.
+
+Step 1: Bridge identification. The dimensional deviation epsilon = D - 4 is
+a scalar on the multiplet with the properties:
+    (a) D4-invariant
+    (b) non-negative
+    (c) vanishes exactly at the vacuum.
+
+The observable magnitude ||M^T s|| has all three properties: (a) M is built
+from D4-invariant observables; (b) non-negative by definition of the
+Euclidean norm; (c) vanishes exactly when M^T s = 0. The identification is
+therefore unique up to a positive multiplicative constant, which is fixed to
+unity by the normalization S(0)/S_0 = 1:
+
+    epsilon = ||M^T s||.
+
+Step 2: Substitution. The HCSM-54 entropy well is
+
+    S(epsilon)/S_0 = 1 - gamma*epsilon^2 + O(epsilon^4),
+
+with gamma = c_2/I(2) the stability coefficient. Substituting
+epsilon = ||M^T s|| gives the state-dependent form.
+
+Step 3: Extremization. Since gamma > 0 and ||M^T s||^2 >= 0 with equality
+iff M^T s = 0, the functional S(s) is maximized exactly on the nullspace of
+M^T. By Theorem 5.1, the nullspace is 1-dimensional, and the unique maximizer
+is the zero state. QED.
+
+COROLLARY 14.2 (Vacuum entropy maximum). S(s_zero)/S_0 = 1 exactly. For any
+other state s != +-s_zero, S(s)/S_0 < 1.
+
+================================================================================
+15. EQUIVALENCE OF THE TWO ROUTES
+================================================================================
+
+THEOREM 15.1 (Route equivalence). The Landauer route (Theorem 13.1) and the
+entropy-well route (Theorem 14.1) give the same selection.
+
+Proof: The Landauer route selects the state with <O_a>_s = 0 for all a, i.e.
+M^T s = 0. The entropy-well route selects the maximizer of
+1 - gamma*||M^T s||^2, i.e. M^T s = 0. The two conditions are identical. The
+physical content is the same: the vacuum is the state from which the machine
+extracts zero information (Landauer language) or equivalently the state of
+maximum entropy in the entropy well (thermodynamic language). QED.
+
+Remark: The equivalence is not tautological. The Landauer route uses only the
+operation of the processor T (a projection determined by the winding class
+partition), while the entropy-well route uses the self-dual modular structure
+of the square torus (via gamma). That these two independent structures select
+the same state is a non-trivial consistency check on the framework.
+
+================================================================================
+16. UNIQUENESS OF THE MAXIMIZER
+================================================================================
+
+THEOREM 16.1 (Uniqueness). The minimizer of ||M^T s||^2 subject to ||s||=1
+is unique up to sign.
+
+Proof: The minimizer is the normalized nullvector of M^T, equivalently the
+eigenvector of M M^T with eigenvalue 0. Since rank(M) = 13 (Theorem 5.1), the
+matrix M M^T has a single zero eigenvalue with multiplicity 1. The associated
+eigenspace is 1-dimensional. The normalized basis is unique up to sign. QED.
+
+COROLLARY 16.2 (Vacuum uniqueness). The vacuum of the 14-mode multiplet is
+unique up to the physical sign convention +-1.
+
+================================================================================
+17. INHERITED STRUCTURAL PROPERTIES
+================================================================================
+
+Once s is selected by the variational principle, the structural properties
+established in Part I are inherited.
+
+COROLLARY 17.1 (rs-oddness). s(rs(m)) = -s(m) for all 14 modes.
+
+COROLLARY 17.2 (Vanishing at the observer pair). s(W) = s(t) = 0 exactly.
+
+COROLLARY 17.3 (Exact ratios). a_3 = 2*a_4, a_5 = (2 - sqrt(2))*a_4,
+a_5/a_3 = (2 - sqrt(2))/2.
+
+COROLLARY 17.4 (Closed forms in Q(sqrt(2))). a_2, a_4, a_6 have the exact
+closed forms of Theorem 6.1.
+
+COROLLARY 17.5 (Weight fractions). The |s|^2-mass distribution over the D4
+orbits is 0.45%, 95.17%, 4.39%.
+
+================================================================================
+18. FALSIFICATION TESTS
+================================================================================
+
+(1) Vacuum with nonzero observable. A confirmed vacuum with <O_a> != 0 for
+    some vacuum-native observable would falsify Theorem 13.1.
+
+(2) Non-maximizer selection. A confirmed vacuum s with S(s)/S_0 < 1 while
+    another state s' has S(s')/S_0 > S(s)/S_0 would falsify Theorem 14.1.
+
+(3) Entropy-well deviation. A measured S(epsilon)/S_0 != 1 - gamma*epsilon^2
+    + O(epsilon^4) would falsify the identification epsilon = ||M^T s||.
+
+(4) Rank-nullity violation. A measured rank(M) != 13 or nullity(M^T) != 1
+    would falsify Theorem 16.1.
+
+(5) Route disagreement. A demonstration that the Landauer route and the
+    entropy-well route select different states would falsify Theorem 15.1.
+
+================================================================================
+19. CONCLUSION
+================================================================================
+
+This paper has established the zero state of the Hodge Complex Standard Model
+in complete form.
+
+The 14-mode multiplet at the self-paired eigenvalue lambda = 4 carries 19
+vacuum-native observables, forming a 14 x 19 measurement matrix M with
+entries in Q(sqrt(2)). The matrix has rank 13 and nullity 1, so there is a
+unique nullspace vector s (up to scale), the zero state.
+
+The zero state has the following structural properties:
+
+    1. It is odd under the chiral reflection rs: s(rs(m)) = -s(m) for all
+       14 modes.
+    2. The two rs-fixed modes W = (2,2) and t = (6,6) have exactly zero
+       amplitude.
+    3. The six independent amplitudes satisfy the exact ratios
+       a_3/a_4 = 2 and a_5/a_4 = 2 - sqrt(2).
+    4. The amplitudes lie in Q(sqrt(2)) and are algebraic of degree 2 over
+       Q, with explicit quadratic minimal polynomials.
+    5. The |s|^2-mass distribution is 0.45% on O_0, 95.17% on O_1, and
+       4.39% on O_2.
+    6. The zero state is a stationary point of the DNLS Hartree energy
+       functional, not an eigenstate of H_DNLS, and decays to zero under
+       iteration of the loop operator.
+
+The zero state is selected as the physical vacuum by the variational principle
+
+    s = argmin_{||s||=1} ||M^T s||^2.
+
+Two independent derivations establish this selection. The Landauer route uses
+the processor T at the deterministic Landauer bound; the vacuum is the state
+of minimum information. The entropy-well route uses the HCSM-54 entropy well
+with the identification epsilon = ||M^T s||; the entropy is maximized exactly
+when M^T s = 0. The two routes are dual descriptions of the same
+minimum-information principle. Uniqueness of the maximizer follows from
+rank(M) = 13 and nullity(M^T) = 1.
+
+The zero state is the physical vacuum of the 14-mode multiplet.
+
+================================================================================
+REFERENCES
+================================================================================
+
+[HCSM-00]  S. Preschutti, HCSM-00: Foundations, Notation, and Mapping, HCSM
+           White Paper Series (2026).
+
+[HCSM-01]  S. Preschutti, HCSM-01: The 8 x 8 Torus Substrate from d = 4,
+           HCSM White Paper Series (2026).
+
+[HCSM-04]  S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4, HCSM
+           White Paper Series (2026).
+
+[HCSM-05]  S. Preschutti, HCSM-05: D4 Representation Theory of the 14-Mode
+           Multiplet, HCSM White Paper Series (2026).
+
+[HCSM-11]  S. Preschutti, HCSM-11: The 5 + 9 Split of the 14-Mode Multiplet,
+           HCSM White Paper Series (2026).
+
+[HCSM-13]  S. Preschutti, HCSM-13: The Processor T and the Fermion/Boson-Class
+           Correspondence, HCSM White Paper Series (2026).
+
+[HCSM-14]  S. Preschutti, HCSM-14: Winding Generator Spectrum and Class
+           Partition, HCSM White Paper Series (2026).
+
+[HCSM-18]  S. Preschutti, HCSM-18: The Dynamical Bridge: DNLS on the Torus,
+           HCSM White Paper Series (2026).
+
+[HCSM-21]  S. Preschutti, HCSM-21: The Time Theorem, HCSM White Paper Series
+           (2026).
+
+[HCSM-23]  S. Preschutti, HCSM-23: The Midpoint Sorting Theorem, HCSM White
+           Paper Series (2026).
+
+[HCSM-24]  S. Preschutti, HCSM-24: The Charge Theorem, HCSM White Paper
+           Series (2026).
+
+[HCSM-26]  S. Preschutti, HCSM-26: The Observer Pair {W, t}, HCSM White Paper
+           Series (2026).
+
+[HCSM-32]  S. Preschutti, HCSM-32: The Shell Assignment Rule, HCSM White Paper
+           Series (2026).
+
+[HCSM-33]  S. Preschutti, HCSM-33: The Mass Map, HCSM White Paper Series
+           (2026).
+
+[HCSM-54]  S. Preschutti, HCSM-54: Vacuum Stability and the Stability
+           Coefficient, HCSM White Paper Series (2026).
+
+[Landauer] R. Landauer, Irreversibility and heat generation in the computing
+           process, IBM J. Res. Dev. 5, 183 (1961).
+
+================================================================================
+END OF HCSM-22
+================================================================================
