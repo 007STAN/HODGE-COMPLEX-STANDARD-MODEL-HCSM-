@@ -21,7 +21,7 @@ Stanley Preschutti · Entropia Research Institute / Information Physics Institut
 
 ## TL;DR
 
-- The **Standard Model** — gauge structure, matter content, particle spectrum, mixing matrices, spacetime dimension, graviton, Newton constant, and vacuum stability is derived from a single discrete substrate: the periodic `8 × 8` torus `Λ = ℤ₈ × ℤ₈`.
+- The **Standard Model** — gauge structure, matter content, particle spectrum, mixing matrices, spacetime dimension, graviton, Newton constant, and vacuum stability — is derived from a single discrete substrate: the periodic `8 × 8` torus `Λ = ℤ₈ × ℤ₈`.
 - The substrate itself is selected by a **single theorem** (Unified Substrate Selection), from two framework identities: `N = d · 2ᵈ` and `mult_{λ=4}(L) = |F| + |B|`. The unique even-integer solution is `(L, d) = (8, 4)`, `N = 64`.
 - The framework has **one dimensionful anchor** (`M_P`) and **zero empirical anchors in the particle sector**.
 - **Seven derived quantities** already match observation at sub-percent precision. **Eight active predictions** are testable at upcoming facilities.
@@ -61,7 +61,7 @@ The derivational program is the canonical core of HCSM. Every quantity below is 
 | **Gauge algebra** | `su(3) ⊕ su(2) ⊕ u(1)⁵` from the `D₄` commutant |
 | **Charge** | `q₃ = F(n₁, σ)`; bijection to `{−3, −1, 0, +2, +3}`; total charge `−1e` |
 | **Mass** | `m = A · exp(−B · N/4)`, RMS `0.0449 dex` across 13 orders of magnitude |
-| **Flavor** | `sin θ₁₂ = π/14`; Wolfenstein `√(ρ̄²+η̄²) = 5/12`; PMNS `(60, 60, 58)` |
+| **Flavor** | `sin θ₁₂ = π/14`; Wolfenstein `√(ρ̃²+η̃²) = 5/12`; PMNS `(60, 60, 58)` |
 | **Higgs** | `λ_tree = ln(kL)/[(d−1)π²]`; `v_EW = M_P exp(−kL_phys)`; `m_H = 125.14 GeV` |
 | **Gravity** | `G_N = (d+1)² / (8π M_P²) = 25 / (8π M_P²)`; graviton exactly massless |
 | **Cosmology** | `kL_bare = 192/5 = 38.4`; `ρ_DE = ((d+1)/2)(1 + cδ) m_ν⁴`, `c = 5/9`, `w = −1` |
@@ -95,147 +95,6 @@ The two identities that select the substrate are the framework's own site-count 
 | **Mode-content relation** | `mult_{λ=4}(L) = |F| + |B|` |
 
 Combined:
-L² = d · 2ᵈ
-2(L − 1) = d(d + 3) / 2
-
-**Theorem (Unified Substrate Selection).** This system has the unique even-integer solution `L = 8`, `d = 4`, `N = 64`.
-
-**Corollaries.** The four prior derivations of `L = 8` and `d = 4` — equal entropy spacing, maximal winding cancellation, Lorentzian signature on `ker D`, and the Betti numbers of `T²` — become independent consistency checks on the unique solution.
-
-### Evidence — Confirmed
-
-Seven derived quantities already match established empirical data.
-
-| # | Parameter | HCSM Value | Observation | Agreement |
-|:-:|---|---|---|---|
-| 1 | Top quark mass | `172.688398 GeV` | PDG `172.690 ± 0.30 GeV` | `0.0053σ` |
-| 2 | Cabibbo angle | `sin θ₁₂ = π/14 = 0.2243995` | CKM extraction of `\|V_us\|` | `0.044%` |
-| 3 | Third Wolfenstein parameter | `√(ρ̄²+η̄²) = (5/12)(1 + δ_edge/6)` | CKM unitarity triangle fits | `0.03–0.07%` |
-| 4 | Graviton spin | Exactly `2` | LIGO/Virgo polarization analyses | Confirmed |
-| 5 | Graviton mass | Exactly `0` | Multi-messenger GW propagation | Confirmed |
-| 6 | Kaluza–Klein towers | Absent | LHC multi-TeV scans | Confirmed |
-| 7 | Dark energy density | `ρ_DE ≈ 2.4809 × 10⁻⁴⁷ GeV⁴` | Planck CMB + DESI BAO | `0.76%` (refined `0.010%`) |
-
-Additional sub-percent confirmations:
-
-| Parameter | HCSM Value | Observation | Agreement |
-|---|---|---|---|
-| Higgs mass | `125.14 GeV` | PDG `125.25 ± 0.17 GeV` | `0.09%` |
-| Weinberg angle | `sin²θ_W(M_Z) = 0.2312` | PDG `0.23122 ± 0.00004` | `0.02%` |
-| `m_W / m_Z` | `cos θ_W = 0.8769` | PDG `0.8814` | `0.5%` |
-
-### Evidence — Falsifiable
-
-Eight framework-level predictions from HCSM-00 §9.
-
-| # | Prediction | HCSM Value | Test |
-|:-:|---|---|---|
-| 1 | **No light dark photon** | `ε ≡ 0` exactly | SHiP, FASER2, MATHUSLA, CODEX-b, LDMX, NA64, Belle II, HL-LHC at `ε > 10⁻¹²` |
-| 2 | **Strong CP** | `θ_QCD = 0` exactly | Any neutron EDM at generic `θ_QCD` level falsifies |
-| 3 | **ρ parameter** | Tree-level `ρ = 1` exactly | Any tree-level deviation falsifies |
-| 4 | **Fermion content** | Exactly 14 per generation | A fourth generation falsifies |
-| 5 | **Kernel structure** | Winding kernel `dim = 10`; diag `{1/2, 3/4}` | Any change to `H_wind` spectrum falsifies |
-| 6 | **Dark energy** | `ρ_DE = ((d+1)/2)(1 + cδ) m_ν⁴`, `c = 5/9` | Deviation > `0.1%` falsifies |
-| 7 | **Charge rigidity** | Two configurations, both `−1e` | Vacuum total charge ≠ `−1e` falsifies |
-| 8 | **Identification** | Unique `N/4` assignment | An SM particle with `N/4` outside the allowed set falsifies |
-
-Sector predictions currently under test:
-
-| Paper | Prediction | HCSM Value | Window | Facility |
-|---|---|---|---|---|
-| HCSM-35 | `\|V_td\|` | `0.0061 ± 0.0001` | 2026–2028 | Belle II, LHCb |
-| HCSM-53 | Equation of state `w` | `≈ −1.014…` | 2026–2027 | DESI DR3, Euclid |
-| HCSM-53 | Bulk viscosity `ζH/ρ` | `≈ 0.004685…` | 2027–2028 | Euclid |
-| HCSM-36 | Neutrino ordering | Normal (`m₁ ≈ m₂ < m₃`) | 2027+ | JUNO, DUNE |
-| HCSM-36 | Majorana phases | `(α₁, α₂) = (π, 0)` | 2028+ | nEXO, LEGEND-1000, CUPID |
-
----
-
-## Program 2 — Quantum (Papers 61+)
-
-The quantum program recovers the classical and quantum limits of the substrate. Each paper is a continuum-limit or quantization theorem applied to the derivational core.
-
-### Papers 61–66 — Classical Limits and Quantization
-
-| Paper | Title | Subject | Status |
-|---|---|---|---|
-| **HCSM-61** | Maxwell and Lorentz in the Classical Limit | Electromagnetic field equations; Lorentz covariance | Complete |
-| **HCSM-62** | Newtonian Gravity as the Classical Limit | Poisson equation; geodesic equation; equivalence principle; `λ_L` | Complete |
-| **HCSM-63** | First Post-Newtonian Corrections | EIH Lagrangian; PPN parameters; `γ = β = 1` | Complete |
-| **HCSM-64** | Special Relativity as the Relativistic Limit | Four-momentum; mass-shell condition; `E² = p²c² + m²c⁴` | Complete |
-| **HCSM-65** | The Dirac Equation from the Hodge–Dirac Operator | Kähler–Dirac correspondence; Clifford algebra; chirality | Complete |
-| **HCSM-66** | Direct Quantization of the Hodge Complex | Hilbert space; Fock space; propagator; path integral | Complete |
-
-### What the Quantum Program Derives
-
-| Paper | Result |
-|---|---|
-| **HCSM-61** | `D = d + d*` → Maxwell equations; Lorentzian signature from Hodge star; `O(ε²)` lattice corrections |
-| **HCSM-62** | `φ(r) = −G_N M / r`; `∇²φ = 4πG_N ρ_m`; `G_N = 25/(8πM_P²)`; `λ_L = 5M_P/1536` |
-| **HCSM-63** | 1PN metric; EIH Lagrangian; `γ = β = 1`; `α_i = ζ_i = ξ = 0`; `η_N = 0` |
-| **HCSM-64** | Four-momentum `p^μ = (E/c, p)`; mass-shell condition; `E² = p²c² + m²c⁴`; DNLS coupling `g = q = 33/64` |
-| **HCSM-65** | `D/a → iγ^μ ∂_μ`; Clifford algebra from substrate; `γ₅` from Hodge form-parity; mode-dependent Dirac equation |
-| **HCSM-66** | `H_256` Hilbert space; `D` as Hamiltonian; full spectrum; Z₂ statistics; `F = Sym(H_+) ⊗ Λ(H_-)`; propagator `G(p) = (M(p) − iε)^{-1}` |
-
-### Quantum Program — Research Directions
-
-| Folder | Program | Example Papers |
-|---|---|---|
-| **15-QUANTUM_GAUGE_SECTOR** | Gauge quantization, BRST, anomalies | HCSM-67–72 |
-| **16-QUANTUM_SYMMETRY_BREAKING** | Quantum EWSB, chiral condensate | HCSM-73–75 |
-| **17-QUANTUM_GRAVITY** | Graviton quantization, black holes | HCSM-76–80 |
-| **18-QUANTUM_FOUNDATIONS** | Entanglement, Bell, measurement | HCSM-81–86 |
-| **19-QUANTUM_STRUCTURE** | SUSY, topology, RG flow | HCSM-87–92 |
-| **20-QUANTUM_PHENOMENOLOGY** | `g−2`, precision EW, neutrinos | HCSM-93–97 |
-
----
-
-## Philosophy
-
-### What this is
-
-Most frameworks in theoretical physics take the Standard Model as given. They assume its gauge group, its particle content, and its parameters, then ask what lies beyond it a larger symmetry, an extra dimension, a deeper structure. The Standard Model is the starting point.
-
-HCSM takes the opposite direction. It does not postulate the Standard Model. It asks what substrate produces exactly this structure, and nothing else. The Standard Model is the output, not the input.
-
-The answer is a small, discrete substrate: the periodic torus `Λ = ℤ₈ × ℤ₈`. On this substrate, the Laplacian spectrum carries a mirror symmetry `λ ↔ 8 − λ`. Every excitation pairs with a mirror partner and cancels. The unique fixed point of the mirror is the self-paired eigenvalue `λ = 4`. The 14 modes that live there are what the mirror cannot cancel.
-
-What we call physics quarks, leptons, gauge bosons, the Higgs, the graviton, dark energy is the **residue** at that fixed point.
-
-HCSM does not ask *"what fields exist?"* or *"what symmetry groups are broken?"* It asks:
-
-> **What substrate produces exactly the Standard Model, and nothing else?**
-
-### What this means
-
-Every observed structure in the Standard Model is a **residue**  something the mirror could not cancel:
-
-- **Charge** is what the mirror cannot cancel. The charge rigidity theorem shows that five structural constraints reduce `5¹⁴ ≈ 6 × 10⁹` assignments to exactly two, both with total charge `−1e`. The residual `−1e` is not a choice; it is the unique value the substrate's own structure permits.
-- **Mass** is the residual weight of the `N/4` label under the mass map `m = A · exp(−B · N/4)`.
-- **Spacetime** is the kernel of the Hodge–Dirac operator: `ker D ≅ ⊕ₖ Hᵏ(T²; ℝ)`, with `dim ker D = b₀ + b₁ + b₂ = 1 + 2 + 1 = 4`. The emergent Lorentzian signature `(−, +, +, +)` is the unique `D₄`-invariant form on `ker D` that vanishes on pure-degree forms.
-- **The graviton** is the self-paired `B₁ ⊕ B₂` curvature mode of `Sym²(Ω¹|_{λ=4})` — exactly massless at all orders by `D₄` Schur orthogonality.
-- **Dark energy** is the residual vacuum energy after mirror cancellation, promoted to the observed cosmological constant by *pure projection* onto the timelike direction `(v₀ − v₂)/√2` of `ker D` — not by gravitational coupling, and with no `1/M_P²` suppression.
-
-> **The framework is not a replacement for the Standard Model.**
-> **It is the substrate from which the Standard Model emerges.**
-
-> **The Standard Model is what the substrate looks like when you observe it.**
->
-> **Physics is what the mirror cannot cancel.**
-> **The Hodge complex is the mirror.**
-> **The −1e is what the mirror must not cancel.**
-
-### How this is different
-
-| ❌ Not | ✅ Is |
-|---|---|
-| A replacement for the Standard Model | The substrate from which the Standard Model emerges |
-| A BSM extension (adds particles, symmetries, dimensions) | A pre geometric framework (derives SM content) |
-| A model that fits SM parameters | A substrate that derives SM parameters |
-
----
-
-## Repository Map
 HCSM/
 ├── README.md
 ├── VERIFICATION/
@@ -257,7 +116,6 @@ HCSM/
 ├── 13-CLASSICAL_LIMITS/ HCSM-61, 62, 63, 64
 ├── 14-QUANTUM_SECTOR/ HCSM-65, 66
 └── ...
-
 
 ### Paper Status
 
@@ -334,9 +192,7 @@ Running `12-VERIFICATION/run_all.py` reproduces every numerical claim in the sta
                   zero empirical anchors in the particle sector;
                   quantum program papers 61--66 complete}
 }
-
 <details> <summary><b>Schema.org JSON-LD</b> (click to expand)</summary>
-
 {
   "@context": "https://schema.org",
   "@type": "ScholarlyArticle",
@@ -346,7 +202,7 @@ Running `12-VERIFICATION/run_all.py` reproduces every numerical claim in the sta
     "@type": "Person",
     "name": "Stanley Preschutti",
     "jobTitle": "Physics Researcher",
-    "email": "scstanp@yahoo.com",
+    "email": "scstannp@yahoo.com",
     "identifier": "https://orcid.org/0009-0004-5445-1744",
     "affiliation": {
       "@type": "Organization",
@@ -369,18 +225,18 @@ Running `12-VERIFICATION/run_all.py` reproduces every numerical claim in the sta
     "zero empirical anchors", "falsifiable unification",
     "Hodge-Dirac operator",
     "quantum field theory", "Dirac equation", "Kähler-Dirac operator",
-    "direct quantization", "Fock space", "path integral"
+    "direct quantization", "Fock space", "path integral",
+    "Maxwell equations", "Lorentz covariance", "tensor product theorem",
+    "bundle construction", "O(epsilon^2) corrections"
   ]
 }
-
 </details>
-
 Contact
 
 Stanley Preschutti — Physics Researcher
 Entropia Research Institute / Information Physics Institute
 
-📧 Email	scstanp@yahoo.com
+📧 Email	scstannp@yahoo.com
 🆔 ORCID	0009-0004-5445-1744
 🌐 Web	informationphysicsinstitute.org
 License
