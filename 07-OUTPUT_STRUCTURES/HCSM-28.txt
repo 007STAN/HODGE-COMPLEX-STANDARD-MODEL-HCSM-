@@ -1,0 +1,399 @@
+# HCSM-28: Orbit-Class Reconstruction
+
+**The Winding Class Partition as a Reconstruction of the Dihedral Orbit Partition, and the Decomposition of the Distinguished-Pair Graph**
+
+**The Hodge Complex Standard Model**
+
+---
+
+**Author:** Stanley Preschutti
+**Affiliation:** Entropia Research Institute / Information Physics Institute
+**ORCID:** 0009-0004-5445-1744
+**Email:** scstannp@yahoo.com
+**Date:** September 2026
+**Status:** Paper 28 of the HCSM White Paper Series
+
+---
+
+## Abstract
+
+The Hodge Complex Standard Model assigns the fourteen modes at the self-paired eigenvalue of the discrete Laplacian on the periodic eight-by-eight torus to one Standard Model generation. On this multiplet, three independent partitions act: the dihedral orbit partition of sizes two, eight, and four; the winding class partition of sizes three, seven, and four; and the fermion/boson split of sizes ten and four. This paper proves two structural theorems that characterize the relationship between these partitions and the pair structure of the multiplet.
+
+First, the winding class partition is the dihedral orbit partition modified by a unique two-mode reassignment: the top quark moves from the size-four dihedral orbit into winding class A, and the dark photon moves from the size-eight dihedral orbit into winding class C. This reassignment is the unique partition of the fourteen modes into classes of sizes three, seven, and four that is fermion/boson-homogeneous and agrees with the dihedral orbit partition on at least twelve modes.
+
+Second, the graph of the ten distinguished pairs of the multiplet decomposes into four isolated two-vertex edges and one connected six-vertex core. Every isolated edge is homogeneous in dihedral orbit, winding class, and fermion/boson content, and heterogeneous in charge-line sign. The six-vertex core is heterogeneous in every structural feature, has a unique three-degree hub at the dark photon, and contains exactly one independent cycle.
+
+Both theorems are derived from HCSM-native inputs with no external empirical parameters. All numerical claims are verified at machine precision.
+
+**Keywords:** Hodge Complex Standard Model; HCSM; orbit-class reconstruction; distinguished-pair graph; winding class partition; dihedral orbit partition; fermion/boson split; reassignment pair; cycle rank; graph decomposition.
+
+---
+
+## 1. Introduction
+
+### 1.1 The pair structure of the fourteen-mode multiplet
+
+The Hodge Complex Standard Model (HCSM) derives the gauge structure, matter content, particle spectrum, and mixing matrices of the Standard Model from a single discrete substrate: the periodic eight-by-eight torus Lambda = Z_8 x Z_8 [1]. The fourteen modes at the self-paired eigenvalue lambda = 4 of the discrete Laplacian are identified with one Standard Model generation.
+
+Three independent partitions organize the fourteen-mode multiplet.
+
+**Definition 1.1 (Dihedral orbit partition).** The dihedral orbit partition of the fourteen-mode multiplet is the partition into orbits under the action of the dihedral point group D_4 of the square.
+
+**Definition 1.2 (Winding class partition).** The winding class partition of the fourteen-mode multiplet is the partition into eigenspaces of the winding generator H_wind, grouped by eigenvalue.
+
+**Definition 1.3 (Fermion/boson split).** The fermion/boson split of the fourteen-mode multiplet is the partition induced by the processor T = I - P_C, into the image of T (the fermion sector) and the kernel of T (the boson sector).
+
+This paper proves two theorems that characterize how these partitions relate, and how the pair structure of the multiplet decomposes.
+
+### 1.2 One-line summary
+
+The winding class partition is the dihedral orbit partition plus a single reassignment of two modes. The reassignment is the unique minimal correction that makes each winding class fermion/boson-homogeneous while preserving agreement with the dihedral orbit partition on at least twelve modes. The ten distinguished pairs of the multiplet then organize into four homogeneous edges and one connected core, with the core being the structural hub of the multiplet.
+
+### 1.3 The two theorems of this paper
+
+**Theorem 1 (Orbit-Class Reconstruction Theorem).** Let {A, B, C} be a partition of the fourteen modes into classes of sizes three, seven, and four, such that each class is fermion/boson-homogeneous, and such that {A, B, C} agrees with the dihedral orbit partition {O_0, O_1, O_2} on at least twelve of the fourteen modes under the correspondence O_0 <-> A, O_1 <-> B, O_2 <-> C. Then {A, B, C} is unique and equals A = {nu, e, t}, B = {u, d, s, mu, c, tau, b}, C = {dark, W, Z, H}.
+
+**Theorem 2 (Distinguished-Pair Graph Decomposition Theorem).** The graph of the ten distinguished pairs of the fourteen-mode multiplet decomposes into four isolated two-vertex edges and one connected six-vertex core. Every isolated edge is homogeneous in dihedral orbit, winding class, and fermion/boson content, and heterogeneous in charge-line sign. The six-vertex core is heterogeneous in every structural feature, has a unique three-degree hub at the dark photon, and contains exactly one independent cycle.
+
+### 1.4 Cross references to the HCSM paper stack
+
+The paper depends on five companion papers in the HCSM stack, whose numbering follows the master index in HCSM-00:
+
+- **HCSM-04** [2]: the fourteen-mode multiplet and its dihedral orbit decomposition.
+- **HCSM-13** [3]: the processor T and the fermion/boson class correspondence.
+- **HCSM-14** [4]: the winding generator spectrum and the winding class partition.
+- **HCSM-24** [7]: the charge theorem, giving the charge-line signs of each mode.
+- **HCSM-27** [9]: the Klein orbit structure, from which the distinguished-pair graph is drawn.
+
+Additional references to HCSM-22 (the zero-state vector) and HCSM-26 (the observer pair) appear where needed.
+
+### 1.5 Organization
+
+Section 2 states the setup. Section 3 proves the Orbit-Class Reconstruction Theorem. Section 4 proves the Distinguished-Pair Graph Decomposition Theorem. Section 5 discusses the structural interpretation. Section 6 gives reproducibility notes. Section 7 concludes.
+
+---
+
+## 2. Setup
+
+### 2.1 The fourteen-mode multiplet
+
+The substrate is the periodic eight-by-eight torus Lambda = Z_8 x Z_8 with N = 64 sites, selected by the unified substrate selection theorem of HCSM-00 [1] Section 2.6. The discrete five-point Laplacian has eigenvalues
+
+    lambda(n_1, n_2) = 4 - 2 cos(pi n_1 / 4) - 2 cos(pi n_2 / 4),   (1)
+
+for (n_1, n_2) in {0, ..., 7}^2. The self-paired eigenvalue lambda = 4 has multiplicity fourteen.
+
+In the standard mode order used throughout HCSM, the fourteen modes are
+
+    (nu, e, u, d, s, mu, dark, c, tau, b, W, Z, H, t).   (2)
+
+The mode coordinates in this order are given in Table 1.
+
+**Table 1: Mode coordinates in the standard order.**
+
+| Mode | Coordinate | Mode | Coordinate |
+|------|------------|------|------------|
+| nu | (0,4) | e | (4,0) |
+| u | (1,3) | d | (1,5) |
+| s | (3,1) | mu | (3,7) |
+| dark | (5,7) | c | (7,3) |
+| tau | (7,5) | b | (5,1) |
+| W | (2,2) | Z | (2,6) |
+| H | (6,2) | t | (6,6) |
+
+### 2.2 The dihedral orbit partition
+
+The dihedral orbit partition of the fourteen-mode multiplet is
+
+    O_0 = {nu, e},   O_1 = {u, d, s, mu, dark, c, tau, b},   O_2 = {W, Z, H, t},   (3)
+
+with sizes two, eight, and four respectively [2].
+
+### 2.3 The winding class partition
+
+The winding generator H_wind on the fourteen-mode multiplet has spectrum
+
+    spec(H_wind) = {-4 sqrt(2), -2 sqrt(2), 0^(10), +2 sqrt(2), +4 sqrt(2)}.   (4)
+
+The fourteen modes partition into three classes by eigenvalue [4]:
+
+| Class | Eigenvalue | Modes | Size |
+|-------|-----------|-------|------|
+| A | +2 sqrt(2) | nu, e, t | 3 |
+| B | +4 sqrt(2) | u, d, s, mu, c, tau, b | 7 |
+| C | 0 | dark, W, Z, H | 4 |
+
+See HCSM-14 [4] for the full derivation.
+
+### 2.4 The fermion/boson split
+
+The processor T is the rank-ten orthogonal projection onto the fermion sector [3]:
+
+    F = {nu, e, u, d, s, mu, c, tau, b, t},   |F| = 10,   (5)
+
+    B_bos = {dark, W, Z, H},   |B_bos| = 4.   (6)
+
+The class partition and the fermion/boson split are related by the exact correspondence A union B = F and C = B_bos, proved in HCSM-13 [3].
+
+### 2.5 The charge-line sign
+
+The charge theorem of HCSM-24 [7] assigns to each mode a charge-line sign
+
+    sigma = sign(s) in {-1, 0, +1},   (7)
+
+where s is the zero-state amplitude. The three charge lines are
+
+    sigma = -1: {nu, d, s, dark, c, Z},   (8)
+    sigma = 0: {W, t},   (9)
+    sigma = +1: {e, mu, tau, b, H, u}.   (10)
+
+See HCSM-24 [7] for the full charge theorem.
+
+### 2.6 The reassignment pair
+
+**Definition 2.1 (Reassignment pair).** The reassignment pair is the two-element set consisting of the top quark and the dark photon.
+
+It is the pair whose reassignment relates the dihedral orbit partition to the winding class partition, as stated in the Orbit-Class Reconstruction Theorem of Section 3.
+
+### 2.7 The distinguished-pair graph
+
+**Definition 2.2 (Distinguished-pair graph).** The distinguished-pair graph of the fourteen-mode multiplet has a vertex for each of the fourteen modes, and an edge for each two-element subset that is distinguished by at least one of the following structural criteria:
+
+1. The subset is fixed by an involution of the dihedral group.
+2. The subset is a two-cycle of the diagonal reflection rs.
+3. The subset is a two-cycle of the half-period translation T_half.
+4. The subset is the orbit-class reassignment pair {t, dark}.
+
+The graph has ten edges:
+
+    {nu, e}, {u, s}, {u, dark}, {d, b}, {mu, c}, {s, tau}, {dark, tau}, {dark, t}, {Z, H}, {W, t}.   (11)
+
+---
+
+## 3. The Orbit-Class Reconstruction Theorem
+
+### 3.1 Comparison of the partitions
+
+**Lemma 3.1 (Orbit-class differences).** The dihedral orbit partition and the winding class partition of the fourteen-mode multiplet agree on twelve of the fourteen modes. They differ on exactly two modes:
+
+- The top quark t lies in dihedral orbit O_2 but in winding class A.
+- The dark photon lies in dihedral orbit O_1 but in winding class C.
+
+**Proof.** Direct inspection of the two partitions.
+
+| Mode | Dihedral orbit | Winding class | Agreement |
+|------|----------------|---------------|-----------|
+| nu | O_0 | A | yes |
+| e | O_0 | A | yes |
+| u | O_1 | B | yes |
+| d | O_1 | B | yes |
+| s | O_1 | B | yes |
+| mu | O_1 | B | yes |
+| c | O_1 | B | yes |
+| tau | O_1 | B | yes |
+| b | O_1 | B | yes |
+| W | O_2 | C | yes |
+| Z | O_2 | C | yes |
+| H | O_2 | C | yes |
+| dark | O_1 | C | no |
+| t | O_2 | A | no |
+
+Twelve agreements, two disagreements. Q.E.D.
+
+**Corollary 3.2 (Reassignment formulation).** The winding class partition is obtained from the dihedral orbit partition by the two-mode reassignment: the top quark moves from orbit O_2 into class A, and the dark photon moves from orbit O_1 into class C.
+
+### 3.2 Uniqueness of the reassignment
+
+**Theorem 3.3 (Orbit-Class Reconstruction Theorem).** Let {A, B, C} be a partition of the fourteen modes into classes of sizes |A| = 3, |B| = 7, |C| = 4, such that
+
+1. each of A, B, C is fermion/boson-homogeneous;
+2. {A, B, C} agrees with the dihedral orbit partition {O_0, O_1, O_2} on at least twelve of the fourteen modes, under the correspondence O_0 <-> A, O_1 <-> B, O_2 <-> C.
+
+Then {A, B, C} is unique and equals
+
+    A = {nu, e, t},   B = {u, d, s, mu, c, tau, b},   C = {dark, W, Z, H}.   (12)
+
+**Proof.** We proceed in four steps.
+
+**Step 1: C is forced.** The boson sector B_bos = {dark, W, Z, H} has exactly four elements, and |C| = 4. If C is fermion/boson-homogeneous, then C is entirely in F or entirely in B_bos. If C is a subset of F, then C is a four-subset of the ten fermions, and B = F minus A would have to contain all four bosons, violating homogeneity of B. Hence C is a subset of B_bos. The only four-subset of the boson sector is B_bos itself. Hence C = B_bos = {dark, W, Z, H}.
+
+**Step 2: A union B = F.** Since C = B_bos and the partition is disjoint, A union B = F. Since |A| = 3 and |B| = 7, both A and B are subsets of F.
+
+**Step 3: A contains O_0.** By hypothesis (2), the partition {A, B, C} agrees with {O_0, O_1, O_2} on at least twelve modes. The forced assignment C = {dark, W, Z, H} disagrees with O_2 on the mode t (since t in O_2 but t not in C) and disagrees with O_1 on the mode dark (since dark in O_1 but dark not in B). That is already two disagreements. Hence no additional disagreement is permitted. If A did not contain both nu and e, then at least one of nu, e would lie outside A, hence in B, contributing an additional disagreement. This would give three disagreements, contradicting the hypothesis. Hence {nu, e} is a subset of A.
+
+**Step 4: A = {nu, e, t}.** Since |A| = 3 and {nu, e} is a subset of A, we have A = {nu, e, x} for some x in F minus {nu, e}. Suppose x is not t. Then x is in {u, d, s, mu, c, tau, b}. Since x is in A and x is in O_1, this is a third disagreement, contradicting hypothesis (2). Hence x = t. Therefore A = {nu, e, t}, and B = F minus A = {u, d, s, mu, c, tau, b}.
+
+**Verification.** With A = {nu, e, t}, B = {u, d, s, mu, c, tau, b}, C = {dark, W, Z, H}:
+
+- A is a subset of F (nu, e, t are all fermions);
+- B is a subset of F (u, d, s, mu, c, tau, b are all fermions);
+- C is a subset of B_bos (dark, W, Z, H are all bosons);
+- Disagreements from {O_0, O_1, O_2}: dark (in O_1 but in C) and t (in O_2 but in A), exactly two.
+
+The partition satisfies both hypotheses, and by Steps 1 through 4 it is the unique such partition. Q.E.D.
+
+**Corollary 3.4 (Structural interpretation).** The winding class partition is not an independent structure on the fourteen-mode multiplet. It is the dihedral orbit partition corrected by the unique minimal reassignment that makes each winding class fermion/boson-homogeneous while preserving agreement with the dihedral orbit partition on at least twelve modes.
+
+**Remark 3.5 (On the reassignment terminology).** The reassignment of t and dark is often described as a swap. Strictly speaking it is not a swap of two modes between classes (that would exchange t and dark, leaving A = O_0 union {dark} and C = (O_2 minus {t}) union {t}, which would put the boson dark into the fermionic class A and violate homogeneity). It is a reassignment: t to A, dark to C, with the other twelve modes fixed.
+
+---
+
+## 4. The Distinguished-Pair Graph Decomposition
+
+### 4.1 The ten edges
+
+The distinguished-pair graph has ten edges, listed in Section 2.7.
+
+### 4.2 Component decomposition
+
+**Theorem 4.1 (Distinguished-Pair Graph Decomposition Theorem).** The distinguished-pair graph decomposes into four isolated two-vertex edges and one connected six-vertex core:
+
+- The four isolated edges are: {nu, e}, {d, b}, {mu, c}, {Z, H}.
+- The six-vertex core consists of the modes {u, s, dark, tau, W, t}, with internal edges {u, s}, {u, dark}, {s, tau}, {dark, tau}, {dark, t}, {W, t}.
+
+Every isolated two-vertex edge is homogeneous in dihedral orbit, winding class, and fermion/boson content, and heterogeneous in charge-line sign. The six-vertex core is heterogeneous in every structural feature, has a unique three-degree hub at the dark photon, and contains exactly one independent cycle.
+
+**Proof.** We proceed in three parts.
+
+**Part 1: Component decomposition.** Consider each edge in turn.
+
+- {nu, e}: both endpoints have degree 1 in the graph (nu is incident only to {nu, e}; e is incident only to {nu, e}). Isolated edge.
+- {d, b}: d is incident only to {d, b}; b is incident only to {d, b}. Isolated edge.
+- {mu, c}: mu is incident only to {mu, c}; c is incident only to {mu, c}. Isolated edge.
+- {Z, H}: Z is incident only to {Z, H}; H is incident only to {Z, H}. Isolated edge.
+- {u, s}, {u, dark}, {s, tau}, {dark, tau}, {dark, t}, {W, t}: these six edges connect the six modes u, s, dark, tau, W, t. Traversal: u-s-tau-dark-u forms a four-cycle; dark-t-W attaches at dark. The component is connected and contains exactly the six listed vertices.
+
+**Part 2: Homogeneity of the isolated edges.** For each isolated edge, tabulate the four structural features.
+
+| Edge | Dihedral orbit | Winding class | Fermion/boson | Charge-line signs |
+|------|----------------|---------------|---------------|-------------------|
+| {nu, e} | O_0, O_0 | A, A | F, F | -1, +1 |
+| {d, b} | O_1, O_1 | B, B | F, F | -1, +1 |
+| {mu, c} | O_1, O_1 | B, B | F, F | +1, -1 |
+| {Z, H} | O_2, O_2 | C, C | B, B | -1, +1 |
+
+Each isolated edge is homogeneous in dihedral orbit, winding class, and fermion/boson content (the two endpoints share each of these three features). Each is heterogeneous in charge-line sign (the two endpoints have opposite signs).
+
+**Part 3: Structure of the six-vertex core.** The core consists of the six modes u, s, dark, tau, W, t. Their structural features are:
+
+| Vertex | Dihedral orbit | Winding class | Fermion/boson | Charge-line sign |
+|--------|----------------|---------------|---------------|------------------|
+| u | O_1 | B | F | +1 |
+| s | O_1 | B | F | -1 |
+| tau | O_1 | B | F | +1 |
+| dark | O_1 | C | B | -1 |
+| t | O_2 | A | F | 0 |
+| W | O_2 | C | B | 0 |
+
+The core contains modes from dihedral orbits O_1 and O_2 (two distinct orbits), from all three winding classes A, B, C, from both fermion and boson sectors, and from all three charge-line signs {-1, 0, +1}. Hence the core is heterogeneous in every structural feature.
+
+**Degree distribution.** Degrees in the core (counting only core edges):
+
+| Vertex | Incident core edges | Degree |
+|--------|---------------------|--------|
+| dark | {u, dark}, {dark, tau}, {dark, t} | 3 |
+| u | {u, s}, {u, dark} | 2 |
+| s | {u, s}, {s, tau} | 2 |
+| tau | {s, tau}, {dark, tau} | 2 |
+| t | {dark, t}, {W, t} | 2 |
+| W | {W, t} | 1 |
+
+Total degree = 3 + 2 + 2 + 2 + 2 + 1 = 12 = 2 times 6 edges. The dark photon has the unique maximum degree, 3.
+
+**Cycle rank.** The core has V = 6 vertices and E = 6 edges. Its cycle rank is
+
+    r = E - V + 1 = 6 - 6 + 1 = 1.   (13)
+
+There is exactly one independent cycle in the core, namely
+
+    dark -> u -> s -> tau -> dark,   (14)
+
+using the core edges {dark, u}, {u, s}, {s, tau}, {tau, dark}. Direct traversal confirms this is a cycle and that no second independent cycle exists.
+
+This completes the proof. Q.E.D.
+
+**Corollary 4.2 (Two-tier structure).** The distinguished-pair graph has a two-tier structure: an outer shell of four isolated edges, each homogeneous in every partition, and an inner core of one connected six-vertex component, which is heterogeneous in every partition.
+
+**Remark 4.3 (Relation to the Klein orbit structure).** The four isolated edges {nu, e}, {d, b}, {mu, c}, {Z, H} correspond to four of the six Klein orbits of the fourteen-mode multiplet from HCSM-27 [9], specifically the four two-cycle orbits with pointwise stabilizer generated by the product of the two Klein generators. Each isolated edge is the union of the two members of one such Klein orbit, together with the edge connecting them.
+
+The six-vertex core contains the two remaining Klein orbits: the observer orbit {W, t} and the four-cycle orbit {dark, s, u, tau}, together with the bridge edge {dark, t} between them.
+
+---
+
+## 5. Discussion
+
+### 5.1 The reconstruction as a structural constraint
+
+The Orbit-Class Reconstruction Theorem shows that the winding class partition is not an independent structure. It is the dihedral orbit partition, corrected by the unique minimal reassignment that makes each winding class fermion/boson-homogeneous while preserving agreement on at least twelve modes. This means that the winding generator and the processor are not independent inputs to the framework: the winding class structure is determined by the dihedral orbit structure together with the fermion/boson split.
+
+### 5.2 The two-tier graph structure
+
+The Distinguished-Pair Graph Decomposition Theorem reveals a two-tier structure in the graph of distinguished pairs. The outer tier consists of four isolated edges, each a self-contained unit that respects every partition of the multiplet. The inner tier consists of one connected core, which spans both populated dihedral orbits (O_1, O_2), all three winding classes, both fermion and boson sectors, and all three charge-line signs.
+
+The core's unique three-degree hub is the dark photon. The dark photon is the only mode whose degree in the core exceeds two.
+
+### 5.3 Relation to the Klein orbit structure
+
+The four isolated edges of the distinguished-pair graph correspond to four of the six Klein orbits from HCSM-27 [9]: specifically, the four two-cycle orbits with pointwise stabilizer generated by the product of the two Klein generators. The remaining two Klein orbits are the observer orbit {W, t} and the four-cycle orbit {dark, s, u, tau}, which are the two halves of the six-vertex core, joined by the bridge edge {dark, t}.
+
+---
+
+## 6. Reproducibility
+
+All numerical claims in this paper are verified at machine precision in IEEE-754 double precision. The verification script is provided in the HCSM companion repository. The script constructs the fourteen-mode multiplet, the dihedral orbit partition, the winding class partition, the fermion/boson split, the reassignment pair, and the distinguished-pair graph from HCSM-native definitions, and verifies:
+
+1. The twelve modes on which the dihedral orbit partition and the winding class partition agree.
+2. The two modes on which the partitions differ: the top quark and the dark photon.
+3. The uniqueness of the fermion/boson-homogenizing partition of sizes (3, 7, 4) agreeing with the dihedral orbit partition on at least twelve modes.
+4. The ten edges of the distinguished-pair graph.
+5. The decomposition into four isolated edges and one connected six-vertex core.
+6. The homogeneity of each isolated edge in dihedral orbit, winding class, and fermion/boson content.
+7. The heterogeneity of the six-vertex core in every structural feature.
+8. The unique three-degree hub at the dark photon.
+9. The cycle rank 1 of the six-vertex core and the explicit cycle dark -> u -> s -> tau -> dark.
+
+---
+
+## 7. Conclusion
+
+This paper has proven two structural theorems about the fourteen-mode multiplet of the Hodge Complex Standard Model.
+
+The first is the Orbit-Class Reconstruction Theorem: the winding class partition is the unique partition of the fourteen modes into classes of sizes three, seven, and four that is fermion/boson-homogeneous and agrees with the dihedral orbit partition on at least twelve modes. It is obtained from the dihedral orbit partition by the minimal reassignment of the top quark into class A and the dark photon into class C.
+
+The second is the Distinguished-Pair Graph Decomposition Theorem: the graph of the ten distinguished pairs of the fourteen-mode multiplet decomposes into four isolated two-vertex edges and one connected six-vertex core. Every isolated edge is homogeneous in dihedral orbit, winding class, and fermion/boson content, and heterogeneous in charge-line sign. The six-vertex core is heterogeneous in every structural feature, has a unique three-degree hub at the dark photon, and contains exactly one independent cycle.
+
+Together, the two theorems reveal that the fourteen-mode multiplet has a two-tier pair structure: an outer shell of four homogeneous edges, and an inner core that spans every partition of the multiplet and contains the framework's unique pair bridge between the observer pair and the four-cycle orbit.
+
+Both theorems are derived from HCSM-native inputs with no external empirical parameters.
+
+---
+
+## References
+
+1. S. Preschutti, *HCSM-00: Foundations, Notation, and Mapping* (Tenth Revision), HCSM White Paper Series (2026).
+2. S. Preschutti, *HCSM-04: The 14-Mode Multiplet at lambda = 4*, HCSM White Paper Series (2026).
+3. S. Preschutti, *HCSM-13: The Processor T and the Fermion/Boson-Class Correspondence*, HCSM White Paper Series (2026).
+4. S. Preschutti, *HCSM-14: Winding Generator Spectrum and Class Partition*, HCSM White Paper Series (2026).
+5. S. Preschutti, *HCSM-22: The Zero State*, HCSM White Paper Series (2026).
+6. S. Preschutti, *HCSM-23: The Midpoint Sorting Theorem* (Eighth Revision), HCSM White Paper Series (2026).
+7. S. Preschutti, *HCSM-24: The Charge Theorem* (Second Revision), HCSM White Paper Series (2026).
+8. S. Preschutti, *HCSM-26: The Observer Pair {W, t}*, HCSM White Paper Series (2026).
+9. S. Preschutti, *HCSM-27: Klein Orbit Structure*, HCSM White Paper Series (2026).
+
+---
+
+## Web crawler metadata
+
+### Dublin Core
+
+- DC.title: HCSM-28: Orbit-Class Reconstruction
+- DC.creator: Preschutti, Stanley
+- DC.creator.orcid: 0009-0004-5445-1744
+- DC.date.issued: 2026-09
+- DC.type: Text / Preprint / White Paper
+- DC.format: text/markdown
+- DC.language: en
+- DC.publisher: Entropia Research Institute
+- DC.rights: All rights reserved
+- DC.subject: Hodge Complex Standard Model; HCSM; orbit-class reconstruction; distinguished-pair graph; winding class partition; dihedral orbit partition; fermion/boson split; reassignment pair; cycle rank; graph decomposition
+- DC.identifier: HCSM-28-2026-09
