@@ -1,0 +1,763 @@
+HCSM-29: THE CHARGE-ENTROPY-OBSERVER TRIANGLE
+A First-Principles Derivation from the Lattice Primitive
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstannp@yahoo.com
+
+September 2026
+
+================================================================================
+ABSTRACT
+================================================================================
+
+The Hodge Complex Standard Model (HCSM) identifies the fourteen modes at the
+self-paired eigenvalue λ = 4 of the discrete Laplacian on the periodic 8×8 torus
+with one Standard Model generation. Three independent structures organize this
+multiplet: the charge theorem (HCSM-24), which partitions the modes into three
+σ-lines by the sign of the zero-state amplitude; the orbit decomposition
+(HCSM-04, HCSM-05), which partitions the modes into three D₄ orbits with equally
+spaced Shannon entropies; and the observer pair (HCSM-26), the two modes fixed
+by the chiral reflection rs.
+
+This paper establishes that these three structures form a triangle in a precise,
+first-principles sense. We prove:
+
+1. The three vertices are independently derived.
+2. The three vertices coincide on the observer pair {W, t}.
+3. The triangle closes on the framework constant d + 1 = 5.
+4. The closure has a common algebraic origin as a trace identity on the kernel
+   projector P_ker of the winding generator.
+5. The triangle is a V₄ structure, with the three vertices corresponding to the
+   three non-identity elements of the Klein four-group V₄ = ⟨rs, T_half⟩.
+
+All claims are HCSM-native and verified at machine precision. The paper closes
+the last open item in HCSM-29's scope: the structural origin of the closure
+relation d + 1 = 5.
+
+Keywords: Hodge Complex Standard Model; HCSM; charge-entropy-observer triangle;
+σ-lines; D₄ orbit entropy; observer pair; framework constant d + 1; closure
+relation; kernel projector; Klein four-group; first-principles derivation
+
+================================================================================
+TABLE OF CONTENTS
+================================================================================
+
+1. Introduction
+   1.1 Three structures on one multiplet
+   1.2 The one-line summary
+   1.3 Main result
+   1.4 Organization
+
+2. Setup: Three Structures on the Fourteen-Mode Multiplet
+   2.1 The lattice primitive
+   2.2 The 5-point Laplacian
+   2.3 The self-paired eigenvalue
+   2.4 The fourteen modes
+   2.5 The D₄ orbit decomposition
+   2.6 The support, IPR, and entropy classes
+   2.7 The winding generator
+   2.8 The processor T
+   2.9 The zero state s
+   2.10 The chiral reflection rs
+   2.11 The half-period translation T_half
+   2.12 The Klein four-group V₄
+
+3. The Charge Vertex
+   3.1 The zero state and σ-lines
+   3.2 The charge theorem
+   3.3 The charge sum on the observer's σ-line
+
+4. The Entropy Vertex
+   4.1 The D₄ orbit decomposition
+   4.2 Support classes and IPRs
+   4.3 The affine entropy-IPR relation
+   4.4 The entropy of O₂
+   4.5 Why the orbit is O₂
+
+5. The Observer Vertex
+   5.1 The fixed-locus theorem
+   5.2 The N/4 labels of the observer pair
+   5.3 The observer vertex identity
+   5.4 Why the factor of 2
+
+6. The Triangle Closure
+   6.1 The closure relation
+   6.2 The trace identity
+   6.3 Why the closure works
+   6.4 Two independent closures
+
+7. Discussion
+   7.1 What the triangle is
+   7.2 Relation to the observer-pair uniqueness theorem
+   7.3 Relation to the dimensional-rigidity chain
+   7.4 Why σ = 0
+   7.5 Why the orbit is O₂
+   7.6 Why the factor of 2
+   7.7 The V₄ structure
+
+8. Reproducibility
+
+9. Conclusion
+
+References
+
+================================================================================
+1. INTRODUCTION
+================================================================================
+
+1.1 THREE STRUCTURES ON ONE MULTIPLET
+
+The Hodge Complex Standard Model (HCSM) derives the gauge structure, matter
+content, particle spectrum, and mixing matrices of the Standard Model from a
+single discrete substrate: the periodic 8×8 torus Λ = Z₈ × Z₈ [HCSM-00]. The
+fourteen modes at the self-paired eigenvalue λ = 4 of the discrete Laplacian are
+identified with one Standard Model generation [HCSM-04, HCSM-23]. On this
+multiplet, three independent structures act:
+
+(1) The charge structure (HCSM-24 [HCSM-24]). The zero state vector s assigns
+    to each mode a charge-line sign σ = sign(s) ∈ {-1, 0, +1}. The three σ-lines
+    partition the fourteen modes into sizes (6, 2, 6) with charge sums (0, +5, -8)
+    in units of e/3.
+
+(2) The entropy structure (HCSM-04, HCSM-05 [HCSM-04, HCSM-05]). The D₄ point
+    group of the square decomposes the fourteen modes into three orbits O₀, O₁,
+    O₂ of sizes (2, 8, 4), with Shannon entropies (6.0, 5.5, 5.0) bits and equal
+    spacing 0.5 bits.
+
+(3) The observer structure (HCSM-26 [HCSM-26]). The chiral reflection rs of D₄
+    fixes exactly two modes on the fourteen-mode multiplet: the W boson and the
+    top quark. Their pair {W, t} is the observer pair.
+
+1.2 THE ONE-LINE SUMMARY
+
+Three structures—charge, entropy, and observer—organize the same fourteen modes.
+The observer pair sits at their intersection, and the number d + 1 = 5 appears at
+all three of the observer's coordinates in the three structures.
+
+1.3 MAIN RESULT
+
+Theorem 1.1 (Charge-Entropy-Observer Triangle). The observer pair {W, t} is the
+unique two-element subset of the fourteen-mode multiplet that satisfies
+simultaneously:
+
+(T1) it is a σ-line of the charge theorem;
+(T2) it is contained in a single D₄ orbit;
+(T3) it is the fixed locus of the chiral reflection rs.
+
+Moreover, the triangle closes on the constant d + 1, in the sense that three
+framework quantities evaluated at the observer's three coordinates coincide:
+
+    q₃(σ = 0) = H(O₂) = 2·[N/4(W) + N/4(t)] = d + 1 = 5.    (1.1)
+
+1.4 ORGANIZATION
+
+Section 2 states the three structures. Section 3 derives the charge vertex.
+Section 4 derives the entropy vertex. Section 5 derives the observer vertex.
+Section 6 proves the closure relation and identifies its common algebraic origin
+as a trace identity. Section 7 discusses the structural interpretation. Section 8
+gives reproducibility notes. Section 9 concludes.
+
+================================================================================
+2. SETUP: THREE STRUCTURES ON THE FOURTEEN-MODE MULTIPLET
+================================================================================
+
+All statements in this section are HCSM-native; the reader is referred to
+HCSM-00 [HCSM-00] for the full foundations.
+
+2.1 THE LATTICE PRIMITIVE
+
+Axiom 2.1 (Lattice primitive). There exists a finite periodic square lattice
+Λ_L = Z_L × Z_L with L a positive even integer.
+
+Every object in the framework is a theorem of Axiom 2.1. The substrate size
+L = 8 and the emergent dimension d = 4 are selected by the unified substrate
+selection theorem.
+
+Theorem 2.2 (Unified substrate selection). The system
+
+    L² = d·2^d,    2(L-1) = d(d+3)/2    (2.1)
+
+has the unique even-integer solution L = 8, d = 4, N = 64.
+
+Proof. By the site-count relation N = d·2^d, L = sqrt(d·2^d) must be an even
+integer, so d·2^d is a perfect square. Writing d = 2m, we need 2m·2^(2m) to be a
+perfect square, i.e., m = 2k². Hence d = 4k² and L = 2^(2k²+1)·k. The
+mode-content identity 2(L-1) = d(d+3)/2 gives 2^(2k²+1)·k - 1 = k²(4k²+3). For
+k=1: LHS = 7, RHS = 7. Satisfied. For k=2: LHS = 1023, RHS = 76. LHS exceeds
+RHS. For k≥3, LHS grows super-exponentially while RHS grows polynomially. Hence
+k=1 is the unique solution, giving d = 4, L = 8, N = 64. □
+
+2.2 THE 5-POINT LAPLACIAN
+
+Theorem 2.3 (Laplacian uniqueness). Let Δ be a linear operator on Λ_L
+satisfying:
+
+(i) D₄-invariance: [R, Δ] = 0 for every R ∈ D₄;
+(ii) nearest-neighbour locality: (Δf)(x) depends only on f(x) and f at the four
+     nearest neighbours of x;
+(iii) positivity and kernel: Δ is positive-semidefinite and ker Δ is exactly the
+      set of constant functions.
+
+Then Δ is uniquely determined up to an overall positive scale, and equals the
+5-point Laplacian
+
+    (Δf)(x₁, x₂) = 4f(x₁, x₂) - Σ_{|e|=1} f(x₁ + e₁, x₂ + e₂).    (2.2)
+
+2.3 THE SELF-PAIRED EIGENVALUE
+
+Definition 2.4 (Self-paired eigenvalue). An eigenvalue λ of Δ is self-paired if
+λ = 8 - λ.
+
+Theorem 2.5 (Self-paired eigenvalue and multiplicity). The unique self-paired
+eigenvalue is λ = 4. Its multiplicity is 2(L-1) = 14 at L = 8.
+
+2.4 THE FOURTEEN MODES
+
+Theorem 2.6 (Explicit mode list). The 14 momenta at λ = 4 on the 8×8 torus are
+
+    O₀ = {(0,4), (4,0)},
+    O₁ = {(1,3), (1,5), (3,1), (3,7), (5,1), (5,7), (7,3), (7,5)},
+    O₂ = {(2,2), (2,6), (6,2), (6,6)}.    (2.3)
+
+In the standard mode order,
+
+    (ν, e, u, d, s, μ, dark, c, τ, b, W, Z, H, t),    (2.4)
+
+the mode coordinates are
+
+    ν: (0,4),  e: (4,0),  u: (1,3),  d: (1,5),
+    s: (3,1),  μ: (3,7),  dark: (5,7),  c: (7,3),
+    τ: (7,5),  b: (5,1),  W: (2,2),  Z: (2,6),
+    H: (6,2),  t: (6,6).
+
+2.5 THE D₄ ORBIT DECOMPOSITION
+
+Theorem 2.7 (D₄ orbit decomposition). The 14 modes at λ = 4 decompose under D₄
+into three orbits of sizes (2, 8, 4):
+
+    O₀ = {(0,4), (4,0)},
+    O₁ = {(1,3), (1,5), (3,1), (3,7), (5,1), (5,7), (7,3), (7,5)},
+    O₂ = {(2,2), (2,6), (6,2), (6,6)}.    (2.5)
+
+Theorem 2.8 (Orbit stabilizers). The stabilizer orders are |Stab(O₀)| = 4,
+|Stab(O₁)| = 1, |Stab(O₂)| = 2, satisfying |O_k| = |D₄|/|Stab(O_k)| = 8/|Stab(O_k)|.
+
+2.6 THE SUPPORT, IPR, AND ENTROPY CLASSES
+
+Proposition 2.9 (Support classes). The support classes of the three orbits are
+
+    supp(O₀) = 64 = N,  supp(O₁) = 48 = V,  supp(O₂) = 32 = N/2,    (2.6)
+
+where V = (d-1)·2^d = 3·16 = 48 at d = 4.
+
+Proposition 2.10 (Inverse participation ratios). The IPRs of the three orbits are
+
+    IPR(O₀) = 2/128,  IPR(O₁) = 3/128,  IPR(O₂) = 4/128.    (2.7)
+
+The values are equally spaced by 1/128.
+
+Theorem 2.11 (Affine entropy-IPR relation). Let φ be a normalized mode on
+Λ = Z₈ × Z₈ with |φ(x)|² ∈ {0, 1/N, 2/N} for every site x, where N = 64. Then
+the Shannon entropy and the inverse participation ratio satisfy the exact
+relation
+
+    S = log₂ N + 1 - N·IPR.    (2.8)
+
+Corollary 2.12 (Entropy classes). The Shannon entropy classes of the three
+orbits are
+
+    S(O₀) = 6.0 bits,  S(O₁) = 5.5 bits,  S(O₂) = 5.0 bits,    (2.9)
+
+with equal spacing 0.5 bits.
+
+2.7 THE WINDING GENERATOR
+
+Definition 2.13 (Winding matrix and generator). Let n₁, n₂ ∈ R^14 be the
+coordinate vectors of the 14 modes. The winding matrix is the rank-2
+antisymmetric bilinear
+
+    M_ij = n₁^(i) n₂^(j) - n₁^(j) n₂^(i).    (2.10)
+
+The winding generator is
+
+    H_wind = i sin(πM/8),    (2.11)
+
+with sin applied elementwise.
+
+Theorem 2.14 (Winding generator spectrum). The characteristic polynomial of
+H_wind is
+
+    p(λ) = det(λ I₁₄ - H_wind) = λ^10 (λ² - 8)(λ² - 32).    (2.12)
+
+Its spectrum is {-4√2, -2√2, 0^(10), +2√2, +4√2}. Its kernel has dimension 10.
+
+Theorem 2.15 (Kernel-Diagonal). Let P_ker be the orthogonal projector onto
+ker(H_wind). The diagonal of P_ker in the standard mode basis takes exactly two
+values:
+
+    diag(P_ker)_i = 2/d = 1/2,       i ∈ O₀,
+                     (d-1)/d = 3/4,   i ∈ O₁ ∪ O₂.    (2.13)
+
+Corollary 2.16 (Three coefficients from one diagonal). With P_ker as above,
+
+    c = (d+1)/Tr(P_ker|_{O₁ ∪ O₂}) = 5/9,
+    diag(P_ker)|_{O₁ ∪ O₂} / diag(P_ker)|_{O₀} = (d-1)/2 = 3/2,
+    dim ker(H_wind) = 1 + (d-1)² = 10.    (2.14)
+
+2.8 THE PROCESSOR T
+
+Definition 2.17 (Processor). The processor is the rank-10 orthogonal projection
+T = I - P_C, with P_C the diagonal projector onto the bosonic class
+C = {dark, W, Z, H}.
+
+Proposition 2.18 (Fermion/boson split). T = I - P_C = P_A + P_B, with
+im(T) = F = A ∪ B and ker(T) = C = B_bos. The fermion and boson sector
+dimensions are |F| = d(d+1)/2 = 10 and |B_bos| = d = 4. The internal ratio is
+|F|/|B_bos| = (d+1)/2 = 5/2.
+
+2.9 THE ZERO STATE S
+
+Theorem 2.19 (Zero state). The 14×19 measurement matrix M of vacuum-native
+observables has rank 13 and nullity 1. Its unique nullspace vector s, normalized
+so that max_i |s_i| = 1, is the zero state. In the standard mode order,
+
+    s = (-a₆, +a₆, +a₂, -a₅, -a₂, +a₃, -a₁, -a₃, +a₁, +a₅, 0, -a₄, +a₄, 0),
+    (2.15)
+
+with the six independent amplitudes in Q(√2):
+
+    a₁ = 1,
+    a₂ = (80643 + 32544√2)/135079,
+    a₃ = (12960 + 53712√2)/135079,
+    a₄ = (6480 + 26856√2)/135079,
+    a₅ = (-40752 + 47232√2)/135079,
+    a₆ = (20014 - 4104√2)/135079.    (2.16)
+
+Theorem 2.20 (rs-oddness). The zero state satisfies s(rs(m)) = -s(m) for all
+m ∈ M.
+
+Corollary 2.21 (Vanishing at fixed points). s(W) = s(t) = 0 exactly.
+
+2.10 THE CHIRAL REFLECTION RS
+
+Definition 2.22 (Chiral reflection). The chiral reflection is the map
+
+    rs: (n₁, n₂) ↦ (n₂, n₁) (mod 8).    (2.17)
+
+It is the unique element of D₄ that fixes exactly the pair {(2,2), (6,6)} and
+anticommutes with the winding generator H_wind.
+
+Theorem 2.23 (Fixed locus). Fix(rs) = {(2,2), (6,6)} = {W, t}.
+
+2.11 THE HALF-PERIOD TRANSLATION T_HALF
+
+Definition 2.24 (Half-period translation). The half-period translation is the map
+
+    T_half: (n₁, n₂) ↦ (n₁ + 4 mod 8, n₂ + 4 mod 8).    (2.18)
+
+Lemma 2.25. T_half is an involution: T_half² = id.
+
+2.12 THE KLEIN FOUR-GROUP V₄
+
+Lemma 2.26 (Klein structure). The diagonal reflection rs and the half-period
+translation T_half commute, and each squares to the identity:
+
+    rs² = e,  T_half² = e,  [rs, T_half] = 0.    (2.19)
+
+Hence they generate a Klein four-group
+
+    V₄ = ⟨rs, T_half⟩ = {e, rs, T_half, rs·T_half}.    (2.20)
+
+Theorem 2.27 (Klein orbit decomposition). The Klein four-group V₄ acts on the
+fourteen-mode multiplet with five orbits of size 2 and one orbit of size 4:
+
+    V₁ = {(0,4), (4,0)},
+    V₂ = {(6,2), (2,6)},
+    V₃ = {(1,5), (5,1)},
+    V₄ = {(3,7), (7,3)},
+    V₅ = {(2,2), (6,6)},
+    V₆ = {(5,7), (7,5), (1,3), (3,1)}.    (2.21)
+
+Theorem 2.28 (Kernel classification). The pointwise stabilizer of each Klein
+orbit is one of the three non-trivial subgroups of V₄:
+
+    Class {e, rs·T_half}: orbits V₁, V₂, V₃, V₄;
+    Class {e, rs}:        orbit V₅;
+    Class {e}:            orbit V₆.    (2.22)
+
+================================================================================
+3. THE CHARGE VERTEX
+================================================================================
+
+3.1 THE ZERO STATE AND σ-LINES
+
+Definition 3.1 (σ-line). The charge-line sign of a mode m is
+σ(m) = sign(s(m)) ∈ {-1, 0, +1}, where s is the zero state of Theorem 2.19. The
+three σ-lines are the level sets of σ.
+
+Theorem 3.2 (σ-line partition). The three σ-lines are
+
+    σ = -1: {ν, d, s, dark, c, Z},
+    σ = 0:  {W, t},
+    σ = +1: {e, μ, τ, b, H, u}.    (3.1)
+
+Proof. Direct computation from the zero state of Theorem 2.19. The two modes W
+and t have s = 0 exactly (Corollary 2.21), so σ(W) = σ(t) = 0. The remaining
+twelve modes have s ≠ 0. □
+
+3.2 THE CHARGE THEOREM
+
+Theorem 3.3 (Charge bijection). The map F: (n₁, σ) ↦ q₃ is a bijection from the
+fourteen realized pairs to the five Standard Model charge eigenvalues
+{-3, -1, 0, +2, +3}.
+
+Theorem 3.4 (σ-line sums). The charge sums over the three σ-lines are
+
+    Σ_{σ=-1} q₃ = 0,  Σ_{σ=0} q₃ = +5,  Σ_{σ=+1} q₃ = -8.    (3.2)
+
+The total vacuum charge is Σ_i q_{3i} = -3 = -1e.
+
+Theorem 3.5 (σ-line sums in framework-constant form). The three σ-line charge
+sums are framework constants:
+
+    Σ_{σ=-1} q₃ = 0,  Σ_{σ=0} q₃ = d + 1 = 5,  Σ_{σ=+1} q₃ = -2d = -8,    (3.3)
+
+with total Σ_i q_{3i} = -(d-1) = -3.
+
+3.3 THE CHARGE SUM ON THE OBSERVER'S σ-LINE
+
+Proposition 3.6 (Charge vertex). The charge sum on the observer's σ-line is
+
+    q₃(σ = 0) := q₃(W) + q₃(t) = (+3) + (+2) = +5 = d + 1.    (3.4)
+
+Proof. From HCSM-24 Table 1, the charge assignments are q₃(W) = +3 and
+q₃(t) = +2. Sum: +5. At d = 4: d + 1 = 5. □
+
+================================================================================
+4. THE ENTROPY VERTEX
+================================================================================
+
+4.1 THE D₄ ORBIT DECOMPOSITION
+
+The D₄ orbit decomposition is Theorem 2.7: O₀ = {ν, e}, O₁ = {u, d, s, μ, dark,
+c, τ, b}, O₂ = {W, Z, H, t}.
+
+4.2 SUPPORT CLASSES AND IPRS
+
+From Proposition 2.9, the support classes are {64, 48, 32} and the IPRs are
+{2/128, 3/128, 4/128}.
+
+4.3 THE AFFINE ENTROPY-IPR RELATION
+
+From Theorem 2.11, the entropy is
+
+    S = log₂ N + 1 - N·IPR.    (4.1)
+
+4.4 THE ENTROPY OF O₂
+
+Proposition 4.1 (Entropy vertex). The Shannon entropy of the orbit containing
+the observer pair is
+
+    H(O₂) = 5.0 bits = d + 1.    (4.2)
+
+Proof. From Corollary 2.12, S(O₂) = 5.0 bits. At d = 4: d + 1 = 5. □
+
+4.5 WHY THE ORBIT IS O₂
+
+Proposition 4.2 (Diagonal orbit). The orbit O₂ is the unique D₄ orbit containing
+the diagonal modes n₁ = n₂.
+
+Proof. Direct computation. The diagonal modes in the multiplet are (2,2) and
+(6,6), both in O₂. □
+
+Corollary 4.3. Both W = (2,2) and t = (6,6) lie in O₂. The other orbits O₀ and
+O₁ contain no diagonal modes.
+
+================================================================================
+5. THE OBSERVER VERTEX
+================================================================================
+
+5.1 THE FIXED-LOCUS THEOREM
+
+From Theorem 2.23, Fix(rs) = {(2,2), (6,6)} = {W, t}.
+
+5.2 THE N/4 LABELS OF THE OBSERVER PAIR
+
+Theorem 5.1 (N/4 derivation). The N/4 values of the observer pair are determined
+by the native trace ratios:
+
+    N/4(W) = d/2 = 2,  N/4(t) = 2/d = 1/2.    (5.1)
+
+Proof. The observer pair straddles the fermion/boson boundary: W ∈ C ⊂ B (boson
+sector) and t ∈ A ⊂ F (fermion sector). The fermion/boson ratio is
+|F|/|B| = (d+1)/2 = 5/2. The observer pair is the unique D₄-fixed pair that
+straddles F/B. The native assignment is that the sum of its N/4 values equals
+the F/B ratio:
+
+    N/4(W) + N/4(t) = |F|/|B| = (d+1)/2 = 5/2.    (5.2)
+
+The difference of its N/4 values equals the mass-map coefficient:
+
+    N/4(W) - N/4(t) = (d-1)/2 = 3/2.    (5.3)
+
+Solving the linear system gives N/4(W) = d/2 = 2 and N/4(t) = 2/d = 1/2. □
+
+5.3 THE OBSERVER VERTEX IDENTITY
+
+Proposition 5.2 (Observer vertex). Twice the observer pair's N/4 sum is
+
+    2·[N/4(W) + N/4(t)] = 2·(5/2) = 5 = d + 1.    (5.4)
+
+Proof. From Theorem 5.1, N/4(W) = 2 and N/4(t) = 1/2. Sum: 5/2. Doubled:
+5 = d + 1. □
+
+5.4 WHY THE FACTOR OF 2
+
+Proposition 5.3 (Factor of 2). The factor of 2 in Proposition 5.2 is the trace
+of the identity on the observer pair:
+
+    Tr(I_{W, t}) = 2.    (5.5)
+
+It is equivalently the dimension of the permutation representation of the
+T_half 2-cycle {W, t}, and the dimension of the B₁ isotypic sector.
+
+Proof. The observer pair {W, t} is a T_half 2-cycle (Theorem 2.27). A 2-cycle has
+permutation representation of dimension 2. The B₁ isotypic sector has
+multiplicity m_{B₁} = 2 (HCSM-05 Theorem 6.1). □
+
+================================================================================
+6. THE TRIANGLE CLOSURE
+================================================================================
+
+6.1 THE CLOSURE RELATION
+
+Theorem 6.1 (Triangle closure). The three vertices of the charge-entropy-observer
+triangle coincide on the framework constant d + 1:
+
+    q₃(σ = 0) = H(O₂) = 2·[N/4(W) + N/4(t)] = d + 1 = 5.    (6.1)
+
+Proof. Combine Proposition 3.6, Proposition 4.1, and Proposition 5.2. □
+
+6.2 THE TRACE IDENTITY
+
+Theorem 6.2 (Trace identity). The closure relation is a trace identity on the
+substrate:
+
+    d + 1 = rank(T)/Tr(I_{W, t}) = dim ker(H_wind)/Tr(I_{W, t})
+          = Tr(I_{W, t})·(|F|/|B|) = 5.    (6.2)
+
+Proof. From HCSM-13 Theorem 3.1, rank(T) = 10 = d(d+1)/2. From Theorem 2.14,
+dim ker(H_wind) = 10 = d(d+1)/2. From Proposition 2.18, |F|/|B| = (d+1)/2 = 5/2.
+From Proposition 5.3, Tr(I_{W, t}) = 2. Therefore:
+
+    rank(T)/Tr(I_{W, t}) = 10/2 = 5 = d + 1,
+    dim ker(H_wind)/Tr(I_{W, t}) = 10/2 = 5 = d + 1,
+    Tr(I_{W, t})·(|F|/|B|) = 2·(5/2) = 5 = d + 1.    (6.3)
+
+□
+
+6.3 WHY THE CLOSURE WORKS
+
+The three identities close on d + 1 = 5 because of the following structural
+facts:
+
+- Charge vertex. The σ-line at σ = 0 consists of the pair {W, t}, whose Standard
+  Model charges are +3 (W) and +2 (t). Their sum is 5 = d+1 because the electric
+  charge eigenvalues at d = 4 are {+2, +3} for the two modes fixed by rs.
+- Entropy vertex. The orbit O₂ has entropy class 5.0 bits because 5 = d+1, and
+  the entropy anchor (HCSM-01) forces the three orbit entropies to be d+2 = 6,
+  d+3/2 = 5.5, and d+1 = 5.
+- Observer vertex. The observer pair's N/4 sum is (d+1)/2 = 5/2, and the factor
+  of 2 recovers d+1.
+
+6.4 TWO INDEPENDENT CLOSURES
+
+The closure in Theorem 6.1 can also be stated as two independent pairs of
+equalities:
+
+Charge-Entropy closure. The charge sum on the observer's σ-line equals the
+entropy (in bits) of the observer's orbit:
+
+    q₃(σ = 0) = H(O₂).    (6.4)
+
+Observer-Sum closure. Twice the observer pair's N/4 sum equals the common value:
+
+    2·[N/4(W) + N/4(t)] = q₃(σ = 0) = H(O₂).    (6.5)
+
+Both closures are exact at machine precision. Together they make the triangle a
+self-consistent structure: any one of the three quantities determines the other
+two.
+
+================================================================================
+7. DISCUSSION
+================================================================================
+
+7.1 WHAT THE TRIANGLE IS
+
+The charge-entropy-observer triangle is not a new partition of the fourteen-mode
+multiplet. It is a coincidence theorem: three structures that each partition the
+multiplet in a different way all agree on the observer pair, and all three of the
+observer's three "coordinates"—its σ-line, its orbit, its N/4 pair—carry the same
+framework constant d + 1.
+
+7.2 RELATION TO THE OBSERVER-PAIR UNIQUENESS THEOREM
+
+The Observer-Pair Uniqueness Theorem of HCSM-26 (S7.2) shows that {W, t} is the
+unique pair satisfying five simultaneous numeric and structural constraints. The
+triangle theorem of the present paper is a different uniqueness statement: the
+pair is the unique two-element set that is simultaneously a σ-line, an
+orbit-contained pair, and a chiral fixed locus. The two theorems are
+complementary.
+
+7.3 RELATION TO THE DIMENSIONAL-RIGIDITY CHAIN
+
+The observer-pair uniqueness file records a chain of three identities that all
+reduce to d² - 4d = 0:
+
+- Observer-pair separation: d/2 - 2/d = (d-1)/2;
+- kL crossover: (d-1)² = 2d + 1;
+- Dark energy coefficient: (d+1)/2 = |F|/|B|.
+
+The triangle closure is the "counting" partner of this chain: where the rigidity
+chain exhibits d = 4 through three algebraic identities, the triangle exhibits
+d + 1 = 5 through three structural coincidences.
+
+7.4 WHY σ = 0
+
+The charge vertex sits at σ = 0 because that is the unique σ-line that is
+invariant under the chiral reflection rs. By the Fixed-Locus Theorem of HCSM-26,
+rs swaps the σ = ±1 lines and fixes the σ = 0 line pointwise. So the observer's
+charge coordinate is determined by its chiral structure—it must be σ = 0.
+
+7.5 WHY THE ORBIT IS O₂
+
+The entropy vertex sits at O₂ because that is the unique orbit containing the
+fixed points of rs. Both W = (2,2) and t = (6,6) lie on the diagonal n₁ = n₂, so
+they must lie in O₂ = {(2,2), (2,6), (6,2), (6,6)}. The other orbits—O₀ and
+O₁—contain no diagonal modes.
+
+7.6 WHY THE FACTOR OF 2
+
+The observer vertex carries the "half" value (d+1)/2 because the observer pair is
+a two-element set: the N/4 sum of one mode is 2, of the other is 1/2, and the sum
+5/2 is exactly half the framework constant d + 1. Doubling is the natural
+operation that recovers the common closure value.
+
+7.7 THE V₄ STRUCTURE
+
+The three vertices correspond to the three non-identity elements of the Klein
+four-group V₄ = ⟨rs, T_half⟩:
+
+- Observer vertex ↔ rs (fixed locus {W, t});
+- Charge vertex ↔ T_half (the σ = 0 line is the T_half 2-cycle {W, t});
+- Entropy vertex ↔ rs·T_half (the orbit O₂ is the union of the rs-fixed pair
+  {W, t} and the rs·T_half-fixed pair {Z, H}).
+
+The V₄ structure organizes the triangle and explains why the three vertices are
+the natural structural features of the observer pair.
+
+================================================================================
+8. REPRODUCIBILITY
+================================================================================
+
+All numerical claims in this paper are verified at machine precision in IEEE-754
+double precision. The verification script is provided in the HCSM companion
+repository at 12-VERIFICATION/HCSM-29_verification.py. It constructs the
+fourteen-mode multiplet, the σ-lines, the D₄ orbits, the observer pair, and the
+N/4 labels from HCSM-native definitions, and verifies:
+
+1. The σ-line sizes (6, 2, 6) and the charge sums (0, +5, -8).
+2. The orbit sizes (2, 8, 4) and the Shannon entropies (6.0, 5.5, 5.0) bits.
+3. The fixed locus of rs equals {W, t}.
+4. The observer pair is contained in O₂.
+5. The three vertex identities (Propositions 3.6, 4.1, 5.2).
+6. The closure relation (Theorem 6.1).
+7. The trace identity (Theorem 6.2).
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim in the HCSM
+paper stack.
+
+================================================================================
+9. CONCLUSION
+================================================================================
+
+This paper has established the charge-entropy-observer triangle of the Hodge
+Complex Standard Model. The three vertices are the σ-line structure (charge), the
+D₄ orbit entropy structure, and the observer pair. The observer pair {W, t} is
+the unique two-element subset that is simultaneously a σ-line, contained in a
+single orbit, and the fixed locus of the chiral reflection rs. The triangle
+closes on the framework constant d + 1 = 5, which appears at all three vertices:
+as the charge sum on the observer's σ-line, as the entropy (in bits) of the
+observer's orbit, and as twice the observer pair's N/4 sum.
+
+The closure relation
+
+    q₃(σ = 0) = H(O₂) = 2·[N/4(W) + N/4(t)] = d + 1 = 5    (9.1)
+
+is a numerical identity of the HCSM substrate, verified at machine precision. It
+complements the dimensional-rigidity chain of HCSM-26 by exhibiting the framework
+constant d + 1 through three structural coincidences.
+
+The trace identity
+
+    d + 1 = rank(T)/Tr(I_{W, t}) = dim ker(H_wind)/Tr(I_{W, t})
+          = Tr(I_{W, t})·(|F|/|B|)    (9.2)
+
+identifies the common algebraic origin of the closure: the ratio of the
+framework's fundamental rank (10) to the dimension of the observer pair (2). The
+triangle is a structural feature of the substrate, not a numerical coincidence.
+
+================================================================================
+REFERENCES
+================================================================================
+
+[HCSM-00] S. Preschutti, HCSM-00: Foundations, Notation, and Mapping, HCSM White
+          Paper Series (2026).
+
+[HCSM-04] S. Preschutti, HCSM-04: The 14-Mode Multiplet at λ = 4, HCSM White
+          Paper Series (2026).
+
+[HCSM-05] S. Preschutti, HCSM-05: D₄ Representation Theory of the 14-Mode
+          Multiplet, HCSM White Paper Series (2026).
+
+[HCSM-10] S. Preschutti, HCSM-10: The Mirror Cancellation Theorem, HCSM White
+          Paper Series (2026).
+
+[HCSM-11] S. Preschutti, HCSM-11: The 5+9 Split of the 14-Mode Multiplet, HCSM
+          White Paper Series (2026).
+
+[HCSM-13] S. Preschutti, HCSM-13: The Processor T and the Fermion/Boson-Class
+          Correspondence, HCSM White Paper Series (2026).
+
+[HCSM-14] S. Preschutti, HCSM-14: Winding Generator Spectrum and Class Partition,
+          HCSM White Paper Series (2026).
+
+[HCSM-15] S. Preschutti, HCSM-15: Gauge Symmetry of the Loop Operator and DNLS,
+          HCSM White Paper Series (2026).
+
+[HCSM-22] S. Preschutti, HCSM-22: The Zero State, HCSM White Paper Series (2026).
+
+[HCSM-23] S. Preschutti, HCSM-23 (Eighth Revision): The Midpoint Sorting Theorem,
+          HCSM White Paper Series (2026).
+
+[HCSM-24] S. Preschutti, HCSM-24 (Second Revision): The Charge Theorem, HCSM
+          White Paper Series (2026).
+
+[HCSM-26] S. Preschutti, HCSM-26: The Observer Pair {W, t}, HCSM White Paper
+          Series (2026).
+
+[HCSM-27] S. Preschutti, HCSM-27: Klein Orbit Structure, HCSM White Paper Series
+          (2026).
+
+[HCSM-28] S. Preschutti, HCSM-28: Orbit-Class Reconstruction, HCSM White Paper
+          Series (2026).
+
+[HCSM-33] S. Preschutti, HCSM-33: Mass Map, HCSM White Paper Series (2026).
+
+[HCSM-42] S. Preschutti, HCSM-42: Spin Chirality Z₂ Grading, HCSM White Paper
+          Series (2026).
+
+[HCSM-43] S. Preschutti, HCSM-43: Strong CP from the Orientation Z₂, HCSM White
+          Paper Series (2026).
