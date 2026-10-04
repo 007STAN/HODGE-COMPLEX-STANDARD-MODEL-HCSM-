@@ -13,6 +13,8 @@
 
 **Physics is what the mirror cannot cancel. The Hodge complex is the mirror.**
 
+'If you cannot derive from 1st principles the input and the output it is NOT physics that is referred to as creative writing."
+
 Stanley Preschutti · Entropia Research Institute / Information Physics Institute
 
 </div>
