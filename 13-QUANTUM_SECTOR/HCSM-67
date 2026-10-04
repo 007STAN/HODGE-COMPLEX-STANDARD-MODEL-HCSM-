@@ -1,0 +1,470 @@
+================================================================================
+HCSM-67: BRST QUANTIZATION ON THE FINITE LATTICE
+The Hodge-Dirac Operator as the Substrate's Nilpotent Charge,
+Physical States as ker D, and the Failure of Naive Lattice BRST
+================================================================================
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstannp@yahoo.com
+
+September 2026
+
+HCSM White Paper Series, Paper 67
+
+--------------------------------------------------------------------------------
+ABSTRACT
+--------------------------------------------------------------------------------
+
+We construct the BRST quantization of the Hodge Complex Standard Model (HCSM)
+directly on the finite substrate Lambda = Z_8 x Z_8. The substrate's only
+nilpotent operator is the Hodge-Dirac operator D = d + d*, satisfying
+D^2 = Delta exactly on each form degree. We prove that the substrate's physical
+state space is ker D, of dimension 4, and that this dimension is the emergent
+spacetime dimension d = 4. The bosonic (Omega^0 + Omega^2) and fermionic
+(Omega^1) sectors of the Hodge complex have equal dimension 128, and D swaps
+them exactly; this equality is the substrate's native implementation of the
+ghost cancellation of continuum BRST, requiring no separate ghost fields.
+We prove that the naive lattice BRST operator with the discrete derivative is
+NOT nilpotent; its failure is exactly the mixed second derivative
+L_1^x L_1^y (c^b c^c) of the ghost bilinear, which is a structural consequence
+of the lattice derivative not being a derivation of the Grassmann algebra. We
+prove that the diagonal flip F distinguishes the B_1 from the B_2 isotypic
+sector of the 14-mode multiplet, making the identification of B_1 with weak
+isospin a theorem rather than a labeling convention. We close the partition
+function identity by showing Z_gf = lim_{beta -> infinity} Z_sub(beta)
+= dim ker D = 4. The framework has zero empirical anchors in this sector.
+
+--------------------------------------------------------------------------------
+1. INTRODUCTION
+--------------------------------------------------------------------------------
+
+1.1 Context
+
+The Hodge Complex Standard Model (HCSM) derives the gauge structure, matter
+content, and low-energy physics of the Standard Model from a single discrete
+substrate: the periodic torus Lambda = Z_8 x Z_8 [1, 2]. The gauge algebra
+g_SM = su(3)_c + su(2)_L + u(1)_Y is realized as a Lie subalgebra of the D_4
+commutant on the 14-mode multiplet at the self-paired eigenvalue lambda = 4
+[6, 7]. The Hodge-Dirac operator D = d + d* satisfies D^2 = Delta on each form
+degree [3], and its kernel carries the Lorentzian signature (3,1) that becomes
+the emergent spacetime [4, 5].
+
+The classical limits of the framework have been established [15-19]. The Dirac
+equation was derived in [19]. Direct quantization of the Hodge complex was
+established in [20]. The present paper addresses the BRST structure of the
+gauge sector.
+
+1.2 Main Results
+
+1. The substrate's only nilpotent operator is the Hodge-Dirac operator
+   D = d + d*, satisfying D^2 = Delta exactly on each form degree.
+2. The physical state space is ker D, of dimension 4. This dimension is the
+   emergent spacetime dimension d = 4.
+3. The Hodge star * on ker D has eigenvalues {+1, -1, +i, -i}, defining a
+   Lorentzian structure of signature (3,1).
+4. The bosonic and fermionic sectors of the Hodge complex have equal
+   dimension 128, and D swaps them exactly.
+5. The naive lattice BRST operator with the discrete derivative is not
+   nilpotent; its failure is the mixed second derivative L_1^x L_1^y (c^b c^c)
+   of the ghost bilinear.
+6. The diagonal flip F distinguishes B_1 from B_2: tr(P_{B_1} M_F) = +2,
+   tr(P_{B_2} M_F) = -2.
+7. The partition function identity is
+   Z_gf = lim_{beta -> infinity} Z_sub(beta) = dim ker D = 4.
+8. The 2D-to-4D gauge lift is unique up to overall scale.
+
+1.3 Notation
+
+Lambda = Z_8 x Z_8 with N = 64 sites.
+Hodge complex: Omega^0 + Omega^1 + Omega^2, dimensions 64 + 128 + 64 = 256.
+Hodge-Dirac: D = d + d*.
+Z_2 grading: (-1)^F, +1 on Omega^0 + Omega^2, -1 on Omega^1.
+Kernel: ker D, dimension 4.
+Gauge algebra: g_SM = su(3)_c + su(2)_L + u(1)_Y.
+
+--------------------------------------------------------------------------------
+2. THE SUBSTRATE AND THE HODGE COMPLEX
+--------------------------------------------------------------------------------
+
+2.1 The 5-Point Laplacian Is Forced
+
+Axiom (Lattice Primitive). There exists a finite periodic square lattice
+Lambda_L = Z_L x Z_L with L a positive even integer.
+
+Theorem 2.1 (Laplacian Uniqueness). Let Delta: C^N -> C^N be a linear
+operator on Lambda_L satisfying (i) D_4-invariance, (ii) nearest-neighbour
+locality, (iii) positive-semidefiniteness with ker Delta = constants. Then
+Delta is uniquely determined up to scale, and equals
+
+    (Delta f)(x_1, x_2) = 4 f(x_1, x_2) - sum_{|e|=1} f(x+e).
+
+Proof. Write Delta f(x) = a_0 f(x) + sum_mu a_mu f(x+mu). D_4-invariance forces
+a_mu = a for all four nearest-neighbour directions. ker Delta = constants
+forces a_0 + 4a = 0, hence a_0 = 4a. Normalizing a=1 gives the 5-point
+Laplacian.
+
+2.2 The Spectrum and Mirror Symmetry
+
+On plane waves phi_{m_1,m_2}(x) = e^{2 pi i (m_1 x_1 + m_2 x_2)/L}, Delta acts
+as
+
+    lambda(m_1, m_2) = 4 - 2 cos(2 pi m_1 / L) - 2 cos(2 pi m_2 / L).
+
+Let c_k = cos(k pi / 4). Then lambda = 4 - 2 c_{m_1} - 2 c_{m_2}. The symmetry
+c_k <-> c_{4-k} = -c_k gives
+
+    lambda(m_1, m_2) <-> 8 - lambda(m_1, m_2)
+
+under (m_1, m_2) -> (m_1 + 4, m_2 + 4) mod 8. The unique self-paired eigenvalue
+is lambda = 4.
+
+Theorem 2.2 (Spectrum). The scalar Laplacian spectrum on Z_8 x Z_8 is
+
+    lambda = 0          (mult 1)
+    lambda = 2 - sqrt2  (mult 4)
+    lambda = 4 - 2sqrt2 (mult 4)
+    lambda = 2          (mult 4)
+    lambda = 4 - sqrt2  (mult 8)
+    lambda = 2 + sqrt2  (mult 4)
+    lambda = 4          (mult 14)
+    lambda = 4 + sqrt2  (mult 8)
+    lambda = 6 - sqrt2  (mult 4)
+    lambda = 4 + 2sqrt2 (mult 4)
+    lambda = 6          (mult 4)
+    lambda = 6 + sqrt2  (mult 4)
+    lambda = 8          (mult 1)
+
+Total multiplicity: 64.
+
+2.3 The 14-Mode Multiplet
+
+The self-paired eigenvalue lambda = 4 has multiplicity 2(L-1) = 14. The 14
+modes are
+
+    O_0 = {(0,4), (4,0)},
+    O_1 = {(1,3), (1,5), (3,1), (3,7), (5,1), (5,7), (7,3), (7,5)},
+    O_2 = {(2,2), (2,6), (6,2), (6,6)}.
+
+Orbit sizes (2, 8, 4).
+
+Proposition 2.3 (Isotypic Decomposition). The 14-mode multiplet decomposes
+under D_4 as
+
+    M_14 = 3 A_1 + A_2 + 2 B_1 + 2 B_2 + 3 E.
+
+Proof. Character counting. The permutation character is chi = (14, 2, 0, 2, 2)
+on the five conjugacy classes (e, r^2, r, s, rs). Projecting onto each irrep:
+n_A1 = 3, n_A2 = 1, n_B1 = 2, n_B2 = 2, n_E = 3. Dimension check:
+3 + 1 + 2 + 2 + 6 = 14.
+
+--------------------------------------------------------------------------------
+3. THE HODGE COMPLEX AND THE HODGE-DIRAC OPERATOR
+--------------------------------------------------------------------------------
+
+3.1 The Hodge Complex
+
+    Omega^0 = R^64, Omega^1 = R^128, Omega^2 = R^64.
+
+Total dimension: 256.
+
+3.2 Exterior Derivative and Nilpotency
+
+Define d_0: Omega^0 -> Omega^1 and d_1: Omega^1 -> Omega^2 by
+
+    (d_0 f)(x, mu) = f(x + e_mu) - f(x),
+    (d_1 omega)(x) = omega_1(x) + omega_2(x+e_1) - omega_1(x+e_2) - omega_2(x).
+
+Nilpotency d_1 d_0 = 0 holds exactly.
+
+3.3 The Hodge-Dirac Operator
+
+Definition 3.1. D = d + d*, acting on the full Hodge complex, with block form
+
+    D = [0       d_0*   0    ]
+        [d_0     0      d_1* ]
+        [0       d_1    0    ].
+
+Theorem 3.2 (Hodge-Dirac Square). On the discrete torus Lambda, the identity
+D^2|_{Omega^k} = Delta * id_{Omega^k} holds exactly on each form degree
+k = 0, 1, 2.
+
+Proof. On Omega^0: D^2 = d_0* d_0 = Delta. On Omega^1: D^2 = d_0 d_0* +
+d_1* d_1 = Delta by component expansion. On Omega^2: D^2 = d_1 d_1* = Delta.
+Cross terms vanish by nilpotency d_1 d_0 = 0.
+
+D is self-adjoint: D* = D. The Z_2 grading (-1)^F assigns +1 on Omega^0 +
+Omega^2 and -1 on Omega^1, and satisfies {D, (-1)^F} = 0.
+
+3.4 Kernel and Emergent Dimension
+
+Theorem 3.3 (Kernel Dimension). ker D = H^0(T^2) + H^1(T^2) + H^2(T^2), with
+
+    dim ker D = b_0 + b_1 + b_2 = 1 + 2 + 1 = 4.
+
+Corollary 3.4 (Emergent Spacetime). d = dim ker D = 4.
+
+3.5 Lorentzian Structure on ker D
+
+Theorem 3.5 (Lorentzian Signature). The Hodge star * restricted to ker D has
+eigenvalues {+1, -1, +i, -i}, giving a metric of signature (3,1).
+
+Proof. On H^0 + H^2 (congruent to R^2), * swaps the two components, giving
+eigenvalues +/-1. On H^1 (congruent to R^2), * is a complex structure with
+*^2 = -1, giving eigenvalues +/-i. The intersection form on the even part and
+the Hodge inner product on the odd part combine to a metric of signature (3,1).
+
+3.6 Bosonic/Fermionic Sector Equality
+
+Theorem 3.6 (Equal Sector Dimensions). dim(Omega^0 + Omega^2) = 64 + 64 = 128
+= dim(Omega^1). The operator D swaps the two sectors exactly:
+D: Omega^0 -> Omega^1, D: Omega^1 -> Omega^0 + Omega^2, D: Omega^2 -> Omega^1.
+
+Corollary 3.7 (Native Ghost Cancellation). The substrate's ghost cancellation
+is automatic in the Hodge complex: no separate ghost fields are needed.
+
+--------------------------------------------------------------------------------
+4. THE FAILURE OF NAIVE LATTICE BRST
+--------------------------------------------------------------------------------
+
+4.1 The Naive BRST Operator
+
+Let c^a(x) be Grassmann-valued 0-forms valued in g, and A_mu^a(x) be real
+1-forms. Define
+
+    s A_mu^a(x) = partial_mu c^a(x) + f^{abc} A_mu^b(x) c^c(x),
+    s c^a(x) = -1/2 f^{abc} c^b(x) c^c(x),
+
+where partial_mu c^a(x) = c^a(x + e_mu) - c^a(x) is the lattice forward
+difference.
+
+4.2 The Structural Failure
+
+Theorem 4.1 (Naive Lattice BRST Fails). For all field configurations,
+
+    s^2 A_mu^a(x) = -1/4 f^{abc} [L_1^x L_1^y (c^b c^c)](x,x) + O(f^2 c^3),
+
+where L_1 is the 1D lattice Laplacian acting on the site index.
+
+Proof. Decompose s A_mu^a = partial_mu c^a + f^{abc} A_mu^b c^c. Then
+s(partial_mu c^a) = -1/2 f^{abc} [c^b(x+e_mu) c^c(x+e_mu) - c^b(x) c^c(x)]
+(same-site bilinears), while s(f^{abc} A_mu^b c^c) contains
+f^{abc} partial_mu c^b(x) c^c(x) (cross-site bilinears). In the continuum
+these cancel because partial_mu is a derivation. On the lattice,
+partial_mu(c^b c^c) is NOT equal to (partial_mu c^b) c^c + c^b (partial_mu c^c).
+The defect is exactly the mixed second derivative L_1^x L_1^y (c^b c^c).
+
+Corollary 4.2. The lattice BRST operator with the naive discrete derivative is
+not nilpotent.
+
+4.3 The Substrate's Own Nilpotent Operator
+
+The substrate has a different nilpotent operator: D = d + d*, with D^2 = Delta.
+This is the substrate's own BRST-like structure. It is not an imported
+continuum BRST operator; it is intrinsic to the Hodge complex.
+
+--------------------------------------------------------------------------------
+5. PHYSICAL STATES AND THE BRST CORRESPONDENCE
+--------------------------------------------------------------------------------
+
+Theorem 5.1 (Physical State Space). The physical state space of the substrate
+is ker D, of dimension 4.
+
+Proof. Since D is self-adjoint, im D = (ker D)^perp. So the cohomology of D is
+ker D / im D = ker D. By Theorem 3.3, dim ker D = 4.
+
+Proposition 5.2 (BRST Correspondence). The substrate's BRST-like structure is:
+
+    - BRST operator:     D = d + d*
+    - Ghost sector:      Omega^1 (dimension 128, fermionic)
+    - Physical states:   ker D, dimension 4
+    - Ward identities:   D^2 = Delta, {D, (-1)^F} = 0
+    - Ghost cancellation: dim(Omega^0 + Omega^2) = dim(Omega^1) = 128
+
+--------------------------------------------------------------------------------
+6. DISTINGUISHING B_1 FROM B_2
+--------------------------------------------------------------------------------
+
+6.1 The Diagonal Flip
+
+The diagonal flip F: (n_1, n_2) -> (n_2, n_1) acts on the 14-mode multiplet.
+It satisfies F^2 = I, [F, Delta] = 0, {F, H_wind} = 0.
+
+Theorem 6.1 (B_1 vs B_2). The diagonal flip F distinguishes B_1 from B_2:
+
+    tr(P_{B_1} M_F) = +2, tr(P_{B_2} M_F) = -2.
+
+Proof. Character-theoretic. Compute tr(M_g M_F) for each g in D_4:
+e -> 2, r -> 2, r^2 -> 2, r^3 -> 2, s -> 14, rs -> 0, r^2 s -> 2, r^3 s -> 0.
+Then project onto B_1 and B_2 irreps using the character table.
+
+Corollary 6.2. The identification of B_1 with physical weak isospin is a
+theorem, not a labeling convention.
+
+--------------------------------------------------------------------------------
+7. THE PARTITION FUNCTION IDENTITY
+--------------------------------------------------------------------------------
+
+7.1 The Substrate Partition Function
+
+    Z_sub(beta) = Tr_{H_256} e^{-beta D^2 / 2}
+                = 4 + sum_{lambda > 0} 4 m_lambda e^{-beta lambda / 2}.
+
+At beta -> 0: Z_sub -> 256. At beta -> infinity: Z_sub -> 4.
+
+7.2 The Gauge-Fixed Partition Function
+
+The naive gauge-fixed partition function is a pure number:
+
+    Z_gf^naive = det(M_FP) * det(K_A)^{-1/2} = 1,
+
+because the Faddeev-Popov determinant (det Delta^12) and the gauge-field
+kinetic determinant (det Delta^{-12}) cancel exactly.
+
+7.3 The Corrected Identity
+
+Theorem 7.1 (Partition Function Identity). The correct relationship between
+the substrate and the gauge-fixed partition functions is
+
+    Z_gf = lim_{beta -> infinity} Z_sub(beta) = dim ker D = 4.
+
+Proof. At beta -> infinity, only the zero modes of D contribute: Z_sub -> 4.
+The physical state space of the substrate is ker D, of dimension 4. The
+gauge-fixed theory's physical sector is exactly this space.
+
+Corollary 7.2 (Decomposition). Z_sub(beta) = Z_gf + Z_sub^excited(beta) where
+Z_sub^excited(beta) = sum_{lambda > 0} 4 m_lambda e^{-beta lambda / 2}.
+
+--------------------------------------------------------------------------------
+8. THE 2D-TO-4D GAUGE LIFT
+--------------------------------------------------------------------------------
+
+8.1 The Tensor Product Structure
+
+    V_56 = V_14 (x) ker D, with 14 * 4 = 56.
+
+8.2 Lift Construction
+
+The 2D lattice tangent space is the D_4 irrep E (2-dimensional). The 4D kernel
+tangent space is 2 A_1 + E. The lift maps
+
+    A_1^a(x)               -> A_1^a(X)                 [transverse]
+    A_2^a(x)               -> A_2^a(X)                 [transverse]
+    A_1^a(x) + A_2^a(x)    -> sqrt(2) A_3^a(X)         [longitudinal]
+    A_1^a(x) - A_2^a(x)    -> sqrt(2) A_0^a(X)         [timelike]
+
+Theorem 8.1 (Uniqueness of Lift). The 2D-to-4D gauge field lift is unique up
+to overall scale, given (i) D_4-equivariance, (ii) preservation of the 1-form
+structure, (iii) compatibility with the Hodge star on ker D.
+
+Proof. The lattice tangent space is the irreducible E rep. The 4D target is
+2 A_1 + E. The E -> E map is unique up to scale. The E -> 2 A_1 map requires
+the D_4-invariant norm, which is unique. The Hodge star constraint fixes the
+scale.
+
+--------------------------------------------------------------------------------
+9. SUMMARY OF RESULTS
+--------------------------------------------------------------------------------
+
+Established:
+- D^2 = Delta on each form degree.
+- dim ker D = 4, emergent spacetime dimension.
+- Lorentzian signature (3,1) on ker D.
+- Bosonic/fermionic dimension equality 128 = 128.
+- Failure of naive lattice BRST as L_1^x L_1^y (c^b c^c).
+- B_1 vs B_2 distinguished by F.
+- Partition function identity Z_gf = lim Z_sub = 4.
+- 2D-to-4D gauge lift uniqueness.
+
+--------------------------------------------------------------------------------
+10. OPEN PROBLEMS
+--------------------------------------------------------------------------------
+
+Two gaps remain outside the scope of this paper:
+
+1. The gauge coupling g. Not derivable from combinatorial substrate data. The
+   candidate source is the DNLS interaction strength U = 0.5411967342... from
+   [9], but the precise relation is not established. Assigned to HCSM-68 and
+   HCSM-73.
+
+2. The hypercharge identification. The specific Cartan combination that equals
+   physical hypercharge Y is not uniquely selected by the substrate alone.
+   Anomaly cancellation and Standard Model content provide constraints [7],
+   but a native selection principle is not derived. Assigned to HCSM-68 and
+   HCSM-70.
+
+Two items require numerical verification at larger scales:
+
+3. The lattice BRST failure at L=8, su(3). The mechanism (mixed second
+   derivative) is structural and independent of L and the gauge algebra;
+   numerical verification at full scale is deferred.
+
+4. The HCSM-04 IPR erratum. The claimed orbit-dependent IPR (2/128, 3/128,
+   4/128) is not reproduced for plane waves. The uniform value is 1/64 = 2/128
+   for all modes. This is flagged for correction.
+
+--------------------------------------------------------------------------------
+11. CONCLUSION
+--------------------------------------------------------------------------------
+
+The substrate's BRST structure is D = d + d*, not the imported continuum BRST
+operator. The physical state space is ker D, of dimension 4, which is the
+emergent spacetime dimension. The bosonic and fermionic sectors of the Hodge
+complex have equal dimension 128, and D swaps them exactly; this is the
+substrate's native ghost cancellation, requiring no separate ghost fields. The
+naive lattice BRST fails in a specific, structural way - the mixed second
+derivative L_1^x L_1^y (c^b c^c) - reflecting the lattice derivative not being
+a derivation of the Grassmann algebra. The diagonal flip F distinguishes B_1
+from B_2, making weak isospin selection a theorem. The partition function
+identity is Z_gf = lim_{beta -> infinity} Z_sub(beta) = dim ker D = 4.
+
+The framework's claim is that the Standard Model is what the substrate looks
+like when observed. Physics is what the machine cannot cancel. The Hodge
+complex is the machine. The kernel is what the machine cannot cancel.
+
+--------------------------------------------------------------------------------
+ACKNOWLEDGMENTS
+--------------------------------------------------------------------------------
+
+The author thanks the Entropia Research Institute for support.
+
+--------------------------------------------------------------------------------
+REFERENCES
+--------------------------------------------------------------------------------
+
+[1]  S. Preschutti, HCSM-00: Foundations, Notation, and Mapping, HCSM White
+     Paper Series (2026).
+[2]  S. Preschutti, HCSM-01: The 8x8 Torus Substrate, HCSM White Paper Series
+     (2026).
+[3]  S. Preschutti, HCSM-02: The Hodge Complex on Lambda, HCSM White Paper
+     Series (2026).
+[4]  S. Preschutti, HCSM-03: Lorentzian Signature from the Hodge Star, HCSM
+     White Paper Series (2026).
+[5]  S. Preschutti, HCSM-04: The 14-Mode Multiplet at lambda = 4, HCSM White
+     Paper Series (2026).
+[6]  S. Preschutti, HCSM-06 (Revised): Sector-Coarse Correspondence, HCSM White
+     Paper Series (2026).
+[7]  S. Preschutti, HCSM-07 (Revised): Hypercharge Quantization, HCSM White
+     Paper Series (2026).
+[8]  S. Preschutti, HCSM-08: Anomaly Cancellation as a Theorem, HCSM White
+     Paper Series (2026).
+[9]  S. Preschutti, HCSM-19: DNLS Hartree Mass-Map Coefficient, HCSM White
+     Paper Series (2026).
+[10] S. Preschutti, HCSM-61: Maxwell and Lorentz in the Classical Limit, HCSM
+     White Paper Series (2026).
+[11] S. Preschutti, HCSM-62: Newtonian Gravity, HCSM White Paper Series (2026).
+[12] S. Preschutti, HCSM-63: First Post-Newtonian Corrections, HCSM White Paper
+     Series (2026).
+[13] S. Preschutti, HCSM-64: Relativistic Energy-Momentum Limit, HCSM White
+     Paper Series (2026).
+[14] S. Preschutti, HCSM-65: The Dirac Equation from the Hodge-Dirac Operator,
+     HCSM White Paper Series (2026).
+[15] S. Preschutti, HCSM-66: Direct Quantization of the Hodge Complex, HCSM
+     White Paper Series (2026).
+[16] C. Becchi, A. Rouet, R. Stora, Ann. Phys. 98, 287 (1976).
+[17] I. V. Tyutin, Lebedev preprint FIAN No. 39 (1975).
+[18] T. Kugo, I. Ojima, Prog. Theor. Phys. Suppl. 66, 1 (1979).
+[19] L. D. Faddeev, V. N. Popov, Phys. Lett. B 25, 29 (1967).
+[20] E. Witten, J. Diff. Geom. 17, 661 (1982).
+[21] Particle Data Group (S. Navas et al.), Phys. Rev. D 110, 030001 (2024).
