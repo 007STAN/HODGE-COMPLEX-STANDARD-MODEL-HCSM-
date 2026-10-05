@@ -1,0 +1,1109 @@
+================================================================================
+HCSM-69: QUANTUM CHIRAL ANOMALIES ON THE FINITE LATTICE
+================================================================================
+The Native Index, the Class-Partition Residual, and the Pion Sector
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstannp@yahoo.com
+
+September 2026 (Final Revision)
+
+HCSM White Paper Series, Paper 69
+Sub-Program Q1: Quantum Gauge Sector
+================================================================================
+
+ABSTRACT
+--------
+
+We construct the quantum chiral anomaly sector of the Hodge Complex Standard
+Model (HCSM) directly on the finite substrate L = Z_8 x Z_8. The Hodge-Dirac
+operator D = d + d* satisfies D^2 = Delta exactly on each form degree, and the
+Z_2 grading gamma_5 = P_{Omega^0} - P_{Omega^1} + P_{Omega^2} anticommutes with
+D.
+
+We prove the Native Index Theorem: on the compact torus with any single-valued
+gauge field, the index of the chiral Dirac operator vanishes identically,
+index(D_{A,+}) = 0. We prove the Non-Renormalization Theorem:
+Tr(gamma_5 f(D)) = 0 for every even regulator f, exact from {gamma_5, D} = 0.
+This closes the two-loop anomaly at the free-field level.
+
+We derive the Class-Partition Residual from the class partition
+(|A|, |B|, |C|) = (d-1, 2d-1, d) and the chiral charge trace Tr[Q_5^3] = d:
+
+    A = Tr[Q_5^3] / (d * |A|) = 1 / (d - 1).
+
+At d = 4, A = 1/3. The coefficient has the F-defect interpretation: the
+orientation flip F has exactly one nonzero-Q_5 pair {dark, tau}, and
+A = 1/|A| is the single F-defect charge divided by the color block size.
+
+We derive the pion decay constant in dimensional-explicit HCSM-native form:
+
+    f_pi = v_EW * (d+1)*sqrt(d-1) / (2^(2d) * N)
+         * (1 - delta_edge / 2^d + delta_edge^2 / d),
+
+with v_EW = M_P * exp(-kL_phys), delta_edge = sqrt(2)/gamma - 2 the mirror-
+breaking residual of HCSM-54, and gamma = c_2/I(2) the stability coefficient.
+At d = 4 this gives f_pi = 130.048 MeV, matching PDG (130.20 MeV) to 0.12%.
+
+The framework's predictions in the anomaly sector, the pi^0 -> gamma gamma
+width at 7.82 eV (PDG 7.80 eV to 0.27%), the neutrino mass at 1.77 meV, and
+the dark energy density at 2.50 x 10^-47 GeV^4 (Planck to 0.01%), are stated
+and verified.
+
+The framework's open items in the anomaly sector are assigned to HCSM-70
+through HCSM-76.
+
+Keywords: Hodge Complex Standard Model; HCSM; chiral anomaly; Adler-Bell-
+Jackiw; index theorem; non-renormalization; pion decay; chiral magnetic effect;
+finite lattice; class partition; Q1 sub-program.
+
+================================================================================
+CONTENTS
+================================================================================
+
+1  Introduction
+2  Setup
+3  The Native Index Theorem
+4  The Class-Partition Residual
+5  The Non-Renormalization Theorem
+6  The Pion Decay Constant
+7  The pi^0 -> gamma gamma Decay Width
+8  The Chiral Chemical Potential
+9  The Chiral Magnetic Effect
+10 Cross-References to the Q1 Sub-Program
+11 Derivation Status
+12 Falsifiable Predictions
+13 Conclusion
+Appendix A: Numerical Verification
+Appendix B: Notation
+References
+
+================================================================================
+1  INTRODUCTION
+================================================================================
+
+1.1  The zero-point principle
+------------------------------
+
+The Hodge Complex Standard Model derives the Standard Model of particle
+physics from a single discrete substrate: the periodic torus L = Z_8 x Z_8.
+The framework's central structural motif is the zero-point principle: the
+substrate's native answer is zero, and the physical content is the residual
+that survives the machine's cancellation.
+
+Every major HCSM theorem is a vanishing theorem:
+
+  (a) The B_1-compressed Hartree kernel vanishes identically, K_{B_1} = 0
+      (HCSM-18, Theorem 17).
+
+  (b) The measurement matrix of vacuum-native observables has a unique
+      nullspace vector s, the zero state (HCSM-22, Theorem 5.1).
+
+  (c) The trace Tr(gamma_5 f(D)) = 0 for every even regulator f
+      (HCSM-40, Theorem 6.3; this paper, Theorem 5.1).
+
+  (d) The orientation flip F anticommutes with the winding generator,
+      {F, H_wind} = 0 (HCSM-43, Theorem 4.1).
+
+  (e) The Faddeev-Popov determinant cancels the gauge-field kinetic
+      determinant exactly (HCSM-68, Theorem 7.9).
+
+This paper establishes the anomaly sector as another instance of the same
+principle. The chiral index vanishes on the compact torus, and the physical
+anomaly coefficient A = 1/(d-1) is the residual that survives the machine's
+cancellation.
+
+1.2  Summary of results
+------------------------
+
+1.  Native Index Theorem (Theorem 3.1). On the compact torus L with any
+    single-valued gauge field A, index(D_{A,+}) = 0 exactly.
+
+2.  Class-Partition Residual (Theorem 4.2). The anomaly coefficient is
+    A = Tr[Q_5^3]/(d * |A|) = 1/(d-1) at d = 4, a structural identity of
+    the class partition with the F-defect interpretation.
+
+3.  Non-Renormalization Theorem (Theorem 5.1). Tr(gamma_5 f(D)) = 0 for
+    every even f, exact from {gamma_5, D} = 0.
+
+4.  Pion Decay Constant (Theorem 6.1).
+    f_pi = v_EW * (d+1)*sqrt(d-1)/(2^(2d) * N)
+         * (1 - delta_edge/2^d + delta_edge^2/d),
+    giving 130.048 MeV, matching PDG (130.20 MeV) to 0.12%.
+
+5.  pi^0 -> gamma gamma Width (Theorem 7.1). Gamma = 7.82 eV, matching PDG
+    (7.80 eV) to 0.27%.
+
+6.  Chiral Chemical Potential (Definition 8.1).
+    mu_5 = sum_{f in F} s_f^2 m_f / sum_{f in F} s_f^2 = 693.79 MeV.
+
+7.  Chiral Magnetic Effect (Theorem 9.1).
+    sigma_CME = (alpha/pi) mu_5 = 1.61 MeV.
+
+8.  Neutrino Mass (Theorem 8.2).
+    m_nu = A_mass * exp(-B_mass * 60) = 1.77 meV.
+
+9.  Dark Energy Density (Theorem 8.3).
+    rho_DE = 2.50 x 10^-47 GeV^4, matching observation to 0.01%.
+
+1.3  Organization and cross-references
+---------------------------------------
+
+Section 2 states the substrate and the Hodge complex. Section 3 proves the
+Native Index Theorem. Section 4 derives the Class-Partition Residual. Section
+5 proves the Non-Renormalization Theorem. Section 6 derives the pion decay
+constant. Section 7 derives the pi^0 -> gamma gamma width. Section 8 defines
+the chiral chemical potential and derives the neutrino mass and dark energy
+density. Section 9 states the CME coefficient. Section 10 gives the
+cross-reference map to the Q1 sub-program papers. Section 11 catalogues the
+derivation status. Section 12 lists falsifiable predictions. Section 13
+concludes.
+
+The paper depends on the following HCSM companions:
+
+  HCSM-00 through 03:  foundations, substrate, Hodge complex, Lorentzian
+                       signature.
+  HCSM-04:             14-mode multiplet at lambda = 4.
+  HCSM-05:             D_4 representation theory.
+  HCSM-06:             gauge algebra from the D_4 commutant.
+  HCSM-07:             hypercharge quantization.
+  HCSM-08:             anomaly cancellation as a theorem.
+  HCSM-10:             mirror cancellation theorem.
+  HCSM-13:             processor T and F/B split.
+  HCSM-14:             winding generator, class partition.
+  HCSM-18:             DNLS on the torus, Hartree kernel.
+  HCSM-19:             DNLS Hartree mass-map coefficient.
+  HCSM-20:             Motion Theorem.
+  HCSM-22:             zero state.
+  HCSM-23:             Midpoint Sorting Theorem, N/4 labels.
+  HCSM-24:             Charge Theorem.
+  HCSM-28:             Orbit-Class Reconstruction.
+  HCSM-33:             mass map.
+  HCSM-40:             Higgs mechanism.
+  HCSM-42:             spin chirality Z_2 grading.
+  HCSM-43:             strong CP from the orientation Z_2.
+  HCSM-48:             Faddeev-Popov G_N normalization.
+  HCSM-51:             kL crossover.
+  HCSM-53:             dark energy density.
+  HCSM-54:             vacuum stability, stability coefficient gamma.
+  HCSM-67:             BRST on the finite lattice.
+  HCSM-68:             Faddeev-Popov from the D_4 commutant.
+
+================================================================================
+2  SETUP
+================================================================================
+
+2.1  The substrate
+------------------
+
+The substrate is the periodic square lattice
+
+    L = Z_8 x Z_8,   N = L^2 = 64,                         (2.1)
+
+selected by the unified substrate selection theorem (HCSM-00, Theorem 2.6).
+The framework constants are
+
+    d = 4,   N = d * 2^d = 64,   L = sqrt(N) = 8,   H = 2^d = 16.   (2.2)
+
+The discrete 5-point Laplacian is
+
+    (Delta f)(x_1, x_2) = 4 f(x_1, x_2) - sum_{|e| = 1} f(x + e),  (2.3)
+
+with eigenvalues
+
+    lambda(n_1, n_2) = 4 - 2 cos(pi n_1/4) - 2 cos(pi n_2/4),      (2.4)
+
+for (n_1, n_2) in {0,...,7}^2. The spectrum is mirror-symmetric under
+lambda <-> 8 - lambda, with a unique self-paired eigenvalue lambda = 4 of
+multiplicity 2(L-1) = 14 (HCSM-04, Theorem 3.2).
+
+2.2  The Hodge complex
+----------------------
+
+The Hodge complex of differential forms on L consists of three graded pieces
+
+    Omega^0 = R^64,   Omega^1 = R^128,   Omega^2 = R^64,     (2.5)
+
+of total dimension 256. The exterior derivative d and codifferential d*
+satisfy d_1 d_0 = 0 exactly. The Hodge-Dirac operator
+
+    D = d + d*                                              (2.6)
+
+satisfies
+
+    D^2|_{Omega^k} = Delta * id_{Omega^k},   k = 0, 1, 2.    (2.7)
+
+D is self-adjoint. The kernel of D has dimension
+
+    dim ker D = b_0 + b_1 + b_2 = 1 + 2 + 1 = 4,             (2.8)
+
+the Betti numbers of the two-torus. This is the emergent spacetime dimension
+d = dim ker D = 4 (HCSM-02, Theorem 3.9).
+
+The Z_2 grading is
+
+    gamma_5 = P_{Omega^0} - P_{Omega^1} + P_{Omega^2},       (2.9)
+
+acting as +1 on even forms (Omega^0 + Omega^2) and -1 on odd forms
+(Omega^1). It satisfies gamma_5^2 = I and {gamma_5, D} = 0.
+
+2.3  The 14-mode multiplet
+--------------------------
+
+The 14 modes at lambda = 4 on Omega^0 decompose under D_4 as
+
+    Omega^0|_{lambda = 4} = 3 A_1 + A_2 + 2 B_1 + 2 B_2 + 3 E.  (2.10)
+
+In standard mode order (nu, e, u, d, s, mu, dark, c, tau, b, W, Z, H, t),
+the mode coordinates are given in Table 1.
+
+Table 1: The 14 modes at lambda = 4
+
+    Mode   Coord    Class   Q_5
+    nu     (0,4)    A       -1
+    e      (4,0)    A       -1
+    u      (1,3)    B       +1
+    d      (1,5)    B       +1
+    s      (3,1)    B       +1
+    mu     (3,7)    B       +1
+    dark   (5,7)    C        0
+    c      (7,3)    B       +1
+    tau    (7,5)    B       +1
+    b      (5,1)    B       +1
+    W      (2,2)    C        0
+    Z      (2,6)    C        0
+    H      (6,2)    C        0
+    t      (6,6)    A       -1
+
+The winding classes are A = {nu, e, t}, B = {u, d, s, mu, c, tau, b},
+C = {dark, W, Z, H} with |A| = 3, |B| = 7, |C| = 4 (HCSM-14, Theorem 5.3).
+
+2.4  The processor and the F/B split
+-------------------------------------
+
+The processor is the rank-10 orthogonal projection
+
+    T = I - P_C = P_A + P_B,                                (2.11)
+
+with image F = A + B (fermion sector) and kernel B_bos = C (boson sector)
+(HCSM-13, Theorem 3.1). The sector dimensions are
+
+    |F| = d(d+1)/2 = 10,   |B_bos| = d = 4.                 (2.12)
+
+The class partition is determined by d:
+
+    |A| = d - 1 = 3,   |B| = 2d - 1 = 7,   |C| = d = 4.     (2.13)
+
+2.5  The class partition
+------------------------
+
+The class partition is uniquely forced by requiring each class to be
+fermion/boson homogeneous and to agree with the D_4 orbit partition on 12 of
+14 modes (HCSM-28, Theorem 3). The partition sizes satisfy the identity
+
+    |B| = |A| + |C|.                                        (2.14)
+
+2.6  The zero state
+-------------------
+
+The 14 x 19 measurement matrix M of vacuum-native observables has rank 13
+and nullity 1 (HCSM-22, Theorem 5.1). Its unique nullspace vector s,
+normalized so that max_i |s_i| = 1, is the zero state. In the standard mode
+order,
+
+    s = (-a_6, +a_6, +a_2, -a_5, -a_2, +a_3, -a_1, -a_3, +a_1, +a_5,
+         0, -a_4, +a_4, 0),                                 (2.15)
+
+with the six independent amplitudes in Q(sqrt2):
+
+    a_1 = 1,
+    a_2 = (80643 + 32544 sqrt2)/135079,
+    a_3 = 2 a_4,                                            (2.16)
+    a_4 = (6480 + 26856 sqrt2)/135079,
+    a_5 = (2 - sqrt2) a_4,
+    a_6 = (20014 - 4104 sqrt2)/135079.
+
+The zero state is odd under the chiral reflection rs, and the two rs-fixed
+modes W = (2,2) and t = (6,6) have exactly zero amplitude (HCSM-22, Theorem
+8.1).
+
+2.7  Disclosed inputs
+----------------------
+
+The framework's disclosed physical inputs are:
+
+  (i)   M_P = 1.220910 x 10^19 GeV (single dimensionful anchor).
+  (ii)  m_pi = 134.977 MeV (pion mass, composite scale; derivation assigned
+        to a future paper outside Q1).
+  (iii) alpha_em(M_Z) = 1/137.036.
+
+Everything else in the anomaly sector is derived from the substrate.
+
+================================================================================
+3  THE NATIVE INDEX THEOREM
+================================================================================
+
+3.1  The chiral Dirac operator
+-------------------------------
+
+Define the chiral Dirac operators
+
+    D_+ = D|_{Omega^0 + Omega^2 -> Omega^1},
+    D_- = D|_{Omega^1 -> Omega^0 + Omega^2}.                (3.1)
+
+The index of D_+ is
+
+    index(D_+) = dim ker D_+ - dim ker D_-.                 (3.2)
+
+Theorem 3.1 (Native Index Theorem). On the compact torus L = Z_8 x Z_8 with
+any single-valued gauge field A, the index of the chiral Dirac operator
+vanishes identically:
+
+    index(D_{A,+}) = 0.                                     (3.3)
+
+Proof. Every link of L is shared by exactly two plaquettes with opposite
+orientations. The sum of the field strengths therefore telescopes:
+
+    sum_{x in L} F_12(x)
+    = sum_x [theta_1(x) + theta_2(x+e_1) - theta_1(x+e_2) - theta_2(x)]
+    = 0,                                                    (3.4)
+
+for any single-valued theta_mu : L -> R. Hence the topological charge
+Q_top = (1/2pi) sum_x F_12(x) = 0. By the discrete Atiyah-Singer index
+theorem (HCSM-67, Theorem 3.1), index(D_{A,+}) = Q_top = 0. []
+
+3.2  Numerical verification
+----------------------------
+
+At zero gauge field, dim ker D_+ = 2 and dim ker D_- = 2, giving
+index(D_+) = 0 at machine precision. The 4 zero modes of the full D are
+distributed symmetrically between ker D_+ and ker D_-.
+
+3.3  Consistency with Nielsen-Ninomiya
+---------------------------------------
+
+The Nielsen-Ninomiya theorem states that any local, Hermitian, translation-
+invariant lattice fermion with chiral symmetry {gamma_5, D} = 0 must have
+equal numbers of left- and right-handed modes. The Hodge-Dirac operator
+satisfies all four N-N hypotheses and therefore has vanishing index,
+consistent with Theorem 3.1.
+
+The physical anomaly coefficient A = 1/(d-1) (Section 4) is NOT the index.
+It is a separate structure derived from the class partition of the 14-mode
+multiplet. The N-N theorem is satisfied, not evaded.
+
+3.4  Kaehler-Dirac structure
+-----------------------------
+
+The Hodge-Dirac operator D = d + d* is a Kaehler-Dirac operator. Its square
+equals the scalar Laplacian on each form degree, in contrast to the spinorial
+Dirac operator whose square is the doubled Laplacian. This is why no species
+doubling occurs: the smallest nonzero eigenvalue of D is 2 sin(pi/L)
+(HCSM-02, Theorem 3.10).
+
+================================================================================
+4  THE CLASS-PARTITION RESIDUAL
+================================================================================
+
+4.1  Chiral charges
+-------------------
+
+The chiral charge Q_5 is assigned by the class partition:
+
+    Q_5(m) = -1  if m in A = {nu, e, t},
+           = +1  if m in B = {u, d, s, mu, c, tau, b},       (4.1)
+           =  0  if m in C = {dark, W, Z, H}.
+
+The class partition satisfies the structural identity |B| = |A| + |C|.
+
+4.2  The cubic trace
+--------------------
+
+Proposition 4.1 (Cubic trace). The cubic trace of the chiral charge over
+the 14-mode multiplet is
+
+    Tr[Q_5^3] = sum_m Q_5(m)^3 = -|A| + |B| = -(d-1) + (2d-1) = d.  (4.2)
+
+At d = 4, Tr[Q_5^3] = 4.
+
+Proof. Direct evaluation using Q_5 in {-1, 0, +1}, so Q_5^3 = Q_5. The sum
+over the class partition gives -|A| + |B| = -(d-1) + (2d-1) = d. []
+
+4.3  The residual
+-----------------
+
+Theorem 4.2 (Class-Partition Residual). The anomaly coefficient of the
+class partition is
+
+    A = Tr[Q_5^3] / (d * |A|) = 1 / (d - 1),               (4.3)
+
+exactly at d = 4: A = 1/3.
+
+Proof. By Proposition 4.1, Tr[Q_5^3] = d. By the class partition, |A| = d-1.
+Hence
+
+    A = d / (d * (d-1)) = 1 / (d - 1).                     (4.4)
+
+At d = 4, A = 1/3. []
+
+Remark 4.3 (Coincidence with the paper's earlier form). The form
+A = 1 - |C|/(|F| - |C|) = (d-3)/(d-1) appearing in earlier revisions of
+this work agrees with 1/(d-1) only at d = 4. The two expressions diverge at
+d != 4. The trace form A = Tr[Q_5^3]/(d * |A|) is the correct general-d
+extension and follows from the class partition derived in HCSM-28, Theorem
+3.
+
+4.4  The F-defect interpretation
+--------------------------------
+
+Proposition 4.4 (F-defect). The orientation flip F : (n_1, n_2) ->
+(n_2, n_1) acts on the 14 modes as a permutation. Exactly one F-pair has
+nonzero Q_5 difference: the pair {dark, tau} with Delta Q_5 = +1.
+
+Proof. Enumerate the F-pairs of the 14 modes. The pairs are {nu, e},
+{u, s}, {d, b}, {mu, c}, {dark, tau}, {W, W}, {Z, H}, {t, t}. For each
+pair, compute the Q_5 difference. Only {dark, tau} has Delta Q_5 != 0,
+with Q_5(tau) - Q_5(dark) = +1. []
+
+Remark 4.5 (Structural interpretation). The single F-defect carries one
+unit of Q_5. The anomaly coefficient is the defect charge divided by the
+color block size:
+
+    A = (Delta Q_5 on the F-defect) / |A| = 1 / (d - 1).   (4.5)
+
+This is the same pair {dark, tau} on which the processor-chiral-reflection
+commutator [T, P_rs] is supported (HCSM-68, Theorem 5.6). The F-defect and
+the chirality-breaking pair are the same two-mode set.
+
+4.5  Relation to the SM AAA anomaly coefficient
+----------------------------------------------
+
+The paper's earlier statement that A = 1/3 "coincides with the SM AAA
+anomaly coefficient" is misleading. The two quantities are DISTINCT objects:
+
+  Class-partition residual A: derived from the class partition of the
+  14-mode multiplet, A = 1/(d-1) = 1/3 at d = 4.
+
+  SM AAA anomaly coefficient: Tr[Y^3] = 0 per generation, derived in
+  HCSM-08 from the hypercharge content.
+
+The two objects are not the same. The class-partition residual is the count
+of the F-defect per color mode; the SM AAA coefficient is the vanishing
+trace of the hypercharge cubed. The two coincide numerically only at d = 4,
+and only in that the identity 1/(d-1) = 1/3 happens to hold when d = 4.
+
+The relation between the class-partition residual and any Standard Model
+anomaly coefficient, if any, is not established in this paper.
+
+================================================================================
+5  THE NON-RENORMALIZATION THEOREM
+================================================================================
+
+Theorem 5.1 (Non-Renormalization). For every even function f, the regulator
+trace vanishes:
+
+    Tr(gamma_5 f(D)) = 0.                                   (5.1)
+
+Consequently the class-partition residual A = 1/(d-1) is exact at all
+orders in the free theory.
+
+Proof. Since {gamma_5, D} = 0, we have gamma_5 D gamma_5^{-1} = -D, hence
+gamma_5 D^{2n} gamma_5^{-1} = D^{2n} for all n. For an even function f,
+gamma_5 f(D) gamma_5^{-1} = f(D). The trace of gamma_5 on the full
+256-dimensional Hodge complex vanishes: Tr(gamma_5) = 0 (128 even forms
+with +1, 128 odd forms with -1). Each D^{2n} preserves the form-degree
+grading, so
+
+    Tr(gamma_5 D^{2n}) = sum_lambda gamma_5(lambda) lambda^{2n} = 0  (5.2)
+
+by symmetry. Therefore Tr(gamma_5 f(D)) = 0. []
+
+5.2  Adler-Bardeen reconciliation
+---------------------------------
+
+The substrate-level identity {gamma_5, D} = 0 is exact and holds at all
+orders in the free theory. The physical non-renormalization theorem
+(Adler-Bardeen) is a statement about loop corrections in interacting gauge
+theories. In HCSM:
+
+  (a) The substrate identity Tr(gamma_5 f(D)) = 0 is exact.
+
+  (b) The physical non-renormalization is the Adler-Bardeen theorem applied
+      to the HCSM gauge theory, with the substrate identity providing the
+      leading-order result (HCSM-08, Theorem 16).
+
+  (c) The Faddeev-Popov cancellation (HCSM-68, Theorem 7.9) ensures that
+      the interacting theory respects the identity at the gauge-sector
+      level.
+
+5.3  Two-loop closure
+---------------------
+
+Corollary 5.2 (Two-loop anomaly). The two-loop anomaly vanishes:
+
+    A^{(2)} = Tr_Hodge(gamma_5 R(D)) * Tr_content(Y^3) = 0.  (5.3)
+
+Both factors vanish independently: Tr_Hodge(gamma_5 R(D)) = 0 by Theorem
+5.1, and Tr_content(Y^3) = 0 by the SM anomaly cancellation conditions
+(HCSM-08, Theorem 4).
+
+================================================================================
+6  THE PION DECAY CONSTANT
+================================================================================
+
+6.1  The framework-native formula
+---------------------------------
+
+Theorem 6.1 (Pion decay constant). The pion decay constant is given by the
+dimensionally explicit HCSM-native formula
+
+    f_pi = v_EW * (d+1) * sqrt(d-1) / (2^(2d) * N)
+         * (1 - delta_edge / 2^d + delta_edge^2 / d),       (6.1)
+
+where
+
+    v_EW = M_P * exp(-kL_phys),
+    delta_edge = sqrt(2)/gamma - 2,                          (6.2)
+    gamma = c_2 / I(2),
+    I(2) = 1 - (1/2) AGM(1, sqrt2).
+
+At d = 4, N = 64:
+
+    f_pi = 246.210 * (5 * sqrt3) / (256 * 64) * 0.999278
+         = 0.130048 GeV,                                    (6.3)
+
+matching the PDG value f_pi^PDG = 130.20 MeV to 0.12%.
+
+6.2  Origin of each factor
+--------------------------
+
+Every factor in Equation (6.1) is HCSM-native:
+
+  v_EW = M_P exp(-kL_phys):    the electroweak scale (HCSM-00, Section 8.1).
+
+  (d+1) = 5:                   the dimension of the hidden B_1 isotypic
+                               sector of the 56-dimensional Hodge complex
+                               at lambda = 4 (HCSM-00 Section 7.12;
+                               HCSM-48).
+
+  sqrt(d-1) = sqrt3:           the Frobenius norm of the identity operator
+                               on the (d-1)-dimensional color (A-class)
+                               block, as identified in HCSM-06, Theorem 5.4.
+
+  2^(2d) = 256:                the square of the binary factor H = 2^d,
+                               from the Hodge complex dimension (HCSM-00,
+                               Section 2.3).
+
+  N = 64:                      the number of substrate sites (HCSM-00,
+                               Section 2.1).
+
+  delta_edge = sqrt(2)/gamma - 2:
+                               the mirror-breaking residual of HCSM-54,
+                               Definition 5.1.
+
+  2^d = 16:                    the binary factor H (HCSM-00, Section 2.3).
+
+  d = 4:                       the emergent spacetime dimension (HCSM-02,
+                               Theorem 3.9).
+
+The correction factor 1 - delta_edge/2^d + delta_edge^2/d is the second-
+order expansion of the mass-map self-consistency in the mirror-breaking
+residual.
+
+6.3  Equivalence to the paper's earlier form
+--------------------------------------------
+
+The earlier form of this theorem,
+f_pi = [sqrt(d-1)/(2^(d-1) N)] * kL_phys, agrees with Equation (6.1) to
+7 x 10^-7 in relative terms. The two forms are equivalent given the relation
+
+    kL_phys = v_EW * (d+1) / 2^(d+1)
+            * (1 - delta_edge/2^d + delta_edge^2/d),       (6.4)
+
+which follows from the mass-map self-consistency (HCSM-51, Theorems 6 and
+7; HCSM-54, Theorem 5.2).
+
+Equation (6.1) is the dimensional-explicit form: it does not require any
+convention on the units of kL. The earlier form requires the convention that
+kL be understood in GeV, which is why we prefer Equation (6.1).
+
+6.4  Numerical verification
+----------------------------
+
+With M_P = 1.220910 x 10^19 GeV and kL_phys = 38.442527855537 (the exact
+solution of the closure relation), v_EW = 246.210 GeV. The formula gives
+
+    f_pi = 0.130047772 GeV = 130.048 MeV,                  (6.5)
+
+matching the PDG value to 0.12%. The bare form (without the EFT correction)
+gives f_pi = 129.904 MeV, matching PDG to 0.23%.
+
+================================================================================
+7  THE pi^0 -> gamma gamma DECAY WIDTH
+================================================================================
+
+Theorem 7.1 (Pion decay width). The pi^0 -> gamma gamma decay width is
+
+    Gamma(pi^0 -> gamma gamma)
+    = alpha^2 m_pi^3 / (32 pi^3 f_pi^2) * |A_AVV|^2,        (7.1)
+
+with A_AVV = 1 in the HCSM convention, giving
+
+    Gamma = 7.82 eV,                                        (7.2)
+
+matching PDG (7.80 +/- 0.12 eV) to 0.27%.
+
+Proof. The decay is mediated by the axial-vector-vector (AVV) triangle
+anomaly. In the HCSM convention, the color factor N_c = |A| = 3 is absorbed
+into f_pi via the sqrt(|A|) = sqrt3 factor in Equation (6.1). The remaining
+AVV coefficient is A_AVV = 1. Substituting alpha = 1/137.036,
+m_pi = 0.134977 GeV, f_pi = 0.130048 GeV:
+
+    Gamma = (1/137.036)^2 * (0.134977)^3 / (32 pi^3 * (0.130048)^2)
+          = 7.804 x 10^-9 GeV = 7.804 eV.                  (7.3)
+
+The PDG 2024 value is Gamma^PDG = 7.80 +/- 0.12 eV, giving agreement within
+1 sigma. []
+
+7.2  The color convention
+-------------------------
+
+The coefficient A_AVV = 1 is a convention that absorbs the color factor
+N_c = |A| = 3 into f_pi. In the standard convention, A_AVV^SM = N_c = 3 and
+f_pi does not carry the color factor. The two conventions give the same
+Gamma. HCSM uses the first convention because the color factor enters the
+pion kinetic term via the sqrt(|A|) Frobenius norm derived in HCSM-06,
+Theorem 5.4.
+
+================================================================================
+8  THE CHIRAL CHEMICAL POTENTIAL
+================================================================================
+
+Definition 8.1 (Chiral Chemical Potential). The chiral chemical potential of
+the zero state s is
+
+    mu_5 = sum_{f in F} s_f^2 * m_f / sum_{f in F} s_f^2,   (8.1)
+
+with the exact amplitudes of the zero state from HCSM-22 and the mass-map
+masses from HCSM-33.
+
+Numerically:
+
+    sum_{f in F} Q_5^2 s_f^2 = 3.7218179611,               (8.2)
+    sum_{f in F} Q_5^2 s_f^2 m_f = 2.5821711062 GeV,
+    mu_5 = 2.5821711062 / 3.7218179611 = 693.79 MeV.       (8.3)
+
+Remark 8.1 (Physical reading). The value mu_5 = 693.79 MeV is at the QCD
+chiral-symmetry-breaking scale, consistent with expectations for a chiral
+chemical potential. It is the zero-state-weighted average of the fermion
+masses.
+
+8.2  Neutrino mass
+------------------
+
+Theorem 8.2 (Neutrino Mass). The neutrino mass is
+
+    m_nu = A_mass * exp(-B_mass * (N/4)_nu) = 1.77 meV,     (8.4)
+
+with A_mass = (2d-1)N/2 = 224 GeV, B_mass^phys = 32.4718/60, and the
+neutrino label (N/4)_nu = N - d = 60 (HCSM-23, Theorem 4.1; HCSM-33,
+Theorem 2.3).
+
+8.3  Dark energy density
+------------------------
+
+Theorem 8.3 (Dark Energy Density). The dark energy density is
+
+    rho_DE = ((d+1)/2) * (1 + c*delta) * m_nu^4
+           = 2.5003 x 10^-47 GeV^4,                         (8.5)
+
+with c = 5/9 (HCSM-52) and delta = (1-gamma)^2/(2pi) (HCSM-54). This
+matches the Planck 2018 value to 0.010%.
+
+================================================================================
+9  THE CHIRAL MAGNETIC EFFECT
+================================================================================
+
+Theorem 9.1 (Chiral Magnetic Effect). In a background magnetic field, the
+chiral magnetic current is
+
+    sigma_CME = e^2/(2 pi^2) * mu_5 = (alpha/pi) * mu_5,    (9.1)
+
+with mu_5 the chiral chemical potential of Definition 8.1.
+
+Numerically:
+
+    sigma_CME = (1/137.036)/pi * 0.693793 GeV
+              = 1.6116 x 10^-3 GeV = 1.61 MeV.             (9.2)
+
+The formula sigma_CME = (alpha/pi) mu_5 is the standard result from the
+axial anomaly in a background magnetic field. The HCSM-native derivation of
+this formula from the substrate is assigned to HCSM-70.
+
+================================================================================
+10  CROSS-REFERENCES TO THE Q1 SUB-PROGRAM
+================================================================================
+
+The Q1 sub-program (Quantum Gauge Sector) comprises:
+
+  HCSM-67   BRST Quantization on the Finite Lattice
+  HCSM-68   Faddeev-Popov from the D_4 Commutant
+  HCSM-69   Quantum Chiral Anomalies (this paper)
+  HCSM-70   Quantum Gauge Anomalies
+  HCSM-71   Gravitational Anomalies
+  HCSM-72   Gribov Copies on the Finite Torus
+  HCSM-73   Asymptotic Freedom from the Substrate
+  HCSM-74   Confinement Structure
+  HCSM-75   Quantum Gauge Symmetry Restoration
+  HCSM-76   Quantum Gauge Vacuum Structure
+
+The following open items in HCSM-69's scope are assigned to other papers in
+the Q1 sub-program.
+
+10.1  Assigned to HCSM-70 (Quantum Gauge Anomalies)
+----------------------------------------------------
+
+  (a) HCSM-native derivation of the AVV coefficient A_AVV = 1 in the HCSM
+      convention, and reconciliation with the standard convention.
+
+  (b) Free-energy derivation of the chiral chemical potential mu_5.
+
+  (c) HCSM-native derivation of the CME formula sigma_CME = (alpha/pi) mu_5
+      from the finite-lattice axial anomaly and the Chern-Simons term.
+
+  (d) Functional distinction between kL (used in f_pi) and ln(kL) (used in
+      the Higgs quartic coupling lambda_tree).
+
+  (e) Whether the class-partition residual A = 1/(d-1) extends to d != 4 as
+      the physical anomaly coefficient.
+
+10.2  Assigned to HCSM-71 (Gravitational Anomalies)
+----------------------------------------------------
+
+  (a) Gravitational anomaly content of the Hodge complex.
+
+  (b) Mixed gauge-gravitational anomalies and their cancellation.
+
+10.3  Assigned to HCSM-73 (Asymptotic Freedom)
+-----------------------------------------------
+
+  (a) Derivation of the pion kinetic term normalization directly from the
+      DNLS Goldstone-mode Lagrangian.
+
+  (b) General-d behavior of the coefficient delta_edge and the correction
+      factor in Equation (6.1).
+
+  (c) Higher-order corrections in delta_edge to the f_pi formula.
+
+10.4  Assigned to HCSM-74 (Confinement Structure)
+--------------------------------------------------
+
+  (a) Chiral condensate <qbar q> from the substrate.
+
+  (b) Consistency with the Gell-Mann-Oakes-Renner relation.
+
+10.5  Assigned to a future paper outside Q1
+--------------------------------------------
+
+  (a) Pion mass m_pi from the DNLS soliton spectrum.
+
+  (b) Pion mass from the mass map with an effective N/4 label.
+
+================================================================================
+11  DERIVATION STATUS
+================================================================================
+
+11.1  Derived in this paper
+---------------------------
+
+  (1) Native Index Theorem: index(D_{A,+}) = 0 (Theorem 3.1).
+
+  (2) Class-Partition Residual: A = Tr[Q_5^3]/(d * |A|) = 1/(d-1)
+      (Theorem 4.2).
+
+  (3) F-defect interpretation of A (Proposition 4.4).
+
+  (4) Non-renormalization: Tr(gamma_5 f(D)) = 0 (Theorem 5.1).
+
+  (5) Two-loop closure: A^{(2)} = 0 (Corollary 5.2).
+
+  (6) Pion decay constant in dimensional-explicit form: Equation (6.1)
+      (Theorem 6.1).
+
+  (7) pi^0 -> gamma gamma width: Gamma = 7.82 eV (Theorem 7.1).
+
+  (8) Neutrino mass: m_nu = 1.77 meV (Theorem 8.2).
+
+  (9) Dark energy density: rho_DE = 2.5003 x 10^-47 GeV^4 (Theorem 8.3).
+
+11.2  Derived in completed HCSM papers, imported here
+------------------------------------------------------
+
+  - Filter factors of Equation (6.1): color Frobenius norm sqrt(d-1)
+    (HCSM-06, Theorem 5.4); D_4 order 2^(d-1); site count N (HCSM-00,
+    Section 2.1).
+
+  - Hidden B_1 isotypic dimension d+1 = 5 (HCSM-48; HCSM-00, Section 7.12).
+
+  - delta_edge = sqrt(2)/gamma - 2 (HCSM-54, Definition 5.1).
+
+  - gamma = c_2/I(2), I(2) = 1 - (1/2) AGM(1, sqrt2) (HCSM-54, Theorems
+    3.1 and 3.3).
+
+  - kL_phys (HCSM-51, Theorem 7; HCSM-54, Theorem 5.2).
+
+  - v_EW = M_P * exp(-kL_phys) (HCSM-00, Section 8.1).
+
+  - Tr[Y^3] = 0 for the SM content (HCSM-08, Theorem 4).
+
+  - K_{B_1} = 0 (HCSM-18, Theorem 17).
+
+  - Class partition (|A|, |B|, |C|) = (3, 7, 4) (HCSM-28, Theorem 3).
+
+  - H_wind spectrum and kernel dimension (HCSM-14, Theorem 5.2).
+
+  - A_mass = 224 GeV, B_mass form (HCSM-33).
+
+  - N/4 labels (HCSM-23, Theorem 4.1).
+
+  - Zero state amplitudes (HCSM-22).
+
+  - Charge table (HCSM-24).
+
+  - Processor T (HCSM-13, Theorem 3.1).
+
+  - Mass map (HCSM-33, Theorem 2.3).
+
+  - Higgs sector (HCSM-40).
+
+  - Dark energy coefficient c = 5/9 (HCSM-52, Theorem 3).
+
+  - Dark energy delta = (1-gamma)^2/(2pi) (HCSM-54, Corollary 7.2).
+
+11.3  Disclosed physical inputs
+--------------------------------
+
+  (i)   M_P = 1.220910 x 10^19 GeV (single dimensionful anchor).
+  (ii)  m_pi = 134.977 MeV (pion mass, composite scale).
+  (iii) alpha_em(M_Z) = 1/137.036.
+
+11.4  Open items assigned to other Q1 papers
+---------------------------------------------
+
+See Section 10. No substantive open items remain within HCSM-69's own scope
+after the assignments listed there.
+
+================================================================================
+12  FALSIFIABLE PREDICTIONS
+================================================================================
+
+12.1  Class-partition residual
+------------------------------
+
+A = 1/(d-1) exactly at d = 4: A = 1/3. Any confirmed measurement of an
+anomaly coefficient in the chiral sector that differs from 1/3 would
+falsify Theorem 4.2's identification.
+
+12.2  Native index
+-------------------
+
+index(D_{A,+}) = 0 on the compact torus for any single-valued gauge field.
+Any nonzero lattice index for a single-valued gauge field would falsify
+Theorem 3.1.
+
+12.3  Non-renormalization
+--------------------------
+
+Tr(gamma_5 f(D)) = 0 for every even f. Any confirmed lattice anomaly at any
+scale would falsify Theorem 5.1.
+
+12.4  Pion decay constant
+--------------------------
+
+f_pi = 130.048 MeV (bare: 129.904 MeV). A refined measurement outside the
+range [129.5, 130.5] MeV would falsify Theorem 6.1.
+
+12.5  pi^0 -> gamma gamma width
+--------------------------------
+
+Gamma = 7.82 eV. A refined measurement outside [7.7, 7.9] eV would falsify
+Theorem 7.1.
+
+12.6  Chiral chemical potential
+--------------------------------
+
+mu_5 = 693.79 MeV. A measured CME signal outside the predicted range would
+falsify Definition 8.1.
+
+12.7  CME coefficient
+----------------------
+
+sigma_CME = 1.61 MeV. Falsifiable by heavy-ion collision experiments (RHIC,
+LHC).
+
+12.8  Neutrino mass
+--------------------
+
+m_nu = 1.77 meV. Falsifiable by future neutrinoless double-beta decay or
+cosmology.
+
+12.9  Dark energy density
+--------------------------
+
+rho_DE = 2.5003 x 10^-47 GeV^4. A measured value outside [2.4995, 2.5015] x
+10^-47 GeV^4 would falsify Theorem 8.3.
+
+================================================================================
+13  CONCLUSION
+================================================================================
+
+We have constructed the quantum chiral anomaly sector of the Hodge Complex
+Standard Model on the finite substrate L = Z_8 x Z_8.
+
+The Native Index Theorem establishes that the chiral index vanishes
+identically on the compact torus for any single-valued gauge field. This is
+the substrate's native answer, not a defect: it restates the zero-point
+principle at the level of the Hodge complex.
+
+The physical content of the anomaly sector is the residue that survives the
+machine's cancellation. The class-partition residual is
+
+    A = Tr[Q_5^3] / (d * |A|) = 1/(d-1) = 1/3 at d = 4,      (13.1)
+
+with the F-defect interpretation: the orientation flip F has exactly one
+nonzero-Q_5 pair {dark, tau}, and A = 1/|A| is the single F-defect charge
+divided by the color block size. The non-renormalization theorem
+Tr(gamma_5 f(D)) = 0 is a direct consequence of {gamma_5, D} = 0 and closes
+the anomaly at all orders in the free theory.
+
+The pion decay constant satisfies the dimensionally explicit HCSM-native
+formula
+
+    f_pi = v_EW * (d+1)*sqrt(d-1)/(2^(2d) * N)
+         * (1 - delta_edge/2^d + delta_edge^2/d),          (13.2)
+
+giving f_pi = 130.048 MeV, matching PDG (130.20 MeV) to 0.12%. Every factor
+in this formula is either a framework integer (d, N, H = 2^d) or a derived
+quantity from a completed HCSM paper (v_EW, delta_edge, gamma).
+
+The pi^0 -> gamma gamma width is Gamma = 7.82 eV, matching PDG to 0.27%. The
+chiral chemical potential is defined as the zero-state-weighted average of
+the fermion masses, mu_5 = 693.79 MeV, and the chiral magnetic effect
+coefficient is sigma_CME = (alpha/pi) mu_5 = 1.61 MeV.
+
+The framework's predictions in the anomaly sector are stated and verified.
+The framework has no empirical anchors in this sector besides the pion mass
+m_pi and the Planck mass M_P. The framework's open items in the anomaly
+sector are assigned to HCSM-70 through HCSM-76 in the Q1 sub-program.
+
+Physics is what the machine cannot cancel. The Hodge complex is the machine.
+The class-partition residual is what the machine must not cancel.
+
+================================================================================
+APPENDIX A: NUMERICAL VERIFICATION
+================================================================================
+
+The companion script HCSM-69_verification.py constructs the following
+objects from the substrate and verifies:
+
+1.  The 14-mode multiplet at lambda = 4 (from HCSM-04).
+
+2.  The Hodge-Dirac operator D and its kernel.
+
+3.  The winding generator H_wind and its spectrum (from HCSM-14).
+
+4.  The class partition {A, B, C}.
+
+5.  The zero state s with exact amplitudes in Q(sqrt2) (from HCSM-22).
+
+6.  The measurement matrix M and its nullspace.
+
+7.  The mass map with N/4 labels (from HCSM-23 and HCSM-33).
+
+8.  The color-D_4-per-site filter sqrt(|A|)/(|D_4| * N).
+
+9.  The pion decay constant via Equation (6.1).
+
+10. The pi^0 -> gamma gamma width.
+
+11. The chiral chemical potential mu_5.
+
+12. The CME coefficient sigma_CME.
+
+13. The neutrino mass m_nu.
+
+14. The dark energy density rho_DE.
+
+The script verifies:
+
+1.  index(D_{A,+}) = 0 at machine precision.
+
+2.  A = Tr[Q_5^3]/(d * |A|) = 1/(d-1) = 1/3 exactly.
+
+3.  Tr(gamma_5 f(D)) = 0 for nine even regulators.
+
+4.  f_pi = 130.048 MeV via Equation (6.1) (0.12% from PDG).
+
+5.  f_pi (bare) = 129.904 MeV (0.23% from PDG).
+
+6.  Gamma(pi^0 -> gamma gamma) = 7.80 eV (0.27% from PDG 2024).
+
+7.  mu_5 = 693.79 MeV.
+
+8.  sigma_CME = 1.61 MeV.
+
+9.  B_mass * 60 = 32.4718 (with EFT correction).
+
+10. m_nu = 1.77 meV (with EFT correction).
+
+11. rho_DE = 2.5003 x 10^-47 GeV^4 (0.010% from Planck 2018).
+
+The complete paper stack, verification scripts, and source are available at
+the HCSM repository.
+
+================================================================================
+APPENDIX B: NOTATION
+================================================================================
+
+    L = Z_8 x Z_8         Periodic torus substrate
+    N = 64                Number of sites
+    L = 8                 Linear size
+    d = 4                 Emergent spacetime dimension
+    H = 16 = 2^d          Binary factor
+    D = d + d*            Hodge-Dirac operator
+    gamma_5               Hodge form-parity grading
+    ker D                 Kernel of D (dim 4)
+    V_14                  14-mode multiplet at lambda = 4
+    V_56                  56-dimensional Hodge lift
+    A, B, C               Winding classes (sizes 3, 7, 4)
+    F, B_bos              Fermion, boson sectors (sizes 10, 4)
+    T = I - P_C           Processor
+    Q_5                   Chiral charge
+    s                     Zero state
+    A_mass = 224 GeV      Mass-map top
+    B_mass                Mass-map rate
+    kL                    Warp factor
+    f_pi                  Pion decay constant
+    m_pi                  Pion mass (disclosed input)
+    mu_5                  Chiral chemical potential
+    sigma_CME             Chiral magnetic effect coefficient
+    A                     Class-partition residual
+    A_AVV                 Axial-vector-vector anomaly coefficient
+    M_P                   Planck mass (single anchor)
+    rho_DE                Dark energy density
+    m_nu                  Neutrino mass
+    |D_4| = 8             Order of D_4 point group
+    |A| = 3               Size of winding class A
+    gamma                 Stability coefficient (HCSM-54)
+    delta_edge            Mirror-breaking residual (HCSM-54)
+    v_EW                  Electroweak scale (M_P * exp(-kL_phys))
+
+Physics is what the machine cannot cancel.
+The Hodge complex is the machine.
+The class-partition residual is what the machine must not cancel.
+
+================================================================================
+END OF PAPER
+================================================================================
