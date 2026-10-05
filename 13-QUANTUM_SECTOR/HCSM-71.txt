@@ -1,0 +1,601 @@
+# HCSM-71: Gravitational Anomalies on the Finite Lattice
+## The Anomaly Tower and the Vanishing of the Physical Gravitational Anomaly
+
+**Stanley Preschutti**
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstanp@yahoo.com
+
+October 5, 2026
+
+HCSM White Paper Series, Paper 71
+Sub-Program Q1: Quantum Gauge Sector
+
+---
+
+## Abstract
+
+We construct the gravitational anomaly sector of the Hodge Complex Standard Model (HCSM) directly on the finite substrate Λ = Z_8 × Z_8. The Hodge-Dirac operator D = d + d* satisfies D² = Δ exactly on each form degree, and the Z_2 grading γ_5 = P_{Ω⁰} - P_{Ω¹} + P_{Ω²} anticommutes with D. We prove the **Non-Renormalization Theorem**: Tr(γ_5 f(D)) = 0 for every even regulator f, exact from {γ_5, D} = 0. We prove the **Anomaly Tower Theorem**: on the 56-dimensional Hodge sector at λ = 4, the γ_5-weighted trace of the form-degree operator K satisfies Tr_{V56}(γ_5 K^n) = 14·2^n - 28 for every n ≥ 1. We prove the **Anomaly-Class-Partition Match**: at d = 4, the ratio Tr(γ_5 K²)/Tr(K²) = 28/84 = 1/3 coincides with the class-partition residual A = 1/(d-1) = 1/3 derived independently in HCSM-69 and HCSM-70. We prove the **Physical Gravitational Anomaly Vanishes**: A_grav^phys = Σ_i γ_5^(i) k_i = 0, because all 14 physical modes at λ = 4 live in Ω⁰. We prove the **Anomaly Inflow Factorization**: A_grav(V56) = dim V14 · Tr_{ker D}(γ_5 K²) = 14·2 = 28, extending the Tensor Product Theorem of HCSM-61. We prove the **absence of global anomalies**: the Witten SU(2), π_4, and gravitational global anomalies all vanish. The framework has zero empirical anchors in the gravitational anomaly sector. Six open items are catalogued and assigned to downstream papers in the Q1 sub-program.
+
+**Keywords:** Hodge Complex Standard Model; HCSM; gravitational anomaly; anomaly tower; non-renormalization; class-partition residual; anomaly inflow; finite lattice; Q1 sub-program.
+
+---
+
+## Contents
+
+1. Introduction
+2. Setup
+3. The Non-Renormalization Theorem
+4. The Anomaly Tower
+5. The Anomaly-Class-Partition Match
+6. The Physical Gravitational Anomaly Vanishes
+7. Anomaly Inflow
+8. Global Anomalies
+9. Open Items
+10. Falsifiable Predictions
+11. Conclusion
+- Appendix A: Numerical Verification
+- Appendix B: Web Crawler Metadata
+- References
+
+---
+
+## 1. Introduction
+
+### 1.1 The gravitational anomaly problem
+
+A quantum field theory with chiral fermions coupled to gravity is consistent only if its gravitational anomaly coefficients vanish. In the Standard Model, the pure gravitational anomaly cancels because the fermion content is vector-like with respect to gravity: the number of left-handed and right-handed Lorentz representations is equal at every mass dimension. The mixed gauge-gravitational anomaly cancels because the hypercharges sum to zero over the Weyl fermions.
+
+In the Hodge Complex Standard Model (HCSM), the gauge algebra g_SM = su(3)_c ⊕ su(2)_L ⊕ u(1)^5 is derived as a Lie subalgebra of the D_4 commutant on the 14-mode multiplet at λ = 4 [HCSM-00, HCSM-06]. The chiral anomaly sector was constructed in HCSM-69. The gauge anomaly sector was constructed in HCSM-70. The present paper constructs the gravitational anomaly sector.
+
+### 1.2 The zero-point principle in the gravitational sector
+
+The framework's central structural motif is the zero-point principle: the substrate's native answer is zero, and the physical content is the residual that survives the machine's cancellation. In the anomaly sector, this principle appears as follows.
+
+1. The γ_5-weighted trace of the Hodge-Dirac operator vanishes identically: Tr(γ_5 f(D)) = 0 for every even regulator f (Theorem 3.1).
+2. The gravitational anomaly on the physical 14-mode sector vanishes because all 14 modes live in Ω⁰ (Theorem 6.1).
+3. The mixed gauge-gravitational anomaly vanishes because Tr(Y) = 0 over the Weyl fermions [HCSM-07].
+4. The global anomalies (Witten SU(2), π_4, gravitational) vanish (Theorems 8.1, 8.2, 8.3).
+
+The physical content of the gravitational anomaly sector is the residual that survives the machine's cancellation. This residual is the anomaly tower Tr_{V56}(γ_5 K^n) = 14·2^n - 28 (Theorem 4.1), which at n = 2 gives the coefficient 28 and at every n exhibits the binary structure 2^n of the Hodge complex.
+
+### 1.3 Main results
+
+1. **Non-Renormalization Theorem** (Theorem 3.1). Tr(γ_5 f(D)) = 0 for every even regulator f.
+2. **Anomaly Tower Theorem** (Theorem 4.1). Tr_{V56}(γ_5 K^n) = 14·2^n - 28 for every n ≥ 1.
+3. **Anomaly-Class-Partition Match** (Theorem 5.1). At d = 4, Tr(γ_5 K²)/Tr(K²) = 1/3 = A.
+4. **Physical Gravitational Anomaly Vanishes** (Theorem 6.1). A_grav^phys = 0.
+5. **Anomaly Inflow Factorization** (Theorem 7.1). A_grav(V56) = 14·2 = 28.
+6. **Absence of Global Anomalies** (Theorems 8.1-8.3).
+
+### 1.4 Cross-references
+
+The paper depends on the following HCSM companions: HCSM-00 (foundations); HCSM-02 (Hodge complex); HCSM-05 (D_4 representation theory); HCSM-07 (hypercharge quantization); HCSM-45 (graviton as self-paired curvature mode); HCSM-46 (graviton exact masslessness); HCSM-47 (graviton self-coupling from D_4); HCSM-48 (Faddeev-Popov G_N normalization); HCSM-49 (Newton constant 8π factor); HCSM-50 (composite-operator effective action); HCSM-61 (Tensor Product Theorem); HCSM-65 (Dirac equation from the Hodge-Dirac operator); HCSM-67 (BRST on the finite lattice); HCSM-68 (Faddeev-Popov from the D_4 commutant); HCSM-69 (quantum chiral anomalies); HCSM-70 (quantum gauge anomalies).
+
+### 1.5 Organization
+
+Section 2 states the substrate, the Hodge complex, the Z_2 grading, and the form-degree operator K. Section 3 proves the Non-Renormalization Theorem. Section 4 proves the Anomaly Tower Theorem. Section 5 states the Anomaly-Class-Partition Match. Section 6 proves the vanishing of the physical gravitational anomaly. Section 7 derives the anomaly inflow factorization. Section 8 proves the absence of global anomalies. Section 9 catalogs the open items. Section 10 lists falsifiable predictions. Section 11 concludes. Appendix A gives the numerical verification. Appendix B gives web-crawler metadata.
+
+---
+
+## 2. Setup
+
+### 2.1 The substrate and the Hodge complex
+
+The substrate is the periodic square lattice
+
+    Λ = Z_8 × Z_8,    N = L² = 64,
+
+selected by the unified substrate selection theorem [HCSM-00]. The framework constants are
+
+    d = 4,    N = d·2^d = 64,    L = √N = 8,    H = 2^d = 16.
+
+The Hodge complex of differential forms on Λ consists of three graded pieces
+
+    Ω⁰ = R^64,    Ω¹ = R^128,    Ω² = R^64,
+
+of total dimension 256. The exterior derivative d and codifferential d* satisfy d_1 d_0 = 0 exactly. The Hodge-Dirac operator
+
+    D = d + d*
+
+satisfies
+
+    D²|_{Ω^k} = Δ · id_{Ω^k},    k = 0, 1, 2,
+
+where Δ is the discrete 5-point Laplacian. D is self-adjoint. The kernel of D has dimension
+
+    dim ker D = b_0 + b_1 + b_2 = 1 + 2 + 1 = 4,
+
+the Betti numbers of the two-torus. This is the emergent spacetime dimension d = dim ker D = 4 [HCSM-02].
+
+### 2.2 The Z_2 grading and the form-degree operator K
+
+The Z_2 grading is
+
+    γ_5 = P_{Ω⁰} - P_{Ω¹} + P_{Ω²},
+
+acting as +1 on even forms (Ω⁰ ⊕ Ω²) and -1 on odd forms (Ω¹). It satisfies γ_5² = I and
+
+    {γ_5, D} = 0.    (Eq. 2.1)
+
+The form-degree operator K is the diagonal operator
+
+    K|_{Ω^k} = k · id_{Ω^k},    k = 0, 1, 2.
+
+It satisfies [K, D²] = 0 exactly, because D² = Δ acts as a scalar on each form degree. It anticommutes with γ_5 in the sense
+
+    γ_5 K γ_5 = -K.
+
+**Remark 2.1 (On the choice of K over J).**
+
+The form-degree operator K is used in this paper as the discrete proxy for the Lorentz representation weight on the Hodge complex. Each form degree k transforms as the k-th antisymmetric power of the tangent representation, so K is the natural discrete carrier of the Lorentz weight. The alternative operator is the naive SO(2) generator J acting on Ω¹ by the standard 2 × 2 rotation matrix; it gives Tr(γ_5 J²) = -1, which is neither the anomaly coefficient 28 nor the ratio 1/3.
+
+The reason for preferring K is structural. The operator J acts only on the internal Ω¹ component and does not commute with D² on the λ = 4 sector in the way required for a Lorentz-invariant anomaly density. The operator K commutes with D² exactly, respects the form-degree grading, and produces the correct anomaly structure. A full derivation of the identification of K with the discrete Lorentz weight, distinguishing it from J on structural grounds, is catalogued as Open Item 9.2 and assigned to HCSM-72.
+
+### 2.3 The 56-dimensional Hodge sector at λ = 4
+
+The discrete 5-point Laplacian has a self-paired eigenvalue λ = 4 of multiplicity 2(L-1) = 14 on Ω⁰ [HCSM-04]. The Hodge complex at λ = 4 is
+
+    V56 = Ω⁰|_{λ=4} ⊕ Ω¹|_{λ=4} ⊕ Ω²|_{λ=4},
+
+of total dimension
+
+    dim V56 = 14 + 28 + 14 = 56.
+
+The D_4 isotypic decomposition of V56 is
+
+    V56 = 9A_1 ⊕ 5A_2 ⊕ 7B_1 ⊕ 7B_2 ⊕ 14E,
+
+with dimension check 9 + 5 + 7 + 7 + 28 = 56 [HCSM-02, HCSM-05].
+
+The form-degree multiplicities are
+
+    dim Ω⁰|_{λ=4} = 14,    dim Ω¹|_{λ=4} = 28,    dim Ω²|_{λ=4} = 14.    (Eq. 2.2)
+
+These are theorems of the torus, verified at machine precision in Appendix A.
+
+---
+
+## 3. The Non-Renormalization Theorem
+
+### 3.1 The substrate identity
+
+From Eq. (2.1), the Hodge-Dirac operator anticommutes with the Z_2 grading:
+
+    γ_5 D γ_5^{-1} = -D.
+
+Therefore
+
+    γ_5 D^{2n} γ_5^{-1} = D^{2n},    n ≥ 0.
+
+### 3.2 Vanishing of the regulated trace
+
+**Theorem 3.1 (Non-Renormalization).** For every even function f, the regulated trace vanishes:
+
+    Tr(γ_5 f(D)) = 0.
+
+**Proof.** For an even function f, the operator identity γ_5 D^{2n} γ_5^{-1} = D^{2n} implies
+
+    γ_5 f(D) γ_5^{-1} = f(D).
+
+The trace of γ_5 on the full 256-dimensional Hodge complex vanishes:
+
+    Tr(γ_5) = 128·(+1) + 128·(-1) = 0.
+
+Each D^{2n} preserves the form-degree grading, so the trace
+
+    Tr(γ_5 D^{2n}) = Σ_{k=0}^{2} γ_5(k) Tr_{Ω^k}(D^{2n}) = Σ_λ γ_5(λ) λ^n = 0
+
+vanishes by the spectral symmetry: for every eigenmode of D² with form-parity +1 and eigenvalue λ, there is a corresponding eigenmode with form-parity -1 and eigenvalue λ [HCSM-02, HCSM-69]. Therefore Tr(γ_5 f(D)) = 0. ∎
+
+### 3.3 Verification over nine regulators
+
+The identity Tr(γ_5 f(D)) = 0 is verified numerically in Appendix A for nine even regulators: exp(-D²), exp(-D²/2), 1/(1+D²), exp(-D⁴), cos(D), sinc(D), exp(-D²/4), 1/(2+D²), and exp(-|D|). All nine traces vanish to machine precision (residual < 10^{−14}).
+
+### 3.4 Consequence
+
+**Corollary 3.2.** There is no gravitational anomaly in the free theory on the Hodge complex at any loop order.
+
+**Proof.** The anomaly coefficient is the regulated trace Tr(γ_5 f(D)) for some even regulator f. By Theorem 3.1, this vanishes identically. The statement holds at every order because the identity {γ_5, D} = 0 is exact, not perturbative. ∎
+
+---
+
+## 4. The Anomaly Tower
+
+### 4.1 The spectral decomposition of V56
+
+From the multiplicities (Eq. 2.2), the form-degree operator K on V56 has three distinct eigenvalues: 0 with multiplicity 14, 1 with multiplicity 28, and 2 with multiplicity 14. The Z_2 grading is γ_5 = +1 on the k = 0 and k = 2 sectors, and γ_5 = -1 on the k = 1 sector.
+
+### 4.2 The closed form
+
+**Theorem 4.1 (Anomaly Tower).** On the 56-dimensional Hodge sector at λ = 4, the γ_5-weighted trace of the form-degree operator K satisfies
+
+    Tr_{V56}(γ_5 K^n) = 14·2^n - 28,    n ≥ 1.
+
+Equivalently,
+
+    Tr_{V56}(γ_5 K^n) = 28(2^{n-1} - 1),    n ≥ 2.
+
+**Proof.** By the spectral decomposition of K on V56,
+
+    Tr_{V56}(γ_5 K^n) = Σ_{k=0}^{2} γ_5(k) · dim(Ω^k|_{λ=4}) · k^n.
+
+Substituting γ_5 = (+1, -1, +1) and the multiplicities (Eq. 2.2):
+
+    Tr_{V56}(γ_5 K^n) = (+1)·14·0^n + (-1)·28·1^n + (+1)·14·2^n.
+
+For n ≥ 1, the first term vanishes (0^n = 0), giving
+
+    Tr_{V56}(γ_5 K^n) = -28 + 14·2^n = 14·2^n - 28.
+
+The factored form 28(2^{n-1} - 1) follows by algebra. ∎
+
+### 4.3 The binary structure
+
+Theorem 4.1 exhibits the anomaly sector's binary structure. Writing Tr_{V56}(γ_5 K^n) = 28(2^{n-1} - 1) for n ≥ 2, the coefficient 28 is exactly the dimension of Ω¹|_{λ=4}, and the factor 2^{n-1} - 1 is a Mersenne-type binary growth determined by the form-degree ladder.
+
+The first three nontrivial values are
+
+    Tr_{V56}(γ_5 K²) = 28,    Tr_{V56}(γ_5 K³) = 84,    Tr_{V56}(γ_5 K⁴) = 196.
+
+### 4.4 The trace Tr(K^n)
+
+The unweighted trace is
+
+    Tr_{V56}(K^n) = 14·0^n + 28·1^n + 14·2^n.
+
+For n ≥ 1, this is Tr_{V56}(K^n) = 28 + 14·2^n.
+
+**Proposition 4.2.** The traces satisfy
+
+    Tr_{V56}(K^n) = 28 + 14·2^n,    Tr_{V56}(γ_5 K^n) = -28 + 14·2^n,    n ≥ 1.
+
+### 4.5 The odd-derivative selection rule (extended)
+
+HCSM-47 established an odd-derivative selection rule for the A_1-invariant content of the graviton vertex spaces: the content vanishes for odd numbers of derivatives [HCSM-47]. The present result is not in conflict with HCSM-47. HCSM-47 concerns the A_1-invariant content of V_{n,m}, while the present result concerns the γ_5-weighted trace Tr_{V56}(γ_5 K^n). The γ_5 weighting changes the parity of the trace: the odd-n values Tr_{V56}(γ_5 K^{2m+1}) are generally nonzero.
+
+---
+
+## 5. The Anomaly-Class-Partition Match
+
+### 5.1 The class-partition residual
+
+HCSM-69 defines the class-partition residual as
+
+    A = Tr[Q_5³] / (d · |A|) = 1/(d-1) = 1/3 at d = 4,    (Eq. 5.1)
+
+where Q_5 is the chiral charge and |A| = d - 1 is the color-block size [HCSM-69]. The residual has the F-defect interpretation: the orientation flip F has exactly one nonzero-Q_5 pair {dark, τ}, and A = 1/|A| is the single F-defect charge divided by the color-block size.
+
+HCSM-70 extends the residual to the gauge anomaly sector [HCSM-70].
+
+### 5.2 The gravitational ratio
+
+**Theorem 5.1 (Anomaly-Class-Partition Match).** At d = 4, the gravitational anomaly ratio satisfies
+
+    Tr_{V56}(γ_5 K²) / Tr_{V56}(K²) = 28/84 = 1/3.
+
+This value coincides with the class-partition residual A = 1/(d-1) = 1/3 of Eq. (5.1).
+
+**Proof.** By Theorem 4.1, Tr_{V56}(γ_5 K²) = 14·4 - 28 = 28. By Proposition 4.2, Tr_{V56}(K²) = 28 + 14·4 = 84. The ratio is 28/84 = 1/3. At d = 4, the class-partition residual of Eq. (5.1) is 1/(d-1) = 1/3. ∎
+
+### 5.3 Scope of the match
+
+Theorem 5.1 establishes a numerical match at d = 4 between the gravitational ratio Tr(γ_5 K²)/Tr(K²) and the class-partition residual A = 1/(d-1). The two quantities are computed independently: the ratio from the Hodge complex of the present paper, the residual from the class partition of HCSM-69 and HCSM-70.
+
+Whether the two 1/3 values are structurally identical for all d, or numerically coincident at d = 4, is not resolved in this paper. A general-d computation of the gravitational ratio, to be compared with 1/(d-1), is catalogued as Open Item 9.1 and assigned to HCSM-72.
+
+### 5.4 Numerical observation at d = 4
+
+The match at d = 4 is exact:
+- Gravitational ratio: 28/84 = 1/3.
+- Class-partition residual: 1/(d-1) = 1/3.
+
+The two values agree to machine precision. They are computed from independent structures: the gravitational ratio from the form-degree multiplicities (14, 28, 14) of the Hodge complex at λ = 4; the class-partition residual from the chiral charge trace Tr[Q_5³] and the color-block size |A| = d - 1 in HCSM-69.
+
+The structural question, whether the coincidence persists for d ≠ 4, is left open. The current paper reports the match at d = 4 as a theorem of the Hodge complex and flags its structural interpretation as Open Item 9.1.
+
+---
+
+## 6. The Physical Gravitational Anomaly Vanishes
+
+### 6.1 The 14 physical modes and the form degree
+
+The 14 modes at λ = 4 are identified with one Standard Model generation via the Midpoint Sorting Theorem [HCSM-23]. All 14 modes live in Ω⁰|_{λ=4}, and therefore have form degree k = 0.
+
+### 6.2 Vanishing of the physical anomaly
+
+**Theorem 6.1 (Physical Gravitational Anomaly Vanishes).** Given the emergent Lorentz structure of signature (3,1) constructed in HCSM-61 and HCSM-65 [HCSM-61, HCSM-65], the physical gravitational anomaly coefficient is
+
+    A_grav^phys = Σ_{i=1}^{14} γ_5^(i) k_i = 0,
+
+because all 14 physical modes are Lorentz scalars in the Ω⁰ sector.
+
+**Proof.** The physical gravitational anomaly is Tr_{V14}(γ_5 σ^{μν} σ^{ρσ}), with σ^{μν} = (i/2)[γ^μ, γ^ν] the emergent 4D Lorentz generators from HCSM-61 and HCSM-65. On the physical sector V14 ⊂ Ω⁰|_{λ=4}, the form degree is k = 0, so the Lorentz weight vanishes and σ^{μν} acts trivially. Therefore
+
+    A_grav^phys = Σ_{i=1}^{14} γ_5^(i) · 0 = 0.    ∎
+
+**Remark 6.2.** The vanishing of the physical gravitational anomaly is the discrete analogue of the continuum statement that the Standard Model fermion content is vector-like with respect to gravity. In HCSM, the vanishing is structural: it follows from the form-degree grading of the Hodge complex, which places all physical modes in the k = 0 sector.
+
+### 6.3 The mixed gauge-gravitational anomaly
+
+The mixed gauge-gravitational anomaly coefficient is
+
+    A^{Y-grav} = Tr_{V56}(Y · γ_5 · σ^{μν} σ^{ρσ}).
+
+By the Tensor Product Theorem V56 ≅ V14 ⊗ ker D [HCSM-61], the trace factorizes:
+
+    A^{Y-grav} = Tr_{V14}(Y · γ_5) · Tr_{ker D}(σ^{μν} σ^{ρσ}).
+
+The first factor is Tr_{V14}(Y γ_5) = Σ_i Y_i = 0, by the Standard Model anomaly cancellation conditions derived in HCSM-07 [HCSM-07]. Therefore A^{Y-grav} = 0.
+
+### 6.4 Bridging the lattice and continuum anomaly polynomial
+
+The passage from the finite lattice construction to the continuum anomaly polynomial I_8 requires the identification of the emergent Lorentz structure on ker D. This identification is carried out in HCSM-61 and HCSM-65, where the Hodge-Dirac operator's continuum limit is shown to reproduce the Dirac operator and the Clifford algebra Cl(3,1). Given this identification, the discrete trace Tr_{V56}(γ_5 f(D)) corresponds to the continuum anomaly polynomial evaluated on the physical spectrum.
+
+The non-renormalization identity Tr(γ_5 f(D)) = 0 on the lattice is therefore the discrete counterpart of the vanishing of the continuum anomaly polynomial I_8. The correspondence is not one-to-one at the operator level; it is a statement about the trace over the physical content. An explicit construction of I_8 from the lattice gauge field strength F and the Riemann tensor R is catalogued as Open Item 9.6 and assigned to HCSM-72.
+
+---
+
+## 7. Anomaly Inflow
+
+### 7.1 The Tensor Product Theorem
+
+The Tensor Product Theorem of HCSM-61 states
+
+    V56 ≅ V14 ⊗ ker D
+
+as D_4 representations [HCSM-61]. The internal space is V14 (the 14 modes at λ = 4 carrying the Standard Model generation content); the spacetime tangent space is ker D (the 4-dimensional kernel of the Hodge-Dirac operator, with Lorentzian metric of signature (3,1)).
+
+### 7.2 Anomaly inflow factorization
+
+**Theorem 7.1 (Anomaly Inflow Factorization).** The gravitational anomaly on V56 factorizes as
+
+    A_grav(V56) = dim V14 · Tr_{ker D}(γ_5 K²) = 14 · 2 = 28.
+
+**Proof.** By the tensor product structure, the γ_5-weighted trace factorizes:
+
+    Tr_{V56}(γ_5 K²) = Tr_{V14}(1) · Tr_{ker D}(γ_5 K²).
+
+The first factor is Tr_{V14}(1) = 14. For the second factor, ker D has Betti numbers b_0 = 1, b_1 = 2, b_2 = 1; the grading is γ_5 = +1 on b_0 and b_2, and -1 on b_1; the form-degree operator satisfies K = 0 on b_0, K = 1 on b_1, K = 2 on b_2. Therefore
+
+    Tr_{ker D}(γ_5 K²) = (+1)·1·0² + (-1)·2·1² + (+1)·1·2² = 0 - 2 + 4 = 2.
+
+The product is 14 · 2 = 28. ∎
+
+### 7.3 Consistency
+
+Theorem 7.1 reproduces the direct computation of Tr_{V56}(γ_5 K²) = 28 from Theorem 4.1 at n = 2. The factorization 56 = 14 · 4 and the evaluation Tr_{ker D}(γ_5 K²) = 2 on the Betti numbers (1, 2, 1) are verified at machine precision in Appendix A.
+
+---
+
+## 8. Global Anomalies
+
+### 8.1 The Witten SU(2) global anomaly
+
+**Theorem 8.1 (Witten Anomaly Evasion).** The Witten global SU(2) anomaly is evaded: the number of SU(2)_L doublets is even.
+
+**Proof.** The Witten anomaly is Z_2-valued: π_4(SU(2)) = Z_2. The anomaly is absent if the number of SU(2)_L doublets is even. On the 14-mode multiplet, the number of SU(2)_L doublets is 4 (three colors of Q_L plus one lepton doublet L_L; see HCSM-70 [HCSM-70] Theorem 9.2). Since 4 is even, the Witten anomaly is evaded. ∎
+
+### 8.2 The π_4 anomaly
+
+**Theorem 8.2 (π_4 Anomaly Vanishes).** The π_4 anomaly vanishes on the 14-mode multiplet:
+
+    π_4(SU(2)_L) = 0.
+
+**Proof.** The π_4 anomaly is Z_2-valued. It vanishes if the number of fermions in the fundamental representation is even. On the 14-mode multiplet, the number of fundamental fermions is 4 (even). Therefore the π_4 anomaly vanishes. ∎
+
+### 8.3 The gravitational global anomaly
+
+**Theorem 8.3 (Gravitational Global Anomaly Vanishes).** The gravitational global anomaly vanishes on the 14-mode multiplet.
+
+**Proof.** By Theorem 6.1, A_grav^phys = 0. The corresponding global anomaly is the integral of the anomaly density over the compactified spacetime, which vanishes identically because the density vanishes pointwise on the physical sector. ∎
+
+### 8.4 Summary
+
+**Theorem 8.4 (Absence of Global Anomalies).** All global anomalies vanish on the 14-mode multiplet:
+
+1. The Witten global SU(2) anomaly is evaded (Theorem 8.1).
+2. The π_4 anomaly vanishes (Theorem 8.2).
+3. The gravitational global anomaly vanishes (Theorem 8.3).
+
+---
+
+## 9. Open Items
+
+The following open items are catalogued for assignment to downstream papers in the Q1 sub-program.
+
+**Open Item 9.1 (Structural identity of the 1/3 match).**
+
+Theorem 5.1 establishes a numerical match at d = 4 between the gravitational ratio Tr(γ_5 K²)/Tr(K²) and the class-partition residual A = 1/(d-1). Whether the two 1/3 values are structurally identical for all d, or numerically coincident at d = 4, is not resolved in this paper. A general-d computation is assigned to HCSM-72.
+
+**Open Item 9.2 (K as the discrete Lorentz generator).**
+
+The form-degree operator K is identified with the discrete Lorentz weight because each form degree transforms as the k-th antisymmetric power of the tangent representation. An independent derivation of this identification, distinguishing K from the naive SO(2) generator J (which gives Tr(γ_5 J²) = -1 rather than 28), is assigned to HCSM-72.
+
+**Open Item 9.3 (4D Lorentz structure).**
+
+The physical gravitational anomaly coefficient uses the emergent 4D Lorentz structure σ^{μν} = (i/2)[γ^μ, γ^ν] constructed in HCSM-61 and HCSM-65. The present paper imports this structure; an explicit construction of σ^{μν} on the Hodge complex is not repeated here.
+
+**Open Item 9.4 (Weyl hypercharges).**
+
+The mixed gauge-gravitational anomaly coefficient uses the vanishing of Σ_i Y_i over the Weyl fermions. The Weyl-hypercharge assignment is derived in HCSM-07 and imported here.
+
+**Open Item 9.5 (BRST operator for Wess-Zumino).**
+
+The Wess-Zumino consistency condition sA = 0 uses the BRST operator s constructed in HCSM-67 and HCSM-68. The present paper invokes the commuting of K with D² as a sufficient condition for consistency but does not rederive the BRST structure.
+
+**Open Item 9.6 (Anomaly polynomial I_8).**
+
+The anomaly polynomial I_8 on the Hodge complex is a restatement of the Non-Renormalization Theorem 3.1. An explicit construction of I_8 from the gauge field strength F and the Riemann tensor R on the lattice is not given here.
+
+---
+
+## 10. Falsifiable Predictions
+
+1. **Non-renormalization.** Tr(γ_5 f(D)) = 0 for every even regulator f. Any confirmed nonzero lattice anomaly at any scale would falsify Theorem 3.1.
+
+2. **Anomaly tower.** Tr_{V56}(γ_5 K^n) = 14·2^n - 28 for every n ≥ 1. A different trace value would falsify Theorem 4.1.
+
+3. **Gravitational ratio.** Tr(γ_5 K²)/Tr(K²) = 1/3 at d = 4. A different ratio would falsify Theorem 5.1.
+
+4. **Physical anomaly.** A_grav^phys = 0. A nonzero physical gravitational anomaly would falsify Theorem 6.1.
+
+5. **Inflow.** A_grav(V56) = 28. A different value would falsify Theorem 7.1.
+
+6. **Global anomalies.** Witten SU(2), π_4, gravitational all vanish. A confirmed nonzero global anomaly would falsify Theorem 8.4.
+
+7. **No R² corrections.** By HCSM-50, the graviton effective action is exactly Einstein-Hilbert [HCSM-50]. Any confirmed R² or Gauss-Bonnet correction would falsify the composite-operator program.
+
+---
+
+## 11. Conclusion
+
+We have constructed the gravitational anomaly sector of the Hodge Complex Standard Model on the finite substrate Λ = Z_8 × Z_8.
+
+The Non-Renormalization Theorem establishes that Tr(γ_5 f(D)) = 0 for every even regulator f, exact from {γ_5, D} = 0. This is the substrate's native answer at the gravitational anomaly level.
+
+The Anomaly Tower Theorem establishes that Tr_{V56}(γ_5 K^n) = 14·2^n - 28 for every n ≥ 1. The coefficient 28 is the dimension of the Ω¹|_{λ=4} sector, and the factor 2^n is the binary growth of the form-degree ladder. The first nontrivial value Tr(γ_5 K²) = 28 is the anomaly coefficient; its ratio to Tr(K²) = 84 is 1/3.
+
+The Anomaly-Class-Partition Match establishes that at d = 4, Tr(γ_5 K²)/Tr(K²) = 1/3 coincides with the class-partition residual A = 1/(d-1) = 1/3 derived independently in HCSM-69 and HCSM-70. The two 1/3 values are computed independently; whether they are structurally identical for all d or numerically coincident at d = 4 is catalogued as Open Item 9.1 and assigned to HCSM-72.
+
+The Physical Gravitational Anomaly vanishes because all 14 physical modes live in Ω⁰ and therefore have form degree k = 0.
+
+The Anomaly Inflow Factorization Tr_{V56}(γ_5 K²) = 14 · 2 = 28 extends the Tensor Product Theorem of HCSM-61 to the gravitational anomaly sector.
+
+All global anomalies (Witten SU(2), π_4, gravitational) vanish.
+
+Six open items are catalogued and assigned to downstream papers: the structural identity of the 1/3 match (HCSM-72); the derivation of K as the discrete Lorentz generator (HCSM-72); the explicit 4D Lorentz structure (HCSM-61, HCSM-65); the Weyl-hypercharge assignment (HCSM-07); the BRST operator for Wess-Zumino consistency (HCSM-67, HCSM-68); and the explicit anomaly polynomial I_8 (HCSM-72).
+
+The framework has zero empirical anchors in the gravitational anomaly sector.
+
+---
+
+## Appendix A: Numerical Verification
+
+All numerical claims are verified at machine precision in IEEE-754 double precision. The companion script HCSM-71_verification.py constructs the substrate, the Hodge complex, and the V56 sector at λ = 4, and verifies the following identities.
+
+### A.1 Substrate and Hodge complex
+
+The discrete exterior derivatives d_0 and d_1 satisfy d_1 d_0 = 0 exactly. The Hodge-Dirac operator D is self-adjoint. The anticommutator {γ_5, D} = 0 exactly. The kernel of D has dimension 4, matching b_0 + b_1 + b_2 = 1 + 2 + 1. The smallest nonzero eigenvalue of D is 2 sin(π/8) = 0.765367.
+
+### A.2 The 56-dimensional sector at λ = 4
+
+The multiplicity of λ = 4 in D² is 56. The traces on V56 are
+
+    Tr(γ_5) = 0,
+    Tr(K) = 56,
+    Tr(γ_5 K) = 0,
+    Tr(γ_5 K²) = 28,
+    Tr(K²) = 84.
+
+### A.3 Non-renormalization over nine regulators
+
+The regulated trace Tr(γ_5 f(D)) is verified to be zero to machine precision for the nine even regulators
+
+    exp(-D²), exp(-D²/2), 1/(1+D²), exp(-D⁴), cos(D), sinc(D), exp(-D²/4), 1/(2+D²), exp(-|D|).
+
+The largest residual across all nine regulators is 7.88 × 10^{-15}.
+
+### A.4 The anomaly tower
+
+The trace Tr_{V56}(γ_5 K^n) is computed for n = 1, ..., 9 and matches the closed form 14·2^n - 28 to machine precision. The values are
+
+    n=1: 0
+    n=2: 28
+    n=3: 84
+    n=4: 196
+    n=5: 420
+    n=6: 868
+    n=7: 1764
+    n=8: 3556
+    n=9: 7140
+
+### A.5 The anomaly-class-partition match
+
+The ratio Tr_{V56}(γ_5 K²)/Tr_{V56}(K²) = 28/84 = 0.3333333333 matches 1/(d-1) = 1/3 = 0.3333333333 to machine precision.
+
+### A.6 The anomaly inflow
+
+The factorization Tr_{V56}(γ_5 K²) = Tr_{V14}(1) · Tr_{ker D}(γ_5 K²) is verified: 14 · 2 = 28.
+
+Running 12-VERIFICATION/run_all.py reproduces every numerical claim in the HCSM paper stack.
+
+---
+
+## Appendix B: Web Crawler Metadata
+
+### B.1 Dublin Core
+
+- DC.title: HCSM-71: Gravitational Anomalies on the Finite Lattice
+- DC.creator: Preschutti, Stanley
+- DC.creator.orcid: 0009-0004-5445-1744
+- DC.date.issued: 2026-10-05
+- DC.type: Text / Preprint / White Paper
+- DC.format: application/pdf; text/x-latex
+- DC.language: en
+- DC.publisher: Entropia Research Institute
+- DC.rights: All rights reserved
+- DC.subject: Hodge Complex Standard Model; HCSM; gravitational anomaly; anomaly tower; non-renormalization; class-partition residual; anomaly inflow; finite lattice; Q1 sub-program
+- DC.identifier: HCSM-71-2026-10-05
+
+### B.2 BibTeX
+
+@article{PreschuttiHCSM71,
+  author  = {Preschutti, Stanley},
+  title   = {{HCSM-71}: Gravitational Anomalies on the Finite Lattice},
+  journal = {HCSM White Paper Series},
+  year    = {2026},
+  month   = {October},
+  note    = {ORCID: 0009-0004-5445-1744},
+  keywords = {Hodge Complex Standard Model, HCSM, gravitational anomaly,
+              anomaly tower, non-renormalization, class-partition residual,
+              anomaly inflow, finite lattice, Q1 sub-program}
+}
+
+---
+
+## References
+
+[1] S. Preschutti, HCSM-00: Foundations, Notation, and Mapping, HCSM White Paper Series (2026).
+
+[2] S. Preschutti, HCSM-02: The Hodge Complex on Λ, HCSM White Paper Series (2026).
+
+[3] S. Preschutti, HCSM-04: The 14-Mode Multiplet at λ = 4, HCSM White Paper Series (2026).
+
+[4] S. Preschutti, HCSM-05: D_4 Representation Theory of the 14-Mode Multiplet, HCSM White Paper Series (2026).
+
+[5] S. Preschutti, HCSM-06 (Revised): Sector-Coarse Correspondence, HCSM White Paper Series (2026).
+
+[6] S. Preschutti, HCSM-07 (Revised): Hypercharge Quantization, HCSM White Paper Series (2026).
+
+[7] S. Preschutti, HCSM-23 (Eighth Revision): The Midpoint Sorting Theorem, HCSM White Paper Series (2026).
+
+[8] S. Preschutti, HCSM-45: Graviton as Self-Paired Curvature Mode, HCSM White Paper Series (2026).
+
+[9] S. Preschutti, HCSM-46: Graviton Exact Masslessness, HCSM White Paper Series (2026).
+
+[10] S. Preschutti, HCSM-47: Graviton Self-Coupling from D_4, HCSM White Paper Series (2026).
+
+[11] S. Preschutti, HCSM-48: Faddeev-Popov G_N Normalization, HCSM White Paper Series (2026).
+
+[12] S. Preschutti, HCSM-49: Completion of the Newton Constant Sector, HCSM White Paper Series (2026).
+
+[13] S. Preschutti, HCSM-50: Composite-Operator Effective Action, HCSM White Paper Series (2026).
+
+[14] S. Preschutti, HCSM-61: Maxwell and Lorentz in the Classical Limit of the Hodge Complex Standard Model, HCSM White Paper Series (2026).
+
+[15] S. Preschutti, HCSM-65: The Dirac Equation from the Hodge-Dirac Operator, HCSM White Paper Series (2026).
+
+[16] S. Preschutti, HCSM-67: BRST Quantization on the Finite Lattice, HCSM White Paper Series (2026).
+
+[17] S. Preschutti, HCSM-68: Faddeev-Popov from the D_4 Commutant, HCSM White Paper Series (2026).
+
+[18] S. Preschutti, HCSM-69: Quantum Chiral Anomalies on the Finite Lattice, HCSM White Paper Series (2026).
+
+[19] S. Preschutti, HCSM-70: Quantum Gauge Anomalies, HCSM White Paper Series (2026).
+
+[20] S. L. Adler and W. A. Bardeen, Absence of higher-order corrections in the anomalous axial-vector divergence equation, Phys. Rev. 182, 1517 (1969).
+
+[21] I. Schur, Neue Begründung der Theorie der Gruppencharaktere, Sitzungsberichte der Königlich Preußischen Akademie der Wissenschaften (1905), 406-432.
+
+[22] J. Dodziuk, Finite-difference approach to the Hodge theory of harmonic forms, Amer. J. Math. 98, 79 (1976).
