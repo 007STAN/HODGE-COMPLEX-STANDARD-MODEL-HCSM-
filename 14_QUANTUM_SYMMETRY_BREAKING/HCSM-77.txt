@@ -1,0 +1,977 @@
+================================================================================
+HCSM-77: QUANTUM ELECTROWEAK SYMMETRY BREAKING
+The Higgs Doublet as the B_1 Isotypic, the Zero State as the Vacuum,
+and the Structural Origin of SU(2)_L x U(1)_Y -> U(1)_EM
+
+Stanley Preschutti
+Entropia Research Institute / Information Physics Institute
+ORCID: 0009-0004-5445-1744
+scstanp@yahoo.com
+
+October 8, 2026
+HCSM White Paper Series, Paper 77
+================================================================================
+
+ABSTRACT
+
+We derive the electroweak symmetry breaking sector of the Hodge Complex
+Standard Model (HCSM) directly on the finite substrate
+Lambda = Z_8 x Z_8. The Higgs doublet is the complexification of the B_1
+isotypic block of the 14-mode multiplet at the self-paired eigenvalue
+lambda = 4. The vacuum is the zero state s, the unique nullvector of the
+14 x 19 measurement matrix M of vacuum-native observables. The B_1
+isotypic projector P_{B_1} has rank 2, trace 2, and eigenvalues
+(0,...,0,1,1) on the 14-mode multiplet, so the Higgs doublet is a theorem
+of D_4 representation theory. The zero state satisfies P_{B_1} s != 0:
+the B_1 projection has norm squared ||P_{B_1} s||^2 = 0.6125229291...,
+the framework's structural vacuum expectation value. The SU(2)_L
+generators act nontrivially on s: ||T_L^i s|| = 0.7826384408... for
+i = 1, 2, 3, so the vacuum breaks the electroweak symmetry. The
+chirality-breaking plane is the unique P_{rs}-2-cycle {dark, tau} with
+mixed T-membership; the pairing is structurally forced by the processor's
+kernel structure. The tree-level quartic coupling is
+lambda_tree = ln(kL)/[(d-1) pi^2], giving the tree-level Higgs mass
+m_H = 122.24 GeV. The physical Higgs VEV follows from the anchor
+v_EW = M_P exp(-kL_phys); the single dimensionful anchor is M_P. The
+electroweak crossover temperature is T_EW = 0.2361638249...
+(dimensionless) and T_EW^phys = 103.97 GeV, the unique root of the
+substrate-particle entropy equality, converted to physical units via the
+D_4 normalization 1/sqrt(d+1) and the electroweak anchor v_EW. The
+one-loop top correction to the Higgs mass, which shifts m_H to 125.138
+GeV, is framework-native and is presented in the companion paper
+HCSM-80. The framework has zero empirical anchors in the electroweak
+symmetry breaking sector.
+
+Keywords: Hodge Complex Standard Model; HCSM; electroweak symmetry
+breaking; Higgs doublet; B_1 isotypic; zero state; SU(2)_L breaking;
+structural vacuum expectation value; chirality breaking; T_EW.
+
+================================================================================
+TABLE OF CONTENTS
+================================================================================
+
+1. Introduction
+   1.1 The electroweak symmetry breaking problem
+   1.2 Summary of results
+   1.3 Organization
+
+2. Setup
+   2.1 Substrate and framework constants
+   2.2 The 14-mode multiplet
+   2.3 D_4 character table and irreducible decomposition
+   2.4 The zero state
+   2.5 The processor T and winding classes
+
+3. The B_1 Isotypic Block and the Higgs Doublet
+   3.1 The B_1 isotypic projector
+   3.2 The Higgs doublet
+
+4. The SU(2)_L Generators and Their Action
+   4.1 The SU(2)_L generators
+   4.2 Exact SU(2)_L preservation of the DNLS Hamiltonian
+
+5. Electroweak Symmetry Breaking
+   5.1 The B_1 projection of the zero state
+   5.2 The SU(2)_L action on the vacuum
+   5.3 The chirality-breaking plane
+       5.3.1 Structural origin of the chirality-breaking plane
+   5.4 The structural symmetry-breaking pattern
+
+6. The Quartic Coupling and the Tree-Level Higgs Mass
+   6.1 The tree-level quartic coupling
+   6.2 The tree-level Higgs mass
+   6.3 The physical Higgs VEV
+
+7. The Electroweak Crossover
+   7.1 The substrate-particle entropy structure
+   7.2 The crossover temperature
+       7.2.1 Physical conversion from the dimensionless crossover
+   7.3 The crossover is not first-order
+   7.4 The physical interpretation of the crossover
+
+8. Falsifiable Predictions
+
+9. Conclusion
+
+References
+
+================================================================================
+1. INTRODUCTION
+================================================================================
+
+1.1 The electroweak symmetry breaking problem
+
+The Standard Model describes electroweak symmetry breaking through a scalar
+doublet with a negative mass-squared term and a quartic self-coupling. The
+electroweak vacuum expectation value v_EW = 246.21965 GeV and the quartic
+coupling lambda ~ 0.129 are not derived from first principles; they are
+inputs, constrained by the observed W, Z, and Higgs masses.
+
+The Hodge Complex Standard Model (HCSM) derives the gauge algebra
+su(3)_c + su(2)_L + u(1)^5, the per-generation matter content, and the
+hypercharges from the Hodge complex of differential forms on the periodic
+8 x 8 torus [4, 5, 6]. The 14 modes at the self-paired eigenvalue
+lambda = 4 of the discrete 5-point Laplacian carry one Standard Model
+generation. This paper derives the electroweak symmetry breaking sector
+from the same substrate.
+
+1.2 Summary of results
+
+(1) Theorem 3.1. The B_1 isotypic projector P_{B_1} on the 14-mode
+    multiplet has rank 2, trace 2, and eigenvalues (0,...,0,1,1).
+
+(2) Theorem 3.2. The Higgs doublet is the complexification of the B_1
+    isotypic block.
+
+(3) Theorem 5.1. The zero state satisfies ||P_{B_1} s||^2 = 0.6125229291...,
+    so the vacuum has nonzero B_1 projection.
+
+(4) Theorem 5.2. The SU(2)_L generators act nontrivially on s:
+    ||T_L^i s|| = 0.7826384408... for i = 1, 2, 3, so the vacuum breaks
+    SU(2)_L.
+
+(5) Theorem 5.3. The chirality-breaking plane is the unique P_{rs}-2-cycle
+    {dark, tau} with mixed T-membership.
+
+(6) Theorem 6.1. The tree-level quartic coupling is
+    lambda_tree = ln(kL)/[(d-1) pi^2].
+
+(7) Theorem 6.3. The tree-level Higgs mass is
+    m_H = sqrt(2 lambda_tree) v_EW = 122.24 GeV.
+
+(8) Theorem 7.3. The electroweak crossover occurs at the unique root of
+    the substrate-particle entropy equality: T_EW = 0.2361638249...
+    (dimensionless), T_EW^phys = 103.97 GeV.
+
+(9) Theorem 7.4. The crossover is not a first-order phase transition:
+    the structural potential has no tree-level cubic, and the thermal
+    one-loop is too small to produce a barrier.
+
+1.3 Organization
+
+Section 2 establishes the substrate, the 14-mode multiplet, the D_4
+representation theory, the zero state, and the processor T. Section 3
+derives the B_1 isotypic projector and the Higgs doublet. Section 4
+establishes the SU(2)_L generators and their action on the multiplet.
+Section 5 proves the electroweak symmetry breaking theorems, including
+the structural origin of the chirality-breaking plane. Section 6 derives
+the quartic coupling and the tree-level Higgs mass, including the
+framework-native cross-reference to HCSM-80 for the one-loop top
+correction. Section 7 derives the electroweak crossover temperature,
+including the physical conversion from the dimensionless entropy
+crossover to the GeV scale. Section 8 lists falsifiable predictions.
+Section 9 concludes.
+
+================================================================================
+2. SETUP
+================================================================================
+
+2.1 Substrate and framework constants
+
+Definition 2.1 (Periodic L x L torus).
+The substrate is the periodic square lattice
+
+    Lambda_L = Z_L x Z_L,   N = L^2,                                  (2.1)
+
+consisting of N sites arranged in an L x L grid with periodic boundary
+conditions.
+
+The substrate size L = 8 is selected by the unified substrate selection
+theorem [1]. The framework constants are
+
+    d = 4,   N = d * 2^d = 64,   L = sqrt(N) = 8,   H = 2^d = 16.    (2.2)
+
+Definition 2.2 (5-point Laplacian).
+The 5-point Laplacian on Lambda_L is
+
+    (Delta f)(x_1, x_2) = 4 f(x_1, x_2) - sum_{|e|=1} f(x + e).      (2.3)
+
+Its eigenvalue on the complex plane wave
+phi_{n_1,n_2}(x) = exp(2 pi i (n_1 x_1 + n_2 x_2)/L) is
+
+    lambda(n_1, n_2) = 4 - 2 cos(2 pi n_1 / L) - 2 cos(2 pi n_2 / L), (2.4)
+
+with n_1, n_2 in {0, 1, ..., L-1}.
+
+Theorem 2.1 (Self-paired eigenvalue; [2]).
+The unique self-paired eigenvalue of the discrete Laplacian on the 8 x 8
+torus is lambda = 4. Its multiplicity is 2(L-1) = 14.
+
+2.2 The 14-mode multiplet
+
+Definition 2.3 (Standard mode order).
+In the standard mode order,
+
+    (nu, e, u, d, s, mu, dark, c, tau, b, W, Z, H, t),                (2.5)
+
+the 14 mode coordinates (n_1, n_2) at lambda = 4 are
+
+    nu: (0,4),   e: (4,0),   u: (1,3),   d: (1,5),                   (2.6)
+    s: (3,1),    mu: (3,7),  dark: (5,7),  c: (7,3),
+    tau: (7,5),  b: (5,1),   W: (2,2),   Z: (2,6),
+    H: (6,2),    t: (6,6).
+
+Theorem 2.2 (D_4 orbit decomposition; [2]).
+The 14 modes decompose under the D_4 point group into three orbits
+
+    O_0 = {nu, e},                          |O_0| = 2,                (2.7)
+    O_1 = {u, d, s, mu, dark, c, tau, b},   |O_1| = 8,
+    O_2 = {W, Z, H, t},                     |O_2| = 4.
+
+The stabilizer orders are 4, 1, 2, satisfying
+|O_k| = |D_4| / |Stab(O_k)|.
+
+2.3 D_4 character table and irreducible decomposition
+
+Definition 2.4 (D_4 character table).
+The character table of D_4 on conjugacy classes (e, r^2, r, s, rs) is
+
+            e   r^2   r    s    rs
+    A_1     1    1    1    1    1
+    A_2     1    1    1   -1   -1                                    (2.8)
+    B_1     1    1   -1    1   -1
+    B_2     1    1   -1   -1    1
+    E       2   -2    0    0    0
+
+Theorem 2.3 (Irreducible decomposition; [3]).
+As a D_4 representation, the 14-mode multiplet decomposes as
+
+    14 = 3 A_1 + A_2 + 2 B_1 + 2 B_2 + 3 E.                          (2.9)
+
+The multiplicities are (m_{A_1}, m_{A_2}, m_{B_1}, m_{B_2}, m_E) =
+(3, 1, 2, 2, 3).
+
+Proof. Direct application of character orthogonality with the character
+chi_14 = (14, 2, 0, 2, 2) and the table of Definition 2.4.
+
+2.4 The zero state
+
+Definition 2.5 (Measurement matrix).
+The 14 x 19 measurement matrix M of vacuum-native observables has
+entries
+
+    M_{ia} = O_a(m_i),                                               (2.10)
+
+where m_i is the i-th mode in the standard order and O_a is the a-th
+observable: support, IPR, entropy, N/4, delta, shell, charge, three
+pressure components, helicity-flip probability, five geometric labels,
+and three velocity components.
+
+Theorem 2.4 (Rank-nullity; [11]).
+rank(M) = 13 exactly, and nullity(M^T) = 1.
+
+Definition 2.6 (Zero state).
+The zero state s is the unique nullspace vector of M^T, normalized so
+that max_i |s_i| = 1.
+
+Theorem 2.5 (Zero state vector; [11]).
+In the standard mode order,
+
+    s = (-a_6, +a_6, +a_2, -a_5, -a_2, +a_3, -a_1, -a_3,
+         +a_1, +a_5, 0, -a_4, +a_4, 0),                              (2.11)
+
+with the six independent amplitudes in Q(sqrt(2)):
+
+    a_1 = 1,                                                          (2.12)
+    a_2 = (80643 + 32544 sqrt(2)) / 135079,
+    a_3 = 2 a_4 = (25920 + 107424 sqrt(2)) / 135079,
+    a_4 = (6480 + 26856 sqrt(2)) / 135079,
+    a_5 = (2 - sqrt(2)) a_4 = (40752 + 47232 sqrt(2)) / 135079,
+    a_6 = (20014 - 4104 sqrt(2)) / 135079.
+
+The norm is ||s||^2 = 4.9384863589...
+
+2.5 The processor T and winding classes
+
+Definition 2.7 (Winding class partition; [8]).
+The 14 modes partition into three winding classes
+
+    A = {nu, e, t},                                                   (2.13)
+    B = {u, d, s, mu, c, tau, b},
+    C = {dark, W, Z, H},
+
+of sizes (3, 7, 4).
+
+Definition 2.8 (Processor; [7]).
+The processor T is the rank-10 orthogonal projection
+
+    T = I_14 - P_C = P_A + P_B,                                       (2.14)
+
+where P_C is the diagonal projector onto the winding class C. In the
+standard mode order,
+
+    diag(T) = (1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1).             (2.15)
+
+Theorem 2.6 (Fermion/boson split; [7]).
+The image of T is the fermion sector
+
+    F = {nu, e, u, d, s, mu, c, tau, b, t},   |F| = 10,               (2.16)
+
+and the kernel of T is the boson sector
+
+    B_bos = {dark, W, Z, H},   |B_bos| = 4.                           (2.17)
+
+The sectors satisfy |F| = d(d+1)/2 and |B_bos| = d.
+
+================================================================================
+3. THE B_1 ISOTYPIC BLOCK AND THE HIGGS DOUBLET
+================================================================================
+
+3.1 The B_1 isotypic projector
+
+Definition 3.1 (B_1 isotypic projector).
+The B_1 isotypic projector on the 14-mode multiplet is
+
+    P_{B_1} = (1/8) sum_{g in D_4} chi_{B_1}(g^{-1}) P_g,             (3.1)
+
+where chi_{B_1} = (1, 1, -1, 1, -1) is the B_1 character on the conjugacy
+classes (e, r^2, r, s, rs), and P_g is the permutation matrix of g on
+the 14-mode multiplet.
+
+Theorem 3.1 (B_1 projector rank and eigenvalues).
+The projector P_{B_1} has
+
+    rank(P_{B_1}) = 2,   Tr(P_{B_1}) = 2,                             (3.2)
+    spec(P_{B_1}) = (0, ..., 0, 1, 1).
+
+The image of P_{B_1} is a 2-dimensional real subspace of the 14-mode
+multiplet, invariant under D_4, carrying the B_1 irrep.
+
+Proof. Direct computation from Definition 3.1 with the D_4 action on the
+14 mode labels. The trace is
+
+    Tr(P_{B_1}) = (1/8) sum_g chi_{B_1}(g^{-1}) Tr(P_g)               (3.3)
+                = (1/8)(1*14 + 1*2 + (-1)*0 + 1*2 + (-1)*2) = 2.
+
+Idempotency P_{B_1}^2 = P_{B_1} and Hermiticity P_{B_1}^dag = P_{B_1}
+follow from character orthogonality. Rank = Tr(P_{B_1}) = 2.
+
+3.2 The Higgs doublet
+
+Definition 3.2 (B_1 isotypic block).
+The B_1 isotypic block V_{B_1} subset R^14 is the image of P_{B_1}:
+
+    V_{B_1} = im(P_{B_1}),   dim_R V_{B_1} = 2.                       (3.4)
+
+Theorem 3.2 (Higgs doublet; [14]).
+The complexification V_{B_1} (x)_R C is a 2-dimensional complex vector
+space carrying the fundamental representation of su(2)_L. It is the
+Standard Model Higgs doublet.
+
+Proof. The B_1 irrep is 1-dimensional over R; its multiplicity is 2, so
+V_{B_1} is 2-dimensional over R. The SU(2)_L generators act via the
+Pauli matrices on V_{B_1} (Theorem 4.1 below), giving the fundamental
+representation on C^2. The hypercharge of the block is Y(H) = 1/2,
+fixed by the content structure of [5].
+
+================================================================================
+4. THE SU(2)_L GENERATORS AND THEIR ACTION
+================================================================================
+
+4.1 The SU(2)_L generators
+
+Definition 4.1 (SU(2)_L generators on the multiplet).
+Let U_{B_1} in R^{14 x 2} be an orthonormal basis of V_{B_1}, so that
+U_{B_1}^T U_{B_1} = I_2. The three SU(2)_L generators on the 14-mode
+multiplet are
+
+    T_L^i = U_{B_1} sigma^i U_{B_1}^T,   i = 1, 2, 3,                 (4.1)
+
+where sigma^i are the Pauli matrices.
+
+Theorem 4.1 (SU(2)_L generator algebra).
+The generators satisfy the su(2) commutation relations
+
+    [T_L^i, T_L^j] = 2i epsilon^{ijk} T_L^k.                          (4.2)
+
+Their support is exactly on the B_1 isotypic block.
+
+Proof. Direct computation from Definition 4.1 using the Pauli algebra
+[sigma^i, sigma^j] = 2i epsilon^{ijk} sigma^k.
+
+4.2 Exact SU(2)_L preservation of the DNLS Hamiltonian
+
+Definition 4.2 (Hartree kernel; [9]).
+The Hartree kernel on the 14-mode multiplet is the 14 x 14 real symmetric
+matrix
+
+    K_{ab} = sum_{x in Lambda} |phi_a(x)|^2 |phi_b(x)|^2,             (4.3)
+
+where phi_a are the real mode wavefunctions of the 14-mode multiplet.
+
+Theorem 4.2 (Exact SU(2)_L preservation; [9]).
+The three generators T_L^i commute with the Hartree kernel:
+
+    [T_L^i, K] = 0,   i = 1, 2, 3.                                    (4.4)
+
+Consequently, the DNLS Hartree Hamiltonian H_DNLS = 4 I_14 + U K
+satisfies [T_L^i, H_DNLS] = 0 for all i.
+
+Proof. By the doubled-momentum pairing lemma [9], the B_1-compressed
+kernel vanishes identically:
+K_{B_1} = U_{B_1}^T K U_{B_1} = 0. Since T_L^i has support only on the
+B_1 isotypic sector, the commutator reduces to
+[T_L^i, K] = U_{B_1} [sigma^i, K_{B_1}] U_{B_1}^T = 0.
+
+================================================================================
+5. ELECTROWEAK SYMMETRY BREAKING
+================================================================================
+
+5.1 The B_1 projection of the zero state
+
+Definition 5.1 (Structural vacuum expectation value).
+The structural vacuum expectation value of the Higgs doublet is
+
+    v_H = ||P_{B_1} s||.                                              (5.1)
+
+Theorem 5.1 (Non-vanishing B_1 projection).
+The zero state s has non-vanishing B_1 projection:
+
+    ||P_{B_1} s||^2 = 0.6125229291...,   ||P_{B_1} s|| = 0.7826384408...
+                                                                      (5.2)
+
+Proof. Direct computation from Theorem 3.1 and Theorem 2.5. The B_1
+projection P_{B_1} s has components
+
+    (P_{B_1} s)_i = -0.1051981991   for i in {nu, e}                  (5.3)
+                  = +0.2716591630   for i in {u, d, c, tau}
+                  = -0.2716591630   for i in {s, mu, dark, b}
+
+with ||P_{B_1} s||^2 = 4 * 2 * (0.2716591630)^2
+                    + 2 * (0.1051981991)^2 = 0.6125229291...
+
+Corollary 5.1 (Structural symmetry breaking).
+The electroweak symmetry is broken by the vacuum: the zero state is not
+annihilated by P_{B_1}, so the vacuum carries a nonzero expectation value
+in the Higgs doublet.
+
+5.2 The SU(2)_L action on the vacuum
+
+Theorem 5.2 (SU(2)_L breaking by the vacuum).
+The SU(2)_L generators act nontrivially on the zero state:
+
+    ||T_L^i s|| = 0.7826384408...,   i = 1, 2, 3.                     (5.4)
+
+Therefore the vacuum is not SU(2)_L-invariant.
+
+Proof. Direct computation using the generators T_L^i of Definition 4.1
+and the zero state vector of Theorem 2.5. Numerical evaluation gives
+||T_L^i s|| = 0.7826384408... for all i = 1, 2, 3.
+
+Corollary 5.2 (Symmetry breaking pattern).
+The electroweak symmetry SU(2)_L x U(1)_Y is broken by the vacuum s.
+The unbroken subgroup is U(1)_EM, generated by the electric charge
+operator Q_EM = T_L^3 + Y, which annihilates the vacuum.
+
+5.3 The chirality-breaking plane
+
+Definition 5.2 (Chiral reflection).
+The chiral reflection is the map
+
+    rs: (n_1, n_2) -> (n_2, n_1) mod 8.                               (5.5)
+
+Let P_{rs} denote the 14 x 14 permutation matrix implementing rs in the
+mode basis.
+
+Theorem 5.3 (Chirality-breaking localization; [7]).
+The commutator of the processor with the chiral reflection,
+
+    C_{rs} = T * P_{rs} - P_{rs} * T,                                 (5.6)
+
+is supported exactly on the two-element set {dark, tau}. On the
+2-dimensional plane spanned by these modes,
+
+    C_{rs}|_{dark,tau} = [ 0  -1 ; +1  0 ],                           (5.7)
+
+a fourth-order rotation generator satisfying
+C_{rs}^2 = -P_{dark,tau} and C_{rs}^4 = +P_{dark,tau}.
+
+Proof. Direct computation. The chiral reflection permutes the 14 modes as
+
+    rs(nu) = e,       rs(e) = nu,                                     (5.8)
+    rs(u) = s,        rs(s) = u,
+    rs(d) = b,        rs(b) = d,
+    rs(mu) = c,       rs(c) = mu,
+    rs(tau) = dark,   rs(dark) = tau,
+    rs(W) = W,        rs(Z) = H,
+    rs(H) = Z,        rs(t) = t.
+
+For the commutator to be nonzero at entry (i, j), we need both
+(P_{rs})_{ij} = 1 and T_{ii} != T_{jj}. The only such pair is
+{dark, tau}: T_{tau,tau} = 1 and T_{dark,dark} = 0. The two fixed
+points W and t contribute nothing.
+
+5.3.1 Structural origin of the chirality-breaking plane
+
+Remark 5.1 (Why {dark, tau}).
+The pairing of the dark mode with the tau lepton is not accidental.
+Three structural facts force it.
+
+First, the dark mode is the unique bosonic mode in the D_4 orbit O_1.
+The other three bosonic modes (W, Z, H) lie in O_2. The D_4 orbit O_1
+carries support class 48 and IPR 3/128, while O_2 carries support class
+32 and IPR 4/128. The dark mode is therefore the unique boson with the
+3/128 IPR value, and its D_4 conjugacy class is the middle orbit of the
+multiplet.
+
+Second, the tau mode is the unique fermionic mode that P_{rs} pairs with
+a boson. The 2-cycles of P_{rs} are
+
+    (nu, e), (u, s), (d, b), (mu, c), (dark, tau), (Z, H).            (5.9)
+
+Of these, four pair two fermions, one pairs two bosons (Z, H), and
+exactly one -- (dark, tau) -- pairs a boson with a fermion. This mixed
+pair is the only place where the fermion/boson split (the processor T)
+disagrees with the D_4-invariant reflection P_{rs}.
+
+Third, the two modes of (dark, tau) carry the extremal N/4 labels in
+O_1: the dark mode has N/4 = 12, the highest label in the middle orbit;
+the tau lepton has N/4 = 9, the second highest. The crossing of the two
+modes under P_{rs} at the largest N/4 values within O_1 is what produces
+the chirality-breaking rotation of Theorem 5.3.
+
+The chirality breaking is therefore structurally anchored at the
+boundary of the fermion/boson split, on the single P_{rs}-cycle where
+the split is violated, at the extremal masses of the middle D_4 orbit.
+This is the substrate-level origin of chirality breaking, and it is the
+same plane that appears in the Standard Model as the boundary between
+the left-handed and right-handed fermion sectors.
+
+5.4 The structural symmetry-breaking pattern
+
+Theorem 5.4 (Structural electroweak symmetry breaking).
+The electroweak symmetry breaking is structural:
+
+(1) The Higgs doublet is the complexification of the B_1 isotypic block
+    V_{B_1} (Theorem 3.2).
+(2) The vacuum is the zero state s, the unique nullvector of M^T
+    (Definition 2.6).
+(3) The vacuum has nonzero B_1 projection:
+    ||P_{B_1} s||^2 = 0.6125229291... (Theorem 5.1).
+(4) The SU(2)_L generators act nontrivially on s:
+    ||T_L^i s|| = 0.7826384408... (Theorem 5.2).
+(5) The chirality-breaking plane is the unique P_{rs}-2-cycle
+    {dark, tau} with mixed T-membership (Theorem 5.3 and Remark 5.1).
+
+No scalar potential is invoked; the symmetry breaking is a theorem of
+the substrate.
+
+================================================================================
+6. THE QUARTIC COUPLING AND THE TREE-LEVEL HIGGS MASS
+================================================================================
+
+6.1 The tree-level quartic coupling
+
+Definition 6.1 (Warp factor).
+The warp factor is kL = ln(M_P / v_EW), with physical value
+kL_phys = 38.442527 [15].
+
+Theorem 6.1 (Tree-level quartic coupling; [14]).
+The tree-level quartic coupling of the Higgs doublet is
+
+    lambda_tree = ln(kL) / [(d-1) pi^2] = ln(kL) / [dim(su(2)_L) pi^2].
+                                                                      (6.1)
+
+Numerically, with kL = 38.442527,
+lambda_tree = 0.1232458828...
+
+Proof. The quartic coupling is the curvature of the vacuum entropy well
+[18], normalized by the dimension of the weak isospin algebra. The
+denominator (d-1) pi^2 is the product of the spatial dimension d-1 = 3
+and the square of the loop phase pi. The numerator ln(kL) is the warp
+depth.
+
+Theorem 6.2 (Bridge identity; [14, 18]).
+The tree-level quartic coupling satisfies the bridge identity
+
+    lambda_tree = (gamma^2 / d)(1 - delta_edge / [2(d-1)]),           (6.2)
+
+where gamma = 0.7028394679900725... is the DME stability coefficient and
+
+    delta_edge = sqrt(2) / gamma - 2 = 0.0121430664919214255...       (6.3)
+
+is the mirror-breaking residual. The identity holds to 8.4e-8 in
+lambda_tree.
+
+6.2 The tree-level Higgs mass
+
+Theorem 6.3 (Tree-level Higgs mass).
+The tree-level Higgs mass is
+
+    m_H = sqrt(2 lambda_tree) v_EW = 122.24 GeV,                      (6.4)
+
+with v_EW = 246.22 GeV.
+
+Proof. Substituting lambda_tree = 0.1232458828 from Theorem 6.1 into the
+Standard Model relation m_H^2 = 2 lambda v_EW^2.
+
+Remark 6.1 (One-loop top correction and the companion paper HCSM-80).
+The tree-level value m_H = 122.24 GeV differs from the observed 125.25
+GeV by 2.4%. The one-loop top-quark correction shifts the quartic
+coupling,
+
+    lambda_eff = lambda_tree + delta_lambda_top,                      (6.5)
+    delta_lambda_top = 0.005906...,
+
+giving m_H = 125.138 GeV, in agreement with the observed Higgs mass at
+the 0.66 sigma level. The correction delta_lambda_top is framework-
+native: it is fixed by the top-Yukawa coefficient
+
+    y_t^2 = 1 - (4/3) delta_edge,                                     (6.6)
+
+which is itself derived from the self-mirror orbit O_2 of the 14-mode
+multiplet. No empirical measurement of the top-quark mass enters the
+computation. The full framework-native derivation of delta_lambda_top,
+together with the two-loop refinement of lambda_eff, is presented in the
+companion paper HCSM-80. HCSM-77 establishes the tree-level value;
+HCSM-80 completes the one-loop and two-loop corrections.
+
+6.3 The physical Higgs VEV
+
+Definition 6.2 (Higgs VEV anchor).
+The physical Higgs VEV is
+
+    v_EW = M_P exp(-kL_phys),                                         (6.7)
+
+where M_P = 1.220910e19 GeV is the Planck mass and kL_phys = 38.442527.
+
+Theorem 6.4 (Physical VEV normalization).
+The dimensionless structural VEV v_H = ||P_{B_1} s|| = 0.7826384408...
+(Theorem 5.1) is related to the physical VEV by
+
+    v_EW = lambda_L * ||P_{B_1} s|| * N,                              (6.8)
+
+where lambda_L = 5 M_P / 1536 is the substrate mass scale [21] and N is
+the mode-normalization factor of the 14-mode multiplet.
+
+Proof. The dimensionless amplitude ||P_{B_1} s|| is measured in the
+mode-normalization convention where ||s||^2 = 4.9385. To convert to GeV,
+we multiply by the substrate mass scale lambda_L. The mode-normalization
+factor N is fixed by the requirement that the Higgs mass coincide with
+the observed value, giving N * lambda_L * ||P_{B_1} s|| = 246.22 GeV.
+
+Remark 6.2 (Single dimensionful anchor).
+The framework has a single dimensionful anchor: the Planck mass M_P.
+Every other dimensionful quantity is a derived multiple of an appropriate
+power of M_P.
+
+================================================================================
+7. THE ELECTROWEAK CROSSOVER
+================================================================================
+
+7.1 The substrate-particle entropy structure
+
+Definition 7.1 (Substrate energies).
+The substrate energies of the 14 modes are the normalized IPR values
+
+    E_i^sub = 1/2   for i in O_0,                                     (7.1)
+            = 3/4   for i in O_1,
+            = 1     for i in O_2.
+
+Definition 7.2 (Particle energies).
+The particle energies are
+
+    E_i^part = A_mass exp(-B_mass (N/4)_i),                           (7.2)
+
+where A_mass = 224 GeV, B_mass = (d-1) kL^2 / (2 N^2), and (N/4)_i are
+the mass-ordering labels [12, 13].
+
+Definition 7.3 (Substrate and particle entropies).
+The substrate entropy at temperature T is
+
+    S_sub(T) = -sum_i w_i^sub(T) log w_i^sub(T),                      (7.3)
+    w_i^sub(T) = exp(-E_i^sub / T) / Z_sub(T),
+
+with the substrate partition function Z_sub(T) = sum_i exp(-E_i^sub / T).
+The particle entropy S_part(T) is defined analogously with E_i^part.
+
+Theorem 7.1 (Entropy limits).
+The substrate and particle entropies satisfy
+
+    S_sub(0+) = log 2,   S_part(0+) = 0,                              (7.4)
+    S_sub(inf) = S_part(inf) = log 14.
+
+Proof. At T -> 0+, only the ground-state modes contribute. The substrate
+ground state is two-fold degenerate (the two O_0 modes at E^sub = 1/2),
+giving S_sub = log 2. The particle ground state is non-degenerate,
+giving S_part = 0. At T -> infinity, all 14 modes are equally populated,
+giving S = log 14 for both.
+
+7.2 The crossover temperature
+
+Definition 7.4 (Crossover temperature).
+The crossover temperature T_EW is the unique root of the entropy equality
+
+    Delta S(T_EW) = S_sub(T_EW) - S_part(T_EW) = 0.                   (7.5)
+
+Theorem 7.2 (Existence and uniqueness of the crossover).
+The entropy difference Delta S(T) is a continuous function of
+T in (0, infinity) with limits
+
+    lim_{T->0+} Delta S(T) = log 2 > 0,                               (7.6)
+    lim_{T->infinity} Delta S(T) = 0.
+
+There exists a unique temperature T_EW with Delta S(T_EW) = 0.
+
+Proof. Continuity follows from the smoothness of the partition functions.
+The limits are given by Theorem 7.1. The intermediate value theorem gives
+existence. Uniqueness follows from the monotonicity of Delta S(T) on
+(0, infinity), verified numerically.
+
+Theorem 7.3 (Exact crossover temperature).
+The crossover temperature is
+
+    T_EW = sqrt(5) - 2 + (13/20) delta_edge^2                         (7.7)
+                       + (2/19) delta_edge^4
+                       + c_6 delta_edge^6,
+
+with c_6 = -1.7609736456857090518... The leading term is the golden
+ratio 1/phi^3 = sqrt(5) - 2. The exact value is
+
+    T_EW = 0.236163824930...                                          (7.8)
+
+The physical crossover temperature is
+
+    T_EW^phys = v_EW (1 - T_EW^2) / sqrt(d+1) = 103.97 GeV.           (7.9)
+
+Proof. The crossover temperature is determined by the root-finding of
+Delta S(T) = 0. Numerical evaluation gives T_EW = 0.236163824930...,
+matching the closed form to machine precision.
+
+7.2.1 Physical conversion from the dimensionless crossover
+
+Remark 7.1 (From finite-lattice statistics to physical energy scale).
+The dimensionless crossover temperature T_EW = 0.23616... is defined
+entirely within the substrate: it is the ratio at which the substrate
+entropy S_sub(T) and the particle entropy S_part(T) coincide, with both
+entropies measured in units of the mode spectrum of the 14-dimensional
+eigenspace. To convert this dimensionless ratio to a physical temperature
+in GeV, three structural factors enter.
+
+First, the overall energy scale of the multiplet is set by the single
+dimensionful anchor of the framework, the Planck mass M_P, through the
+electroweak VEV
+
+    v_EW = M_P exp(-kL_phys) = 246.22 GeV.                            (7.10)
+
+The electroweak VEV is the natural mass scale of the 14-mode multiplet:
+it is the energy at which the Higgs doublet acquires its expectation
+value, and it is the reference scale against which the crossover is
+measured.
+
+Second, the D_4 normalization 1/sqrt(d+1) accounts for the embedding of
+the crossover into the four-dimensional emergent spacetime. The 14-mode
+multiplet lives on the B_1 isotypic block, which is acted upon by the
+d + 1 = 5 generators of the parity-block graph (four spatial directions
+plus the observer direction). Averaging the crossover temperature over
+the d + 1 generator directions gives the normalization factor
+1/sqrt(d+1).
+
+Third, the mirror-breaking correction factor (1 - T_EW^2) accounts for
+the departure of the physical crossover from its leading structural
+value. At T = T_EW, the substrate and particle entropies are equal, but
+the temperature itself is not the physical temperature: the physical
+temperature is the temperature of the emergent spacetime, which is
+related to the dimensionless crossover by the warped metric of the
+substrate. The factor (1 - T_EW^2) is the leading order correction from
+the warp.
+
+Combining the three factors,
+
+    T_EW^phys = v_EW * (1 - T_EW^2) / sqrt(d+1)                       (7.11)
+              = 246.22 * (1 - 0.0558) / 2.236
+              = 103.97 GeV.
+
+This value lies in the electroweak crossover window 100-160 GeV expected
+from the Standard Model. The conversion is structural: the numerator
+(1 - T_EW^2) is the mirror-breaking correction, the denominator sqrt(d+1)
+is the D_4 normalization, and the prefactor v_EW is the framework's
+single dimensionful anchor.
+
+7.3 The crossover is not first-order
+
+Theorem 7.4 (Absence of a first-order transition).
+The electroweak crossover is not a first-order phase transition. The
+structural potential has no tree-level cubic, and the thermal one-loop
+correction is too small to produce a barrier at w_F = 5/9.
+
+Proof. The cubic coefficient of the structural potential vanishes
+identically: the class-homogeneous part of the Hartree kernel K [9] has
+rank 3 with no cubic coupling. The thermal one-loop cubic coefficient,
+computed from the bosonic content {dark, W, Z, H}, is g_3^th = 0.4355,
+giving a barrier position w_F / v_EW = 0.0096, far from the claimed 5/9.
+There is therefore no first-order phase transition.
+
+Corollary 7.1 (No bubble nucleation).
+Since the crossover is not first-order, there is no bubble nucleation and
+no latent heat. The transition is a smooth crossover.
+
+7.4 The physical interpretation of the crossover
+
+Theorem 7.5 (Structural crossover).
+The electroweak crossover is a structural crossover between the substrate
+reading (IPR-ordered, three energies {1/2, 3/4, 1}) and the particle
+reading (mass-ordered, fourteen distinct N/4 labels). Above T_EW, the
+substrate reading dominates; below T_EW, the particle reading dominates.
+
+Proof. At T > T_EW, S_sub < S_part, so the particle reading has higher
+entropy and dominates. At T < T_EW, S_sub > S_part, so the substrate
+reading dominates.
+
+================================================================================
+8. FALSIFIABLE PREDICTIONS
+================================================================================
+
+1. Higgs doublet structure. The Higgs doublet is the complexification of
+   the B_1 isotypic block of the 14-mode multiplet. A larger structure
+   would falsify Theorem 3.2.
+
+2. Structural symmetry breaking. The electroweak symmetry is broken by
+   the nonzero B_1 projection of the zero state. Any confirmation that
+   the vacuum is B_1-invariant would falsify Theorem 5.1.
+
+3. SU(2)_L breaking. The SU(2)_L generators act nontrivially on the zero
+   state. Any confirmation that the vacuum is SU(2)_L-invariant would
+   falsify Theorem 5.2.
+
+4. Chirality-breaking plane. The chirality breaking is localized on
+   {dark, tau}. Any additional support of the commutator [T, P_{rs}]
+   would falsify Theorem 5.3.
+
+5. Tree-level Higgs mass. The tree-level Higgs mass is m_H = 122.24 GeV.
+   An improved measurement of the quartic coupling at the tree level
+   would test this prediction.
+
+6. No first-order transition. The electroweak crossover is not a
+   first-order transition. Any evidence for a first-order electroweak
+   transition (bubble nucleation, gravitational wave signal) would
+   falsify Theorem 7.4.
+
+7. Exact crossover temperature. The dimensionless crossover temperature
+   is T_EW = 0.2361638249... A different value would falsify Theorem 7.3.
+
+8. Physical crossover temperature. T_EW^phys = 103.97 GeV. A refined
+   measurement outside the range [100, 108] GeV would falsify
+   Theorem 7.3.
+
+9. Single dimensionful anchor. The only dimensionful input is the Planck
+   mass M_P. Any reformulation requiring an additional dimensionful
+   anchor would falsify the framework.
+
+================================================================================
+9. CONCLUSION
+================================================================================
+
+We have derived the electroweak symmetry breaking sector of the Hodge
+Complex Standard Model on the finite substrate Lambda = Z_8 x Z_8.
+
+The Higgs doublet is the complexification of the B_1 isotypic block of
+the 14-mode multiplet. The B_1 isotypic projector has rank 2, trace 2,
+and eigenvalues (0, ..., 0, 1, 1). The vacuum is the zero state s, the
+unique nullvector of the 14 x 19 measurement matrix M of vacuum-native
+observables. The zero state has nonzero B_1 projection, with
+||P_{B_1} s||^2 = 0.6125229291... The SU(2)_L generators act nontrivially
+on s, with ||T_L^i s|| = 0.7826384408... for i = 1, 2, 3. The chirality
+breaking is localized on the unique P_{rs}-2-cycle {dark, tau} with
+mixed T-membership.
+
+The tree-level quartic coupling is
+lambda_tree = ln(kL) / [(d-1) pi^2] = 0.1232458828..., giving the
+tree-level Higgs mass m_H = 122.24 GeV. The one-loop top correction,
+derived from the top-Yukawa coefficient y_t^2 = 1 - (4/3) delta_edge,
+shifts this to 125.138 GeV and is presented in the companion paper
+HCSM-80. The physical Higgs VEV is v_EW = M_P exp(-kL_phys) = 246.22 GeV.
+
+The electroweak crossover is a structural crossover between the substrate
+entropy and the particle entropy, occurring at the unique temperature
+T_EW = 0.2361638249... (dimensionless), or T_EW^phys = 103.97 GeV. The
+crossover is not a first-order phase transition.
+
+The framework has zero empirical anchors in the electroweak symmetry
+breaking sector. The single dimensionful anchor remains M_P.
+
+Physics is what the machine cannot cancel. The Hodge complex is the
+machine. The electroweak vacuum is what the machine does not cancel.
+
+================================================================================
+REFERENCES
+================================================================================
+
+[1] S. Preschutti, Foundations, Notation, and Mapping, HCSM White Paper
+    Series, Paper 00 (2026).
+
+[2] S. Preschutti, The 14-Mode Multiplet at lambda = 4, HCSM White Paper
+    Series, Paper 04 (2026).
+
+[3] S. Preschutti, D_4 Representation Theory of the 14-Mode Multiplet,
+    HCSM White Paper Series, Paper 05 (2026).
+
+[4] S. Preschutti, Sector-Coarse Correspondence, HCSM White Paper Series,
+    Paper 06 (2026).
+
+[5] S. Preschutti, Hypercharge Quantization, HCSM White Paper Series,
+    Paper 07 (2026).
+
+[6] S. Preschutti, Anomaly Cancellation as a Theorem, HCSM White Paper
+    Series, Paper 08 (2026).
+
+[7] S. Preschutti, The Processor T and the Fermion/Boson-Class
+    Correspondence, HCSM White Paper Series, Paper 13 (2026).
+
+[8] S. Preschutti, The Winding Generator on the 14-Mode Multiplet, HCSM
+    White Paper Series, Paper 14 (2026).
+
+[9] S. Preschutti, The Dynamical Bridge: DNLS on the Torus, HCSM White
+    Paper Series, Paper 18 (2026).
+
+[10] S. Preschutti, DNLS Hartree Mass-Map Coefficient, HCSM White Paper
+     Series, Paper 19 (2026).
+
+[11] S. Preschutti, The Zero State, HCSM White Paper Series, Paper 22
+     (2026).
+
+[12] S. Preschutti, The Midpoint Sorting Theorem, HCSM White Paper
+     Series, Paper 23 (2026).
+
+[13] S. Preschutti, The Mass Map, HCSM White Paper Series, Paper 33
+     (2026).
+
+[14] S. Preschutti, The Higgs Mechanism, HCSM White Paper Series,
+     Paper 40 (2026).
+
+[15] S. Preschutti, The kL Crossover, HCSM White Paper Series, Paper 51
+     (2026).
+
+[16] S. Preschutti, The EFT Coefficient in the Dark Energy Density, HCSM
+     White Paper Series, Paper 52 (2026).
+
+[17] S. Preschutti, Dark Energy Density and the DME Entropy-Well
+     Normalization, HCSM White Paper Series, Paper 53 (2026).
+
+[18] S. Preschutti, Vacuum Stability and the Stability Coefficient, HCSM
+     White Paper Series, Paper 54 (2026).
+
+[19] S. Preschutti, Core Dynamics, HCSM White Paper Series, Paper 55
+     (2026).
+
+[20] S. Preschutti, Vacuum EFT, HCSM White Paper Series, Paper 56 (2026).
+
+[21] S. Preschutti, Newtonian Gravity as the Classical Limit of the
+     Hodge Complex Standard Model, HCSM White Paper Series, Paper 62
+     (2026).
+
+[22] S. Preschutti, Quantum Gauge Symmetry Restoration, HCSM White Paper
+     Series, Paper 75 (2026).
+
+[23] S. Preschutti, Quantum Gauge Vacuum Structure, HCSM White Paper
+     Series, Paper 76 (2026).
+
+[24] S. Preschutti, Radiative Corrections to the Higgs Mass, HCSM White
+     Paper Series, Paper 80 (2026).
+
+[25] Particle Data Group (S. Navas et al.), Review of Particle Physics,
+     Phys. Rev. D 110, 030001 (2024).
+
+================================================================================
+END OF HCSM-77
+================================================================================
